@@ -90,7 +90,7 @@ type Endpoint struct {
 	DeliveryRules EndpointDeliveryRuleArrayOutput `pulumi:"deliveryRules"`
 	// The Fully Qualified Domain Name of the CDN Endpoint.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
 	GeoFilters EndpointGeoFilterArrayOutput `pulumi:"geoFilters"`
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrOutput `pulumi:"globalDeliveryRule"`
@@ -110,7 +110,7 @@ type Endpoint struct {
 	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath pulumi.StringPtrOutput `pulumi:"originPath"`
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
 	Origins EndpointOriginArrayOutput `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	//
@@ -171,7 +171,7 @@ type endpointState struct {
 	DeliveryRules []EndpointDeliveryRule `pulumi:"deliveryRules"`
 	// The Fully Qualified Domain Name of the CDN Endpoint.
 	Fqdn *string `pulumi:"fqdn"`
-	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
 	GeoFilters []EndpointGeoFilter `pulumi:"geoFilters"`
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule *EndpointGlobalDeliveryRule `pulumi:"globalDeliveryRule"`
@@ -191,7 +191,7 @@ type endpointState struct {
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath *string `pulumi:"originPath"`
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
 	Origins []EndpointOrigin `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	//
@@ -214,7 +214,7 @@ type EndpointState struct {
 	DeliveryRules EndpointDeliveryRuleArrayInput
 	// The Fully Qualified Domain Name of the CDN Endpoint.
 	Fqdn pulumi.StringPtrInput
-	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
 	GeoFilters EndpointGeoFilterArrayInput
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrInput
@@ -234,7 +234,7 @@ type EndpointState struct {
 	OriginHostHeader pulumi.StringPtrInput
 	// The path used at for origin requests.
 	OriginPath pulumi.StringPtrInput
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
 	Origins EndpointOriginArrayInput
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	//
@@ -259,7 +259,7 @@ type endpointArgs struct {
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules []EndpointDeliveryRule `pulumi:"deliveryRules"`
-	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
 	GeoFilters []EndpointGeoFilter `pulumi:"geoFilters"`
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule *EndpointGlobalDeliveryRule `pulumi:"globalDeliveryRule"`
@@ -279,7 +279,7 @@ type endpointArgs struct {
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath *string `pulumi:"originPath"`
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
 	Origins []EndpointOrigin `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	//
@@ -301,7 +301,7 @@ type EndpointArgs struct {
 	ContentTypesToCompresses pulumi.StringArrayInput
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules EndpointDeliveryRuleArrayInput
-	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
 	GeoFilters EndpointGeoFilterArrayInput
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrInput
@@ -321,7 +321,7 @@ type EndpointArgs struct {
 	OriginHostHeader pulumi.StringPtrInput
 	// The path used at for origin requests.
 	OriginPath pulumi.StringPtrInput
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
 	Origins EndpointOriginArrayInput
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	//
@@ -439,7 +439,7 @@ func (o EndpointOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
 func (o EndpointOutput) GeoFilters() EndpointGeoFilterArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointGeoFilterArrayOutput { return v.GeoFilters }).(EndpointGeoFilterArrayOutput)
 }
@@ -489,7 +489,7 @@ func (o EndpointOutput) OriginPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.OriginPath }).(pulumi.StringPtrOutput)
 }
 
-// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
 func (o EndpointOutput) Origins() EndpointOriginArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointOriginArrayOutput { return v.Origins }).(EndpointOriginArrayOutput)
 }

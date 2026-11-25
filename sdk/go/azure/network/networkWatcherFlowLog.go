@@ -132,7 +132,7 @@ type NetworkWatcherFlowLog struct {
 	NetworkWatcherName pulumi.StringOutput `pulumi:"networkWatcherName"`
 	// The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `retentionPolicy` block as documented below.
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy NetworkWatcherFlowLogRetentionPolicyOutput `pulumi:"retentionPolicy"`
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
@@ -142,7 +142,7 @@ type NetworkWatcherFlowLog struct {
 	//
 	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// A `trafficAnalytics` block as documented below.
+	// A `trafficAnalytics` block as defined below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrOutput `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version pulumi.IntPtrOutput `pulumi:"version"`
@@ -206,7 +206,7 @@ type networkWatcherFlowLogState struct {
 	NetworkWatcherName *string `pulumi:"networkWatcherName"`
 	// The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `retentionPolicy` block as documented below.
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy *NetworkWatcherFlowLogRetentionPolicy `pulumi:"retentionPolicy"`
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -216,7 +216,7 @@ type networkWatcherFlowLogState struct {
 	//
 	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// A `trafficAnalytics` block as documented below.
+	// A `trafficAnalytics` block as defined below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version *int `pulumi:"version"`
@@ -233,7 +233,7 @@ type NetworkWatcherFlowLogState struct {
 	NetworkWatcherName pulumi.StringPtrInput
 	// The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `retentionPolicy` block as documented below.
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy NetworkWatcherFlowLogRetentionPolicyPtrInput
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId pulumi.StringPtrInput
@@ -243,7 +243,7 @@ type NetworkWatcherFlowLogState struct {
 	//
 	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId pulumi.StringPtrInput
-	// A `trafficAnalytics` block as documented below.
+	// A `trafficAnalytics` block as defined below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
 	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version pulumi.IntPtrInput
@@ -264,7 +264,7 @@ type networkWatcherFlowLogArgs struct {
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `retentionPolicy` block as documented below.
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy NetworkWatcherFlowLogRetentionPolicy `pulumi:"retentionPolicy"`
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -274,7 +274,7 @@ type networkWatcherFlowLogArgs struct {
 	//
 	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId string `pulumi:"targetResourceId"`
-	// A `trafficAnalytics` block as documented below.
+	// A `trafficAnalytics` block as defined below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version *int `pulumi:"version"`
@@ -292,7 +292,7 @@ type NetworkWatcherFlowLogArgs struct {
 	NetworkWatcherName pulumi.StringInput
 	// The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `retentionPolicy` block as documented below.
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy NetworkWatcherFlowLogRetentionPolicyInput
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId pulumi.StringInput
@@ -302,7 +302,7 @@ type NetworkWatcherFlowLogArgs struct {
 	//
 	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId pulumi.StringInput
-	// A `trafficAnalytics` block as documented below.
+	// A `trafficAnalytics` block as defined below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
 	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version pulumi.IntPtrInput
@@ -420,7 +420,7 @@ func (o NetworkWatcherFlowLogOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `retentionPolicy` block as documented below.
+// A `retentionPolicy` block as defined below.
 func (o NetworkWatcherFlowLogOutput) RetentionPolicy() NetworkWatcherFlowLogRetentionPolicyOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) NetworkWatcherFlowLogRetentionPolicyOutput { return v.RetentionPolicy }).(NetworkWatcherFlowLogRetentionPolicyOutput)
 }
@@ -442,7 +442,7 @@ func (o NetworkWatcherFlowLogOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// A `trafficAnalytics` block as documented below.
+// A `trafficAnalytics` block as defined below.
 func (o NetworkWatcherFlowLogOutput) TrafficAnalytics() NetworkWatcherFlowLogTrafficAnalyticsPtrOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) NetworkWatcherFlowLogTrafficAnalyticsPtrOutput {
 		return v.TrafficAnalytics

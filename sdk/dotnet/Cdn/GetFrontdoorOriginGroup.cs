@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2025-12-01
+        /// * `Microsoft.Cdn` - 2026-10-01
         /// </summary>
         public static Task<GetFrontdoorOriginGroupResult> InvokeAsync(GetFrontdoorOriginGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2025-12-01
+        /// * `Microsoft.Cdn` - 2026-10-01
         /// </summary>
         public static Output<GetFrontdoorOriginGroupResult> Invoke(GetFrontdoorOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2025-12-01
+        /// * `Microsoft.Cdn` - 2026-10-01
         /// </summary>
         public static Output<GetFrontdoorOriginGroupResult> Invoke(GetFrontdoorOriginGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupInvokeArgs(), options.WithDefaults());

@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := arc.LookupResourceBridgeAppliance(ctx, &arc.LookupResourceBridgeApplianceArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-appliance",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

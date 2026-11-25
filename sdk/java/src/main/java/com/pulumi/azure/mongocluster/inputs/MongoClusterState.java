@@ -359,14 +359,18 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region&#39;s availability.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * @return The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region&#39;s availability.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -946,7 +950,9 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+         * @param storageType The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region&#39;s availability.
          * 
          * @return builder
          * 
@@ -957,7 +963,9 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+         * @param storageType The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region&#39;s availability.
          * 
          * @return builder
          * 

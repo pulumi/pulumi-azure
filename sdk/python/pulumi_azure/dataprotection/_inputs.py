@@ -23,6 +23,12 @@ __all__ = [
     'BackupPolicyBlobStorageRetentionRuleCriteriaArgsDict',
     'BackupPolicyBlobStorageRetentionRuleLifeCycleArgs',
     'BackupPolicyBlobStorageRetentionRuleLifeCycleArgsDict',
+    'BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs',
+    'BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgsDict',
+    'BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs',
+    'BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgsDict',
+    'BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs',
+    'BackupPolicyCosmosdbAccountYearlyRetentionRuleArgsDict',
     'BackupPolicyDataLakeStorageRetentionRuleArgs',
     'BackupPolicyDataLakeStorageRetentionRuleArgsDict',
     'BackupPolicyDiskRetentionRuleArgs',
@@ -477,6 +483,264 @@ class BackupPolicyBlobStorageRetentionRuleLifeCycleArgs:
     @duration.setter
     def duration(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "duration", value)
+
+
+class BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgsDict(TypedDict):
+    duration: pulumi.Input[_builtins.str]
+    """
+    The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+
+    > **Note:** The duration must use the ISO 8601 duration format.
+    """
+    days_of_week: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+
+    > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+    """
+    weeks_of_months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+
+    > **Note:** Specify `days_of_week` and `weeks_of_month` together to select backups by day and week. When both fields are omitted, this rule retains the first successful full backup of the month.
+    """
+
+@pulumi.input_type
+class BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[_builtins.str],
+                 days_of_week: pulumi.Input[Optional[_builtins.str]] = None,
+                 weeks_of_months: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] duration: The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+               
+               > **Note:** The duration must use the ISO 8601 duration format.
+        :param pulumi.Input[_builtins.str] days_of_week: A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+               
+               > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] weeks_of_months: A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+               
+               > **Note:** Specify `days_of_week` and `weeks_of_month` together to select backups by day and week. When both fields are omitted, this rule retains the first successful full backup of the month.
+        """
+        pulumi.set(__self__, "duration", duration)
+        if days_of_week is not None:
+            pulumi.set(__self__, "days_of_week", days_of_week)
+        if weeks_of_months is not None:
+            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[_builtins.str]:
+        """
+        The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+
+        > **Note:** The duration must use the ISO 8601 duration format.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfWeek")
+    def days_of_week(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+
+        > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+        """
+        return pulumi.get(self, "days_of_week")
+
+    @days_of_week.setter
+    def days_of_week(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "days_of_week", value)
+
+    @_builtins.property
+    @pulumi.getter(name="weeksOfMonths")
+    def weeks_of_months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+
+        > **Note:** Specify `days_of_week` and `weeks_of_month` together to select backups by day and week. When both fields are omitted, this rule retains the first successful full backup of the month.
+        """
+        return pulumi.get(self, "weeks_of_months")
+
+    @weeks_of_months.setter
+    def weeks_of_months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "weeks_of_months", value)
+
+
+class BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgsDict(TypedDict):
+    duration: pulumi.Input[_builtins.str]
+    """
+    The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+
+    > **Note:** The duration must use the ISO 8601 duration format.
+    """
+    days_of_week: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+
+    > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+
+    > **Note:** When `days_of_week` is omitted, this rule retains the first successful full backup of the week.
+    """
+
+@pulumi.input_type
+class BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[_builtins.str],
+                 days_of_week: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] duration: The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+               
+               > **Note:** The duration must use the ISO 8601 duration format.
+        :param pulumi.Input[_builtins.str] days_of_week: A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+               
+               > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+               
+               > **Note:** When `days_of_week` is omitted, this rule retains the first successful full backup of the week.
+        """
+        pulumi.set(__self__, "duration", duration)
+        if days_of_week is not None:
+            pulumi.set(__self__, "days_of_week", days_of_week)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[_builtins.str]:
+        """
+        The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+
+        > **Note:** The duration must use the ISO 8601 duration format.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfWeek")
+    def days_of_week(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+
+        > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+
+        > **Note:** When `days_of_week` is omitted, this rule retains the first successful full backup of the week.
+        """
+        return pulumi.get(self, "days_of_week")
+
+    @days_of_week.setter
+    def days_of_week(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "days_of_week", value)
+
+
+class BackupPolicyCosmosdbAccountYearlyRetentionRuleArgsDict(TypedDict):
+    duration: pulumi.Input[_builtins.str]
+    """
+    The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+
+    > **Note:** The duration must use the ISO 8601 duration format.
+    """
+    days_of_week: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+
+    > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+    """
+    months_of_years: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A set of calendar months in which backups matching this rule are retained. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+    """
+    weeks_of_months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+
+    > **Note:** Specify `days_of_week`, `weeks_of_month`, and `months_of_year` together to select backups by day, week, and month. When all three fields are omitted, this rule retains first successful full backup of the year.
+    """
+
+@pulumi.input_type
+class BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[_builtins.str],
+                 days_of_week: pulumi.Input[Optional[_builtins.str]] = None,
+                 months_of_years: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 weeks_of_months: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] duration: The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+               
+               > **Note:** The duration must use the ISO 8601 duration format.
+        :param pulumi.Input[_builtins.str] days_of_week: A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+               
+               > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] months_of_years: A set of calendar months in which backups matching this rule are retained. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] weeks_of_months: A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+               
+               > **Note:** Specify `days_of_week`, `weeks_of_month`, and `months_of_year` together to select backups by day, week, and month. When all three fields are omitted, this rule retains first successful full backup of the year.
+        """
+        pulumi.set(__self__, "duration", duration)
+        if days_of_week is not None:
+            pulumi.set(__self__, "days_of_week", days_of_week)
+        if months_of_years is not None:
+            pulumi.set(__self__, "months_of_years", months_of_years)
+        if weeks_of_months is not None:
+            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[_builtins.str]:
+        """
+        The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+
+        > **Note:** The duration must use the ISO 8601 duration format.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfWeek")
+    def days_of_week(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+
+        > **Note:** The value specified for `days_of_week` must match the day of the week in `backup_schedule`.
+        """
+        return pulumi.get(self, "days_of_week")
+
+    @days_of_week.setter
+    def days_of_week(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "days_of_week", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monthsOfYears")
+    def months_of_years(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of calendar months in which backups matching this rule are retained. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "months_of_years")
+
+    @months_of_years.setter
+    def months_of_years(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "months_of_years", value)
+
+    @_builtins.property
+    @pulumi.getter(name="weeksOfMonths")
+    def weeks_of_months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+
+        > **Note:** Specify `days_of_week`, `weeks_of_month`, and `months_of_year` together to select backups by day, week, and month. When all three fields are omitted, this rule retains first successful full backup of the year.
+        """
+        return pulumi.get(self, "weeks_of_months")
+
+    @weeks_of_months.setter
+    def weeks_of_months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "weeks_of_months", value)
 
 
 class BackupPolicyDataLakeStorageRetentionRuleArgsDict(TypedDict):

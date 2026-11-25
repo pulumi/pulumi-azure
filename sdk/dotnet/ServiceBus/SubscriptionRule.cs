@@ -153,7 +153,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string?> Action { get; private set; } = null!;
 
         /// <summary>
-        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Output("correlationFilter")]
         public Output<Outputs.SubscriptionRuleCorrelationFilter?> CorrelationFilter { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Input("correlationFilter")]
         public Input<Inputs.SubscriptionRuleCorrelationFilterArgs>? CorrelationFilter { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Input("correlationFilter")]
         public Input<Inputs.SubscriptionRuleCorrelationFilterGetArgs>? CorrelationFilter { get; set; }

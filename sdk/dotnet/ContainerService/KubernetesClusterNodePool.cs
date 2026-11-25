@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ContainerService` - 2026-05-01
+    /// * `Microsoft.ContainerService` - 2026-07-01
     /// 
     /// ## Import
     /// 
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>> NodeLabels { get; private set; } = null!;
 
         /// <summary>
-        /// A `NodeNetworkProfile` block as documented below.
+        /// A `NodeNetworkProfile` block as defined below.
         /// </summary>
         [Output("nodeNetworkProfile")]
         public Output<Outputs.KubernetesClusterNodePoolNodeNetworkProfile?> NodeNetworkProfile { get; private set; } = null!;
@@ -292,6 +292,14 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> ScaleDownMode { get; private set; } = null!;
 
         /// <summary>
+        /// A `Security` block as documented below.
+        /// 
+        /// &gt; **Note:** Changing either flag in `Security` reimages the nodes in this pool and can disrupt workloads.
+        /// </summary>
+        [Output("security")]
+        public Output<Outputs.KubernetesClusterNodePoolSecurity?> Security { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `TemporaryNameForRotation`.
         /// </summary>
         [Output("snapshotId")]
@@ -326,7 +334,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> UltraSsdEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `UpgradeSettings` block as documented below.
+        /// A `UpgradeSettings` block as defined below.
         /// </summary>
         [Output("upgradeSettings")]
         public Output<Outputs.KubernetesClusterNodePoolUpgradeSettings?> UpgradeSettings { get; private set; } = null!;
@@ -346,7 +354,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> VnetSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A `WindowsProfile` block as documented below. Changing this forces a new resource to be created.
+        /// A `WindowsProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("windowsProfile")]
         public Output<Outputs.KubernetesClusterNodePoolWindowsProfile?> WindowsProfile { get; private set; } = null!;
@@ -535,7 +543,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `NodeNetworkProfile` block as documented below.
+        /// A `NodeNetworkProfile` block as defined below.
         /// </summary>
         [Input("nodeNetworkProfile")]
         public Input<Inputs.KubernetesClusterNodePoolNodeNetworkProfileArgs>? NodeNetworkProfile { get; set; }
@@ -625,6 +633,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ScaleDownMode { get; set; }
 
         /// <summary>
+        /// A `Security` block as documented below.
+        /// 
+        /// &gt; **Note:** Changing either flag in `Security` reimages the nodes in this pool and can disrupt workloads.
+        /// </summary>
+        [Input("security")]
+        public Input<Inputs.KubernetesClusterNodePoolSecurityArgs>? Security { get; set; }
+
+        /// <summary>
         /// The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `TemporaryNameForRotation`.
         /// </summary>
         [Input("snapshotId")]
@@ -665,7 +681,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? UltraSsdEnabled { get; set; }
 
         /// <summary>
-        /// A `UpgradeSettings` block as documented below.
+        /// A `UpgradeSettings` block as defined below.
         /// </summary>
         [Input("upgradeSettings")]
         public Input<Inputs.KubernetesClusterNodePoolUpgradeSettingsArgs>? UpgradeSettings { get; set; }
@@ -685,7 +701,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? VnetSubnetId { get; set; }
 
         /// <summary>
-        /// A `WindowsProfile` block as documented below. Changing this forces a new resource to be created.
+        /// A `WindowsProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterNodePoolWindowsProfileArgs>? WindowsProfile { get; set; }
@@ -848,7 +864,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `NodeNetworkProfile` block as documented below.
+        /// A `NodeNetworkProfile` block as defined below.
         /// </summary>
         [Input("nodeNetworkProfile")]
         public Input<Inputs.KubernetesClusterNodePoolNodeNetworkProfileGetArgs>? NodeNetworkProfile { get; set; }
@@ -938,6 +954,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ScaleDownMode { get; set; }
 
         /// <summary>
+        /// A `Security` block as documented below.
+        /// 
+        /// &gt; **Note:** Changing either flag in `Security` reimages the nodes in this pool and can disrupt workloads.
+        /// </summary>
+        [Input("security")]
+        public Input<Inputs.KubernetesClusterNodePoolSecurityGetArgs>? Security { get; set; }
+
+        /// <summary>
         /// The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `TemporaryNameForRotation`.
         /// </summary>
         [Input("snapshotId")]
@@ -978,7 +1002,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? UltraSsdEnabled { get; set; }
 
         /// <summary>
-        /// A `UpgradeSettings` block as documented below.
+        /// A `UpgradeSettings` block as defined below.
         /// </summary>
         [Input("upgradeSettings")]
         public Input<Inputs.KubernetesClusterNodePoolUpgradeSettingsGetArgs>? UpgradeSettings { get; set; }
@@ -998,7 +1022,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? VnetSubnetId { get; set; }
 
         /// <summary>
-        /// A `WindowsProfile` block as documented below. Changing this forces a new resource to be created.
+        /// A `WindowsProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterNodePoolWindowsProfileGetArgs>? WindowsProfile { get; set; }

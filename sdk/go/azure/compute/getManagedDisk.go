@@ -27,14 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			existing, err := compute.LookupManagedDisk(ctx, &compute.LookupManagedDiskArgs{
+//			example, err := compute.LookupManagedDisk(ctx, &compute.LookupManagedDiskArgs{
 //				Name:              "example-datadisk",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", existing.Id)
+//			ctx.Export("id", example.Id)
 //			return nil
 //		})
 //	}

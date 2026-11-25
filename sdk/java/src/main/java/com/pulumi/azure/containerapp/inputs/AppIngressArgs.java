@@ -148,6 +148,25 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Is session affinity enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+     * 
+     */
+    @Import(name="sessionAffinityEnabled")
+    private @Nullable Output<Boolean> sessionAffinityEnabled;
+
+    /**
+     * @return Is session affinity enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+     * 
+     */
+    public Optional<Output<Boolean>> sessionAffinityEnabled() {
+        return Optional.ofNullable(this.sessionAffinityEnabled);
+    }
+
+    /**
      * The target port on the container for the Ingress traffic.
      * 
      */
@@ -207,6 +226,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         this.externalEnabled = $.externalEnabled;
         this.fqdn = $.fqdn;
         this.ipSecurityRestrictions = $.ipSecurityRestrictions;
+        this.sessionAffinityEnabled = $.sessionAffinityEnabled;
         this.targetPort = $.targetPort;
         this.trafficWeights = $.trafficWeights;
         this.transport = $.transport;
@@ -420,6 +440,31 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipSecurityRestrictions(AppIngressIpSecurityRestrictionArgs... ipSecurityRestrictions) {
             return ipSecurityRestrictions(List.of(ipSecurityRestrictions));
+        }
+
+        /**
+         * @param sessionAffinityEnabled Is session affinity enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionAffinityEnabled(@Nullable Output<Boolean> sessionAffinityEnabled) {
+            $.sessionAffinityEnabled = sessionAffinityEnabled;
+            return this;
+        }
+
+        /**
+         * @param sessionAffinityEnabled Is session affinity enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionAffinityEnabled(Boolean sessionAffinityEnabled) {
+            return sessionAffinityEnabled(Output.of(sessionAffinityEnabled));
         }
 
         /**

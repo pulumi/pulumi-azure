@@ -409,7 +409,7 @@ type ScaleSet struct {
 	//
 	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
-	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
 	Extensions ScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
@@ -421,19 +421,19 @@ type ScaleSet struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A collection of `networkProfile` blocks as documented below.
+	// One or more `networkProfile` blocks as defined below.
 	NetworkProfiles ScaleSetNetworkProfileArrayOutput `pulumi:"networkProfiles"`
-	// A `osProfile` block as documented below.
+	// A `osProfile` block as defined below.
 	OsProfile ScaleSetOsProfileOutput `pulumi:"osProfile"`
-	// A `osProfileLinuxConfig` block as documented below.
+	// A `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigOutput `pulumi:"osProfileLinuxConfig"`
-	// A collection of `osProfileSecrets` blocks as documented below.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets ScaleSetOsProfileSecretArrayOutput `pulumi:"osProfileSecrets"`
-	// A `osProfileWindowsConfig` block as documented below.
+	// A `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrOutput `pulumi:"osProfileWindowsConfig"`
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan ScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
@@ -445,19 +445,19 @@ type ScaleSet struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku ScaleSetSkuOutput `pulumi:"sku"`
-	// A `storageProfileDataDisk` block as documented below.
+	// A `storageProfileDataDisk` block as defined below.
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayOutput `pulumi:"storageProfileDataDisks"`
-	// A `storageProfileImageReference` block as documented below.
+	// A `storageProfileImageReference` block as defined below.
 	StorageProfileImageReference ScaleSetStorageProfileImageReferenceOutput `pulumi:"storageProfileImageReference"`
-	// A `storageProfileOsDisk` block as documented below.
+	// A `storageProfileOsDisk` block as defined below.
 	StorageProfileOsDisk ScaleSetStorageProfileOsDiskOutput `pulumi:"storageProfileOsDisk"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode pulumi.StringOutput `pulumi:"upgradePolicyMode"`
-	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+	// A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -519,7 +519,7 @@ type scaleSetState struct {
 	//
 	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
@@ -531,19 +531,19 @@ type scaleSetState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A collection of `networkProfile` blocks as documented below.
+	// One or more `networkProfile` blocks as defined below.
 	NetworkProfiles []ScaleSetNetworkProfile `pulumi:"networkProfiles"`
-	// A `osProfile` block as documented below.
+	// A `osProfile` block as defined below.
 	OsProfile *ScaleSetOsProfile `pulumi:"osProfile"`
-	// A `osProfileLinuxConfig` block as documented below.
+	// A `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig *ScaleSetOsProfileLinuxConfig `pulumi:"osProfileLinuxConfig"`
-	// A collection of `osProfileSecrets` blocks as documented below.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets []ScaleSetOsProfileSecret `pulumi:"osProfileSecrets"`
-	// A `osProfileWindowsConfig` block as documented below.
+	// A `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig *ScaleSetOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
@@ -555,19 +555,19 @@ type scaleSetState struct {
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku *ScaleSetSku `pulumi:"sku"`
-	// A `storageProfileDataDisk` block as documented below.
+	// A `storageProfileDataDisk` block as defined below.
 	StorageProfileDataDisks []ScaleSetStorageProfileDataDisk `pulumi:"storageProfileDataDisks"`
-	// A `storageProfileImageReference` block as documented below.
+	// A `storageProfileImageReference` block as defined below.
 	StorageProfileImageReference *ScaleSetStorageProfileImageReference `pulumi:"storageProfileImageReference"`
-	// A `storageProfileOsDisk` block as documented below.
+	// A `storageProfileOsDisk` block as defined below.
 	StorageProfileOsDisk *ScaleSetStorageProfileOsDisk `pulumi:"storageProfileOsDisk"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode *string `pulumi:"upgradePolicyMode"`
-	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+	// A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
@@ -582,7 +582,7 @@ type ScaleSetState struct {
 	//
 	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy pulumi.StringPtrInput
-	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
 	Extensions ScaleSetExtensionArrayInput
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrInput
@@ -594,19 +594,19 @@ type ScaleSetState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A collection of `networkProfile` blocks as documented below.
+	// One or more `networkProfile` blocks as defined below.
 	NetworkProfiles ScaleSetNetworkProfileArrayInput
-	// A `osProfile` block as documented below.
+	// A `osProfile` block as defined below.
 	OsProfile ScaleSetOsProfilePtrInput
-	// A `osProfileLinuxConfig` block as documented below.
+	// A `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigPtrInput
-	// A collection of `osProfileSecrets` blocks as documented below.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets ScaleSetOsProfileSecretArrayInput
-	// A `osProfileWindowsConfig` block as documented below.
+	// A `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrInput
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan ScaleSetPlanPtrInput
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
@@ -618,19 +618,19 @@ type ScaleSetState struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku ScaleSetSkuPtrInput
-	// A `storageProfileDataDisk` block as documented below.
+	// A `storageProfileDataDisk` block as defined below.
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayInput
-	// A `storageProfileImageReference` block as documented below.
+	// A `storageProfileImageReference` block as defined below.
 	StorageProfileImageReference ScaleSetStorageProfileImageReferencePtrInput
-	// A `storageProfileOsDisk` block as documented below.
+	// A `storageProfileOsDisk` block as defined below.
 	StorageProfileOsDisk ScaleSetStorageProfileOsDiskPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode pulumi.StringPtrInput
-	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+	// A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
@@ -649,7 +649,7 @@ type scaleSetArgs struct {
 	//
 	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
@@ -661,19 +661,19 @@ type scaleSetArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A collection of `networkProfile` blocks as documented below.
+	// One or more `networkProfile` blocks as defined below.
 	NetworkProfiles []ScaleSetNetworkProfile `pulumi:"networkProfiles"`
-	// A `osProfile` block as documented below.
+	// A `osProfile` block as defined below.
 	OsProfile ScaleSetOsProfile `pulumi:"osProfile"`
-	// A `osProfileLinuxConfig` block as documented below.
+	// A `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig *ScaleSetOsProfileLinuxConfig `pulumi:"osProfileLinuxConfig"`
-	// A collection of `osProfileSecrets` blocks as documented below.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets []ScaleSetOsProfileSecret `pulumi:"osProfileSecrets"`
-	// A `osProfileWindowsConfig` block as documented below.
+	// A `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig *ScaleSetOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
@@ -685,19 +685,19 @@ type scaleSetArgs struct {
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku ScaleSetSku `pulumi:"sku"`
-	// A `storageProfileDataDisk` block as documented below.
+	// A `storageProfileDataDisk` block as defined below.
 	StorageProfileDataDisks []ScaleSetStorageProfileDataDisk `pulumi:"storageProfileDataDisks"`
-	// A `storageProfileImageReference` block as documented below.
+	// A `storageProfileImageReference` block as defined below.
 	StorageProfileImageReference *ScaleSetStorageProfileImageReference `pulumi:"storageProfileImageReference"`
-	// A `storageProfileOsDisk` block as documented below.
+	// A `storageProfileOsDisk` block as defined below.
 	StorageProfileOsDisk ScaleSetStorageProfileOsDisk `pulumi:"storageProfileOsDisk"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode string `pulumi:"upgradePolicyMode"`
-	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+	// A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
@@ -713,7 +713,7 @@ type ScaleSetArgs struct {
 	//
 	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy pulumi.StringPtrInput
-	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
 	Extensions ScaleSetExtensionArrayInput
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrInput
@@ -725,19 +725,19 @@ type ScaleSetArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A collection of `networkProfile` blocks as documented below.
+	// One or more `networkProfile` blocks as defined below.
 	NetworkProfiles ScaleSetNetworkProfileArrayInput
-	// A `osProfile` block as documented below.
+	// A `osProfile` block as defined below.
 	OsProfile ScaleSetOsProfileInput
-	// A `osProfileLinuxConfig` block as documented below.
+	// A `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigPtrInput
-	// A collection of `osProfileSecrets` blocks as documented below.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets ScaleSetOsProfileSecretArrayInput
-	// A `osProfileWindowsConfig` block as documented below.
+	// A `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrInput
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan ScaleSetPlanPtrInput
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
@@ -749,19 +749,19 @@ type ScaleSetArgs struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku ScaleSetSkuInput
-	// A `storageProfileDataDisk` block as documented below.
+	// A `storageProfileDataDisk` block as defined below.
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayInput
-	// A `storageProfileImageReference` block as documented below.
+	// A `storageProfileImageReference` block as defined below.
 	StorageProfileImageReference ScaleSetStorageProfileImageReferencePtrInput
-	// A `storageProfileOsDisk` block as documented below.
+	// A `storageProfileOsDisk` block as defined below.
 	StorageProfileOsDisk ScaleSetStorageProfileOsDiskInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode pulumi.StringInput
-	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+	// A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
@@ -871,7 +871,7 @@ func (o ScaleSetOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
 func (o ScaleSetOutput) Extensions() ScaleSetExtensionArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetExtensionArrayOutput { return v.Extensions }).(ScaleSetExtensionArrayOutput)
 }
@@ -901,27 +901,27 @@ func (o ScaleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A collection of `networkProfile` blocks as documented below.
+// One or more `networkProfile` blocks as defined below.
 func (o ScaleSetOutput) NetworkProfiles() ScaleSetNetworkProfileArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetNetworkProfileArrayOutput { return v.NetworkProfiles }).(ScaleSetNetworkProfileArrayOutput)
 }
 
-// A `osProfile` block as documented below.
+// A `osProfile` block as defined below.
 func (o ScaleSetOutput) OsProfile() ScaleSetOsProfileOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetOsProfileOutput { return v.OsProfile }).(ScaleSetOsProfileOutput)
 }
 
-// A `osProfileLinuxConfig` block as documented below.
+// A `osProfileLinuxConfig` block as defined below.
 func (o ScaleSetOutput) OsProfileLinuxConfig() ScaleSetOsProfileLinuxConfigOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetOsProfileLinuxConfigOutput { return v.OsProfileLinuxConfig }).(ScaleSetOsProfileLinuxConfigOutput)
 }
 
-// A collection of `osProfileSecrets` blocks as documented below.
+// One or more `osProfileSecrets` blocks as defined below.
 func (o ScaleSetOutput) OsProfileSecrets() ScaleSetOsProfileSecretArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetOsProfileSecretArrayOutput { return v.OsProfileSecrets }).(ScaleSetOsProfileSecretArrayOutput)
 }
 
-// A `osProfileWindowsConfig` block as documented below.
+// A `osProfileWindowsConfig` block as defined below.
 func (o ScaleSetOutput) OsProfileWindowsConfig() ScaleSetOsProfileWindowsConfigPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetOsProfileWindowsConfigPtrOutput { return v.OsProfileWindowsConfig }).(ScaleSetOsProfileWindowsConfigPtrOutput)
 }
@@ -931,7 +931,7 @@ func (o ScaleSetOutput) Overprovision() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.BoolPtrOutput { return v.Overprovision }).(pulumi.BoolPtrOutput)
 }
 
-// A `plan` block as documented below.
+// A `plan` block as defined below.
 func (o ScaleSetOutput) Plan() ScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetPlanPtrOutput { return v.Plan }).(ScaleSetPlanPtrOutput)
 }
@@ -961,22 +961,22 @@ func (o ScaleSetOutput) SinglePlacementGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.BoolPtrOutput { return v.SinglePlacementGroup }).(pulumi.BoolPtrOutput)
 }
 
-// A `sku` block as documented below.
+// A `sku` block as defined below.
 func (o ScaleSetOutput) Sku() ScaleSetSkuOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetSkuOutput { return v.Sku }).(ScaleSetSkuOutput)
 }
 
-// A `storageProfileDataDisk` block as documented below.
+// A `storageProfileDataDisk` block as defined below.
 func (o ScaleSetOutput) StorageProfileDataDisks() ScaleSetStorageProfileDataDiskArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetStorageProfileDataDiskArrayOutput { return v.StorageProfileDataDisks }).(ScaleSetStorageProfileDataDiskArrayOutput)
 }
 
-// A `storageProfileImageReference` block as documented below.
+// A `storageProfileImageReference` block as defined below.
 func (o ScaleSetOutput) StorageProfileImageReference() ScaleSetStorageProfileImageReferenceOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetStorageProfileImageReferenceOutput { return v.StorageProfileImageReference }).(ScaleSetStorageProfileImageReferenceOutput)
 }
 
-// A `storageProfileOsDisk` block as documented below.
+// A `storageProfileOsDisk` block as defined below.
 func (o ScaleSetOutput) StorageProfileOsDisk() ScaleSetStorageProfileOsDiskOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetStorageProfileOsDiskOutput { return v.StorageProfileOsDisk }).(ScaleSetStorageProfileOsDiskOutput)
 }
@@ -991,7 +991,7 @@ func (o ScaleSetOutput) UpgradePolicyMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringOutput { return v.UpgradePolicyMode }).(pulumi.StringOutput)
 }
 
-// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+// A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 //
 // > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 func (o ScaleSetOutput) Zones() pulumi.StringArrayOutput {

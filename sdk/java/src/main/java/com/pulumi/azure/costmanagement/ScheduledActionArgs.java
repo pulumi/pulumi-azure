@@ -66,16 +66,20 @@ public final class ScheduledActionArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
      * 
+     * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+     * 
      */
-    @Import(name="emailAddressSender", required=true)
-    private Output<String> emailAddressSender;
+    @Import(name="emailAddressSender")
+    private @Nullable Output<String> emailAddressSender;
 
     /**
      * @return Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
      * 
+     * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+     * 
      */
-    public Output<String> emailAddressSender() {
-        return this.emailAddressSender;
+    public Optional<Output<String>> emailAddressSender() {
+        return Optional.ofNullable(this.emailAddressSender);
     }
 
     /**
@@ -341,16 +345,20 @@ public final class ScheduledActionArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param emailAddressSender Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
          * 
+         * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+         * 
          * @return builder
          * 
          */
-        public Builder emailAddressSender(Output<String> emailAddressSender) {
+        public Builder emailAddressSender(@Nullable Output<String> emailAddressSender) {
             $.emailAddressSender = emailAddressSender;
             return this;
         }
 
         /**
          * @param emailAddressSender Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+         * 
+         * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
          * 
          * @return builder
          * 
@@ -592,9 +600,6 @@ public final class ScheduledActionArgs extends com.pulumi.resources.ResourceArgs
         public ScheduledActionArgs build() {
             if ($.displayName == null) {
                 throw new MissingRequiredPropertyException("ScheduledActionArgs", "displayName");
-            }
-            if ($.emailAddressSender == null) {
-                throw new MissingRequiredPropertyException("ScheduledActionArgs", "emailAddressSender");
             }
             if ($.emailAddresses == null) {
                 throw new MissingRequiredPropertyException("ScheduledActionArgs", "emailAddresses");

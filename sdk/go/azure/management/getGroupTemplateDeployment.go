@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := management.LookupGroupTemplateDeployment(ctx, &management.LookupGroupTemplateDeploymentArgs{
-//				Name:              "existing",
+//				Name:              "example-deployment",
 //				ManagementGroupId: "00000000-0000-0000-000000000000",
 //			}, nil)
 //			if err != nil {

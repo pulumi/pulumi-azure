@@ -38,7 +38,7 @@ class ExpressRouteCircuitArgs:
         The set of arguments for constructing a ExpressRouteCircuit resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as defined below.
         :param pulumi.Input[_builtins.bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         :param pulumi.Input[_builtins.str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[_builtins.float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
@@ -98,7 +98,7 @@ class ExpressRouteCircuitArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input['ExpressRouteCircuitSkuArgs']:
         """
-        A `sku` block for the ExpressRoute circuit as documented below.
+        A `sku` block for the ExpressRoute circuit as defined below.
         """
         return pulumi.get(self, "sku")
 
@@ -285,7 +285,7 @@ class _ExpressRouteCircuitState:
         :param pulumi.Input[_builtins.str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
         :param pulumi.Input[_builtins.str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
-        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if allow_classic_operations is not None:
@@ -485,7 +485,7 @@ class _ExpressRouteCircuitState:
     @pulumi.getter
     def sku(self) -> pulumi.Input[Optional['ExpressRouteCircuitSkuArgs']]:
         """
-        A `sku` block for the ExpressRoute circuit as documented below.
+        A `sku` block for the ExpressRoute circuit as defined below.
         """
         return pulumi.get(self, "sku")
 
@@ -589,7 +589,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] rate_limiting_enabled: Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']] sku: A `sku` block for the ExpressRoute circuit as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -751,7 +751,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
         :param pulumi.Input[_builtins.str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
-        :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']] sku: A `sku` block for the ExpressRoute circuit as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -889,7 +889,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.ExpressRouteCircuitSku']:
         """
-        A `sku` block for the ExpressRoute circuit as documented below.
+        A `sku` block for the ExpressRoute circuit as defined below.
         """
         return pulumi.get(self, "sku")
 

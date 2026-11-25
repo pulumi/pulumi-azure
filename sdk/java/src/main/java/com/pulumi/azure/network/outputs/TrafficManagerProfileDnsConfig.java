@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class TrafficManagerProfileDnsConfig {
     /**
-     * @return The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+     * @return The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
      * 
      */
     private String relativeName;
@@ -24,7 +24,7 @@ public final class TrafficManagerProfileDnsConfig {
 
     private TrafficManagerProfileDnsConfig() {}
     /**
-     * @return The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+     * @return The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
      * 
      */
     public String relativeName() {

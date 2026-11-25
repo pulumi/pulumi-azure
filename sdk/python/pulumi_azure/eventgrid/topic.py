@@ -22,6 +22,7 @@ __all__ = ['TopicArgs', 'Topic']
 class TopicArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['TopicIdentityArgs']] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]] = None,
                  input_mapping_default_values: pulumi.Input[Optional['TopicInputMappingDefaultValuesArgs']] = None,
@@ -29,6 +30,7 @@ class TopicArgs:
                  input_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -36,6 +38,7 @@ class TopicArgs:
         The set of arguments for constructing a Topic resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] data_residency_boundary: Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
         :param pulumi.Input['TopicIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input['TopicInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
@@ -43,11 +46,14 @@ class TopicArgs:
         :param pulumi.Input[_builtins.str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_residency_boundary is not None:
+            pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
@@ -62,6 +68,8 @@ class TopicArgs:
             pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
@@ -80,6 +88,18 @@ class TopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @data_residency_boundary.setter
+    def data_residency_boundary(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_residency_boundary", value)
 
     @_builtins.property
     @pulumi.getter
@@ -166,6 +186,18 @@ class TopicArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -205,6 +237,7 @@ class TopicArgs:
 @pulumi.input_type
 class _TopicState:
     def __init__(__self__, *,
+                 data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['TopicIdentityArgs']] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]] = None,
@@ -213,6 +246,7 @@ class _TopicState:
                  input_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -222,6 +256,7 @@ class _TopicState:
         """
         Input properties used for looking up and filtering Topic resources.
 
+        :param pulumi.Input[_builtins.str] data_residency_boundary: Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
         :param pulumi.Input[_builtins.str] endpoint: The Endpoint associated with the EventGrid Topic.
         :param pulumi.Input['TopicIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -230,6 +265,7 @@ class _TopicState:
         :param pulumi.Input[_builtins.str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Topic.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -237,6 +273,8 @@ class _TopicState:
         :param pulumi.Input[_builtins.str] secondary_access_key: The Secondary Shared Access Key associated with the EventGrid Topic.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
+        if data_residency_boundary is not None:
+            pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if identity is not None:
@@ -253,6 +291,8 @@ class _TopicState:
             pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_access_key is not None:
@@ -265,6 +305,18 @@ class _TopicState:
             pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @data_residency_boundary.setter
+    def data_residency_boundary(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_residency_boundary", value)
 
     @_builtins.property
     @pulumi.getter
@@ -363,6 +415,18 @@ class _TopicState:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -441,6 +505,7 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['TopicIdentityArgs', 'TopicIdentityArgsDict', 'outputs.TopicIdentity']]] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict', 'outputs.TopicInboundIpRule']]]]] = None,
                  input_mapping_default_values: pulumi.Input[Optional[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict', 'outputs.TopicInputMappingDefaultValues']]] = None,
@@ -448,6 +513,7 @@ class Topic(pulumi.CustomResource):
                  input_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -494,6 +560,7 @@ class Topic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] data_residency_boundary: Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
         :param pulumi.Input[Union['TopicIdentityArgs', 'TopicIdentityArgsDict', 'outputs.TopicIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict', 'outputs.TopicInboundIpRule']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict', 'outputs.TopicInputMappingDefaultValues']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
@@ -501,6 +568,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
@@ -566,6 +634,7 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['TopicIdentityArgs', 'TopicIdentityArgsDict', 'outputs.TopicIdentity']]] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict', 'outputs.TopicInboundIpRule']]]]] = None,
                  input_mapping_default_values: pulumi.Input[Optional[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict', 'outputs.TopicInputMappingDefaultValues']]] = None,
@@ -573,6 +642,7 @@ class Topic(pulumi.CustomResource):
                  input_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -586,6 +656,7 @@ class Topic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TopicArgs.__new__(TopicArgs)
 
+            __props__.__dict__["data_residency_boundary"] = data_residency_boundary
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
@@ -593,6 +664,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["input_schema"] = input_schema
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
@@ -616,6 +688,7 @@ class Topic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             identity: pulumi.Input[Optional[Union['TopicIdentityArgs', 'TopicIdentityArgsDict', 'outputs.TopicIdentity']]] = None,
             inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict', 'outputs.TopicInboundIpRule']]]]] = None,
@@ -624,6 +697,7 @@ class Topic(pulumi.CustomResource):
             input_schema: pulumi.Input[Optional[_builtins.str]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -637,6 +711,7 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] data_residency_boundary: Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
         :param pulumi.Input[_builtins.str] endpoint: The Endpoint associated with the EventGrid Topic.
         :param pulumi.Input[Union['TopicIdentityArgs', 'TopicIdentityArgsDict', 'outputs.TopicIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict', 'outputs.TopicInboundIpRule']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -645,6 +720,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Topic.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -656,6 +732,7 @@ class Topic(pulumi.CustomResource):
 
         __props__ = _TopicState.__new__(_TopicState)
 
+        __props__.__dict__["data_residency_boundary"] = data_residency_boundary
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["identity"] = identity
         __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
@@ -664,6 +741,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["input_schema"] = input_schema
         __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["minimum_tls_version"] = minimum_tls_version
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_access_key"] = primary_access_key
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -671,6 +749,14 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         __props__.__dict__["tags"] = tags
         return Topic(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        """
+        return pulumi.get(self, "data_residency_boundary")
 
     @_builtins.property
     @pulumi.getter
@@ -735,6 +821,14 @@ class Topic(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Output[_builtins.str]:
+        """
+        The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
 
     @_builtins.property
     @pulumi.getter

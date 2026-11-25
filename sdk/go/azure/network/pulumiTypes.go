@@ -16819,7 +16819,7 @@ func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
 }
 
 type ProfileContainerNetworkInterface struct {
-	// One or more `ipConfiguration` blocks as documented below.
+	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations []ProfileContainerNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the name of the IP Configuration.
 	Name string `pulumi:"name"`
@@ -16837,7 +16837,7 @@ type ProfileContainerNetworkInterfaceInput interface {
 }
 
 type ProfileContainerNetworkInterfaceArgs struct {
-	// One or more `ipConfiguration` blocks as documented below.
+	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations ProfileContainerNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// Specifies the name of the IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -16920,7 +16920,7 @@ func (o ProfileContainerNetworkInterfaceOutput) ToProfileContainerNetworkInterfa
 	}).(ProfileContainerNetworkInterfacePtrOutput)
 }
 
-// One or more `ipConfiguration` blocks as documented below.
+// One or more `ipConfiguration` blocks as defined below.
 func (o ProfileContainerNetworkInterfaceOutput) IpConfigurations() ProfileContainerNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v ProfileContainerNetworkInterface) []ProfileContainerNetworkInterfaceIpConfiguration {
 		return v.IpConfigurations
@@ -16956,7 +16956,7 @@ func (o ProfileContainerNetworkInterfacePtrOutput) Elem() ProfileContainerNetwor
 	}).(ProfileContainerNetworkInterfaceOutput)
 }
 
-// One or more `ipConfiguration` blocks as documented below.
+// One or more `ipConfiguration` blocks as defined below.
 func (o ProfileContainerNetworkInterfacePtrOutput) IpConfigurations() ProfileContainerNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v *ProfileContainerNetworkInterface) []ProfileContainerNetworkInterfaceIpConfiguration {
 		if v == nil {
@@ -19240,7 +19240,7 @@ func (o TrafficManagerNestedEndpointSubnetArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type TrafficManagerProfileDnsConfig struct {
-	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
 	RelativeName string `pulumi:"relativeName"`
 	// The TTL value of the Profile used by Local DNS resolvers and clients.
 	Ttl int `pulumi:"ttl"`
@@ -19258,7 +19258,7 @@ type TrafficManagerProfileDnsConfigInput interface {
 }
 
 type TrafficManagerProfileDnsConfigArgs struct {
-	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
 	RelativeName pulumi.StringInput `pulumi:"relativeName"`
 	// The TTL value of the Profile used by Local DNS resolvers and clients.
 	Ttl pulumi.IntInput `pulumi:"ttl"`
@@ -19341,7 +19341,7 @@ func (o TrafficManagerProfileDnsConfigOutput) ToTrafficManagerProfileDnsConfigPt
 	}).(TrafficManagerProfileDnsConfigPtrOutput)
 }
 
-// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
 func (o TrafficManagerProfileDnsConfigOutput) RelativeName() pulumi.StringOutput {
 	return o.ApplyT(func(v TrafficManagerProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
 }
@@ -19375,7 +19375,7 @@ func (o TrafficManagerProfileDnsConfigPtrOutput) Elem() TrafficManagerProfileDns
 	}).(TrafficManagerProfileDnsConfigOutput)
 }
 
-// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
 func (o TrafficManagerProfileDnsConfigPtrOutput) RelativeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficManagerProfileDnsConfig) *string {
 		if v == nil {

@@ -72,7 +72,7 @@ export interface GetRouteTableResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * One or more `route` blocks as documented below.
+     * One or more `route` blocks as defined below.
      */
     readonly routes: outputs.network.GetRouteTableRoute[];
     /**

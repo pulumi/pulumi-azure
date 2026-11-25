@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.LookupNetworkManagerConnectivityConfiguration(ctx, &network.LookupNetworkManagerConnectivityConfigurationArgs{
-//				Name:             "existing",
+//				Name:             "example-connectivity-configuration",
 //				NetworkManagerId: "TODO",
 //			}, nil)
 //			if err != nil {

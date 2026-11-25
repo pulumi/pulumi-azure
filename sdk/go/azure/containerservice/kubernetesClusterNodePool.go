@@ -83,7 +83,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService` - 2026-05-01
+// * `Microsoft.ContainerService` - 2026-07-01
 //
 // ## Import
 //
@@ -142,7 +142,7 @@ type KubernetesClusterNodePool struct {
 	NodeImageVersion pulumi.StringOutput `pulumi:"nodeImageVersion"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
-	// A `nodeNetworkProfile` block as documented below.
+	// A `nodeNetworkProfile` block as defined below.
 	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrOutput `pulumi:"nodeNetworkProfile"`
 	// Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
 	NodePublicIpEnabled pulumi.BoolPtrOutput `pulumi:"nodePublicIpEnabled"`
@@ -174,6 +174,10 @@ type KubernetesClusterNodePool struct {
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrOutput `pulumi:"scaleDownMode"`
+	// A `security` block as documented below.
+	//
+	// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+	Security KubernetesClusterNodePoolSecurityPtrOutput `pulumi:"security"`
 	// The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -188,7 +192,7 @@ type KubernetesClusterNodePool struct {
 	TemporaryNameForRotation pulumi.StringPtrOutput `pulumi:"temporaryNameForRotation"`
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
 	UltraSsdEnabled pulumi.BoolPtrOutput `pulumi:"ultraSsdEnabled"`
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrOutput `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
@@ -196,7 +200,7 @@ type KubernetesClusterNodePool struct {
 	//
 	// > **NOTE:** A route table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
-	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+	// A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrOutput `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
 	//
@@ -288,7 +292,7 @@ type kubernetesClusterNodePoolState struct {
 	NodeImageVersion *string `pulumi:"nodeImageVersion"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// A `nodeNetworkProfile` block as documented below.
+	// A `nodeNetworkProfile` block as defined below.
 	NodeNetworkProfile *KubernetesClusterNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
 	// Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
@@ -320,6 +324,10 @@ type kubernetesClusterNodePoolState struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
+	// A `security` block as documented below.
+	//
+	// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+	Security *KubernetesClusterNodePoolSecurity `pulumi:"security"`
 	// The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -334,7 +342,7 @@ type kubernetesClusterNodePoolState struct {
 	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings *KubernetesClusterNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	VmSize *string `pulumi:"vmSize"`
@@ -342,7 +350,7 @@ type kubernetesClusterNodePoolState struct {
 	//
 	// > **NOTE:** A route table must be configured on this Subnet.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
-	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+	// A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
 	//
@@ -402,7 +410,7 @@ type KubernetesClusterNodePoolState struct {
 	NodeImageVersion pulumi.StringPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
-	// A `nodeNetworkProfile` block as documented below.
+	// A `nodeNetworkProfile` block as defined below.
 	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrInput
 	// Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
 	NodePublicIpEnabled pulumi.BoolPtrInput
@@ -434,6 +442,10 @@ type KubernetesClusterNodePoolState struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrInput
+	// A `security` block as documented below.
+	//
+	// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+	Security KubernetesClusterNodePoolSecurityPtrInput
 	// The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	SnapshotId pulumi.StringPtrInput
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -448,7 +460,7 @@ type KubernetesClusterNodePoolState struct {
 	TemporaryNameForRotation pulumi.StringPtrInput
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
 	UltraSsdEnabled pulumi.BoolPtrInput
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	VmSize pulumi.StringPtrInput
@@ -456,7 +468,7 @@ type KubernetesClusterNodePoolState struct {
 	//
 	// > **NOTE:** A route table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrInput
-	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+	// A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
 	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
 	//
@@ -518,7 +530,7 @@ type kubernetesClusterNodePoolArgs struct {
 	NodeCount *int    `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// A `nodeNetworkProfile` block as documented below.
+	// A `nodeNetworkProfile` block as defined below.
 	NodeNetworkProfile *KubernetesClusterNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
 	// Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
@@ -550,6 +562,10 @@ type kubernetesClusterNodePoolArgs struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
+	// A `security` block as documented below.
+	//
+	// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+	Security *KubernetesClusterNodePoolSecurity `pulumi:"security"`
 	// The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -564,7 +580,7 @@ type kubernetesClusterNodePoolArgs struct {
 	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings *KubernetesClusterNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	VmSize *string `pulumi:"vmSize"`
@@ -572,7 +588,7 @@ type kubernetesClusterNodePoolArgs struct {
 	//
 	// > **NOTE:** A route table must be configured on this Subnet.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
-	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+	// A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
 	//
@@ -631,7 +647,7 @@ type KubernetesClusterNodePoolArgs struct {
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
-	// A `nodeNetworkProfile` block as documented below.
+	// A `nodeNetworkProfile` block as defined below.
 	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrInput
 	// Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
 	NodePublicIpEnabled pulumi.BoolPtrInput
@@ -663,6 +679,10 @@ type KubernetesClusterNodePoolArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrInput
+	// A `security` block as documented below.
+	//
+	// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+	Security KubernetesClusterNodePoolSecurityPtrInput
 	// The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	SnapshotId pulumi.StringPtrInput
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -677,7 +697,7 @@ type KubernetesClusterNodePoolArgs struct {
 	TemporaryNameForRotation pulumi.StringPtrInput
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
 	UltraSsdEnabled pulumi.BoolPtrInput
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 	VmSize pulumi.StringPtrInput
@@ -685,7 +705,7 @@ type KubernetesClusterNodePoolArgs struct {
 	//
 	// > **NOTE:** A route table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrInput
-	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+	// A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
 	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
 	//
@@ -895,7 +915,7 @@ func (o KubernetesClusterNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringMapOutput { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
-// A `nodeNetworkProfile` block as documented below.
+// A `nodeNetworkProfile` block as defined below.
 func (o KubernetesClusterNodePoolOutput) NodeNetworkProfile() KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
 		return v.NodeNetworkProfile
@@ -968,6 +988,13 @@ func (o KubernetesClusterNodePoolOutput) ScaleDownMode() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.ScaleDownMode }).(pulumi.StringPtrOutput)
 }
 
+// A `security` block as documented below.
+//
+// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+func (o KubernetesClusterNodePoolOutput) Security() KubernetesClusterNodePoolSecurityPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolSecurityPtrOutput { return v.Security }).(KubernetesClusterNodePoolSecurityPtrOutput)
+}
+
 // The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
 func (o KubernetesClusterNodePoolOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.SnapshotId }).(pulumi.StringPtrOutput)
@@ -997,7 +1024,7 @@ func (o KubernetesClusterNodePoolOutput) UltraSsdEnabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `upgradeSettings` block as documented below.
+// A `upgradeSettings` block as defined below.
 func (o KubernetesClusterNodePoolOutput) UpgradeSettings() KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
 		return v.UpgradeSettings
@@ -1016,7 +1043,7 @@ func (o KubernetesClusterNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+// A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) WindowsProfile() KubernetesClusterNodePoolWindowsProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolWindowsProfilePtrOutput {
 		return v.WindowsProfile

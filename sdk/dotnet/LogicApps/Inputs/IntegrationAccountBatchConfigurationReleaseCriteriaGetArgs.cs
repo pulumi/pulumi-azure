@@ -25,7 +25,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<int>? MessageCount { get; set; }
 
         /// <summary>
-        /// A `Recurrence` block as documented below.
+        /// A `Recurrence` block as defined below.
         /// </summary>
         [Input("recurrence")]
         public Input<Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceGetArgs>? Recurrence { get; set; }

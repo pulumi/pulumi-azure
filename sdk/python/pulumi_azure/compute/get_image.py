@@ -63,7 +63,7 @@ class GetImageResult:
     @pulumi.getter(name="dataDisks")
     def data_disks(self) -> Sequence['outputs.GetImageDataDiskResult']:
         """
-        a collection of `data_disk` blocks as defined below.
+        One or more `data_disk` blocks as defined below.
         """
         return pulumi.get(self, "data_disks")
 

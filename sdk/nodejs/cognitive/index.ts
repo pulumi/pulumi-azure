@@ -45,6 +45,11 @@ export type AccountProject = import("./accountProject").AccountProject;
 export const AccountProject: typeof import("./accountProject").AccountProject = null as any;
 utilities.lazyLoad(exports, ["AccountProject"], () => require("./accountProject"));
 
+export { AccountProjectConnectionEntraIdArgs, AccountProjectConnectionEntraIdState } from "./accountProjectConnectionEntraId";
+export type AccountProjectConnectionEntraId = import("./accountProjectConnectionEntraId").AccountProjectConnectionEntraId;
+export const AccountProjectConnectionEntraId: typeof import("./accountProjectConnectionEntraId").AccountProjectConnectionEntraId = null as any;
+utilities.lazyLoad(exports, ["AccountProjectConnectionEntraId"], () => require("./accountProjectConnectionEntraId"));
+
 export { AccountRaiBlocklistArgs, AccountRaiBlocklistState } from "./accountRaiBlocklist";
 export type AccountRaiBlocklist = import("./accountRaiBlocklist").AccountRaiBlocklist;
 export const AccountRaiBlocklist: typeof import("./accountRaiBlocklist").AccountRaiBlocklist = null as any;
@@ -91,6 +96,8 @@ const _module = {
                 return new AccountCustomerManagedKey(name, <any>undefined, { urn })
             case "azure:cognitive/accountProject:AccountProject":
                 return new AccountProject(name, <any>undefined, { urn })
+            case "azure:cognitive/accountProjectConnectionEntraId:AccountProjectConnectionEntraId":
+                return new AccountProjectConnectionEntraId(name, <any>undefined, { urn })
             case "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist":
                 return new AccountRaiBlocklist(name, <any>undefined, { urn })
             case "azure:cognitive/accountRaiPolicy:AccountRaiPolicy":
@@ -110,6 +117,7 @@ pulumi.runtime.registerResourceModule("azure", "cognitive/accountConnectionCusto
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountConnectionEntraId", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountCustomerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountProject", _module)
+pulumi.runtime.registerResourceModule("azure", "cognitive/accountProjectConnectionEntraId", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountRaiBlocklist", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountRaiPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/deployment", _module)

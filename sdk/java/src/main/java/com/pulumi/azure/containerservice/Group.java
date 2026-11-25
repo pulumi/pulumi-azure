@@ -126,28 +126,28 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.containers;
     }
     /**
-     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+     * A `diagnostics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="diagnostics", refs={GroupDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ GroupDiagnostics> diagnostics;
 
     /**
-     * @return A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+     * @return A `diagnostics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<GroupDiagnostics>> diagnostics() {
         return Codegen.optional(this.diagnostics);
     }
     /**
-     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+     * A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dnsConfig", refs={GroupDnsConfig.class}, tree="[0]")
     private Output</* @Nullable */ GroupDnsConfig> dnsConfig;
 
     /**
-     * @return A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+     * @return A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<GroupDnsConfig>> dnsConfig() {
@@ -232,14 +232,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="imageRegistryCredentials", refs={List.class,GroupImageRegistryCredential.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupImageRegistryCredential>> imageRegistryCredentials;
 
     /**
-     * @return An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * @return An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<GroupImageRegistryCredential>>> imageRegistryCredentials() {

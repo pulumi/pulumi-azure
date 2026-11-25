@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Inputs
     public sealed class ProviderFeaturesDatabricksWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+        /// When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }

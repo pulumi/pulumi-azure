@@ -77,7 +77,9 @@ class MongoClusterArgs:
         :param pulumi.Input[_builtins.str] source_location: The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: The size of the data disk space for the MongoDB Cluster.
-        :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `storage_type` is omitted, Azure will determine the preferred type based on the region's availability.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
                
@@ -383,7 +385,9 @@ class MongoClusterArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+
+        > **Note:** When `storage_type` is omitted, Azure will determine the preferred type based on the region's availability.
         """
         return pulumi.get(self, "storage_type")
 
@@ -479,7 +483,9 @@ class _MongoClusterState:
         :param pulumi.Input[_builtins.str] source_location: The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: The size of the data disk space for the MongoDB Cluster.
-        :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `storage_type` is omitted, Azure will determine the preferred type based on the region's availability.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
                
@@ -800,7 +806,9 @@ class _MongoClusterState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+
+        > **Note:** When `storage_type` is omitted, Azure will determine the preferred type based on the region's availability.
         """
         return pulumi.get(self, "storage_type")
 
@@ -938,7 +946,9 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_location: The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: The size of the data disk space for the MongoDB Cluster.
-        :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `storage_type` is omitted, Azure will determine the preferred type based on the region's availability.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
                
@@ -1140,7 +1150,9 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_location: The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: The size of the data disk space for the MongoDB Cluster.
-        :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `storage_type` is omitted, Azure will determine the preferred type based on the region's availability.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
                
@@ -1348,7 +1360,7 @@ class MongoCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageSizeInGb")
-    def storage_size_in_gb(self) -> pulumi.Output[Optional[_builtins.int]]:
+    def storage_size_in_gb(self) -> pulumi.Output[_builtins.int]:
         """
         The size of the data disk space for the MongoDB Cluster.
         """
@@ -1356,9 +1368,11 @@ class MongoCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def storage_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+
+        > **Note:** When `storage_type` is omitted, Azure will determine the preferred type based on the region's availability.
         """
         return pulumi.get(self, "storage_type")
 

@@ -58,6 +58,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly addressSpaces: string[];
     /**
+     * The list of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     */
+    readonly advertisedGatewayPrefixes: string[];
+    /**
      * The list of DNS servers used by the virtual network.
      */
     readonly dnsServers: string[];

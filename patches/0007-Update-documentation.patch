@@ -46,7 +46,7 @@ index 36b9fbff0079..9f010ce79bbe 100644
  
  ## Example Usage
 diff --git a/website/docs/d/key_vault_key.html.markdown b/website/docs/d/key_vault_key.html.markdown
-index 850339cd8d62..7fe8408ebd34 100644
+index ce404a74c883..645afc944c47 100644
 --- a/website/docs/d/key_vault_key.html.markdown
 +++ b/website/docs/d/key_vault_key.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -60,7 +60,7 @@ index 850339cd8d62..7fe8408ebd34 100644
  
  ```hcl
 diff --git a/website/docs/d/key_vault_secret.html.markdown b/website/docs/d/key_vault_secret.html.markdown
-index 527c8739c736..c9165483f247 100644
+index 4571b6b5aa3f..b92524ed8a5f 100644
 --- a/website/docs/d/key_vault_secret.html.markdown
 +++ b/website/docs/d/key_vault_secret.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -74,7 +74,7 @@ index 527c8739c736..c9165483f247 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index ef16c9e8c034..45da5196fcf0 100644
+index 13a48ef7aa99..9894f29f970b 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -291,7 +291,7 @@ index 471de4553826..c5be2de317bd 100644
  
  The deprecated field `start_task.environment` will be removed in favour of the `start_task.common_environment_properties` properties.
 diff --git a/website/docs/r/api_management.html.markdown b/website/docs/r/api_management.html.markdown
-index 85632b296989..7814306ddf18 100644
+index e4861f832127..53406f86c185 100644
 --- a/website/docs/r/api_management.html.markdown
 +++ b/website/docs/r/api_management.html.markdown
 @@ -31,7 +31,7 @@ resource "azurerm_api_management" "example" {
@@ -304,7 +304,7 @@ index 85632b296989..7814306ddf18 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_api.html.markdown b/website/docs/r/api_management_api.html.markdown
-index 777527ea3948..f4f4dbd96dc3 100644
+index 26fc270849da..6c2f1abe5d7c 100644
 --- a/website/docs/r/api_management_api.html.markdown
 +++ b/website/docs/r/api_management_api.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -335,7 +335,7 @@ index 777527ea3948..f4f4dbd96dc3 100644
  * `bearer_token_sending_methods` - (Optional) How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
  
 diff --git a/website/docs/r/api_management_api_diagnostic.html.markdown b/website/docs/r/api_management_api_diagnostic.html.markdown
-index fc42cce69fe4..1d96259acb81 100644
+index 856c06562af1..fdc76f6a4464 100644
 --- a/website/docs/r/api_management_api_diagnostic.html.markdown
 +++ b/website/docs/r/api_management_api_diagnostic.html.markdown
 @@ -34,7 +34,7 @@ resource "azurerm_api_management" "example" {
@@ -362,7 +362,7 @@ index 2963f70e6c7d..b727ae172b8d 100644
  * `xml_link` - (Optional) A link to a Policy XML Document, which must be publicly available.
  
 diff --git a/website/docs/r/api_management_backend.html.markdown b/website/docs/r/api_management_backend.html.markdown
-index c54f5db24866..be27501f6f0d 100644
+index 2ad19b26c916..eaae90509cf3 100644
 --- a/website/docs/r/api_management_backend.html.markdown
 +++ b/website/docs/r/api_management_backend.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -501,7 +501,7 @@ index 51569c494387..3f571570f7bc 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/api_management_diagnostic.html.markdown b/website/docs/r/api_management_diagnostic.html.markdown
-index 3a4c7f97032e..da2d2929fda0 100644
+index 203f769d67a8..a5642fa08e00 100644
 --- a/website/docs/r/api_management_diagnostic.html.markdown
 +++ b/website/docs/r/api_management_diagnostic.html.markdown
 @@ -34,7 +34,7 @@ resource "azurerm_api_management" "example" {
@@ -579,7 +579,7 @@ index 76137d2d39ec..cf3af3262f59 100644
  }
  
 diff --git a/website/docs/r/api_management_logger.html.markdown b/website/docs/r/api_management_logger.html.markdown
-index 18acc2ed180b..31c2b906504e 100644
+index c499ddd47167..40857d3754e6 100644
 --- a/website/docs/r/api_management_logger.html.markdown
 +++ b/website/docs/r/api_management_logger.html.markdown
 @@ -30,7 +30,7 @@ resource "azurerm_api_management" "example" {
@@ -1211,7 +1211,7 @@ index 000000000000..2789c4e8a4d9
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index 91eb44c17875..47796496b055 100644
+index 92bf56787fbe..e3560c3fc555 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
 @@ -12,7 +12,7 @@ Manages as an Azure Container Group instance.
@@ -1233,7 +1233,7 @@ index 91eb44c17875..47796496b055 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index 933b3ad340ef..e5aca3c865e0 100644
+index 91b1f20254f0..dc1108421424 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1642,7 +1642,7 @@ index 8b0c81251e98..720ef44ff63a 100644
  
  ## Import
 diff --git a/website/docs/r/database_migration_service.html.markdown b/website/docs/r/database_migration_service.html.markdown
-index e520f718f645..5b274c644e88 100644
+index 0b600301b1f5..009804b1be4a 100644
 --- a/website/docs/r/database_migration_service.html.markdown
 +++ b/website/docs/r/database_migration_service.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -1654,7 +1654,7 @@ index e520f718f645..5b274c644e88 100644
  
  ## Example Usage
  
-@@ -74,8 +74,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -76,8 +76,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the API Management API.
@@ -1691,7 +1691,7 @@ index 9a512475cdcf..ebb6090b4109 100644
  
  ```hcl
 diff --git a/website/docs/r/dns_caa_record.html.markdown b/website/docs/r/dns_caa_record.html.markdown
-index f4f5268510de..93ad6169ed7f 100644
+index 9bb2e48983ab..e1b055546a11 100644
 --- a/website/docs/r/dns_caa_record.html.markdown
 +++ b/website/docs/r/dns_caa_record.html.markdown
 @@ -52,7 +52,7 @@ resource "azurerm_dns_caa_record" "example" {
@@ -1845,7 +1845,7 @@ index b92c74966d52..7446a650aab4 100644
  
  ---
 diff --git a/website/docs/r/iothub.html.markdown b/website/docs/r/iothub.html.markdown
-index 3cde705f60e9..ea925daf6582 100644
+index a5f2905e59b0..80bb0801ab89 100644
 --- a/website/docs/r/iothub.html.markdown
 +++ b/website/docs/r/iothub.html.markdown
 @@ -160,6 +160,10 @@ The following arguments are supported:
@@ -2047,7 +2047,7 @@ index fce9f95fb14f..66b77e85ad79 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 7b89ce39146b..67a123543348 100644
+index 009b7801f7ad..2c67c6aa88f9 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -2079,7 +2079,7 @@ index 7b89ce39146b..67a123543348 100644
  
  * `host_encryption_enabled` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -445,7 +439,7 @@ A `default_node_pool` block supports the following:
+@@ -449,7 +443,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -2088,7 +2088,7 @@ index 7b89ce39146b..67a123543348 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -471,7 +465,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -475,7 +469,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -2097,7 +2097,7 @@ index 7b89ce39146b..67a123543348 100644
  
  ~> **Note:** If `auto_scaling_enabled` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -714,13 +708,11 @@ A `network_profile` block supports the following:
+@@ -722,13 +716,11 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -2113,7 +2113,7 @@ index 7b89ce39146b..67a123543348 100644
  
  * `load_balancer_sku` - (Optional) Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
  
-@@ -806,7 +798,7 @@ An `ingress_application_gateway` block supports the following:
+@@ -814,7 +806,7 @@ An `ingress_application_gateway` block supports the following:
  
  * `subnet_id` - (Optional) The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
  
@@ -2122,9 +2122,9 @@ index 7b89ce39146b..67a123543348 100644
  
  ~> **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azurerm_kubernetes_cluster_node_pool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
  
-@@ -818,13 +810,13 @@ A `service_mesh_profile` block supports the following:
+@@ -836,13 +828,13 @@ A `service_mesh_profile` block supports the following:
  
- * `revisions` - (Required) Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+ * `revisions` - (Required) Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
  
 --> **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 +-> **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
@@ -2138,7 +2138,7 @@ index 7b89ce39146b..67a123543348 100644
  
  * `certificate_authority` - (Optional) A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
  
-@@ -874,7 +866,7 @@ A `storage_profile` block supports the following:
+@@ -892,7 +884,7 @@ A `storage_profile` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2147,7 +2147,7 @@ index 7b89ce39146b..67a123543348 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -1134,19 +1126,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1152,19 +1144,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2167,7 +2167,7 @@ index 7b89ce39146b..67a123543348 100644
  ---
  
  The `ingress_application_gateway` block exports the following:
-@@ -1220,8 +1199,8 @@ The `web_app_routing_identity` block exports the following:
+@@ -1238,8 +1217,8 @@ The `web_app_routing_identity` block exports the following:
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 90 minutes) Used when creating the Kubernetes Cluster.
@@ -2177,7 +2177,7 @@ index 7b89ce39146b..67a123543348 100644
  * `delete` - (Defaults to 90 minutes) Used when deleting the Kubernetes Cluster.
  
  ## Import
-@@ -1231,7 +1210,6 @@ Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
+@@ -1249,7 +1228,6 @@ Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster.cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
  ```
@@ -2186,7 +2186,7 @@ index 7b89ce39146b..67a123543348 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index e3d61cfc7401..d301194effc4 100644
+index 74a010ba4dd4..a4026854205c 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,15 +10,13 @@ description: |-
@@ -2239,16 +2239,16 @@ index e3d61cfc7401..d301194effc4 100644
  
  * `scale_down_mode` - (Optional) Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
  
-@@ -156,7 +154,7 @@ The following arguments are supported:
+@@ -160,7 +158,7 @@ The following arguments are supported:
  
  * `vnet_subnet_id` - (Optional) The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
  
 -~> **Note:** A route table must be configured on this Subnet.
 +~> **NOTE:** A route table must be configured on this Subnet.
  
- * `windows_profile` - (Optional) A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+ * `windows_profile` - (Optional) A `windows_profile` block as defined below. Changing this forces a new resource to be created.
  
-@@ -178,7 +176,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -182,7 +180,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  
@@ -2257,7 +2257,7 @@ index e3d61cfc7401..d301194effc4 100644
  
  If `auto_scaling_enabled` is set to `false`, then the following fields can also be configured:
  
-@@ -246,7 +244,7 @@ An `allowed_host_ports` block supports the following:
+@@ -260,7 +258,7 @@ A `security` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2266,7 +2266,7 @@ index e3d61cfc7401..d301194effc4 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -342,10 +340,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -356,10 +354,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
@@ -2280,7 +2280,7 @@ index e3d61cfc7401..d301194effc4 100644
  
  ## Import
  
-@@ -354,7 +352,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
+@@ -368,7 +366,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster_node_pool.pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
  ```
@@ -2302,7 +2302,7 @@ index 5d9c74cce446..443a1a7761cf 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index 4fdc8b8c8885..00a9e94738d4 100644
+index da9375992c8c..6937e2e54498 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,21 +12,19 @@ Manages a Linux Virtual Machine.
@@ -2361,9 +2361,9 @@ index 4fdc8b8c8885..00a9e94738d4 100644
 -~> **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
 +~> **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
  
- * `computer_name` - (Optional) Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+ ~> **Note:** Associating `capacity_reservation_group_id` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
  
-@@ -150,7 +148,7 @@ The following arguments are supported:
+@@ -152,7 +150,7 @@ The following arguments are supported:
  
  -> **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
  
@@ -2372,7 +2372,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  * `disk_controller_type` - (Optional) Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
  
-@@ -160,27 +158,27 @@ The following arguments are supported:
+@@ -162,27 +160,27 @@ The following arguments are supported:
  
  * `eviction_policy` - (Optional) Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
  
@@ -2405,7 +2405,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  * `plan` - (Optional) A `plan` block as defined below. Changing this forces a new resource to be created.
  
-@@ -190,13 +188,13 @@ The following arguments are supported:
+@@ -192,13 +190,13 @@ The following arguments are supported:
  
  * `provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
  
@@ -2421,7 +2421,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  * `secret` - (Optional) One or more `secret` blocks as defined below.
  
-@@ -204,11 +202,11 @@ The following arguments are supported:
+@@ -206,11 +204,11 @@ The following arguments are supported:
  
  * `source_image_id` - (Optional) The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
  
@@ -2435,7 +2435,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  * `tags` - (Optional) A mapping of tags which should be assigned to this Virtual Machine.
  
-@@ -222,15 +220,17 @@ The following arguments are supported:
+@@ -224,15 +222,17 @@ The following arguments are supported:
  
  * `user_data` - (Optional) The Base64-Encoded User Data which should be used for this Virtual Machine.
  
@@ -2456,7 +2456,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  * `zone` - (Optional) Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
  
-@@ -250,7 +250,7 @@ A `admin_ssh_key` block supports the following:
+@@ -252,7 +252,7 @@ A `admin_ssh_key` block supports the following:
  
  * `username` - (Required) The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
  
@@ -2465,7 +2465,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  ---
  
-@@ -258,7 +258,7 @@ A `boot_diagnostics` block supports the following:
+@@ -260,7 +260,7 @@ A `boot_diagnostics` block supports the following:
  
  * `storage_account_uri` - (Optional) The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
  
@@ -2474,7 +2474,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  ---
  
-@@ -266,7 +266,7 @@ A `certificate` block supports the following:
+@@ -268,7 +268,7 @@ A `certificate` block supports the following:
  
  * `url` - (Required) The Secret URL of a Key Vault Certificate.
  
@@ -2483,7 +2483,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  ---
  
-@@ -302,7 +302,7 @@ An `identity` block supports the following:
+@@ -304,7 +304,7 @@ An `identity` block supports the following:
  
  * `identity_ids` - (Optional) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
  
@@ -2492,7 +2492,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  ---
  
-@@ -316,15 +316,15 @@ A `os_disk` block supports the following:
+@@ -318,15 +318,15 @@ A `os_disk` block supports the following:
  
  * `diff_disk_settings` - (Optional) A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
  
@@ -2511,7 +2511,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  * `name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
  
-@@ -332,15 +332,17 @@ A `os_disk` block supports the following:
+@@ -334,15 +334,17 @@ A `os_disk` block supports the following:
  
  * `secure_vm_disk_encryption_set_id` - (Optional) The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
  
@@ -2532,7 +2532,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  ---
  
-@@ -386,7 +388,7 @@ A `termination_notification` block supports the following:
+@@ -388,7 +390,7 @@ A `termination_notification` block supports the following:
  
  * `timeout` - (Optional) Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
  
@@ -2541,7 +2541,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  
  ## Attributes Reference
  
-@@ -408,8 +410,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -410,8 +412,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  * `virtual_machine_id` - A 128-bit identifier which uniquely identifies this Virtual Machine.
  
@@ -2550,7 +2550,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  ---
  
  An `identity` block exports the following:
-@@ -429,9 +429,9 @@ An `os_disk` block exports the following:
+@@ -431,9 +431,9 @@ An `os_disk` block exports the following:
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 45 minutes) Used when creating the Linux Virtual Machine.
@@ -2562,7 +2562,7 @@ index 4fdc8b8c8885..00a9e94738d4 100644
  ## Import
  
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index 7b6a2c3536ab..9f2d6d80b9cf 100644
+index 3254e7ccd9a3..aa5ea029887a 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -14,13 +14,9 @@ Manages a Linux Virtual Machine Scale Set.
@@ -2589,7 +2589,7 @@ index 7b6a2c3536ab..9f2d6d80b9cf 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
  
-@@ -366,8 +362,6 @@ An `extension` block supports the following:
+@@ -370,8 +366,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -2598,7 +2598,7 @@ index 7b6a2c3536ab..9f2d6d80b9cf 100644
  * `protected_settings_from_key_vault` - (Optional) A `protected_settings_from_key_vault` block as defined below.
  
  ~> **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
-@@ -378,8 +372,6 @@ An `extension` block supports the following:
+@@ -382,8 +376,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -3009,7 +3009,7 @@ index 5831fb479adf..8bbd4db05d35 100644
  
  ```hcl
 diff --git a/website/docs/r/mssql_virtual_machine.html.markdown b/website/docs/r/mssql_virtual_machine.html.markdown
-index 864d53e5f627..890275063359 100644
+index daaf4592ac0b..ed783b366edf 100644
 --- a/website/docs/r/mssql_virtual_machine.html.markdown
 +++ b/website/docs/r/mssql_virtual_machine.html.markdown
 @@ -12,7 +12,7 @@ Manages a Microsoft SQL Virtual Machine
@@ -3247,10 +3247,10 @@ index 8db03cba4bdd..a3aae2da4703 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 3118c284a028..a4038ae961aa 100644
+index f1fe21dc23c9..7d37e024ac61 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
-@@ -336,7 +336,7 @@ A `record_sets` block exports:
+@@ -345,7 +345,7 @@ A `record_sets` block exports:
  
  ## Example HCL Configurations
  
@@ -3572,42 +3572,6 @@ index c4aede77048b..f9b4271d92a9 100644
  * `delete` - (Defaults to 30 minutes) Used when deleting the Route.
  
  ## Import
-diff --git a/website/docs/r/route_table.html.markdown b/website/docs/r/route_table.html.markdown
-index 811686147c2d..8f047dfa74ce 100644
---- a/website/docs/r/route_table.html.markdown
-+++ b/website/docs/r/route_table.html.markdown
-@@ -11,8 +11,7 @@ description: |-
- 
- Manages a Route Table
- 
--~> **Note:** Terraform currently
--provides both a standalone [Route resource](route.html), and allows for Routes to be defined in-line within the [Route Table resource](route_table.html).
-+~> **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `route_table` resource.
- At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
- 
- ## Example Usage
-@@ -50,9 +49,9 @@ The following arguments are supported:
- 
- * `location` - (Required) Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
- 
--* `route` - (Optional) List of `route` objects representing routes as defined below. Each object accepts the arguments documented below.
-+* `route` - (Optional) A list of objects representing routes. Each object accepts the arguments documented below.
- 
---> **Note:** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-+-> **NOTE** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
- 
- * `bgp_route_propagation_enabled` - (Optional) Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
- 
-@@ -82,8 +81,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
- 
- * `create` - (Defaults to 30 minutes) Used when creating the Route Table.
--* `read` - (Defaults to 5 minutes) Used when retrieving the Route Table.
- * `update` - (Defaults to 30 minutes) Used when updating the Route Table.
-+* `read` - (Defaults to 5 minutes) Used when retrieving the Route Table.
- * `delete` - (Defaults to 30 minutes) Used when deleting the Route Table.
- 
- ## Import
 diff --git a/website/docs/r/servicebus_namespace.html.markdown b/website/docs/r/servicebus_namespace.html.markdown
 index b2b47affdc95..020c78df55dd 100644
 --- a/website/docs/r/servicebus_namespace.html.markdown
@@ -3714,7 +3678,7 @@ index 5f6dde751686..2a3a4d2dbaa5 100644
  }
  
 diff --git a/website/docs/r/servicebus_subscription_rule.html.markdown b/website/docs/r/servicebus_subscription_rule.html.markdown
-index 22d79a4f3157..d5f1a2241b15 100644
+index d98f1eec3e1c..d8dbf19ff309 100644
 --- a/website/docs/r/servicebus_subscription_rule.html.markdown
 +++ b/website/docs/r/servicebus_subscription_rule.html.markdown
 @@ -25,7 +25,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -3761,60 +3725,8 @@ index e0764d371bc3..0ce42e89f2a9 100644
    }
  }
  
-diff --git a/website/docs/r/shared_image_version.html.markdown b/website/docs/r/shared_image_version.html.markdown
-index e0f3d6d6bcb4..af5a3bc17e55 100644
---- a/website/docs/r/shared_image_version.html.markdown
-+++ b/website/docs/r/shared_image_version.html.markdown
-@@ -59,9 +59,9 @@ The following arguments are supported:
- 
- * `blob_uri` - (Optional) URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
- 
---> **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
-+-> **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
- 
---> **Note:** `blob_uri` and `storage_account_id` must be specified together
-+-> **NOTE:** `blob_uri` and `storage_account_id` must be specified together
- 
- * `end_of_life_date` - (Optional) The end of life date in RFC3339 format of the Image Version.
- 
-@@ -69,13 +69,13 @@ The following arguments are supported:
- 
- * `managed_image_id` - (Optional) The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
- 
---> **Note:** The ID can be sourced from the `azurerm_image` [Data Source](https://www.terraform.io/docs/providers/azurerm/d/image.html) or [Resource](https://www.terraform.io/docs/providers/azurerm/r/image.html).
-+-> **NOTE:** The ID can be sourced from the `azurerm_image` data source or resource
- 
---> **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
-+-> **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
- 
- * `os_disk_snapshot_id` - (Optional) The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
- 
---> **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
-+-> **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
- 
- * `deletion_of_replicated_locations_enabled` - (Optional) Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
- 
-@@ -83,7 +83,7 @@ The following arguments are supported:
- 
- * `storage_account_id` - (Optional) The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
- 
---> **Note:** `blob_uri` and `storage_account_id` must be specified together
-+-> **NOTE:** `blob_uri` and `storage_account_id` must be specified together
- 
- * `tags` - (Optional) A collection of tags which should be applied to this resource.
- 
-@@ -112,8 +112,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
- 
- * `create` - (Defaults to 30 minutes) Used when creating the Shared Image Version.
--* `read` - (Defaults to 5 minutes) Used when retrieving the Shared Image Version.
- * `update` - (Defaults to 30 minutes) Used when updating the Shared Image Version.
-+* `read` - (Defaults to 5 minutes) Used when retrieving the Shared Image Version.
- * `delete` - (Defaults to 30 minutes) Used when deleting the Shared Image Version.
- 
- ## Import
 diff --git a/website/docs/r/signalr_service.html.markdown b/website/docs/r/signalr_service.html.markdown
-index 7b327f6a8bdf..ec15cedc6c6f 100644
+index 3cd256ec637b..774a352ccf2a 100644
 --- a/website/docs/r/signalr_service.html.markdown
 +++ b/website/docs/r/signalr_service.html.markdown
 @@ -14,8 +14,8 @@ Manages an Azure SignalR service.
@@ -4241,7 +4153,7 @@ index 8b0e49667952..45e7e97e112a 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/virtual_machine_scale_set.html.markdown b/website/docs/r/virtual_machine_scale_set.html.markdown
-index 4c35aeffd99f..33de92441197 100644
+index a5f0417daa0a..75b3cd539e7f 100644
 --- a/website/docs/r/virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/virtual_machine_scale_set.html.markdown
 @@ -10,12 +10,6 @@ description: |-
@@ -4277,7 +4189,7 @@ index 4c35aeffd99f..33de92441197 100644
  
 @@ -321,7 +315,7 @@ The following arguments are supported:
  
- * `zones` - (Optional) A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+ * `zones` - (Optional) A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
  
 --> **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 +-> **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
@@ -4345,7 +4257,7 @@ index 4c35aeffd99f..33de92441197 100644
  ## Import
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index b2cd7a6080a9..94341de2ca04 100644
+index 2978edb6e189..54b75a21625b 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-
@@ -4372,16 +4284,16 @@ index b2cd7a6080a9..94341de2ca04 100644
  
  * `resource_group_name` - (Required) The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
  
-@@ -73,7 +73,7 @@ The following arguments are supported:
+@@ -77,7 +77,7 @@ The following arguments are supported:
  
  * `bgp_community` - (Optional) The BGP community attribute in format `<as-number>:<community-value>`.
  
 --> **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 +-> **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
  
- * `ddos_protection_plan` - (Optional) A `ddos_protection_plan` block as documented below.
+ * `ddos_protection_plan` - (Optional) A `ddos_protection_plan` block as defined below.
  
-@@ -81,7 +81,7 @@ The following arguments are supported:
+@@ -85,7 +85,7 @@ The following arguments are supported:
  
  * `dns_servers` - (Optional) List of IP addresses of DNS servers
  
@@ -4390,16 +4302,16 @@ index b2cd7a6080a9..94341de2ca04 100644
  
  * `edge_zone` - (Optional) Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
  
-@@ -93,7 +93,7 @@ The following arguments are supported:
+@@ -97,7 +97,7 @@ The following arguments are supported:
  
- * `subnet` - (Optional) Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+ * `subnet` - (Optional) Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
  
 --> **Note:** Since `subnet` can be configured both inline and via the separate `azurerm_subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 +-> **NOTE** Since `subnet` can be configured both inline and via the separate `azurerm_subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
  * `private_endpoint_vnet_policies` - (Optional) The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
  
-@@ -133,7 +133,7 @@ The `subnet` block supports:
+@@ -137,7 +137,7 @@ The `subnet` block supports:
  
  * `address_prefixes` - (Required) The address prefixes to use for the subnet.
  
@@ -4408,7 +4320,7 @@ index b2cd7a6080a9..94341de2ca04 100644
  
  * `default_outbound_access_enabled` - (Optional) Enable default outbound access to the internet for the subnet. Defaults to `true`.
  
-@@ -216,8 +216,8 @@ The `subnet` block exports:
+@@ -220,8 +220,8 @@ The `subnet` block exports:
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Virtual Network.
@@ -4419,7 +4331,7 @@ index b2cd7a6080a9..94341de2ca04 100644
  
  ## Import
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index e9ecae09eaad..1c1c00216ded 100644
+index 188f02dc7a99..3b6dd3cafcb5 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,21 +12,19 @@ Manages a Windows Virtual Machine.
@@ -4462,9 +4374,9 @@ index e9ecae09eaad..1c1c00216ded 100644
 -~> **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
 +~> **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
  
- * `computer_name` - (Optional) Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+ ~> **Note:** Associating `capacity_reservation_group_id` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
  
-@@ -151,17 +149,17 @@ The following arguments are supported:
+@@ -153,17 +151,17 @@ The following arguments are supported:
  
  * `eviction_policy` - (Optional) Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
  
@@ -4485,7 +4397,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  * `identity` - (Optional) An `identity` block as defined below.
  
-@@ -169,15 +167,15 @@ The following arguments are supported:
+@@ -171,15 +169,15 @@ The following arguments are supported:
  
  * `max_bid_price` - (Optional) The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
  
@@ -4504,7 +4416,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  * `plan` - (Optional) A `plan` block as defined below. Changing this forces a new resource to be created.
  
-@@ -187,13 +185,13 @@ The following arguments are supported:
+@@ -189,13 +187,13 @@ The following arguments are supported:
  
  * `provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
  
@@ -4520,7 +4432,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  * `secret` - (Optional) One or more `secret` blocks as defined below.
  
-@@ -201,11 +199,11 @@ The following arguments are supported:
+@@ -203,11 +201,11 @@ The following arguments are supported:
  
  * `source_image_id` - (Optional) The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
  
@@ -4534,7 +4446,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  * `tags` - (Optional) A mapping of tags which should be assigned to this Virtual Machine.
  
-@@ -223,11 +221,13 @@ The following arguments are supported:
+@@ -225,11 +223,13 @@ The following arguments are supported:
  
  * `virtual_machine_scale_set_id` - (Optional) Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
  
@@ -4551,7 +4463,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  * `vtpm_enabled` - (Optional) Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
  
-@@ -257,7 +257,7 @@ A `boot_diagnostics` block supports the following:
+@@ -259,7 +259,7 @@ A `boot_diagnostics` block supports the following:
  
  * `storage_account_uri` - (Optional) The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
  
@@ -4560,7 +4472,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  ---
  
-@@ -267,7 +267,7 @@ A `certificate` block supports the following:
+@@ -269,7 +269,7 @@ A `certificate` block supports the following:
  
  * `url` - (Required) The Secret URL of a Key Vault Certificate.
  
@@ -4569,7 +4481,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  ---
  
-@@ -303,7 +303,7 @@ An `identity` block supports the following:
+@@ -305,7 +305,7 @@ An `identity` block supports the following:
  
  * `identity_ids` - (Optional) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
  
@@ -4578,7 +4490,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  ---
  
-@@ -318,15 +318,15 @@ A `os_disk` block supports the following:
+@@ -320,15 +320,15 @@ A `os_disk` block supports the following:
  
  * `diff_disk_settings` - (Optional) A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
  
@@ -4597,7 +4509,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  * `name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
  
-@@ -334,15 +334,17 @@ A `os_disk` block supports the following:
+@@ -336,15 +336,17 @@ A `os_disk` block supports the following:
  
  * `secure_vm_disk_encryption_set_id` - (Optional) The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
  
@@ -4618,7 +4530,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  ---
  
-@@ -354,7 +356,7 @@ A `plan` block supports the following:
+@@ -356,7 +358,7 @@ A `plan` block supports the following:
  
  * `publisher` - (Required) Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
  
@@ -4627,7 +4539,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  ---
  
-@@ -390,7 +392,7 @@ A `termination_notification` block supports the following:
+@@ -392,7 +394,7 @@ A `termination_notification` block supports the following:
  
  * `timeout` - (Optional) Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
  
@@ -4636,7 +4548,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  
  ---
  
-@@ -420,8 +422,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -422,8 +424,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  * `virtual_machine_id` - A 128-bit identifier which uniquely identifies this Virtual Machine.
  
@@ -4645,7 +4557,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  ---
  
  An `identity` block exports the following:
-@@ -441,9 +441,9 @@ An `os_disk` block exports the following:
+@@ -443,9 +443,9 @@ An `os_disk` block exports the following:
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 45 minutes) Used when creating the Windows Virtual Machine.
@@ -4657,7 +4569,7 @@ index e9ecae09eaad..1c1c00216ded 100644
  ## Import
  
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 94aa2b5eee91..9068f6cd9600 100644
+index 74c0ee90544e..23e695928437 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,17 @@ Manages a Windows Virtual Machine Scale Set.
@@ -4690,7 +4602,7 @@ index 94aa2b5eee91..9068f6cd9600 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
  
-@@ -355,8 +355,6 @@ An `extension` block supports the following:
+@@ -359,8 +359,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -4699,7 +4611,7 @@ index 94aa2b5eee91..9068f6cd9600 100644
  * `protected_settings_from_key_vault` - (Optional) A `protected_settings_from_key_vault` block as defined below.
  
  ~> **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
-@@ -367,8 +365,6 @@ An `extension` block supports the following:
+@@ -371,8 +369,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  

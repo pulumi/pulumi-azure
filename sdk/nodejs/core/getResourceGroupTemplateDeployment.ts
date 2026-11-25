@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = azure.core.getResourceGroupTemplateDeployment({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-deployment",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * export const exampleOutput = example.then(example => std.jsondecode({
@@ -72,8 +72,8 @@ export interface GetResourceGroupTemplateDeploymentResult {
  * import * as std from "@pulumi/std";
  *
  * const example = azure.core.getResourceGroupTemplateDeployment({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-deployment",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * export const exampleOutput = example.then(example => std.jsondecode({

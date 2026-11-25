@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := oracle.LookupResourceAnchor(ctx, &oracle.LookupResourceAnchorArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-resource-anchor",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

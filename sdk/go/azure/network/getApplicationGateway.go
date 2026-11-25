@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.LookupApplicationGateway(ctx, &network.LookupApplicationGatewayArgs{
-//				Name:              "existing-app-gateway",
-//				ResourceGroupName: "existing-resources",
+//				Name:              "example-app-gateway",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

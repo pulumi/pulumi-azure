@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplelinuxfunctionappsa"),
+//				Name:                   pulumi.String("examplelinuxfunctionapps"),
 //				ResourceGroupName:      example.Name,
 //				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),

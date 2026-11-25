@@ -524,8 +524,8 @@ def get_exadata_infrastructure(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_exadata_infrastructure(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_exadata_infrastructure(name="example-exadata-infrastructure",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -599,8 +599,8 @@ def get_exadata_infrastructure_output(name: pulumi.Input[Optional[_builtins.str]
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_exadata_infrastructure(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_exadata_infrastructure(name="example-exadata-infrastructure",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

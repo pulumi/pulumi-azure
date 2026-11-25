@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appservice.getWindowsFunctionApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-function-app",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -227,8 +227,8 @@ export interface GetWindowsFunctionAppResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appservice.getWindowsFunctionApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-function-app",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

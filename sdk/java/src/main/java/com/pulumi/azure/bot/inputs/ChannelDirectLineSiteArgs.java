@@ -49,14 +49,14 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+     * Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
      * 
      */
     @Import(name="enhancedAuthenticationEnabled")
     private @Nullable Output<Boolean> enhancedAuthenticationEnabled;
 
     /**
-     * @return Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+     * @return Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
      * 
      */
     public Optional<Output<Boolean>> enhancedAuthenticationEnabled() {
@@ -276,7 +276,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enhancedAuthenticationEnabled Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+         * @param enhancedAuthenticationEnabled Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enhancedAuthenticationEnabled Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+         * @param enhancedAuthenticationEnabled Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
          * 
          * @return builder
          * 

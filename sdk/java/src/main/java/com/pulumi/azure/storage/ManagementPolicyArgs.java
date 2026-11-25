@@ -19,14 +19,14 @@ public final class ManagementPolicyArgs extends com.pulumi.resources.ResourceArg
     public static final ManagementPolicyArgs Empty = new ManagementPolicyArgs();
 
     /**
-     * A `rule` block as documented below.
+     * A `rule` block as defined below.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<ManagementPolicyRuleArgs>> rules;
 
     /**
-     * @return A `rule` block as documented below.
+     * @return A `rule` block as defined below.
      * 
      */
     public Optional<Output<List<ManagementPolicyRuleArgs>>> rules() {
@@ -74,7 +74,7 @@ public final class ManagementPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rules A `rule` block as documented below.
+         * @param rules A `rule` block as defined below.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class ManagementPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rules A `rule` block as documented below.
+         * @param rules A `rule` block as defined below.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class ManagementPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rules A `rule` block as documented below.
+         * @param rules A `rule` block as defined below.
          * 
          * @return builder
          * 

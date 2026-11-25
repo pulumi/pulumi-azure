@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetSyncGroup.Invoke(new()
         ///     {
-        ///         Name = "existing-ss-group",
-        ///         StorageSyncId = "existing-ss-id",
+        ///         Name = "example-sync-group",
+        ///         StorageSyncId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetSyncGroup.Invoke(new()
         ///     {
-        ///         Name = "existing-ss-group",
-        ///         StorageSyncId = "existing-ss-id",
+        ///         Name = "example-sync-group",
+        ///         StorageSyncId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetSyncGroup.Invoke(new()
         ///     {
-        ///         Name = "existing-ss-group",
-        ///         StorageSyncId = "existing-ss-id",
+        ///         Name = "example-sync-group",
+        ///         StorageSyncId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

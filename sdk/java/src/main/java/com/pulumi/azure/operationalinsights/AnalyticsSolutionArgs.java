@@ -34,14 +34,14 @@ public final class AnalyticsSolutionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      * 
      */
     @Import(name="plan", required=true)
     private Output<AnalyticsSolutionPlanArgs> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as defined below.
      * 
      */
     public Output<AnalyticsSolutionPlanArgs> plan() {
@@ -175,7 +175,7 @@ public final class AnalyticsSolutionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as defined below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class AnalyticsSolutionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as defined below.
          * 
          * @return builder
          * 

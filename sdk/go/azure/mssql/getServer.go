@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := mssql.LookupServer(ctx, &mssql.LookupServerArgs{
-//				Name:              "existingMsSqlServer",
-//				ResourceGroupName: "existingResGroup",
+//				Name:              "example-mssql-server",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

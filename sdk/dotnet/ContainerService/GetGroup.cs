@@ -26,8 +26,8 @@ namespace Pulumi.Azure.ContainerService
         /// {
         ///     var example = Azure.ContainerService.GetGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-container-group",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -64,8 +64,8 @@ namespace Pulumi.Azure.ContainerService
         /// {
         ///     var example = Azure.ContainerService.GetGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-container-group",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -102,8 +102,8 @@ namespace Pulumi.Azure.ContainerService
         /// {
         ///     var example = Azure.ContainerService.GetGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-container-group",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

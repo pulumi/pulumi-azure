@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications
     {
         /// <summary>
-        /// The additional recipients to notify
+        /// The additional recipients to notify.
         /// </summary>
         public readonly ImmutableArray<string> AdditionalRecipients;
         /// <summary>
-        /// Whether the default recipients are notified
+        /// Whether the default recipients are notified.
         /// </summary>
         public readonly bool DefaultRecipients;
         /// <summary>
-        /// What level of notifications are sent
+        /// What level of notifications are sent.
         /// </summary>
         public readonly string NotificationLevel;
 

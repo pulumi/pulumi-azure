@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? NodeLabels;
         /// <summary>
-        /// A `NodeNetworkProfile` block as documented below.
+        /// A `NodeNetworkProfile` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile? NodeNetworkProfile;
         /// <summary>
@@ -123,6 +123,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? ScaleDownMode;
         /// <summary>
+        /// A `Security` block as documented below.
+        /// 
+        /// &gt; **Note:** Changing either flag in `Security` reimages the nodes in this pool and can disrupt workloads.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterDefaultNodePoolSecurity? Security;
+        /// <summary>
         /// The ID of the Snapshot which should be used to create this default Node Pool. `TemporaryNameForRotation` must be specified when changing this property.
         /// </summary>
         public readonly string? SnapshotId;
@@ -147,7 +153,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? UltraSsdEnabled;
         /// <summary>
-        /// A `UpgradeSettings` block as documented below.
+        /// A `UpgradeSettings` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? UpgradeSettings;
         /// <summary>
@@ -229,6 +235,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? scaleDownMode,
 
+            Outputs.KubernetesClusterDefaultNodePoolSecurity? security,
+
             string? snapshotId,
 
             ImmutableDictionary<string, string>? tags,
@@ -276,6 +284,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             PodSubnetId = podSubnetId;
             ProximityPlacementGroupId = proximityPlacementGroupId;
             ScaleDownMode = scaleDownMode;
+            Security = security;
             SnapshotId = snapshotId;
             Tags = tags;
             TemporaryNameForRotation = temporaryNameForRotation;

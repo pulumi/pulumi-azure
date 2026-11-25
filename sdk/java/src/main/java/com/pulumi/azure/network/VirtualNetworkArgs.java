@@ -43,6 +43,25 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     * 
+     * &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+     * 
+     */
+    @Import(name="advertisedGatewayPrefixes")
+    private @Nullable Output<List<String>> advertisedGatewayPrefixes;
+
+    /**
+     * @return A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     * 
+     * &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+     * 
+     */
+    public Optional<Output<List<String>>> advertisedGatewayPrefixes() {
+        return Optional.ofNullable(this.advertisedGatewayPrefixes);
+    }
+
+    /**
      * The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
      * 
      * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -62,14 +81,14 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `ddosProtectionPlan` block as documented below.
+     * A `ddosProtectionPlan` block as defined below.
      * 
      */
     @Import(name="ddosProtectionPlan")
     private @Nullable Output<VirtualNetworkDdosProtectionPlanArgs> ddosProtectionPlan;
 
     /**
-     * @return A `ddosProtectionPlan` block as documented below.
+     * @return A `ddosProtectionPlan` block as defined below.
      * 
      */
     public Optional<Output<VirtualNetworkDdosProtectionPlanArgs>> ddosProtectionPlan() {
@@ -220,7 +239,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
      * 
      * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
@@ -229,7 +248,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<List<VirtualNetworkSubnetArgs>> subnets;
 
     /**
-     * @return Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+     * @return Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
      * 
      * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
@@ -257,6 +276,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
 
     private VirtualNetworkArgs(VirtualNetworkArgs $) {
         this.addressSpaces = $.addressSpaces;
+        this.advertisedGatewayPrefixes = $.advertisedGatewayPrefixes;
         this.bgpCommunity = $.bgpCommunity;
         this.ddosProtectionPlan = $.ddosProtectionPlan;
         this.dnsServers = $.dnsServers;
@@ -328,6 +348,43 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param advertisedGatewayPrefixes A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+         * 
+         * &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advertisedGatewayPrefixes(@Nullable Output<List<String>> advertisedGatewayPrefixes) {
+            $.advertisedGatewayPrefixes = advertisedGatewayPrefixes;
+            return this;
+        }
+
+        /**
+         * @param advertisedGatewayPrefixes A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+         * 
+         * &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advertisedGatewayPrefixes(List<String> advertisedGatewayPrefixes) {
+            return advertisedGatewayPrefixes(Output.of(advertisedGatewayPrefixes));
+        }
+
+        /**
+         * @param advertisedGatewayPrefixes A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+         * 
+         * &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advertisedGatewayPrefixes(String... advertisedGatewayPrefixes) {
+            return advertisedGatewayPrefixes(List.of(advertisedGatewayPrefixes));
+        }
+
+        /**
          * @param bgpCommunity The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
          * 
          * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -353,7 +410,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ddosProtectionPlan A `ddosProtectionPlan` block as documented below.
+         * @param ddosProtectionPlan A `ddosProtectionPlan` block as defined below.
          * 
          * @return builder
          * 
@@ -364,7 +421,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ddosProtectionPlan A `ddosProtectionPlan` block as documented below.
+         * @param ddosProtectionPlan A `ddosProtectionPlan` block as defined below.
          * 
          * @return builder
          * 
@@ -595,7 +652,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+         * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
          * 
          * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
@@ -608,7 +665,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+         * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
          * 
          * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
@@ -620,7 +677,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+         * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
          * 
          * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 

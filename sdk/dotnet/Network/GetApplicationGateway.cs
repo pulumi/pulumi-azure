@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetApplicationGateway.Invoke(new()
         ///     {
-        ///         Name = "existing-app-gateway",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-app-gateway",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetApplicationGateway.Invoke(new()
         ///     {
-        ///         Name = "existing-app-gateway",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-app-gateway",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetApplicationGateway.Invoke(new()
         ///     {
-        ///         Name = "existing-app-gateway",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-app-gateway",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

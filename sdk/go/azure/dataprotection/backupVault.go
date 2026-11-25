@@ -69,6 +69,8 @@ import (
 type BackupVault struct {
 	pulumi.CustomResourceState
 
+	// Whether to enable Azure Monitor alerts for all job failures.
+	AlertsForAllJobFailuresEnabled pulumi.BoolOutput `pulumi:"alertsForAllJobFailuresEnabled"`
 	// Whether to enable cross-region restore for the Backup Vault.
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -138,6 +140,8 @@ func GetBackupVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupVault resources.
 type backupVaultState struct {
+	// Whether to enable Azure Monitor alerts for all job failures.
+	AlertsForAllJobFailuresEnabled *bool `pulumi:"alertsForAllJobFailuresEnabled"`
 	// Whether to enable cross-region restore for the Backup Vault.
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -169,6 +173,8 @@ type backupVaultState struct {
 }
 
 type BackupVaultState struct {
+	// Whether to enable Azure Monitor alerts for all job failures.
+	AlertsForAllJobFailuresEnabled pulumi.BoolPtrInput
 	// Whether to enable cross-region restore for the Backup Vault.
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -204,6 +210,8 @@ func (BackupVaultState) ElementType() reflect.Type {
 }
 
 type backupVaultArgs struct {
+	// Whether to enable Azure Monitor alerts for all job failures.
+	AlertsForAllJobFailuresEnabled *bool `pulumi:"alertsForAllJobFailuresEnabled"`
 	// Whether to enable cross-region restore for the Backup Vault.
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -236,6 +244,8 @@ type backupVaultArgs struct {
 
 // The set of arguments for constructing a BackupVault resource.
 type BackupVaultArgs struct {
+	// Whether to enable Azure Monitor alerts for all job failures.
+	AlertsForAllJobFailuresEnabled pulumi.BoolPtrInput
 	// Whether to enable cross-region restore for the Backup Vault.
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -351,6 +361,11 @@ func (o BackupVaultOutput) ToBackupVaultOutput() BackupVaultOutput {
 
 func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) BackupVaultOutput {
 	return o
+}
+
+// Whether to enable Azure Monitor alerts for all job failures.
+func (o BackupVaultOutput) AlertsForAllJobFailuresEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.BoolOutput { return v.AlertsForAllJobFailuresEnabled }).(pulumi.BoolOutput)
 }
 
 // Whether to enable cross-region restore for the Backup Vault.

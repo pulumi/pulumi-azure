@@ -43,8 +43,8 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name("existing-backup-vault")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-backup-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
@@ -93,8 +93,8 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name("existing-backup-vault")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-backup-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
@@ -143,8 +143,8 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name("existing-backup-vault")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-backup-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
@@ -193,8 +193,8 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name("existing-backup-vault")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-backup-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
@@ -243,8 +243,8 @@ public final class DataprotectionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name("existing-backup-vault")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-backup-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));

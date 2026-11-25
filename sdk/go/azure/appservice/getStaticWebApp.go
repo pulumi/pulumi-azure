@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appservice.LookupStaticWebApp(ctx, &appservice.LookupStaticWebAppArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-static-web-app",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

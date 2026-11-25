@@ -133,14 +133,14 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
         return this.name;
     }
     /**
-     * One or more `policy` blocks as documented below.
+     * One or more `policy` blocks as defined below.
      * 
      */
     @Export(name="policies", refs={List.class,VpnServerConfigurationPolicyGroupPolicy.class}, tree="[0,1]")
     private Output<List<VpnServerConfigurationPolicyGroupPolicy>> policies;
 
     /**
-     * @return One or more `policy` blocks as documented below.
+     * @return One or more `policy` blocks as defined below.
      * 
      */
     public Output<List<VpnServerConfigurationPolicyGroupPolicy>> policies() {

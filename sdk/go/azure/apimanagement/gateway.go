@@ -88,7 +88,7 @@ type Gateway struct {
 	ApiManagementId pulumi.StringOutput `pulumi:"apiManagementId"`
 	// The description of the API Management Gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A `locationData` block as documented below.
+	// A `locationData` block as defined below.
 	LocationData GatewayLocationDataOutput `pulumi:"locationData"`
 	// The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -134,7 +134,7 @@ type gatewayState struct {
 	ApiManagementId *string `pulumi:"apiManagementId"`
 	// The description of the API Management Gateway.
 	Description *string `pulumi:"description"`
-	// A `locationData` block as documented below.
+	// A `locationData` block as defined below.
 	LocationData *GatewayLocationData `pulumi:"locationData"`
 	// The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
 	Name *string `pulumi:"name"`
@@ -145,7 +145,7 @@ type GatewayState struct {
 	ApiManagementId pulumi.StringPtrInput
 	// The description of the API Management Gateway.
 	Description pulumi.StringPtrInput
-	// A `locationData` block as documented below.
+	// A `locationData` block as defined below.
 	LocationData GatewayLocationDataPtrInput
 	// The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
 	Name pulumi.StringPtrInput
@@ -160,7 +160,7 @@ type gatewayArgs struct {
 	ApiManagementId string `pulumi:"apiManagementId"`
 	// The description of the API Management Gateway.
 	Description *string `pulumi:"description"`
-	// A `locationData` block as documented below.
+	// A `locationData` block as defined below.
 	LocationData GatewayLocationData `pulumi:"locationData"`
 	// The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
 	Name *string `pulumi:"name"`
@@ -172,7 +172,7 @@ type GatewayArgs struct {
 	ApiManagementId pulumi.StringInput
 	// The description of the API Management Gateway.
 	Description pulumi.StringPtrInput
-	// A `locationData` block as documented below.
+	// A `locationData` block as defined below.
 	LocationData GatewayLocationDataInput
 	// The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
 	Name pulumi.StringPtrInput
@@ -275,7 +275,7 @@ func (o GatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A `locationData` block as documented below.
+// A `locationData` block as defined below.
 func (o GatewayOutput) LocationData() GatewayLocationDataOutput {
 	return o.ApplyT(func(v *Gateway) GatewayLocationDataOutput { return v.LocationData }).(GatewayLocationDataOutput)
 }

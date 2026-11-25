@@ -536,8 +536,8 @@ def get_linux_web_app(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_linux_web_app(name="existing",
-        resource_group_name="existing")
+    example = azure.appservice.get_linux_web_app(name="example-web-app",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -612,8 +612,8 @@ def get_linux_web_app_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_linux_web_app(name="existing",
-        resource_group_name="existing")
+    example = azure.appservice.get_linux_web_app(name="example-web-app",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

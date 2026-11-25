@@ -32,6 +32,7 @@ class DiagnosticArgs:
                  frontend_response: pulumi.Input[Optional['DiagnosticFrontendResponseArgs']] = None,
                  http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
                  sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  verbosity: pulumi.Input[Optional[_builtins.str]] = None):
@@ -49,6 +50,9 @@ class DiagnosticArgs:
         :param pulumi.Input['DiagnosticFrontendResponseArgs'] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[_builtins.str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[_builtins.bool] log_client_ip: Log client IP address.
+        :param pulumi.Input[_builtins.bool] metrics_enabled: Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+               
+               > **Note:** `metrics_enabled` can only be set when `identifier` is set to `applicationinsights`.
         :param pulumi.Input[_builtins.str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         :param pulumi.Input[_builtins.float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[_builtins.str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
@@ -71,6 +75,8 @@ class DiagnosticArgs:
             pulumi.set(__self__, "http_correlation_protocol", http_correlation_protocol)
         if log_client_ip is not None:
             pulumi.set(__self__, "log_client_ip", log_client_ip)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
         if operation_name_format is not None:
             pulumi.set(__self__, "operation_name_format", operation_name_format)
         if sampling_percentage is not None:
@@ -211,6 +217,20 @@ class DiagnosticArgs:
         pulumi.set(self, "log_client_ip", value)
 
     @_builtins.property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+
+        > **Note:** `metrics_enabled` can only be set when `identifier` is set to `applicationinsights`.
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="operationNameFormat")
     def operation_name_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -260,6 +280,7 @@ class _DiagnosticState:
                  http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
@@ -277,6 +298,9 @@ class _DiagnosticState:
         :param pulumi.Input[_builtins.str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[_builtins.str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] log_client_ip: Log client IP address.
+        :param pulumi.Input[_builtins.bool] metrics_enabled: Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+               
+               > **Note:** `metrics_enabled` can only be set when `identifier` is set to `applicationinsights`.
         :param pulumi.Input[_builtins.str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
@@ -302,6 +326,8 @@ class _DiagnosticState:
             pulumi.set(__self__, "identifier", identifier)
         if log_client_ip is not None:
             pulumi.set(__self__, "log_client_ip", log_client_ip)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
         if operation_name_format is not None:
             pulumi.set(__self__, "operation_name_format", operation_name_format)
         if resource_group_name is not None:
@@ -432,6 +458,20 @@ class _DiagnosticState:
         pulumi.set(self, "log_client_ip", value)
 
     @_builtins.property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+
+        > **Note:** `metrics_enabled` can only be set when `identifier` is set to `applicationinsights`.
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="operationNameFormat")
     def operation_name_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -496,6 +536,7 @@ class Diagnostic(pulumi.CustomResource):
                  http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
@@ -604,6 +645,9 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[_builtins.str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] log_client_ip: Log client IP address.
+        :param pulumi.Input[_builtins.bool] metrics_enabled: Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+               
+               > **Note:** `metrics_enabled` can only be set when `identifier` is set to `applicationinsights`.
         :param pulumi.Input[_builtins.str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
@@ -731,6 +775,7 @@ class Diagnostic(pulumi.CustomResource):
                  http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
@@ -760,6 +805,7 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
             __props__.__dict__["log_client_ip"] = log_client_ip
+            __props__.__dict__["metrics_enabled"] = metrics_enabled
             __props__.__dict__["operation_name_format"] = operation_name_format
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -786,6 +832,7 @@ class Diagnostic(pulumi.CustomResource):
             http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
             identifier: pulumi.Input[Optional[_builtins.str]] = None,
             log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+            metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
@@ -807,6 +854,9 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[_builtins.str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] log_client_ip: Log client IP address.
+        :param pulumi.Input[_builtins.bool] metrics_enabled: Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+               
+               > **Note:** `metrics_enabled` can only be set when `identifier` is set to `applicationinsights`.
         :param pulumi.Input[_builtins.str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
@@ -826,6 +876,7 @@ class Diagnostic(pulumi.CustomResource):
         __props__.__dict__["http_correlation_protocol"] = http_correlation_protocol
         __props__.__dict__["identifier"] = identifier
         __props__.__dict__["log_client_ip"] = log_client_ip
+        __props__.__dict__["metrics_enabled"] = metrics_enabled
         __props__.__dict__["operation_name_format"] = operation_name_format
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sampling_percentage"] = sampling_percentage
@@ -911,6 +962,16 @@ class Diagnostic(pulumi.CustomResource):
         Log client IP address.
         """
         return pulumi.get(self, "log_client_ip")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+
+        > **Note:** `metrics_enabled` can only be set when `identifier` is set to `applicationinsights`.
+        """
+        return pulumi.get(self, "metrics_enabled")
 
     @_builtins.property
     @pulumi.getter(name="operationNameFormat")

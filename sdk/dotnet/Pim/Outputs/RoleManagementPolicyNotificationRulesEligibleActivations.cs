@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class RoleManagementPolicyNotificationRulesEligibleActivations
     {
         /// <summary>
-        /// Admin notification settings
+        /// Admin notification settings.
         /// </summary>
         public readonly Outputs.RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications? AdminNotifications;
         /// <summary>
-        /// Approver notification settings
+        /// Approver notification settings.
         /// </summary>
         public readonly Outputs.RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications? ApproverNotifications;
         /// <summary>
-        /// Assignee notification settings
+        /// Assignee notification settings.
         /// </summary>
         public readonly Outputs.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications? AssigneeNotifications;
 

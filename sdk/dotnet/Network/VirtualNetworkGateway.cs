@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> BgpRouteTranslationForNatEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `BgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+        /// A `BgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Output("bgpSettings")]
         public Output<Outputs.VirtualNetworkGatewayBgpSettings> BgpSettings { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> VirtualWanTrafficEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `VpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        /// A `VpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Output("vpnClientConfiguration")]
         public Output<Outputs.VirtualNetworkGatewayVpnClientConfiguration?> VpnClientConfiguration { get; private set; } = null!;
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? BgpRouteTranslationForNatEnabled { get; set; }
 
         /// <summary>
-        /// A `BgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+        /// A `BgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? VirtualWanTrafficEnabled { get; set; }
 
         /// <summary>
-        /// A `VpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        /// A `VpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Input("vpnClientConfiguration")]
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationArgs>? VpnClientConfiguration { get; set; }
@@ -565,7 +565,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? BgpRouteTranslationForNatEnabled { get; set; }
 
         /// <summary>
-        /// A `BgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+        /// A `BgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
@@ -717,7 +717,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? VirtualWanTrafficEnabled { get; set; }
 
         /// <summary>
-        /// A `VpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        /// A `VpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Input("vpnClientConfiguration")]
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationGetArgs>? VpnClientConfiguration { get; set; }

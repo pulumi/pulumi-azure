@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyFileShareBackupHourly
     {
         /// <summary>
-        /// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+        /// Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
         /// </summary>
         public readonly int Interval;
         /// <summary>

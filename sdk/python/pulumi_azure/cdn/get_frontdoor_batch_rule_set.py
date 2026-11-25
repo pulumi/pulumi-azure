@@ -119,9 +119,9 @@ def get_frontdoor_batch_rule_set(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_batch_rule_set(name="existing",
-        profile_name="existing-profile",
-        resource_group_name="existing-resources")
+    example = azure.cdn.get_frontdoor_batch_rule_set(name="exampleruleset",
+        profile_name="example-profile",
+        resource_group_name="example-resources")
     ```
 
     ## API Providers
@@ -129,7 +129,7 @@ def get_frontdoor_batch_rule_set(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-12-01
+    * `Microsoft.Cdn` - 2026-10-01
 
 
     :param _builtins.str name: The name of the Front Door Batch Rule Set.
@@ -165,9 +165,9 @@ def get_frontdoor_batch_rule_set_output(name: pulumi.Input[Optional[_builtins.st
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_batch_rule_set(name="existing",
-        profile_name="existing-profile",
-        resource_group_name="existing-resources")
+    example = azure.cdn.get_frontdoor_batch_rule_set(name="exampleruleset",
+        profile_name="example-profile",
+        resource_group_name="example-resources")
     ```
 
     ## API Providers
@@ -175,7 +175,7 @@ def get_frontdoor_batch_rule_set_output(name: pulumi.Input[Optional[_builtins.st
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-12-01
+    * `Microsoft.Cdn` - 2026-10-01
 
 
     :param _builtins.str name: The name of the Front Door Batch Rule Set.

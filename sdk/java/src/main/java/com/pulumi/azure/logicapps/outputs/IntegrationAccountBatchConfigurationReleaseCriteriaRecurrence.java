@@ -30,7 +30,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
      */
     private Integer interval;
     /**
-     * @return A `schedule` block as documented below.
+     * @return A `schedule` block as defined below.
      * 
      */
     private @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule schedule;
@@ -68,7 +68,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         return this.interval;
     }
     /**
-     * @return A `schedule` block as documented below.
+     * @return A `schedule` block as defined below.
      * 
      */
     public Optional<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule> schedule() {

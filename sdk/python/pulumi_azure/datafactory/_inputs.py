@@ -7383,7 +7383,7 @@ class TriggerScheduleScheduleArgsDict(TypedDict):
     """
     monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgsDict']]]]]
     """
-    A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+    A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
     """
 
 @pulumi.input_type
@@ -7399,7 +7399,7 @@ class TriggerScheduleScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours: Hours of the day on which the trigger is scheduled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] minutes: Minutes of the hour on which the trigger is scheduled.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]] monthlies: A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
         if days_of_months is not None:
             pulumi.set(__self__, "days_of_months", days_of_months)
@@ -7464,7 +7464,7 @@ class TriggerScheduleScheduleArgs:
     @pulumi.getter
     def monthlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]:
         """
-        A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
         return pulumi.get(self, "monthlies")
 

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Portal
         /// {
         ///     var example = Azure.Portal.Azurerm_portal_dashboard.Invoke(new()
         ///     {
-        ///         Name = "existing-dashboard",
+        ///         Name = "example-dashboard",
         ///         ResourceGroupName = "dashboard-rg",
         ///     });
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Portal
         /// {
         ///     var example = Azure.Portal.Azurerm_portal_dashboard.Invoke(new()
         ///     {
-        ///         Name = "existing-dashboard",
+        ///         Name = "example-dashboard",
         ///         ResourceGroupName = "dashboard-rg",
         ///     });
         /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Portal
         /// {
         ///     var example = Azure.Portal.Azurerm_portal_dashboard.Invoke(new()
         ///     {
-        ///         Name = "existing-dashboard",
+        ///         Name = "example-dashboard",
         ///         ResourceGroupName = "dashboard-rg",
         ///     });
         /// 

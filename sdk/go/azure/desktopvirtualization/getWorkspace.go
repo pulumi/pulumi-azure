@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := desktopvirtualization.LookupWorkspace(ctx, &desktopvirtualization.LookupWorkspaceArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-workspace",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

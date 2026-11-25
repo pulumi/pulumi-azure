@@ -20,12 +20,16 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The identity id of the user assigned identity to use when type is `UserAssigned`
      * 
+     * &gt; **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return The identity id of the user assigned identity to use when type is `UserAssigned`
+     * 
+     * &gt; **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -91,6 +95,8 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds The identity id of the user assigned identity to use when type is `UserAssigned`
          * 
+         * &gt; **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +108,8 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds The identity id of the user assigned identity to use when type is `UserAssigned`
          * 
+         * &gt; **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
+         * 
          * @return builder
          * 
          */
@@ -111,6 +119,8 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param identityIds The identity id of the user assigned identity to use when type is `UserAssigned`
+         * 
+         * &gt; **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
          * 
          * @return builder
          * 

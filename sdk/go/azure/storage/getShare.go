@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = storage.LookupShare(ctx, &storage.LookupShareArgs{
-//				Name:             "existing",
+//				Name:             "example-share",
 //				StorageAccountId: example.Id,
 //			}, nil)
 //			if err != nil {

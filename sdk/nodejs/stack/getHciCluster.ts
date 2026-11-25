@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.stack.getHciCluster({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-cluster",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * export const location = example.then(example => example.location);
@@ -110,8 +110,8 @@ export interface GetHciClusterResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.stack.getHciCluster({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-cluster",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * export const location = example.then(example => example.location);

@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.paloalto.getLocalRulestack({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-rulestack",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -110,8 +110,8 @@ export interface GetLocalRulestackResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.paloalto.getLocalRulestack({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-rulestack",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

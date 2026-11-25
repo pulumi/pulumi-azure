@@ -30,7 +30,7 @@ public final class GetServiceResult {
      */
     private Boolean connectivityLogsEnabled;
     /**
-     * @return A `cors` block as documented below.
+     * @return A `cors` block as defined below.
      * 
      */
     private List<GetServiceCor> cors;
@@ -50,7 +50,7 @@ public final class GetServiceResult {
      */
     private String id;
     /**
-     * @return An `identity` block as documented below.
+     * @return An `identity` block as defined below.
      * 
      */
     private List<GetServiceIdentity> identities;
@@ -131,7 +131,7 @@ public final class GetServiceResult {
      */
     private String serviceMode;
     /**
-     * @return A `sku` block as documented below.
+     * @return A `sku` block as defined below.
      * 
      */
     private List<GetServiceSkus> skus;
@@ -142,7 +142,7 @@ public final class GetServiceResult {
      */
     private Boolean tlsClientCertEnabled;
     /**
-     * @return One or more `upstreamEndpoint` blocks as documented below.
+     * @return One or more `upstreamEndpoint` blocks as defined below.
      * 
      */
     private List<GetServiceUpstreamEndpoint> upstreamEndpoints;
@@ -163,7 +163,7 @@ public final class GetServiceResult {
         return this.connectivityLogsEnabled;
     }
     /**
-     * @return A `cors` block as documented below.
+     * @return A `cors` block as defined below.
      * 
      */
     public List<GetServiceCor> cors() {
@@ -191,7 +191,7 @@ public final class GetServiceResult {
         return this.id;
     }
     /**
-     * @return An `identity` block as documented below.
+     * @return An `identity` block as defined below.
      * 
      */
     public List<GetServiceIdentity> identities() {
@@ -306,7 +306,7 @@ public final class GetServiceResult {
         return this.serviceMode;
     }
     /**
-     * @return A `sku` block as documented below.
+     * @return A `sku` block as defined below.
      * 
      */
     public List<GetServiceSkus> skus() {
@@ -323,7 +323,7 @@ public final class GetServiceResult {
         return this.tlsClientCertEnabled;
     }
     /**
-     * @return One or more `upstreamEndpoint` blocks as documented below.
+     * @return One or more `upstreamEndpoint` blocks as defined below.
      * 
      */
     public List<GetServiceUpstreamEndpoint> upstreamEndpoints() {

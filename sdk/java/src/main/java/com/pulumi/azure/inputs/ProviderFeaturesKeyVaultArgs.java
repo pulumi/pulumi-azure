@@ -16,14 +16,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     public static final ProviderFeaturesKeyVaultArgs Empty = new ProviderFeaturesKeyVaultArgs();
 
     /**
-     * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+     * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     @Import(name="purgeSoftDeleteOnDestroy")
     private @Nullable Output<Boolean> purgeSoftDeleteOnDestroy;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Output<Boolean>> purgeSoftDeleteOnDestroy() {
@@ -31,14 +31,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+     * When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     @Import(name="purgeSoftDeletedCertificatesOnDestroy")
     private @Nullable Output<Boolean> purgeSoftDeletedCertificatesOnDestroy;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Output<Boolean>> purgeSoftDeletedCertificatesOnDestroy() {
@@ -46,14 +46,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     @Import(name="purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy")
     private @Nullable Output<Boolean> purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Output<Boolean>> purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy() {
@@ -61,14 +61,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     @Import(name="purgeSoftDeletedHardwareSecurityModulesOnDestroy")
     private @Nullable Output<Boolean> purgeSoftDeletedHardwareSecurityModulesOnDestroy;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Output<Boolean>> purgeSoftDeletedHardwareSecurityModulesOnDestroy() {
@@ -76,14 +76,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+     * When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     @Import(name="purgeSoftDeletedKeysOnDestroy")
     private @Nullable Output<Boolean> purgeSoftDeletedKeysOnDestroy;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Output<Boolean>> purgeSoftDeletedKeysOnDestroy() {
@@ -91,14 +91,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+     * When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     @Import(name="purgeSoftDeletedSecretsOnDestroy")
     private @Nullable Output<Boolean> purgeSoftDeletedSecretsOnDestroy;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Output<Boolean>> purgeSoftDeletedSecretsOnDestroy() {
@@ -106,14 +106,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+     * When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
      * 
      */
     @Import(name="recoverSoftDeletedCertificates")
     private @Nullable Output<Boolean> recoverSoftDeletedCertificates;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Output<Boolean>> recoverSoftDeletedCertificates() {
@@ -121,14 +121,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
      * 
      */
     @Import(name="recoverSoftDeletedHardwareSecurityModuleKeys")
     private @Nullable Output<Boolean> recoverSoftDeletedHardwareSecurityModuleKeys;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Output<Boolean>> recoverSoftDeletedHardwareSecurityModuleKeys() {
@@ -136,14 +136,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+     * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
      * 
      */
     @Import(name="recoverSoftDeletedKeyVaults")
     private @Nullable Output<Boolean> recoverSoftDeletedKeyVaults;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Output<Boolean>> recoverSoftDeletedKeyVaults() {
@@ -151,14 +151,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+     * When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
      * 
      */
     @Import(name="recoverSoftDeletedKeys")
     private @Nullable Output<Boolean> recoverSoftDeletedKeys;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Output<Boolean>> recoverSoftDeletedKeys() {
@@ -166,14 +166,14 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+     * When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
      * 
      */
     @Import(name="recoverSoftDeletedSecrets")
     private @Nullable Output<Boolean> recoverSoftDeletedSecrets;
 
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Output<Boolean>> recoverSoftDeletedSecrets() {
@@ -215,7 +215,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeleteOnDestroy When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeleteOnDestroy When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeleteOnDestroy When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeleteOnDestroy When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedCertificatesOnDestroy When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedCertificatesOnDestroy When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedCertificatesOnDestroy When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedCertificatesOnDestroy When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedHardwareSecurityModulesOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedHardwareSecurityModulesOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedHardwareSecurityModulesOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedHardwareSecurityModulesOnDestroy When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedKeysOnDestroy When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedKeysOnDestroy When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedKeysOnDestroy When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedKeysOnDestroy When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedSecretsOnDestroy When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedSecretsOnDestroy When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param purgeSoftDeletedSecretsOnDestroy When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+         * @param purgeSoftDeletedSecretsOnDestroy When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedCertificates When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedCertificates When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedCertificates When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedCertificates When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedHardwareSecurityModuleKeys When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedHardwareSecurityModuleKeys When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedHardwareSecurityModuleKeys When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedHardwareSecurityModuleKeys When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedKeyVaults When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedKeyVaults When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedKeyVaults When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedKeyVaults When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedKeys When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedKeys When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedKeys When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedKeys When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedSecrets When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedSecrets When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class ProviderFeaturesKeyVaultArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoverSoftDeletedSecrets When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+         * @param recoverSoftDeletedSecrets When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
          * 
          * @return builder
          * 

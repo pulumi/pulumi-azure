@@ -67,14 +67,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `ipConfiguration` block as documented below.
+     * An `ipConfiguration` block as defined below.
      * 
      */
     @Import(name="ipConfigurations")
     private @Nullable Output<List<FirewallIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return An `ipConfiguration` block as documented below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     public Optional<Output<List<FirewallIpConfigurationArgs>>> ipConfigurations() {
@@ -97,14 +97,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managementIpConfiguration")
     private @Nullable Output<FirewallManagementIpConfigurationArgs> managementIpConfiguration;
 
     /**
-     * @return A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * @return A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<FirewallManagementIpConfigurationArgs>> managementIpConfiguration() {
@@ -217,14 +217,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `virtualHub` block as documented below.
+     * A `virtualHub` block as defined below.
      * 
      */
     @Import(name="virtualHub")
     private @Nullable Output<FirewallVirtualHubArgs> virtualHub;
 
     /**
-     * @return A `virtualHub` block as documented below.
+     * @return A `virtualHub` block as defined below.
      * 
      */
     public Optional<Output<FirewallVirtualHubArgs>> virtualHub() {
@@ -362,7 +362,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ipConfiguration` block as documented below.
+         * @param ipConfigurations An `ipConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ipConfiguration` block as documented below.
+         * @param ipConfigurations An `ipConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ipConfiguration` block as documented below.
+         * @param ipConfigurations An `ipConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managementIpConfiguration A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+         * @param managementIpConfiguration A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managementIpConfiguration A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+         * @param managementIpConfiguration A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualHub A `virtualHub` block as documented below.
+         * @param virtualHub A `virtualHub` block as defined below.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualHub A `virtualHub` block as documented below.
+         * @param virtualHub A `virtualHub` block as defined below.
          * 
          * @return builder
          * 

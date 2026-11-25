@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolKubeletConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolLinuxOsConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolNodeNetworkProfileArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolSecurityArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolUpgradeSettingsArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolWindowsProfileArgs;
 import com.pulumi.core.Output;
@@ -308,14 +309,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `nodeNetworkProfile` block as documented below.
+     * A `nodeNetworkProfile` block as defined below.
      * 
      */
     @Import(name="nodeNetworkProfile")
     private @Nullable Output<KubernetesClusterNodePoolNodeNetworkProfileArgs> nodeNetworkProfile;
 
     /**
-     * @return A `nodeNetworkProfile` block as documented below.
+     * @return A `nodeNetworkProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolNodeNetworkProfileArgs>> nodeNetworkProfile() {
@@ -515,6 +516,25 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * A `security` block as documented below.
+     * 
+     * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     * 
+     */
+    @Import(name="security")
+    private @Nullable Output<KubernetesClusterNodePoolSecurityArgs> security;
+
+    /**
+     * @return A `security` block as documented below.
+     * 
+     * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     * 
+     */
+    public Optional<Output<KubernetesClusterNodePoolSecurityArgs>> security() {
+        return Optional.ofNullable(this.security);
+    }
+
+    /**
      * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      * 
      */
@@ -598,14 +618,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `upgradeSettings` block as documented below.
+     * A `upgradeSettings` block as defined below.
      * 
      */
     @Import(name="upgradeSettings")
     private @Nullable Output<KubernetesClusterNodePoolUpgradeSettingsArgs> upgradeSettings;
 
     /**
-     * @return A `upgradeSettings` block as documented below.
+     * @return A `upgradeSettings` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolUpgradeSettingsArgs>> upgradeSettings() {
@@ -647,14 +667,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+     * A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="windowsProfile")
     private @Nullable Output<KubernetesClusterNodePoolWindowsProfileArgs> windowsProfile;
 
     /**
-     * @return A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+     * @return A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolWindowsProfileArgs>> windowsProfile() {
@@ -734,6 +754,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         this.priority = $.priority;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.scaleDownMode = $.scaleDownMode;
+        this.security = $.security;
         this.snapshotId = $.snapshotId;
         this.spotMaxPrice = $.spotMaxPrice;
         this.tags = $.tags;
@@ -1149,7 +1170,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodeNetworkProfile A `nodeNetworkProfile` block as documented below.
+         * @param nodeNetworkProfile A `nodeNetworkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1160,7 +1181,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodeNetworkProfile A `nodeNetworkProfile` block as documented below.
+         * @param nodeNetworkProfile A `nodeNetworkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1444,6 +1465,31 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param security A `security` block as documented below.
+         * 
+         * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder security(@Nullable Output<KubernetesClusterNodePoolSecurityArgs> security) {
+            $.security = security;
+            return this;
+        }
+
+        /**
+         * @param security A `security` block as documented below.
+         * 
+         * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder security(KubernetesClusterNodePoolSecurityArgs security) {
+            return security(Output.of(security));
+        }
+
+        /**
          * @param snapshotId The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
          * 
          * @return builder
@@ -1557,7 +1603,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param upgradeSettings A `upgradeSettings` block as documented below.
+         * @param upgradeSettings A `upgradeSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1568,7 +1614,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param upgradeSettings A `upgradeSettings` block as documented below.
+         * @param upgradeSettings A `upgradeSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1624,7 +1670,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param windowsProfile A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+         * @param windowsProfile A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1635,7 +1681,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param windowsProfile A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+         * @param windowsProfile A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

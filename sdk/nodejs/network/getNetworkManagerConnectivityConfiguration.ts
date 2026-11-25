@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkManagerConnectivityConfiguration({
- *     name: "existing",
+ *     name: "example-connectivity-configuration",
  *     networkManagerId: "TODO",
  * });
  * export const id = example.then(example => example.id);
@@ -108,7 +108,7 @@ export interface GetNetworkManagerConnectivityConfigurationResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkManagerConnectivityConfiguration({
- *     name: "existing",
+ *     name: "example-connectivity-configuration",
  *     networkManagerId: "TODO",
  * });
  * export const id = example.then(example => example.id);

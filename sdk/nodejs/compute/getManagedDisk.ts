@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.compute.getManagedDisk({
+ * const example = azure.compute.getManagedDisk({
  *     name: "example-datadisk",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existing.then(existing => existing.id);
+ * export const id = example.then(example => example.id);
  * ```
  *
  * ## API Providers
@@ -136,11 +136,11 @@ export interface GetManagedDiskResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.compute.getManagedDisk({
+ * const example = azure.compute.getManagedDisk({
  *     name: "example-datadisk",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existing.then(existing => existing.id);
+ * export const id = example.then(example => example.id);
  * ```
  *
  * ## API Providers

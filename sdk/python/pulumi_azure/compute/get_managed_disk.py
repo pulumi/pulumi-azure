@@ -281,9 +281,9 @@ def get_managed_disk(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.compute.get_managed_disk(name="example-datadisk",
+    example = azure.compute.get_managed_disk(name="example-datadisk",
         resource_group_name="example-resources")
-    pulumi.export("id", existing.id)
+    pulumi.export("id", example.id)
     ```
 
     ## API Providers
@@ -336,9 +336,9 @@ def get_managed_disk_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.compute.get_managed_disk(name="example-datadisk",
+    example = azure.compute.get_managed_disk(name="example-datadisk",
         resource_group_name="example-resources")
-    pulumi.export("id", existing.id)
+    pulumi.export("id", example.id)
     ```
 
     ## API Providers

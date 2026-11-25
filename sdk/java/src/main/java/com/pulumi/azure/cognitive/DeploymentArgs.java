@@ -110,6 +110,25 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+     * 
+     * &gt; **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+     * 
+     */
+    @Import(name="spilloverDeploymentName")
+    private @Nullable Output<String> spilloverDeploymentName;
+
+    /**
+     * @return The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+     * 
+     * &gt; **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+     * 
+     */
+    public Optional<Output<String>> spilloverDeploymentName() {
+        return Optional.ofNullable(this.spilloverDeploymentName);
+    }
+
+    /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      * 
      */
@@ -133,6 +152,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.raiPolicyName = $.raiPolicyName;
         this.sku = $.sku;
+        this.spilloverDeploymentName = $.spilloverDeploymentName;
         this.versionUpgradeOption = $.versionUpgradeOption;
     }
 
@@ -278,6 +298,31 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sku(DeploymentSkuArgs sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param spilloverDeploymentName The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+         * 
+         * &gt; **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spilloverDeploymentName(@Nullable Output<String> spilloverDeploymentName) {
+            $.spilloverDeploymentName = spilloverDeploymentName;
+            return this;
+        }
+
+        /**
+         * @param spilloverDeploymentName The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+         * 
+         * &gt; **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spilloverDeploymentName(String spilloverDeploymentName) {
+            return spilloverDeploymentName(Output.of(spilloverDeploymentName));
         }
 
         /**

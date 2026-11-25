@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getIpGroups({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-ip-group",
+ *     resourceGroupName: "example-resources",
  * });
  * export const ids = example.then(example => example.ids);
  * ```
@@ -80,8 +80,8 @@ export interface GetIpGroupsResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getIpGroups({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-ip-group",
+ *     resourceGroupName: "example-resources",
  * });
  * export const ids = example.then(example => example.ids);
  * ```

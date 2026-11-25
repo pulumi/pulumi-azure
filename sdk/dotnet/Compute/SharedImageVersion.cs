@@ -78,9 +78,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// 
-        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
+        /// &gt; **Note:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Output("blobUri")]
         public Output<string?> BlobUri { get; private set; } = null!;
@@ -124,9 +124,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+        /// &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Output("managedImageId")]
         public Output<string?> ManagedImageId { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Output("osDiskSnapshotId")]
         public Output<string?> OsDiskSnapshotId { get; private set; } = null!;
@@ -160,22 +160,28 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
+        /// &gt; **Note:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of tags which should be applied to this resource.
+        /// A mapping of tags which should be applied to this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `TargetRegion` blocks as documented below.
+        /// One or more `TargetRegion` blocks as defined below.
         /// </summary>
         [Output("targetRegions")]
         public Output<ImmutableArray<Outputs.SharedImageVersionTargetRegion>> TargetRegions { get; private set; } = null!;
+
+        /// <summary>
+        /// A `Uefi` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("uefi")]
+        public Output<Outputs.SharedImageVersionUefi?> Uefi { get; private set; } = null!;
 
 
         /// <summary>
@@ -226,9 +232,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// 
-        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
+        /// &gt; **Note:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Input("blobUri")]
         public Input<string>? BlobUri { get; set; }
@@ -272,9 +278,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+        /// &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Input("managedImageId")]
         public Input<string>? ManagedImageId { get; set; }
@@ -288,7 +294,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Input("osDiskSnapshotId")]
         public Input<string>? OsDiskSnapshotId { get; set; }
@@ -308,7 +314,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
+        /// &gt; **Note:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -317,7 +323,7 @@ namespace Pulumi.Azure.Compute
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A collection of tags which should be applied to this resource.
+        /// A mapping of tags which should be applied to this resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -329,13 +335,19 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.SharedImageVersionTargetRegionArgs>? _targetRegions;
 
         /// <summary>
-        /// One or more `TargetRegion` blocks as documented below.
+        /// One or more `TargetRegion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SharedImageVersionTargetRegionArgs> TargetRegions
         {
             get => _targetRegions ?? (_targetRegions = new InputList<Inputs.SharedImageVersionTargetRegionArgs>());
             set => _targetRegions = value;
         }
+
+        /// <summary>
+        /// A `Uefi` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("uefi")]
+        public Input<Inputs.SharedImageVersionUefiArgs>? Uefi { get; set; }
 
         public SharedImageVersionArgs()
         {
@@ -348,9 +360,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// 
-        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
+        /// &gt; **Note:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Input("blobUri")]
         public Input<string>? BlobUri { get; set; }
@@ -394,9 +406,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+        /// &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Input("managedImageId")]
         public Input<string>? ManagedImageId { get; set; }
@@ -410,7 +422,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
+        /// &gt; **Note:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Input("osDiskSnapshotId")]
         public Input<string>? OsDiskSnapshotId { get; set; }
@@ -430,7 +442,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
+        /// &gt; **Note:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -439,7 +451,7 @@ namespace Pulumi.Azure.Compute
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A collection of tags which should be applied to this resource.
+        /// A mapping of tags which should be applied to this resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -451,13 +463,19 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.SharedImageVersionTargetRegionGetArgs>? _targetRegions;
 
         /// <summary>
-        /// One or more `TargetRegion` blocks as documented below.
+        /// One or more `TargetRegion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SharedImageVersionTargetRegionGetArgs> TargetRegions
         {
             get => _targetRegions ?? (_targetRegions = new InputList<Inputs.SharedImageVersionTargetRegionGetArgs>());
             set => _targetRegions = value;
         }
+
+        /// <summary>
+        /// A `Uefi` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("uefi")]
+        public Input<Inputs.SharedImageVersionUefiGetArgs>? Uefi { get; set; }
 
         public SharedImageVersionState()
         {

@@ -298,6 +298,8 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      * 
+     * &gt; **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
+     * 
      */
     @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> capacityReservationGroupId;
@@ -306,6 +308,8 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
      * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+     * 
+     * &gt; **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
      * 
      */
     public Output<Optional<String>> capacityReservationGroupId() {

@@ -19,7 +19,7 @@ public final class GetLinuxFunctionAppSiteConfigIpRestriction {
      */
     private String action;
     /**
-     * @return The description of the ip restriction rule.
+     * @return The description of the IP restriction rule.
      * 
      */
     private String description;
@@ -63,7 +63,7 @@ public final class GetLinuxFunctionAppSiteConfigIpRestriction {
         return this.action;
     }
     /**
-     * @return The description of the ip restriction rule.
+     * @return The description of the IP restriction rule.
      * 
      */
     public String description() {

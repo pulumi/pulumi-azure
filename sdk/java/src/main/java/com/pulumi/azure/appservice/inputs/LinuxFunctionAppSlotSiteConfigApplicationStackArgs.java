@@ -34,14 +34,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
     }
 
     /**
-     * The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+     * The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+     * @return The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -201,7 +201,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
          * 
          * @return builder
          * 

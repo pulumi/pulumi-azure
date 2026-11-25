@@ -70,14 +70,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+     * A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
      * 
      */
     @Import(name="bgpSettings")
     private @Nullable Output<VirtualNetworkGatewayBgpSettingsArgs> bgpSettings;
 
     /**
-     * @return A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+     * @return A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
      * 
      */
     public Optional<Output<VirtualNetworkGatewayBgpSettingsArgs>> bgpSettings() {
@@ -398,14 +398,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     @Import(name="vpnClientConfiguration")
     private @Nullable Output<VirtualNetworkGatewayVpnClientConfigurationArgs> vpnClientConfiguration;
 
     /**
-     * @return A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * @return A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     public Optional<Output<VirtualNetworkGatewayVpnClientConfigurationArgs>> vpnClientConfiguration() {
@@ -539,7 +539,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bgpSettings A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+         * @param bgpSettings A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bgpSettings A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+         * @param bgpSettings A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
          * 
          * @return builder
          * 
@@ -1007,7 +1007,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpnClientConfiguration A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+         * @param vpnClientConfiguration A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
          * 
          * @return builder
          * 
@@ -1018,7 +1018,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpnClientConfiguration A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+         * @param vpnClientConfiguration A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
          * 
          * @return builder
          * 

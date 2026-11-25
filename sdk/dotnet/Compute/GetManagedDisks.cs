@@ -24,14 +24,14 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetManagedDisks.Invoke(new()
+        ///     var example = Azure.Compute.GetManagedDisks.Invoke(new()
         ///     {
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["firstDiskId"] = existingAzurermManagedDisk.Disk[0].Id,
+        ///         ["firstDiskId"] = exampleAzurermManagedDisk.Disk[0].Id,
         ///     };
         /// });
         /// ```
@@ -59,14 +59,14 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetManagedDisks.Invoke(new()
+        ///     var example = Azure.Compute.GetManagedDisks.Invoke(new()
         ///     {
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["firstDiskId"] = existingAzurermManagedDisk.Disk[0].Id,
+        ///         ["firstDiskId"] = exampleAzurermManagedDisk.Disk[0].Id,
         ///     };
         /// });
         /// ```
@@ -94,14 +94,14 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetManagedDisks.Invoke(new()
+        ///     var example = Azure.Compute.GetManagedDisks.Invoke(new()
         ///     {
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["firstDiskId"] = existingAzurermManagedDisk.Disk[0].Id,
+        ///         ["firstDiskId"] = exampleAzurermManagedDisk.Disk[0].Id,
         ///     };
         /// });
         /// ```

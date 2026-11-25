@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>
-        /// An `IpConfiguration` block as documented below.
+        /// An `IpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult> IpConfigurations;
         /// <summary>

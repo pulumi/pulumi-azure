@@ -26,7 +26,7 @@ __all__ = [
 class ProfileDnsConfigArgsDict(TypedDict):
     relative_name: pulumi.Input[_builtins.str]
     """
-    The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+    The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
     """
     ttl: pulumi.Input[_builtins.int]
     """
@@ -39,7 +39,7 @@ class ProfileDnsConfigArgs:
                  relative_name: pulumi.Input[_builtins.str],
                  ttl: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] relative_name: The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] relative_name: The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The TTL value of the Profile used by Local DNS resolvers and clients.
         """
         pulumi.set(__self__, "relative_name", relative_name)
@@ -49,7 +49,7 @@ class ProfileDnsConfigArgs:
     @pulumi.getter(name="relativeName")
     def relative_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+        The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "relative_name")
 

@@ -7218,7 +7218,7 @@ type BackendServiceFabricCluster struct {
 	MaxPartitionResolutionRetries int `pulumi:"maxPartitionResolutionRetries"`
 	// A list of thumbprints of the server certificates of the Service Fabric cluster.
 	ServerCertificateThumbprints []string `pulumi:"serverCertificateThumbprints"`
-	// One or more `serverX509Name` blocks as documented below.
+	// One or more `serverX509Name` blocks as defined below.
 	ServerX509Names []BackendServiceFabricClusterServerX509Name `pulumi:"serverX509Names"`
 }
 
@@ -7246,7 +7246,7 @@ type BackendServiceFabricClusterArgs struct {
 	MaxPartitionResolutionRetries pulumi.IntInput `pulumi:"maxPartitionResolutionRetries"`
 	// A list of thumbprints of the server certificates of the Service Fabric cluster.
 	ServerCertificateThumbprints pulumi.StringArrayInput `pulumi:"serverCertificateThumbprints"`
-	// One or more `serverX509Name` blocks as documented below.
+	// One or more `serverX509Name` blocks as defined below.
 	ServerX509Names BackendServiceFabricClusterServerX509NameArrayInput `pulumi:"serverX509Names"`
 }
 
@@ -7354,7 +7354,7 @@ func (o BackendServiceFabricClusterOutput) ServerCertificateThumbprints() pulumi
 	return o.ApplyT(func(v BackendServiceFabricCluster) []string { return v.ServerCertificateThumbprints }).(pulumi.StringArrayOutput)
 }
 
-// One or more `serverX509Name` blocks as documented below.
+// One or more `serverX509Name` blocks as defined below.
 func (o BackendServiceFabricClusterOutput) ServerX509Names() BackendServiceFabricClusterServerX509NameArrayOutput {
 	return o.ApplyT(func(v BackendServiceFabricCluster) []BackendServiceFabricClusterServerX509Name {
 		return v.ServerX509Names
@@ -7437,7 +7437,7 @@ func (o BackendServiceFabricClusterPtrOutput) ServerCertificateThumbprints() pul
 	}).(pulumi.StringArrayOutput)
 }
 
-// One or more `serverX509Name` blocks as documented below.
+// One or more `serverX509Name` blocks as defined below.
 func (o BackendServiceFabricClusterPtrOutput) ServerX509Names() BackendServiceFabricClusterServerX509NameArrayOutput {
 	return o.ApplyT(func(v *BackendServiceFabricCluster) []BackendServiceFabricClusterServerX509Name {
 		if v == nil {
@@ -7714,11 +7714,14 @@ type CustomDomainDeveloperPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
-	CertificateSource   *string `pulumi:"certificateSource"`
-	CertificateStatus   *string `pulumi:"certificateStatus"`
-	Expiry              *string `pulumi:"expiry"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
+	Expiry            *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
-	HostName              string  `pulumi:"hostName"`
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
@@ -7746,11 +7749,14 @@ type CustomDomainDeveloperPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
-	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
-	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
+	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
-	HostName              pulumi.StringInput    `pulumi:"hostName"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
@@ -7823,10 +7829,12 @@ func (o CustomDomainDeveloperPortalOutput) CertificatePassword() pulumi.StringPt
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
 func (o CustomDomainDeveloperPortalOutput) CertificateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
+// The status of the certificate.
 func (o CustomDomainDeveloperPortalOutput) CertificateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
 }
@@ -7840,6 +7848,7 @@ func (o CustomDomainDeveloperPortalOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 func (o CustomDomainDeveloperPortalOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
 }
@@ -7889,13 +7898,16 @@ type CustomDomainGateway struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
-	CertificateSource   *string `pulumi:"certificateSource"`
-	CertificateStatus   *string `pulumi:"certificateStatus"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding *bool   `pulumi:"defaultSslBinding"`
 	Expiry            *string `pulumi:"expiry"`
 	// The Hostname to use for the API Proxy Endpoint.
-	HostName              string  `pulumi:"hostName"`
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
@@ -7923,13 +7935,16 @@ type CustomDomainGatewayArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
-	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding pulumi.BoolPtrInput   `pulumi:"defaultSslBinding"`
 	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the API Proxy Endpoint.
-	HostName              pulumi.StringInput    `pulumi:"hostName"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
@@ -8002,10 +8017,12 @@ func (o CustomDomainGatewayOutput) CertificatePassword() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
 func (o CustomDomainGatewayOutput) CertificateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
+// The status of the certificate.
 func (o CustomDomainGatewayOutput) CertificateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
 }
@@ -8024,6 +8041,7 @@ func (o CustomDomainGatewayOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainGateway) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 func (o CustomDomainGatewayOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
 }
@@ -8073,11 +8091,14 @@ type CustomDomainManagement struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
-	CertificateSource   *string `pulumi:"certificateSource"`
-	CertificateStatus   *string `pulumi:"certificateStatus"`
-	Expiry              *string `pulumi:"expiry"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
+	Expiry            *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
-	HostName              string  `pulumi:"hostName"`
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
@@ -8105,11 +8126,14 @@ type CustomDomainManagementArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
-	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
-	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
+	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
-	HostName              pulumi.StringInput    `pulumi:"hostName"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
@@ -8182,10 +8206,12 @@ func (o CustomDomainManagementOutput) CertificatePassword() pulumi.StringPtrOutp
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
 func (o CustomDomainManagementOutput) CertificateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
+// The status of the certificate.
 func (o CustomDomainManagementOutput) CertificateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
 }
@@ -8199,6 +8225,7 @@ func (o CustomDomainManagementOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainManagement) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 func (o CustomDomainManagementOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
 }
@@ -8248,11 +8275,14 @@ type CustomDomainPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
-	CertificateSource   *string `pulumi:"certificateSource"`
-	CertificateStatus   *string `pulumi:"certificateStatus"`
-	Expiry              *string `pulumi:"expiry"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
+	Expiry            *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
-	HostName              string  `pulumi:"hostName"`
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
@@ -8280,11 +8310,14 @@ type CustomDomainPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
-	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
-	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
+	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
-	HostName              pulumi.StringInput    `pulumi:"hostName"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
@@ -8357,10 +8390,12 @@ func (o CustomDomainPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
 func (o CustomDomainPortalOutput) CertificateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
+// The status of the certificate.
 func (o CustomDomainPortalOutput) CertificateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
 }
@@ -8374,6 +8409,7 @@ func (o CustomDomainPortalOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainPortal) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 func (o CustomDomainPortalOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
 }
@@ -8423,11 +8459,14 @@ type CustomDomainScm struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
-	CertificateSource   *string `pulumi:"certificateSource"`
-	CertificateStatus   *string `pulumi:"certificateStatus"`
-	Expiry              *string `pulumi:"expiry"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
+	Expiry            *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
-	HostName              string  `pulumi:"hostName"`
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
@@ -8455,11 +8494,14 @@ type CustomDomainScmArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
-	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
-	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
+	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
-	HostName              pulumi.StringInput    `pulumi:"hostName"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
@@ -8532,10 +8574,12 @@ func (o CustomDomainScmOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
 func (o CustomDomainScmOutput) CertificateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
+// The status of the certificate.
 func (o CustomDomainScmOutput) CertificateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
 }
@@ -8549,6 +8593,7 @@ func (o CustomDomainScmOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainScm) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 func (o CustomDomainScmOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
 }
@@ -12175,15 +12220,15 @@ func (o ServiceDelegationPtrOutput) ValidationKey() pulumi.StringPtrOutput {
 }
 
 type ServiceHostnameConfiguration struct {
-	// One or more `developerPortal` blocks as documented below.
+	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals []ServiceHostnameConfigurationDeveloperPortal `pulumi:"developerPortals"`
-	// One or more `management` blocks as documented below.
+	// One or more `management` blocks as defined below.
 	Managements []ServiceHostnameConfigurationManagement `pulumi:"managements"`
-	// One or more `portal` blocks as documented below.
+	// One or more `portal` blocks as defined below.
 	Portals []ServiceHostnameConfigurationPortal `pulumi:"portals"`
-	// One or more `proxy` blocks as documented below.
+	// One or more `proxy` blocks as defined below.
 	Proxies []ServiceHostnameConfigurationProxy `pulumi:"proxies"`
-	// One or more `scm` blocks as documented below.
+	// One or more `scm` blocks as defined below.
 	Scms []ServiceHostnameConfigurationScm `pulumi:"scms"`
 }
 
@@ -12199,15 +12244,15 @@ type ServiceHostnameConfigurationInput interface {
 }
 
 type ServiceHostnameConfigurationArgs struct {
-	// One or more `developerPortal` blocks as documented below.
+	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals ServiceHostnameConfigurationDeveloperPortalArrayInput `pulumi:"developerPortals"`
-	// One or more `management` blocks as documented below.
+	// One or more `management` blocks as defined below.
 	Managements ServiceHostnameConfigurationManagementArrayInput `pulumi:"managements"`
-	// One or more `portal` blocks as documented below.
+	// One or more `portal` blocks as defined below.
 	Portals ServiceHostnameConfigurationPortalArrayInput `pulumi:"portals"`
-	// One or more `proxy` blocks as documented below.
+	// One or more `proxy` blocks as defined below.
 	Proxies ServiceHostnameConfigurationProxyArrayInput `pulumi:"proxies"`
-	// One or more `scm` blocks as documented below.
+	// One or more `scm` blocks as defined below.
 	Scms ServiceHostnameConfigurationScmArrayInput `pulumi:"scms"`
 }
 
@@ -12288,29 +12333,29 @@ func (o ServiceHostnameConfigurationOutput) ToServiceHostnameConfigurationPtrOut
 	}).(ServiceHostnameConfigurationPtrOutput)
 }
 
-// One or more `developerPortal` blocks as documented below.
+// One or more `developerPortal` blocks as defined below.
 func (o ServiceHostnameConfigurationOutput) DeveloperPortals() ServiceHostnameConfigurationDeveloperPortalArrayOutput {
 	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationDeveloperPortal {
 		return v.DeveloperPortals
 	}).(ServiceHostnameConfigurationDeveloperPortalArrayOutput)
 }
 
-// One or more `management` blocks as documented below.
+// One or more `management` blocks as defined below.
 func (o ServiceHostnameConfigurationOutput) Managements() ServiceHostnameConfigurationManagementArrayOutput {
 	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationManagement { return v.Managements }).(ServiceHostnameConfigurationManagementArrayOutput)
 }
 
-// One or more `portal` blocks as documented below.
+// One or more `portal` blocks as defined below.
 func (o ServiceHostnameConfigurationOutput) Portals() ServiceHostnameConfigurationPortalArrayOutput {
 	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationPortal { return v.Portals }).(ServiceHostnameConfigurationPortalArrayOutput)
 }
 
-// One or more `proxy` blocks as documented below.
+// One or more `proxy` blocks as defined below.
 func (o ServiceHostnameConfigurationOutput) Proxies() ServiceHostnameConfigurationProxyArrayOutput {
 	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationProxy { return v.Proxies }).(ServiceHostnameConfigurationProxyArrayOutput)
 }
 
-// One or more `scm` blocks as documented below.
+// One or more `scm` blocks as defined below.
 func (o ServiceHostnameConfigurationOutput) Scms() ServiceHostnameConfigurationScmArrayOutput {
 	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationScm { return v.Scms }).(ServiceHostnameConfigurationScmArrayOutput)
 }
@@ -12339,7 +12384,7 @@ func (o ServiceHostnameConfigurationPtrOutput) Elem() ServiceHostnameConfigurati
 	}).(ServiceHostnameConfigurationOutput)
 }
 
-// One or more `developerPortal` blocks as documented below.
+// One or more `developerPortal` blocks as defined below.
 func (o ServiceHostnameConfigurationPtrOutput) DeveloperPortals() ServiceHostnameConfigurationDeveloperPortalArrayOutput {
 	return o.ApplyT(func(v *ServiceHostnameConfiguration) []ServiceHostnameConfigurationDeveloperPortal {
 		if v == nil {
@@ -12349,7 +12394,7 @@ func (o ServiceHostnameConfigurationPtrOutput) DeveloperPortals() ServiceHostnam
 	}).(ServiceHostnameConfigurationDeveloperPortalArrayOutput)
 }
 
-// One or more `management` blocks as documented below.
+// One or more `management` blocks as defined below.
 func (o ServiceHostnameConfigurationPtrOutput) Managements() ServiceHostnameConfigurationManagementArrayOutput {
 	return o.ApplyT(func(v *ServiceHostnameConfiguration) []ServiceHostnameConfigurationManagement {
 		if v == nil {
@@ -12359,7 +12404,7 @@ func (o ServiceHostnameConfigurationPtrOutput) Managements() ServiceHostnameConf
 	}).(ServiceHostnameConfigurationManagementArrayOutput)
 }
 
-// One or more `portal` blocks as documented below.
+// One or more `portal` blocks as defined below.
 func (o ServiceHostnameConfigurationPtrOutput) Portals() ServiceHostnameConfigurationPortalArrayOutput {
 	return o.ApplyT(func(v *ServiceHostnameConfiguration) []ServiceHostnameConfigurationPortal {
 		if v == nil {
@@ -12369,7 +12414,7 @@ func (o ServiceHostnameConfigurationPtrOutput) Portals() ServiceHostnameConfigur
 	}).(ServiceHostnameConfigurationPortalArrayOutput)
 }
 
-// One or more `proxy` blocks as documented below.
+// One or more `proxy` blocks as defined below.
 func (o ServiceHostnameConfigurationPtrOutput) Proxies() ServiceHostnameConfigurationProxyArrayOutput {
 	return o.ApplyT(func(v *ServiceHostnameConfiguration) []ServiceHostnameConfigurationProxy {
 		if v == nil {
@@ -12379,7 +12424,7 @@ func (o ServiceHostnameConfigurationPtrOutput) Proxies() ServiceHostnameConfigur
 	}).(ServiceHostnameConfigurationProxyArrayOutput)
 }
 
-// One or more `scm` blocks as documented below.
+// One or more `scm` blocks as defined below.
 func (o ServiceHostnameConfigurationPtrOutput) Scms() ServiceHostnameConfigurationScmArrayOutput {
 	return o.ApplyT(func(v *ServiceHostnameConfiguration) []ServiceHostnameConfigurationScm {
 		if v == nil {
@@ -15823,15 +15868,15 @@ func (o GetServiceAdditionalLocationArrayOutput) Index(i pulumi.IntInput) GetSer
 }
 
 type GetServiceHostnameConfiguration struct {
-	// One or more `developerPortal` blocks as documented below.
+	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals []GetServiceHostnameConfigurationDeveloperPortal `pulumi:"developerPortals"`
-	// One or more `management` blocks as documented below.
+	// One or more `management` blocks as defined below.
 	Managements []GetServiceHostnameConfigurationManagement `pulumi:"managements"`
-	// One or more `portal` blocks as documented below.
+	// One or more `portal` blocks as defined below.
 	Portals []GetServiceHostnameConfigurationPortal `pulumi:"portals"`
-	// One or more `proxy` blocks as documented below.
+	// One or more `proxy` blocks as defined below.
 	Proxies []GetServiceHostnameConfigurationProxy `pulumi:"proxies"`
-	// One or more `scm` blocks as documented below.
+	// One or more `scm` blocks as defined below.
 	Scms []GetServiceHostnameConfigurationScm `pulumi:"scms"`
 }
 
@@ -15847,15 +15892,15 @@ type GetServiceHostnameConfigurationInput interface {
 }
 
 type GetServiceHostnameConfigurationArgs struct {
-	// One or more `developerPortal` blocks as documented below.
+	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals GetServiceHostnameConfigurationDeveloperPortalArrayInput `pulumi:"developerPortals"`
-	// One or more `management` blocks as documented below.
+	// One or more `management` blocks as defined below.
 	Managements GetServiceHostnameConfigurationManagementArrayInput `pulumi:"managements"`
-	// One or more `portal` blocks as documented below.
+	// One or more `portal` blocks as defined below.
 	Portals GetServiceHostnameConfigurationPortalArrayInput `pulumi:"portals"`
-	// One or more `proxy` blocks as documented below.
+	// One or more `proxy` blocks as defined below.
 	Proxies GetServiceHostnameConfigurationProxyArrayInput `pulumi:"proxies"`
-	// One or more `scm` blocks as documented below.
+	// One or more `scm` blocks as defined below.
 	Scms GetServiceHostnameConfigurationScmArrayInput `pulumi:"scms"`
 }
 
@@ -15910,31 +15955,31 @@ func (o GetServiceHostnameConfigurationOutput) ToGetServiceHostnameConfiguration
 	return o
 }
 
-// One or more `developerPortal` blocks as documented below.
+// One or more `developerPortal` blocks as defined below.
 func (o GetServiceHostnameConfigurationOutput) DeveloperPortals() GetServiceHostnameConfigurationDeveloperPortalArrayOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationDeveloperPortal {
 		return v.DeveloperPortals
 	}).(GetServiceHostnameConfigurationDeveloperPortalArrayOutput)
 }
 
-// One or more `management` blocks as documented below.
+// One or more `management` blocks as defined below.
 func (o GetServiceHostnameConfigurationOutput) Managements() GetServiceHostnameConfigurationManagementArrayOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationManagement {
 		return v.Managements
 	}).(GetServiceHostnameConfigurationManagementArrayOutput)
 }
 
-// One or more `portal` blocks as documented below.
+// One or more `portal` blocks as defined below.
 func (o GetServiceHostnameConfigurationOutput) Portals() GetServiceHostnameConfigurationPortalArrayOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationPortal { return v.Portals }).(GetServiceHostnameConfigurationPortalArrayOutput)
 }
 
-// One or more `proxy` blocks as documented below.
+// One or more `proxy` blocks as defined below.
 func (o GetServiceHostnameConfigurationOutput) Proxies() GetServiceHostnameConfigurationProxyArrayOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationProxy { return v.Proxies }).(GetServiceHostnameConfigurationProxyArrayOutput)
 }
 
-// One or more `scm` blocks as documented below.
+// One or more `scm` blocks as defined below.
 func (o GetServiceHostnameConfigurationOutput) Scms() GetServiceHostnameConfigurationScmArrayOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationScm { return v.Scms }).(GetServiceHostnameConfigurationScmArrayOutput)
 }

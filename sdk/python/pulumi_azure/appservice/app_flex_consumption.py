@@ -1344,7 +1344,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.storage.Account("example",
-            name="examplelinuxfunctionappsa",
+            name="examplelinuxfunctionapps",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
@@ -1473,7 +1473,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.storage.Account("example",
-            name="examplelinuxfunctionappsa",
+            name="examplelinuxfunctionapps",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",

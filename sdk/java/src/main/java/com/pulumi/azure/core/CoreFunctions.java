@@ -741,7 +741,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -782,7 +782,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -823,7 +823,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -864,7 +864,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -905,7 +905,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -948,8 +948,8 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -995,8 +995,8 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1042,8 +1042,8 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1089,8 +1089,8 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1136,8 +1136,8 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1512,7 +1512,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1558,7 +1558,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1604,7 +1604,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1650,7 +1650,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1696,7 +1696,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2279,7 +2279,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2325,7 +2325,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2371,7 +2371,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2417,7 +2417,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2463,7 +2463,7 @@ public final class CoreFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .build());
      * 
      *         ctx.export("id", example.id());

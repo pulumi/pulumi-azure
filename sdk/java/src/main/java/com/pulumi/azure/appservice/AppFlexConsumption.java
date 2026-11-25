@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("examplelinuxfunctionappsa")
+ *             .name("examplelinuxfunctionapps")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier("Standard")

@@ -111,11 +111,15 @@ type VirtualNetwork struct {
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
+	// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+	//
+	// > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+	AdvertisedGatewayPrefixes pulumi.StringArrayOutput `pulumi:"advertisedGatewayPrefixes"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
 	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity pulumi.StringPtrOutput `pulumi:"bgpCommunity"`
-	// A `ddosProtectionPlan` block as documented below.
+	// A `ddosProtectionPlan` block as defined below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrOutput `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	//
@@ -141,7 +145,7 @@ type VirtualNetwork struct {
 	PrivateEndpointVnetPolicies pulumi.StringPtrOutput `pulumi:"privateEndpointVnetPolicies"`
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 	//
 	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets VirtualNetworkSubnetArrayOutput `pulumi:"subnets"`
@@ -186,11 +190,15 @@ type virtualNetworkState struct {
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces []string `pulumi:"addressSpaces"`
+	// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+	//
+	// > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+	AdvertisedGatewayPrefixes []string `pulumi:"advertisedGatewayPrefixes"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
 	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity *string `pulumi:"bgpCommunity"`
-	// A `ddosProtectionPlan` block as documented below.
+	// A `ddosProtectionPlan` block as defined below.
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	//
@@ -216,7 +224,7 @@ type virtualNetworkState struct {
 	PrivateEndpointVnetPolicies *string `pulumi:"privateEndpointVnetPolicies"`
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 	//
 	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
@@ -229,11 +237,15 @@ type VirtualNetworkState struct {
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces pulumi.StringArrayInput
+	// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+	//
+	// > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+	AdvertisedGatewayPrefixes pulumi.StringArrayInput
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
 	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity pulumi.StringPtrInput
-	// A `ddosProtectionPlan` block as documented below.
+	// A `ddosProtectionPlan` block as defined below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
 	//
@@ -259,7 +271,7 @@ type VirtualNetworkState struct {
 	PrivateEndpointVnetPolicies pulumi.StringPtrInput
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 	//
 	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets VirtualNetworkSubnetArrayInput
@@ -276,11 +288,15 @@ type virtualNetworkArgs struct {
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces []string `pulumi:"addressSpaces"`
+	// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+	//
+	// > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+	AdvertisedGatewayPrefixes []string `pulumi:"advertisedGatewayPrefixes"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
 	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity *string `pulumi:"bgpCommunity"`
-	// A `ddosProtectionPlan` block as documented below.
+	// A `ddosProtectionPlan` block as defined below.
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	//
@@ -304,7 +320,7 @@ type virtualNetworkArgs struct {
 	PrivateEndpointVnetPolicies *string `pulumi:"privateEndpointVnetPolicies"`
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 	//
 	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
@@ -318,11 +334,15 @@ type VirtualNetworkArgs struct {
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces pulumi.StringArrayInput
+	// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+	//
+	// > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+	AdvertisedGatewayPrefixes pulumi.StringArrayInput
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
 	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity pulumi.StringPtrInput
-	// A `ddosProtectionPlan` block as documented below.
+	// A `ddosProtectionPlan` block as defined below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
 	//
@@ -346,7 +366,7 @@ type VirtualNetworkArgs struct {
 	PrivateEndpointVnetPolicies pulumi.StringPtrInput
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 	//
 	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets VirtualNetworkSubnetArrayInput
@@ -448,6 +468,13 @@ func (o VirtualNetworkOutput) AddressSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringArrayOutput { return v.AddressSpaces }).(pulumi.StringArrayOutput)
 }
 
+// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+//
+// > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+func (o VirtualNetworkOutput) AdvertisedGatewayPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringArrayOutput { return v.AdvertisedGatewayPrefixes }).(pulumi.StringArrayOutput)
+}
+
 // The BGP community attribute in format `<as-number>:<community-value>`.
 //
 // > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -455,7 +482,7 @@ func (o VirtualNetworkOutput) BgpCommunity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.BgpCommunity }).(pulumi.StringPtrOutput)
 }
 
-// A `ddosProtectionPlan` block as documented below.
+// A `ddosProtectionPlan` block as defined below.
 func (o VirtualNetworkOutput) DdosProtectionPlan() VirtualNetworkDdosProtectionPlanPtrOutput {
 	return o.ApplyT(func(v *VirtualNetwork) VirtualNetworkDdosProtectionPlanPtrOutput { return v.DdosProtectionPlan }).(VirtualNetworkDdosProtectionPlanPtrOutput)
 }
@@ -514,7 +541,7 @@ func (o VirtualNetworkOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 //
 // > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 func (o VirtualNetworkOutput) Subnets() VirtualNetworkSubnetArrayOutput {

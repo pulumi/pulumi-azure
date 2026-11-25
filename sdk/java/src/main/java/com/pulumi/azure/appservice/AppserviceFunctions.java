@@ -1048,8 +1048,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1097,8 +1097,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1146,8 +1146,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1195,8 +1195,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1244,8 +1244,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1293,8 +1293,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1342,8 +1342,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1391,8 +1391,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1440,8 +1440,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1489,8 +1489,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1538,8 +1538,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-service-plan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1587,8 +1587,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-service-plan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1636,8 +1636,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-service-plan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1685,8 +1685,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-service-plan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1734,8 +1734,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-service-plan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2033,8 +2033,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-static-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
@@ -2081,8 +2081,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-static-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
@@ -2129,8 +2129,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-static-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
@@ -2177,8 +2177,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-static-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
@@ -2225,8 +2225,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-static-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *     }
@@ -2273,8 +2273,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2322,8 +2322,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2371,8 +2371,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2420,8 +2420,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2469,8 +2469,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-function-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2518,8 +2518,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2567,8 +2567,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2616,8 +2616,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2665,8 +2665,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2714,8 +2714,8 @@ public final class AppserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-web-app")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

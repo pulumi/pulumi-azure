@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class ManagementPolicyRule {
     /**
-     * @return An `actions` block as documented below.
+     * @return An `actions` block as defined below.
      * 
      */
     private ManagementPolicyRuleActions actions;
@@ -24,7 +24,7 @@ public final class ManagementPolicyRule {
      */
     private Boolean enabled;
     /**
-     * @return A `filters` block as documented below.
+     * @return A `filters` block as defined below.
      * 
      */
     private ManagementPolicyRuleFilters filters;
@@ -36,7 +36,7 @@ public final class ManagementPolicyRule {
 
     private ManagementPolicyRule() {}
     /**
-     * @return An `actions` block as documented below.
+     * @return An `actions` block as defined below.
      * 
      */
     public ManagementPolicyRuleActions actions() {
@@ -50,7 +50,7 @@ public final class ManagementPolicyRule {
         return this.enabled;
     }
     /**
-     * @return A `filters` block as documented below.
+     * @return A `filters` block as defined below.
      * 
      */
     public ManagementPolicyRuleFilters filters() {

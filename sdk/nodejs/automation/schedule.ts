@@ -94,11 +94,13 @@ export class Schedule extends pulumi.CustomResource {
      */
     declare public readonly expiryTime: pulumi.Output<string>;
     /**
-     * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+     * The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
      */
     declare public readonly frequency: pulumi.Output<string>;
     /**
-     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     *
+     * > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
      */
     declare public readonly interval: pulumi.Output<number>;
     /**
@@ -106,7 +108,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     declare public readonly monthDays: pulumi.Output<number[] | undefined>;
     /**
-     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
      */
     declare public readonly monthlyOccurrence: pulumi.Output<outputs.automation.ScheduleMonthlyOccurrence | undefined>;
     /**
@@ -201,11 +203,13 @@ export interface ScheduleState {
      */
     expiryTime?: pulumi.Input<string | undefined>;
     /**
-     * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+     * The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
      */
     frequency?: pulumi.Input<string | undefined>;
     /**
-     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     *
+     * > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
      */
     interval?: pulumi.Input<number | undefined>;
     /**
@@ -213,7 +217,7 @@ export interface ScheduleState {
      */
     monthDays?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
-     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
      */
     monthlyOccurrence?: pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence | undefined>;
     /**
@@ -255,11 +259,13 @@ export interface ScheduleArgs {
      */
     expiryTime?: pulumi.Input<string | undefined>;
     /**
-     * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+     * The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
      */
     frequency: pulumi.Input<string>;
     /**
-     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     *
+     * > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
      */
     interval?: pulumi.Input<number | undefined>;
     /**
@@ -267,7 +273,7 @@ export interface ScheduleArgs {
      */
     monthDays?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
-     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
      */
     monthlyOccurrence?: pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence | undefined>;
     /**

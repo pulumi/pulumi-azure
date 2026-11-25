@@ -288,6 +288,7 @@ var moduleMap = map[string]string{
 	"function":                azureAppService,
 	"graph":                   azureGraph,
 	"hdinsight":               azureHdInsight,
+	"horizondb":               "HorizonDb",
 	"healthcare":              azureHealthcare,
 	"hpc":                     azureHpc,
 	// Ignored: azureHsm. The only token is "azurerm_dedicated_hardware_security_module".

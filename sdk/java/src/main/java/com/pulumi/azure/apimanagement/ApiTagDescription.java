@@ -114,14 +114,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:apimanagement/apiTagDescription:ApiTagDescription")
 public class ApiTagDescription extends com.pulumi.resources.CustomResource {
     /**
-     * The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+     * The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      * 
      */
     @Export(name="apiTagId", refs={String.class}, tree="[0]")
     private Output<String> apiTagId;
 
     /**
-     * @return The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+     * @return The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      * 
      */
     public Output<String> apiTagId() {

@@ -65,14 +65,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+     * The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
     @Import(name="frequency", required=true)
     private Output<String> frequency;
 
     /**
-     * @return The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+     * @return The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
     public Output<String> frequency() {
@@ -80,14 +80,18 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * 
+     * &gt; **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * @return The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * 
+     * &gt; **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -110,14 +114,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
      * 
      */
     @Import(name="monthlyOccurrence")
     private @Nullable Output<ScheduleMonthlyOccurrenceArgs> monthlyOccurrence;
 
     /**
-     * @return One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * @return One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
      * 
      */
     public Optional<Output<ScheduleMonthlyOccurrenceArgs>> monthlyOccurrence() {
@@ -298,7 +302,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frequency The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+         * @param frequency The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
          * 
          * @return builder
          * 
@@ -309,7 +313,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frequency The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+         * @param frequency The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
          * 
          * @return builder
          * 
@@ -319,7 +323,9 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param interval The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         * @param interval The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         * 
+         * &gt; **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
          * 
          * @return builder
          * 
@@ -330,7 +336,9 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param interval The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         * @param interval The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         * 
+         * &gt; **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
          * 
          * @return builder
          * 
@@ -371,7 +379,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monthlyOccurrence One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+         * @param monthlyOccurrence One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
          * 
          * @return builder
          * 
@@ -382,7 +390,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monthlyOccurrence One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+         * @param monthlyOccurrence One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
          * 
          * @return builder
          * 

@@ -166,14 +166,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `import` block as documented below. Mutually exclusive with `createMode`.
+     * A `import` block as defined below. Mutually exclusive with `createMode`.
      * 
      */
     @Import(name="import")
     private @Nullable Output<DatabaseImportArgs> import_;
 
     /**
-     * @return A `import` block as documented below. Mutually exclusive with `createMode`.
+     * @return A `import` block as defined below. Mutually exclusive with `createMode`.
      * 
      */
     public Optional<Output<DatabaseImportArgs>> import_() {
@@ -516,14 +516,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
      * 
      */
     @Import(name="threatDetectionPolicy")
     private @Nullable Output<DatabaseThreatDetectionPolicyArgs> threatDetectionPolicy;
 
     /**
-     * @return Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     * @return Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
      * 
      */
     public Optional<Output<DatabaseThreatDetectionPolicyArgs>> threatDetectionPolicy() {
@@ -849,7 +849,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param import_ A `import` block as documented below. Mutually exclusive with `createMode`.
+         * @param import_ A `import` block as defined below. Mutually exclusive with `createMode`.
          * 
          * @return builder
          * 
@@ -860,7 +860,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param import_ A `import` block as documented below. Mutually exclusive with `createMode`.
+         * @param import_ A `import` block as defined below. Mutually exclusive with `createMode`.
          * 
          * @return builder
          * 
@@ -1331,7 +1331,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param threatDetectionPolicy Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+         * @param threatDetectionPolicy Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
          * 
          * @return builder
          * 
@@ -1342,7 +1342,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param threatDetectionPolicy Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+         * @param threatDetectionPolicy Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
          * 
          * @return builder
          * 

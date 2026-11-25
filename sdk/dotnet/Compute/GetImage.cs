@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Compute
     public sealed class GetImageResult
     {
         /// <summary>
-        /// a collection of `DataDisk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageDataDiskResult> DataDisks;
         /// <summary>

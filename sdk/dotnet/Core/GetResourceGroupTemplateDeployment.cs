@@ -27,8 +27,8 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetResourceGroupTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-deployment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -61,8 +61,8 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetResourceGroupTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-deployment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -95,8 +95,8 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetResourceGroupTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-deployment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

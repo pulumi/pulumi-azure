@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Management
         /// {
         ///     var example = Azure.Management.GetGroupTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-deployment",
         ///         ManagementGroupId = "00000000-0000-0000-000000000000",
         ///     });
         /// 
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Management
         /// {
         ///     var example = Azure.Management.GetGroupTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-deployment",
         ///         ManagementGroupId = "00000000-0000-0000-000000000000",
         ///     });
         /// 
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Management
         /// {
         ///     var example = Azure.Management.GetGroupTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-deployment",
         ///         ManagementGroupId = "00000000-0000-0000-000000000000",
         ///     });
         /// 

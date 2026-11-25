@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly int Interval;
         /// <summary>
-        /// A `Schedule` block as documented below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         public readonly Outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule? Schedule;
         /// <summary>

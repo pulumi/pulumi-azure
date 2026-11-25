@@ -51,14 +51,14 @@ public final class VpnServerConfigurationPolicyGroupArgs extends com.pulumi.reso
     }
 
     /**
-     * One or more `policy` blocks as documented below.
+     * One or more `policy` blocks as defined below.
      * 
      */
     @Import(name="policies", required=true)
     private Output<List<VpnServerConfigurationPolicyGroupPolicyArgs>> policies;
 
     /**
-     * @return One or more `policy` blocks as documented below.
+     * @return One or more `policy` blocks as defined below.
      * 
      */
     public Output<List<VpnServerConfigurationPolicyGroupPolicyArgs>> policies() {
@@ -166,7 +166,7 @@ public final class VpnServerConfigurationPolicyGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param policies One or more `policy` blocks as documented below.
+         * @param policies One or more `policy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class VpnServerConfigurationPolicyGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param policies One or more `policy` blocks as documented below.
+         * @param policies One or more `policy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class VpnServerConfigurationPolicyGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param policies One or more `policy` blocks as documented below.
+         * @param policies One or more `policy` blocks as defined below.
          * 
          * @return builder
          * 

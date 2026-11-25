@@ -3017,7 +3017,7 @@ class AppFlexConsumptionSiteConfig(dict):
         :param _builtins.bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'AppFlexConsumptionSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[_builtins.str] default_documents: Specifies a list of Default Documents for the Linux Web App.
-        :param _builtins.bool detailed_error_logging_enabled: Is detailed error logging enabled
+        :param _builtins.bool detailed_error_logging_enabled: Is detailed error logging enabled?
         :param _builtins.int elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param _builtins.int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param _builtins.str health_check_path: The path to be checked for this function app health.
@@ -3191,7 +3191,7 @@ class AppFlexConsumptionSiteConfig(dict):
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> Optional[_builtins.bool]:
         """
-        Is detailed error logging enabled
+        Is detailed error logging enabled?
         """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
@@ -6788,7 +6788,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param _builtins.bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'LinuxFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[_builtins.str] default_documents: Specifies a list of Default Documents for the Linux Web App.
-        :param _builtins.bool detailed_error_logging_enabled: Is detailed error logging enabled
+        :param _builtins.bool detailed_error_logging_enabled: Is detailed error logging enabled?
         :param _builtins.int elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param _builtins.str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param _builtins.int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -6796,7 +6796,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param _builtins.bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param _builtins.str ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence['LinuxFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
-        :param _builtins.str linux_fx_version: The Linux FX Version
+        :param _builtins.str linux_fx_version: The Linux FX Version.
         :param _builtins.str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param _builtins.str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param _builtins.str minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
@@ -7008,7 +7008,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> Optional[_builtins.bool]:
         """
-        Is detailed error logging enabled
+        Is detailed error logging enabled?
         """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
@@ -7072,7 +7072,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="linuxFxVersion")
     def linux_fx_version(self) -> Optional[_builtins.str]:
         """
-        The Linux FX Version
+        The Linux FX Version.
         """
         return pulumi.get(self, "linux_fx_version")
 
@@ -7311,7 +7311,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
                  use_dotnet_isolated_runtime: Optional[_builtins.bool] = None):
         """
         :param Sequence['LinuxFunctionAppSiteConfigApplicationStackDockerArgs'] dockers: One or more `docker` blocks as defined below.
-        :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         :param _builtins.str java_version: The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
                
                > **Note:** The value `21` is currently in Preview for `java_version`.
@@ -7350,7 +7350,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[_builtins.str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -11007,7 +11007,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
                  use_dotnet_isolated_runtime: Optional[_builtins.bool] = None):
         """
         :param Sequence['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs'] dockers: a `docker` block as detailed below.
-        :param _builtins.str dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        :param _builtins.str dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         :param _builtins.str java_version: The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
         :param _builtins.str node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
         :param _builtins.str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
@@ -11044,7 +11044,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[_builtins.str]:
         """
-        The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -15157,7 +15157,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
                > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param _builtins.str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param _builtins.str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
-        :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+        :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         :param _builtins.str go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param _builtins.str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
                
@@ -15168,7 +15168,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
                > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
                
                > **Note:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
-        :param _builtins.str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+        :param _builtins.str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
@@ -15239,7 +15239,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[_builtins.str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -15285,7 +15285,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[_builtins.str]:
         """
-        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
 
         > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -19455,7 +19455,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
                > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param _builtins.str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param _builtins.str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
-        :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         :param _builtins.str go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param _builtins.str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
                
@@ -19464,7 +19464,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param _builtins.str java_version: The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
                
                > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
-        :param _builtins.str node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+        :param _builtins.str node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
@@ -19535,7 +19535,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[_builtins.str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -19579,7 +19579,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[_builtins.str]:
         """
-        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
 
         > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -20787,7 +20787,7 @@ class SourceControlGithubActionConfiguration(dict):
         :param 'SourceControlGithubActionConfigurationCodeConfigurationArgs' code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
         :param 'SourceControlGithubActionConfigurationContainerConfigurationArgs' container_configuration: A `container_configuration` block as defined above.
         :param _builtins.bool generate_workflow_file: Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
-        :param _builtins.bool linux_action: Denotes this action uses a Linux base image.
+        :param _builtins.bool linux_action: Whether this action uses a Linux base image.
         """
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
@@ -20826,7 +20826,7 @@ class SourceControlGithubActionConfiguration(dict):
     @pulumi.getter(name="linuxAction")
     def linux_action(self) -> Optional[_builtins.bool]:
         """
-        Denotes this action uses a Linux base image.
+        Whether this action uses a Linux base image.
         """
         return pulumi.get(self, "linux_action")
 
@@ -23728,7 +23728,7 @@ class WindowsFunctionAppSiteConfig(dict):
                > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
         :param 'WindowsFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[_builtins.str] default_documents: Specifies a list of Default Documents for the Windows Function App.
-        :param _builtins.bool detailed_error_logging_enabled: Is detailed error logging enabled
+        :param _builtins.bool detailed_error_logging_enabled: Is detailed error logging enabled?
         :param _builtins.int elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
         :param _builtins.str ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param _builtins.int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -23928,7 +23928,7 @@ class WindowsFunctionAppSiteConfig(dict):
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> Optional[_builtins.bool]:
         """
-        Is detailed error logging enabled
+        Is detailed error logging enabled?
         """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
@@ -24226,7 +24226,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[_builtins.bool] = None,
                  use_dotnet_isolated_runtime: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+        :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
         :param _builtins.str java_version: The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
         :param _builtins.str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20`, `~22` and `~24`.
         :param _builtins.str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
@@ -24252,7 +24252,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[_builtins.str]:
         """
-        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -27771,7 +27771,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[_builtins.bool] = None,
                  use_dotnet_isolated_runtime: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+        :param _builtins.str dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
         :param _builtins.str java_version: The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
         :param _builtins.str node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
         :param _builtins.str powershell_core_version: The PowerShell Core version to use. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
@@ -27795,7 +27795,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[_builtins.str]:
         """
-        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -31854,7 +31854,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param _builtins.str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param _builtins.str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param _builtins.str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
-        :param _builtins.str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+        :param _builtins.str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
                
                > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
                Portal Value | API value
@@ -31970,7 +31970,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[_builtins.str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 
         > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
         Portal Value | API value
@@ -36471,7 +36471,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         :param _builtins.str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param _builtins.str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param _builtins.str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
-        :param _builtins.str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+        :param _builtins.str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
         :param _builtins.bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param _builtins.str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
                
@@ -36574,7 +36574,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[_builtins.str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -40403,7 +40403,7 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
                  virtual_network_subnet_id: _builtins.str):
         """
         :param _builtins.str action: The action taken.
-        :param _builtins.str description: The description of the ip restriction rule.
+        :param _builtins.str description: The description of the IP restriction rule.
         :param Sequence['GetLinuxFunctionAppSiteConfigIpRestrictionHeaderArgs'] headers: A `headers` block as defined above.
         :param _builtins.str ip_address: The CIDR notation of the IP or IP Range matched.
         :param _builtins.str name: The name which should be used for this Linux Function App.
@@ -40432,7 +40432,7 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the ip restriction rule.
+        The description of the IP restriction rule.
         """
         return pulumi.get(self, "description")
 
@@ -40549,7 +40549,7 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
                  virtual_network_subnet_id: _builtins.str):
         """
         :param _builtins.str action: The action taken.
-        :param _builtins.str description: The description of the ip restriction rule.
+        :param _builtins.str description: The description of the IP restriction rule.
         :param Sequence['GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderArgs'] headers: A `headers` block as defined above.
         :param _builtins.str ip_address: The CIDR notation of the IP or IP Range matched.
         :param _builtins.str name: The name which should be used for this Linux Function App.
@@ -40578,7 +40578,7 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the ip restriction rule.
+        The description of the IP restriction rule.
         """
         return pulumi.get(self, "description")
 
@@ -43409,7 +43409,7 @@ class GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
                  virtual_network_subnet_id: _builtins.str):
         """
         :param _builtins.str action: A `action` block as defined above.
-        :param _builtins.str description: The description of the ip restriction rule.
+        :param _builtins.str description: The description of the IP restriction rule.
         :param _builtins.str ip_address: The CIDR notation of the IP or IP Range to match.
         :param _builtins.str name: The name of this Linux Web App.
         :param _builtins.int priority: The priority value of this `ip_restriction`.
@@ -43437,7 +43437,7 @@ class GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the ip restriction rule.
+        The description of the IP restriction rule.
         """
         return pulumi.get(self, "description")
 
@@ -43496,7 +43496,7 @@ class GetLinuxWebAppSiteConfigIpRestrictionHeaderResult(dict):
                  x_forwarded_hosts: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] x_azure_fdids: The list of Azure Front Door IDs.
-        :param Sequence[_builtins.str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[_builtins.str] x_fd_health_probes: Whether a Front Door Health Probe is expected.
         :param Sequence[_builtins.str] x_forwarded_fors: The list of addresses for which matching is applied.
         :param Sequence[_builtins.str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
         """
@@ -43517,7 +43517,7 @@ class GetLinuxWebAppSiteConfigIpRestrictionHeaderResult(dict):
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[_builtins.str]:
         """
-        Specifies if a Front Door Health Probe is expected.
+        Whether a Front Door Health Probe is expected.
         """
         return pulumi.get(self, "x_fd_health_probes")
 
@@ -43551,7 +43551,7 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
                  virtual_network_subnet_id: _builtins.str):
         """
         :param _builtins.str action: A `action` block as defined above.
-        :param _builtins.str description: The description of the ip restriction rule.
+        :param _builtins.str description: The description of the IP restriction rule.
         :param _builtins.str ip_address: The CIDR notation of the IP or IP Range to match.
         :param _builtins.str name: The name of this Linux Web App.
         :param _builtins.int priority: The priority value of this `ip_restriction`.
@@ -43579,7 +43579,7 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the ip restriction rule.
+        The description of the IP restriction rule.
         """
         return pulumi.get(self, "description")
 
@@ -43638,7 +43638,7 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
                  x_forwarded_hosts: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] x_azure_fdids: The list of Azure Front Door IDs.
-        :param Sequence[_builtins.str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[_builtins.str] x_fd_health_probes: Whether a Front Door Health Probe is expected.
         :param Sequence[_builtins.str] x_forwarded_fors: The list of addresses for which matching is applied.
         :param Sequence[_builtins.str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
         """
@@ -43659,7 +43659,7 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[_builtins.str]:
         """
-        Specifies if a Front Door Health Probe is expected.
+        Whether a Front Door Health Probe is expected.
         """
         return pulumi.get(self, "x_fd_health_probes")
 
@@ -46028,7 +46028,7 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
                  virtual_network_subnet_id: _builtins.str):
         """
         :param _builtins.str action: The action to take.
-        :param _builtins.str description: The description of the ip restriction rule.
+        :param _builtins.str description: The description of the IP restriction rule.
         :param _builtins.str ip_address: The CIDR notation of the IP or IP Range to match.
         :param _builtins.str name: The name of this Windows Function App.
         :param _builtins.int priority: The priority value of this `ip_restriction`.
@@ -46056,7 +46056,7 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the ip restriction rule.
+        The description of the IP restriction rule.
         """
         return pulumi.get(self, "description")
 
@@ -46115,7 +46115,7 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
                  x_forwarded_hosts: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] x_azure_fdids: The list of Azure Front Door IDs.
-        :param Sequence[_builtins.str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[_builtins.str] x_fd_health_probes: Whether a Front Door Health Probe is expected.
         :param Sequence[_builtins.str] x_forwarded_fors: The list of addresses for which matching is applied.
         :param Sequence[_builtins.str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
         """
@@ -46136,7 +46136,7 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[_builtins.str]:
         """
-        Specifies if a Front Door Health Probe is expected.
+        Whether a Front Door Health Probe is expected.
         """
         return pulumi.get(self, "x_fd_health_probes")
 
@@ -46170,7 +46170,7 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
                  virtual_network_subnet_id: _builtins.str):
         """
         :param _builtins.str action: The action to take.
-        :param _builtins.str description: The description of the ip restriction rule.
+        :param _builtins.str description: The description of the IP restriction rule.
         :param _builtins.str ip_address: The CIDR notation of the IP or IP Range to match.
         :param _builtins.str name: The name of this Windows Function App.
         :param _builtins.int priority: The priority value of this `ip_restriction`.
@@ -46198,7 +46198,7 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the ip restriction rule.
+        The description of the IP restriction rule.
         """
         return pulumi.get(self, "description")
 
@@ -46257,7 +46257,7 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
                  x_forwarded_hosts: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] x_azure_fdids: The list of Azure Front Door IDs.
-        :param Sequence[_builtins.str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[_builtins.str] x_fd_health_probes: Whether a Front Door Health Probe is expected.
         :param Sequence[_builtins.str] x_forwarded_fors: The list of addresses for which matching is applied.
         :param Sequence[_builtins.str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
         """
@@ -46278,7 +46278,7 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[_builtins.str]:
         """
-        Specifies if a Front Door Health Probe is expected.
+        Whether a Front Door Health Probe is expected.
         """
         return pulumi.get(self, "x_fd_health_probes")
 
@@ -49167,7 +49167,7 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
                  virtual_network_subnet_id: _builtins.str):
         """
         :param _builtins.str action: A `action` block as defined above.
-        :param _builtins.str description: The description of the ip restriction rule.
+        :param _builtins.str description: The description of the IP restriction rule.
         :param _builtins.str ip_address: The CIDR notation of the IP or IP Range to match.
         :param _builtins.str name: The name of this Windows Web App.
         :param _builtins.int priority: The priority value of this `ip_restriction`.
@@ -49195,7 +49195,7 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the ip restriction rule.
+        The description of the IP restriction rule.
         """
         return pulumi.get(self, "description")
 
@@ -49254,7 +49254,7 @@ class GetWindowsWebAppSiteConfigIpRestrictionHeaderResult(dict):
                  x_forwarded_hosts: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] x_azure_fdids: The list of Azure Front Door IDs.
-        :param Sequence[_builtins.str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[_builtins.str] x_fd_health_probes: Whether a Front Door Health Probe is expected.
         :param Sequence[_builtins.str] x_forwarded_fors: The list of addresses for which matching is applied.
         :param Sequence[_builtins.str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
         """
@@ -49275,7 +49275,7 @@ class GetWindowsWebAppSiteConfigIpRestrictionHeaderResult(dict):
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[_builtins.str]:
         """
-        Specifies if a Front Door Health Probe is expected.
+        Whether a Front Door Health Probe is expected.
         """
         return pulumi.get(self, "x_fd_health_probes")
 
@@ -49309,7 +49309,7 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
                  virtual_network_subnet_id: _builtins.str):
         """
         :param _builtins.str action: A `action` block as defined above.
-        :param _builtins.str description: The description of the ip restriction rule.
+        :param _builtins.str description: The description of the IP restriction rule.
         :param _builtins.str ip_address: The CIDR notation of the IP or IP Range to match.
         :param _builtins.str name: The name of this Windows Web App.
         :param _builtins.int priority: The priority value of this `ip_restriction`.
@@ -49337,7 +49337,7 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the ip restriction rule.
+        The description of the IP restriction rule.
         """
         return pulumi.get(self, "description")
 
@@ -49396,7 +49396,7 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
                  x_forwarded_hosts: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] x_azure_fdids: The list of Azure Front Door IDs.
-        :param Sequence[_builtins.str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[_builtins.str] x_fd_health_probes: Whether a Front Door Health Probe is expected.
         :param Sequence[_builtins.str] x_forwarded_fors: The list of addresses for which matching is applied.
         :param Sequence[_builtins.str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
         """
@@ -49417,7 +49417,7 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[_builtins.str]:
         """
-        Specifies if a Front Door Health Probe is expected.
+        Whether a Front Door Health Probe is expected.
         """
         return pulumi.get(self, "x_fd_health_probes")
 

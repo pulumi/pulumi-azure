@@ -140,9 +140,9 @@ def get_disk_encryption_set(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.compute.get_disk_encryption_set(name="example-des",
+    example = azure.compute.get_disk_encryption_set(name="example-des",
         resource_group_name="example-resources")
-    pulumi.export("id", existing.id)
+    pulumi.export("id", example.id)
     ```
 
     ## API Providers
@@ -183,9 +183,9 @@ def get_disk_encryption_set_output(name: pulumi.Input[Optional[_builtins.str]] =
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.compute.get_disk_encryption_set(name="example-des",
+    example = azure.compute.get_disk_encryption_set(name="example-des",
         resource_group_name="example-resources")
-    pulumi.export("id", existing.id)
+    pulumi.export("id", example.id)
     ```
 
     ## API Providers

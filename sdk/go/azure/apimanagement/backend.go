@@ -84,7 +84,7 @@ type Backend struct {
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// A `circuitBreakerRule` block as documented below.
 	CircuitBreakerRule BackendCircuitBreakerRulePtrOutput `pulumi:"circuitBreakerRule"`
-	// A `credentials` block as documented below.
+	// A `credentials` block as defined below.
 	Credentials BackendCredentialsPtrOutput `pulumi:"credentials"`
 	// The description of the backend.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -92,17 +92,17 @@ type Backend struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The protocol used by the backend host. Possible values are `http` or `soap`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// A `proxy` block as documented below.
+	// A `proxy` block as defined below.
 	Proxy BackendProxyPtrOutput `pulumi:"proxy"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// A `serviceFabricCluster` block as documented below.
+	// A `serviceFabricCluster` block as defined below.
 	ServiceFabricCluster BackendServiceFabricClusterPtrOutput `pulumi:"serviceFabricCluster"`
 	// The title of the backend.
 	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// A `tls` block as documented below.
+	// A `tls` block as defined below.
 	Tls BackendTlsPtrOutput `pulumi:"tls"`
 	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -154,7 +154,7 @@ type backendState struct {
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// A `circuitBreakerRule` block as documented below.
 	CircuitBreakerRule *BackendCircuitBreakerRule `pulumi:"circuitBreakerRule"`
-	// A `credentials` block as documented below.
+	// A `credentials` block as defined below.
 	Credentials *BackendCredentials `pulumi:"credentials"`
 	// The description of the backend.
 	Description *string `pulumi:"description"`
@@ -162,17 +162,17 @@ type backendState struct {
 	Name *string `pulumi:"name"`
 	// The protocol used by the backend host. Possible values are `http` or `soap`.
 	Protocol *string `pulumi:"protocol"`
-	// A `proxy` block as documented below.
+	// A `proxy` block as defined below.
 	Proxy *BackendProxy `pulumi:"proxy"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
 	ResourceId *string `pulumi:"resourceId"`
-	// A `serviceFabricCluster` block as documented below.
+	// A `serviceFabricCluster` block as defined below.
 	ServiceFabricCluster *BackendServiceFabricCluster `pulumi:"serviceFabricCluster"`
 	// The title of the backend.
 	Title *string `pulumi:"title"`
-	// A `tls` block as documented below.
+	// A `tls` block as defined below.
 	Tls *BackendTls `pulumi:"tls"`
 	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url *string `pulumi:"url"`
@@ -183,7 +183,7 @@ type BackendState struct {
 	ApiManagementName pulumi.StringPtrInput
 	// A `circuitBreakerRule` block as documented below.
 	CircuitBreakerRule BackendCircuitBreakerRulePtrInput
-	// A `credentials` block as documented below.
+	// A `credentials` block as defined below.
 	Credentials BackendCredentialsPtrInput
 	// The description of the backend.
 	Description pulumi.StringPtrInput
@@ -191,17 +191,17 @@ type BackendState struct {
 	Name pulumi.StringPtrInput
 	// The protocol used by the backend host. Possible values are `http` or `soap`.
 	Protocol pulumi.StringPtrInput
-	// A `proxy` block as documented below.
+	// A `proxy` block as defined below.
 	Proxy BackendProxyPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
 	ResourceId pulumi.StringPtrInput
-	// A `serviceFabricCluster` block as documented below.
+	// A `serviceFabricCluster` block as defined below.
 	ServiceFabricCluster BackendServiceFabricClusterPtrInput
 	// The title of the backend.
 	Title pulumi.StringPtrInput
-	// A `tls` block as documented below.
+	// A `tls` block as defined below.
 	Tls BackendTlsPtrInput
 	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url pulumi.StringPtrInput
@@ -216,7 +216,7 @@ type backendArgs struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// A `circuitBreakerRule` block as documented below.
 	CircuitBreakerRule *BackendCircuitBreakerRule `pulumi:"circuitBreakerRule"`
-	// A `credentials` block as documented below.
+	// A `credentials` block as defined below.
 	Credentials *BackendCredentials `pulumi:"credentials"`
 	// The description of the backend.
 	Description *string `pulumi:"description"`
@@ -224,17 +224,17 @@ type backendArgs struct {
 	Name *string `pulumi:"name"`
 	// The protocol used by the backend host. Possible values are `http` or `soap`.
 	Protocol string `pulumi:"protocol"`
-	// A `proxy` block as documented below.
+	// A `proxy` block as defined below.
 	Proxy *BackendProxy `pulumi:"proxy"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
 	ResourceId *string `pulumi:"resourceId"`
-	// A `serviceFabricCluster` block as documented below.
+	// A `serviceFabricCluster` block as defined below.
 	ServiceFabricCluster *BackendServiceFabricCluster `pulumi:"serviceFabricCluster"`
 	// The title of the backend.
 	Title *string `pulumi:"title"`
-	// A `tls` block as documented below.
+	// A `tls` block as defined below.
 	Tls *BackendTls `pulumi:"tls"`
 	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url string `pulumi:"url"`
@@ -246,7 +246,7 @@ type BackendArgs struct {
 	ApiManagementName pulumi.StringInput
 	// A `circuitBreakerRule` block as documented below.
 	CircuitBreakerRule BackendCircuitBreakerRulePtrInput
-	// A `credentials` block as documented below.
+	// A `credentials` block as defined below.
 	Credentials BackendCredentialsPtrInput
 	// The description of the backend.
 	Description pulumi.StringPtrInput
@@ -254,17 +254,17 @@ type BackendArgs struct {
 	Name pulumi.StringPtrInput
 	// The protocol used by the backend host. Possible values are `http` or `soap`.
 	Protocol pulumi.StringInput
-	// A `proxy` block as documented below.
+	// A `proxy` block as defined below.
 	Proxy BackendProxyPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
 	ResourceId pulumi.StringPtrInput
-	// A `serviceFabricCluster` block as documented below.
+	// A `serviceFabricCluster` block as defined below.
 	ServiceFabricCluster BackendServiceFabricClusterPtrInput
 	// The title of the backend.
 	Title pulumi.StringPtrInput
-	// A `tls` block as documented below.
+	// A `tls` block as defined below.
 	Tls BackendTlsPtrInput
 	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url pulumi.StringInput
@@ -367,7 +367,7 @@ func (o BackendOutput) CircuitBreakerRule() BackendCircuitBreakerRulePtrOutput {
 	return o.ApplyT(func(v *Backend) BackendCircuitBreakerRulePtrOutput { return v.CircuitBreakerRule }).(BackendCircuitBreakerRulePtrOutput)
 }
 
-// A `credentials` block as documented below.
+// A `credentials` block as defined below.
 func (o BackendOutput) Credentials() BackendCredentialsPtrOutput {
 	return o.ApplyT(func(v *Backend) BackendCredentialsPtrOutput { return v.Credentials }).(BackendCredentialsPtrOutput)
 }
@@ -387,7 +387,7 @@ func (o BackendOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// A `proxy` block as documented below.
+// A `proxy` block as defined below.
 func (o BackendOutput) Proxy() BackendProxyPtrOutput {
 	return o.ApplyT(func(v *Backend) BackendProxyPtrOutput { return v.Proxy }).(BackendProxyPtrOutput)
 }
@@ -402,7 +402,7 @@ func (o BackendOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// A `serviceFabricCluster` block as documented below.
+// A `serviceFabricCluster` block as defined below.
 func (o BackendOutput) ServiceFabricCluster() BackendServiceFabricClusterPtrOutput {
 	return o.ApplyT(func(v *Backend) BackendServiceFabricClusterPtrOutput { return v.ServiceFabricCluster }).(BackendServiceFabricClusterPtrOutput)
 }
@@ -412,7 +412,7 @@ func (o BackendOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// A `tls` block as documented below.
+// A `tls` block as defined below.
 func (o BackendOutput) Tls() BackendTlsPtrOutput {
 	return o.ApplyT(func(v *Backend) BackendTlsPtrOutput { return v.Tls }).(BackendTlsPtrOutput)
 }

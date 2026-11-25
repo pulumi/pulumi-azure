@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.lb.getLBOutboundRule({
- *     name: "existing_lb_outbound_rule",
- *     loadbalancerId: "existing_load_balancer_id",
+ *     name: "example-outbound-rule",
+ *     loadbalancerId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -99,8 +99,8 @@ export interface GetLBOutboundRuleResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.lb.getLBOutboundRule({
- *     name: "existing_lb_outbound_rule",
- *     loadbalancerId: "existing_load_balancer_id",
+ *     name: "example-outbound-rule",
+ *     loadbalancerId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb",
  * });
  * export const id = example.then(example => example.id);
  * ```

@@ -554,7 +554,7 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
-     *             .name("existing")
+     *             .name("example-alias")
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
@@ -603,7 +603,7 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
-     *             .name("existing")
+     *             .name("example-alias")
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
@@ -652,7 +652,7 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
-     *             .name("existing")
+     *             .name("example-alias")
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
@@ -701,7 +701,7 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
-     *             .name("existing")
+     *             .name("example-alias")
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
@@ -750,7 +750,7 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
-     *             .name("existing")
+     *             .name("example-alias")
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
@@ -799,8 +799,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-queue")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -848,8 +848,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-queue")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -897,8 +897,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-queue")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -946,8 +946,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-queue")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -995,8 +995,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-queue")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1544,8 +1544,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-topic")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1593,8 +1593,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-topic")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1642,8 +1642,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-topic")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1691,8 +1691,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-topic")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1740,8 +1740,8 @@ public final class ServicebusFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
-     *             .name("existing")
-     *             .namespaceId("existing")
+     *             .name("example-topic")
+     *             .namespaceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
      *             .build());
      * 
      *         ctx.export("id", example.id());

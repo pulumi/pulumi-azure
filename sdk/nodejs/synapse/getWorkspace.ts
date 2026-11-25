@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.synapse.getWorkspace({
- *     name: "existing",
+ *     name: "example-synapse-workspace",
  *     resourceGroupName: "example-resource-group",
  * });
  * export const id = example.then(example => example.id);
@@ -81,7 +81,7 @@ export interface GetWorkspaceResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.synapse.getWorkspace({
- *     name: "existing",
+ *     name: "example-synapse-workspace",
  *     resourceGroupName: "example-resource-group",
  * });
  * export const id = example.then(example => example.id);

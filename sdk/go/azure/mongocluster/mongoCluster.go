@@ -125,9 +125,11 @@ type MongoCluster struct {
 	// The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
 	// The size of the data disk space for the MongoDB Cluster.
-	StorageSizeInGb pulumi.IntPtrOutput `pulumi:"storageSizeInGb"`
-	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
-	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
+	StorageSizeInGb pulumi.IntOutput `pulumi:"storageSizeInGb"`
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
+	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
@@ -238,7 +240,9 @@ type mongoClusterState struct {
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
-	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
 	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -301,7 +305,9 @@ type MongoClusterState struct {
 	SourceServerId pulumi.StringPtrInput
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb pulumi.IntPtrInput
-	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
 	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapInput
@@ -366,7 +372,9 @@ type mongoClusterArgs struct {
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
-	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
 	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -428,7 +436,9 @@ type MongoClusterArgs struct {
 	SourceServerId pulumi.StringPtrInput
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb pulumi.IntPtrInput
-	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
 	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapInput
@@ -636,13 +646,15 @@ func (o MongoClusterOutput) SourceServerId() pulumi.StringPtrOutput {
 }
 
 // The size of the data disk space for the MongoDB Cluster.
-func (o MongoClusterOutput) StorageSizeInGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MongoCluster) pulumi.IntPtrOutput { return v.StorageSizeInGb }).(pulumi.IntPtrOutput)
+func (o MongoClusterOutput) StorageSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v *MongoCluster) pulumi.IntOutput { return v.StorageSizeInGb }).(pulumi.IntOutput)
 }
 
-// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
-func (o MongoClusterOutput) StorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
+// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
+func (o MongoClusterOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v *MongoCluster) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the MongoDB Cluster.

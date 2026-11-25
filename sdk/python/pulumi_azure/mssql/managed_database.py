@@ -25,6 +25,7 @@ class ManagedDatabaseArgs:
                  long_term_retention_policy: pulumi.Input[Optional['ManagedDatabaseLongTermRetentionPolicyArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  point_in_time_restore: pulumi.Input[Optional['ManagedDatabasePointInTimeRestoreArgs']] = None,
+                 recover_database_id: pulumi.Input[Optional[_builtins.str]] = None,
                  short_term_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -33,7 +34,8 @@ class ManagedDatabaseArgs:
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         :param pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
-        :param pulumi.Input['ManagedDatabasePointInTimeRestoreArgs'] point_in_time_restore: A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ManagedDatabasePointInTimeRestoreArgs'] point_in_time_restore: A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recover_database_id`.
+        :param pulumi.Input[_builtins.str] recover_database_id: The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `point_in_time_restore`.
         :param pulumi.Input[_builtins.int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -44,6 +46,8 @@ class ManagedDatabaseArgs:
             pulumi.set(__self__, "name", name)
         if point_in_time_restore is not None:
             pulumi.set(__self__, "point_in_time_restore", point_in_time_restore)
+        if recover_database_id is not None:
+            pulumi.set(__self__, "recover_database_id", recover_database_id)
         if short_term_retention_days is not None:
             pulumi.set(__self__, "short_term_retention_days", short_term_retention_days)
         if tags is not None:
@@ -89,13 +93,25 @@ class ManagedDatabaseArgs:
     @pulumi.getter(name="pointInTimeRestore")
     def point_in_time_restore(self) -> pulumi.Input[Optional['ManagedDatabasePointInTimeRestoreArgs']]:
         """
-        A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recover_database_id`.
         """
         return pulumi.get(self, "point_in_time_restore")
 
     @point_in_time_restore.setter
     def point_in_time_restore(self, value: pulumi.Input[Optional['ManagedDatabasePointInTimeRestoreArgs']]):
         pulumi.set(self, "point_in_time_restore", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recoverDatabaseId")
+    def recover_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `point_in_time_restore`.
+        """
+        return pulumi.get(self, "recover_database_id")
+
+    @recover_database_id.setter
+    def recover_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "recover_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="shortTermRetentionDays")
@@ -129,6 +145,7 @@ class _ManagedDatabaseState:
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  point_in_time_restore: pulumi.Input[Optional['ManagedDatabasePointInTimeRestoreArgs']] = None,
+                 recover_database_id: pulumi.Input[Optional[_builtins.str]] = None,
                  short_term_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -137,7 +154,8 @@ class _ManagedDatabaseState:
         :param pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
-        :param pulumi.Input['ManagedDatabasePointInTimeRestoreArgs'] point_in_time_restore: A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ManagedDatabasePointInTimeRestoreArgs'] point_in_time_restore: A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recover_database_id`.
+        :param pulumi.Input[_builtins.str] recover_database_id: The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `point_in_time_restore`.
         :param pulumi.Input[_builtins.int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -149,6 +167,8 @@ class _ManagedDatabaseState:
             pulumi.set(__self__, "name", name)
         if point_in_time_restore is not None:
             pulumi.set(__self__, "point_in_time_restore", point_in_time_restore)
+        if recover_database_id is not None:
+            pulumi.set(__self__, "recover_database_id", recover_database_id)
         if short_term_retention_days is not None:
             pulumi.set(__self__, "short_term_retention_days", short_term_retention_days)
         if tags is not None:
@@ -194,13 +214,25 @@ class _ManagedDatabaseState:
     @pulumi.getter(name="pointInTimeRestore")
     def point_in_time_restore(self) -> pulumi.Input[Optional['ManagedDatabasePointInTimeRestoreArgs']]:
         """
-        A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recover_database_id`.
         """
         return pulumi.get(self, "point_in_time_restore")
 
     @point_in_time_restore.setter
     def point_in_time_restore(self, value: pulumi.Input[Optional['ManagedDatabasePointInTimeRestoreArgs']]):
         pulumi.set(self, "point_in_time_restore", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recoverDatabaseId")
+    def recover_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `point_in_time_restore`.
+        """
+        return pulumi.get(self, "recover_database_id")
+
+    @recover_database_id.setter
+    def recover_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "recover_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="shortTermRetentionDays")
@@ -237,6 +269,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  point_in_time_restore: pulumi.Input[Optional[Union['ManagedDatabasePointInTimeRestoreArgs', 'ManagedDatabasePointInTimeRestoreArgsDict', 'outputs.ManagedDatabasePointInTimeRestore']]] = None,
+                 recover_database_id: pulumi.Input[Optional[_builtins.str]] = None,
                  short_term_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -301,7 +334,8 @@ class ManagedDatabase(pulumi.CustomResource):
         :param pulumi.Input[Union['ManagedDatabaseLongTermRetentionPolicyArgs', 'ManagedDatabaseLongTermRetentionPolicyArgsDict', 'outputs.ManagedDatabaseLongTermRetentionPolicy']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ManagedDatabasePointInTimeRestoreArgs', 'ManagedDatabasePointInTimeRestoreArgsDict', 'outputs.ManagedDatabasePointInTimeRestore']] point_in_time_restore: A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ManagedDatabasePointInTimeRestoreArgs', 'ManagedDatabasePointInTimeRestoreArgsDict', 'outputs.ManagedDatabasePointInTimeRestore']] point_in_time_restore: A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recover_database_id`.
+        :param pulumi.Input[_builtins.str] recover_database_id: The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `point_in_time_restore`.
         :param pulumi.Input[_builtins.int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -386,6 +420,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  point_in_time_restore: pulumi.Input[Optional[Union['ManagedDatabasePointInTimeRestoreArgs', 'ManagedDatabasePointInTimeRestoreArgsDict', 'outputs.ManagedDatabasePointInTimeRestore']]] = None,
+                 recover_database_id: pulumi.Input[Optional[_builtins.str]] = None,
                  short_term_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -403,6 +438,7 @@ class ManagedDatabase(pulumi.CustomResource):
             __props__.__dict__["managed_instance_id"] = managed_instance_id
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_restore"] = point_in_time_restore
+            __props__.__dict__["recover_database_id"] = recover_database_id
             __props__.__dict__["short_term_retention_days"] = short_term_retention_days
             __props__.__dict__["tags"] = tags
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/managedDatabase:ManagedDatabase")])
@@ -421,6 +457,7 @@ class ManagedDatabase(pulumi.CustomResource):
             managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             point_in_time_restore: pulumi.Input[Optional[Union['ManagedDatabasePointInTimeRestoreArgs', 'ManagedDatabasePointInTimeRestoreArgsDict', 'outputs.ManagedDatabasePointInTimeRestore']]] = None,
+            recover_database_id: pulumi.Input[Optional[_builtins.str]] = None,
             short_term_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ManagedDatabase':
         """
@@ -433,7 +470,8 @@ class ManagedDatabase(pulumi.CustomResource):
         :param pulumi.Input[Union['ManagedDatabaseLongTermRetentionPolicyArgs', 'ManagedDatabaseLongTermRetentionPolicyArgsDict', 'outputs.ManagedDatabaseLongTermRetentionPolicy']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ManagedDatabasePointInTimeRestoreArgs', 'ManagedDatabasePointInTimeRestoreArgsDict', 'outputs.ManagedDatabasePointInTimeRestore']] point_in_time_restore: A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ManagedDatabasePointInTimeRestoreArgs', 'ManagedDatabasePointInTimeRestoreArgsDict', 'outputs.ManagedDatabasePointInTimeRestore']] point_in_time_restore: A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recover_database_id`.
+        :param pulumi.Input[_builtins.str] recover_database_id: The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `point_in_time_restore`.
         :param pulumi.Input[_builtins.int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -445,6 +483,7 @@ class ManagedDatabase(pulumi.CustomResource):
         __props__.__dict__["managed_instance_id"] = managed_instance_id
         __props__.__dict__["name"] = name
         __props__.__dict__["point_in_time_restore"] = point_in_time_restore
+        __props__.__dict__["recover_database_id"] = recover_database_id
         __props__.__dict__["short_term_retention_days"] = short_term_retention_days
         __props__.__dict__["tags"] = tags
         return ManagedDatabase(resource_name, opts=opts, __props__=__props__)
@@ -477,9 +516,17 @@ class ManagedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="pointInTimeRestore")
     def point_in_time_restore(self) -> pulumi.Output[Optional['outputs.ManagedDatabasePointInTimeRestore']]:
         """
-        A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recover_database_id`.
         """
         return pulumi.get(self, "point_in_time_restore")
+
+    @_builtins.property
+    @pulumi.getter(name="recoverDatabaseId")
+    def recover_database_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `point_in_time_restore`.
+        """
+        return pulumi.get(self, "recover_database_id")
 
     @_builtins.property
     @pulumi.getter(name="shortTermRetentionDays")

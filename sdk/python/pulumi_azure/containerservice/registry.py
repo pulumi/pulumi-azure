@@ -53,9 +53,9 @@ class RegistryArgs:
                
                > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
-        :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
+        :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: One or more `georeplications` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: One or more `georeplications` blocks as defined below.
                
                > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
                
@@ -67,7 +67,7 @@ class RegistryArgs:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] network_rule_bypass_for_tasks_enabled: Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
+        :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
@@ -194,7 +194,7 @@ class RegistryArgs:
     @pulumi.getter
     def encryption(self) -> pulumi.Input[Optional['RegistryEncryptionArgs']]:
         """
-        An `encryption` block as documented below.
+        An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
@@ -218,7 +218,7 @@ class RegistryArgs:
     @pulumi.getter
     def georeplications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
         """
-        One or more `georeplications` blocks as documented below.
+        One or more `georeplications` blocks as defined below.
 
         > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 
@@ -296,7 +296,7 @@ class RegistryArgs:
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> pulumi.Input[Optional['RegistryNetworkRuleSetArgs']]:
         """
-        A `network_rule_set` block as documented below.
+        A `network_rule_set` block as defined below.
         """
         return pulumi.get(self, "network_rule_set")
 
@@ -417,9 +417,9 @@ class _RegistryState:
                > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_endpoint_host_names: A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
-        :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
+        :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: One or more `georeplications` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: One or more `georeplications` blocks as defined below.
                
                > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
                
@@ -432,7 +432,7 @@ class _RegistryState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] network_rule_bypass_for_tasks_enabled: Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
+        :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
@@ -583,7 +583,7 @@ class _RegistryState:
     @pulumi.getter
     def encryption(self) -> pulumi.Input[Optional['RegistryEncryptionArgs']]:
         """
-        An `encryption` block as documented below.
+        An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
@@ -607,7 +607,7 @@ class _RegistryState:
     @pulumi.getter
     def georeplications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
         """
-        One or more `georeplications` blocks as documented below.
+        One or more `georeplications` blocks as defined below.
 
         > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 
@@ -697,7 +697,7 @@ class _RegistryState:
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> pulumi.Input[Optional['RegistryNetworkRuleSetArgs']]:
         """
-        A `network_rule_set` block as documented below.
+        A `network_rule_set` block as defined below.
         """
         return pulumi.get(self, "network_rule_set")
 
@@ -955,9 +955,9 @@ class Registry(pulumi.CustomResource):
                
                > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
-        :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict', 'outputs.RegistryEncryption']] encryption: An `encryption` block as documented below.
+        :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict', 'outputs.RegistryEncryption']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict', 'outputs.RegistryGeoreplication']]]] georeplications: One or more `georeplications` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict', 'outputs.RegistryGeoreplication']]]] georeplications: One or more `georeplications` blocks as defined below.
                
                > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
                
@@ -969,7 +969,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] network_rule_bypass_for_tasks_enabled: Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        :param pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict', 'outputs.RegistryNetworkRuleSet']] network_rule_set: A `network_rule_set` block as documented below.
+        :param pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict', 'outputs.RegistryNetworkRuleSet']] network_rule_set: A `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
@@ -1229,9 +1229,9 @@ class Registry(pulumi.CustomResource):
                > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_endpoint_host_names: A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
-        :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict', 'outputs.RegistryEncryption']] encryption: An `encryption` block as documented below.
+        :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict', 'outputs.RegistryEncryption']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict', 'outputs.RegistryGeoreplication']]]] georeplications: One or more `georeplications` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict', 'outputs.RegistryGeoreplication']]]] georeplications: One or more `georeplications` blocks as defined below.
                
                > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
                
@@ -1244,7 +1244,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] network_rule_bypass_for_tasks_enabled: Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        :param pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict', 'outputs.RegistryNetworkRuleSet']] network_rule_set: A `network_rule_set` block as documented below.
+        :param pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict', 'outputs.RegistryNetworkRuleSet']] network_rule_set: A `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
@@ -1347,7 +1347,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter
     def encryption(self) -> pulumi.Output[Optional['outputs.RegistryEncryption']]:
         """
-        An `encryption` block as documented below.
+        An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
@@ -1363,7 +1363,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter
     def georeplications(self) -> pulumi.Output[Optional[Sequence['outputs.RegistryGeoreplication']]]:
         """
-        One or more `georeplications` blocks as documented below.
+        One or more `georeplications` blocks as defined below.
 
         > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 
@@ -1425,7 +1425,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> pulumi.Output['outputs.RegistryNetworkRuleSet']:
         """
-        A `network_rule_set` block as documented below.
+        A `network_rule_set` block as defined below.
         """
         return pulumi.get(self, "network_rule_set")
 

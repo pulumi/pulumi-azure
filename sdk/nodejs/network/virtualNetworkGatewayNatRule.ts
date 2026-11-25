@@ -116,11 +116,11 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `externalMapping` blocks as documented below.
+     * One or more `externalMapping` blocks as defined below.
      */
     declare public readonly externalMappings: pulumi.Output<outputs.network.VirtualNetworkGatewayNatRuleExternalMapping[]>;
     /**
-     * One or more `internalMapping` blocks as documented below.
+     * One or more `internalMapping` blocks as defined below.
      */
     declare public readonly internalMappings: pulumi.Output<outputs.network.VirtualNetworkGatewayNatRuleInternalMapping[]>;
     /**
@@ -202,11 +202,11 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
  */
 export interface VirtualNetworkGatewayNatRuleState {
     /**
-     * One or more `externalMapping` blocks as documented below.
+     * One or more `externalMapping` blocks as defined below.
      */
     externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleExternalMapping>[] | undefined>;
     /**
-     * One or more `internalMapping` blocks as documented below.
+     * One or more `internalMapping` blocks as defined below.
      */
     internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleInternalMapping>[] | undefined>;
     /**
@@ -240,11 +240,11 @@ export interface VirtualNetworkGatewayNatRuleState {
  */
 export interface VirtualNetworkGatewayNatRuleArgs {
     /**
-     * One or more `externalMapping` blocks as documented below.
+     * One or more `externalMapping` blocks as defined below.
      */
     externalMappings: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleExternalMapping>[]>;
     /**
-     * One or more `internalMapping` blocks as documented below.
+     * One or more `internalMapping` blocks as defined below.
      */
     internalMappings: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleInternalMapping>[]>;
     /**

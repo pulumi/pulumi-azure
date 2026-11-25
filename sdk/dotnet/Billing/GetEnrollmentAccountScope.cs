@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Billing
         /// {
         ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
         ///     {
-        ///         BillingAccountName = "existing",
-        ///         EnrollmentAccountName = "existing",
+        ///         BillingAccountName = "example-billing-account",
+        ///         EnrollmentAccountName = "example-enrollment-account",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -55,8 +55,8 @@ namespace Pulumi.Azure.Billing
         /// {
         ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
         ///     {
-        ///         BillingAccountName = "existing",
-        ///         EnrollmentAccountName = "existing",
+        ///         BillingAccountName = "example-billing-account",
+        ///         EnrollmentAccountName = "example-enrollment-account",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -84,8 +84,8 @@ namespace Pulumi.Azure.Billing
         /// {
         ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
         ///     {
-        ///         BillingAccountName = "existing",
-        ///         EnrollmentAccountName = "existing",
+        ///         BillingAccountName = "example-billing-account",
+        ///         EnrollmentAccountName = "example-enrollment-account",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

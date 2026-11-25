@@ -95,7 +95,7 @@ type LookupApiResult struct {
 	ServiceUrl string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend?
 	SoapPassThrough bool `pulumi:"soapPassThrough"`
-	// A `subscriptionKeyParameterNames` block as documented below.
+	// A `subscriptionKeyParameterNames` block as defined below.
 	SubscriptionKeyParameterNames []GetApiSubscriptionKeyParameterName `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key?
 	SubscriptionRequired bool `pulumi:"subscriptionRequired"`
@@ -202,7 +202,7 @@ func (o LookupApiResultOutput) SoapPassThrough() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupApiResult) bool { return v.SoapPassThrough }).(pulumi.BoolOutput)
 }
 
-// A `subscriptionKeyParameterNames` block as documented below.
+// A `subscriptionKeyParameterNames` block as defined below.
 func (o LookupApiResultOutput) SubscriptionKeyParameterNames() GetApiSubscriptionKeyParameterNameArrayOutput {
 	return o.ApplyT(func(v LookupApiResult) []GetApiSubscriptionKeyParameterName { return v.SubscriptionKeyParameterNames }).(GetApiSubscriptionKeyParameterNameArrayOutput)
 }

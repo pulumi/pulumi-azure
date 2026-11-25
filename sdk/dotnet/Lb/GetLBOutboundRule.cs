@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Lb
         /// {
         ///     var example = Azure.Lb.GetLBOutboundRule.Invoke(new()
         ///     {
-        ///         Name = "existing_lb_outbound_rule",
-        ///         LoadbalancerId = "existing_load_balancer_id",
+        ///         Name = "example-outbound-rule",
+        ///         LoadbalancerId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Lb
         /// {
         ///     var example = Azure.Lb.GetLBOutboundRule.Invoke(new()
         ///     {
-        ///         Name = "existing_lb_outbound_rule",
-        ///         LoadbalancerId = "existing_load_balancer_id",
+        ///         Name = "example-outbound-rule",
+        ///         LoadbalancerId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Lb
         /// {
         ///     var example = Azure.Lb.GetLBOutboundRule.Invoke(new()
         ///     {
-        ///         Name = "existing_lb_outbound_rule",
-        ///         LoadbalancerId = "existing_load_balancer_id",
+        ///         Name = "example-outbound-rule",
+        ///         LoadbalancerId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

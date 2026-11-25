@@ -216,13 +216,13 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> CrossTenantReplicationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `CustomDomain` block as documented below.
+        /// A `CustomDomain` block as defined below.
         /// </summary>
         [Output("customDomain")]
         public Output<Outputs.AccountCustomDomain?> CustomDomain { get; private set; } = null!;
 
         /// <summary>
-        /// A `CustomerManagedKey` block as documented below.
+        /// A `CustomerManagedKey` block as defined below.
         /// 
         /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `CustomerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `IgnoreChanges` on the `CustomerManagedKey` block.
         /// </summary>
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `NetworkRules` block as documented below.
+        /// A `NetworkRules` block as defined below.
         /// </summary>
         [Output("networkRules")]
         public Output<Outputs.AccountNetworkRules> NetworkRules { get; private set; } = null!;
@@ -829,6 +829,12 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> SharedAccessKeyEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `False`.
+        /// </summary>
+        [Output("smbOauthEnabled")]
+        public Output<bool?> SmbOauthEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
         /// &gt; **Note:** `QueueEncryptionKeyType` and `TableEncryptionKeyType` cannot be set to `Account` when `AccountKind` is set `Storage`
@@ -962,13 +968,13 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? CrossTenantReplicationEnabled { get; set; }
 
         /// <summary>
-        /// A `CustomDomain` block as documented below.
+        /// A `CustomDomain` block as defined below.
         /// </summary>
         [Input("customDomain")]
         public Input<Inputs.AccountCustomDomainArgs>? CustomDomain { get; set; }
 
         /// <summary>
-        /// A `CustomerManagedKey` block as documented below.
+        /// A `CustomerManagedKey` block as defined below.
         /// 
         /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `CustomerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `IgnoreChanges` on the `CustomerManagedKey` block.
         /// </summary>
@@ -1066,7 +1072,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `NetworkRules` block as documented below.
+        /// A `NetworkRules` block as defined below.
         /// </summary>
         [Input("networkRules")]
         public Input<Inputs.AccountNetworkRulesArgs>? NetworkRules { get; set; }
@@ -1141,6 +1147,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("sharedAccessKeyEnabled")]
         public Input<bool>? SharedAccessKeyEnabled { get; set; }
+
+        /// <summary>
+        /// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `False`.
+        /// </summary>
+        [Input("smbOauthEnabled")]
+        public Input<bool>? SmbOauthEnabled { get; set; }
 
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -1247,13 +1259,13 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? CrossTenantReplicationEnabled { get; set; }
 
         /// <summary>
-        /// A `CustomDomain` block as documented below.
+        /// A `CustomDomain` block as defined below.
         /// </summary>
         [Input("customDomain")]
         public Input<Inputs.AccountCustomDomainGetArgs>? CustomDomain { get; set; }
 
         /// <summary>
-        /// A `CustomerManagedKey` block as documented below.
+        /// A `CustomerManagedKey` block as defined below.
         /// 
         /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `CustomerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `IgnoreChanges` on the `CustomerManagedKey` block.
         /// </summary>
@@ -1351,7 +1363,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `NetworkRules` block as documented below.
+        /// A `NetworkRules` block as defined below.
         /// </summary>
         [Input("networkRules")]
         public Input<Inputs.AccountNetworkRulesGetArgs>? NetworkRules { get; set; }
@@ -1918,6 +1930,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("sharedAccessKeyEnabled")]
         public Input<bool>? SharedAccessKeyEnabled { get; set; }
+
+        /// <summary>
+        /// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `False`.
+        /// </summary>
+        [Input("smbOauthEnabled")]
+        public Input<bool>? SmbOauthEnabled { get; set; }
 
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

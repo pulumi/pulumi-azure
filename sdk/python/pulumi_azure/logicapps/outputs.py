@@ -189,7 +189,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteria(dict):
         """
         :param _builtins.int batch_size: The batch size in bytes for the Logic App Integration Batch Configuration.
         :param _builtins.int message_count: The message count for the Logic App Integration Batch Configuration.
-        :param 'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs' recurrence: A `recurrence` block as documented below.
+        :param 'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs' recurrence: A `recurrence` block as defined below.
         """
         if batch_size is not None:
             pulumi.set(__self__, "batch_size", batch_size)
@@ -218,7 +218,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteria(dict):
     @pulumi.getter
     def recurrence(self) -> Optional['outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence']:
         """
-        A `recurrence` block as documented below.
+        A `recurrence` block as defined below.
         """
         return pulumi.get(self, "recurrence")
 
@@ -257,7 +257,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(dict):
         :param _builtins.str frequency: The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
         :param _builtins.int interval: The number of `frequency`s between runs.
         :param _builtins.str end_time: The end time of the schedule, formatted as an RFC3339 string.
-        :param 'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs' schedule: A `schedule` block as documented below.
+        :param 'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs' schedule: A `schedule` block as defined below.
         :param _builtins.str start_time: The start time of the schedule, formatted as an RFC3339 string.
         :param _builtins.str time_zone: The timezone of the start/end time.
         """
@@ -300,7 +300,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(dict):
     @pulumi.getter
     def schedule(self) -> Optional['outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule']:
         """
-        A `schedule` block as documented below.
+        A `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
@@ -352,7 +352,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(dict
         :param Sequence[_builtins.int] hours: A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
         :param Sequence[_builtins.int] minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
         :param Sequence[_builtins.int] month_days: A list of days of the month that the job should execute on.
-        :param Sequence['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs'] monthlies: A `monthly` block as documented below.
+        :param Sequence['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs'] monthlies: A `monthly` block as defined below.
         :param Sequence[_builtins.str] week_days: A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
         if hours is not None:
@@ -394,7 +394,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(dict
     @pulumi.getter
     def monthlies(self) -> Optional[Sequence['outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly']]:
         """
-        A `monthly` block as documented below.
+        A `monthly` block as defined below.
         """
         return pulumi.get(self, "monthlies")
 

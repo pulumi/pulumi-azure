@@ -33,14 +33,14 @@ public final class AnalyticsSolutionState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      * 
      */
     @Import(name="plan")
     private @Nullable Output<AnalyticsSolutionPlanArgs> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as defined below.
      * 
      */
     public Optional<Output<AnalyticsSolutionPlanArgs>> plan() {
@@ -174,7 +174,7 @@ public final class AnalyticsSolutionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as defined below.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class AnalyticsSolutionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as defined below.
          * 
          * @return builder
          * 

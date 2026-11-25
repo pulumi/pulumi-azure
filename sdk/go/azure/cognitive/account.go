@@ -88,7 +88,7 @@ type Account struct {
 	//
 	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrOutput `pulumi:"customerManagedKey"`
 	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled pulumi.BoolPtrOutput `pulumi:"dynamicThrottlingEnabled"`
@@ -206,7 +206,7 @@ type accountState struct {
 	//
 	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
 	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled *bool `pulumi:"dynamicThrottlingEnabled"`
@@ -277,7 +277,7 @@ type AccountState struct {
 	//
 	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName pulumi.StringPtrInput
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
 	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled pulumi.BoolPtrInput
@@ -352,7 +352,7 @@ type accountArgs struct {
 	//
 	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
 	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled *bool `pulumi:"dynamicThrottlingEnabled"`
@@ -418,7 +418,7 @@ type AccountArgs struct {
 	//
 	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName pulumi.StringPtrInput
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
 	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled pulumi.BoolPtrInput
@@ -578,7 +578,7 @@ func (o AccountOutput) CustomSubdomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomSubdomainName }).(pulumi.StringPtrOutput)
 }
 
-// A `customerManagedKey` block as documented below.
+// A `customerManagedKey` block as defined below.
 func (o AccountOutput) CustomerManagedKey() AccountCustomerManagedKeyTypePtrOutput {
 	return o.ApplyT(func(v *Account) AccountCustomerManagedKeyTypePtrOutput { return v.CustomerManagedKey }).(AccountCustomerManagedKeyTypePtrOutput)
 }

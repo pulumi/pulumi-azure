@@ -24,7 +24,7 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
      */
     private List<String> dnsServers;
     /**
-     * @return An `ipConfiguration` block as documented below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     private List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
@@ -65,7 +65,7 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
         return this.dnsServers;
     }
     /**
-     * @return An `ipConfiguration` block as documented below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     public List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations() {

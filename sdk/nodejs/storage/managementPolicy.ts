@@ -129,7 +129,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * A `rule` block as documented below.
+     * A `rule` block as defined below.
      */
     declare public readonly rules: pulumi.Output<outputs.storage.ManagementPolicyRule[] | undefined>;
     /**
@@ -170,7 +170,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
  */
 export interface ManagementPolicyState {
     /**
-     * A `rule` block as documented below.
+     * A `rule` block as defined below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[] | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface ManagementPolicyState {
  */
 export interface ManagementPolicyArgs {
     /**
-     * A `rule` block as documented below.
+     * A `rule` block as defined below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[] | undefined>;
     /**

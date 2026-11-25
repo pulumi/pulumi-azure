@@ -94,7 +94,7 @@ export class SrvRecord extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A list of values that make up the SRV record. Each `record` block supports fields documented below.
+     * A list of values that make up the SRV record. Each `record` block supports fields defined below.
      */
     declare public readonly records: pulumi.Output<outputs.dns.SrvRecordRecord[]>;
     /**
@@ -174,7 +174,7 @@ export interface SrvRecordState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of values that make up the SRV record. Each `record` block supports fields documented below.
+     * A list of values that make up the SRV record. Each `record` block supports fields defined below.
      */
     records?: pulumi.Input<pulumi.Input<inputs.dns.SrvRecordRecord>[] | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface SrvRecordArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of values that make up the SRV record. Each `record` block supports fields documented below.
+     * A list of values that make up the SRV record. Each `record` block supports fields defined below.
      */
     records: pulumi.Input<pulumi.Input<inputs.dns.SrvRecordRecord>[]>;
     /**

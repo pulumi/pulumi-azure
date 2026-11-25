@@ -123,6 +123,7 @@ class _ServiceState:
     def __init__(__self__, *,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -132,6 +133,7 @@ class _ServiceState:
 
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specify the name of the database migration service. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface created by Azure for the Database Migration Service.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created.
@@ -141,6 +143,8 @@ class _ServiceState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
@@ -173,6 +177,18 @@ class _ServiceState:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the Network Interface created by Azure for the Database Migration Service.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_interface_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -389,6 +405,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["network_interface_id"] = None
         super(Service, __self__).__init__(
             'azure:databasemigration/service:Service',
             resource_name,
@@ -401,6 +418,7 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -414,6 +432,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specify the name of the database migration service. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface created by Azure for the Database Migration Service.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created.
@@ -425,6 +444,7 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_interface_id"] = network_interface_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["subnet_id"] = subnet_id
@@ -446,6 +466,14 @@ class Service(pulumi.CustomResource):
         Specify the name of the database migration service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the Network Interface created by Azure for the Database Migration Service.
+        """
+        return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

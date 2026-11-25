@@ -304,7 +304,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
         return this.priority;
     }
     /**
-     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
      * 
      * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 
@@ -313,7 +313,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> protocol;
 
     /**
-     * @return The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+     * @return The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
      * 
      * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 
@@ -322,14 +322,14 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.protocol);
     }
     /**
-     * Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Conflicts with `protocol`.
+     * Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
      * 
      */
     @Export(name="protocolPorts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> protocolPorts;
 
     /**
-     * @return Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Conflicts with `protocol`.
+     * @return Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
      * 
      */
     public Output<Optional<List<String>>> protocolPorts() {

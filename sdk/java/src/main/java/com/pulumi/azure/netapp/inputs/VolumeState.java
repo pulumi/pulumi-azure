@@ -559,6 +559,21 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+     * 
+     */
+    @Import(name="unixPermissions")
+    private @Nullable Output<String> unixPermissions;
+
+    /**
+     * @return The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+     * 
+     */
+    public Optional<Output<String>> unixPermissions() {
+        return Optional.ofNullable(this.unixPermissions);
+    }
+
+    /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      * 
      */
@@ -624,6 +639,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.throughputInMibps = $.throughputInMibps;
+        this.unixPermissions = $.unixPermissions;
         this.volumePath = $.volumePath;
         this.zone = $.zone;
     }
@@ -1405,6 +1421,27 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder throughputInMibps(Double throughputInMibps) {
             return throughputInMibps(Output.of(throughputInMibps));
+        }
+
+        /**
+         * @param unixPermissions The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unixPermissions(@Nullable Output<String> unixPermissions) {
+            $.unixPermissions = unixPermissions;
+            return this;
+        }
+
+        /**
+         * @param unixPermissions The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unixPermissions(String unixPermissions) {
+            return unixPermissions(Output.of(unixPermissions));
         }
 
         /**

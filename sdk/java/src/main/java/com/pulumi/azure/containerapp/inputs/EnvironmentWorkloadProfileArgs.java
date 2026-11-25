@@ -35,12 +35,16 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
     /**
      * The minimum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
+     * &gt; **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
+     * 
      */
     @Import(name="minimumCount")
     private @Nullable Output<Integer> minimumCount;
 
     /**
      * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     * &gt; **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
      * 
      */
     public Optional<Output<Integer>> minimumCount() {
@@ -136,6 +140,8 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
         /**
          * @param minimumCount The minimum number of instances of workload profile that can be deployed in the Container App Environment.
          * 
+         * &gt; **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
+         * 
          * @return builder
          * 
          */
@@ -146,6 +152,8 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
 
         /**
          * @param minimumCount The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+         * 
+         * &gt; **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
          * 
          * @return builder
          * 

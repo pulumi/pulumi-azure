@@ -29,7 +29,7 @@ class IntegrationAccountPartnerArgs:
         """
         The set of arguments for constructing a IntegrationAccountPartner resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]] business_identities: A `business_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]] business_identities: A `business_identity` block as defined below.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Partner.
@@ -47,7 +47,7 @@ class IntegrationAccountPartnerArgs:
     @pulumi.getter(name="businessIdentities")
     def business_identities(self) -> pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]:
         """
-        A `business_identity` block as documented below.
+        A `business_identity` block as defined below.
         """
         return pulumi.get(self, "business_identities")
 
@@ -115,7 +115,7 @@ class _IntegrationAccountPartnerState:
         """
         Input properties used for looking up and filtering IntegrationAccountPartner resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]] business_identities: A `business_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]] business_identities: A `business_identity` block as defined below.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Partner.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
@@ -136,7 +136,7 @@ class _IntegrationAccountPartnerState:
     @pulumi.getter(name="businessIdentities")
     def business_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]]:
         """
-        A `business_identity` block as documented below.
+        A `business_identity` block as defined below.
         """
         return pulumi.get(self, "business_identities")
 
@@ -250,7 +250,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict', 'outputs.IntegrationAccountPartnerBusinessIdentity']]]] business_identities: A `business_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict', 'outputs.IntegrationAccountPartnerBusinessIdentity']]]] business_identities: A `business_identity` block as defined below.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Partner.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
@@ -367,7 +367,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict', 'outputs.IntegrationAccountPartnerBusinessIdentity']]]] business_identities: A `business_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict', 'outputs.IntegrationAccountPartnerBusinessIdentity']]]] business_identities: A `business_identity` block as defined below.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Partner.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
@@ -388,7 +388,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     @pulumi.getter(name="businessIdentities")
     def business_identities(self) -> pulumi.Output[Sequence['outputs.IntegrationAccountPartnerBusinessIdentity']]:
         """
-        A `business_identity` block as documented below.
+        A `business_identity` block as defined below.
         """
         return pulumi.get(self, "business_identities")
 

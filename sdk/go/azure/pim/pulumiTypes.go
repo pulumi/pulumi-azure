@@ -2070,11 +2070,11 @@ func (o RoleManagementPolicyNotificationRulesPtrOutput) EligibleAssignments() Ro
 }
 
 type RoleManagementPolicyNotificationRulesActiveAssignments struct {
-	// Admin notification settings
+	// Admin notification settings.
 	AdminNotifications *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications `pulumi:"adminNotifications"`
-	// Approver notification settings
+	// Approver notification settings.
 	ApproverNotifications *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications `pulumi:"approverNotifications"`
-	// Assignee notification settings
+	// Assignee notification settings.
 	AssigneeNotifications *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications `pulumi:"assigneeNotifications"`
 }
 
@@ -2090,11 +2090,11 @@ type RoleManagementPolicyNotificationRulesActiveAssignmentsInput interface {
 }
 
 type RoleManagementPolicyNotificationRulesActiveAssignmentsArgs struct {
-	// Admin notification settings
+	// Admin notification settings.
 	AdminNotifications RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrInput `pulumi:"adminNotifications"`
-	// Approver notification settings
+	// Approver notification settings.
 	ApproverNotifications RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrInput `pulumi:"approverNotifications"`
-	// Assignee notification settings
+	// Assignee notification settings.
 	AssigneeNotifications RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrInput `pulumi:"assigneeNotifications"`
 }
 
@@ -2175,21 +2175,21 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) ToRoleMana
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput)
 }
 
-// Admin notification settings
+// Admin notification settings.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) AdminNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
 		return v.AdminNotifications
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput)
 }
 
-// Approver notification settings
+// Approver notification settings.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
 		return v.ApproverNotifications
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput)
 }
 
-// Assignee notification settings
+// Assignee notification settings.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
 		return v.AssigneeNotifications
@@ -2220,7 +2220,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) Elem() 
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsOutput)
 }
 
-// Admin notification settings
+// Admin notification settings.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) AdminNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
 		if v == nil {
@@ -2230,7 +2230,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) AdminNo
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput)
 }
 
-// Approver notification settings
+// Approver notification settings.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
 		if v == nil {
@@ -2240,7 +2240,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) Approve
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput)
 }
 
-// Assignee notification settings
+// Assignee notification settings.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
 		if v == nil {
@@ -2251,11 +2251,11 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) Assigne
 }
 
 type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -2271,11 +2271,11 @@ type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsInp
 }
 
 type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -2356,21 +2356,21 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) string {
 		return v.NotificationLevel
@@ -2401,7 +2401,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) []string {
 		if v == nil {
@@ -2411,7 +2411,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) *bool {
 		if v == nil {
@@ -2421,7 +2421,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) *string {
 		if v == nil {
@@ -2432,11 +2432,11 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications
 }
 
 type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -2452,11 +2452,11 @@ type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications
 }
 
 type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -2537,21 +2537,21 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificati
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) string {
 		return v.NotificationLevel
@@ -2582,7 +2582,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificati
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) []string {
 		if v == nil {
@@ -2592,7 +2592,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificati
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) *bool {
 		if v == nil {
@@ -2602,7 +2602,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificati
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) *string {
 		if v == nil {
@@ -2613,11 +2613,11 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificati
 }
 
 type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -2633,11 +2633,11 @@ type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications
 }
 
 type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -2718,21 +2718,21 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificati
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) string {
 		return v.NotificationLevel
@@ -2763,7 +2763,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificati
 	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) []string {
 		if v == nil {
@@ -2773,7 +2773,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificati
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) *bool {
 		if v == nil {
@@ -2783,7 +2783,7 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificati
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) *string {
 		if v == nil {
@@ -2794,11 +2794,11 @@ func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificati
 }
 
 type RoleManagementPolicyNotificationRulesEligibleActivations struct {
-	// Admin notification settings
+	// Admin notification settings.
 	AdminNotifications *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications `pulumi:"adminNotifications"`
-	// Approver notification settings
+	// Approver notification settings.
 	ApproverNotifications *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications `pulumi:"approverNotifications"`
-	// Assignee notification settings
+	// Assignee notification settings.
 	AssigneeNotifications *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications `pulumi:"assigneeNotifications"`
 }
 
@@ -2814,11 +2814,11 @@ type RoleManagementPolicyNotificationRulesEligibleActivationsInput interface {
 }
 
 type RoleManagementPolicyNotificationRulesEligibleActivationsArgs struct {
-	// Admin notification settings
+	// Admin notification settings.
 	AdminNotifications RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrInput `pulumi:"adminNotifications"`
-	// Approver notification settings
+	// Approver notification settings.
 	ApproverNotifications RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrInput `pulumi:"approverNotifications"`
-	// Assignee notification settings
+	// Assignee notification settings.
 	AssigneeNotifications RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrInput `pulumi:"assigneeNotifications"`
 }
 
@@ -2899,21 +2899,21 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) ToRoleMa
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput)
 }
 
-// Admin notification settings
+// Admin notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) AdminNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
 		return v.AdminNotifications
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput)
 }
 
-// Approver notification settings
+// Approver notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
 		return v.ApproverNotifications
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput)
 }
 
-// Assignee notification settings
+// Assignee notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
 		return v.AssigneeNotifications
@@ -2944,7 +2944,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) Elem(
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsOutput)
 }
 
-// Admin notification settings
+// Admin notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) AdminNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
 		if v == nil {
@@ -2954,7 +2954,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) Admin
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput)
 }
 
-// Approver notification settings
+// Approver notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
 		if v == nil {
@@ -2964,7 +2964,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) Appro
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput)
 }
 
-// Assignee notification settings
+// Assignee notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
 		if v == nil {
@@ -2975,11 +2975,11 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) Assig
 }
 
 type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -2995,11 +2995,11 @@ type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsI
 }
 
 type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -3080,21 +3080,21 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificatio
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) string {
 		return v.NotificationLevel
@@ -3125,7 +3125,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificatio
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) []string {
 		if v == nil {
@@ -3135,7 +3135,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificatio
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) *bool {
 		if v == nil {
@@ -3145,7 +3145,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificatio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) *string {
 		if v == nil {
@@ -3156,11 +3156,11 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificatio
 }
 
 type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -3176,11 +3176,11 @@ type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificatio
 }
 
 type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -3261,21 +3261,21 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifica
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) string {
 		return v.NotificationLevel
@@ -3306,7 +3306,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifica
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) []string {
 		if v == nil {
@@ -3316,7 +3316,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifica
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) *bool {
 		if v == nil {
@@ -3326,7 +3326,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifica
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) *string {
 		if v == nil {
@@ -3337,11 +3337,11 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifica
 }
 
 type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -3357,11 +3357,11 @@ type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificatio
 }
 
 type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -3442,21 +3442,21 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifica
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) string {
 		return v.NotificationLevel
@@ -3487,7 +3487,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifica
 	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) []string {
 		if v == nil {
@@ -3497,7 +3497,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifica
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) *bool {
 		if v == nil {
@@ -3507,7 +3507,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifica
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) *string {
 		if v == nil {
@@ -3518,11 +3518,11 @@ func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifica
 }
 
 type RoleManagementPolicyNotificationRulesEligibleAssignments struct {
-	// Admin notification settings
+	// Admin notification settings.
 	AdminNotifications *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications `pulumi:"adminNotifications"`
-	// Approver notification settings
+	// Approver notification settings.
 	ApproverNotifications *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications `pulumi:"approverNotifications"`
-	// Assignee notification settings
+	// Assignee notification settings.
 	AssigneeNotifications *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications `pulumi:"assigneeNotifications"`
 }
 
@@ -3538,11 +3538,11 @@ type RoleManagementPolicyNotificationRulesEligibleAssignmentsInput interface {
 }
 
 type RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs struct {
-	// Admin notification settings
+	// Admin notification settings.
 	AdminNotifications RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrInput `pulumi:"adminNotifications"`
-	// Approver notification settings
+	// Approver notification settings.
 	ApproverNotifications RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrInput `pulumi:"approverNotifications"`
-	// Assignee notification settings
+	// Assignee notification settings.
 	AssigneeNotifications RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrInput `pulumi:"assigneeNotifications"`
 }
 
@@ -3623,21 +3623,21 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) ToRoleMa
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput)
 }
 
-// Admin notification settings
+// Admin notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) AdminNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
 		return v.AdminNotifications
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput)
 }
 
-// Approver notification settings
+// Approver notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
 		return v.ApproverNotifications
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput)
 }
 
-// Assignee notification settings
+// Assignee notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
 		return v.AssigneeNotifications
@@ -3668,7 +3668,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) Elem(
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput)
 }
 
-// Admin notification settings
+// Admin notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) AdminNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
 		if v == nil {
@@ -3678,7 +3678,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) Admin
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput)
 }
 
-// Approver notification settings
+// Approver notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
 		if v == nil {
@@ -3688,7 +3688,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) Appro
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput)
 }
 
-// Assignee notification settings
+// Assignee notification settings.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
 		if v == nil {
@@ -3699,11 +3699,11 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) Assig
 }
 
 type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -3719,11 +3719,11 @@ type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsI
 }
 
 type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -3804,21 +3804,21 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificatio
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) string {
 		return v.NotificationLevel
@@ -3849,7 +3849,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificatio
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) []string {
 		if v == nil {
@@ -3859,7 +3859,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificatio
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) *bool {
 		if v == nil {
@@ -3869,7 +3869,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificatio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) *string {
 		if v == nil {
@@ -3880,11 +3880,11 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificatio
 }
 
 type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -3900,11 +3900,11 @@ type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificatio
 }
 
 type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -3985,21 +3985,21 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifica
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) string {
 		return v.NotificationLevel
@@ -4030,7 +4030,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifica
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) []string {
 		if v == nil {
@@ -4040,7 +4040,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifica
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) *bool {
 		if v == nil {
@@ -4050,7 +4050,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifica
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) *string {
 		if v == nil {
@@ -4061,11 +4061,11 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifica
 }
 
 type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients bool `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel string `pulumi:"notificationLevel"`
 }
 
@@ -4081,11 +4081,11 @@ type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificatio
 }
 
 type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs struct {
-	// The additional recipients to notify
+	// The additional recipients to notify.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether the default recipients are notified
+	// Whether the default recipients are notified.
 	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
-	// What level of notifications are sent
+	// What level of notifications are sent.
 	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
 }
 
@@ -4166,21 +4166,21 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifica
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) []string {
 		return v.AdditionalRecipients
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) bool {
 		return v.DefaultRecipients
 	}).(pulumi.BoolOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) NotificationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) string {
 		return v.NotificationLevel
@@ -4211,7 +4211,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifica
 	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput)
 }
 
-// The additional recipients to notify
+// The additional recipients to notify.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) []string {
 		if v == nil {
@@ -4221,7 +4221,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifica
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether the default recipients are notified
+// Whether the default recipients are notified.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) *bool {
 		if v == nil {
@@ -4231,7 +4231,7 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifica
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What level of notifications are sent
+// What level of notifications are sent.
 func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) *string {
 		if v == nil {
@@ -4575,7 +4575,7 @@ func (o GetRoleManagementPolicyActivationRuleArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetRoleManagementPolicyActivationRuleApprovalStage struct {
-	// The IDs of the users or groups who can approve the activation
+	// The IDs of the users or groups who can approve the activation.
 	PrimaryApprovers []GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover `pulumi:"primaryApprovers"`
 }
 
@@ -4591,7 +4591,7 @@ type GetRoleManagementPolicyActivationRuleApprovalStageInput interface {
 }
 
 type GetRoleManagementPolicyActivationRuleApprovalStageArgs struct {
-	// The IDs of the users or groups who can approve the activation
+	// The IDs of the users or groups who can approve the activation.
 	PrimaryApprovers GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayInput `pulumi:"primaryApprovers"`
 }
 
@@ -4646,7 +4646,7 @@ func (o GetRoleManagementPolicyActivationRuleApprovalStageOutput) ToGetRoleManag
 	return o
 }
 
-// The IDs of the users or groups who can approve the activation
+// The IDs of the users or groups who can approve the activation.
 func (o GetRoleManagementPolicyActivationRuleApprovalStageOutput) PrimaryApprovers() GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput {
 	return o.ApplyT(func(v GetRoleManagementPolicyActivationRuleApprovalStage) []GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover {
 		return v.PrimaryApprovers

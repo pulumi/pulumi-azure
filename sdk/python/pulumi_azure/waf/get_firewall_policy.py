@@ -98,8 +98,8 @@ def get_firewall_policy(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.waf.get_firewall_policy(resource_group_name="existing",
-        name="existing")
+    example = azure.waf.get_firewall_policy(resource_group_name="example-resources",
+        name="example-waf-policy")
     pulumi.export("id", example.id)
     ```
 
@@ -140,8 +140,8 @@ def get_firewall_policy_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.waf.get_firewall_policy(resource_group_name="existing",
-        name="existing")
+    example = azure.waf.get_firewall_policy(resource_group_name="example-resources",
+        name="example-waf-policy")
     pulumi.export("id", example.id)
     ```
 

@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Compute
         /// {
         ///     var example = Azure.Compute.GetBastionHost.Invoke(new()
         ///     {
-        ///         Name = "existing-bastion",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-bastion",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Compute
         /// {
         ///     var example = Azure.Compute.GetBastionHost.Invoke(new()
         ///     {
-        ///         Name = "existing-bastion",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-bastion",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Compute
         /// {
         ///     var example = Azure.Compute.GetBastionHost.Invoke(new()
         ///     {
-        ///         Name = "existing-bastion",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-bastion",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

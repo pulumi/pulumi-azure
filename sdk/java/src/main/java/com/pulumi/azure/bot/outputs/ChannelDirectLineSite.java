@@ -25,7 +25,7 @@ public final class ChannelDirectLineSite {
      */
     private @Nullable Boolean endpointParametersEnabled;
     /**
-     * @return Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+     * @return Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
      * 
      */
     private @Nullable Boolean enhancedAuthenticationEnabled;
@@ -91,7 +91,7 @@ public final class ChannelDirectLineSite {
         return Optional.ofNullable(this.endpointParametersEnabled);
     }
     /**
-     * @return Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+     * @return Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
      * 
      */
     public Optional<Boolean> enhancedAuthenticationEnabled() {

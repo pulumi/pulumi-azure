@@ -23,6 +23,7 @@ class VirtualNetworkArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 advertised_gateway_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
                  ddos_protection_plan: pulumi.Input[Optional['VirtualNetworkDdosProtectionPlanArgs']] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -42,10 +43,13 @@ class VirtualNetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advertised_gateway_prefixes: A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+               
+               > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
-        :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
+        :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: List of IP addresses of DNS servers
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
@@ -58,7 +62,7 @@ class VirtualNetworkArgs:
         :param pulumi.Input[_builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
                
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -66,6 +70,8 @@ class VirtualNetworkArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if address_spaces is not None:
             pulumi.set(__self__, "address_spaces", address_spaces)
+        if advertised_gateway_prefixes is not None:
+            pulumi.set(__self__, "advertised_gateway_prefixes", advertised_gateway_prefixes)
         if bgp_community is not None:
             pulumi.set(__self__, "bgp_community", bgp_community)
         if ddos_protection_plan is not None:
@@ -118,6 +124,20 @@ class VirtualNetworkArgs:
         pulumi.set(self, "address_spaces", value)
 
     @_builtins.property
+    @pulumi.getter(name="advertisedGatewayPrefixes")
+    def advertised_gateway_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+
+        > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+        """
+        return pulumi.get(self, "advertised_gateway_prefixes")
+
+    @advertised_gateway_prefixes.setter
+    def advertised_gateway_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "advertised_gateway_prefixes", value)
+
+    @_builtins.property
     @pulumi.getter(name="bgpCommunity")
     def bgp_community(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -135,7 +155,7 @@ class VirtualNetworkArgs:
     @pulumi.getter(name="ddosProtectionPlan")
     def ddos_protection_plan(self) -> pulumi.Input[Optional['VirtualNetworkDdosProtectionPlanArgs']]:
         """
-        A `ddos_protection_plan` block as documented below.
+        A `ddos_protection_plan` block as defined below.
         """
         return pulumi.get(self, "ddos_protection_plan")
 
@@ -247,7 +267,7 @@ class VirtualNetworkArgs:
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]]:
         """
-        Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 
         > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
@@ -274,6 +294,7 @@ class VirtualNetworkArgs:
 class _VirtualNetworkState:
     def __init__(__self__, *,
                  address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 advertised_gateway_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
                  ddos_protection_plan: pulumi.Input[Optional['VirtualNetworkDdosProtectionPlanArgs']] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -294,10 +315,13 @@ class _VirtualNetworkState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advertised_gateway_prefixes: A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+               
+               > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
-        :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
+        :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: List of IP addresses of DNS servers
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
@@ -312,13 +336,15 @@ class _VirtualNetworkState:
         :param pulumi.Input[_builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
                
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if address_spaces is not None:
             pulumi.set(__self__, "address_spaces", address_spaces)
+        if advertised_gateway_prefixes is not None:
+            pulumi.set(__self__, "advertised_gateway_prefixes", advertised_gateway_prefixes)
         if bgp_community is not None:
             pulumi.set(__self__, "bgp_community", bgp_community)
         if ddos_protection_plan is not None:
@@ -363,6 +389,20 @@ class _VirtualNetworkState:
         pulumi.set(self, "address_spaces", value)
 
     @_builtins.property
+    @pulumi.getter(name="advertisedGatewayPrefixes")
+    def advertised_gateway_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+
+        > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+        """
+        return pulumi.get(self, "advertised_gateway_prefixes")
+
+    @advertised_gateway_prefixes.setter
+    def advertised_gateway_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "advertised_gateway_prefixes", value)
+
+    @_builtins.property
     @pulumi.getter(name="bgpCommunity")
     def bgp_community(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -380,7 +420,7 @@ class _VirtualNetworkState:
     @pulumi.getter(name="ddosProtectionPlan")
     def ddos_protection_plan(self) -> pulumi.Input[Optional['VirtualNetworkDdosProtectionPlanArgs']]:
         """
-        A `ddos_protection_plan` block as documented below.
+        A `ddos_protection_plan` block as defined below.
         """
         return pulumi.get(self, "ddos_protection_plan")
 
@@ -516,7 +556,7 @@ class _VirtualNetworkState:
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]]:
         """
-        Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 
         > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
@@ -546,6 +586,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 advertised_gateway_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
                  ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -629,10 +670,13 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advertised_gateway_prefixes: A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+               
+               > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
-        :param pulumi.Input[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
+        :param pulumi.Input[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']] ddos_protection_plan: A `ddos_protection_plan` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: List of IP addresses of DNS servers
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
@@ -646,7 +690,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
                
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -737,6 +781,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 advertised_gateway_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
                  ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -760,6 +805,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
             __props__.__dict__["address_spaces"] = address_spaces
+            __props__.__dict__["advertised_gateway_prefixes"] = advertised_gateway_prefixes
             __props__.__dict__["bgp_community"] = bgp_community
             __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
             __props__.__dict__["dns_servers"] = dns_servers
@@ -787,6 +833,7 @@ class VirtualNetwork(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            advertised_gateway_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
             ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']]] = None,
             dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -811,10 +858,13 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advertised_gateway_prefixes: A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+               
+               > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
-        :param pulumi.Input[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
+        :param pulumi.Input[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']] ddos_protection_plan: A `ddos_protection_plan` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: List of IP addresses of DNS servers
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
@@ -829,7 +879,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
                
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -839,6 +889,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__ = _VirtualNetworkState.__new__(_VirtualNetworkState)
 
         __props__.__dict__["address_spaces"] = address_spaces
+        __props__.__dict__["advertised_gateway_prefixes"] = advertised_gateway_prefixes
         __props__.__dict__["bgp_community"] = bgp_community
         __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
         __props__.__dict__["dns_servers"] = dns_servers
@@ -866,6 +917,16 @@ class VirtualNetwork(pulumi.CustomResource):
         return pulumi.get(self, "address_spaces")
 
     @_builtins.property
+    @pulumi.getter(name="advertisedGatewayPrefixes")
+    def advertised_gateway_prefixes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+
+        > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+        """
+        return pulumi.get(self, "advertised_gateway_prefixes")
+
+    @_builtins.property
     @pulumi.getter(name="bgpCommunity")
     def bgp_community(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -879,7 +940,7 @@ class VirtualNetwork(pulumi.CustomResource):
     @pulumi.getter(name="ddosProtectionPlan")
     def ddos_protection_plan(self) -> pulumi.Output[Optional['outputs.VirtualNetworkDdosProtectionPlan']]:
         """
-        A `ddos_protection_plan` block as documented below.
+        A `ddos_protection_plan` block as defined below.
         """
         return pulumi.get(self, "ddos_protection_plan")
 
@@ -971,7 +1032,7 @@ class VirtualNetwork(pulumi.CustomResource):
     @pulumi.getter
     def subnets(self) -> pulumi.Output[Sequence['outputs.VirtualNetworkSubnet']]:
         """
-        Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
 
         > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """

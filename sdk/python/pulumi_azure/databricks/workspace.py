@@ -51,10 +51,10 @@ class WorkspaceArgs:
         :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled.
                
                > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
-        :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
+        :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as defined below.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[_builtins.bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
-        :param pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs'] enhanced_security_compliance: An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        :param pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs'] enhanced_security_compliance: An `enhanced_security_compliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -160,7 +160,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="customParameters")
     def custom_parameters(self) -> pulumi.Input[Optional['WorkspaceCustomParametersArgs']]:
         """
-        A `custom_parameters` block as documented below.
+        A `custom_parameters` block as defined below.
         """
         return pulumi.get(self, "custom_parameters")
 
@@ -196,7 +196,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="enhancedSecurityCompliance")
     def enhanced_security_compliance(self) -> pulumi.Input[Optional['WorkspaceEnhancedSecurityComplianceArgs']]:
         """
-        An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        An `enhanced_security_compliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
         """
         return pulumi.get(self, "enhanced_security_compliance")
 
@@ -400,18 +400,18 @@ class _WorkspaceState:
         :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled.
                
                > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
-        :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
+        :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as defined below.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[_builtins.bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
-        :param pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs'] enhanced_security_compliance: An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        :param pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs'] enhanced_security_compliance: An `enhanced_security_compliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_disk_cmk_key_vault_id: Resource ID of the Key Vault which contains the `managed_disk_cmk_key_vault_key_id` key.
         :param pulumi.Input[_builtins.str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
         :param pulumi.Input[_builtins.bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]] managed_disk_identities: A `managed_disk_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]] managed_disk_identities: A `managed_disk_identity` block as defined below.
         :param pulumi.Input[_builtins.str] managed_resource_group_id: The ID of the Managed Resource Group created by the Databricks Workspace.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
                
@@ -425,7 +425,7 @@ class _WorkspaceState:
         :param pulumi.Input[_builtins.str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
                
                > **Note:** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]] storage_account_identities: A `storage_account_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]] storage_account_identities: A `storage_account_identity` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] workspace_id: The unique identifier of the databricks workspace in Databricks control plane.
         :param pulumi.Input[_builtins.str] workspace_url: The workspace URL which is of the format `adb-{workspaceId}.{random}.azuredatabricks.net`
@@ -507,7 +507,7 @@ class _WorkspaceState:
     @pulumi.getter(name="customParameters")
     def custom_parameters(self) -> pulumi.Input[Optional['WorkspaceCustomParametersArgs']]:
         """
-        A `custom_parameters` block as documented below.
+        A `custom_parameters` block as defined below.
         """
         return pulumi.get(self, "custom_parameters")
 
@@ -555,7 +555,7 @@ class _WorkspaceState:
     @pulumi.getter(name="enhancedSecurityCompliance")
     def enhanced_security_compliance(self) -> pulumi.Input[Optional['WorkspaceEnhancedSecurityComplianceArgs']]:
         """
-        An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        An `enhanced_security_compliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
         """
         return pulumi.get(self, "enhanced_security_compliance")
 
@@ -640,7 +640,7 @@ class _WorkspaceState:
     @pulumi.getter(name="managedDiskIdentities")
     def managed_disk_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]]:
         """
-        A `managed_disk_identity` block as documented below.
+        A `managed_disk_identity` block as defined below.
         """
         return pulumi.get(self, "managed_disk_identities")
 
@@ -765,7 +765,7 @@ class _WorkspaceState:
     @pulumi.getter(name="storageAccountIdentities")
     def storage_account_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]]]:
         """
-        A `storage_account_identity` block as documented below.
+        A `storage_account_identity` block as defined below.
         """
         return pulumi.get(self, "storage_account_identities")
 
@@ -894,10 +894,10 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled.
                
                > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
-        :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict', 'outputs.WorkspaceCustomParameters']] custom_parameters: A `custom_parameters` block as documented below.
+        :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict', 'outputs.WorkspaceCustomParameters']] custom_parameters: A `custom_parameters` block as defined below.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[_builtins.bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
-        :param pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict', 'outputs.WorkspaceEnhancedSecurityCompliance']] enhanced_security_compliance: An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        :param pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict', 'outputs.WorkspaceEnhancedSecurityCompliance']] enhanced_security_compliance: An `enhanced_security_compliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -1096,18 +1096,18 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled.
                
                > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
-        :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict', 'outputs.WorkspaceCustomParameters']] custom_parameters: A `custom_parameters` block as documented below.
+        :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict', 'outputs.WorkspaceCustomParameters']] custom_parameters: A `custom_parameters` block as defined below.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[_builtins.bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
-        :param pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict', 'outputs.WorkspaceEnhancedSecurityCompliance']] enhanced_security_compliance: An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        :param pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict', 'outputs.WorkspaceEnhancedSecurityCompliance']] enhanced_security_compliance: An `enhanced_security_compliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_disk_cmk_key_vault_id: Resource ID of the Key Vault which contains the `managed_disk_cmk_key_vault_key_id` key.
         :param pulumi.Input[_builtins.str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
         :param pulumi.Input[_builtins.bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceManagedDiskIdentityArgs', 'WorkspaceManagedDiskIdentityArgsDict', 'outputs.WorkspaceManagedDiskIdentity']]]] managed_disk_identities: A `managed_disk_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceManagedDiskIdentityArgs', 'WorkspaceManagedDiskIdentityArgsDict', 'outputs.WorkspaceManagedDiskIdentity']]]] managed_disk_identities: A `managed_disk_identity` block as defined below.
         :param pulumi.Input[_builtins.str] managed_resource_group_id: The ID of the Managed Resource Group created by the Databricks Workspace.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
                
@@ -1121,7 +1121,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
                
                > **Note:** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceStorageAccountIdentityArgs', 'WorkspaceStorageAccountIdentityArgsDict', 'outputs.WorkspaceStorageAccountIdentity']]]] storage_account_identities: A `storage_account_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceStorageAccountIdentityArgs', 'WorkspaceStorageAccountIdentityArgsDict', 'outputs.WorkspaceStorageAccountIdentity']]]] storage_account_identities: A `storage_account_identity` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] workspace_id: The unique identifier of the databricks workspace in Databricks control plane.
         :param pulumi.Input[_builtins.str] workspace_url: The workspace URL which is of the format `adb-{workspaceId}.{random}.azuredatabricks.net`
@@ -1172,7 +1172,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="customParameters")
     def custom_parameters(self) -> pulumi.Output['outputs.WorkspaceCustomParameters']:
         """
-        A `custom_parameters` block as documented below.
+        A `custom_parameters` block as defined below.
         """
         return pulumi.get(self, "custom_parameters")
 
@@ -1204,7 +1204,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="enhancedSecurityCompliance")
     def enhanced_security_compliance(self) -> pulumi.Output[Optional['outputs.WorkspaceEnhancedSecurityCompliance']]:
         """
-        An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        An `enhanced_security_compliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
         """
         return pulumi.get(self, "enhanced_security_compliance")
 
@@ -1261,7 +1261,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="managedDiskIdentities")
     def managed_disk_identities(self) -> pulumi.Output[Sequence['outputs.WorkspaceManagedDiskIdentity']]:
         """
-        A `managed_disk_identity` block as documented below.
+        A `managed_disk_identity` block as defined below.
         """
         return pulumi.get(self, "managed_disk_identities")
 
@@ -1346,7 +1346,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountIdentities")
     def storage_account_identities(self) -> pulumi.Output[Sequence['outputs.WorkspaceStorageAccountIdentity']]:
         """
-        A `storage_account_identity` block as documented below.
+        A `storage_account_identity` block as defined below.
         """
         return pulumi.get(self, "storage_account_identities")
 

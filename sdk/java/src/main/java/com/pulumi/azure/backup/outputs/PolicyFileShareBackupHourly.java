@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class PolicyFileShareBackupHourly {
     /**
-     * @return Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+     * @return Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
      * 
      */
     private Integer interval;
@@ -29,7 +29,7 @@ public final class PolicyFileShareBackupHourly {
 
     private PolicyFileShareBackupHourly() {}
     /**
-     * @return Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+     * @return Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
      * 
      */
     public Integer interval() {

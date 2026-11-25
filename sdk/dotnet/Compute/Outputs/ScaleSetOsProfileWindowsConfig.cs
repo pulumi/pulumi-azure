@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class ScaleSetOsProfileWindowsConfig
     {
         /// <summary>
-        /// An `AdditionalUnattendConfig` block as documented below.
+        /// An `AdditionalUnattendConfig` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> AdditionalUnattendConfigs;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? ProvisionVmAgent;
         /// <summary>
-        /// A collection of `Winrm` blocks as documented below.
+        /// One or more `Winrm` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleSetOsProfileWindowsConfigWinrm> Winrms;
 

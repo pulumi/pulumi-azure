@@ -268,7 +268,7 @@ namespace Pulumi.Azure.MSSql
         public Output<Outputs.DatabaseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A `Import` block as documented below. Mutually exclusive with `CreateMode`.
+        /// A `Import` block as defined below. Mutually exclusive with `CreateMode`.
         /// </summary>
         [Output("import")]
         public Output<Outputs.DatabaseImport?> Import { get; private set; } = null!;
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Threat detection policy configuration. The `ThreatDetectionPolicy` block supports fields documented below.
+        /// Threat detection policy configuration. The `ThreatDetectionPolicy` block supports fields defined below.
         /// </summary>
         [Output("threatDetectionPolicy")]
         public Output<Outputs.DatabaseThreatDetectionPolicy> ThreatDetectionPolicy { get; private set; } = null!;
@@ -554,7 +554,7 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.DatabaseIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `Import` block as documented below. Mutually exclusive with `CreateMode`.
+        /// A `Import` block as defined below. Mutually exclusive with `CreateMode`.
         /// </summary>
         [Input("import")]
         public Input<Inputs.DatabaseImportArgs>? Import { get; set; }
@@ -702,7 +702,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Threat detection policy configuration. The `ThreatDetectionPolicy` block supports fields documented below.
+        /// Threat detection policy configuration. The `ThreatDetectionPolicy` block supports fields defined below.
         /// </summary>
         [Input("threatDetectionPolicy")]
         public Input<Inputs.DatabaseThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
@@ -804,7 +804,7 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.DatabaseIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `Import` block as documented below. Mutually exclusive with `CreateMode`.
+        /// A `Import` block as defined below. Mutually exclusive with `CreateMode`.
         /// </summary>
         [Input("import")]
         public Input<Inputs.DatabaseImportGetArgs>? Import { get; set; }
@@ -952,7 +952,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Threat detection policy configuration. The `ThreatDetectionPolicy` block supports fields documented below.
+        /// Threat detection policy configuration. The `ThreatDetectionPolicy` block supports fields defined below.
         /// </summary>
         [Input("threatDetectionPolicy")]
         public Input<Inputs.DatabaseThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }

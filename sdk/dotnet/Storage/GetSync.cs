@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetSync.Invoke(new()
         ///     {
-        ///         Name = "existingStorageSyncName",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-storage-sync",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetSync.Invoke(new()
         ///     {
-        ///         Name = "existingStorageSyncName",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-storage-sync",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetSync.Invoke(new()
         ///     {
-        ///         Name = "existingStorageSyncName",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-storage-sync",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

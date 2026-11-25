@@ -409,6 +409,8 @@ class EndpointPrivateServiceConnection(dict):
         suggest = None
         if key == "isManualConnection":
             suggest = "is_manual_connection"
+        elif key == "actionRequired":
+            suggest = "action_required"
         elif key == "privateConnectionResourceAlias":
             suggest = "private_connection_resource_alias"
         elif key == "privateConnectionResourceId":
@@ -434,22 +436,28 @@ class EndpointPrivateServiceConnection(dict):
     def __init__(__self__, *,
                  is_manual_connection: _builtins.bool,
                  name: _builtins.str,
+                 action_required: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
                  private_connection_resource_alias: Optional[_builtins.str] = None,
                  private_connection_resource_id: Optional[_builtins.str] = None,
                  private_ip_address: Optional[_builtins.str] = None,
                  request_message: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None,
                  subresource_names: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.bool is_manual_connection: Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
                
                > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
         :param _builtins.str name: Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+        :param _builtins.str action_required: Indicates if changes on the service provider require any updates on the consumer.
+        :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str private_connection_resource_alias: The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
         :param _builtins.str private_connection_resource_id: The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
         :param _builtins.str private_ip_address: The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
         :param _builtins.str request_message: A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
                
                > **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
+        :param _builtins.str status: The status of the connection between the service consumer and provider.
         :param Sequence[_builtins.str] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
                
                > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
@@ -458,6 +466,10 @@ class EndpointPrivateServiceConnection(dict):
         """
         pulumi.set(__self__, "is_manual_connection", is_manual_connection)
         pulumi.set(__self__, "name", name)
+        if action_required is not None:
+            pulumi.set(__self__, "action_required", action_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if private_connection_resource_alias is not None:
             pulumi.set(__self__, "private_connection_resource_alias", private_connection_resource_alias)
         if private_connection_resource_id is not None:
@@ -466,6 +478,8 @@ class EndpointPrivateServiceConnection(dict):
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if request_message is not None:
             pulumi.set(__self__, "request_message", request_message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if subresource_names is not None:
             pulumi.set(__self__, "subresource_names", subresource_names)
 
@@ -486,6 +500,22 @@ class EndpointPrivateServiceConnection(dict):
         Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="actionRequired")
+    def action_required(self) -> Optional[_builtins.str]:
+        """
+        Indicates if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "action_required")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="privateConnectionResourceAlias")
@@ -520,6 +550,14 @@ class EndpointPrivateServiceConnection(dict):
         > **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
         """
         return pulumi.get(self, "request_message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The status of the connection between the service consumer and provider.
+        """
+        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subresourceNames")

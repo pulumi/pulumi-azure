@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := containerservice.LookupGroup(ctx, &containerservice.LookupGroupArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-container-group",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -90,6 +90,11 @@ export const getAccountSAS: typeof import("./getAccountSAS").getAccountSAS = nul
 export const getAccountSASOutput: typeof import("./getAccountSAS").getAccountSASOutput = null as any;
 utilities.lazyLoad(exports, ["getAccountSAS","getAccountSASOutput"], () => require("./getAccountSAS"));
 
+export { GetAccountStaticWebsiteArgs, GetAccountStaticWebsiteResult, GetAccountStaticWebsiteOutputArgs } from "./getAccountStaticWebsite";
+export const getAccountStaticWebsite: typeof import("./getAccountStaticWebsite").getAccountStaticWebsite = null as any;
+export const getAccountStaticWebsiteOutput: typeof import("./getAccountStaticWebsite").getAccountStaticWebsiteOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountStaticWebsite","getAccountStaticWebsiteOutput"], () => require("./getAccountStaticWebsite"));
+
 export { GetBlobArgs, GetBlobResult, GetBlobOutputArgs } from "./getBlob";
 export const getBlob: typeof import("./getBlob").getBlob = null as any;
 export const getBlobOutput: typeof import("./getBlob").getBlobOutput = null as any;

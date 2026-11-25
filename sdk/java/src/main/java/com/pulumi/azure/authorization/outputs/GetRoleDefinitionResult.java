@@ -31,7 +31,7 @@ public final class GetRoleDefinitionResult {
     private String id;
     private String name;
     /**
-     * @return A `permissions` block as documented below.
+     * @return A `permissions` block as defined below.
      * 
      */
     private List<GetRoleDefinitionPermission> permissions;
@@ -74,7 +74,7 @@ public final class GetRoleDefinitionResult {
         return this.name;
     }
     /**
-     * @return A `permissions` block as documented below.
+     * @return A `permissions` block as defined below.
      * 
      */
     public List<GetRoleDefinitionPermission> permissions() {

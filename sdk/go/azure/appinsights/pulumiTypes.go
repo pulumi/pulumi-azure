@@ -356,6 +356,11 @@ type StandardWebTestValidationRules struct {
 	Content *StandardWebTestValidationRulesContent `pulumi:"content"`
 	// The expected status code of the response. Default is '200', '0' means 'response code < 400'
 	ExpectedStatusCode *int `pulumi:"expectedStatusCode"`
+	// Should status code of the response be ignored? Defaults to `false`.
+	// *
+	//
+	// > **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+	IgnoreStatusCode *bool `pulumi:"ignoreStatusCode"`
 	// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
 	SslCertRemainingLifetime *int `pulumi:"sslCertRemainingLifetime"`
 	// Should the SSL check be enabled?
@@ -378,6 +383,11 @@ type StandardWebTestValidationRulesArgs struct {
 	Content StandardWebTestValidationRulesContentPtrInput `pulumi:"content"`
 	// The expected status code of the response. Default is '200', '0' means 'response code < 400'
 	ExpectedStatusCode pulumi.IntPtrInput `pulumi:"expectedStatusCode"`
+	// Should status code of the response be ignored? Defaults to `false`.
+	// *
+	//
+	// > **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+	IgnoreStatusCode pulumi.BoolPtrInput `pulumi:"ignoreStatusCode"`
 	// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
 	SslCertRemainingLifetime pulumi.IntPtrInput `pulumi:"sslCertRemainingLifetime"`
 	// Should the SSL check be enabled?
@@ -471,6 +481,14 @@ func (o StandardWebTestValidationRulesOutput) ExpectedStatusCode() pulumi.IntPtr
 	return o.ApplyT(func(v StandardWebTestValidationRules) *int { return v.ExpectedStatusCode }).(pulumi.IntPtrOutput)
 }
 
+// Should status code of the response be ignored? Defaults to `false`.
+// *
+//
+// > **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+func (o StandardWebTestValidationRulesOutput) IgnoreStatusCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardWebTestValidationRules) *bool { return v.IgnoreStatusCode }).(pulumi.BoolPtrOutput)
+}
+
 // The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
 func (o StandardWebTestValidationRulesOutput) SslCertRemainingLifetime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StandardWebTestValidationRules) *int { return v.SslCertRemainingLifetime }).(pulumi.IntPtrOutput)
@@ -523,6 +541,19 @@ func (o StandardWebTestValidationRulesPtrOutput) ExpectedStatusCode() pulumi.Int
 		}
 		return v.ExpectedStatusCode
 	}).(pulumi.IntPtrOutput)
+}
+
+// Should status code of the response be ignored? Defaults to `false`.
+// *
+//
+// > **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+func (o StandardWebTestValidationRulesPtrOutput) IgnoreStatusCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreStatusCode
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.

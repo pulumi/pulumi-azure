@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// One or more `TargetRegion` blocks as documented below.
+        /// One or more `TargetRegion` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSharedImageVersionsImageTargetRegionResult> TargetRegions;
 

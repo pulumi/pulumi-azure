@@ -393,6 +393,10 @@ type AppIngress struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
 	IpSecurityRestrictions []AppIngressIpSecurityRestriction `pulumi:"ipSecurityRestrictions"`
+	// Is session affinity enabled. Defaults to `false`.
+	//
+	// > **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+	SessionAffinityEnabled *bool `pulumi:"sessionAffinityEnabled"`
 	// The target port on the container for the Ingress traffic.
 	TargetPort int `pulumi:"targetPort"`
 	// One or more `trafficWeight` blocks as detailed below.
@@ -433,6 +437,10 @@ type AppIngressArgs struct {
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
 	IpSecurityRestrictions AppIngressIpSecurityRestrictionArrayInput `pulumi:"ipSecurityRestrictions"`
+	// Is session affinity enabled. Defaults to `false`.
+	//
+	// > **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+	SessionAffinityEnabled pulumi.BoolPtrInput `pulumi:"sessionAffinityEnabled"`
 	// The target port on the container for the Ingress traffic.
 	TargetPort pulumi.IntInput `pulumi:"targetPort"`
 	// One or more `trafficWeight` blocks as detailed below.
@@ -562,6 +570,13 @@ func (o AppIngressOutput) IpSecurityRestrictions() AppIngressIpSecurityRestricti
 	return o.ApplyT(func(v AppIngress) []AppIngressIpSecurityRestriction { return v.IpSecurityRestrictions }).(AppIngressIpSecurityRestrictionArrayOutput)
 }
 
+// Is session affinity enabled. Defaults to `false`.
+//
+// > **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+func (o AppIngressOutput) SessionAffinityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppIngress) *bool { return v.SessionAffinityEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The target port on the container for the Ingress traffic.
 func (o AppIngressOutput) TargetPort() pulumi.IntOutput {
 	return o.ApplyT(func(v AppIngress) int { return v.TargetPort }).(pulumi.IntOutput)
@@ -683,6 +698,18 @@ func (o AppIngressPtrOutput) IpSecurityRestrictions() AppIngressIpSecurityRestri
 		}
 		return v.IpSecurityRestrictions
 	}).(AppIngressIpSecurityRestrictionArrayOutput)
+}
+
+// Is session affinity enabled. Defaults to `false`.
+//
+// > **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+func (o AppIngressPtrOutput) SessionAffinityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppIngress) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SessionAffinityEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The target port on the container for the Ingress traffic.
@@ -3496,7 +3523,7 @@ type AppTemplateCustomScaleRule struct {
 	//
 	// * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
 	Authentications []AppTemplateCustomScaleRuleAuthentication `pulumi:"authentications"`
-	// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+	// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
 	CustomRuleType string `pulumi:"customRuleType"`
 	// ID of the System or User Managed Identity used to execute scale rule.
 	IdentityId *string `pulumi:"identityId"`
@@ -3522,7 +3549,7 @@ type AppTemplateCustomScaleRuleArgs struct {
 	//
 	// * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
 	Authentications AppTemplateCustomScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
-	// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+	// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
 	CustomRuleType pulumi.StringInput `pulumi:"customRuleType"`
 	// ID of the System or User Managed Identity used to execute scale rule.
 	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
@@ -3592,7 +3619,7 @@ func (o AppTemplateCustomScaleRuleOutput) Authentications() AppTemplateCustomSca
 	}).(AppTemplateCustomScaleRuleAuthenticationArrayOutput)
 }
 
-// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
 func (o AppTemplateCustomScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateCustomScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
 }
@@ -5320,6 +5347,8 @@ type EnvironmentWorkloadProfile struct {
 	// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
 	MaximumCount *int `pulumi:"maximumCount"`
 	// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+	//
+	// > **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
 	MinimumCount *int `pulumi:"minimumCount"`
 	// The name of the workload profile.
 	Name string `pulumi:"name"`
@@ -5346,6 +5375,8 @@ type EnvironmentWorkloadProfileArgs struct {
 	// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
 	MaximumCount pulumi.IntPtrInput `pulumi:"maximumCount"`
 	// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+	//
+	// > **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
 	MinimumCount pulumi.IntPtrInput `pulumi:"minimumCount"`
 	// The name of the workload profile.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5414,6 +5445,8 @@ func (o EnvironmentWorkloadProfileOutput) MaximumCount() pulumi.IntPtrOutput {
 }
 
 // The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+//
+// > **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
 func (o EnvironmentWorkloadProfileOutput) MinimumCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EnvironmentWorkloadProfile) *int { return v.MinimumCount }).(pulumi.IntPtrOutput)
 }
@@ -5754,7 +5787,7 @@ func (o JobEventTriggerConfigScaleArrayOutput) Index(i pulumi.IntInput) JobEvent
 type JobEventTriggerConfigScaleRule struct {
 	// One or more `authentication` blocks as defined below.
 	Authentications []JobEventTriggerConfigScaleRuleAuthentication `pulumi:"authentications"`
-	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
 	CustomRuleType string `pulumi:"customRuleType"`
 	// The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 	IdentityId *string `pulumi:"identityId"`
@@ -5778,7 +5811,7 @@ type JobEventTriggerConfigScaleRuleInput interface {
 type JobEventTriggerConfigScaleRuleArgs struct {
 	// One or more `authentication` blocks as defined below.
 	Authentications JobEventTriggerConfigScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
-	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
 	CustomRuleType pulumi.StringInput `pulumi:"customRuleType"`
 	// The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
@@ -5846,7 +5879,7 @@ func (o JobEventTriggerConfigScaleRuleOutput) Authentications() JobEventTriggerC
 	}).(JobEventTriggerConfigScaleRuleAuthenticationArrayOutput)
 }
 
-// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
 func (o JobEventTriggerConfigScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
 }
@@ -9029,6 +9062,8 @@ type GetAppIngress struct {
 	Fqdn string `pulumi:"fqdn"`
 	// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
 	IpSecurityRestrictions []GetAppIngressIpSecurityRestriction `pulumi:"ipSecurityRestrictions"`
+	// Is session affinity enabled.
+	SessionAffinityEnabled bool `pulumi:"sessionAffinityEnabled"`
 	// The target port on the container for the Ingress traffic.
 	TargetPort int `pulumi:"targetPort"`
 	// A `trafficWeight` block as detailed below.
@@ -9065,6 +9100,8 @@ type GetAppIngressArgs struct {
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
 	IpSecurityRestrictions GetAppIngressIpSecurityRestrictionArrayInput `pulumi:"ipSecurityRestrictions"`
+	// Is session affinity enabled.
+	SessionAffinityEnabled pulumi.BoolInput `pulumi:"sessionAffinityEnabled"`
 	// The target port on the container for the Ingress traffic.
 	TargetPort pulumi.IntInput `pulumi:"targetPort"`
 	// A `trafficWeight` block as detailed below.
@@ -9162,6 +9199,11 @@ func (o GetAppIngressOutput) Fqdn() pulumi.StringOutput {
 // One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
 func (o GetAppIngressOutput) IpSecurityRestrictions() GetAppIngressIpSecurityRestrictionArrayOutput {
 	return o.ApplyT(func(v GetAppIngress) []GetAppIngressIpSecurityRestriction { return v.IpSecurityRestrictions }).(GetAppIngressIpSecurityRestrictionArrayOutput)
+}
+
+// Is session affinity enabled.
+func (o GetAppIngressOutput) SessionAffinityEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppIngress) bool { return v.SessionAffinityEnabled }).(pulumi.BoolOutput)
 }
 
 // The target port on the container for the Ingress traffic.

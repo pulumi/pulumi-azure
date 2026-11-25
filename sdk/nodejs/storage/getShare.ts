@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "examples",
  * });
  * const exampleGetShare = example.then(example => azure.storage.getShare({
- *     name: "existing",
+ *     name: "example-share",
  *     storageAccountId: example.id,
  * }));
  * ```
@@ -105,7 +105,7 @@ export interface GetShareResult {
  *     resourceGroupName: "examples",
  * });
  * const exampleGetShare = example.then(example => azure.storage.getShare({
- *     name: "existing",
+ *     name: "example-share",
  *     storageAccountId: example.id,
  * }));
  * ```

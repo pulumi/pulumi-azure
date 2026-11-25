@@ -49,8 +49,8 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name("existing-adf")
-     *             .resourceGroupName("existing-rg")
+     *             .name("example-data-factory")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -98,8 +98,8 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name("existing-adf")
-     *             .resourceGroupName("existing-rg")
+     *             .name("example-data-factory")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -147,8 +147,8 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name("existing-adf")
-     *             .resourceGroupName("existing-rg")
+     *             .name("example-data-factory")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -196,8 +196,8 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name("existing-adf")
-     *             .resourceGroupName("existing-rg")
+     *             .name("example-data-factory")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -245,8 +245,8 @@ public final class DatafactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
-     *             .name("existing-adf")
-     *             .resourceGroupName("existing-rg")
+     *             .name("example-data-factory")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

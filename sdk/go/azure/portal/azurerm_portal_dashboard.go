@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := portal.Azurerm_portal_dashboard(ctx, &portal.Azurerm_portal_dashboardArgs{
-//				Name:              pulumi.StringRef("existing-dashboard"),
+//				Name:              pulumi.StringRef("example-dashboard"),
 //				ResourceGroupName: "dashboard-rg",
 //			}, nil)
 //			if err != nil {

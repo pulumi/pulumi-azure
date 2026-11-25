@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Waf
         /// {
         ///     var example = Azure.Waf.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "existing",
-        ///         Name = "existing",
+        ///         ResourceGroupName = "example-resources",
+        ///         Name = "example-waf-policy",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Waf
         /// {
         ///     var example = Azure.Waf.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "existing",
-        ///         Name = "existing",
+        ///         ResourceGroupName = "example-resources",
+        ///         Name = "example-waf-policy",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Waf
         /// {
         ///     var example = Azure.Waf.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "existing",
-        ///         Name = "existing",
+        ///         ResourceGroupName = "example-resources",
+        ///         Name = "example-waf-policy",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

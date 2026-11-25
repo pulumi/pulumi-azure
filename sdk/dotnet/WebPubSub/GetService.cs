@@ -165,11 +165,11 @@ namespace Pulumi.Azure.WebPubSub
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `Identity` block as documented below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceIdentityResult> Identities;
         /// <summary>
-        /// A `LiveTrace` block as documented below.
+        /// A `LiveTrace` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLiveTraceResult> LiveTraces;
         public readonly bool LocalAuthEnabled;

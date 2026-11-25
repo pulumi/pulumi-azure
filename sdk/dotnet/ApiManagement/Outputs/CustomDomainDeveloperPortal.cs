@@ -21,13 +21,22 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// The password associated with the certificate provided above.
         /// </summary>
         public readonly string? CertificatePassword;
+        /// <summary>
+        /// The source of the certificate.
+        /// </summary>
         public readonly string? CertificateSource;
+        /// <summary>
+        /// The status of the certificate.
+        /// </summary>
         public readonly string? CertificateStatus;
         public readonly string? Expiry;
         /// <summary>
         /// The Hostname to use for the corresponding endpoint.
         /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// </summary>
         public readonly string? KeyVaultCertificateId;
         /// <summary>
         /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `False`.

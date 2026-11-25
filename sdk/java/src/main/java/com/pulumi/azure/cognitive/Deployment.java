@@ -184,6 +184,24 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.sku;
     }
     /**
+     * The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+     * 
+     * &gt; **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+     * 
+     */
+    @Export(name="spilloverDeploymentName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> spilloverDeploymentName;
+
+    /**
+     * @return The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+     * 
+     * &gt; **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+     * 
+     */
+    public Output<Optional<String>> spilloverDeploymentName() {
+        return Codegen.optional(this.spilloverDeploymentName);
+    }
+    /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      * 
      */

@@ -139,6 +139,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return this.automaticInstanceRepair;
     }
     /**
+     * Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+     * 
+     */
+    @Export(name="automaticZoneRebalancingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> automaticZoneRebalancingEnabled;
+
+    /**
+     * @return Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+     * 
+     */
+    public Output<Optional<Boolean>> automaticZoneRebalancingEnabled() {
+        return Codegen.optional(this.automaticZoneRebalancingEnabled);
+    }
+    /**
      * A `bootDiagnostics` block as defined below.
      * 
      */
@@ -479,6 +493,42 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      */
     public Output<Optional<String>> proximityPlacementGroupId() {
         return Codegen.optional(this.proximityPlacementGroupId);
+    }
+    /**
+     * Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+     * 
+     */
+    @Export(name="resilientVirtualMachineCreationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> resilientVirtualMachineCreationEnabled;
+
+    /**
+     * @return Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+     * 
+     */
+    public Output<Optional<Boolean>> resilientVirtualMachineCreationEnabled() {
+        return Codegen.optional(this.resilientVirtualMachineCreationEnabled);
+    }
+    /**
+     * Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+     * 
+     */
+    @Export(name="resilientVirtualMachineDeletionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> resilientVirtualMachineDeletionEnabled;
+
+    /**
+     * @return Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+     * 
+     */
+    public Output<Optional<Boolean>> resilientVirtualMachineDeletionEnabled() {
+        return Codegen.optional(this.resilientVirtualMachineDeletionEnabled);
     }
     /**
      * The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.

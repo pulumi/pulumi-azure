@@ -14,15 +14,15 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.elasticsan.get({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-elastic-san",
+ *     resourceGroupName: "example-resources",
  * });
  * const exampleGetVolumeGroup = example.then(example => azure.elasticsan.getVolumeGroup({
- *     name: "existing",
+ *     name: "example-volume-group",
  *     elasticSanId: example.id,
  * }));
  * const exampleGetVolumeSnapshot = exampleGetVolumeGroup.then(exampleGetVolumeGroup => azure.elasticsan.getVolumeSnapshot({
- *     name: "existing",
+ *     name: "example-snapshot",
  *     volumeGroupId: exampleGetVolumeGroup.id,
  * }));
  * export const id = exampleGetVolumeSnapshot.then(exampleGetVolumeSnapshot => exampleGetVolumeSnapshot.id);
@@ -90,15 +90,15 @@ export interface GetVolumeSnapshotResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.elasticsan.get({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-elastic-san",
+ *     resourceGroupName: "example-resources",
  * });
  * const exampleGetVolumeGroup = example.then(example => azure.elasticsan.getVolumeGroup({
- *     name: "existing",
+ *     name: "example-volume-group",
  *     elasticSanId: example.id,
  * }));
  * const exampleGetVolumeSnapshot = exampleGetVolumeGroup.then(exampleGetVolumeGroup => azure.elasticsan.getVolumeSnapshot({
- *     name: "existing",
+ *     name: "example-snapshot",
  *     volumeGroupId: exampleGetVolumeGroup.id,
  * }));
  * export const id = exampleGetVolumeSnapshot.then(exampleGetVolumeSnapshot => exampleGetVolumeSnapshot.id);

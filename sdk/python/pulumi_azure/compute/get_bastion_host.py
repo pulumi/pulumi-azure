@@ -251,8 +251,8 @@ def get_bastion_host(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_bastion_host(name="existing-bastion",
-        resource_group_name="existing-resources")
+    example = azure.compute.get_bastion_host(name="example-bastion",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -303,8 +303,8 @@ def get_bastion_host_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_bastion_host(name="existing-bastion",
-        resource_group_name="existing-resources")
+    example = azure.compute.get_bastion_host(name="example-bastion",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

@@ -45,7 +45,7 @@ class GetWorkspacePrivateEndpointConnectionResult:
     @pulumi.getter
     def connections(self) -> Sequence['outputs.GetWorkspacePrivateEndpointConnectionConnectionResult']:
         """
-        A `connections` block as documented below.
+        A `connections` block as defined below.
         """
         return pulumi.get(self, "connections")
 

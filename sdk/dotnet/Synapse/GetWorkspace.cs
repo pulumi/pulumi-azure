@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Synapse
         /// {
         ///     var example = Azure.Synapse.GetWorkspace.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-synapse-workspace",
         ///         ResourceGroupName = "example-resource-group",
         ///     });
         /// 
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Synapse
         /// {
         ///     var example = Azure.Synapse.GetWorkspace.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-synapse-workspace",
         ///         ResourceGroupName = "example-resource-group",
         ///     });
         /// 
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Synapse
         /// {
         ///     var example = Azure.Synapse.GetWorkspace.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-synapse-workspace",
         ///         ResourceGroupName = "example-resource-group",
         ///     });
         /// 

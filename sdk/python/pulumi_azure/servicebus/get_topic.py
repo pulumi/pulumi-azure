@@ -211,8 +211,8 @@ def get_topic(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.servicebus.get_topic(name="existing",
-        namespace_id="existing")
+    example = azure.servicebus.get_topic(name="example-topic",
+        namespace_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
     pulumi.export("id", example.id)
     ```
 
@@ -260,8 +260,8 @@ def get_topic_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.servicebus.get_topic(name="existing",
-        namespace_id="existing")
+    example = azure.servicebus.get_topic(name="example-topic",
+        namespace_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
     pulumi.export("id", example.id)
     ```
 

@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = azure.keyvault.getCertificates({
- *     keyVaultId: existing.id,
+ *     keyVaultId: exampleAzurermKeyVault.id,
  * });
  * const exampleGetCertificate = example.then(example => std.toset({
  *     input: example.names,
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getCertificate({
  *     name: String(__key),
- *     keyVaultId: existing.id,
+ *     keyVaultId: exampleAzurermKeyVault.id,
  * }) }), {}));
  * ```
  */
@@ -84,13 +84,13 @@ export interface GetCertificatesResult {
  * import * as std from "@pulumi/std";
  *
  * const example = azure.keyvault.getCertificates({
- *     keyVaultId: existing.id,
+ *     keyVaultId: exampleAzurermKeyVault.id,
  * });
  * const exampleGetCertificate = example.then(example => std.toset({
  *     input: example.names,
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getCertificate({
  *     name: String(__key),
- *     keyVaultId: existing.id,
+ *     keyVaultId: exampleAzurermKeyVault.id,
  * }) }), {}));
  * ```
  */

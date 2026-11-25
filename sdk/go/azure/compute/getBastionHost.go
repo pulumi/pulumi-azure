@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := compute.LookupBastionHost(ctx, &compute.LookupBastionHostArgs{
-//				Name:              "existing-bastion",
-//				ResourceGroupName: "existing-resources",
+//				Name:              "example-bastion",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

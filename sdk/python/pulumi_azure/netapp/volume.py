@@ -54,6 +54,7 @@ class VolumeArgs:
                  snapshot_directory_visible: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput_in_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
@@ -109,6 +110,7 @@ class VolumeArgs:
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
+        :param pulumi.Input[_builtins.str] unix_permissions: The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -170,6 +172,8 @@ class VolumeArgs:
             pulumi.set(__self__, "tags", tags)
         if throughput_in_mibps is not None:
             pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
+        if unix_permissions is not None:
+            pulumi.set(__self__, "unix_permissions", unix_permissions)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
 
@@ -588,6 +592,18 @@ class VolumeArgs:
         pulumi.set(self, "throughput_in_mibps", value)
 
     @_builtins.property
+    @pulumi.getter(name="unixPermissions")
+    def unix_permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+        """
+        return pulumi.get(self, "unix_permissions")
+
+    @unix_permissions.setter
+    def unix_permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "unix_permissions", value)
+
+    @_builtins.property
     @pulumi.getter
     def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -636,6 +652,7 @@ class _VolumeState:
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput_in_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_path: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -692,6 +709,7 @@ class _VolumeState:
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
+        :param pulumi.Input[_builtins.str] unix_permissions: The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
@@ -761,6 +779,8 @@ class _VolumeState:
             pulumi.set(__self__, "tags", tags)
         if throughput_in_mibps is not None:
             pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
+        if unix_permissions is not None:
+            pulumi.set(__self__, "unix_permissions", unix_permissions)
         if volume_path is not None:
             pulumi.set(__self__, "volume_path", volume_path)
         if zone is not None:
@@ -1181,6 +1201,18 @@ class _VolumeState:
         pulumi.set(self, "throughput_in_mibps", value)
 
     @_builtins.property
+    @pulumi.getter(name="unixPermissions")
+    def unix_permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+        """
+        return pulumi.get(self, "unix_permissions")
+
+    @unix_permissions.setter
+    def unix_permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "unix_permissions", value)
+
+    @_builtins.property
     @pulumi.getter(name="volumePath")
     def volume_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1243,6 +1275,7 @@ class Volume(pulumi.CustomResource):
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput_in_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_path: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1312,6 +1345,7 @@ class Volume(pulumi.CustomResource):
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
+        :param pulumi.Input[_builtins.str] unix_permissions: The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
@@ -1382,6 +1416,7 @@ class Volume(pulumi.CustomResource):
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput_in_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_path: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1437,6 +1472,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throughput_in_mibps"] = throughput_in_mibps
+            __props__.__dict__["unix_permissions"] = unix_permissions
             if volume_path is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_path'")
             __props__.__dict__["volume_path"] = volume_path
@@ -1485,6 +1521,7 @@ class Volume(pulumi.CustomResource):
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             throughput_in_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+            unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
             volume_path: pulumi.Input[Optional[_builtins.str]] = None,
             zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'Volume':
         """
@@ -1545,6 +1582,7 @@ class Volume(pulumi.CustomResource):
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
+        :param pulumi.Input[_builtins.str] unix_permissions: The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
@@ -1585,6 +1623,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["throughput_in_mibps"] = throughput_in_mibps
+        __props__.__dict__["unix_permissions"] = unix_permissions
         __props__.__dict__["volume_path"] = volume_path
         __props__.__dict__["zone"] = zone
         return Volume(resource_name, opts=opts, __props__=__props__)
@@ -1870,6 +1909,14 @@ class Volume(pulumi.CustomResource):
         Throughput of this volume in Mibps.
         """
         return pulumi.get(self, "throughput_in_mibps")
+
+    @_builtins.property
+    @pulumi.getter(name="unixPermissions")
+    def unix_permissions(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+        """
+        return pulumi.get(self, "unix_permissions")
 
     @_builtins.property
     @pulumi.getter(name="volumePath")

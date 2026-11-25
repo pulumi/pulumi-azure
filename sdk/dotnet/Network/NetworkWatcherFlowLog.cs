@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `RetentionPolicy` block as documented below.
+        /// A `RetentionPolicy` block as defined below.
         /// </summary>
         [Output("retentionPolicy")]
         public Output<Outputs.NetworkWatcherFlowLogRetentionPolicy> RetentionPolicy { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Network
         public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `TrafficAnalytics` block as documented below.
+        /// A `TrafficAnalytics` block as defined below.
         /// </summary>
         [Output("trafficAnalytics")]
         public Output<Outputs.NetworkWatcherFlowLogTrafficAnalytics?> TrafficAnalytics { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `RetentionPolicy` block as documented below.
+        /// A `RetentionPolicy` block as defined below.
         /// </summary>
         [Input("retentionPolicy", required: true)]
         public Input<Inputs.NetworkWatcherFlowLogRetentionPolicyArgs> RetentionPolicy { get; set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Network
         public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
-        /// A `TrafficAnalytics` block as documented below.
+        /// A `TrafficAnalytics` block as defined below.
         /// </summary>
         [Input("trafficAnalytics")]
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs>? TrafficAnalytics { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `RetentionPolicy` block as documented below.
+        /// A `RetentionPolicy` block as defined below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.NetworkWatcherFlowLogRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// A `TrafficAnalytics` block as documented below.
+        /// A `TrafficAnalytics` block as defined below.
         /// </summary>
         [Input("trafficAnalytics")]
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsGetArgs>? TrafficAnalytics { get; set; }

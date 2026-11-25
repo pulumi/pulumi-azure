@@ -19,6 +19,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         public readonly int? MaximumCount;
         /// <summary>
         /// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+        /// 
+        /// &gt; **Note:** The `MaximumCount` and `MinimumCount` arguments are not supported when `WorkloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
         /// </summary>
         public readonly int? MinimumCount;
         /// <summary>

@@ -308,7 +308,7 @@ class GetClusterNodePoolResult:
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> Sequence['outputs.GetClusterNodePoolUpgradeSettingResult']:
         """
-        A `upgrade_settings` block as documented below.
+        A `upgrade_settings` block as defined below.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -387,9 +387,9 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[_builtins.str] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.containerservice.get_cluster_node_pool(name="existing",
-        kubernetes_cluster_name="existing-cluster",
-        resource_group_name="existing-resource-group")
+    example = azure.containerservice.get_cluster_node_pool(name="example",
+        kubernetes_cluster_name="example-cluster",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -398,7 +398,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[_builtins.str] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService` - 2026-05-01
+    * `Microsoft.ContainerService` - 2026-07-01
 
 
     :param _builtins.str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.
@@ -455,9 +455,9 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: pulumi.Input[Optional[
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.containerservice.get_cluster_node_pool(name="existing",
-        kubernetes_cluster_name="existing-cluster",
-        resource_group_name="existing-resource-group")
+    example = azure.containerservice.get_cluster_node_pool(name="example",
+        kubernetes_cluster_name="example-cluster",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -466,7 +466,7 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: pulumi.Input[Optional[
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService` - 2026-05-01
+    * `Microsoft.ContainerService` - 2026-07-01
 
 
     :param _builtins.str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.

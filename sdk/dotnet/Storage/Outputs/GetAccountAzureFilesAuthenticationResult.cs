@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetAccountAzureFilesAuthenticationResult
     {
         /// <summary>
-        /// An `ActiveDirectory` block as documented below.
+        /// An `ActiveDirectory` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult> ActiveDirectories;
         /// <summary>

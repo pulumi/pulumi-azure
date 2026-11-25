@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := communication.LookupService(ctx, &communication.LookupServiceArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-communication-service",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

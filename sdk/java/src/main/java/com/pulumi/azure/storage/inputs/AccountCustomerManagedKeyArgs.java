@@ -32,7 +32,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     /**
      * The ID of a user assigned identity.
      * 
-     * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+     * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     @Import(name="userAssignedIdentityId", required=true)
@@ -41,7 +41,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     /**
      * @return The ID of a user assigned identity.
      * 
-     * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+     * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     public Output<String> userAssignedIdentityId() {
@@ -97,7 +97,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId The ID of a user assigned identity.
          * 
-         * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+         * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId The ID of a user assigned identity.
          * 
-         * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+         * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
          * 
          * @return builder
          * 

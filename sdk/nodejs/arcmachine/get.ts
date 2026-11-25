@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.arcmachine.get({
- *     name: "existing-hcmachine",
- *     resourceGroupName: "existing-rg",
+ *     name: "example-machine",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -183,8 +183,8 @@ export interface GetResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.arcmachine.get({
- *     name: "existing-hcmachine",
- *     resourceGroupName: "existing-rg",
+ *     name: "example-machine",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

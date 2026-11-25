@@ -26,8 +26,8 @@ namespace Pulumi.Azure.DataFactory
         /// {
         ///     var example = Azure.DataFactory.GetFactory.Invoke(new()
         ///     {
-        ///         Name = "existing-adf",
-        ///         ResourceGroupName = "existing-rg",
+        ///         Name = "example-data-factory",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.DataFactory
         /// {
         ///     var example = Azure.DataFactory.GetFactory.Invoke(new()
         ///     {
-        ///         Name = "existing-adf",
-        ///         ResourceGroupName = "existing-rg",
+        ///         Name = "example-data-factory",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.DataFactory
         /// {
         ///     var example = Azure.DataFactory.GetFactory.Invoke(new()
         ///     {
-        ///         Name = "existing-adf",
-        ///         ResourceGroupName = "existing-rg",
+        ///         Name = "example-data-factory",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

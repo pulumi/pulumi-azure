@@ -18,14 +18,14 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
     public static final RoleManagementPolicyNotificationRulesEligibleActivationsArgs Empty = new RoleManagementPolicyNotificationRulesEligibleActivationsArgs();
 
     /**
-     * Admin notification settings
+     * Admin notification settings.
      * 
      */
     @Import(name="adminNotifications")
     private @Nullable Output<RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs> adminNotifications;
 
     /**
-     * @return Admin notification settings
+     * @return Admin notification settings.
      * 
      */
     public Optional<Output<RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs>> adminNotifications() {
@@ -33,14 +33,14 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
     }
 
     /**
-     * Approver notification settings
+     * Approver notification settings.
      * 
      */
     @Import(name="approverNotifications")
     private @Nullable Output<RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs> approverNotifications;
 
     /**
-     * @return Approver notification settings
+     * @return Approver notification settings.
      * 
      */
     public Optional<Output<RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs>> approverNotifications() {
@@ -48,14 +48,14 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
     }
 
     /**
-     * Assignee notification settings
+     * Assignee notification settings.
      * 
      */
     @Import(name="assigneeNotifications")
     private @Nullable Output<RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs> assigneeNotifications;
 
     /**
-     * @return Assignee notification settings
+     * @return Assignee notification settings.
      * 
      */
     public Optional<Output<RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs>> assigneeNotifications() {
@@ -89,7 +89,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
         }
 
         /**
-         * @param adminNotifications Admin notification settings
+         * @param adminNotifications Admin notification settings.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
         }
 
         /**
-         * @param adminNotifications Admin notification settings
+         * @param adminNotifications Admin notification settings.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
         }
 
         /**
-         * @param approverNotifications Approver notification settings
+         * @param approverNotifications Approver notification settings.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
         }
 
         /**
-         * @param approverNotifications Approver notification settings
+         * @param approverNotifications Approver notification settings.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
         }
 
         /**
-         * @param assigneeNotifications Assignee notification settings
+         * @param assigneeNotifications Assignee notification settings.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsArgs 
         }
 
         /**
-         * @param assigneeNotifications Assignee notification settings
+         * @param assigneeNotifications Assignee notification settings.
          * 
          * @return builder
          * 

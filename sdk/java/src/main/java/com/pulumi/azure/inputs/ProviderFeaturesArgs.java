@@ -114,14 +114,14 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     * Whether to set the resource ID into state before polling asynchronous operations for completion.
      * 
      */
     @Import(name="persistIdOnCreateBeforePollingForCompletion")
     private @Nullable Output<Boolean> persistIdOnCreateBeforePollingForCompletion;
 
     /**
-     * @return Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     * @return Whether to set the resource ID into state before polling asynchronous operations for completion.
      * 
      */
     public Optional<Output<Boolean>> persistIdOnCreateBeforePollingForCompletion() {
@@ -164,14 +164,14 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     * Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
      * 
      */
     @Import(name="skipImportCheckOnCreateAndAllowOverwritingExistingResources")
     private @Nullable Output<Boolean> skipImportCheckOnCreateAndAllowOverwritingExistingResources;
 
     /**
-     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
      * 
      */
     public Optional<Output<Boolean>> skipImportCheckOnCreateAndAllowOverwritingExistingResources() {
@@ -359,7 +359,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param persistIdOnCreateBeforePollingForCompletion Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+         * @param persistIdOnCreateBeforePollingForCompletion Whether to set the resource ID into state before polling asynchronous operations for completion.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param persistIdOnCreateBeforePollingForCompletion Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+         * @param persistIdOnCreateBeforePollingForCompletion Whether to set the resource ID into state before polling asynchronous operations for completion.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skipImportCheckOnCreateAndAllowOverwritingExistingResources Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+         * @param skipImportCheckOnCreateAndAllowOverwritingExistingResources Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skipImportCheckOnCreateAndAllowOverwritingExistingResources Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+         * @param skipImportCheckOnCreateAndAllowOverwritingExistingResources Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
          * 
          * @return builder
          * 

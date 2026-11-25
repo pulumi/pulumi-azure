@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.storage.getSyncGroup({
- *     name: "existing-ss-group",
- *     storageSyncId: "existing-ss-id",
+ *     name: "example-sync-group",
+ *     storageSyncId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -70,8 +70,8 @@ export interface GetSyncGroupResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.storage.getSyncGroup({
- *     name: "existing-ss-group",
- *     storageSyncId: "existing-ss-id",
+ *     name: "example-sync-group",
+ *     storageSyncId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync",
  * });
  * export const id = example.then(example => example.id);
  * ```

@@ -159,14 +159,14 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
         return this.content;
     }
     /**
-     * A `guestIdentity` block as documented below.
+     * A `guestIdentity` block as defined below.
      * 
      */
     @Export(name="guestIdentity", refs={IntegrationAccountAgreementGuestIdentity.class}, tree="[0]")
     private Output<IntegrationAccountAgreementGuestIdentity> guestIdentity;
 
     /**
-     * @return A `guestIdentity` block as documented below.
+     * @return A `guestIdentity` block as defined below.
      * 
      */
     public Output<IntegrationAccountAgreementGuestIdentity> guestIdentity() {
@@ -187,14 +187,14 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
         return this.guestPartnerName;
     }
     /**
-     * A `hostIdentity` block as documented below.
+     * A `hostIdentity` block as defined below.
      * 
      */
     @Export(name="hostIdentity", refs={IntegrationAccountAgreementHostIdentity.class}, tree="[0]")
     private Output<IntegrationAccountAgreementHostIdentity> hostIdentity;
 
     /**
-     * @return A `hostIdentity` block as documented below.
+     * @return A `hostIdentity` block as defined below.
      * 
      */
     public Output<IntegrationAccountAgreementHostIdentity> hostIdentity() {

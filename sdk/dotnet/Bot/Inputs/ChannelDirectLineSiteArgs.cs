@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Bot.Inputs
         public Input<bool>? EndpointParametersEnabled { get; set; }
 
         /// <summary>
-        /// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+        /// Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
         /// </summary>
         [Input("enhancedAuthenticationEnabled")]
         public Input<bool>? EnhancedAuthenticationEnabled { get; set; }

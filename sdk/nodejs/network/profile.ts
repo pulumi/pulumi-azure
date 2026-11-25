@@ -96,7 +96,7 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
-     * A `containerNetworkInterface` block as documented below.
+     * A `containerNetworkInterface` block as defined below.
      */
     declare public readonly containerNetworkInterface: pulumi.Output<outputs.network.ProfileContainerNetworkInterface>;
     /**
@@ -164,7 +164,7 @@ export class Profile extends pulumi.CustomResource {
  */
 export interface ProfileState {
     /**
-     * A `containerNetworkInterface` block as documented below.
+     * A `containerNetworkInterface` block as defined below.
      */
     containerNetworkInterface?: pulumi.Input<inputs.network.ProfileContainerNetworkInterface | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface ProfileState {
  */
 export interface ProfileArgs {
     /**
-     * A `containerNetworkInterface` block as documented below.
+     * A `containerNetworkInterface` block as defined below.
      */
     containerNetworkInterface: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
     /**

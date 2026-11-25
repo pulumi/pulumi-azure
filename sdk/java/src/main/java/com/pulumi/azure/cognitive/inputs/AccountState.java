@@ -77,14 +77,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      * 
      */
     @Import(name="customerManagedKey")
     private @Nullable Output<AccountCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return A `customerManagedKey` block as documented below.
+     * @return A `customerManagedKey` block as defined below.
      * 
      */
     public Optional<Output<AccountCustomerManagedKeyArgs>> customerManagedKey() {
@@ -590,7 +590,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customerManagedKey` block as documented below.
+         * @param customerManagedKey A `customerManagedKey` block as defined below.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customerManagedKey` block as documented below.
+         * @param customerManagedKey A `customerManagedKey` block as defined below.
          * 
          * @return builder
          * 

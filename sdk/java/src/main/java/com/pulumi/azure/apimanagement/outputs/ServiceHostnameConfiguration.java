@@ -16,62 +16,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceHostnameConfiguration {
     /**
-     * @return One or more `developerPortal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as defined below.
      * 
      */
     private @Nullable List<ServiceHostnameConfigurationDeveloperPortal> developerPortals;
     /**
-     * @return One or more `management` blocks as documented below.
+     * @return One or more `management` blocks as defined below.
      * 
      */
     private @Nullable List<ServiceHostnameConfigurationManagement> managements;
     /**
-     * @return One or more `portal` blocks as documented below.
+     * @return One or more `portal` blocks as defined below.
      * 
      */
     private @Nullable List<ServiceHostnameConfigurationPortal> portals;
     /**
-     * @return One or more `proxy` blocks as documented below.
+     * @return One or more `proxy` blocks as defined below.
      * 
      */
     private @Nullable List<ServiceHostnameConfigurationProxy> proxies;
     /**
-     * @return One or more `scm` blocks as documented below.
+     * @return One or more `scm` blocks as defined below.
      * 
      */
     private @Nullable List<ServiceHostnameConfigurationScm> scms;
 
     private ServiceHostnameConfiguration() {}
     /**
-     * @return One or more `developerPortal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as defined below.
      * 
      */
     public List<ServiceHostnameConfigurationDeveloperPortal> developerPortals() {
         return this.developerPortals == null ? List.of() : this.developerPortals;
     }
     /**
-     * @return One or more `management` blocks as documented below.
+     * @return One or more `management` blocks as defined below.
      * 
      */
     public List<ServiceHostnameConfigurationManagement> managements() {
         return this.managements == null ? List.of() : this.managements;
     }
     /**
-     * @return One or more `portal` blocks as documented below.
+     * @return One or more `portal` blocks as defined below.
      * 
      */
     public List<ServiceHostnameConfigurationPortal> portals() {
         return this.portals == null ? List.of() : this.portals;
     }
     /**
-     * @return One or more `proxy` blocks as documented below.
+     * @return One or more `proxy` blocks as defined below.
      * 
      */
     public List<ServiceHostnameConfigurationProxy> proxies() {
         return this.proxies == null ? List.of() : this.proxies;
     }
     /**
-     * @return One or more `scm` blocks as documented below.
+     * @return One or more `scm` blocks as defined below.
      * 
      */
     public List<ServiceHostnameConfigurationScm> scms() {

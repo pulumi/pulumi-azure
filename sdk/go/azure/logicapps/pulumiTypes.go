@@ -436,7 +436,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteria struct {
 	BatchSize *int `pulumi:"batchSize"`
 	// The message count for the Logic App Integration Batch Configuration.
 	MessageCount *int `pulumi:"messageCount"`
-	// A `recurrence` block as documented below.
+	// A `recurrence` block as defined below.
 	Recurrence *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence `pulumi:"recurrence"`
 }
 
@@ -456,7 +456,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaArgs struct {
 	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
 	// The message count for the Logic App Integration Batch Configuration.
 	MessageCount pulumi.IntPtrInput `pulumi:"messageCount"`
-	// A `recurrence` block as documented below.
+	// A `recurrence` block as defined below.
 	Recurrence IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput `pulumi:"recurrence"`
 }
 
@@ -547,7 +547,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) MessageCount(
 	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteria) *int { return v.MessageCount }).(pulumi.IntPtrOutput)
 }
 
-// A `recurrence` block as documented below.
+// A `recurrence` block as defined below.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) Recurrence() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
 	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
 		return v.Recurrence
@@ -598,7 +598,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) MessageCou
 	}).(pulumi.IntPtrOutput)
 }
 
-// A `recurrence` block as documented below.
+// A `recurrence` block as defined below.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) Recurrence() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
 		if v == nil {
@@ -615,7 +615,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence struct {
 	Frequency string `pulumi:"frequency"`
 	// The number of `frequency`s between runs.
 	Interval int `pulumi:"interval"`
-	// A `schedule` block as documented below.
+	// A `schedule` block as defined below.
 	Schedule *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule `pulumi:"schedule"`
 	// The start time of the schedule, formatted as an RFC3339 string.
 	StartTime *string `pulumi:"startTime"`
@@ -641,7 +641,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs struct {
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The number of `frequency`s between runs.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// A `schedule` block as documented below.
+	// A `schedule` block as defined below.
 	Schedule IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput `pulumi:"schedule"`
 	// The start time of the schedule, formatted as an RFC3339 string.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
@@ -741,7 +741,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) Int
 	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// A `schedule` block as documented below.
+// A `schedule` block as defined below.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) Schedule() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
 	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
 		return v.Schedule
@@ -812,7 +812,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) 
 	}).(pulumi.IntPtrOutput)
 }
 
-// A `schedule` block as documented below.
+// A `schedule` block as defined below.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) Schedule() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
 		if v == nil {
@@ -849,7 +849,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule struc
 	Minutes []int `pulumi:"minutes"`
 	// A list of days of the month that the job should execute on.
 	MonthDays []int `pulumi:"monthDays"`
-	// A `monthly` block as documented below.
+	// A `monthly` block as defined below.
 	Monthlies []IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly `pulumi:"monthlies"`
 	// A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	WeekDays []string `pulumi:"weekDays"`
@@ -873,7 +873,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs s
 	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
 	// A list of days of the month that the job should execute on.
 	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
-	// A `monthly` block as documented below.
+	// A `monthly` block as defined below.
 	Monthlies IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput `pulumi:"monthlies"`
 	// A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
@@ -973,7 +973,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOut
 	}).(pulumi.IntArrayOutput)
 }
 
-// A `monthly` block as documented below.
+// A `monthly` block as defined below.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) Monthlies() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly {
 		return v.Monthlies
@@ -1041,7 +1041,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtr
 	}).(pulumi.IntArrayOutput)
 }
 
-// A `monthly` block as documented below.
+// A `monthly` block as defined below.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) Monthlies() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly {
 		if v == nil {

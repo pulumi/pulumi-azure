@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.machinelearning.getWorkspace({
+ * const example = azure.machinelearning.getWorkspace({
  *     name: "example-workspace",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existing.then(existing => existing.id);
+ * export const id = example.then(example => example.id);
  * ```
  *
  * ## API Providers
@@ -87,11 +87,11 @@ export interface GetWorkspaceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.machinelearning.getWorkspace({
+ * const example = azure.machinelearning.getWorkspace({
  *     name: "example-workspace",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existing.then(existing => existing.id);
+ * export const id = example.then(example => example.id);
  * ```
  *
  * ## API Providers

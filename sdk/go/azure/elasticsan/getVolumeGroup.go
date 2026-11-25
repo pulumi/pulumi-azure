@@ -28,14 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := elasticsan.Get(ctx, &elasticsan.GetArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-elastic-san",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleGetVolumeGroup, err := elasticsan.LookupVolumeGroup(ctx, &elasticsan.LookupVolumeGroupArgs{
-//				Name:         "existing",
+//				Name:         "example-volume-group",
 //				ElasticSanId: example.Id,
 //			}, nil)
 //			if err != nil {

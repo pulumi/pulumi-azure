@@ -75,6 +75,21 @@ import * as utilities from "../utilities";
  *         maxRequestBodySizeInKb: 128,
  *     },
  *     managedRules: {
+ *         exceptions: [{
+ *             matchVariable: "RequestURI",
+ *             valueMatchOperator: "EndsWith",
+ *             values: [
+ *                 "/login.php",
+ *                 "/logout.php",
+ *             ],
+ *             exceptionRuleSets: [{
+ *                 type: "OWASP",
+ *                 version: "3.2",
+ *                 ruleGroups: [{
+ *                     ruleGroupName: "REQUEST-942-APPLICATION-ATTACK-SQLI",
+ *                 }],
+ *             }],
+ *         }],
  *         exclusions: [
  *             {
  *                 matchVariable: "RequestHeaderNames",

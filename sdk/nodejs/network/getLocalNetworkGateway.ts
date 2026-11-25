@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getLocalNetworkGateway({
- *     name: "existing-local-network-gateway",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-local-network-gateway",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -96,8 +96,8 @@ export interface GetLocalNetworkGatewayResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getLocalNetworkGateway({
- *     name: "existing-local-network-gateway",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-local-network-gateway",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

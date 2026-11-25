@@ -124,7 +124,7 @@ def get_frontdoor_secret(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-12-01
+    * `Microsoft.Cdn` - 2026-10-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Secret.
@@ -168,7 +168,7 @@ def get_frontdoor_secret_output(name: pulumi.Input[Optional[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-12-01
+    * `Microsoft.Cdn` - 2026-10-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Secret.

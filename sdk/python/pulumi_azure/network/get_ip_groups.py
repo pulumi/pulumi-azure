@@ -121,8 +121,8 @@ def get_ip_groups(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_ip_groups(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_ip_groups(name="example-ip-group",
+        resource_group_name="example-resources")
     pulumi.export("ids", example.ids)
     ```
 
@@ -163,8 +163,8 @@ def get_ip_groups_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_ip_groups(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_ip_groups(name="example-ip-group",
+        resource_group_name="example-resources")
     pulumi.export("ids", example.ids)
     ```
 

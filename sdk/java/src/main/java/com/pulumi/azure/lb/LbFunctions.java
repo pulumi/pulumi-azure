@@ -577,8 +577,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name("existing_lb_outbound_rule")
-     *             .loadbalancerId("existing_load_balancer_id")
+     *             .name("example-outbound-rule")
+     *             .loadbalancerId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -626,8 +626,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name("existing_lb_outbound_rule")
-     *             .loadbalancerId("existing_load_balancer_id")
+     *             .name("example-outbound-rule")
+     *             .loadbalancerId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -675,8 +675,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name("existing_lb_outbound_rule")
-     *             .loadbalancerId("existing_load_balancer_id")
+     *             .name("example-outbound-rule")
+     *             .loadbalancerId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -724,8 +724,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name("existing_lb_outbound_rule")
-     *             .loadbalancerId("existing_load_balancer_id")
+     *             .name("example-outbound-rule")
+     *             .loadbalancerId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -773,8 +773,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name("existing_lb_outbound_rule")
-     *             .loadbalancerId("existing_load_balancer_id")
+     *             .name("example-outbound-rule")
+     *             .loadbalancerId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb")
      *             .build());
      * 
      *         ctx.export("id", example.id());

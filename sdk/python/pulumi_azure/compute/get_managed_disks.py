@@ -82,8 +82,8 @@ def get_managed_disks(resource_group_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.compute.get_managed_disks(resource_group_name="example-resources")
-    pulumi.export("firstDiskId", existing_azurerm_managed_disk["disk"][0]["id"])
+    example = azure.compute.get_managed_disks(resource_group_name="example-resources")
+    pulumi.export("firstDiskId", example_azurerm_managed_disk["disk"][0]["id"])
     ```
 
     ## API Providers
@@ -116,8 +116,8 @@ def get_managed_disks_output(resource_group_name: pulumi.Input[Optional[_builtin
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.compute.get_managed_disks(resource_group_name="example-resources")
-    pulumi.export("firstDiskId", existing_azurerm_managed_disk["disk"][0]["id"])
+    example = azure.compute.get_managed_disks(resource_group_name="example-resources")
+    pulumi.export("firstDiskId", example_azurerm_managed_disk["disk"][0]["id"])
     ```
 
     ## API Providers

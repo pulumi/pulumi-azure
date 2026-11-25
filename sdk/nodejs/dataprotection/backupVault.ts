@@ -72,6 +72,10 @@ export class BackupVault extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to enable Azure Monitor alerts for all job failures.
+     */
+    declare public readonly alertsForAllJobFailuresEnabled: pulumi.Output<boolean>;
+    /**
      * Whether to enable cross-region restore for the Backup Vault.
      *
      * > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -135,6 +139,7 @@ export class BackupVault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupVaultState | undefined;
+            resourceInputs["alertsForAllJobFailuresEnabled"] = state?.alertsForAllJobFailuresEnabled;
             resourceInputs["crossRegionRestoreEnabled"] = state?.crossRegionRestoreEnabled;
             resourceInputs["datastoreType"] = state?.datastoreType;
             resourceInputs["identity"] = state?.identity;
@@ -157,6 +162,7 @@ export class BackupVault extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["alertsForAllJobFailuresEnabled"] = args?.alertsForAllJobFailuresEnabled;
             resourceInputs["crossRegionRestoreEnabled"] = args?.crossRegionRestoreEnabled;
             resourceInputs["datastoreType"] = args?.datastoreType;
             resourceInputs["identity"] = args?.identity;
@@ -178,6 +184,10 @@ export class BackupVault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BackupVault resources.
  */
 export interface BackupVaultState {
+    /**
+     * Whether to enable Azure Monitor alerts for all job failures.
+     */
+    alertsForAllJobFailuresEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable cross-region restore for the Backup Vault.
      *
@@ -234,6 +244,10 @@ export interface BackupVaultState {
  * The set of arguments for constructing a BackupVault resource.
  */
 export interface BackupVaultArgs {
+    /**
+     * Whether to enable Azure Monitor alerts for all job failures.
+     */
+    alertsForAllJobFailuresEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable cross-region restore for the Backup Vault.
      *

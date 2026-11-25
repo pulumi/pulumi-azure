@@ -23,6 +23,21 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     public static final TopicState Empty = new TopicState();
 
     /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     * 
+     */
+    @Import(name="dataResidencyBoundary")
+    private @Nullable Output<String> dataResidencyBoundary;
+
+    /**
+     * @return Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     * 
+     */
+    public Optional<Output<String>> dataResidencyBoundary() {
+        return Optional.ofNullable(this.dataResidencyBoundary);
+    }
+
+    /**
      * The Endpoint associated with the EventGrid Topic.
      * 
      */
@@ -143,6 +158,21 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     * 
+     */
+    @Import(name="minimumTlsVersion")
+    private @Nullable Output<String> minimumTlsVersion;
+
+    /**
+     * @return The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     * 
+     */
+    public Optional<Output<String>> minimumTlsVersion() {
+        return Optional.ofNullable(this.minimumTlsVersion);
+    }
+
+    /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      * 
      */
@@ -235,6 +265,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     private TopicState() {}
 
     private TopicState(TopicState $) {
+        this.dataResidencyBoundary = $.dataResidencyBoundary;
         this.endpoint = $.endpoint;
         this.identity = $.identity;
         this.inboundIpRules = $.inboundIpRules;
@@ -243,6 +274,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         this.inputSchema = $.inputSchema;
         this.localAuthEnabled = $.localAuthEnabled;
         this.location = $.location;
+        this.minimumTlsVersion = $.minimumTlsVersion;
         this.name = $.name;
         this.primaryAccessKey = $.primaryAccessKey;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
@@ -267,6 +299,27 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TopicState defaults) {
             $ = new TopicState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dataResidencyBoundary Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataResidencyBoundary(@Nullable Output<String> dataResidencyBoundary) {
+            $.dataResidencyBoundary = dataResidencyBoundary;
+            return this;
+        }
+
+        /**
+         * @param dataResidencyBoundary Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataResidencyBoundary(String dataResidencyBoundary) {
+            return dataResidencyBoundary(Output.of(dataResidencyBoundary));
         }
 
         /**
@@ -445,6 +498,27 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param minimumTlsVersion The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
+            $.minimumTlsVersion = minimumTlsVersion;
+            return this;
+        }
+
+        /**
+         * @param minimumTlsVersion The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsVersion(String minimumTlsVersion) {
+            return minimumTlsVersion(Output.of(minimumTlsVersion));
         }
 
         /**

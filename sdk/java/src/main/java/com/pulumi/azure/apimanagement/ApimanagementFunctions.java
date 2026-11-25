@@ -2413,7 +2413,7 @@ public final class ApimanagementFunctions {
      *             .build());
      * 
      *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-workspace")
      *             .apiManagementId(exampleService.id())
      *             .build());
      * 
@@ -2480,7 +2480,7 @@ public final class ApimanagementFunctions {
      *             .build());
      * 
      *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-workspace")
      *             .apiManagementId(exampleService.id())
      *             .build());
      * 
@@ -2547,7 +2547,7 @@ public final class ApimanagementFunctions {
      *             .build());
      * 
      *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-workspace")
      *             .apiManagementId(exampleService.id())
      *             .build());
      * 
@@ -2614,7 +2614,7 @@ public final class ApimanagementFunctions {
      *             .build());
      * 
      *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-workspace")
      *             .apiManagementId(exampleService.id())
      *             .build());
      * 
@@ -2681,7 +2681,7 @@ public final class ApimanagementFunctions {
      *             .build());
      * 
      *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-workspace")
      *             .apiManagementId(exampleService.id())
      *             .build());
      * 

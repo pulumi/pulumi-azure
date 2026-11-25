@@ -259,6 +259,8 @@ class AppIngress(dict):
             suggest = "external_enabled"
         elif key == "ipSecurityRestrictions":
             suggest = "ip_security_restrictions"
+        elif key == "sessionAffinityEnabled":
+            suggest = "session_affinity_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppIngress. Access the value via the '{suggest}' property getter instead.")
@@ -282,6 +284,7 @@ class AppIngress(dict):
                  external_enabled: Optional[_builtins.bool] = None,
                  fqdn: Optional[_builtins.str] = None,
                  ip_security_restrictions: Optional[Sequence['outputs.AppIngressIpSecurityRestriction']] = None,
+                 session_affinity_enabled: Optional[_builtins.bool] = None,
                  transport: Optional[_builtins.str] = None):
         """
         :param _builtins.int target_port: The target port on the container for the Ingress traffic.
@@ -296,6 +299,9 @@ class AppIngress(dict):
         :param _builtins.bool external_enabled: Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         :param _builtins.str fqdn: The FQDN of the ingress.
         :param Sequence['AppIngressIpSecurityRestrictionArgs'] ip_security_restrictions: One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        :param _builtins.bool session_affinity_enabled: Is session affinity enabled. Defaults to `false`.
+               
+               > **Note:** Session affinity requires `Single` `revision_mode` and an ingress `transport` of `auto`, `http`, or `http2`.
         :param _builtins.str transport: The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
                
                > **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
@@ -318,6 +324,8 @@ class AppIngress(dict):
             pulumi.set(__self__, "fqdn", fqdn)
         if ip_security_restrictions is not None:
             pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+        if session_affinity_enabled is not None:
+            pulumi.set(__self__, "session_affinity_enabled", session_affinity_enabled)
         if transport is not None:
             pulumi.set(__self__, "transport", transport)
 
@@ -402,6 +410,16 @@ class AppIngress(dict):
         One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
         """
         return pulumi.get(self, "ip_security_restrictions")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionAffinityEnabled")
+    def session_affinity_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Is session affinity enabled. Defaults to `false`.
+
+        > **Note:** Session affinity requires `Single` `revision_mode` and an ingress `transport` of `auto`, `http`, or `http2`.
+        """
+        return pulumi.get(self, "session_affinity_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -2050,7 +2068,7 @@ class AppTemplateCustomScaleRule(dict):
                  authentications: Optional[Sequence['outputs.AppTemplateCustomScaleRuleAuthentication']] = None,
                  identity_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str custom_rule_type: The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+        :param _builtins.str custom_rule_type: The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
         :param Mapping[str, _builtins.str] metadata: A map of string key-value pairs to configure the Custom Scale Rule.
         :param _builtins.str name: The name of the Scaling Rule
         :param Sequence['AppTemplateCustomScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
@@ -2070,7 +2088,7 @@ class AppTemplateCustomScaleRule(dict):
     @pulumi.getter(name="customRuleType")
     def custom_rule_type(self) -> _builtins.str:
         """
-        The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+        The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
         """
         return pulumi.get(self, "custom_rule_type")
 
@@ -2996,6 +3014,8 @@ class EnvironmentWorkloadProfile(dict):
                > **Note:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
         :param _builtins.int maximum_count: The maximum number of instances of workload profile that can be deployed in the Container App Environment.
         :param _builtins.int minimum_count: The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+               
+               > **Note:** The `maximum_count` and `minimum_count` arguments are not supported when `workload_profile_type` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "workload_profile_type", workload_profile_type)
@@ -3037,6 +3057,8 @@ class EnvironmentWorkloadProfile(dict):
     def minimum_count(self) -> Optional[_builtins.int]:
         """
         The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+
+        > **Note:** The `maximum_count` and `minimum_count` arguments are not supported when `workload_profile_type` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
         """
         return pulumi.get(self, "minimum_count")
 
@@ -3205,7 +3227,7 @@ class JobEventTriggerConfigScaleRule(dict):
                  authentications: Optional[Sequence['outputs.JobEventTriggerConfigScaleRuleAuthentication']] = None,
                  identity_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str custom_rule_type: Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+        :param _builtins.str custom_rule_type: Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
         :param Mapping[str, _builtins.str] metadata: Metadata properties to describe the scale rule.
         :param _builtins.str name: Name of the scale rule.
         :param Sequence['JobEventTriggerConfigScaleRuleAuthenticationArgs'] authentications: One or more `authentication` blocks as defined below.
@@ -3223,7 +3245,7 @@ class JobEventTriggerConfigScaleRule(dict):
     @pulumi.getter(name="customRuleType")
     def custom_rule_type(self) -> _builtins.str:
         """
-        Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+        Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
         """
         return pulumi.get(self, "custom_rule_type")
 
@@ -4939,6 +4961,7 @@ class GetAppIngressResult(dict):
                  external_enabled: _builtins.bool,
                  fqdn: _builtins.str,
                  ip_security_restrictions: Sequence['outputs.GetAppIngressIpSecurityRestrictionResult'],
+                 session_affinity_enabled: _builtins.bool,
                  target_port: _builtins.int,
                  traffic_weights: Sequence['outputs.GetAppIngressTrafficWeightResult'],
                  transport: _builtins.str):
@@ -4951,6 +4974,7 @@ class GetAppIngressResult(dict):
         :param _builtins.bool external_enabled: Is this an external Ingress.
         :param _builtins.str fqdn: The FQDN of the ingress.
         :param Sequence['GetAppIngressIpSecurityRestrictionArgs'] ip_security_restrictions: One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        :param _builtins.bool session_affinity_enabled: Is session affinity enabled.
         :param _builtins.int target_port: The target port on the container for the Ingress traffic.
         :param Sequence['GetAppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
         :param _builtins.str transport: The transport method for the Ingress.
@@ -4963,6 +4987,7 @@ class GetAppIngressResult(dict):
         pulumi.set(__self__, "external_enabled", external_enabled)
         pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+        pulumi.set(__self__, "session_affinity_enabled", session_affinity_enabled)
         pulumi.set(__self__, "target_port", target_port)
         pulumi.set(__self__, "traffic_weights", traffic_weights)
         pulumi.set(__self__, "transport", transport)
@@ -5030,6 +5055,14 @@ class GetAppIngressResult(dict):
         One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
         """
         return pulumi.get(self, "ip_security_restrictions")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionAffinityEnabled")
+    def session_affinity_enabled(self) -> _builtins.bool:
+        """
+        Is session affinity enabled.
+        """
+        return pulumi.get(self, "session_affinity_enabled")
 
     @_builtins.property
     @pulumi.getter(name="targetPort")

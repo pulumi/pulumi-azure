@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.outputs;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolKubeletConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolSecurity;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolUpgradeSettings;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -95,7 +96,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Map<String,String> nodeLabels;
     /**
-     * @return A `nodeNetworkProfile` block as documented below.
+     * @return A `nodeNetworkProfile` block as defined below.
      * 
      */
     private @Nullable KubernetesClusterDefaultNodePoolNodeNetworkProfile nodeNetworkProfile;
@@ -154,6 +155,13 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String scaleDownMode;
     /**
+     * @return A `security` block as documented below.
+     * 
+     * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     * 
+     */
+    private @Nullable KubernetesClusterDefaultNodePoolSecurity security;
+    /**
      * @return The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
      * 
      */
@@ -183,7 +191,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Boolean ultraSsdEnabled;
     /**
-     * @return A `upgradeSettings` block as documented below.
+     * @return A `upgradeSettings` block as defined below.
      * 
      */
     private @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings;
@@ -322,7 +330,7 @@ public final class KubernetesClusterDefaultNodePool {
         return this.nodeLabels == null ? Map.of() : this.nodeLabels;
     }
     /**
-     * @return A `nodeNetworkProfile` block as documented below.
+     * @return A `nodeNetworkProfile` block as defined below.
      * 
      */
     public Optional<KubernetesClusterDefaultNodePoolNodeNetworkProfile> nodeNetworkProfile() {
@@ -403,6 +411,15 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.scaleDownMode);
     }
     /**
+     * @return A `security` block as documented below.
+     * 
+     * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     * 
+     */
+    public Optional<KubernetesClusterDefaultNodePoolSecurity> security() {
+        return Optional.ofNullable(this.security);
+    }
+    /**
      * @return The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
      * 
      */
@@ -442,7 +459,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.ultraSsdEnabled);
     }
     /**
-     * @return A `upgradeSettings` block as documented below.
+     * @return A `upgradeSettings` block as defined below.
      * 
      */
     public Optional<KubernetesClusterDefaultNodePoolUpgradeSettings> upgradeSettings() {
@@ -519,6 +536,7 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable String podSubnetId;
         private @Nullable String proximityPlacementGroupId;
         private @Nullable String scaleDownMode;
+        private @Nullable KubernetesClusterDefaultNodePoolSecurity security;
         private @Nullable String snapshotId;
         private @Nullable Map<String,String> tags;
         private @Nullable String temporaryNameForRotation;
@@ -559,6 +577,7 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.podSubnetId = defaults.podSubnetId;
     	      this.proximityPlacementGroupId = defaults.proximityPlacementGroupId;
     	      this.scaleDownMode = defaults.scaleDownMode;
+    	      this.security = defaults.security;
     	      this.snapshotId = defaults.snapshotId;
     	      this.tags = defaults.tags;
     	      this.temporaryNameForRotation = defaults.temporaryNameForRotation;
@@ -736,6 +755,12 @@ public final class KubernetesClusterDefaultNodePool {
             return this;
         }
         @CustomType.Setter
+        public Builder security(@Nullable KubernetesClusterDefaultNodePoolSecurity security) {
+
+            this.security = security;
+            return this;
+        }
+        @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
 
             this.snapshotId = snapshotId;
@@ -827,6 +852,7 @@ public final class KubernetesClusterDefaultNodePool {
             _resultValue.podSubnetId = podSubnetId;
             _resultValue.proximityPlacementGroupId = proximityPlacementGroupId;
             _resultValue.scaleDownMode = scaleDownMode;
+            _resultValue.security = security;
             _resultValue.snapshotId = snapshotId;
             _resultValue.tags = tags;
             _resultValue.temporaryNameForRotation = temporaryNameForRotation;

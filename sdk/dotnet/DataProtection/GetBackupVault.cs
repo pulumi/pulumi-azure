@@ -26,8 +26,8 @@ namespace Pulumi.Azure.DataProtection
         /// {
         ///     var example = Azure.DataProtection.GetBackupVault.Invoke(new()
         ///     {
-        ///         Name = "existing-backup-vault",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example-backup-vault",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -63,8 +63,8 @@ namespace Pulumi.Azure.DataProtection
         /// {
         ///     var example = Azure.DataProtection.GetBackupVault.Invoke(new()
         ///     {
-        ///         Name = "existing-backup-vault",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example-backup-vault",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -100,8 +100,8 @@ namespace Pulumi.Azure.DataProtection
         /// {
         ///     var example = Azure.DataProtection.GetBackupVault.Invoke(new()
         ///     {
-        ///         Name = "existing-backup-vault",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example-backup-vault",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

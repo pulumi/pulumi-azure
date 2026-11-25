@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := waf.GetFirewallPolicy(ctx, &waf.GetFirewallPolicyArgs{
-//				ResourceGroupName: "existing",
-//				Name:              "existing",
+//				ResourceGroupName: "example-resources",
+//				Name:              "example-waf-policy",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -12,7 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Route Table
     /// 
-    /// &gt; **NOTE on Route Tables and Routes:** There is both a standalone `Route` resource, and allows for Routes to be defined in-line within the `RouteTable` resource.
+    /// &gt; **Note:** Terraform currently
+    /// provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
     /// At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
     /// 
     /// ## Example Usage
@@ -97,9 +98,9 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of objects representing routes. Each object accepts the arguments documented below.
+        /// List of `Route` objects representing routes as defined below. Each object accepts the arguments defined below.
         /// 
-        /// &gt; **NOTE** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.RouteTableRoute>> Routes { get; private set; } = null!;
@@ -190,9 +191,9 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.RouteTableRouteArgs>? _routes;
 
         /// <summary>
-        /// A list of objects representing routes. Each object accepts the arguments documented below.
+        /// List of `Route` objects representing routes as defined below. Each object accepts the arguments defined below.
         /// 
-        /// &gt; **NOTE** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.RouteTableRouteArgs> Routes
         {
@@ -248,9 +249,9 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.RouteTableRouteGetArgs>? _routes;
 
         /// <summary>
-        /// A list of objects representing routes. Each object accepts the arguments documented below.
+        /// List of `Route` objects representing routes as defined below. Each object accepts the arguments defined below.
         /// 
-        /// &gt; **NOTE** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.RouteTableRouteGetArgs> Routes
         {

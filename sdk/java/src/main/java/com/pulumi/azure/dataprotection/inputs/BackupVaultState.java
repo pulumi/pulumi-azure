@@ -20,6 +20,21 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
     public static final BackupVaultState Empty = new BackupVaultState();
 
     /**
+     * Whether to enable Azure Monitor alerts for all job failures.
+     * 
+     */
+    @Import(name="alertsForAllJobFailuresEnabled")
+    private @Nullable Output<Boolean> alertsForAllJobFailuresEnabled;
+
+    /**
+     * @return Whether to enable Azure Monitor alerts for all job failures.
+     * 
+     */
+    public Optional<Output<Boolean>> alertsForAllJobFailuresEnabled() {
+        return Optional.ofNullable(this.alertsForAllJobFailuresEnabled);
+    }
+
+    /**
      * Whether to enable cross-region restore for the Backup Vault.
      * 
      * &gt; **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -199,6 +214,7 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
     private BackupVaultState() {}
 
     private BackupVaultState(BackupVaultState $) {
+        this.alertsForAllJobFailuresEnabled = $.alertsForAllJobFailuresEnabled;
         this.crossRegionRestoreEnabled = $.crossRegionRestoreEnabled;
         this.datastoreType = $.datastoreType;
         this.identity = $.identity;
@@ -228,6 +244,27 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(BackupVaultState defaults) {
             $ = new BackupVaultState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param alertsForAllJobFailuresEnabled Whether to enable Azure Monitor alerts for all job failures.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alertsForAllJobFailuresEnabled(@Nullable Output<Boolean> alertsForAllJobFailuresEnabled) {
+            $.alertsForAllJobFailuresEnabled = alertsForAllJobFailuresEnabled;
+            return this;
+        }
+
+        /**
+         * @param alertsForAllJobFailuresEnabled Whether to enable Azure Monitor alerts for all job failures.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alertsForAllJobFailuresEnabled(Boolean alertsForAllJobFailuresEnabled) {
+            return alertsForAllJobFailuresEnabled(Output.of(alertsForAllJobFailuresEnabled));
         }
 
         /**

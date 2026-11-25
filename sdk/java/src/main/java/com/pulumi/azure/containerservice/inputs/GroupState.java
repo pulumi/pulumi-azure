@@ -40,14 +40,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+     * A `diagnostics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diagnostics")
     private @Nullable Output<GroupDiagnosticsArgs> diagnostics;
 
     /**
-     * @return A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+     * @return A `diagnostics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GroupDiagnosticsArgs>> diagnostics() {
@@ -55,14 +55,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+     * A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dnsConfig")
     private @Nullable Output<GroupDnsConfigArgs> dnsConfig;
 
     /**
-     * @return A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+     * @return A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GroupDnsConfigArgs>> dnsConfig() {
@@ -153,14 +153,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="imageRegistryCredentials")
     private @Nullable Output<List<GroupImageRegistryCredentialArgs>> imageRegistryCredentials;
 
     /**
-     * @return An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * @return An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<GroupImageRegistryCredentialArgs>>> imageRegistryCredentials() {
@@ -503,7 +503,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnostics A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+         * @param diagnostics A `diagnostics` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnostics A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+         * @param diagnostics A `diagnostics` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+         * @param dnsConfig A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+         * @param dnsConfig A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

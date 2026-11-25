@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Consumption
         /// {
         ///     var example = Azure.Consumption.GetBudgetSubscription.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-budget",
         ///         SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000/",
         ///     });
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Consumption
         /// {
         ///     var example = Azure.Consumption.GetBudgetSubscription.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-budget",
         ///         SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000/",
         ///     });
         /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Consumption
         /// {
         ///     var example = Azure.Consumption.GetBudgetSubscription.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-budget",
         ///         SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000/",
         ///     });
         /// 

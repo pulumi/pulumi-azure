@@ -5,7 +5,6 @@ package com.pulumi.azure.eventgrid.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -36,33 +35,37 @@ public final class PartnerConfigurationPartnerAuthorizationArgs extends com.pulu
     }
 
     /**
-     * The partner name.
+     * The name of a verified partner.
      * 
      */
-    @Import(name="partnerName", required=true)
-    private Output<String> partnerName;
+    @Import(name="partnerName")
+    private @Nullable Output<String> partnerName;
 
     /**
-     * @return The partner name.
+     * @return The name of a verified partner.
      * 
      */
-    public Output<String> partnerName() {
-        return this.partnerName;
+    public Optional<Output<String>> partnerName() {
+        return Optional.ofNullable(this.partnerName);
     }
 
     /**
      * The immutable id of the corresponding partner registration.
      * 
+     * &gt; **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
+     * 
      */
-    @Import(name="partnerRegistrationId", required=true)
-    private Output<String> partnerRegistrationId;
+    @Import(name="partnerRegistrationId")
+    private @Nullable Output<String> partnerRegistrationId;
 
     /**
      * @return The immutable id of the corresponding partner registration.
      * 
+     * &gt; **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
+     * 
      */
-    public Output<String> partnerRegistrationId() {
-        return this.partnerRegistrationId;
+    public Optional<Output<String>> partnerRegistrationId() {
+        return Optional.ofNullable(this.partnerRegistrationId);
     }
 
     private PartnerConfigurationPartnerAuthorizationArgs() {}
@@ -117,18 +120,18 @@ public final class PartnerConfigurationPartnerAuthorizationArgs extends com.pulu
         }
 
         /**
-         * @param partnerName The partner name.
+         * @param partnerName The name of a verified partner.
          * 
          * @return builder
          * 
          */
-        public Builder partnerName(Output<String> partnerName) {
+        public Builder partnerName(@Nullable Output<String> partnerName) {
             $.partnerName = partnerName;
             return this;
         }
 
         /**
-         * @param partnerName The partner name.
+         * @param partnerName The name of a verified partner.
          * 
          * @return builder
          * 
@@ -140,16 +143,20 @@ public final class PartnerConfigurationPartnerAuthorizationArgs extends com.pulu
         /**
          * @param partnerRegistrationId The immutable id of the corresponding partner registration.
          * 
+         * &gt; **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
+         * 
          * @return builder
          * 
          */
-        public Builder partnerRegistrationId(Output<String> partnerRegistrationId) {
+        public Builder partnerRegistrationId(@Nullable Output<String> partnerRegistrationId) {
             $.partnerRegistrationId = partnerRegistrationId;
             return this;
         }
 
         /**
          * @param partnerRegistrationId The immutable id of the corresponding partner registration.
+         * 
+         * &gt; **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
          * 
          * @return builder
          * 
@@ -159,12 +166,6 @@ public final class PartnerConfigurationPartnerAuthorizationArgs extends com.pulu
         }
 
         public PartnerConfigurationPartnerAuthorizationArgs build() {
-            if ($.partnerName == null) {
-                throw new MissingRequiredPropertyException("PartnerConfigurationPartnerAuthorizationArgs", "partnerName");
-            }
-            if ($.partnerRegistrationId == null) {
-                throw new MissingRequiredPropertyException("PartnerConfigurationPartnerAuthorizationArgs", "partnerRegistrationId");
-            }
             return $;
         }
     }

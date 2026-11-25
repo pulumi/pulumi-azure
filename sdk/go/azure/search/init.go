@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:search/service:Service":
 		r = &Service{}
+	case "azure:search/serviceDatasourceBlob:ServiceDatasourceBlob":
+		r = &ServiceDatasourceBlob{}
 	case "azure:search/sharedPrivateLinkService:SharedPrivateLinkService":
 		r = &SharedPrivateLinkService{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"search/service",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"search/serviceDatasourceBlob",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

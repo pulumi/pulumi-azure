@@ -21,16 +21,18 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public Input<string>? AuthorizationExpirationTimeInUtc { get; set; }
 
         /// <summary>
-        /// The partner name.
+        /// The name of a verified partner.
         /// </summary>
-        [Input("partnerName", required: true)]
-        public Input<string> PartnerName { get; set; } = null!;
+        [Input("partnerName")]
+        public Input<string>? PartnerName { get; set; }
 
         /// <summary>
         /// The immutable id of the corresponding partner registration.
+        /// 
+        /// &gt; **Note:** At least one of `PartnerName` or `PartnerRegistrationId` must be provided in each `PartnerAuthorization` block.
         /// </summary>
-        [Input("partnerRegistrationId", required: true)]
-        public Input<string> PartnerRegistrationId { get; set; } = null!;
+        [Input("partnerRegistrationId")]
+        public Input<string>? PartnerRegistrationId { get; set; }
 
         public PartnerConfigurationPartnerAuthorizationGetArgs()
         {

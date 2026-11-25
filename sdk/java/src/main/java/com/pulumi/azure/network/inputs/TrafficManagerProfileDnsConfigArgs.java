@@ -16,14 +16,14 @@ public final class TrafficManagerProfileDnsConfigArgs extends com.pulumi.resourc
     public static final TrafficManagerProfileDnsConfigArgs Empty = new TrafficManagerProfileDnsConfigArgs();
 
     /**
-     * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+     * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="relativeName", required=true)
     private Output<String> relativeName;
 
     /**
-     * @return The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+     * @return The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> relativeName() {
@@ -71,7 +71,7 @@ public final class TrafficManagerProfileDnsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param relativeName The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+         * @param relativeName The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TrafficManagerProfileDnsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param relativeName The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+         * @param relativeName The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

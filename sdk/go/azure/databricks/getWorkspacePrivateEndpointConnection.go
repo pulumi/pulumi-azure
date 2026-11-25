@@ -67,7 +67,7 @@ type GetWorkspacePrivateEndpointConnectionArgs struct {
 
 // A collection of values returned by getWorkspacePrivateEndpointConnection.
 type GetWorkspacePrivateEndpointConnectionResult struct {
-	// A `connections` block as documented below.
+	// A `connections` block as defined below.
 	Connections []GetWorkspacePrivateEndpointConnectionConnection `pulumi:"connections"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -109,7 +109,7 @@ func (o GetWorkspacePrivateEndpointConnectionResultOutput) ToGetWorkspacePrivate
 	return o
 }
 
-// A `connections` block as documented below.
+// A `connections` block as defined below.
 func (o GetWorkspacePrivateEndpointConnectionResultOutput) Connections() GetWorkspacePrivateEndpointConnectionConnectionArrayOutput {
 	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionResult) []GetWorkspacePrivateEndpointConnectionConnection {
 		return v.Connections

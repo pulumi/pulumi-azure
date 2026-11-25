@@ -29,7 +29,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
      */
     private @Nullable List<Integer> monthDays;
     /**
-     * @return A `monthly` block as documented below.
+     * @return A `monthly` block as defined below.
      * 
      */
     private @Nullable List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> monthlies;
@@ -62,7 +62,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         return this.monthDays == null ? List.of() : this.monthDays;
     }
     /**
-     * @return A `monthly` block as documented below.
+     * @return A `monthly` block as defined below.
      * 
      */
     public List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> monthlies() {

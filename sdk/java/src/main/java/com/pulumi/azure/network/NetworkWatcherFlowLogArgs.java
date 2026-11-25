@@ -97,14 +97,14 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `retentionPolicy` block as documented below.
+     * A `retentionPolicy` block as defined below.
      * 
      */
     @Import(name="retentionPolicy", required=true)
     private Output<NetworkWatcherFlowLogRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return A `retentionPolicy` block as documented below.
+     * @return A `retentionPolicy` block as defined below.
      * 
      */
     public Output<NetworkWatcherFlowLogRetentionPolicyArgs> retentionPolicy() {
@@ -161,14 +161,14 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `trafficAnalytics` block as documented below.
+     * A `trafficAnalytics` block as defined below.
      * 
      */
     @Import(name="trafficAnalytics")
     private @Nullable Output<NetworkWatcherFlowLogTrafficAnalyticsArgs> trafficAnalytics;
 
     /**
-     * @return A `trafficAnalytics` block as documented below.
+     * @return A `trafficAnalytics` block as defined below.
      * 
      */
     public Optional<Output<NetworkWatcherFlowLogTrafficAnalyticsArgs>> trafficAnalytics() {
@@ -330,7 +330,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param retentionPolicy A `retentionPolicy` block as documented below.
+         * @param retentionPolicy A `retentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param retentionPolicy A `retentionPolicy` block as documented below.
+         * @param retentionPolicy A `retentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficAnalytics A `trafficAnalytics` block as documented below.
+         * @param trafficAnalytics A `trafficAnalytics` block as defined below.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficAnalytics A `trafficAnalytics` block as documented below.
+         * @param trafficAnalytics A `trafficAnalytics` block as defined below.
          * 
          * @return builder
          * 

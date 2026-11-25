@@ -130,7 +130,7 @@ class GetServiceResult:
     @pulumi.getter
     def cors(self) -> Sequence['outputs.GetServiceCorResult']:
         """
-        A `cors` block as documented below.
+        A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
@@ -162,7 +162,7 @@ class GetServiceResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetServiceIdentityResult']:
         """
-        An `identity` block as documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
 
@@ -295,7 +295,7 @@ class GetServiceResult:
     @pulumi.getter
     def skus(self) -> Sequence['outputs.GetServiceSkusResult']:
         """
-        A `sku` block as documented below.
+        A `sku` block as defined below.
         """
         return pulumi.get(self, "skus")
 
@@ -316,7 +316,7 @@ class GetServiceResult:
     @pulumi.getter(name="upstreamEndpoints")
     def upstream_endpoints(self) -> Sequence['outputs.GetServiceUpstreamEndpointResult']:
         """
-        One or more `upstream_endpoint` blocks as documented below.
+        One or more `upstream_endpoint` blocks as defined below.
         """
         return pulumi.get(self, "upstream_endpoints")
 

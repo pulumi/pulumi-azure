@@ -93,7 +93,7 @@ namespace Pulumi.Azure.ApiManagement
     public partial class ApiTagDescription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        /// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         /// </summary>
         [Output("apiTagId")]
         public Output<string> ApiTagId { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiTagDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        /// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         /// </summary>
         [Input("apiTagId", required: true)]
         public Input<string> ApiTagId { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiTagDescriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        /// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         /// </summary>
         [Input("apiTagId")]
         public Input<string>? ApiTagId { get; set; }

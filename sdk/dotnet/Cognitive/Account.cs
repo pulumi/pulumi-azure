@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string?> CustomSubdomainName { get; private set; } = null!;
 
         /// <summary>
-        /// A `CustomerManagedKey` block as documented below.
+        /// A `CustomerManagedKey` block as defined below.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.AccountCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? CustomSubdomainName { get; set; }
 
         /// <summary>
-        /// A `CustomerManagedKey` block as documented below.
+        /// A `CustomerManagedKey` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? CustomSubdomainName { get; set; }
 
         /// <summary>
-        /// A `CustomerManagedKey` block as documented below.
+        /// A `CustomerManagedKey` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }

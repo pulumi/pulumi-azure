@@ -178,6 +178,10 @@ type ApiDiagnostic struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp pulumi.BoolOutput `pulumi:"logClientIp"`
+	// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+	//
+	// > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+	MetricsEnabled pulumi.BoolPtrOutput `pulumi:"metricsEnabled"`
 	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
 	OperationNameFormat pulumi.StringPtrOutput `pulumi:"operationNameFormat"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
@@ -255,6 +259,10 @@ type apiDiagnosticState struct {
 	Identifier *string `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp *bool `pulumi:"logClientIp"`
+	// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+	//
+	// > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
 	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
@@ -288,6 +296,10 @@ type ApiDiagnosticState struct {
 	Identifier pulumi.StringPtrInput
 	// Log client IP address.
 	LogClientIp pulumi.BoolPtrInput
+	// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+	//
+	// > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+	MetricsEnabled pulumi.BoolPtrInput
 	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
 	OperationNameFormat pulumi.StringPtrInput
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
@@ -325,6 +337,10 @@ type apiDiagnosticArgs struct {
 	Identifier string `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp *bool `pulumi:"logClientIp"`
+	// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+	//
+	// > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
 	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
@@ -359,6 +375,10 @@ type ApiDiagnosticArgs struct {
 	Identifier pulumi.StringInput
 	// Log client IP address.
 	LogClientIp pulumi.BoolPtrInput
+	// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+	//
+	// > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+	MetricsEnabled pulumi.BoolPtrInput
 	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
 	OperationNameFormat pulumi.StringPtrInput
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
@@ -509,6 +529,13 @@ func (o ApiDiagnosticOutput) Identifier() pulumi.StringOutput {
 // Log client IP address.
 func (o ApiDiagnosticOutput) LogClientIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ApiDiagnostic) pulumi.BoolOutput { return v.LogClientIp }).(pulumi.BoolOutput)
+}
+
+// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+//
+// > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+func (o ApiDiagnosticOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) pulumi.BoolPtrOutput { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.

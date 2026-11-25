@@ -192,7 +192,7 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dataEndpointHostNames: pulumi.Output<string[]>;
     /**
-     * An `encryption` block as documented below.
+     * An `encryption` block as defined below.
      */
     declare public readonly encryption: pulumi.Output<outputs.containerservice.RegistryEncryption | undefined>;
     /**
@@ -200,7 +200,7 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly exportPolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * One or more `georeplications` blocks as documented below.
+     * One or more `georeplications` blocks as defined below.
      *
      * > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *
@@ -234,7 +234,7 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly networkRuleBypassOption: pulumi.Output<string | undefined>;
     /**
-     * A `networkRuleSet` block as documented below.
+     * A `networkRuleSet` block as defined below.
      */
     declare public readonly networkRuleSet: pulumi.Output<outputs.containerservice.RegistryNetworkRuleSet>;
     /**
@@ -384,7 +384,7 @@ export interface RegistryState {
      */
     dataEndpointHostNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * An `encryption` block as documented below.
+     * An `encryption` block as defined below.
      */
     encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption | undefined>;
     /**
@@ -392,7 +392,7 @@ export interface RegistryState {
      */
     exportPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * One or more `georeplications` blocks as documented below.
+     * One or more `georeplications` blocks as defined below.
      *
      * > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *
@@ -426,7 +426,7 @@ export interface RegistryState {
      */
     networkRuleBypassOption?: pulumi.Input<string | undefined>;
     /**
-     * A `networkRuleSet` block as documented below.
+     * A `networkRuleSet` block as defined below.
      */
     networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet | undefined>;
     /**
@@ -486,7 +486,7 @@ export interface RegistryArgs {
      */
     dataEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * An `encryption` block as documented below.
+     * An `encryption` block as defined below.
      */
     encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption | undefined>;
     /**
@@ -494,7 +494,7 @@ export interface RegistryArgs {
      */
     exportPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * One or more `georeplications` blocks as documented below.
+     * One or more `georeplications` blocks as defined below.
      *
      * > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *
@@ -524,7 +524,7 @@ export interface RegistryArgs {
      */
     networkRuleBypassOption?: pulumi.Input<string | undefined>;
     /**
-     * A `networkRuleSet` block as documented below.
+     * A `networkRuleSet` block as defined below.
      */
     networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet | undefined>;
     /**

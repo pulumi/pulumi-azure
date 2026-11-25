@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

@@ -143,7 +143,7 @@ def get_budget_resource_group(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.consumption.get_budget_resource_group(name="existing",
+    example = azure.consumption.get_budget_resource_group(name="example-budget",
         resource_group_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
@@ -186,7 +186,7 @@ def get_budget_resource_group_output(name: pulumi.Input[Optional[_builtins.str]]
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.consumption.get_budget_resource_group(name="existing",
+    example = azure.consumption.get_budget_resource_group(name="example-budget",
         resource_group_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```

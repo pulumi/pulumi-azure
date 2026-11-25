@@ -205,7 +205,7 @@ func (o PolicyFileShareBackupPtrOutput) Time() pulumi.StringPtrOutput {
 }
 
 type PolicyFileShareBackupHourly struct {
-	// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+	// Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
 	Interval int `pulumi:"interval"`
 	// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
 	StartTime string `pulumi:"startTime"`
@@ -225,7 +225,7 @@ type PolicyFileShareBackupHourlyInput interface {
 }
 
 type PolicyFileShareBackupHourlyArgs struct {
-	// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+	// Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
 	Interval pulumi.IntInput `pulumi:"interval"`
 	// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
 	StartTime pulumi.StringInput `pulumi:"startTime"`
@@ -310,7 +310,7 @@ func (o PolicyFileShareBackupHourlyOutput) ToPolicyFileShareBackupHourlyPtrOutpu
 	}).(PolicyFileShareBackupHourlyPtrOutput)
 }
 
-// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+// Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
 func (o PolicyFileShareBackupHourlyOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareBackupHourly) int { return v.Interval }).(pulumi.IntOutput)
 }
@@ -349,7 +349,7 @@ func (o PolicyFileShareBackupHourlyPtrOutput) Elem() PolicyFileShareBackupHourly
 	}).(PolicyFileShareBackupHourlyOutput)
 }
 
-// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+// Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
 func (o PolicyFileShareBackupHourlyPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareBackupHourly) *int {
 		if v == nil {

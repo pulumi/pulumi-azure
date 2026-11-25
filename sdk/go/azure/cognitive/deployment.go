@@ -96,6 +96,10 @@ type Deployment struct {
 	RaiPolicyName pulumi.StringOutput `pulumi:"raiPolicyName"`
 	// A `sku` block as defined below.
 	Sku DeploymentSkuOutput `pulumi:"sku"`
+	// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+	//
+	// > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+	SpilloverDeploymentName pulumi.StringPtrOutput `pulumi:"spilloverDeploymentName"`
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption pulumi.StringPtrOutput `pulumi:"versionUpgradeOption"`
 }
@@ -151,6 +155,10 @@ type deploymentState struct {
 	RaiPolicyName *string `pulumi:"raiPolicyName"`
 	// A `sku` block as defined below.
 	Sku *DeploymentSku `pulumi:"sku"`
+	// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+	//
+	// > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+	SpilloverDeploymentName *string `pulumi:"spilloverDeploymentName"`
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption *string `pulumi:"versionUpgradeOption"`
 }
@@ -168,6 +176,10 @@ type DeploymentState struct {
 	RaiPolicyName pulumi.StringPtrInput
 	// A `sku` block as defined below.
 	Sku DeploymentSkuPtrInput
+	// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+	//
+	// > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+	SpilloverDeploymentName pulumi.StringPtrInput
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption pulumi.StringPtrInput
 }
@@ -189,6 +201,10 @@ type deploymentArgs struct {
 	RaiPolicyName *string `pulumi:"raiPolicyName"`
 	// A `sku` block as defined below.
 	Sku DeploymentSku `pulumi:"sku"`
+	// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+	//
+	// > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+	SpilloverDeploymentName *string `pulumi:"spilloverDeploymentName"`
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption *string `pulumi:"versionUpgradeOption"`
 }
@@ -207,6 +223,10 @@ type DeploymentArgs struct {
 	RaiPolicyName pulumi.StringPtrInput
 	// A `sku` block as defined below.
 	Sku DeploymentSkuInput
+	// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+	//
+	// > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+	SpilloverDeploymentName pulumi.StringPtrInput
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption pulumi.StringPtrInput
 }
@@ -326,6 +346,13 @@ func (o DeploymentOutput) RaiPolicyName() pulumi.StringOutput {
 // A `sku` block as defined below.
 func (o DeploymentOutput) Sku() DeploymentSkuOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentSkuOutput { return v.Sku }).(DeploymentSkuOutput)
+}
+
+// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+//
+// > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+func (o DeploymentOutput) SpilloverDeploymentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.SpilloverDeploymentName }).(pulumi.StringPtrOutput)
 }
 
 // Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.

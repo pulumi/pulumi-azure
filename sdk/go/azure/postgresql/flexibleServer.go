@@ -145,7 +145,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DBforPostgreSQL` - 2025-08-01
+// * `Microsoft.DBforPostgreSQL` - 2026-10-01
 //
 // ## Import
 //
@@ -215,7 +215,7 @@ type FlexibleServer struct {
 	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
@@ -342,7 +342,7 @@ type flexibleServerState struct {
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName *string `pulumi:"skuName"`
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
@@ -430,7 +430,7 @@ type FlexibleServerState struct {
 	ReplicationRole pulumi.StringPtrInput
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName pulumi.StringPtrInput
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
@@ -520,7 +520,7 @@ type flexibleServerArgs struct {
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName *string `pulumi:"skuName"`
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
@@ -607,7 +607,7 @@ type FlexibleServerArgs struct {
 	ReplicationRole pulumi.StringPtrInput
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName pulumi.StringPtrInput
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
@@ -847,7 +847,7 @@ func (o FlexibleServerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 func (o FlexibleServerOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

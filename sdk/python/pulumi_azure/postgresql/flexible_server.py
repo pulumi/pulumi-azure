@@ -90,7 +90,7 @@ class FlexibleServerArgs:
         :param pulumi.Input[_builtins.str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
                
                > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
-        :param pulumi.Input[_builtins.str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        :param pulumi.Input[_builtins.str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         :param pulumi.Input[_builtins.str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[_builtins.int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server.
                
@@ -440,7 +440,7 @@ class FlexibleServerArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         """
         return pulumi.get(self, "sku_name")
 
@@ -628,7 +628,7 @@ class _FlexibleServerState:
                
                > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        :param pulumi.Input[_builtins.str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         :param pulumi.Input[_builtins.str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[_builtins.int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server.
                
@@ -993,7 +993,7 @@ class _FlexibleServerState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         """
         return pulumi.get(self, "sku_name")
 
@@ -1228,7 +1228,7 @@ class FlexibleServer(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DBforPostgreSQL` - 2025-08-01
+        * `Microsoft.DBforPostgreSQL` - 2026-10-01
 
         ## Import
 
@@ -1276,7 +1276,7 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        :param pulumi.Input[_builtins.str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         :param pulumi.Input[_builtins.str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[_builtins.int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server.
                
@@ -1383,7 +1383,7 @@ class FlexibleServer(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DBforPostgreSQL` - 2025-08-01
+        * `Microsoft.DBforPostgreSQL` - 2026-10-01
 
         ## Import
 
@@ -1570,7 +1570,7 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        :param pulumi.Input[_builtins.str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         :param pulumi.Input[_builtins.str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[_builtins.int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server.
                
@@ -1820,7 +1820,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         """
         return pulumi.get(self, "sku_name")
 

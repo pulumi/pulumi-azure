@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			exampleGetEncryptionScope, err := storage.LookupEncryptionScope(ctx, &storage.LookupEncryptionScopeArgs{
-//				Name:             "existingStorageES",
+//				Name:             "exampleencryptionscope",
 //				StorageAccountId: example.Id,
 //			}, nil)
 //			if err != nil {

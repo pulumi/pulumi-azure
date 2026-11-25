@@ -10,6 +10,11 @@ export type BackupInstanceBlogStorage = import("./backupInstanceBlogStorage").Ba
 export const BackupInstanceBlogStorage: typeof import("./backupInstanceBlogStorage").BackupInstanceBlogStorage = null as any;
 utilities.lazyLoad(exports, ["BackupInstanceBlogStorage"], () => require("./backupInstanceBlogStorage"));
 
+export { BackupInstanceCosmosdbAccountArgs, BackupInstanceCosmosdbAccountState } from "./backupInstanceCosmosdbAccount";
+export type BackupInstanceCosmosdbAccount = import("./backupInstanceCosmosdbAccount").BackupInstanceCosmosdbAccount;
+export const BackupInstanceCosmosdbAccount: typeof import("./backupInstanceCosmosdbAccount").BackupInstanceCosmosdbAccount = null as any;
+utilities.lazyLoad(exports, ["BackupInstanceCosmosdbAccount"], () => require("./backupInstanceCosmosdbAccount"));
+
 export { BackupInstanceDataLakeStorageArgs, BackupInstanceDataLakeStorageState } from "./backupInstanceDataLakeStorage";
 export type BackupInstanceDataLakeStorage = import("./backupInstanceDataLakeStorage").BackupInstanceDataLakeStorage;
 export const BackupInstanceDataLakeStorage: typeof import("./backupInstanceDataLakeStorage").BackupInstanceDataLakeStorage = null as any;
@@ -39,6 +44,11 @@ export { BackupPolicyBlobStorageArgs, BackupPolicyBlobStorageState } from "./bac
 export type BackupPolicyBlobStorage = import("./backupPolicyBlobStorage").BackupPolicyBlobStorage;
 export const BackupPolicyBlobStorage: typeof import("./backupPolicyBlobStorage").BackupPolicyBlobStorage = null as any;
 utilities.lazyLoad(exports, ["BackupPolicyBlobStorage"], () => require("./backupPolicyBlobStorage"));
+
+export { BackupPolicyCosmosdbAccountArgs, BackupPolicyCosmosdbAccountState } from "./backupPolicyCosmosdbAccount";
+export type BackupPolicyCosmosdbAccount = import("./backupPolicyCosmosdbAccount").BackupPolicyCosmosdbAccount;
+export const BackupPolicyCosmosdbAccount: typeof import("./backupPolicyCosmosdbAccount").BackupPolicyCosmosdbAccount = null as any;
+utilities.lazyLoad(exports, ["BackupPolicyCosmosdbAccount"], () => require("./backupPolicyCosmosdbAccount"));
 
 export { BackupPolicyDataLakeStorageArgs, BackupPolicyDataLakeStorageState } from "./backupPolicyDataLakeStorage";
 export type BackupPolicyDataLakeStorage = import("./backupPolicyDataLakeStorage").BackupPolicyDataLakeStorage;
@@ -75,6 +85,11 @@ export type BackupVaultCustomerManagedKey = import("./backupVaultCustomerManaged
 export const BackupVaultCustomerManagedKey: typeof import("./backupVaultCustomerManagedKey").BackupVaultCustomerManagedKey = null as any;
 utilities.lazyLoad(exports, ["BackupVaultCustomerManagedKey"], () => require("./backupVaultCustomerManagedKey"));
 
+export { BackupVaultResourceGuardAssociationArgs, BackupVaultResourceGuardAssociationState } from "./backupVaultResourceGuardAssociation";
+export type BackupVaultResourceGuardAssociation = import("./backupVaultResourceGuardAssociation").BackupVaultResourceGuardAssociation;
+export const BackupVaultResourceGuardAssociation: typeof import("./backupVaultResourceGuardAssociation").BackupVaultResourceGuardAssociation = null as any;
+utilities.lazyLoad(exports, ["BackupVaultResourceGuardAssociation"], () => require("./backupVaultResourceGuardAssociation"));
+
 export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } from "./getBackupVault";
 export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
 export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
@@ -92,6 +107,8 @@ const _module = {
         switch (type) {
             case "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage":
                 return new BackupInstanceBlogStorage(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupInstanceCosmosdbAccount:BackupInstanceCosmosdbAccount":
+                return new BackupInstanceCosmosdbAccount(name, <any>undefined, { urn })
             case "azure:dataprotection/backupInstanceDataLakeStorage:BackupInstanceDataLakeStorage":
                 return new BackupInstanceDataLakeStorage(name, <any>undefined, { urn })
             case "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk":
@@ -104,6 +121,8 @@ const _module = {
                 return new BackupInstancePostgresqlFlexibleServer(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage":
                 return new BackupPolicyBlobStorage(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupPolicyCosmosdbAccount:BackupPolicyCosmosdbAccount":
+                return new BackupPolicyCosmosdbAccount(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyDataLakeStorage:BackupPolicyDataLakeStorage":
                 return new BackupPolicyDataLakeStorage(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk":
@@ -118,6 +137,8 @@ const _module = {
                 return new BackupVault(name, <any>undefined, { urn })
             case "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey":
                 return new BackupVaultCustomerManagedKey(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupVaultResourceGuardAssociation:BackupVaultResourceGuardAssociation":
+                return new BackupVaultResourceGuardAssociation(name, <any>undefined, { urn })
             case "azure:dataprotection/resourceGuard:ResourceGuard":
                 return new ResourceGuard(name, <any>undefined, { urn })
             default:
@@ -126,12 +147,14 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceBlogStorage", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceCosmosdbAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceDataLakeStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceKubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceMysqlFlexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstancePostgresqlFlexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyBlobStorage", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyCosmosdbAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyDataLakeStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyKubernetesCluster", _module)
@@ -139,4 +162,5 @@ pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyMysql
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyPostgresqlFlexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupVault", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupVaultCustomerManagedKey", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupVaultResourceGuardAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/resourceGuard", _module)

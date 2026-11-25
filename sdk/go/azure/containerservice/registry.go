@@ -230,11 +230,11 @@ type Registry struct {
 	DataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"dataEndpointEnabled"`
 	// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
 	DataEndpointHostNames pulumi.StringArrayOutput `pulumi:"dataEndpointHostNames"`
-	// An `encryption` block as documented below.
+	// An `encryption` block as defined below.
 	Encryption RegistryEncryptionPtrOutput `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled pulumi.BoolPtrOutput `pulumi:"exportPolicyEnabled"`
-	// One or more `georeplications` blocks as documented below.
+	// One or more `georeplications` blocks as defined below.
 	//
 	// > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -254,7 +254,7 @@ type Registry struct {
 	NetworkRuleBypassForTasksEnabled pulumi.BoolPtrOutput `pulumi:"networkRuleBypassForTasksEnabled"`
 	// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption pulumi.StringPtrOutput `pulumi:"networkRuleBypassOption"`
-	// A `networkRuleSet` block as documented below.
+	// A `networkRuleSet` block as defined below.
 	NetworkRuleSet RegistryNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -330,11 +330,11 @@ type registryState struct {
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
 	DataEndpointHostNames []string `pulumi:"dataEndpointHostNames"`
-	// An `encryption` block as documented below.
+	// An `encryption` block as defined below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
-	// One or more `georeplications` blocks as documented below.
+	// One or more `georeplications` blocks as defined below.
 	//
 	// > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -354,7 +354,7 @@ type registryState struct {
 	NetworkRuleBypassForTasksEnabled *bool `pulumi:"networkRuleBypassForTasksEnabled"`
 	// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption *string `pulumi:"networkRuleBypassOption"`
-	// A `networkRuleSet` block as documented below.
+	// A `networkRuleSet` block as defined below.
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -391,11 +391,11 @@ type RegistryState struct {
 	DataEndpointEnabled pulumi.BoolPtrInput
 	// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
 	DataEndpointHostNames pulumi.StringArrayInput
-	// An `encryption` block as documented below.
+	// An `encryption` block as defined below.
 	Encryption RegistryEncryptionPtrInput
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled pulumi.BoolPtrInput
-	// One or more `georeplications` blocks as documented below.
+	// One or more `georeplications` blocks as defined below.
 	//
 	// > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -415,7 +415,7 @@ type RegistryState struct {
 	NetworkRuleBypassForTasksEnabled pulumi.BoolPtrInput
 	// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption pulumi.StringPtrInput
-	// A `networkRuleSet` block as documented below.
+	// A `networkRuleSet` block as defined below.
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -450,11 +450,11 @@ type registryArgs struct {
 	AzureadAuthenticationAsArmPolicyEnabled *bool `pulumi:"azureadAuthenticationAsArmPolicyEnabled"`
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
-	// An `encryption` block as documented below.
+	// An `encryption` block as defined below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
-	// One or more `georeplications` blocks as documented below.
+	// One or more `georeplications` blocks as defined below.
 	//
 	// > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -472,7 +472,7 @@ type registryArgs struct {
 	NetworkRuleBypassForTasksEnabled *bool `pulumi:"networkRuleBypassForTasksEnabled"`
 	// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption *string `pulumi:"networkRuleBypassOption"`
-	// A `networkRuleSet` block as documented below.
+	// A `networkRuleSet` block as defined below.
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -504,11 +504,11 @@ type RegistryArgs struct {
 	AzureadAuthenticationAsArmPolicyEnabled pulumi.BoolPtrInput
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrInput
-	// An `encryption` block as documented below.
+	// An `encryption` block as defined below.
 	Encryption RegistryEncryptionPtrInput
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled pulumi.BoolPtrInput
-	// One or more `georeplications` blocks as documented below.
+	// One or more `georeplications` blocks as defined below.
 	//
 	// > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -526,7 +526,7 @@ type RegistryArgs struct {
 	NetworkRuleBypassForTasksEnabled pulumi.BoolPtrInput
 	// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption pulumi.StringPtrInput
-	// A `networkRuleSet` block as documented below.
+	// A `networkRuleSet` block as defined below.
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -670,7 +670,7 @@ func (o RegistryOutput) DataEndpointHostNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringArrayOutput { return v.DataEndpointHostNames }).(pulumi.StringArrayOutput)
 }
 
-// An `encryption` block as documented below.
+// An `encryption` block as defined below.
 func (o RegistryOutput) Encryption() RegistryEncryptionPtrOutput {
 	return o.ApplyT(func(v *Registry) RegistryEncryptionPtrOutput { return v.Encryption }).(RegistryEncryptionPtrOutput)
 }
@@ -680,7 +680,7 @@ func (o RegistryOutput) ExportPolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.ExportPolicyEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// One or more `georeplications` blocks as documented below.
+// One or more `georeplications` blocks as defined below.
 //
 // > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 //
@@ -721,7 +721,7 @@ func (o RegistryOutput) NetworkRuleBypassOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.NetworkRuleBypassOption }).(pulumi.StringPtrOutput)
 }
 
-// A `networkRuleSet` block as documented below.
+// A `networkRuleSet` block as defined below.
 func (o RegistryOutput) NetworkRuleSet() RegistryNetworkRuleSetOutput {
 	return o.ApplyT(func(v *Registry) RegistryNetworkRuleSetOutput { return v.NetworkRuleSet }).(RegistryNetworkRuleSetOutput)
 }

@@ -181,7 +181,7 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `LocationData` block as documented below.
+        /// A `LocationData` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGatewayLocationDataResult> LocationDatas;
         /// <summary>

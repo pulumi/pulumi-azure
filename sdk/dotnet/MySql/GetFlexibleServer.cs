@@ -26,8 +26,8 @@ namespace Pulumi.Azure.MySql
         /// {
         ///     var example = Azure.MySql.GetFlexibleServer.Invoke(new()
         ///     {
-        ///         Name = "existingMySqlFlexibleServer",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-mysql-flexible-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.MySql
         /// {
         ///     var example = Azure.MySql.GetFlexibleServer.Invoke(new()
         ///     {
-        ///         Name = "existingMySqlFlexibleServer",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-mysql-flexible-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.MySql
         /// {
         ///     var example = Azure.MySql.GetFlexibleServer.Invoke(new()
         ///     {
-        ///         Name = "existingMySqlFlexibleServer",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-mysql-flexible-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

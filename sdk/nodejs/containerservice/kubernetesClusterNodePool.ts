@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2026-05-01
+ * * `Microsoft.ContainerService` - 2026-07-01
  *
  * ## Import
  *
@@ -176,7 +176,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     declare public readonly nodeLabels: pulumi.Output<{[key: string]: string}>;
     /**
-     * A `nodeNetworkProfile` block as documented below.
+     * A `nodeNetworkProfile` block as defined below.
      */
     declare public readonly nodeNetworkProfile: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile | undefined>;
     /**
@@ -234,6 +234,12 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     declare public readonly scaleDownMode: pulumi.Output<string | undefined>;
     /**
+     * A `security` block as documented below.
+     *
+     * > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     */
+    declare public readonly security: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolSecurity | undefined>;
+    /**
      * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     declare public readonly snapshotId: pulumi.Output<string | undefined>;
@@ -258,7 +264,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     declare public readonly ultraSsdEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A `upgradeSettings` block as documented below.
+     * A `upgradeSettings` block as defined below.
      */
     declare public readonly upgradeSettings: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolUpgradeSettings | undefined>;
     /**
@@ -272,7 +278,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     declare public readonly vnetSubnetId: pulumi.Output<string | undefined>;
     /**
-     * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+     * A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly windowsProfile: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
     /**
@@ -334,6 +340,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["priority"] = state?.priority;
             resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
             resourceInputs["scaleDownMode"] = state?.scaleDownMode;
+            resourceInputs["security"] = state?.security;
             resourceInputs["snapshotId"] = state?.snapshotId;
             resourceInputs["spotMaxPrice"] = state?.spotMaxPrice;
             resourceInputs["tags"] = state?.tags;
@@ -382,6 +389,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["priority"] = args?.priority;
             resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
             resourceInputs["scaleDownMode"] = args?.scaleDownMode;
+            resourceInputs["security"] = args?.security;
             resourceInputs["snapshotId"] = args?.snapshotId;
             resourceInputs["spotMaxPrice"] = args?.spotMaxPrice;
             resourceInputs["tags"] = args?.tags;
@@ -486,7 +494,7 @@ export interface KubernetesClusterNodePoolState {
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A `nodeNetworkProfile` block as documented below.
+     * A `nodeNetworkProfile` block as defined below.
      */
     nodeNetworkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile | undefined>;
     /**
@@ -544,6 +552,12 @@ export interface KubernetesClusterNodePoolState {
      */
     scaleDownMode?: pulumi.Input<string | undefined>;
     /**
+     * A `security` block as documented below.
+     *
+     * > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     */
+    security?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolSecurity | undefined>;
+    /**
      * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     snapshotId?: pulumi.Input<string | undefined>;
@@ -568,7 +582,7 @@ export interface KubernetesClusterNodePoolState {
      */
     ultraSsdEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `upgradeSettings` block as documented below.
+     * A `upgradeSettings` block as defined below.
      */
     upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings | undefined>;
     /**
@@ -582,7 +596,7 @@ export interface KubernetesClusterNodePoolState {
      */
     vnetSubnetId?: pulumi.Input<string | undefined>;
     /**
-     * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+     * A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
     /**
@@ -681,7 +695,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A `nodeNetworkProfile` block as documented below.
+     * A `nodeNetworkProfile` block as defined below.
      */
     nodeNetworkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile | undefined>;
     /**
@@ -739,6 +753,12 @@ export interface KubernetesClusterNodePoolArgs {
      */
     scaleDownMode?: pulumi.Input<string | undefined>;
     /**
+     * A `security` block as documented below.
+     *
+     * > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     */
+    security?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolSecurity | undefined>;
+    /**
      * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     snapshotId?: pulumi.Input<string | undefined>;
@@ -763,7 +783,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     ultraSsdEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `upgradeSettings` block as documented below.
+     * A `upgradeSettings` block as defined below.
      */
     upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings | undefined>;
     /**
@@ -777,7 +797,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     vnetSubnetId?: pulumi.Input<string | undefined>;
     /**
-     * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+     * A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
     /**

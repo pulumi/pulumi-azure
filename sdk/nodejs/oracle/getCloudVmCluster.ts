@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.oracle.getCloudVmCluster({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-cloud-vm-cluster",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -277,8 +277,8 @@ export interface GetCloudVmClusterResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.oracle.getCloudVmCluster({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-cloud-vm-cluster",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

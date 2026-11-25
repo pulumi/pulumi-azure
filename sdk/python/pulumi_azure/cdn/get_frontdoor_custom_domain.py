@@ -162,9 +162,9 @@ def get_frontdoor_custom_domain(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_custom_domain(name="existing-cdn-frontdoor-custom-domain",
-        profile_name="existing-cdn-frontdoor-profile",
-        resource_group_name="existing-resource-group")
+    example = azure.cdn.get_frontdoor_custom_domain(name="example-cdn-frontdoor-custom-domain",
+        profile_name="example-cdn-frontdoor-profile",
+        resource_group_name="example-resources")
     ```
 
     ## API Providers
@@ -172,7 +172,7 @@ def get_frontdoor_custom_domain(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-12-01
+    * `Microsoft.Cdn` - 2026-10-01
 
 
     :param _builtins.str name: The name of the Front Door Custom Domain.
@@ -210,9 +210,9 @@ def get_frontdoor_custom_domain_output(name: pulumi.Input[Optional[_builtins.str
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_custom_domain(name="existing-cdn-frontdoor-custom-domain",
-        profile_name="existing-cdn-frontdoor-profile",
-        resource_group_name="existing-resource-group")
+    example = azure.cdn.get_frontdoor_custom_domain(name="example-cdn-frontdoor-custom-domain",
+        profile_name="example-cdn-frontdoor-profile",
+        resource_group_name="example-resources")
     ```
 
     ## API Providers
@@ -220,7 +220,7 @@ def get_frontdoor_custom_domain_output(name: pulumi.Input[Optional[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-12-01
+    * `Microsoft.Cdn` - 2026-10-01
 
 
     :param _builtins.str name: The name of the Front Door Custom Domain.

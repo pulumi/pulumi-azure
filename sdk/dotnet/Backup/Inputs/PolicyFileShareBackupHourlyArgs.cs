@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyFileShareBackupHourlyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+        /// Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
         /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;

@@ -12,11 +12,35 @@ namespace Pulumi.Azure.NetApp.Inputs
 
     public sealed class AccountActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
+        [Input("administratorUsers")]
+        private InputList<string>? _administratorUsers;
+
+        /// <summary>
+        /// A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+        /// </summary>
+        public InputList<string> AdministratorUsers
+        {
+            get => _administratorUsers ?? (_administratorUsers = new InputList<string>());
+            set => _administratorUsers = value;
+        }
+
         /// <summary>
         /// If enabled, AES encryption will be enabled for SMB communication. Defaults to `False`.
         /// </summary>
         [Input("aesEncryptionEnabled")]
         public Input<bool>? AesEncryptionEnabled { get; set; }
+
+        [Input("backupUsers")]
+        private InputList<string>? _backupUsers;
+
+        /// <summary>
+        /// A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+        /// </summary>
+        public InputList<string> BackupUsers
+        {
+            get => _backupUsers ?? (_backupUsers = new InputList<string>());
+            set => _backupUsers = value;
+        }
 
         [Input("dnsServers", required: true)]
         private InputList<string>? _dnsServers;
@@ -37,6 +61,12 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
+        /// If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `False`.
+        /// </summary>
+        [Input("domainControllerConnectionEncryptionEnabled")]
+        public Input<bool>? DomainControllerConnectionEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Name of the active directory machine.
         /// </summary>
         [Input("kerberosAdName")]
@@ -50,11 +80,29 @@ namespace Pulumi.Azure.NetApp.Inputs
         [Input("kerberosKdcIp")]
         public Input<string>? KerberosKdcIp { get; set; }
 
+        [Input("ldapClientPreferredServers")]
+        private InputList<string>? _ldapClientPreferredServers;
+
+        /// <summary>
+        /// Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+        /// </summary>
+        public InputList<string> LdapClientPreferredServers
+        {
+            get => _ldapClientPreferredServers ?? (_ldapClientPreferredServers = new InputList<string>());
+            set => _ldapClientPreferredServers = value;
+        }
+
         /// <summary>
         /// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `False`.
         /// </summary>
         [Input("ldapOverTlsEnabled")]
         public Input<bool>? LdapOverTlsEnabled { get; set; }
+
+        /// <summary>
+        /// An `LdapSearchScope` block as defined below.
+        /// </summary>
+        [Input("ldapSearchScope")]
+        public Input<Inputs.AccountActiveDirectoryLdapSearchScopeArgs>? LdapSearchScope { get; set; }
 
         /// <summary>
         /// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `False`.
@@ -88,6 +136,18 @@ namespace Pulumi.Azure.NetApp.Inputs
                 var emptySecret = Output.CreateSecret(0);
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
+        }
+
+        [Input("securityUsers")]
+        private InputList<string>? _securityUsers;
+
+        /// <summary>
+        /// A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+        /// </summary>
+        public InputList<string> SecurityUsers
+        {
+            get => _securityUsers ?? (_securityUsers = new InputList<string>());
+            set => _securityUsers = value;
         }
 
         [Input("serverRootCaCertificate")]

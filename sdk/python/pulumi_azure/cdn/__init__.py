@@ -11,6 +11,7 @@ from .endpoint_custom_domain import *
 from .frontdoor_batch_rule_set import *
 from .frontdoor_custom_domain import *
 from .frontdoor_custom_domain_association import *
+from .frontdoor_edge_action import *
 from .frontdoor_endpoint import *
 from .frontdoor_firewall_policy import *
 from .frontdoor_origin import *

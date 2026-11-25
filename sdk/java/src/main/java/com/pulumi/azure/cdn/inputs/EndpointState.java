@@ -68,14 +68,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
      * 
      */
     @Import(name="geoFilters")
     private @Nullable Output<List<EndpointGeoFilterArgs>> geoFilters;
 
     /**
-     * @return A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+     * @return A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
      * 
      */
     public Optional<Output<List<EndpointGeoFilterArgs>>> geoFilters() {
@@ -218,14 +218,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="origins")
     private @Nullable Output<List<EndpointOriginArgs>> origins;
 
     /**
-     * @return The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+     * @return The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<EndpointOriginArgs>>> origins() {
@@ -437,7 +437,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

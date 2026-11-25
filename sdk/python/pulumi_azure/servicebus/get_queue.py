@@ -271,8 +271,8 @@ def get_queue(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.servicebus.get_queue(name="existing",
-        namespace_id="existing")
+    example = azure.servicebus.get_queue(name="example-queue",
+        namespace_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
     pulumi.export("id", example.id)
     ```
 
@@ -325,8 +325,8 @@ def get_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.servicebus.get_queue(name="existing",
-        namespace_id="existing")
+    example = azure.servicebus.get_queue(name="example-queue",
+        namespace_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace")
     pulumi.export("id", example.id)
     ```
 

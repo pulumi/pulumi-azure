@@ -50,14 +50,14 @@ public final class SrvRecordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of values that make up the SRV record. Each `record` block supports fields documented below.
+     * A list of values that make up the SRV record. Each `record` block supports fields defined below.
      * 
      */
     @Import(name="records")
     private @Nullable Output<List<SrvRecordRecordArgs>> records;
 
     /**
-     * @return A list of values that make up the SRV record. Each `record` block supports fields documented below.
+     * @return A list of values that make up the SRV record. Each `record` block supports fields defined below.
      * 
      */
     public Optional<Output<List<SrvRecordRecordArgs>>> records() {
@@ -197,7 +197,7 @@ public final class SrvRecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records A list of values that make up the SRV record. Each `record` block supports fields documented below.
+         * @param records A list of values that make up the SRV record. Each `record` block supports fields defined below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class SrvRecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records A list of values that make up the SRV record. Each `record` block supports fields documented below.
+         * @param records A list of values that make up the SRV record. Each `record` block supports fields defined below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class SrvRecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records A list of values that make up the SRV record. Each `record` block supports fields documented below.
+         * @param records A list of values that make up the SRV record. Each `record` block supports fields defined below.
          * 
          * @return builder
          * 

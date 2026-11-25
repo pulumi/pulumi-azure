@@ -149,7 +149,7 @@ def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.servicebus.get_namespace_disaster_recovery_config(name="existing",
+    example = azure.servicebus.get_namespace_disaster_recovery_config(name="example-alias",
         namespace_id="example-namespace-id")
     pulumi.export("id", example.id)
     ```
@@ -196,7 +196,7 @@ def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: p
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.servicebus.get_namespace_disaster_recovery_config(name="existing",
+    example = azure.servicebus.get_namespace_disaster_recovery_config(name="example-alias",
         namespace_id="example-namespace-id")
     pulumi.export("id", example.id)
     ```

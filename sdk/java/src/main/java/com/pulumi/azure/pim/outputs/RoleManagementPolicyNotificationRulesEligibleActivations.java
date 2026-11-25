@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RoleManagementPolicyNotificationRulesEligibleActivations {
     /**
-     * @return Admin notification settings
+     * @return Admin notification settings.
      * 
      */
     private @Nullable RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications adminNotifications;
     /**
-     * @return Approver notification settings
+     * @return Approver notification settings.
      * 
      */
     private @Nullable RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications approverNotifications;
     /**
-     * @return Assignee notification settings
+     * @return Assignee notification settings.
      * 
      */
     private @Nullable RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications assigneeNotifications;
 
     private RoleManagementPolicyNotificationRulesEligibleActivations() {}
     /**
-     * @return Admin notification settings
+     * @return Admin notification settings.
      * 
      */
     public Optional<RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications> adminNotifications() {
         return Optional.ofNullable(this.adminNotifications);
     }
     /**
-     * @return Approver notification settings
+     * @return Approver notification settings.
      * 
      */
     public Optional<RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications> approverNotifications() {
         return Optional.ofNullable(this.approverNotifications);
     }
     /**
-     * @return Assignee notification settings
+     * @return Assignee notification settings.
      * 
      */
     public Optional<RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications> assigneeNotifications() {

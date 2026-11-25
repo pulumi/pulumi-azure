@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs>? _additionalUnattendConfigs;
 
         /// <summary>
-        /// An `AdditionalUnattendConfig` block as documented below.
+        /// An `AdditionalUnattendConfig` block as defined below.
         /// </summary>
         public InputList<Inputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs> AdditionalUnattendConfigs
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.ScaleSetOsProfileWindowsConfigWinrmArgs>? _winrms;
 
         /// <summary>
-        /// A collection of `Winrm` blocks as documented below.
+        /// One or more `Winrm` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScaleSetOsProfileWindowsConfigWinrmArgs> Winrms
         {

@@ -188,7 +188,7 @@ def get_network_manager_connectivity_configuration(name: Optional[_builtins.str]
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_network_manager_connectivity_configuration(name="existing",
+    example = azure.network.get_network_manager_connectivity_configuration(name="example-connectivity-configuration",
         network_manager_id="TODO")
     pulumi.export("id", example.id)
     ```
@@ -235,7 +235,7 @@ def get_network_manager_connectivity_configuration_output(name: pulumi.Input[Opt
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_network_manager_connectivity_configuration(name="existing",
+    example = azure.network.get_network_manager_connectivity_configuration(name="example-connectivity-configuration",
         network_manager_id="TODO")
     pulumi.export("id", example.id)
     ```

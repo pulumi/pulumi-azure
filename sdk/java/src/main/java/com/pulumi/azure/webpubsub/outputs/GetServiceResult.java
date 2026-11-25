@@ -30,12 +30,12 @@ public final class GetServiceResult {
      */
     private String id;
     /**
-     * @return An `identity` block as documented below.
+     * @return An `identity` block as defined below.
      * 
      */
     private List<GetServiceIdentity> identities;
     /**
-     * @return A `liveTrace` block as documented below.
+     * @return A `liveTrace` block as defined below.
      * 
      */
     private List<GetServiceLiveTrace> liveTraces;
@@ -108,14 +108,14 @@ public final class GetServiceResult {
         return this.id;
     }
     /**
-     * @return An `identity` block as documented below.
+     * @return An `identity` block as defined below.
      * 
      */
     public List<GetServiceIdentity> identities() {
         return this.identities;
     }
     /**
-     * @return A `liveTrace` block as documented below.
+     * @return A `liveTrace` block as defined below.
      * 
      */
     public List<GetServiceLiveTrace> liveTraces() {

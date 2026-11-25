@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  *
  * ## Import
  *

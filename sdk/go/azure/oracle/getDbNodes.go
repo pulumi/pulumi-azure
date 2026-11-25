@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := oracle.GetDbNodes(ctx, &oracle.GetDbNodesArgs{
-//				CloudVmClusterId: "existing",
+//				CloudVmClusterId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster",
 //			}, nil)
 //			if err != nil {
 //				return err

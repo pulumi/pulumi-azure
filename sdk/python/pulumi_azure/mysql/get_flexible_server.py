@@ -293,8 +293,8 @@ def get_flexible_server(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.mysql.get_flexible_server(name="existingMySqlFlexibleServer",
-        resource_group_name="existingResGroup")
+    example = azure.mysql.get_flexible_server(name="example-mysql-flexible-server",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -349,8 +349,8 @@ def get_flexible_server_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.mysql.get_flexible_server(name="existingMySqlFlexibleServer",
-        resource_group_name="existingResGroup")
+    example = azure.mysql.get_flexible_server(name="example-mysql-flexible-server",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

@@ -60,7 +60,7 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input[_builtins.bool] active_active: If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] bgp_enabled: If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] bgp_route_translation_for_nat_enabled: Is BGP Route Translation for NAT enabled? Defaults to `false`.
-        :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is defined below. In this block the BGP specific settings can be defined.
         :param pulumi.Input['VirtualNetworkGatewayCustomRouteArgs'] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         :param pulumi.Input[_builtins.str] default_local_network_gateway_id: The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         :param pulumi.Input[_builtins.bool] dns_forwarding_enabled: Is DNS forwarding enabled?
@@ -86,7 +86,7 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input[_builtins.bool] remote_vnet_traffic_enabled: Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] virtual_wan_traffic_enabled: Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
-        :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[_builtins.str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -228,7 +228,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> pulumi.Input[Optional['VirtualNetworkGatewayBgpSettingsArgs']]:
         """
-        A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        A `bgp_settings` block which is defined below. In this block the BGP specific settings can be defined.
         """
         return pulumi.get(self, "bgp_settings")
 
@@ -430,7 +430,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="vpnClientConfiguration")
     def vpn_client_configuration(self) -> pulumi.Input[Optional['VirtualNetworkGatewayVpnClientConfigurationArgs']]:
         """
-        A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        A `vpn_client_configuration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         """
         return pulumi.get(self, "vpn_client_configuration")
 
@@ -485,7 +485,7 @@ class _VirtualNetworkGatewayState:
         :param pulumi.Input[_builtins.bool] active_active: If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] bgp_enabled: If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] bgp_route_translation_for_nat_enabled: Is BGP Route Translation for NAT enabled? Defaults to `false`.
-        :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is defined below. In this block the BGP specific settings can be defined.
         :param pulumi.Input['VirtualNetworkGatewayCustomRouteArgs'] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         :param pulumi.Input[_builtins.str] default_local_network_gateway_id: The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         :param pulumi.Input[_builtins.bool] dns_forwarding_enabled: Is DNS forwarding enabled?
@@ -519,7 +519,7 @@ class _VirtualNetworkGatewayState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] virtual_wan_traffic_enabled: Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
-        :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[_builtins.str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         if active_active is not None:
@@ -613,7 +613,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> pulumi.Input[Optional['VirtualNetworkGatewayBgpSettingsArgs']]:
         """
-        A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        A `bgp_settings` block which is defined below. In this block the BGP specific settings can be defined.
         """
         return pulumi.get(self, "bgp_settings")
 
@@ -867,7 +867,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="vpnClientConfiguration")
     def vpn_client_configuration(self) -> pulumi.Input[Optional['VirtualNetworkGatewayVpnClientConfigurationArgs']]:
         """
-        A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        A `vpn_client_configuration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         """
         return pulumi.get(self, "vpn_client_configuration")
 
@@ -1018,7 +1018,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] active_active: If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] bgp_enabled: If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] bgp_route_translation_for_nat_enabled: Is BGP Route Translation for NAT enabled? Defaults to `false`.
-        :param pulumi.Input[Union['VirtualNetworkGatewayBgpSettingsArgs', 'VirtualNetworkGatewayBgpSettingsArgsDict', 'outputs.VirtualNetworkGatewayBgpSettings']] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        :param pulumi.Input[Union['VirtualNetworkGatewayBgpSettingsArgs', 'VirtualNetworkGatewayBgpSettingsArgsDict', 'outputs.VirtualNetworkGatewayBgpSettings']] bgp_settings: A `bgp_settings` block which is defined below. In this block the BGP specific settings can be defined.
         :param pulumi.Input[Union['VirtualNetworkGatewayCustomRouteArgs', 'VirtualNetworkGatewayCustomRouteArgsDict', 'outputs.VirtualNetworkGatewayCustomRoute']] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         :param pulumi.Input[_builtins.str] default_local_network_gateway_id: The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         :param pulumi.Input[_builtins.bool] dns_forwarding_enabled: Is DNS forwarding enabled?
@@ -1052,7 +1052,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] virtual_wan_traffic_enabled: Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
-        :param pulumi.Input[Union['VirtualNetworkGatewayVpnClientConfigurationArgs', 'VirtualNetworkGatewayVpnClientConfigurationArgsDict', 'outputs.VirtualNetworkGatewayVpnClientConfiguration']] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        :param pulumi.Input[Union['VirtualNetworkGatewayVpnClientConfigurationArgs', 'VirtualNetworkGatewayVpnClientConfigurationArgsDict', 'outputs.VirtualNetworkGatewayVpnClientConfiguration']] vpn_client_configuration: A `vpn_client_configuration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[_builtins.str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         ...
@@ -1281,7 +1281,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] active_active: If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] bgp_enabled: If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] bgp_route_translation_for_nat_enabled: Is BGP Route Translation for NAT enabled? Defaults to `false`.
-        :param pulumi.Input[Union['VirtualNetworkGatewayBgpSettingsArgs', 'VirtualNetworkGatewayBgpSettingsArgsDict', 'outputs.VirtualNetworkGatewayBgpSettings']] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        :param pulumi.Input[Union['VirtualNetworkGatewayBgpSettingsArgs', 'VirtualNetworkGatewayBgpSettingsArgsDict', 'outputs.VirtualNetworkGatewayBgpSettings']] bgp_settings: A `bgp_settings` block which is defined below. In this block the BGP specific settings can be defined.
         :param pulumi.Input[Union['VirtualNetworkGatewayCustomRouteArgs', 'VirtualNetworkGatewayCustomRouteArgsDict', 'outputs.VirtualNetworkGatewayCustomRoute']] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         :param pulumi.Input[_builtins.str] default_local_network_gateway_id: The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         :param pulumi.Input[_builtins.bool] dns_forwarding_enabled: Is DNS forwarding enabled?
@@ -1315,7 +1315,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] virtual_wan_traffic_enabled: Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
-        :param pulumi.Input[Union['VirtualNetworkGatewayVpnClientConfigurationArgs', 'VirtualNetworkGatewayVpnClientConfigurationArgsDict', 'outputs.VirtualNetworkGatewayVpnClientConfiguration']] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        :param pulumi.Input[Union['VirtualNetworkGatewayVpnClientConfigurationArgs', 'VirtualNetworkGatewayVpnClientConfigurationArgsDict', 'outputs.VirtualNetworkGatewayVpnClientConfiguration']] vpn_client_configuration: A `vpn_client_configuration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[_builtins.str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1377,7 +1377,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> pulumi.Output['outputs.VirtualNetworkGatewayBgpSettings']:
         """
-        A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        A `bgp_settings` block which is defined below. In this block the BGP specific settings can be defined.
         """
         return pulumi.get(self, "bgp_settings")
 
@@ -1551,7 +1551,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="vpnClientConfiguration")
     def vpn_client_configuration(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewayVpnClientConfiguration']]:
         """
-        A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        A `vpn_client_configuration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         """
         return pulumi.get(self, "vpn_client_configuration")
 

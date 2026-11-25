@@ -52,7 +52,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         private InputList<Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs>? _monthlies;
 
         /// <summary>
-        /// A `Monthly` block as documented below.
+        /// A `Monthly` block as defined below.
         /// </summary>
         public InputList<Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs> Monthlies
         {

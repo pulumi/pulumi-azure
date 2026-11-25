@@ -144,7 +144,7 @@ class PolicyFileShareBackupArgs:
 class PolicyFileShareBackupHourlyArgsDict(TypedDict):
     interval: pulumi.Input[_builtins.int]
     """
-    Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+    Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
     """
     start_time: pulumi.Input[_builtins.str]
     """
@@ -162,7 +162,7 @@ class PolicyFileShareBackupHourlyArgs:
                  start_time: pulumi.Input[_builtins.str],
                  window_duration: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.int] interval: Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+        :param pulumi.Input[_builtins.int] interval: Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
         :param pulumi.Input[_builtins.str] start_time: Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
         :param pulumi.Input[_builtins.int] window_duration: Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
         """
@@ -174,7 +174,7 @@ class PolicyFileShareBackupHourlyArgs:
     @pulumi.getter
     def interval(self) -> pulumi.Input[_builtins.int]:
         """
-        Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+        Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
         """
         return pulumi.get(self, "interval")
 

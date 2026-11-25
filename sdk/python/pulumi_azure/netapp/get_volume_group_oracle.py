@@ -141,9 +141,9 @@ def get_volume_group_oracle(account_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.netapp.get_volume_group_oracle(name="existing application volume group name",
+    example = azure.netapp.get_volume_group_oracle(name="example-volume-group",
         resource_group_name="resource group name where the account and volume group belong to",
-        account_name="existing account where the application volume group belong to")
+        account_name="example-netapp-account")
     pulumi.export("id", example.id)
     ```
 
@@ -188,9 +188,9 @@ def get_volume_group_oracle_output(account_name: pulumi.Input[Optional[_builtins
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.netapp.get_volume_group_oracle(name="existing application volume group name",
+    example = azure.netapp.get_volume_group_oracle(name="example-volume-group",
         resource_group_name="resource group name where the account and volume group belong to",
-        account_name="existing account where the application volume group belong to")
+        account_name="example-netapp-account")
     pulumi.export("id", example.id)
     ```
 

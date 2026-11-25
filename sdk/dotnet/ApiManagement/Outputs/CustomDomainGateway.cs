@@ -21,7 +21,13 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// The password associated with the certificate provided above.
         /// </summary>
         public readonly string? CertificatePassword;
+        /// <summary>
+        /// The source of the certificate.
+        /// </summary>
         public readonly string? CertificateSource;
+        /// <summary>
+        /// The status of the certificate.
+        /// </summary>
         public readonly string? CertificateStatus;
         /// <summary>
         /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `False`.
@@ -32,6 +38,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// The Hostname to use for the API Proxy Endpoint.
         /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// </summary>
         public readonly string? KeyVaultCertificateId;
         /// <summary>
         /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `False`.

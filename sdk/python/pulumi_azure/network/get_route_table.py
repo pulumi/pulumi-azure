@@ -94,7 +94,7 @@ class GetRouteTableResult:
     @pulumi.getter
     def routes(self) -> Sequence['outputs.GetRouteTableRouteResult']:
         """
-        One or more `route` blocks as documented below.
+        One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 

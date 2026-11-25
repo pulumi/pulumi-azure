@@ -90,7 +90,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args) {
@@ -141,7 +141,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static CompletableFuture<GetAutomaticClusterResult> getAutomaticClusterPlain(GetAutomaticClusterPlainArgs args) {
@@ -192,7 +192,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args, InvokeOptions options) {
@@ -243,7 +243,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args, InvokeOutputOptions options) {
@@ -294,7 +294,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static CompletableFuture<GetAutomaticClusterResult> getAutomaticClusterPlain(GetAutomaticClusterPlainArgs args, InvokeOptions options) {
@@ -328,9 +328,9 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name("existing")
-     *             .kubernetesClusterName("existing-cluster")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example")
+     *             .kubernetesClusterName("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -344,7 +344,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args) {
@@ -378,9 +378,9 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name("existing")
-     *             .kubernetesClusterName("existing-cluster")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example")
+     *             .kubernetesClusterName("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -394,7 +394,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args) {
@@ -428,9 +428,9 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name("existing")
-     *             .kubernetesClusterName("existing-cluster")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example")
+     *             .kubernetesClusterName("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -444,7 +444,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOptions options) {
@@ -478,9 +478,9 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name("existing")
-     *             .kubernetesClusterName("existing-cluster")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example")
+     *             .kubernetesClusterName("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -494,7 +494,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOutputOptions options) {
@@ -528,9 +528,9 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name("existing")
-     *             .kubernetesClusterName("existing-cluster")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example")
+     *             .kubernetesClusterName("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -544,7 +544,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args, InvokeOptions options) {
@@ -823,8 +823,8 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-container-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -874,8 +874,8 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-container-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -925,8 +925,8 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-container-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -976,8 +976,8 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-container-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1027,8 +1027,8 @@ public final class ContainerserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-container-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1092,7 +1092,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args) {
@@ -1140,7 +1140,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args) {
@@ -1188,7 +1188,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions options) {
@@ -1236,7 +1236,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOutputOptions options) {
@@ -1284,7 +1284,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args, InvokeOptions options) {
@@ -1332,7 +1332,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args) {
@@ -1380,7 +1380,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args) {
@@ -1428,7 +1428,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions options) {
@@ -1476,7 +1476,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOutputOptions options) {
@@ -1524,7 +1524,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-05-01
+     * * `Microsoft.ContainerService` - 2026-07-01
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args, InvokeOptions options) {

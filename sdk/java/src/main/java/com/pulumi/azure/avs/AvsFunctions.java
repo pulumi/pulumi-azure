@@ -45,8 +45,8 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name("existing-vmware-private-cloud")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-vmware-private-cloud")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -96,8 +96,8 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name("existing-vmware-private-cloud")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-vmware-private-cloud")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -147,8 +147,8 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name("existing-vmware-private-cloud")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-vmware-private-cloud")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -198,8 +198,8 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name("existing-vmware-private-cloud")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-vmware-private-cloud")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -249,8 +249,8 @@ public final class AvsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name("existing-vmware-private-cloud")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-vmware-private-cloud")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

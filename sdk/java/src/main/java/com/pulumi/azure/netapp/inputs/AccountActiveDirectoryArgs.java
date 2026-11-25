@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.netapp.inputs;
 
+import com.pulumi.azure.netapp.inputs.AccountActiveDirectoryLdapSearchScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,6 +20,21 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     public static final AccountActiveDirectoryArgs Empty = new AccountActiveDirectoryArgs();
 
     /**
+     * A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    @Import(name="administratorUsers")
+    private @Nullable Output<List<String>> administratorUsers;
+
+    /**
+     * @return A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    public Optional<Output<List<String>>> administratorUsers() {
+        return Optional.ofNullable(this.administratorUsers);
+    }
+
+    /**
      * If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
      * 
      */
@@ -31,6 +47,21 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Boolean>> aesEncryptionEnabled() {
         return Optional.ofNullable(this.aesEncryptionEnabled);
+    }
+
+    /**
+     * A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    @Import(name="backupUsers")
+    private @Nullable Output<List<String>> backupUsers;
+
+    /**
+     * @return A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    public Optional<Output<List<String>>> backupUsers() {
+        return Optional.ofNullable(this.backupUsers);
     }
 
     /**
@@ -61,6 +92,21 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
      */
     public Output<String> domain() {
         return this.domain;
+    }
+
+    /**
+     * If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+     * 
+     */
+    @Import(name="domainControllerConnectionEncryptionEnabled")
+    private @Nullable Output<Boolean> domainControllerConnectionEncryptionEnabled;
+
+    /**
+     * @return If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> domainControllerConnectionEncryptionEnabled() {
+        return Optional.ofNullable(this.domainControllerConnectionEncryptionEnabled);
     }
 
     /**
@@ -98,6 +144,21 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+     * 
+     */
+    @Import(name="ldapClientPreferredServers")
+    private @Nullable Output<List<String>> ldapClientPreferredServers;
+
+    /**
+     * @return Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+     * 
+     */
+    public Optional<Output<List<String>>> ldapClientPreferredServers() {
+        return Optional.ofNullable(this.ldapClientPreferredServers);
+    }
+
+    /**
      * Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
      * 
      */
@@ -110,6 +171,21 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Boolean>> ldapOverTlsEnabled() {
         return Optional.ofNullable(this.ldapOverTlsEnabled);
+    }
+
+    /**
+     * An `ldapSearchScope` block as defined below.
+     * 
+     */
+    @Import(name="ldapSearchScope")
+    private @Nullable Output<AccountActiveDirectoryLdapSearchScopeArgs> ldapSearchScope;
+
+    /**
+     * @return An `ldapSearchScope` block as defined below.
+     * 
+     */
+    public Optional<Output<AccountActiveDirectoryLdapSearchScopeArgs>> ldapSearchScope() {
+        return Optional.ofNullable(this.ldapSearchScope);
     }
 
     /**
@@ -170,6 +246,21 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
      */
     public Output<String> password() {
         return this.password;
+    }
+
+    /**
+     * A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    @Import(name="securityUsers")
+    private @Nullable Output<List<String>> securityUsers;
+
+    /**
+     * @return A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    public Optional<Output<List<String>>> securityUsers() {
+        return Optional.ofNullable(this.securityUsers);
     }
 
     /**
@@ -235,16 +326,22 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     private AccountActiveDirectoryArgs() {}
 
     private AccountActiveDirectoryArgs(AccountActiveDirectoryArgs $) {
+        this.administratorUsers = $.administratorUsers;
         this.aesEncryptionEnabled = $.aesEncryptionEnabled;
+        this.backupUsers = $.backupUsers;
         this.dnsServers = $.dnsServers;
         this.domain = $.domain;
+        this.domainControllerConnectionEncryptionEnabled = $.domainControllerConnectionEncryptionEnabled;
         this.kerberosAdName = $.kerberosAdName;
         this.kerberosKdcIp = $.kerberosKdcIp;
+        this.ldapClientPreferredServers = $.ldapClientPreferredServers;
         this.ldapOverTlsEnabled = $.ldapOverTlsEnabled;
+        this.ldapSearchScope = $.ldapSearchScope;
         this.ldapSigningEnabled = $.ldapSigningEnabled;
         this.localNfsUsersWithLdapAllowed = $.localNfsUsersWithLdapAllowed;
         this.organizationalUnit = $.organizationalUnit;
         this.password = $.password;
+        this.securityUsers = $.securityUsers;
         this.serverRootCaCertificate = $.serverRootCaCertificate;
         this.siteName = $.siteName;
         this.smbServerName = $.smbServerName;
@@ -270,6 +367,37 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param administratorUsers A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorUsers(@Nullable Output<List<String>> administratorUsers) {
+            $.administratorUsers = administratorUsers;
+            return this;
+        }
+
+        /**
+         * @param administratorUsers A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorUsers(List<String> administratorUsers) {
+            return administratorUsers(Output.of(administratorUsers));
+        }
+
+        /**
+         * @param administratorUsers A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorUsers(String... administratorUsers) {
+            return administratorUsers(List.of(administratorUsers));
+        }
+
+        /**
          * @param aesEncryptionEnabled If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
          * 
          * @return builder
@@ -288,6 +416,37 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
          */
         public Builder aesEncryptionEnabled(Boolean aesEncryptionEnabled) {
             return aesEncryptionEnabled(Output.of(aesEncryptionEnabled));
+        }
+
+        /**
+         * @param backupUsers A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupUsers(@Nullable Output<List<String>> backupUsers) {
+            $.backupUsers = backupUsers;
+            return this;
+        }
+
+        /**
+         * @param backupUsers A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupUsers(List<String> backupUsers) {
+            return backupUsers(Output.of(backupUsers));
+        }
+
+        /**
+         * @param backupUsers A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupUsers(String... backupUsers) {
+            return backupUsers(List.of(backupUsers));
         }
 
         /**
@@ -343,6 +502,27 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param domainControllerConnectionEncryptionEnabled If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainControllerConnectionEncryptionEnabled(@Nullable Output<Boolean> domainControllerConnectionEncryptionEnabled) {
+            $.domainControllerConnectionEncryptionEnabled = domainControllerConnectionEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param domainControllerConnectionEncryptionEnabled If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainControllerConnectionEncryptionEnabled(Boolean domainControllerConnectionEncryptionEnabled) {
+            return domainControllerConnectionEncryptionEnabled(Output.of(domainControllerConnectionEncryptionEnabled));
+        }
+
+        /**
          * @param kerberosAdName Name of the active directory machine.
          * 
          * @return builder
@@ -389,6 +569,37 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param ldapClientPreferredServers Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapClientPreferredServers(@Nullable Output<List<String>> ldapClientPreferredServers) {
+            $.ldapClientPreferredServers = ldapClientPreferredServers;
+            return this;
+        }
+
+        /**
+         * @param ldapClientPreferredServers Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapClientPreferredServers(List<String> ldapClientPreferredServers) {
+            return ldapClientPreferredServers(Output.of(ldapClientPreferredServers));
+        }
+
+        /**
+         * @param ldapClientPreferredServers Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapClientPreferredServers(String... ldapClientPreferredServers) {
+            return ldapClientPreferredServers(List.of(ldapClientPreferredServers));
+        }
+
+        /**
          * @param ldapOverTlsEnabled Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
          * 
          * @return builder
@@ -407,6 +618,27 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
          */
         public Builder ldapOverTlsEnabled(Boolean ldapOverTlsEnabled) {
             return ldapOverTlsEnabled(Output.of(ldapOverTlsEnabled));
+        }
+
+        /**
+         * @param ldapSearchScope An `ldapSearchScope` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapSearchScope(@Nullable Output<AccountActiveDirectoryLdapSearchScopeArgs> ldapSearchScope) {
+            $.ldapSearchScope = ldapSearchScope;
+            return this;
+        }
+
+        /**
+         * @param ldapSearchScope An `ldapSearchScope` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapSearchScope(AccountActiveDirectoryLdapSearchScopeArgs ldapSearchScope) {
+            return ldapSearchScope(Output.of(ldapSearchScope));
         }
 
         /**
@@ -491,6 +723,37 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param securityUsers A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityUsers(@Nullable Output<List<String>> securityUsers) {
+            $.securityUsers = securityUsers;
+            return this;
+        }
+
+        /**
+         * @param securityUsers A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityUsers(List<String> securityUsers) {
+            return securityUsers(Output.of(securityUsers));
+        }
+
+        /**
+         * @param securityUsers A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityUsers(String... securityUsers) {
+            return securityUsers(List.of(securityUsers));
         }
 
         /**

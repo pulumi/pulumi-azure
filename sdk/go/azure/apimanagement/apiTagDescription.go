@@ -104,7 +104,7 @@ import (
 type ApiTagDescription struct {
 	pulumi.CustomResourceState
 
-	// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+	// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
 	ApiTagId pulumi.StringOutput `pulumi:"apiTagId"`
 	// The description of the Tag.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -147,7 +147,7 @@ func GetApiTagDescription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiTagDescription resources.
 type apiTagDescriptionState struct {
-	// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+	// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
 	ApiTagId *string `pulumi:"apiTagId"`
 	// The description of the Tag.
 	Description *string `pulumi:"description"`
@@ -158,7 +158,7 @@ type apiTagDescriptionState struct {
 }
 
 type ApiTagDescriptionState struct {
-	// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+	// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
 	ApiTagId pulumi.StringPtrInput
 	// The description of the Tag.
 	Description pulumi.StringPtrInput
@@ -173,7 +173,7 @@ func (ApiTagDescriptionState) ElementType() reflect.Type {
 }
 
 type apiTagDescriptionArgs struct {
-	// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+	// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
 	ApiTagId string `pulumi:"apiTagId"`
 	// The description of the Tag.
 	Description *string `pulumi:"description"`
@@ -185,7 +185,7 @@ type apiTagDescriptionArgs struct {
 
 // The set of arguments for constructing a ApiTagDescription resource.
 type ApiTagDescriptionArgs struct {
-	// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+	// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
 	ApiTagId pulumi.StringInput
 	// The description of the Tag.
 	Description pulumi.StringPtrInput
@@ -282,7 +282,7 @@ func (o ApiTagDescriptionOutput) ToApiTagDescriptionOutputWithContext(ctx contex
 	return o
 }
 
-// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+// The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
 func (o ApiTagDescriptionOutput) ApiTagId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringOutput { return v.ApiTagId }).(pulumi.StringOutput)
 }

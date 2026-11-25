@@ -109,7 +109,7 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
-	// A `containerNetworkInterface` block as documented below.
+	// A `containerNetworkInterface` block as defined below.
 	ContainerNetworkInterface ProfileContainerNetworkInterfaceOutput `pulumi:"containerNetworkInterface"`
 	// A list of Container Network Interface IDs.
 	ContainerNetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"containerNetworkInterfaceIds"`
@@ -159,7 +159,7 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
-	// A `containerNetworkInterface` block as documented below.
+	// A `containerNetworkInterface` block as defined below.
 	ContainerNetworkInterface *ProfileContainerNetworkInterface `pulumi:"containerNetworkInterface"`
 	// A list of Container Network Interface IDs.
 	ContainerNetworkInterfaceIds []string `pulumi:"containerNetworkInterfaceIds"`
@@ -174,7 +174,7 @@ type profileState struct {
 }
 
 type ProfileState struct {
-	// A `containerNetworkInterface` block as documented below.
+	// A `containerNetworkInterface` block as defined below.
 	ContainerNetworkInterface ProfileContainerNetworkInterfacePtrInput
 	// A list of Container Network Interface IDs.
 	ContainerNetworkInterfaceIds pulumi.StringArrayInput
@@ -193,7 +193,7 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	// A `containerNetworkInterface` block as documented below.
+	// A `containerNetworkInterface` block as defined below.
 	ContainerNetworkInterface ProfileContainerNetworkInterface `pulumi:"containerNetworkInterface"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -207,7 +207,7 @@ type profileArgs struct {
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	// A `containerNetworkInterface` block as documented below.
+	// A `containerNetworkInterface` block as defined below.
 	ContainerNetworkInterface ProfileContainerNetworkInterfaceInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -306,7 +306,7 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
-// A `containerNetworkInterface` block as documented below.
+// A `containerNetworkInterface` block as defined below.
 func (o ProfileOutput) ContainerNetworkInterface() ProfileContainerNetworkInterfaceOutput {
 	return o.ApplyT(func(v *Profile) ProfileContainerNetworkInterfaceOutput { return v.ContainerNetworkInterface }).(ProfileContainerNetworkInterfaceOutput)
 }

@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			exampleGetCertificateIssuer, err := keyvault.LookupCertificateIssuer(ctx, &keyvault.LookupCertificateIssuerArgs{
-//				Name:       "existing",
+//				Name:       "example-issuer",
 //				KeyVaultId: example.Id,
 //			}, nil)
 //			if err != nil {

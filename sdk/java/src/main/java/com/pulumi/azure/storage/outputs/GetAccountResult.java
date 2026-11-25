@@ -44,7 +44,7 @@ public final class GetAccountResult {
      */
     private Boolean allowNestedItemsToBePublic;
     /**
-     * @return A `azureFilesAuthentication` block as documented below.
+     * @return A `azureFilesAuthentication` block as defined below.
      * 
      */
     private List<GetAccountAzureFilesAuthentication> azureFilesAuthentications;
@@ -69,7 +69,7 @@ public final class GetAccountResult {
      */
     private String id;
     /**
-     * @return An `identity` block as documented below.
+     * @return An `identity` block as defined below.
      * 
      */
     private List<GetAccountIdentity> identities;
@@ -476,6 +476,11 @@ public final class GetAccountResult {
      */
     private String secondaryWebMicrosoftHost;
     /**
+     * @return Whether managed identities can access SMB Azure file shares using OAuth.
+     * 
+     */
+    private Boolean smbOauthEnabled;
+    /**
      * @return The encryption key type of the table.
      * 
      */
@@ -523,7 +528,7 @@ public final class GetAccountResult {
         return this.allowNestedItemsToBePublic;
     }
     /**
-     * @return A `azureFilesAuthentication` block as documented below.
+     * @return A `azureFilesAuthentication` block as defined below.
      * 
      */
     public List<GetAccountAzureFilesAuthentication> azureFilesAuthentications() {
@@ -558,7 +563,7 @@ public final class GetAccountResult {
         return this.id;
     }
     /**
-     * @return An `identity` block as documented below.
+     * @return An `identity` block as defined below.
      * 
      */
     public List<GetAccountIdentity> identities() {
@@ -1129,6 +1134,13 @@ public final class GetAccountResult {
         return this.secondaryWebMicrosoftHost;
     }
     /**
+     * @return Whether managed identities can access SMB Azure file shares using OAuth.
+     * 
+     */
+    public Boolean smbOauthEnabled() {
+        return this.smbOauthEnabled;
+    }
+    /**
      * @return The encryption key type of the table.
      * 
      */
@@ -1244,6 +1256,7 @@ public final class GetAccountResult {
         private String secondaryWebInternetHost;
         private String secondaryWebMicrosoftEndpoint;
         private String secondaryWebMicrosoftHost;
+        private Boolean smbOauthEnabled;
         private String tableEncryptionKeyType;
         private Map<String,String> tags;
         public Builder() {}
@@ -1341,6 +1354,7 @@ public final class GetAccountResult {
     	      this.secondaryWebInternetHost = defaults.secondaryWebInternetHost;
     	      this.secondaryWebMicrosoftEndpoint = defaults.secondaryWebMicrosoftEndpoint;
     	      this.secondaryWebMicrosoftHost = defaults.secondaryWebMicrosoftHost;
+    	      this.smbOauthEnabled = defaults.smbOauthEnabled;
     	      this.tableEncryptionKeyType = defaults.tableEncryptionKeyType;
     	      this.tags = defaults.tags;
         }
@@ -2087,6 +2101,14 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder smbOauthEnabled(Boolean smbOauthEnabled) {
+            if (smbOauthEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "smbOauthEnabled");
+            }
+            this.smbOauthEnabled = smbOauthEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tableEncryptionKeyType(String tableEncryptionKeyType) {
             if (tableEncryptionKeyType == null) {
               throw new MissingRequiredPropertyException("GetAccountResult", "tableEncryptionKeyType");
@@ -2196,6 +2218,7 @@ public final class GetAccountResult {
             _resultValue.secondaryWebInternetHost = secondaryWebInternetHost;
             _resultValue.secondaryWebMicrosoftEndpoint = secondaryWebMicrosoftEndpoint;
             _resultValue.secondaryWebMicrosoftHost = secondaryWebMicrosoftHost;
+            _resultValue.smbOauthEnabled = smbOauthEnabled;
             _resultValue.tableEncryptionKeyType = tableEncryptionKeyType;
             _resultValue.tags = tags;
             return _resultValue;

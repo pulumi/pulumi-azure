@@ -251,7 +251,7 @@ type Database struct {
 	GeoBackupEnabled pulumi.BoolPtrOutput `pulumi:"geoBackupEnabled"`
 	// An `identity` block as defined below.
 	Identity DatabaseIdentityPtrOutput `pulumi:"identity"`
-	// A `import` block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as defined below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolOutput `pulumi:"ledgerEnabled"`
@@ -305,7 +305,7 @@ type Database struct {
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
@@ -388,7 +388,7 @@ type databaseState struct {
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
 	// An `identity` block as defined below.
 	Identity *DatabaseIdentity `pulumi:"identity"`
-	// A `import` block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as defined below. Mutually exclusive with `createMode`.
 	Import *DatabaseImport `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled *bool `pulumi:"ledgerEnabled"`
@@ -442,7 +442,7 @@ type databaseState struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
 	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
@@ -487,7 +487,7 @@ type DatabaseState struct {
 	GeoBackupEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity DatabaseIdentityPtrInput
-	// A `import` block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as defined below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrInput
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolPtrInput
@@ -541,7 +541,7 @@ type DatabaseState struct {
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
@@ -590,7 +590,7 @@ type databaseArgs struct {
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
 	// An `identity` block as defined below.
 	Identity *DatabaseIdentity `pulumi:"identity"`
-	// A `import` block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as defined below. Mutually exclusive with `createMode`.
 	Import *DatabaseImport `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled *bool `pulumi:"ledgerEnabled"`
@@ -644,7 +644,7 @@ type databaseArgs struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
 	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
@@ -690,7 +690,7 @@ type DatabaseArgs struct {
 	GeoBackupEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity DatabaseIdentityPtrInput
-	// A `import` block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as defined below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrInput
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolPtrInput
@@ -744,7 +744,7 @@ type DatabaseArgs struct {
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
@@ -899,7 +899,7 @@ func (o DatabaseOutput) Identity() DatabaseIdentityPtrOutput {
 	return o.ApplyT(func(v *Database) DatabaseIdentityPtrOutput { return v.Identity }).(DatabaseIdentityPtrOutput)
 }
 
-// A `import` block as documented below. Mutually exclusive with `createMode`.
+// A `import` block as defined below. Mutually exclusive with `createMode`.
 func (o DatabaseOutput) Import() DatabaseImportPtrOutput {
 	return o.ApplyT(func(v *Database) DatabaseImportPtrOutput { return v.Import }).(DatabaseImportPtrOutput)
 }
@@ -1019,7 +1019,7 @@ func (o DatabaseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
 func (o DatabaseOutput) ThreatDetectionPolicy() DatabaseThreatDetectionPolicyOutput {
 	return o.ApplyT(func(v *Database) DatabaseThreatDetectionPolicyOutput { return v.ThreatDetectionPolicy }).(DatabaseThreatDetectionPolicyOutput)
 }

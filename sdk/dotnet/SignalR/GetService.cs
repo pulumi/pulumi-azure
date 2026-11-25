@@ -162,7 +162,7 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         public readonly bool ConnectivityLogsEnabled;
         /// <summary>
-        /// A `Cors` block as documented below.
+        /// A `Cors` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceCorResult> Cors;
         /// <summary>
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `Identity` block as documented below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceIdentityResult> Identities;
         /// <summary>
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         public readonly string ServiceMode;
         /// <summary>
-        /// A `Sku` block as documented below.
+        /// A `Sku` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceSkusResult> Skus;
         public readonly ImmutableDictionary<string, string> Tags;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         public readonly bool TlsClientCertEnabled;
         /// <summary>
-        /// One or more `UpstreamEndpoint` blocks as documented below.
+        /// One or more `UpstreamEndpoint` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceUpstreamEndpointResult> UpstreamEndpoints;
 

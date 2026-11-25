@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.mssql.getServer({
- *     name: "existingMsSqlServer",
- *     resourceGroupName: "existingResGroup",
+ *     name: "example-mssql-server",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -108,8 +108,8 @@ export interface GetServerResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.mssql.getServer({
- *     name: "existingMsSqlServer",
- *     resourceGroupName: "existingResGroup",
+ *     name: "example-mssql-server",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

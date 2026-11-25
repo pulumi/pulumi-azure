@@ -79,7 +79,7 @@ type IntegrationAccountCertificate struct {
 
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
 	IntegrationAccountName pulumi.StringOutput `pulumi:"integrationAccountName"`
-	// A `keyVaultKey` block as documented below.
+	// A `keyVaultKey` block as defined below.
 	KeyVaultKey IntegrationAccountCertificateKeyVaultKeyPtrOutput `pulumi:"keyVaultKey"`
 	// A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
 	Metadata pulumi.StringPtrOutput `pulumi:"metadata"`
@@ -129,7 +129,7 @@ func GetIntegrationAccountCertificate(ctx *pulumi.Context,
 type integrationAccountCertificateState struct {
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
 	IntegrationAccountName *string `pulumi:"integrationAccountName"`
-	// A `keyVaultKey` block as documented below.
+	// A `keyVaultKey` block as defined below.
 	KeyVaultKey *IntegrationAccountCertificateKeyVaultKey `pulumi:"keyVaultKey"`
 	// A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
 	Metadata *string `pulumi:"metadata"`
@@ -144,7 +144,7 @@ type integrationAccountCertificateState struct {
 type IntegrationAccountCertificateState struct {
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
 	IntegrationAccountName pulumi.StringPtrInput
-	// A `keyVaultKey` block as documented below.
+	// A `keyVaultKey` block as defined below.
 	KeyVaultKey IntegrationAccountCertificateKeyVaultKeyPtrInput
 	// A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
 	Metadata pulumi.StringPtrInput
@@ -163,7 +163,7 @@ func (IntegrationAccountCertificateState) ElementType() reflect.Type {
 type integrationAccountCertificateArgs struct {
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// A `keyVaultKey` block as documented below.
+	// A `keyVaultKey` block as defined below.
 	KeyVaultKey *IntegrationAccountCertificateKeyVaultKey `pulumi:"keyVaultKey"`
 	// A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
 	Metadata *string `pulumi:"metadata"`
@@ -179,7 +179,7 @@ type integrationAccountCertificateArgs struct {
 type IntegrationAccountCertificateArgs struct {
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
 	IntegrationAccountName pulumi.StringInput
-	// A `keyVaultKey` block as documented below.
+	// A `keyVaultKey` block as defined below.
 	KeyVaultKey IntegrationAccountCertificateKeyVaultKeyPtrInput
 	// A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
 	Metadata pulumi.StringPtrInput
@@ -283,7 +283,7 @@ func (o IntegrationAccountCertificateOutput) IntegrationAccountName() pulumi.Str
 	return o.ApplyT(func(v *IntegrationAccountCertificate) pulumi.StringOutput { return v.IntegrationAccountName }).(pulumi.StringOutput)
 }
 
-// A `keyVaultKey` block as documented below.
+// A `keyVaultKey` block as defined below.
 func (o IntegrationAccountCertificateOutput) KeyVaultKey() IntegrationAccountCertificateKeyVaultKeyPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountCertificate) IntegrationAccountCertificateKeyVaultKeyPtrOutput {
 		return v.KeyVaultKey

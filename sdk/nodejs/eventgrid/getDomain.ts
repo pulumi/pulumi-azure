@@ -64,7 +64,7 @@ export interface GetDomainResult {
      */
     readonly id: string;
     /**
-     * An `identity` block as documented below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.eventgrid.GetDomainIdentity[];
     /**

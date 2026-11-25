@@ -110,6 +110,8 @@ type Volume struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps pulumi.Float64Output `pulumi:"throughputInMibps"`
+	// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+	UnixPermissions pulumi.StringOutput `pulumi:"unixPermissions"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringOutput `pulumi:"volumePath"`
 	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
@@ -251,6 +253,8 @@ type volumeState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
+	// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+	UnixPermissions *string `pulumi:"unixPermissions"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath *string `pulumi:"volumePath"`
 	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
@@ -342,6 +346,8 @@ type VolumeState struct {
 	Tags pulumi.StringMapInput
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps pulumi.Float64PtrInput
+	// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+	UnixPermissions pulumi.StringPtrInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringPtrInput
 	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
@@ -435,6 +441,8 @@ type volumeArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
+	// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+	UnixPermissions *string `pulumi:"unixPermissions"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath string `pulumi:"volumePath"`
 	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
@@ -525,6 +533,8 @@ type VolumeArgs struct {
 	Tags pulumi.StringMapInput
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps pulumi.Float64PtrInput
+	// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+	UnixPermissions pulumi.StringPtrInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringInput
 	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
@@ -801,6 +811,11 @@ func (o VolumeOutput) Tags() pulumi.StringMapOutput {
 // Throughput of this volume in Mibps.
 func (o VolumeOutput) ThroughputInMibps() pulumi.Float64Output {
 	return o.ApplyT(func(v *Volume) pulumi.Float64Output { return v.ThroughputInMibps }).(pulumi.Float64Output)
+}
+
+// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+func (o VolumeOutput) UnixPermissions() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.UnixPermissions }).(pulumi.StringOutput)
 }
 
 // A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.

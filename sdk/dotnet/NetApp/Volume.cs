@@ -242,6 +242,12 @@ namespace Pulumi.Azure.NetApp
         public Output<double> ThroughputInMibps { get; private set; } = null!;
 
         /// <summary>
+        /// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+        /// </summary>
+        [Output("unixPermissions")]
+        public Output<string> UnixPermissions { get; private set; } = null!;
+
+        /// <summary>
         /// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         /// </summary>
         [Output("volumePath")]
@@ -528,6 +534,12 @@ namespace Pulumi.Azure.NetApp
         public Input<double>? ThroughputInMibps { get; set; }
 
         /// <summary>
+        /// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+        /// </summary>
+        [Input("unixPermissions")]
+        public Input<string>? UnixPermissions { get; set; }
+
+        /// <summary>
         /// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         /// </summary>
         [Input("volumePath", required: true)]
@@ -786,6 +798,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("throughputInMibps")]
         public Input<double>? ThroughputInMibps { get; set; }
+
+        /// <summary>
+        /// The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+        /// </summary>
+        [Input("unixPermissions")]
+        public Input<string>? UnixPermissions { get; set; }
 
         /// <summary>
         /// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.

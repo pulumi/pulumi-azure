@@ -24,7 +24,7 @@ namespace Pulumi.Azure.MachineLearning
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.MachineLearning.GetWorkspace.Invoke(new()
+        ///     var example = Azure.MachineLearning.GetWorkspace.Invoke(new()
         ///     {
         ///         Name = "example-workspace",
         ///         ResourceGroupName = "example-resources",
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.MachineLearning
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
+        ///         ["id"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
         ///     };
         /// });
         /// ```
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.MachineLearning
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.MachineLearning.GetWorkspace.Invoke(new()
+        ///     var example = Azure.MachineLearning.GetWorkspace.Invoke(new()
         ///     {
         ///         Name = "example-workspace",
         ///         ResourceGroupName = "example-resources",
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.MachineLearning
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
+        ///         ["id"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
         ///     };
         /// });
         /// ```
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.MachineLearning
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.MachineLearning.GetWorkspace.Invoke(new()
+        ///     var example = Azure.MachineLearning.GetWorkspace.Invoke(new()
         ///     {
         ///         Name = "example-workspace",
         ///         ResourceGroupName = "example-resources",
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.MachineLearning
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
+        ///         ["id"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
         ///     };
         /// });
         /// ```

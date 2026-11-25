@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.desktopvirtualization.getWorkspace({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-workspace",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -90,8 +90,8 @@ export interface GetWorkspaceResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.desktopvirtualization.getWorkspace({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-workspace",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

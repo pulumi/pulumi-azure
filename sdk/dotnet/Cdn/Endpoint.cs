@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields documented below.
+        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields defined below.
         /// </summary>
         [Output("geoFilters")]
         public Output<ImmutableArray<Outputs.EndpointGeoFilter>> GeoFilters { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> OriginPath { get; private set; } = null!;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields documented below. Changing this forces a new resource to be created.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("origins")]
         public Output<ImmutableArray<Outputs.EndpointOrigin>> Origins { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointGeoFilterArgs>? _geoFilters;
 
         /// <summary>
-        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields documented below.
+        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields defined below.
         /// </summary>
         public InputList<Inputs.EndpointGeoFilterArgs> GeoFilters
         {
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointOriginArgs>? _origins;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields documented below. Changing this forces a new resource to be created.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.EndpointOriginArgs> Origins
         {
@@ -418,7 +418,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointGeoFilterGetArgs>? _geoFilters;
 
         /// <summary>
-        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields documented below.
+        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields defined below.
         /// </summary>
         public InputList<Inputs.EndpointGeoFilterGetArgs> GeoFilters
         {
@@ -484,7 +484,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointOriginGetArgs>? _origins;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields documented below. Changing this forces a new resource to be created.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.EndpointOriginGetArgs> Origins
         {

@@ -954,9 +954,9 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
-     *             .name("existing-runbook")
-     *             .resourceGroupName("existing")
-     *             .automationAccountName("existing-automation")
+     *             .name("example-runbook")
+     *             .resourceGroupName("example-resources")
+     *             .automationAccountName("example-automation")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1004,9 +1004,9 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
-     *             .name("existing-runbook")
-     *             .resourceGroupName("existing")
-     *             .automationAccountName("existing-automation")
+     *             .name("example-runbook")
+     *             .resourceGroupName("example-resources")
+     *             .automationAccountName("example-automation")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1054,9 +1054,9 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
-     *             .name("existing-runbook")
-     *             .resourceGroupName("existing")
-     *             .automationAccountName("existing-automation")
+     *             .name("example-runbook")
+     *             .resourceGroupName("example-resources")
+     *             .automationAccountName("example-automation")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1104,9 +1104,9 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
-     *             .name("existing-runbook")
-     *             .resourceGroupName("existing")
-     *             .automationAccountName("existing-automation")
+     *             .name("example-runbook")
+     *             .resourceGroupName("example-resources")
+     *             .automationAccountName("example-automation")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1154,9 +1154,9 @@ public final class AutomationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
-     *             .name("existing-runbook")
-     *             .resourceGroupName("existing")
-     *             .automationAccountName("existing-automation")
+     *             .name("example-runbook")
+     *             .resourceGroupName("example-resources")
+     *             .automationAccountName("example-automation")
      *             .build());
      * 
      *         ctx.export("id", example.id());

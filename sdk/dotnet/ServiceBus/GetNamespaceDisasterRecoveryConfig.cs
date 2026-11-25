@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {
         ///     var example = Azure.ServiceBus.GetNamespaceDisasterRecoveryConfig.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-alias",
         ///         NamespaceId = "example-namespace-id",
         ///     });
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {
         ///     var example = Azure.ServiceBus.GetNamespaceDisasterRecoveryConfig.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-alias",
         ///         NamespaceId = "example-namespace-id",
         ///     });
         /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {
         ///     var example = Azure.ServiceBus.GetNamespaceDisasterRecoveryConfig.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-alias",
         ///         NamespaceId = "example-namespace-id",
         ///     });
         /// 

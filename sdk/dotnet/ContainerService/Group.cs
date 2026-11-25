@@ -97,13 +97,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.GroupContainer>> Containers { get; private set; } = null!;
 
         /// <summary>
-        /// A `Diagnostics` block as documented below. Changing this forces a new resource to be created.
+        /// A `Diagnostics` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("diagnostics")]
         public Output<Outputs.GroupDiagnostics?> Diagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// A `DnsConfig` block as documented below. Changing this forces a new resource to be created.
+        /// A `DnsConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.GroupDnsConfig?> DnsConfig { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.GroupIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An `ImageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+        /// An `ImageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("imageRegistryCredentials")]
         public Output<ImmutableArray<Outputs.GroupImageRegistryCredential>> ImageRegistryCredentials { get; private set; } = null!;
@@ -306,13 +306,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `Diagnostics` block as documented below. Changing this forces a new resource to be created.
+        /// A `Diagnostics` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diagnostics")]
         public Input<Inputs.GroupDiagnosticsArgs>? Diagnostics { get; set; }
 
         /// <summary>
-        /// A `DnsConfig` block as documented below. Changing this forces a new resource to be created.
+        /// A `DnsConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.GroupDnsConfigArgs>? DnsConfig { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupImageRegistryCredentialArgs>? _imageRegistryCredentials;
 
         /// <summary>
-        /// An `ImageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+        /// An `ImageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupImageRegistryCredentialArgs> ImageRegistryCredentials
         {
@@ -495,13 +495,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `Diagnostics` block as documented below. Changing this forces a new resource to be created.
+        /// A `Diagnostics` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diagnostics")]
         public Input<Inputs.GroupDiagnosticsGetArgs>? Diagnostics { get; set; }
 
         /// <summary>
-        /// A `DnsConfig` block as documented below. Changing this forces a new resource to be created.
+        /// A `DnsConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.GroupDnsConfigGetArgs>? DnsConfig { get; set; }
@@ -550,7 +550,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupImageRegistryCredentialGetArgs>? _imageRegistryCredentials;
 
         /// <summary>
-        /// An `ImageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+        /// An `ImageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupImageRegistryCredentialGetArgs> ImageRegistryCredentials
         {

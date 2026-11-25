@@ -44,7 +44,7 @@ public final class Features {
     private @Nullable FeaturesManagedDisk managedDisk;
     private @Nullable FeaturesNetapp netapp;
     /**
-     * @return Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     * @return Whether to set the resource ID into state before polling asynchronous operations for completion.
      * 
      */
     private @Nullable Boolean persistIdOnCreateBeforePollingForCompletion;
@@ -54,7 +54,7 @@ public final class Features {
     private @Nullable FeaturesResourceGroup resourceGroup;
     private @Nullable FeaturesServicebus servicebus;
     /**
-     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
      * 
      */
     private @Nullable Boolean skipImportCheckOnCreateAndAllowOverwritingExistingResources;
@@ -99,7 +99,7 @@ public final class Features {
         return Optional.ofNullable(this.netapp);
     }
     /**
-     * @return Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     * @return Whether to set the resource ID into state before polling asynchronous operations for completion.
      * 
      */
     public Optional<Boolean> persistIdOnCreateBeforePollingForCompletion() {
@@ -121,7 +121,7 @@ public final class Features {
         return Optional.ofNullable(this.servicebus);
     }
     /**
-     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
      * 
      */
     public Optional<Boolean> skipImportCheckOnCreateAndAllowOverwritingExistingResources() {

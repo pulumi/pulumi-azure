@@ -92,7 +92,7 @@ type SrvRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+	// A list of values that make up the SRV record. Each `record` block supports fields defined below.
 	Records SrvRecordRecordArrayOutput `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -150,7 +150,7 @@ type srvRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+	// A list of values that make up the SRV record. Each `record` block supports fields defined below.
 	Records []SrvRecordRecord `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -167,7 +167,7 @@ type SrvRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+	// A list of values that make up the SRV record. Each `record` block supports fields defined below.
 	Records SrvRecordRecordArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -186,7 +186,7 @@ func (SrvRecordState) ElementType() reflect.Type {
 type srvRecordArgs struct {
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+	// A list of values that make up the SRV record. Each `record` block supports fields defined below.
 	Records []SrvRecordRecord `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -202,7 +202,7 @@ type srvRecordArgs struct {
 type SrvRecordArgs struct {
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+	// A list of values that make up the SRV record. Each `record` block supports fields defined below.
 	Records SrvRecordRecordArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -311,7 +311,7 @@ func (o SrvRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SrvRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+// A list of values that make up the SRV record. Each `record` block supports fields defined below.
 func (o SrvRecordOutput) Records() SrvRecordRecordArrayOutput {
 	return o.ApplyT(func(v *SrvRecord) SrvRecordRecordArrayOutput { return v.Records }).(SrvRecordRecordArrayOutput)
 }

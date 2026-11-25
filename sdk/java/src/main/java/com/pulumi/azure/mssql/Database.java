@@ -375,14 +375,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * A `import` block as documented below. Mutually exclusive with `createMode`.
+     * A `import` block as defined below. Mutually exclusive with `createMode`.
      * 
      */
     @Export(name="import", refs={DatabaseImport.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseImport> import_;
 
     /**
-     * @return A `import` block as documented below. Mutually exclusive with `createMode`.
+     * @return A `import` block as defined below. Mutually exclusive with `createMode`.
      * 
      */
     public Output<Optional<DatabaseImport>> import_() {
@@ -703,14 +703,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
      * 
      */
     @Export(name="threatDetectionPolicy", refs={DatabaseThreatDetectionPolicy.class}, tree="[0]")
     private Output<DatabaseThreatDetectionPolicy> threatDetectionPolicy;
 
     /**
-     * @return Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     * @return Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
      * 
      */
     public Output<DatabaseThreatDetectionPolicy> threatDetectionPolicy() {

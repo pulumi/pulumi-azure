@@ -129,6 +129,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The ID of the Network Interface created by Azure for the Database Migration Service.
+     * 
+     */
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
+    private Output<String> networkInterfaceId;
+
+    /**
+     * @return The ID of the Network Interface created by Azure for the Database Migration Service.
+     * 
+     */
+    public Output<String> networkInterfaceId() {
+        return this.networkInterfaceId;
+    }
+    /**
      * Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
      * 
      */

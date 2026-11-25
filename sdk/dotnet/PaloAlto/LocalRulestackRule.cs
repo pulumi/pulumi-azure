@@ -170,7 +170,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[StartPort]-[EndPort]` e.g. `TCP:1024-1206`, or one of `Any` and `application-default`. Conflicts with `ProtocolPorts`.
         /// 
         /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `Protocol`.
+        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[StartPort]-[EndPort]` e.g. `TCP:1024-1206`. Conflicts with `Protocol`.
         /// </summary>
         [Output("protocolPorts")]
         public Output<ImmutableArray<string>> ProtocolPorts { get; private set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[StartPort]-[EndPort]` e.g. `TCP:1024-1206`, or one of `Any` and `application-default`. Conflicts with `ProtocolPorts`.
         /// 
         /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.PaloAlto
         private InputList<string>? _protocolPorts;
 
         /// <summary>
-        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `Protocol`.
+        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[StartPort]-[EndPort]` e.g. `TCP:1024-1206`. Conflicts with `Protocol`.
         /// </summary>
         public InputList<string> ProtocolPorts
         {
@@ -484,7 +484,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[StartPort]-[EndPort]` e.g. `TCP:1024-1206`, or one of `Any` and `application-default`. Conflicts with `ProtocolPorts`.
         /// 
         /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>
@@ -495,7 +495,7 @@ namespace Pulumi.Azure.PaloAlto
         private InputList<string>? _protocolPorts;
 
         /// <summary>
-        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `Protocol`.
+        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[StartPort]-[EndPort]` e.g. `TCP:1024-1206`. Conflicts with `Protocol`.
         /// </summary>
         public InputList<string> ProtocolPorts
         {

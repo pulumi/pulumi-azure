@@ -139,8 +139,8 @@ def get_workspace(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.desktopvirtualization.get_workspace(name="existing",
-        resource_group_name="existing")
+    example = azure.desktopvirtualization.get_workspace(name="example-workspace",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -182,8 +182,8 @@ def get_workspace_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.desktopvirtualization.get_workspace(name="existing",
-        resource_group_name="existing")
+    example = azure.desktopvirtualization.get_workspace(name="example-workspace",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

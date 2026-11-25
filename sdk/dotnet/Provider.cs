@@ -25,13 +25,13 @@ namespace Pulumi.Azure
         public Output<string?> AdoPipelineServiceConnectionId { get; private set; } = null!;
 
         /// <summary>
-        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
         /// </summary>
         [Output("clientCertificate")]
         public Output<string?> ClientCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
         /// </summary>
         [Output("clientCertificatePassword")]
         public Output<string?> ClientCertificatePassword { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure
         private Input<string>? _clientCertificate;
 
         /// <summary>
-        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
         /// </summary>
         public Input<string>? ClientCertificate
         {
@@ -225,7 +225,7 @@ namespace Pulumi.Azure
         private Input<string>? _clientCertificatePassword;
 
         /// <summary>
-        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
         /// </summary>
         public Input<string>? ClientCertificatePassword
         {
@@ -491,7 +491,7 @@ namespace Pulumi.Azure
         public Input<bool>? UseMsi { get; set; }
 
         /// <summary>
-        /// Allow OpenID Connect to be used for authentication
+        /// Allow OpenID Connect to be used for authentication.
         /// </summary>
         [Input("useOidc", json: true)]
         public Input<bool>? UseOidc { get; set; }

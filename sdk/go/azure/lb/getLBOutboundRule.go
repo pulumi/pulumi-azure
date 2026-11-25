@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := lb.GetLBOutboundRule(ctx, &lb.GetLBOutboundRuleArgs{
-//				Name:           "existing_lb_outbound_rule",
-//				LoadbalancerId: "existing_load_balancer_id",
+//				Name:           "example-outbound-rule",
+//				LoadbalancerId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb",
 //			}, nil)
 //			if err != nil {
 //				return err

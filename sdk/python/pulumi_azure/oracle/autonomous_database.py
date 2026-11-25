@@ -40,6 +40,7 @@ class AutonomousDatabaseArgs:
                  customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  long_term_backup_schedule: pulumi.Input[Optional['AutonomousDatabaseLongTermBackupScheduleArgs']] = None,
+                 maintenance_patch_level: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -96,6 +97,8 @@ class AutonomousDatabaseArgs:
             pulumi.set(__self__, "location", location)
         if long_term_backup_schedule is not None:
             pulumi.set(__self__, "long_term_backup_schedule", long_term_backup_schedule)
+        if maintenance_patch_level is not None:
+            pulumi.set(__self__, "maintenance_patch_level", maintenance_patch_level)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if subnet_id is not None:
@@ -333,6 +336,15 @@ class AutonomousDatabaseArgs:
         pulumi.set(self, "long_term_backup_schedule", value)
 
     @_builtins.property
+    @pulumi.getter(name="maintenancePatchLevel")
+    def maintenance_patch_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "maintenance_patch_level")
+
+    @maintenance_patch_level.setter
+    def maintenance_patch_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "maintenance_patch_level", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -397,6 +409,7 @@ class _AutonomousDatabaseState:
                  license_model: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  long_term_backup_schedule: pulumi.Input[Optional['AutonomousDatabaseLongTermBackupScheduleArgs']] = None,
+                 maintenance_patch_level: pulumi.Input[Optional[_builtins.str]] = None,
                  mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
@@ -467,6 +480,8 @@ class _AutonomousDatabaseState:
             pulumi.set(__self__, "location", location)
         if long_term_backup_schedule is not None:
             pulumi.set(__self__, "long_term_backup_schedule", long_term_backup_schedule)
+        if maintenance_patch_level is not None:
+            pulumi.set(__self__, "maintenance_patch_level", maintenance_patch_level)
         if mtls_connection_required is not None:
             pulumi.set(__self__, "mtls_connection_required", mtls_connection_required)
         if name is not None:
@@ -674,6 +689,15 @@ class _AutonomousDatabaseState:
         pulumi.set(self, "long_term_backup_schedule", value)
 
     @_builtins.property
+    @pulumi.getter(name="maintenancePatchLevel")
+    def maintenance_patch_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "maintenance_patch_level")
+
+    @maintenance_patch_level.setter
+    def maintenance_patch_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "maintenance_patch_level", value)
+
+    @_builtins.property
     @pulumi.getter(name="mtlsConnectionRequired")
     def mtls_connection_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -791,6 +815,7 @@ class AutonomousDatabase(pulumi.CustomResource):
                  license_model: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  long_term_backup_schedule: pulumi.Input[Optional[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict', 'outputs.AutonomousDatabaseLongTermBackupSchedule']]] = None,
+                 maintenance_patch_level: pulumi.Input[Optional[_builtins.str]] = None,
                  mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
@@ -837,15 +862,17 @@ class AutonomousDatabase(pulumi.CustomResource):
 
         * `customer_contacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
 
-        * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
-
         * `long_term_backup_schedule` - (Optional) A `long_term_backup_schedule` block as defined below.
 
         > **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
 
+        * `maintenance_patch_level` - (Optional) The maintenance patch level for the Autonomous Database. Defaults to `Regular`. Possible values are `Early` and `Regular`.
+
+        * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+
         ***
 
-        A `long_term_backup_schedule` blocks supports the following:
+        A `long_term_backup_schedule` block supports the following:
 
         * `repeat_cadence` - (Required) Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
 
@@ -943,15 +970,17 @@ class AutonomousDatabase(pulumi.CustomResource):
 
         * `customer_contacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
 
-        * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
-
         * `long_term_backup_schedule` - (Optional) A `long_term_backup_schedule` block as defined below.
 
         > **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
 
+        * `maintenance_patch_level` - (Optional) The maintenance patch level for the Autonomous Database. Defaults to `Regular`. Possible values are `Early` and `Regular`.
+
+        * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+
         ***
 
-        A `long_term_backup_schedule` blocks supports the following:
+        A `long_term_backup_schedule` block supports the following:
 
         * `repeat_cadence` - (Required) Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
 
@@ -1008,6 +1037,7 @@ class AutonomousDatabase(pulumi.CustomResource):
                  license_model: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  long_term_backup_schedule: pulumi.Input[Optional[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict', 'outputs.AutonomousDatabaseLongTermBackupSchedule']]] = None,
+                 maintenance_patch_level: pulumi.Input[Optional[_builtins.str]] = None,
                  mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1064,6 +1094,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             __props__.__dict__["license_model"] = license_model
             __props__.__dict__["location"] = location
             __props__.__dict__["long_term_backup_schedule"] = long_term_backup_schedule
+            __props__.__dict__["maintenance_patch_level"] = maintenance_patch_level
             if mtls_connection_required is None and not opts.urn:
                 raise TypeError("Missing required property 'mtls_connection_required'")
             __props__.__dict__["mtls_connection_required"] = mtls_connection_required
@@ -1106,6 +1137,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             license_model: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             long_term_backup_schedule: pulumi.Input[Optional[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict', 'outputs.AutonomousDatabaseLongTermBackupSchedule']]] = None,
+            maintenance_patch_level: pulumi.Input[Optional[_builtins.str]] = None,
             mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1168,6 +1200,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         __props__.__dict__["license_model"] = license_model
         __props__.__dict__["location"] = location
         __props__.__dict__["long_term_backup_schedule"] = long_term_backup_schedule
+        __props__.__dict__["maintenance_patch_level"] = maintenance_patch_level
         __props__.__dict__["mtls_connection_required"] = mtls_connection_required
         __props__.__dict__["name"] = name
         __props__.__dict__["national_character_set"] = national_character_set
@@ -1302,6 +1335,11 @@ class AutonomousDatabase(pulumi.CustomResource):
     @pulumi.getter(name="longTermBackupSchedule")
     def long_term_backup_schedule(self) -> pulumi.Output[Optional['outputs.AutonomousDatabaseLongTermBackupSchedule']]:
         return pulumi.get(self, "long_term_backup_schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenancePatchLevel")
+    def maintenance_patch_level(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "maintenance_patch_level")
 
     @_builtins.property
     @pulumi.getter(name="mtlsConnectionRequired")

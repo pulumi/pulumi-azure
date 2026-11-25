@@ -43,8 +43,8 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name("existing-digital-twins")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-digital-twins")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -92,8 +92,8 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name("existing-digital-twins")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-digital-twins")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -141,8 +141,8 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name("existing-digital-twins")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-digital-twins")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -190,8 +190,8 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name("existing-digital-twins")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-digital-twins")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -239,8 +239,8 @@ public final class DigitaltwinsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DigitaltwinsFunctions.getInstance(GetInstanceArgs.builder()
-     *             .name("existing-digital-twins")
-     *             .resourceGroupName("existing-resgroup")
+     *             .name("example-digital-twins")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

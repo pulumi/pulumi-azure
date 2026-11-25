@@ -131,14 +131,14 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A list of values that make up the MX record. Each `record` block supports fields documented below.
+     * A list of values that make up the MX record. Each `record` block supports fields defined below.
      * 
      */
     @Export(name="records", refs={List.class,MxRecordRecord.class}, tree="[0,1]")
     private Output<List<MxRecordRecord>> records;
 
     /**
-     * @return A list of values that make up the MX record. Each `record` block supports fields documented below.
+     * @return A list of values that make up the MX record. Each `record` block supports fields defined below.
      * 
      */
     public Output<List<MxRecordRecord>> records() {

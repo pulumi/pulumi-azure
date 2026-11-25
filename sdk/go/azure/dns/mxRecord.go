@@ -94,7 +94,7 @@ type MxRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of values that make up the MX record. Each `record` block supports fields documented below.
+	// A list of values that make up the MX record. Each `record` block supports fields defined below.
 	Records MxRecordRecordArrayOutput `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -152,7 +152,7 @@ type mxRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the MX record. Each `record` block supports fields documented below.
+	// A list of values that make up the MX record. Each `record` block supports fields defined below.
 	Records []MxRecordRecord `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -169,7 +169,7 @@ type MxRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the MX record. Each `record` block supports fields documented below.
+	// A list of values that make up the MX record. Each `record` block supports fields defined below.
 	Records MxRecordRecordArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -188,7 +188,7 @@ func (MxRecordState) ElementType() reflect.Type {
 type mxRecordArgs struct {
 	// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the MX record. Each `record` block supports fields documented below.
+	// A list of values that make up the MX record. Each `record` block supports fields defined below.
 	Records []MxRecordRecord `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -204,7 +204,7 @@ type mxRecordArgs struct {
 type MxRecordArgs struct {
 	// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the MX record. Each `record` block supports fields documented below.
+	// A list of values that make up the MX record. Each `record` block supports fields defined below.
 	Records MxRecordRecordArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -313,7 +313,7 @@ func (o MxRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MxRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of values that make up the MX record. Each `record` block supports fields documented below.
+// A list of values that make up the MX record. Each `record` block supports fields defined below.
 func (o MxRecordOutput) Records() MxRecordRecordArrayOutput {
 	return o.ApplyT(func(v *MxRecord) MxRecordRecordArrayOutput { return v.Records }).(MxRecordRecordArrayOutput)
 }

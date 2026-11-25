@@ -117,14 +117,14 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      * 
      */
     @Export(name="plan", refs={AnalyticsSolutionPlan.class}, tree="[0]")
     private Output<AnalyticsSolutionPlan> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as defined below.
      * 
      */
     public Output<AnalyticsSolutionPlan> plan() {

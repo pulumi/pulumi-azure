@@ -30,7 +30,7 @@ class MxRecordArgs:
         """
         The set of arguments for constructing a MxRecord resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: A list of values that make up the MX record. Each `record` block supports fields defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[_builtins.str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -50,7 +50,7 @@ class MxRecordArgs:
     @pulumi.getter
     def records(self) -> pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]]:
         """
-        A list of values that make up the MX record. Each `record` block supports fields documented below.
+        A list of values that make up the MX record. Each `record` block supports fields defined below.
         """
         return pulumi.get(self, "records")
 
@@ -134,7 +134,7 @@ class _MxRecordState:
 
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS MX Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: A list of values that make up the MX record. Each `record` block supports fields defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -183,7 +183,7 @@ class _MxRecordState:
     @pulumi.getter
     def records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MxRecordRecordArgs']]]]:
         """
-        A list of values that make up the MX record. Each `record` block supports fields documented below.
+        A list of values that make up the MX record. Each `record` block supports fields defined below.
         """
         return pulumi.get(self, "records")
 
@@ -309,7 +309,7 @@ class MxRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict', 'outputs.MxRecordRecord']]]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict', 'outputs.MxRecordRecord']]]] records: A list of values that make up the MX record. Each `record` block supports fields defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -445,7 +445,7 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS MX Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict', 'outputs.MxRecordRecord']]]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict', 'outputs.MxRecordRecord']]]] records: A list of values that make up the MX record. Each `record` block supports fields defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -484,7 +484,7 @@ class MxRecord(pulumi.CustomResource):
     @pulumi.getter
     def records(self) -> pulumi.Output[Sequence['outputs.MxRecordRecord']]:
         """
-        A list of values that make up the MX record. Each `record` block supports fields documented below.
+        A list of values that make up the MX record. Each `record` block supports fields defined below.
         """
         return pulumi.get(self, "records")
 

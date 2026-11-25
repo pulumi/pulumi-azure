@@ -23,6 +23,12 @@ __all__ = [
     'PolicyCustomRuleMatchConditionMatchVariableArgsDict',
     'PolicyManagedRulesArgs',
     'PolicyManagedRulesArgsDict',
+    'PolicyManagedRulesExceptionArgs',
+    'PolicyManagedRulesExceptionArgsDict',
+    'PolicyManagedRulesExceptionExceptionRuleSetArgs',
+    'PolicyManagedRulesExceptionExceptionRuleSetArgsDict',
+    'PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs',
+    'PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgsDict',
     'PolicyManagedRulesExclusionArgs',
     'PolicyManagedRulesExclusionArgsDict',
     'PolicyManagedRulesExclusionExcludedRuleSetArgs',
@@ -392,23 +398,43 @@ class PolicyCustomRuleMatchConditionMatchVariableArgs:
 class PolicyManagedRulesArgsDict(TypedDict):
     managed_rule_sets: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgsDict']]]
     """
-    One or more `managed_rule_set` block defined below.
+    One or more `managed_rule_set` blocks as defined below.
+
+    > **Note:** Only one primary `managed_rule_set` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
+    """
+    exceptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExceptionArgsDict']]]]]
+    """
+    One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+
+    > **Note:** An `exception` block requires a `managed_rule_set` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
     """
     exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgsDict']]]]]
     """
     One or more `exclusion` block defined below.
+
+    > **Note:** Exactly one `managed_rule_set` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
     """
 
 @pulumi.input_type
 class PolicyManagedRulesArgs:
     def __init__(__self__, *,
                  managed_rule_sets: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]],
+                 exceptions: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExceptionArgs']]]] = None,
                  exclusions: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]] managed_rule_sets: One or more `managed_rule_set` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]] managed_rule_sets: One or more `managed_rule_set` blocks as defined below.
+               
+               > **Note:** Only one primary `managed_rule_set` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExceptionArgs']]] exceptions: One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+               
+               > **Note:** An `exception` block requires a `managed_rule_set` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
         :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]] exclusions: One or more `exclusion` block defined below.
+               
+               > **Note:** Exactly one `managed_rule_set` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
         """
         pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+        if exceptions is not None:
+            pulumi.set(__self__, "exceptions", exceptions)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
 
@@ -416,7 +442,9 @@ class PolicyManagedRulesArgs:
     @pulumi.getter(name="managedRuleSets")
     def managed_rule_sets(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]]:
         """
-        One or more `managed_rule_set` block defined below.
+        One or more `managed_rule_set` blocks as defined below.
+
+        > **Note:** Only one primary `managed_rule_set` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
         """
         return pulumi.get(self, "managed_rule_sets")
 
@@ -426,15 +454,277 @@ class PolicyManagedRulesArgs:
 
     @_builtins.property
     @pulumi.getter
+    def exceptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExceptionArgs']]]]:
+        """
+        One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+
+        > **Note:** An `exception` block requires a `managed_rule_set` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+        """
+        return pulumi.get(self, "exceptions")
+
+    @exceptions.setter
+    def exceptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExceptionArgs']]]]):
+        pulumi.set(self, "exceptions", value)
+
+    @_builtins.property
+    @pulumi.getter
     def exclusions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]]:
         """
         One or more `exclusion` block defined below.
+
+        > **Note:** Exactly one `managed_rule_set` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
     def exclusions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]]):
         pulumi.set(self, "exclusions", value)
+
+
+class PolicyManagedRulesExceptionArgsDict(TypedDict):
+    exception_rule_sets: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetArgsDict']]]
+    """
+    One or more `exception_rule_set` blocks as defined below.
+    """
+    match_variable: pulumi.Input[_builtins.str]
+    """
+    The request attribute to match. Possible values are `RemoteAddr`, `RequestHeader`, and `RequestURI`.
+    """
+    value_match_operator: pulumi.Input[_builtins.str]
+    """
+    The operator used to match `values`. Possible values are `Contains`, `EndsWith`, `Equals`, `IPMatch`, and `StartsWith`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A non-empty list of values to match. Each value must be between 1 and 256 characters in length.
+
+    > **Note:** A maximum of 600 values is supported when `match_variable` is `RemoteAddr`, and a maximum of 10 values is supported when `match_variable` is `RequestHeader` or `RequestURI`.
+    """
+    selector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The request header selector to match.
+    """
+    selector_match_operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The operator used to match `selector`. Possible values are `Contains`, `EndsWith`, `Equals`, and `StartsWith`.
+    """
+
+@pulumi.input_type
+class PolicyManagedRulesExceptionArgs:
+    def __init__(__self__, *,
+                 exception_rule_sets: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetArgs']]],
+                 match_variable: pulumi.Input[_builtins.str],
+                 value_match_operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 selector: pulumi.Input[Optional[_builtins.str]] = None,
+                 selector_match_operator: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetArgs']]] exception_rule_sets: One or more `exception_rule_set` blocks as defined below.
+        :param pulumi.Input[_builtins.str] match_variable: The request attribute to match. Possible values are `RemoteAddr`, `RequestHeader`, and `RequestURI`.
+        :param pulumi.Input[_builtins.str] value_match_operator: The operator used to match `values`. Possible values are `Contains`, `EndsWith`, `Equals`, `IPMatch`, and `StartsWith`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A non-empty list of values to match. Each value must be between 1 and 256 characters in length.
+               
+               > **Note:** A maximum of 600 values is supported when `match_variable` is `RemoteAddr`, and a maximum of 10 values is supported when `match_variable` is `RequestHeader` or `RequestURI`.
+        :param pulumi.Input[_builtins.str] selector: The request header selector to match.
+        :param pulumi.Input[_builtins.str] selector_match_operator: The operator used to match `selector`. Possible values are `Contains`, `EndsWith`, `Equals`, and `StartsWith`.
+        """
+        pulumi.set(__self__, "exception_rule_sets", exception_rule_sets)
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "value_match_operator", value_match_operator)
+        pulumi.set(__self__, "values", values)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if selector_match_operator is not None:
+            pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+
+    @_builtins.property
+    @pulumi.getter(name="exceptionRuleSets")
+    def exception_rule_sets(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetArgs']]]:
+        """
+        One or more `exception_rule_set` blocks as defined below.
+        """
+        return pulumi.get(self, "exception_rule_sets")
+
+    @exception_rule_sets.setter
+    def exception_rule_sets(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetArgs']]]):
+        pulumi.set(self, "exception_rule_sets", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> pulumi.Input[_builtins.str]:
+        """
+        The request attribute to match. Possible values are `RemoteAddr`, `RequestHeader`, and `RequestURI`.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @match_variable.setter
+    def match_variable(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "match_variable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueMatchOperator")
+    def value_match_operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        The operator used to match `values`. Possible values are `Contains`, `EndsWith`, `Equals`, `IPMatch`, and `StartsWith`.
+        """
+        return pulumi.get(self, "value_match_operator")
+
+    @value_match_operator.setter
+    def value_match_operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value_match_operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A non-empty list of values to match. Each value must be between 1 and 256 characters in length.
+
+        > **Note:** A maximum of 600 values is supported when `match_variable` is `RemoteAddr`, and a maximum of 10 values is supported when `match_variable` is `RequestHeader` or `RequestURI`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def selector(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The request header selector to match.
+        """
+        return pulumi.get(self, "selector")
+
+    @selector.setter
+    def selector(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "selector", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The operator used to match `selector`. Possible values are `Contains`, `EndsWith`, `Equals`, and `StartsWith`.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+    @selector_match_operator.setter
+    def selector_match_operator(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "selector_match_operator", value)
+
+
+class PolicyManagedRulesExceptionExceptionRuleSetArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The rule set type. Possible values are `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet`, and `OWASP`.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The rule set version. Possible values are `1.0`, `1.1`, `2.1`, `2.2`, and `3.2`.
+    """
+    rule_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgsDict']]]]]
+    """
+    One or more `rule_group` blocks as defined below.
+    """
+
+@pulumi.input_type
+class PolicyManagedRulesExceptionExceptionRuleSetArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 version: pulumi.Input[_builtins.str],
+                 rule_groups: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: The rule set type. Possible values are `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet`, and `OWASP`.
+        :param pulumi.Input[_builtins.str] version: The rule set version. Possible values are `1.0`, `1.1`, `2.1`, `2.2`, and `3.2`.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs']]] rule_groups: One or more `rule_group` blocks as defined below.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "version", version)
+        if rule_groups is not None:
+            pulumi.set(__self__, "rule_groups", rule_groups)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The rule set type. Possible values are `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet`, and `OWASP`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[_builtins.str]:
+        """
+        The rule set version. Possible values are `1.0`, `1.1`, `2.1`, `2.2`, and `3.2`.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleGroups")
+    def rule_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs']]]]:
+        """
+        One or more `rule_group` blocks as defined below.
+        """
+        return pulumi.get(self, "rule_groups")
+
+    @rule_groups.setter
+    def rule_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs']]]]):
+        pulumi.set(self, "rule_groups", value)
+
+
+class PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgsDict(TypedDict):
+    rule_group_name: pulumi.Input[_builtins.str]
+    """
+    The name of the managed rule group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
+    """
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of managed Rule IDs for the exception.
+    """
+
+@pulumi.input_type
+class PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs:
+    def __init__(__self__, *,
+                 rule_group_name: pulumi.Input[_builtins.str],
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] rule_group_name: The name of the managed rule group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules: A list of managed Rule IDs for the exception.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the managed rule group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @rule_group_name.setter
+    def rule_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of managed Rule IDs for the exception.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "rules", value)
 
 
 class PolicyManagedRulesExclusionArgsDict(TypedDict):
@@ -595,7 +885,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetArgs:
 class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgsDict(TypedDict):
     rule_group_name: pulumi.Input[_builtins.str]
     """
-    The name of rule group for exclusion. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
+    The name of the managed rule group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
     """
     excluded_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -608,7 +898,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs:
                  rule_group_name: pulumi.Input[_builtins.str],
                  excluded_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] rule_group_name: The name of rule group for exclusion. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
+        :param pulumi.Input[_builtins.str] rule_group_name: The name of the managed rule group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_rules: One or more Rule IDs for exclusion.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
@@ -619,7 +909,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs:
     @pulumi.getter(name="ruleGroupName")
     def rule_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of rule group for exclusion. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
+        The name of the managed rule group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
         """
         return pulumi.get(self, "rule_group_name")
 

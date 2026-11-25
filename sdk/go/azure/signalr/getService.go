@@ -70,7 +70,7 @@ type LookupServiceResult struct {
 	AadAuthEnabled bool `pulumi:"aadAuthEnabled"`
 	// Whether the log category `ConnectivityLogs` is enabled.
 	ConnectivityLogsEnabled bool `pulumi:"connectivityLogsEnabled"`
-	// A `cors` block as documented below.
+	// A `cors` block as defined below.
 	Cors []GetServiceCor `pulumi:"cors"`
 	// The FQDN of the SignalR service.
 	Hostname string `pulumi:"hostname"`
@@ -78,7 +78,7 @@ type LookupServiceResult struct {
 	HttpRequestLogsEnabled bool `pulumi:"httpRequestLogsEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identities []GetServiceIdentity `pulumi:"identities"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress string `pulumi:"ipAddress"`
@@ -111,12 +111,12 @@ type LookupServiceResult struct {
 	ServerlessConnectionTimeoutInSeconds int `pulumi:"serverlessConnectionTimeoutInSeconds"`
 	// Specifies the service mode.
 	ServiceMode string `pulumi:"serviceMode"`
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Skus []GetServiceSkus  `pulumi:"skus"`
 	Tags map[string]string `pulumi:"tags"`
 	// Is tls client cert enabled for this SignalR service?
 	TlsClientCertEnabled bool `pulumi:"tlsClientCertEnabled"`
-	// One or more `upstreamEndpoint` blocks as documented below.
+	// One or more `upstreamEndpoint` blocks as defined below.
 	UpstreamEndpoints []GetServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
 }
 
@@ -162,7 +162,7 @@ func (o LookupServiceResultOutput) ConnectivityLogsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServiceResult) bool { return v.ConnectivityLogsEnabled }).(pulumi.BoolOutput)
 }
 
-// A `cors` block as documented below.
+// A `cors` block as defined below.
 func (o LookupServiceResultOutput) Cors() GetServiceCorArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceCor { return v.Cors }).(GetServiceCorArrayOutput)
 }
@@ -182,7 +182,7 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An `identity` block as documented below.
+// An `identity` block as defined below.
 func (o LookupServiceResultOutput) Identities() GetServiceIdentityArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceIdentity { return v.Identities }).(GetServiceIdentityArrayOutput)
 }
@@ -266,7 +266,7 @@ func (o LookupServiceResultOutput) ServiceMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ServiceMode }).(pulumi.StringOutput)
 }
 
-// A `sku` block as documented below.
+// A `sku` block as defined below.
 func (o LookupServiceResultOutput) Skus() GetServiceSkusArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceSkus { return v.Skus }).(GetServiceSkusArrayOutput)
 }
@@ -280,7 +280,7 @@ func (o LookupServiceResultOutput) TlsClientCertEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServiceResult) bool { return v.TlsClientCertEnabled }).(pulumi.BoolOutput)
 }
 
-// One or more `upstreamEndpoint` blocks as documented below.
+// One or more `upstreamEndpoint` blocks as defined below.
 func (o LookupServiceResultOutput) UpstreamEndpoints() GetServiceUpstreamEndpointArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceUpstreamEndpoint { return v.UpstreamEndpoints }).(GetServiceUpstreamEndpointArrayOutput)
 }

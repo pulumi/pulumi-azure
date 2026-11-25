@@ -156,7 +156,7 @@ class GetSharedImageVersionResult:
     @pulumi.getter(name="targetRegions")
     def target_regions(self) -> Sequence['outputs.GetSharedImageVersionTargetRegionResult']:
         """
-        One or more `target_region` blocks as documented below.
+        One or more `target_region` blocks as defined below.
         """
         return pulumi.get(self, "target_regions")
 

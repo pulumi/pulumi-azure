@@ -124,14 +124,14 @@ public class Backend extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.circuitBreakerRule);
     }
     /**
-     * A `credentials` block as documented below.
+     * A `credentials` block as defined below.
      * 
      */
     @Export(name="credentials", refs={BackendCredentials.class}, tree="[0]")
     private Output</* @Nullable */ BackendCredentials> credentials;
 
     /**
-     * @return A `credentials` block as documented below.
+     * @return A `credentials` block as defined below.
      * 
      */
     public Output<Optional<BackendCredentials>> credentials() {
@@ -180,14 +180,14 @@ public class Backend extends com.pulumi.resources.CustomResource {
         return this.protocol;
     }
     /**
-     * A `proxy` block as documented below.
+     * A `proxy` block as defined below.
      * 
      */
     @Export(name="proxy", refs={BackendProxy.class}, tree="[0]")
     private Output</* @Nullable */ BackendProxy> proxy;
 
     /**
-     * @return A `proxy` block as documented below.
+     * @return A `proxy` block as defined below.
      * 
      */
     public Output<Optional<BackendProxy>> proxy() {
@@ -222,14 +222,14 @@ public class Backend extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourceId);
     }
     /**
-     * A `serviceFabricCluster` block as documented below.
+     * A `serviceFabricCluster` block as defined below.
      * 
      */
     @Export(name="serviceFabricCluster", refs={BackendServiceFabricCluster.class}, tree="[0]")
     private Output</* @Nullable */ BackendServiceFabricCluster> serviceFabricCluster;
 
     /**
-     * @return A `serviceFabricCluster` block as documented below.
+     * @return A `serviceFabricCluster` block as defined below.
      * 
      */
     public Output<Optional<BackendServiceFabricCluster>> serviceFabricCluster() {
@@ -250,14 +250,14 @@ public class Backend extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.title);
     }
     /**
-     * A `tls` block as documented below.
+     * A `tls` block as defined below.
      * 
      */
     @Export(name="tls", refs={BackendTls.class}, tree="[0]")
     private Output</* @Nullable */ BackendTls> tls;
 
     /**
-     * @return A `tls` block as documented below.
+     * @return A `tls` block as defined below.
      * 
      */
     public Output<Optional<BackendTls>> tls() {

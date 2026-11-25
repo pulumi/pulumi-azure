@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class ProfileContainerNetworkInterface {
     /**
-     * @return One or more `ipConfiguration` blocks as documented below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      */
     private List<ProfileContainerNetworkInterfaceIpConfiguration> ipConfigurations;
@@ -25,7 +25,7 @@ public final class ProfileContainerNetworkInterface {
 
     private ProfileContainerNetworkInterface() {}
     /**
-     * @return One or more `ipConfiguration` blocks as documented below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      */
     public List<ProfileContainerNetworkInterfaceIpConfiguration> ipConfigurations() {

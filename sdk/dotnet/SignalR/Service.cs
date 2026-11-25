@@ -108,7 +108,7 @@ namespace Pulumi.Azure.SignalR
         public Output<bool?> ConnectivityLogsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `Cors` block as documented below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Output("cors")]
         public Output<ImmutableArray<Outputs.ServiceCor>> Cors { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.SignalR
         public Output<string?> ServiceMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `Sku` block as documented below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ServiceSku> Sku { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.SignalR
         public Output<bool?> TlsClientCertEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `UpstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// An `UpstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         /// </summary>
         [Output("upstreamEndpoints")]
         public Output<ImmutableArray<Outputs.ServiceUpstreamEndpoint>> UpstreamEndpoints { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceCorArgs>? _cors;
 
         /// <summary>
-        /// A `Cors` block as documented below.
+        /// A `Cors` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceCorArgs> Cors
         {
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? ServiceMode { get; set; }
 
         /// <summary>
-        /// A `Sku` block as documented below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ServiceSkuArgs> Sku { get; set; } = null!;
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceUpstreamEndpointArgs>? _upstreamEndpoints;
 
         /// <summary>
-        /// An `UpstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// An `UpstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         /// </summary>
         public InputList<Inputs.ServiceUpstreamEndpointArgs> UpstreamEndpoints
         {
@@ -468,7 +468,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceCorGetArgs>? _cors;
 
         /// <summary>
-        /// A `Cors` block as documented below.
+        /// A `Cors` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceCorGetArgs> Cors
         {
@@ -636,7 +636,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? ServiceMode { get; set; }
 
         /// <summary>
-        /// A `Sku` block as documented below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ServiceSkuGetArgs>? Sku { get; set; }
@@ -665,7 +665,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceUpstreamEndpointGetArgs>? _upstreamEndpoints;
 
         /// <summary>
-        /// An `UpstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// An `UpstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         /// </summary>
         public InputList<Inputs.ServiceUpstreamEndpointGetArgs> UpstreamEndpoints
         {

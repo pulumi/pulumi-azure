@@ -69,7 +69,7 @@ class ChannelDirectLineSite(dict):
         :param _builtins.str name: The name of the site
         :param _builtins.bool enabled: Enables/Disables this site. Defaults to `true`.
         :param _builtins.bool endpoint_parameters_enabled: Is the endpoint parameters enabled for this site?
-        :param _builtins.bool enhanced_authentication_enabled: Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+        :param _builtins.bool enhanced_authentication_enabled: Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
         :param _builtins.str id: Id for the site
         :param _builtins.str key: Primary key for accessing this site
         :param _builtins.str key2: Secondary key for accessing this site
@@ -131,7 +131,7 @@ class ChannelDirectLineSite(dict):
     @pulumi.getter(name="enhancedAuthenticationEnabled")
     def enhanced_authentication_enabled(self) -> Optional[_builtins.bool]:
         """
-        Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+        Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
         """
         return pulumi.get(self, "enhanced_authentication_enabled")
 

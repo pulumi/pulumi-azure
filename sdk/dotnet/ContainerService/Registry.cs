@@ -230,7 +230,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<string>> DataEndpointHostNames { get; private set; } = null!;
 
         /// <summary>
-        /// An `Encryption` block as documented below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.RegistryEncryption?> Encryption { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> ExportPolicyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `Georeplications` blocks as documented below.
+        /// One or more `Georeplications` blocks as defined below.
         /// 
         /// &gt; **Note:** The `Georeplications` is only supported on new resources with the `Premium` SKU.
         /// 
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> NetworkRuleBypassOption { get; private set; } = null!;
 
         /// <summary>
-        /// A `NetworkRuleSet` block as documented below.
+        /// A `NetworkRuleSet` block as defined below.
         /// </summary>
         [Output("networkRuleSet")]
         public Output<Outputs.RegistryNetworkRuleSet> NetworkRuleSet { get; private set; } = null!;
@@ -420,7 +420,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? DataEndpointEnabled { get; set; }
 
         /// <summary>
-        /// An `Encryption` block as documented below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.RegistryEncryptionArgs>? Encryption { get; set; }
@@ -435,7 +435,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryGeoreplicationArgs>? _georeplications;
 
         /// <summary>
-        /// One or more `Georeplications` blocks as documented below.
+        /// One or more `Georeplications` blocks as defined below.
         /// 
         /// &gt; **Note:** The `Georeplications` is only supported on new resources with the `Premium` SKU.
         /// 
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
-        /// A `NetworkRuleSet` block as documented below.
+        /// A `NetworkRuleSet` block as defined below.
         /// </summary>
         [Input("networkRuleSet")]
         public Input<Inputs.RegistryNetworkRuleSetArgs>? NetworkRuleSet { get; set; }
@@ -608,7 +608,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// An `Encryption` block as documented below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.RegistryEncryptionGetArgs>? Encryption { get; set; }
@@ -623,7 +623,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryGeoreplicationGetArgs>? _georeplications;
 
         /// <summary>
-        /// One or more `Georeplications` blocks as documented below.
+        /// One or more `Georeplications` blocks as defined below.
         /// 
         /// &gt; **Note:** The `Georeplications` is only supported on new resources with the `Premium` SKU.
         /// 
@@ -674,7 +674,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
-        /// A `NetworkRuleSet` block as documented below.
+        /// A `NetworkRuleSet` block as defined below.
         /// </summary>
         [Input("networkRuleSet")]
         public Input<Inputs.RegistryNetworkRuleSetGetArgs>? NetworkRuleSet { get; set; }

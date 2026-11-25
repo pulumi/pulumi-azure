@@ -120,11 +120,11 @@ type LocalRulestackRule struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
-	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
 	ProtocolPorts pulumi.StringArrayOutput `pulumi:"protocolPorts"`
 	// The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	RulestackId pulumi.StringOutput `pulumi:"rulestackId"`
@@ -212,11 +212,11 @@ type localRulestackRuleState struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority *int `pulumi:"priority"`
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol *string `pulumi:"protocol"`
-	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
 	ProtocolPorts []string `pulumi:"protocolPorts"`
 	// The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	RulestackId *string `pulumi:"rulestackId"`
@@ -257,11 +257,11 @@ type LocalRulestackRuleState struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntPtrInput
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol pulumi.StringPtrInput
-	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
 	ProtocolPorts pulumi.StringArrayInput
 	// The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	RulestackId pulumi.StringPtrInput
@@ -306,11 +306,11 @@ type localRulestackRuleArgs struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority int `pulumi:"priority"`
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol *string `pulumi:"protocol"`
-	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
 	ProtocolPorts []string `pulumi:"protocolPorts"`
 	// The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	RulestackId string `pulumi:"rulestackId"`
@@ -352,11 +352,11 @@ type LocalRulestackRuleArgs struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntInput
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol pulumi.StringPtrInput
-	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+	// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
 	ProtocolPorts pulumi.StringArrayInput
 	// The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	RulestackId pulumi.StringInput
@@ -525,14 +525,14 @@ func (o LocalRulestackRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *LocalRulestackRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
 //
 // > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 func (o LocalRulestackRuleOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRulestackRule) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
 func (o LocalRulestackRuleOutput) ProtocolPorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalRulestackRule) pulumi.StringArrayOutput { return v.ProtocolPorts }).(pulumi.StringArrayOutput)
 }

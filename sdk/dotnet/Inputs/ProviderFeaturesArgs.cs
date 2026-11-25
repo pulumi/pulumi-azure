@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Inputs
         public Input<Inputs.ProviderFeaturesNetappArgs>? Netapp { get; set; }
 
         /// <summary>
-        /// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `False`.
+        /// Whether to set the resource ID into state before polling asynchronous operations for completion.
         /// </summary>
         [Input("persistIdOnCreateBeforePollingForCompletion")]
         public Input<bool>? PersistIdOnCreateBeforePollingForCompletion { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Inputs
         public Input<Inputs.ProviderFeaturesServicebusArgs>? Servicebus { get; set; }
 
         /// <summary>
-        /// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `False`.
+        /// Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
         /// </summary>
         [Input("skipImportCheckOnCreateAndAllowOverwritingExistingResources")]
         public Input<bool>? SkipImportCheckOnCreateAndAllowOverwritingExistingResources { get; set; }

@@ -84,7 +84,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
-     * One or more `frontendIpConfiguration` blocks as documented below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      *
      * > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
      */
@@ -177,7 +177,7 @@ export interface LoadBalancerState {
      */
     edgeZone?: pulumi.Input<string | undefined>;
     /**
-     * One or more `frontendIpConfiguration` blocks as documented below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      *
      * > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
      */
@@ -227,7 +227,7 @@ export interface LoadBalancerArgs {
      */
     edgeZone?: pulumi.Input<string | undefined>;
     /**
-     * One or more `frontendIpConfiguration` blocks as documented below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      *
      * > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
      */

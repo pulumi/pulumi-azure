@@ -205,14 +205,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bgpRouteTranslationForNatEnabled);
     }
     /**
-     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+     * A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
      * 
      */
     @Export(name="bgpSettings", refs={VirtualNetworkGatewayBgpSettings.class}, tree="[0]")
     private Output<VirtualNetworkGatewayBgpSettings> bgpSettings;
 
     /**
-     * @return A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+     * @return A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
      * 
      */
     public Output<VirtualNetworkGatewayBgpSettings> bgpSettings() {
@@ -513,14 +513,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualWanTrafficEnabled);
     }
     /**
-     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     @Export(name="vpnClientConfiguration", refs={VirtualNetworkGatewayVpnClientConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VirtualNetworkGatewayVpnClientConfiguration> vpnClientConfiguration;
 
     /**
-     * @return A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * @return A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     public Output<Optional<VirtualNetworkGatewayVpnClientConfiguration>> vpnClientConfiguration() {

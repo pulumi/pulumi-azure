@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .get_service import *
 from .service import *
+from .service_datasource_blob import *
 from .shared_private_link_service import *
 from ._inputs import *
 from . import outputs

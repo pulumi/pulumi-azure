@@ -35,14 +35,14 @@ public final class LoggerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+     * An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="applicationInsights")
     private @Nullable Output<LoggerApplicationInsightsArgs> applicationInsights;
 
     /**
-     * @return An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+     * @return An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<LoggerApplicationInsightsArgs>> applicationInsights() {
@@ -80,14 +80,14 @@ public final class LoggerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `eventhub` block as documented below. Changing this forces a new resource to be created.
+     * An `eventhub` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="eventhub")
     private @Nullable Output<LoggerEventhubArgs> eventhub;
 
     /**
-     * @return An `eventhub` block as documented below. Changing this forces a new resource to be created.
+     * @return An `eventhub` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<LoggerEventhubArgs>> eventhub() {
@@ -192,7 +192,7 @@ public final class LoggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationInsights An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+         * @param applicationInsights An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class LoggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationInsights An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+         * @param applicationInsights An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class LoggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventhub An `eventhub` block as documented below. Changing this forces a new resource to be created.
+         * @param eventhub An `eventhub` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class LoggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventhub An `eventhub` block as documented below. Changing this forces a new resource to be created.
+         * @param eventhub An `eventhub` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

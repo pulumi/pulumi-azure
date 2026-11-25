@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := nginx.LookupCertificate(ctx, &nginx.LookupCertificateArgs{
-//				Name:              "existing",
+//				Name:              "example-certificate",
 //				NginxDeploymentId: exampleAzurermNginxDeployment.Id,
 //			}, nil)
 //			if err != nil {

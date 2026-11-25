@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ServiceProviderProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// A `Sku` block for the ExpressRoute circuit as documented below.
+        /// A `Sku` block for the ExpressRoute circuit as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ExpressRouteCircuitSku> Sku { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ServiceProviderName { get; set; }
 
         /// <summary>
-        /// A `Sku` block for the ExpressRoute circuit as documented below.
+        /// A `Sku` block for the ExpressRoute circuit as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ExpressRouteCircuitSkuArgs> Sku { get; set; } = null!;
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ServiceProviderProvisioningState { get; set; }
 
         /// <summary>
-        /// A `Sku` block for the ExpressRoute circuit as documented below.
+        /// A `Sku` block for the ExpressRoute circuit as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ExpressRouteCircuitSkuGetArgs>? Sku { get; set; }

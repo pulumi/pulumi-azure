@@ -126,7 +126,7 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[_builtins.str] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.portal.azurerm_portal_dashboard(name="existing-dashboard",
+    example = azure.portal.azurerm_portal_dashboard(name="example-dashboard",
         resource_group_name="dashboard-rg")
     pulumi.export("id", example_azurerm_dashboard["id"])
     ```
@@ -174,7 +174,7 @@ def azurerm_portal_dashboard_output(dashboard_properties: pulumi.Input[Optional[
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.portal.azurerm_portal_dashboard(name="existing-dashboard",
+    example = azure.portal.azurerm_portal_dashboard(name="example-dashboard",
         resource_group_name="dashboard-rg")
     pulumi.export("id", example_azurerm_dashboard["id"])
     ```

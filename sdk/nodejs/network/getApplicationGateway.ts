@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getApplicationGateway({
- *     name: "existing-app-gateway",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-app-gateway",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -208,8 +208,8 @@ export interface GetApplicationGatewayResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getApplicationGateway({
- *     name: "existing-app-gateway",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-app-gateway",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

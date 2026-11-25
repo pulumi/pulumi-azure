@@ -65,18 +65,33 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
      * 
      */
     @Import(name="pointInTimeRestore")
     private @Nullable Output<ManagedDatabasePointInTimeRestoreArgs> pointInTimeRestore;
 
     /**
-     * @return A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+     * @return A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
      * 
      */
     public Optional<Output<ManagedDatabasePointInTimeRestoreArgs>> pointInTimeRestore() {
         return Optional.ofNullable(this.pointInTimeRestore);
+    }
+
+    /**
+     * The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+     * 
+     */
+    @Import(name="recoverDatabaseId")
+    private @Nullable Output<String> recoverDatabaseId;
+
+    /**
+     * @return The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+     * 
+     */
+    public Optional<Output<String>> recoverDatabaseId() {
+        return Optional.ofNullable(this.recoverDatabaseId);
     }
 
     /**
@@ -116,6 +131,7 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
         this.managedInstanceId = $.managedInstanceId;
         this.name = $.name;
         this.pointInTimeRestore = $.pointInTimeRestore;
+        this.recoverDatabaseId = $.recoverDatabaseId;
         this.shortTermRetentionDays = $.shortTermRetentionDays;
         this.tags = $.tags;
     }
@@ -202,7 +218,7 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param pointInTimeRestore A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+         * @param pointInTimeRestore A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
          * 
          * @return builder
          * 
@@ -213,13 +229,34 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param pointInTimeRestore A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+         * @param pointInTimeRestore A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
          * 
          * @return builder
          * 
          */
         public Builder pointInTimeRestore(ManagedDatabasePointInTimeRestoreArgs pointInTimeRestore) {
             return pointInTimeRestore(Output.of(pointInTimeRestore));
+        }
+
+        /**
+         * @param recoverDatabaseId The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoverDatabaseId(@Nullable Output<String> recoverDatabaseId) {
+            $.recoverDatabaseId = recoverDatabaseId;
+            return this;
+        }
+
+        /**
+         * @param recoverDatabaseId The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoverDatabaseId(String recoverDatabaseId) {
+            return recoverDatabaseId(Output.of(recoverDatabaseId));
         }
 
         /**

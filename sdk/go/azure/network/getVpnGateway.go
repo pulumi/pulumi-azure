@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.LookupVpnGateway(ctx, &network.LookupVpnGatewayArgs{
-//				Name:              "existing-local-vpn_gateway",
-//				ResourceGroupName: "existing-vpn_gateway",
+//				Name:              "example-vpn-gateway",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

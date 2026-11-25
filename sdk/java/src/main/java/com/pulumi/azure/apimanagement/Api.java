@@ -134,14 +134,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.apiType;
     }
     /**
-     * A `contact` block as documented below.
+     * A `contact` block as defined below.
      * 
      */
     @Export(name="contact", refs={ApiContact.class}, tree="[0]")
     private Output</* @Nullable */ ApiContact> contact;
 
     /**
-     * @return A `contact` block as documented below.
+     * @return A `contact` block as defined below.
      * 
      */
     public Output<Optional<ApiContact>> contact() {
@@ -176,7 +176,7 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * A `import` block as documented below.
+     * A `import` block as defined below.
      * 
      * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
@@ -185,7 +185,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ApiImport> import_;
 
     /**
-     * @return A `import` block as documented below.
+     * @return A `import` block as defined below.
      * 
      * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
@@ -222,14 +222,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.isOnline;
     }
     /**
-     * A `license` block as documented below.
+     * A `license` block as defined below.
      * 
      */
     @Export(name="license", refs={ApiLicense.class}, tree="[0]")
     private Output</* @Nullable */ ApiLicense> license;
 
     /**
-     * @return A `license` block as documented below.
+     * @return A `license` block as defined below.
      * 
      */
     public Output<Optional<ApiLicense>> license() {
@@ -250,28 +250,28 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An `oauth2Authorization` block as documented below.
+     * An `oauth2Authorization` block as defined below.
      * 
      */
     @Export(name="oauth2Authorization", refs={ApiOauth2Authorization.class}, tree="[0]")
     private Output</* @Nullable */ ApiOauth2Authorization> oauth2Authorization;
 
     /**
-     * @return An `oauth2Authorization` block as documented below.
+     * @return An `oauth2Authorization` block as defined below.
      * 
      */
     public Output<Optional<ApiOauth2Authorization>> oauth2Authorization() {
         return Codegen.optional(this.oauth2Authorization);
     }
     /**
-     * An `openidAuthentication` block as documented below.
+     * An `openidAuthentication` block as defined below.
      * 
      */
     @Export(name="openidAuthentication", refs={ApiOpenidAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ ApiOpenidAuthentication> openidAuthentication;
 
     /**
-     * @return An `openidAuthentication` block as documented below.
+     * @return An `openidAuthentication` block as defined below.
      * 
      */
     public Output<Optional<ApiOpenidAuthentication>> openidAuthentication() {
@@ -384,14 +384,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceApiId);
     }
     /**
-     * A `subscriptionKeyParameterNames` block as documented below.
+     * A `subscriptionKeyParameterNames` block as defined below.
      * 
      */
     @Export(name="subscriptionKeyParameterNames", refs={ApiSubscriptionKeyParameterNames.class}, tree="[0]")
     private Output<ApiSubscriptionKeyParameterNames> subscriptionKeyParameterNames;
 
     /**
-     * @return A `subscriptionKeyParameterNames` block as documented below.
+     * @return A `subscriptionKeyParameterNames` block as defined below.
      * 
      */
     public Output<ApiSubscriptionKeyParameterNames> subscriptionKeyParameterNames() {

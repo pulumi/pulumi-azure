@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorEndpoint({
- *     name: "existing-endpoint",
- *     profileName: "existing-cdn-profile",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-endpoint",
+ *     profileName: "example-cdn-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorEndpoint(args: GetFrontdoorEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,9 +88,9 @@ export interface GetFrontdoorEndpointResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorEndpoint({
- *     name: "existing-endpoint",
- *     profileName: "existing-cdn-profile",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-endpoint",
+ *     profileName: "example-cdn-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -99,7 +99,7 @@ export interface GetFrontdoorEndpointResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

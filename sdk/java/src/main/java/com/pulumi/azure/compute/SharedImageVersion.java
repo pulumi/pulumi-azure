@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.compute.SharedImageVersionArgs;
 import com.pulumi.azure.compute.inputs.SharedImageVersionState;
 import com.pulumi.azure.compute.outputs.SharedImageVersionTargetRegion;
+import com.pulumi.azure.compute.outputs.SharedImageVersionUefi;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -100,9 +101,9 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
-     * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
      * 
      */
     @Export(name="blobUri", refs={String.class}, tree="[0]")
@@ -111,9 +112,9 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
-     * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
      * 
      */
     public Output<Optional<String>> blobUri() {
@@ -206,9 +207,9 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
      */
     @Export(name="managedImageId", refs={String.class}, tree="[0]")
@@ -217,9 +218,9 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
      */
     public Output<Optional<String>> managedImageId() {
@@ -242,7 +243,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
      */
     @Export(name="osDiskSnapshotId", refs={String.class}, tree="[0]")
@@ -251,7 +252,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
      */
     public Output<Optional<String>> osDiskSnapshotId() {
@@ -288,7 +289,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -297,39 +298,53 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
      * 
      */
     public Output<Optional<String>> storageAccountId() {
         return Codegen.optional(this.storageAccountId);
     }
     /**
-     * A collection of tags which should be applied to this resource.
+     * A mapping of tags which should be applied to this resource.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A collection of tags which should be applied to this resource.
+     * @return A mapping of tags which should be applied to this resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * One or more `targetRegion` blocks as documented below.
+     * One or more `targetRegion` blocks as defined below.
      * 
      */
     @Export(name="targetRegions", refs={List.class,SharedImageVersionTargetRegion.class}, tree="[0,1]")
     private Output<List<SharedImageVersionTargetRegion>> targetRegions;
 
     /**
-     * @return One or more `targetRegion` blocks as documented below.
+     * @return One or more `targetRegion` blocks as defined below.
      * 
      */
     public Output<List<SharedImageVersionTargetRegion>> targetRegions() {
         return this.targetRegions;
+    }
+    /**
+     * A `uefi` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="uefi", refs={SharedImageVersionUefi.class}, tree="[0]")
+    private Output</* @Nullable */ SharedImageVersionUefi> uefi;
+
+    /**
+     * @return A `uefi` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<SharedImageVersionUefi>> uefi() {
+        return Codegen.optional(this.uefi);
     }
 
     /**

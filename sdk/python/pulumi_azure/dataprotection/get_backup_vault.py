@@ -140,8 +140,8 @@ def get_backup_vault(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dataprotection.get_backup_vault(name="existing-backup-vault",
-        resource_group_name="existing-resource-group")
+    example = azure.dataprotection.get_backup_vault(name="example-backup-vault",
+        resource_group_name="example-resources")
     pulumi.export("azurermDataProtectionBackupVaultId", example_azurerm_vpn_gateway["id"])
     pulumi.export("azurermDataProtectionBackupVaultPrincipalId", example.identities[0].principal_id)
     ```
@@ -184,8 +184,8 @@ def get_backup_vault_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dataprotection.get_backup_vault(name="existing-backup-vault",
-        resource_group_name="existing-resource-group")
+    example = azure.dataprotection.get_backup_vault(name="example-backup-vault",
+        resource_group_name="example-resources")
     pulumi.export("azurermDataProtectionBackupVaultId", example_azurerm_vpn_gateway["id"])
     pulumi.export("azurermDataProtectionBackupVaultPrincipalId", example.identities[0].principal_id)
     ```

@@ -228,14 +228,14 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `sku` block for the ExpressRoute circuit as documented below.
+     * A `sku` block for the ExpressRoute circuit as defined below.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<ExpressRouteCircuitSkuArgs> sku;
 
     /**
-     * @return A `sku` block for the ExpressRoute circuit as documented below.
+     * @return A `sku` block for the ExpressRoute circuit as defined below.
      * 
      */
     public Optional<Output<ExpressRouteCircuitSkuArgs>> sku() {
@@ -581,7 +581,7 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sku A `sku` block for the ExpressRoute circuit as documented below.
+         * @param sku A `sku` block for the ExpressRoute circuit as defined below.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sku A `sku` block for the ExpressRoute circuit as documented below.
+         * @param sku A `sku` block for the ExpressRoute circuit as defined below.
          * 
          * @return builder
          * 

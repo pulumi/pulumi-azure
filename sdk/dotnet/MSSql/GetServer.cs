@@ -26,8 +26,8 @@ namespace Pulumi.Azure.MSSql
         /// {
         ///     var example = Azure.MSSql.GetServer.Invoke(new()
         ///     {
-        ///         Name = "existingMsSqlServer",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-mssql-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.MSSql
         /// {
         ///     var example = Azure.MSSql.GetServer.Invoke(new()
         ///     {
-        ///         Name = "existingMsSqlServer",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-mssql-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.MSSql
         /// {
         ///     var example = Azure.MSSql.GetServer.Invoke(new()
         ///     {
-        ///         Name = "existingMsSqlServer",
-        ///         ResourceGroupName = "existingResGroup",
+        ///         Name = "example-mssql-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

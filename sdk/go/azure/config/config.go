@@ -19,12 +19,12 @@ func GetAuxiliaryTenantIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:auxiliaryTenantIds")
 }
 
-// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
 func GetClientCertificate(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:clientCertificate")
 }
 
-// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
 func GetClientCertificatePassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:clientCertificatePassword")
 }
@@ -195,7 +195,7 @@ func GetUseMsi(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:useMsi")
 }
 
-// Allow OpenID Connect to be used for authentication
+// Allow OpenID Connect to be used for authentication.
 func GetUseOidc(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:useOidc")
 }

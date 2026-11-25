@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage":
 		r = &BackupInstanceBlogStorage{}
+	case "azure:dataprotection/backupInstanceCosmosdbAccount:BackupInstanceCosmosdbAccount":
+		r = &BackupInstanceCosmosdbAccount{}
 	case "azure:dataprotection/backupInstanceDataLakeStorage:BackupInstanceDataLakeStorage":
 		r = &BackupInstanceDataLakeStorage{}
 	case "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk":
@@ -35,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupInstancePostgresqlFlexibleServer{}
 	case "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage":
 		r = &BackupPolicyBlobStorage{}
+	case "azure:dataprotection/backupPolicyCosmosdbAccount:BackupPolicyCosmosdbAccount":
+		r = &BackupPolicyCosmosdbAccount{}
 	case "azure:dataprotection/backupPolicyDataLakeStorage:BackupPolicyDataLakeStorage":
 		r = &BackupPolicyDataLakeStorage{}
 	case "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk":
@@ -49,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupVault{}
 	case "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey":
 		r = &BackupVaultCustomerManagedKey{}
+	case "azure:dataprotection/backupVaultResourceGuardAssociation:BackupVaultResourceGuardAssociation":
+		r = &BackupVaultResourceGuardAssociation{}
 	case "azure:dataprotection/resourceGuard:ResourceGuard":
 		r = &ResourceGuard{}
 	default:
@@ -67,6 +73,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"dataprotection/backupInstanceBlogStorage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"dataprotection/backupInstanceCosmosdbAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -97,6 +108,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"dataprotection/backupPolicyBlobStorage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"dataprotection/backupPolicyCosmosdbAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -132,6 +148,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"dataprotection/backupVaultCustomerManagedKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"dataprotection/backupVaultResourceGuardAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

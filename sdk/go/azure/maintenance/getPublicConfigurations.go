@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			existing, err := maintenance.GetPublicConfigurations(ctx, &maintenance.GetPublicConfigurationsArgs{
+//			example, err := maintenance.GetPublicConfigurations(ctx, &maintenance.GetPublicConfigurationsArgs{
 //				Location:   pulumi.StringRef("West Europe"),
 //				Scope:      pulumi.StringRef("SQLManagedInstance"),
 //				RecurEvery: pulumi.StringRef("Monday-Thursday"),
@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("name", existing.Configs[0].Name)
+//			ctx.Export("name", example.Configs[0].Name)
 //			return nil
 //		})
 //	}

@@ -95,9 +95,9 @@ def get_secrets(key_vault_id: Optional[_builtins.str] = None,
     import pulumi_azure as azure
     import pulumi_std as std
 
-    example = azure.keyvault.get_secrets(key_vault_id=existing["id"])
+    example = azure.keyvault.get_secrets(key_vault_id=example_azurerm_key_vault["id"])
     example_get_secret = {str(__key): azure.keyvault.get_secret(name=str(__key),
-        key_vault_id=existing["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
+        key_vault_id=example_azurerm_key_vault["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
 
@@ -127,9 +127,9 @@ def get_secrets_output(key_vault_id: pulumi.Input[Optional[_builtins.str]] = Non
     import pulumi_azure as azure
     import pulumi_std as std
 
-    example = azure.keyvault.get_secrets(key_vault_id=existing["id"])
+    example = azure.keyvault.get_secrets(key_vault_id=example_azurerm_key_vault["id"])
     example_get_secret = {str(__key): azure.keyvault.get_secret(name=str(__key),
-        key_vault_id=existing["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
+        key_vault_id=example_azurerm_key_vault["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
 

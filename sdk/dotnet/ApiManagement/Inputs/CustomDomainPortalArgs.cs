@@ -44,9 +44,15 @@ namespace Pulumi.Azure.ApiManagement.Inputs
             }
         }
 
+        /// <summary>
+        /// The source of the certificate.
+        /// </summary>
         [Input("certificateSource")]
         public Input<string>? CertificateSource { get; set; }
 
+        /// <summary>
+        /// The status of the certificate.
+        /// </summary>
         [Input("certificateStatus")]
         public Input<string>? CertificateStatus { get; set; }
 
@@ -59,6 +65,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultCertificateId")]
         public Input<string>? KeyVaultCertificateId { get; set; }
 

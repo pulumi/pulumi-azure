@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * const exampleGetAlertRule = example.then(example => azure.sentinel.getAlertRule({
- *     name: "existing",
+ *     name: "example-alert-rule",
  *     logAnalyticsWorkspaceId: example.id,
  * }));
  * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
@@ -78,7 +78,7 @@ export interface GetAlertRuleResult {
  *     resourceGroupName: "example-resources",
  * });
  * const exampleGetAlertRule = example.then(example => azure.sentinel.getAlertRule({
- *     name: "existing",
+ *     name: "example-alert-rule",
  *     logAnalyticsWorkspaceId: example.id,
  * }));
  * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);

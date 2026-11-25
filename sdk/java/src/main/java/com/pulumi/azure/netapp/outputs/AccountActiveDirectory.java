@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.netapp.outputs;
 
+import com.pulumi.azure.netapp.outputs.AccountActiveDirectoryLdapSearchScope;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -15,10 +16,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountActiveDirectory {
     /**
+     * @return A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    private @Nullable List<String> administratorUsers;
+    /**
      * @return If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
      * 
      */
     private @Nullable Boolean aesEncryptionEnabled;
+    /**
+     * @return A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    private @Nullable List<String> backupUsers;
     /**
      * @return A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
      * 
@@ -29,6 +40,11 @@ public final class AccountActiveDirectory {
      * 
      */
     private String domain;
+    /**
+     * @return If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean domainControllerConnectionEncryptionEnabled;
     /**
      * @return Name of the active directory machine.
      * 
@@ -42,10 +58,20 @@ public final class AccountActiveDirectory {
      */
     private @Nullable String kerberosKdcIp;
     /**
+     * @return Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+     * 
+     */
+    private @Nullable List<String> ldapClientPreferredServers;
+    /**
      * @return Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
      * 
      */
     private @Nullable Boolean ldapOverTlsEnabled;
+    /**
+     * @return An `ldapSearchScope` block as defined below.
+     * 
+     */
+    private @Nullable AccountActiveDirectoryLdapSearchScope ldapSearchScope;
     /**
      * @return Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
      * 
@@ -66,6 +92,11 @@ public final class AccountActiveDirectory {
      * 
      */
     private String password;
+    /**
+     * @return A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    private @Nullable List<String> securityUsers;
     /**
      * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
      * 
@@ -89,11 +120,25 @@ public final class AccountActiveDirectory {
 
     private AccountActiveDirectory() {}
     /**
+     * @return A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    public List<String> administratorUsers() {
+        return this.administratorUsers == null ? List.of() : this.administratorUsers;
+    }
+    /**
      * @return If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
      * 
      */
     public Optional<Boolean> aesEncryptionEnabled() {
         return Optional.ofNullable(this.aesEncryptionEnabled);
+    }
+    /**
+     * @return A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    public List<String> backupUsers() {
+        return this.backupUsers == null ? List.of() : this.backupUsers;
     }
     /**
      * @return A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
@@ -108,6 +153,13 @@ public final class AccountActiveDirectory {
      */
     public String domain() {
         return this.domain;
+    }
+    /**
+     * @return If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> domainControllerConnectionEncryptionEnabled() {
+        return Optional.ofNullable(this.domainControllerConnectionEncryptionEnabled);
     }
     /**
      * @return Name of the active directory machine.
@@ -126,11 +178,25 @@ public final class AccountActiveDirectory {
         return Optional.ofNullable(this.kerberosKdcIp);
     }
     /**
+     * @return Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+     * 
+     */
+    public List<String> ldapClientPreferredServers() {
+        return this.ldapClientPreferredServers == null ? List.of() : this.ldapClientPreferredServers;
+    }
+    /**
      * @return Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
      * 
      */
     public Optional<Boolean> ldapOverTlsEnabled() {
         return Optional.ofNullable(this.ldapOverTlsEnabled);
+    }
+    /**
+     * @return An `ldapSearchScope` block as defined below.
+     * 
+     */
+    public Optional<AccountActiveDirectoryLdapSearchScope> ldapSearchScope() {
+        return Optional.ofNullable(this.ldapSearchScope);
     }
     /**
      * @return Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
@@ -159,6 +225,13 @@ public final class AccountActiveDirectory {
      */
     public String password() {
         return this.password;
+    }
+    /**
+     * @return A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `{@literal @}` or `\` and can be up to `255` characters long.
+     * 
+     */
+    public List<String> securityUsers() {
+        return this.securityUsers == null ? List.of() : this.securityUsers;
     }
     /**
      * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
@@ -198,16 +271,22 @@ public final class AccountActiveDirectory {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> administratorUsers;
         private @Nullable Boolean aesEncryptionEnabled;
+        private @Nullable List<String> backupUsers;
         private List<String> dnsServers;
         private String domain;
+        private @Nullable Boolean domainControllerConnectionEncryptionEnabled;
         private @Nullable String kerberosAdName;
         private @Nullable String kerberosKdcIp;
+        private @Nullable List<String> ldapClientPreferredServers;
         private @Nullable Boolean ldapOverTlsEnabled;
+        private @Nullable AccountActiveDirectoryLdapSearchScope ldapSearchScope;
         private @Nullable Boolean ldapSigningEnabled;
         private @Nullable Boolean localNfsUsersWithLdapAllowed;
         private @Nullable String organizationalUnit;
         private String password;
+        private @Nullable List<String> securityUsers;
         private @Nullable String serverRootCaCertificate;
         private @Nullable String siteName;
         private String smbServerName;
@@ -215,16 +294,22 @@ public final class AccountActiveDirectory {
         public Builder() {}
         public Builder(AccountActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.administratorUsers = defaults.administratorUsers;
     	      this.aesEncryptionEnabled = defaults.aesEncryptionEnabled;
+    	      this.backupUsers = defaults.backupUsers;
     	      this.dnsServers = defaults.dnsServers;
     	      this.domain = defaults.domain;
+    	      this.domainControllerConnectionEncryptionEnabled = defaults.domainControllerConnectionEncryptionEnabled;
     	      this.kerberosAdName = defaults.kerberosAdName;
     	      this.kerberosKdcIp = defaults.kerberosKdcIp;
+    	      this.ldapClientPreferredServers = defaults.ldapClientPreferredServers;
     	      this.ldapOverTlsEnabled = defaults.ldapOverTlsEnabled;
+    	      this.ldapSearchScope = defaults.ldapSearchScope;
     	      this.ldapSigningEnabled = defaults.ldapSigningEnabled;
     	      this.localNfsUsersWithLdapAllowed = defaults.localNfsUsersWithLdapAllowed;
     	      this.organizationalUnit = defaults.organizationalUnit;
     	      this.password = defaults.password;
+    	      this.securityUsers = defaults.securityUsers;
     	      this.serverRootCaCertificate = defaults.serverRootCaCertificate;
     	      this.siteName = defaults.siteName;
     	      this.smbServerName = defaults.smbServerName;
@@ -232,10 +317,28 @@ public final class AccountActiveDirectory {
         }
 
         @CustomType.Setter
+        public Builder administratorUsers(@Nullable List<String> administratorUsers) {
+
+            this.administratorUsers = administratorUsers;
+            return this;
+        }
+        public Builder administratorUsers(String... administratorUsers) {
+            return administratorUsers(List.of(administratorUsers));
+        }
+        @CustomType.Setter
         public Builder aesEncryptionEnabled(@Nullable Boolean aesEncryptionEnabled) {
 
             this.aesEncryptionEnabled = aesEncryptionEnabled;
             return this;
+        }
+        @CustomType.Setter
+        public Builder backupUsers(@Nullable List<String> backupUsers) {
+
+            this.backupUsers = backupUsers;
+            return this;
+        }
+        public Builder backupUsers(String... backupUsers) {
+            return backupUsers(List.of(backupUsers));
         }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
@@ -257,6 +360,12 @@ public final class AccountActiveDirectory {
             return this;
         }
         @CustomType.Setter
+        public Builder domainControllerConnectionEncryptionEnabled(@Nullable Boolean domainControllerConnectionEncryptionEnabled) {
+
+            this.domainControllerConnectionEncryptionEnabled = domainControllerConnectionEncryptionEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder kerberosAdName(@Nullable String kerberosAdName) {
 
             this.kerberosAdName = kerberosAdName;
@@ -269,9 +378,24 @@ public final class AccountActiveDirectory {
             return this;
         }
         @CustomType.Setter
+        public Builder ldapClientPreferredServers(@Nullable List<String> ldapClientPreferredServers) {
+
+            this.ldapClientPreferredServers = ldapClientPreferredServers;
+            return this;
+        }
+        public Builder ldapClientPreferredServers(String... ldapClientPreferredServers) {
+            return ldapClientPreferredServers(List.of(ldapClientPreferredServers));
+        }
+        @CustomType.Setter
         public Builder ldapOverTlsEnabled(@Nullable Boolean ldapOverTlsEnabled) {
 
             this.ldapOverTlsEnabled = ldapOverTlsEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ldapSearchScope(@Nullable AccountActiveDirectoryLdapSearchScope ldapSearchScope) {
+
+            this.ldapSearchScope = ldapSearchScope;
             return this;
         }
         @CustomType.Setter
@@ -299,6 +423,15 @@ public final class AccountActiveDirectory {
             }
             this.password = password;
             return this;
+        }
+        @CustomType.Setter
+        public Builder securityUsers(@Nullable List<String> securityUsers) {
+
+            this.securityUsers = securityUsers;
+            return this;
+        }
+        public Builder securityUsers(String... securityUsers) {
+            return securityUsers(List.of(securityUsers));
         }
         @CustomType.Setter
         public Builder serverRootCaCertificate(@Nullable String serverRootCaCertificate) {
@@ -330,16 +463,22 @@ public final class AccountActiveDirectory {
         }
         public AccountActiveDirectory build() {
             final var _resultValue = new AccountActiveDirectory();
+            _resultValue.administratorUsers = administratorUsers;
             _resultValue.aesEncryptionEnabled = aesEncryptionEnabled;
+            _resultValue.backupUsers = backupUsers;
             _resultValue.dnsServers = dnsServers;
             _resultValue.domain = domain;
+            _resultValue.domainControllerConnectionEncryptionEnabled = domainControllerConnectionEncryptionEnabled;
             _resultValue.kerberosAdName = kerberosAdName;
             _resultValue.kerberosKdcIp = kerberosKdcIp;
+            _resultValue.ldapClientPreferredServers = ldapClientPreferredServers;
             _resultValue.ldapOverTlsEnabled = ldapOverTlsEnabled;
+            _resultValue.ldapSearchScope = ldapSearchScope;
             _resultValue.ldapSigningEnabled = ldapSigningEnabled;
             _resultValue.localNfsUsersWithLdapAllowed = localNfsUsersWithLdapAllowed;
             _resultValue.organizationalUnit = organizationalUnit;
             _resultValue.password = password;
+            _resultValue.securityUsers = securityUsers;
             _resultValue.serverRootCaCertificate = serverRootCaCertificate;
             _resultValue.siteName = siteName;
             _resultValue.smbServerName = smbServerName;

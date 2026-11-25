@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := digitaltwins.LookupInstance(ctx, &digitaltwins.LookupInstanceArgs{
-//				Name:              "existing-digital-twins",
-//				ResourceGroupName: "existing-resgroup",
+//				Name:              "example-digital-twins",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

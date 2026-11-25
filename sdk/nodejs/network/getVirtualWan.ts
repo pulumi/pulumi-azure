@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getVirtualWan({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-virtual-wan",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * export const allowBranchToBranchTraffic = example.then(example => example.allowBranchToBranchTraffic);
@@ -110,8 +110,8 @@ export interface GetVirtualWanResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getVirtualWan({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-virtual-wan",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * export const allowBranchToBranchTraffic = example.then(example => example.allowBranchToBranchTraffic);

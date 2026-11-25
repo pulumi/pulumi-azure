@@ -112,7 +112,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// A `NodeNetworkProfile` block as documented below.
+        /// A `NodeNetworkProfile` block as defined below.
         /// </summary>
         [Input("nodeNetworkProfile")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileGetArgs>? NodeNetworkProfile { get; set; }
@@ -182,6 +182,14 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? ScaleDownMode { get; set; }
 
         /// <summary>
+        /// A `Security` block as documented below.
+        /// 
+        /// &gt; **Note:** Changing either flag in `Security` reimages the nodes in this pool and can disrupt workloads.
+        /// </summary>
+        [Input("security")]
+        public Input<Inputs.KubernetesClusterDefaultNodePoolSecurityGetArgs>? Security { get; set; }
+
+        /// <summary>
         /// The ID of the Snapshot which should be used to create this default Node Pool. `TemporaryNameForRotation` must be specified when changing this property.
         /// </summary>
         [Input("snapshotId")]
@@ -222,7 +230,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? UltraSsdEnabled { get; set; }
 
         /// <summary>
-        /// A `UpgradeSettings` block as documented below.
+        /// A `UpgradeSettings` block as defined below.
         /// </summary>
         [Input("upgradeSettings")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsGetArgs>? UpgradeSettings { get; set; }

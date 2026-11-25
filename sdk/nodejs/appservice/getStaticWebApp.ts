@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appservice.getStaticWebApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-static-web-app",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -127,8 +127,8 @@ export interface GetStaticWebAppResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appservice.getStaticWebApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-static-web-app",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *

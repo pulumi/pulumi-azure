@@ -175,8 +175,8 @@ def get_service(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.communication.get_service(name="existing",
-        resource_group_name="existing")
+    example = azure.communication.get_service(name="example-communication-service",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -223,8 +223,8 @@ def get_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.communication.get_service(name="existing",
-        resource_group_name="existing")
+    example = azure.communication.get_service(name="example-communication-service",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

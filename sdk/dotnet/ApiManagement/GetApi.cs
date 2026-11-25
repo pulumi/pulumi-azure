@@ -236,7 +236,7 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly bool SoapPassThrough;
         /// <summary>
-        /// A `SubscriptionKeyParameterNames` block as documented below.
+        /// A `SubscriptionKeyParameterNames` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApiSubscriptionKeyParameterNameResult> SubscriptionKeyParameterNames;
         /// <summary>

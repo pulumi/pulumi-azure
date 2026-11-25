@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := oracle.LookupExadataInfrastructure(ctx, &oracle.LookupExadataInfrastructureArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-exadata-infrastructure",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

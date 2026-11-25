@@ -26,8 +26,8 @@ namespace Pulumi.Azure.ServiceBus
         /// {
         ///     var example = Azure.ServiceBus.GetQueue.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         NamespaceId = "existing",
+        ///         Name = "example-queue",
+        ///         NamespaceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.ServiceBus
         /// {
         ///     var example = Azure.ServiceBus.GetQueue.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         NamespaceId = "existing",
+        ///         Name = "example-queue",
+        ///         NamespaceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.ServiceBus
         /// {
         ///     var example = Azure.ServiceBus.GetQueue.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         NamespaceId = "existing",
+        ///         Name = "example-queue",
+        ///         NamespaceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

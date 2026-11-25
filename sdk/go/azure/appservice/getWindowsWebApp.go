@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := appservice.LookupWindowsWebApp(ctx, &appservice.LookupWindowsWebAppArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-web-app",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

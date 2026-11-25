@@ -16,62 +16,62 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceHostnameConfiguration {
     /**
-     * @return One or more `developerPortal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as defined below.
      * 
      */
     private List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals;
     /**
-     * @return One or more `management` blocks as documented below.
+     * @return One or more `management` blocks as defined below.
      * 
      */
     private List<GetServiceHostnameConfigurationManagement> managements;
     /**
-     * @return One or more `portal` blocks as documented below.
+     * @return One or more `portal` blocks as defined below.
      * 
      */
     private List<GetServiceHostnameConfigurationPortal> portals;
     /**
-     * @return One or more `proxy` blocks as documented below.
+     * @return One or more `proxy` blocks as defined below.
      * 
      */
     private List<GetServiceHostnameConfigurationProxy> proxies;
     /**
-     * @return One or more `scm` blocks as documented below.
+     * @return One or more `scm` blocks as defined below.
      * 
      */
     private List<GetServiceHostnameConfigurationScm> scms;
 
     private GetServiceHostnameConfiguration() {}
     /**
-     * @return One or more `developerPortal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as defined below.
      * 
      */
     public List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals() {
         return this.developerPortals;
     }
     /**
-     * @return One or more `management` blocks as documented below.
+     * @return One or more `management` blocks as defined below.
      * 
      */
     public List<GetServiceHostnameConfigurationManagement> managements() {
         return this.managements;
     }
     /**
-     * @return One or more `portal` blocks as documented below.
+     * @return One or more `portal` blocks as defined below.
      * 
      */
     public List<GetServiceHostnameConfigurationPortal> portals() {
         return this.portals;
     }
     /**
-     * @return One or more `proxy` blocks as documented below.
+     * @return One or more `proxy` blocks as defined below.
      * 
      */
     public List<GetServiceHostnameConfigurationProxy> proxies() {
         return this.proxies;
     }
     /**
-     * @return One or more `scm` blocks as documented below.
+     * @return One or more `scm` blocks as defined below.
      * 
      */
     public List<GetServiceHostnameConfigurationScm> scms() {

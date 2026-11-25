@@ -91,7 +91,7 @@ class GetDomainResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetDomainIdentityResult']:
         """
-        An `identity` block as documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
 

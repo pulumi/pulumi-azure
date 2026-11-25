@@ -71,7 +71,7 @@ type LookupImageArgs struct {
 
 // A collection of values returned by getImage.
 type LookupImageResult struct {
-	// a collection of `dataDisk` blocks as defined below.
+	// One or more `dataDisk` blocks as defined below.
 	DataDisks []GetImageDataDisk `pulumi:"dataDisks"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -126,7 +126,7 @@ func (o LookupImageResultOutput) ToLookupImageResultOutputWithContext(ctx contex
 	return o
 }
 
-// a collection of `dataDisk` blocks as defined below.
+// One or more `dataDisk` blocks as defined below.
 func (o LookupImageResultOutput) DataDisks() GetImageDataDiskArrayOutput {
 	return o.ApplyT(func(v LookupImageResult) []GetImageDataDisk { return v.DataDisks }).(GetImageDataDiskArrayOutput)
 }

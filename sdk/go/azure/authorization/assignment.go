@@ -352,7 +352,9 @@ type Assignment struct {
 	DelegatedManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+	// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
@@ -428,7 +430,9 @@ type assignmentState struct {
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment.
 	Description *string `pulumi:"description"`
-	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+	// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
 	Name *string `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
@@ -463,7 +467,9 @@ type AssignmentState struct {
 	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
 	// The description for this Role Assignment.
 	Description pulumi.StringPtrInput
-	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+	// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
 	Name pulumi.StringPtrInput
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
@@ -502,7 +508,9 @@ type assignmentArgs struct {
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment.
 	Description *string `pulumi:"description"`
-	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+	// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
 	Name *string `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
@@ -538,7 +546,9 @@ type AssignmentArgs struct {
 	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
 	// The description for this Role Assignment.
 	Description pulumi.StringPtrInput
-	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+	// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
 	Name pulumi.StringPtrInput
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
@@ -671,7 +681,9 @@ func (o AssignmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+//
+// > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
 func (o AssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

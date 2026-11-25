@@ -19,14 +19,14 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
     public static final RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs Empty = new RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs();
 
     /**
-     * The additional recipients to notify
+     * The additional recipients to notify.
      * 
      */
     @Import(name="additionalRecipients")
     private @Nullable Output<List<String>> additionalRecipients;
 
     /**
-     * @return The additional recipients to notify
+     * @return The additional recipients to notify.
      * 
      */
     public Optional<Output<List<String>>> additionalRecipients() {
@@ -34,14 +34,14 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
     }
 
     /**
-     * Whether the default recipients are notified
+     * Whether the default recipients are notified.
      * 
      */
     @Import(name="defaultRecipients", required=true)
     private Output<Boolean> defaultRecipients;
 
     /**
-     * @return Whether the default recipients are notified
+     * @return Whether the default recipients are notified.
      * 
      */
     public Output<Boolean> defaultRecipients() {
@@ -49,14 +49,14 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
     }
 
     /**
-     * What level of notifications are sent
+     * What level of notifications are sent.
      * 
      */
     @Import(name="notificationLevel", required=true)
     private Output<String> notificationLevel;
 
     /**
-     * @return What level of notifications are sent
+     * @return What level of notifications are sent.
      * 
      */
     public Output<String> notificationLevel() {
@@ -90,7 +90,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
         }
 
         /**
-         * @param additionalRecipients The additional recipients to notify
+         * @param additionalRecipients The additional recipients to notify.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
         }
 
         /**
-         * @param additionalRecipients The additional recipients to notify
+         * @param additionalRecipients The additional recipients to notify.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
         }
 
         /**
-         * @param additionalRecipients The additional recipients to notify
+         * @param additionalRecipients The additional recipients to notify.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
         }
 
         /**
-         * @param defaultRecipients Whether the default recipients are notified
+         * @param defaultRecipients Whether the default recipients are notified.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
         }
 
         /**
-         * @param defaultRecipients Whether the default recipients are notified
+         * @param defaultRecipients Whether the default recipients are notified.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
         }
 
         /**
-         * @param notificationLevel What level of notifications are sent
+         * @param notificationLevel What level of notifications are sent.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class RoleManagementPolicyNotificationRulesEligibleActivationsAssig
         }
 
         /**
-         * @param notificationLevel What level of notifications are sent
+         * @param notificationLevel What level of notifications are sent.
          * 
          * @return builder
          * 

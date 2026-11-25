@@ -143,14 +143,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
      * 
      */
     @Export(name="geoFilters", refs={List.class,EndpointGeoFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointGeoFilter>> geoFilters;
 
     /**
-     * @return A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+     * @return A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
      * 
      */
     public Output<Optional<List<EndpointGeoFilter>>> geoFilters() {
@@ -283,14 +283,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.originPath);
     }
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="origins", refs={List.class,EndpointOrigin.class}, tree="[0,1]")
     private Output<List<EndpointOrigin>> origins;
 
     /**
-     * @return The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+     * @return The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<EndpointOrigin>> origins() {

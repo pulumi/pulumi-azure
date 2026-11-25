@@ -139,7 +139,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
      */
     declare public readonly action: pulumi.Output<string | undefined>;
     /**
-     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
     declare public readonly correlationFilter: pulumi.Output<outputs.servicebus.SubscriptionRuleCorrelationFilter | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface SubscriptionRuleState {
      */
     action?: pulumi.Input<string | undefined>;
     /**
-     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
     correlationFilter?: pulumi.Input<inputs.servicebus.SubscriptionRuleCorrelationFilter | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface SubscriptionRuleArgs {
      */
     action?: pulumi.Input<string | undefined>;
     /**
-     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
     correlationFilter?: pulumi.Input<inputs.servicebus.SubscriptionRuleCorrelationFilter | undefined>;
     /**

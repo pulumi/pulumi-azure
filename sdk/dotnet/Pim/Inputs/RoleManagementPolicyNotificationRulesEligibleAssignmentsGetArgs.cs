@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Pim.Inputs
     public sealed class RoleManagementPolicyNotificationRulesEligibleAssignmentsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Admin notification settings
+        /// Admin notification settings.
         /// </summary>
         [Input("adminNotifications")]
         public Input<Inputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsGetArgs>? AdminNotifications { get; set; }
 
         /// <summary>
-        /// Approver notification settings
+        /// Approver notification settings.
         /// </summary>
         [Input("approverNotifications")]
         public Input<Inputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsGetArgs>? ApproverNotifications { get; set; }
 
         /// <summary>
-        /// Assignee notification settings
+        /// Assignee notification settings.
         /// </summary>
         [Input("assigneeNotifications")]
         public Input<Inputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsGetArgs>? AssigneeNotifications { get; set; }

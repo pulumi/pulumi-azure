@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.LookupSubscriptionTemplateDeployment(ctx, &core.LookupSubscriptionTemplateDeploymentArgs{
-//				Name: "existing",
+//				Name: "example-deployment",
 //			}, nil)
 //			if err != nil {
 //				return err

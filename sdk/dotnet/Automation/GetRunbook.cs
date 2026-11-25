@@ -26,9 +26,9 @@ namespace Pulumi.Azure.Automation
         /// {
         ///     var example = Azure.Automation.GetRunbook.Invoke(new()
         ///     {
-        ///         Name = "existing-runbook",
-        ///         ResourceGroupName = "existing",
-        ///         AutomationAccountName = "existing-automation",
+        ///         Name = "example-runbook",
+        ///         ResourceGroupName = "example-resources",
+        ///         AutomationAccountName = "example-automation",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -63,9 +63,9 @@ namespace Pulumi.Azure.Automation
         /// {
         ///     var example = Azure.Automation.GetRunbook.Invoke(new()
         ///     {
-        ///         Name = "existing-runbook",
-        ///         ResourceGroupName = "existing",
-        ///         AutomationAccountName = "existing-automation",
+        ///         Name = "example-runbook",
+        ///         ResourceGroupName = "example-resources",
+        ///         AutomationAccountName = "example-automation",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -100,9 +100,9 @@ namespace Pulumi.Azure.Automation
         /// {
         ///     var example = Azure.Automation.GetRunbook.Invoke(new()
         ///     {
-        ///         Name = "existing-runbook",
-        ///         ResourceGroupName = "existing",
-        ///         AutomationAccountName = "existing-automation",
+        ///         Name = "example-runbook",
+        ///         ResourceGroupName = "example-resources",
+        ///         AutomationAccountName = "example-automation",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

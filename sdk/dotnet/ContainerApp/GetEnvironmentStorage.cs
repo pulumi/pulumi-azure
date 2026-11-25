@@ -26,13 +26,13 @@ namespace Pulumi.Azure.ContainerApp
         /// {
         ///     var example = Azure.ContainerApp.GetEnvironment.Invoke(new()
         ///     {
-        ///         Name = "existing-environment",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-environment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetEnvironmentStorage = Azure.ContainerApp.GetEnvironmentStorage.Invoke(new()
         ///     {
-        ///         Name = "existing-storage",
+        ///         Name = "example-storage",
         ///         ContainerAppEnvironmentId = example.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
         ///     });
         /// 
@@ -64,13 +64,13 @@ namespace Pulumi.Azure.ContainerApp
         /// {
         ///     var example = Azure.ContainerApp.GetEnvironment.Invoke(new()
         ///     {
-        ///         Name = "existing-environment",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-environment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetEnvironmentStorage = Azure.ContainerApp.GetEnvironmentStorage.Invoke(new()
         ///     {
-        ///         Name = "existing-storage",
+        ///         Name = "example-storage",
         ///         ContainerAppEnvironmentId = example.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
         ///     });
         /// 
@@ -102,13 +102,13 @@ namespace Pulumi.Azure.ContainerApp
         /// {
         ///     var example = Azure.ContainerApp.GetEnvironment.Invoke(new()
         ///     {
-        ///         Name = "existing-environment",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-environment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetEnvironmentStorage = Azure.ContainerApp.GetEnvironmentStorage.Invoke(new()
         ///     {
-        ///         Name = "existing-storage",
+        ///         Name = "example-storage",
         ///         ContainerAppEnvironmentId = example.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
         ///     });
         /// 

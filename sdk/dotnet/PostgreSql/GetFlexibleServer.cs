@@ -26,8 +26,8 @@ namespace Pulumi.Azure.PostgreSql
         /// {
         ///     var example = Azure.PostgreSql.GetFlexibleServer.Invoke(new()
         ///     {
-        ///         Name = "existing-postgresql-fs",
-        ///         ResourceGroupName = "existing-postgresql-resgroup",
+        ///         Name = "example-postgresql-flexible-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.PostgreSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DBforPostgreSQL` - 2025-08-01
+        /// * `Microsoft.DBforPostgreSQL` - 2026-10-01
         /// </summary>
         public static Task<GetFlexibleServerResult> InvokeAsync(GetFlexibleServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerArgs(), options.WithDefaults());
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.PostgreSql
         /// {
         ///     var example = Azure.PostgreSql.GetFlexibleServer.Invoke(new()
         ///     {
-        ///         Name = "existing-postgresql-fs",
-        ///         ResourceGroupName = "existing-postgresql-resgroup",
+        ///         Name = "example-postgresql-flexible-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.PostgreSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DBforPostgreSQL` - 2025-08-01
+        /// * `Microsoft.DBforPostgreSQL` - 2026-10-01
         /// </summary>
         public static Output<GetFlexibleServerResult> Invoke(GetFlexibleServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithDefaults());
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.PostgreSql
         /// {
         ///     var example = Azure.PostgreSql.GetFlexibleServer.Invoke(new()
         ///     {
-        ///         Name = "existing-postgresql-fs",
-        ///         ResourceGroupName = "existing-postgresql-resgroup",
+        ///         Name = "example-postgresql-flexible-server",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.PostgreSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DBforPostgreSQL` - 2025-08-01
+        /// * `Microsoft.DBforPostgreSQL` - 2026-10-01
         /// </summary>
         public static Output<GetFlexibleServerResult> Invoke(GetFlexibleServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithDefaults());

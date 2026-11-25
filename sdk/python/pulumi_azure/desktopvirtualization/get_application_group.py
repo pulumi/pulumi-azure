@@ -163,8 +163,8 @@ def get_application_group(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.desktopvirtualization.get_application_group(name="existing",
-        resource_group_name="existing")
+    example = azure.desktopvirtualization.get_application_group(name="example-application-group",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -208,8 +208,8 @@ def get_application_group_output(name: pulumi.Input[Optional[_builtins.str]] = N
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.desktopvirtualization.get_application_group(name="existing",
-        resource_group_name="existing")
+    example = azure.desktopvirtualization.get_application_group(name="example-application-group",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

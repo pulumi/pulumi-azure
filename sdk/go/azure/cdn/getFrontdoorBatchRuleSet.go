@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cdn.LookupFrontdoorBatchRuleSet(ctx, &cdn.LookupFrontdoorBatchRuleSetArgs{
-//				Name:              "existing",
-//				ProfileName:       "existing-profile",
-//				ResourceGroupName: "existing-resources",
+//				Name:              "exampleruleset",
+//				ProfileName:       "example-profile",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -48,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Cdn` - 2025-12-01
+// * `Microsoft.Cdn` - 2026-10-01
 func LookupFrontdoorBatchRuleSet(ctx *pulumi.Context, args *LookupFrontdoorBatchRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorBatchRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorBatchRuleSetResult

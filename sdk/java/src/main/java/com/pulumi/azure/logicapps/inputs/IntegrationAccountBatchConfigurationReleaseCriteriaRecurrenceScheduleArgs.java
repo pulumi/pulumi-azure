@@ -64,14 +64,14 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
     }
 
     /**
-     * A `monthly` block as documented below.
+     * A `monthly` block as defined below.
      * 
      */
     @Import(name="monthlies")
     private @Nullable Output<List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs>> monthlies;
 
     /**
-     * @return A `monthly` block as documented below.
+     * @return A `monthly` block as defined below.
      * 
      */
     public Optional<Output<List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs>>> monthlies() {
@@ -215,7 +215,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         /**
-         * @param monthlies A `monthly` block as documented below.
+         * @param monthlies A `monthly` block as defined below.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         /**
-         * @param monthlies A `monthly` block as documented below.
+         * @param monthlies A `monthly` block as defined below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         /**
-         * @param monthlies A `monthly` block as documented below.
+         * @param monthlies A `monthly` block as defined below.
          * 
          * @return builder
          * 

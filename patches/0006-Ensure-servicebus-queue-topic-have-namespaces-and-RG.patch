@@ -7,10 +7,10 @@ Subject: [PATCH] Ensure servicebus queue & topic have namespaces and RG names
 These are computed attributes for use in the servicebus mixins in Pulumi.
 
 diff --git a/internal/services/servicebus/servicebus_queue_resource.go b/internal/services/servicebus/servicebus_queue_resource.go
-index 514200dfb987..321d37a7992f 100644
+index 119b644502cf..a0d1640257a8 100644
 --- a/internal/services/servicebus/servicebus_queue_resource.go
 +++ b/internal/services/servicebus/servicebus_queue_resource.go
-@@ -44,6 +44,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
+@@ -50,6 +50,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
  	}
  }
  
@@ -19,7 +19,7 @@ index 514200dfb987..321d37a7992f 100644
  func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
  	return map[string]*pluginsdk.Schema{
  		"name": {
-@@ -164,6 +166,16 @@ func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
+@@ -170,6 +172,16 @@ func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
  			ForceNew: true,
  		},
  
@@ -36,17 +36,17 @@ index 514200dfb987..321d37a7992f 100644
  		"status": {
  			Type:     pluginsdk.TypeString,
  			Optional: true,
-@@ -380,6 +392,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta any) error {
+@@ -395,6 +407,8 @@ func resourceServiceBusQueueFlatten(ctx context.Context, namespacesClient *names
  
  	d.Set("name", id.QueueName)
  	d.Set("namespace_id", namespaceId.ID())
 +	d.Set("resource_group_name", id.ResourceGroupName)
 +	d.Set("namespace_name", id.NamespaceName)
  
- 	if model := resp.Model; model != nil {
+ 	if model != nil {
  		if props := model.Properties; props != nil {
 diff --git a/internal/services/servicebus/servicebus_topic_resource.go b/internal/services/servicebus/servicebus_topic_resource.go
-index 6fe5b97262c5..3664626ad447 100644
+index 11b9d10fde87..6f9410616a68 100644
 --- a/internal/services/servicebus/servicebus_topic_resource.go
 +++ b/internal/services/servicebus/servicebus_topic_resource.go
 @@ -42,6 +42,8 @@ func resourceServiceBusTopic() *pluginsdk.Resource {

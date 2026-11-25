@@ -101,7 +101,7 @@ type LookupRoleDefinitionResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// A `permissions` block as documented below.
+	// A `permissions` block as defined below.
 	Permissions      []GetRoleDefinitionPermission `pulumi:"permissions"`
 	RoleDefinitionId string                        `pulumi:"roleDefinitionId"`
 	// The Azure Resource Manager ID for the resource.
@@ -168,7 +168,7 @@ func (o LookupRoleDefinitionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `permissions` block as documented below.
+// A `permissions` block as defined below.
 func (o LookupRoleDefinitionResultOutput) Permissions() GetRoleDefinitionPermissionArrayOutput {
 	return o.ApplyT(func(v LookupRoleDefinitionResult) []GetRoleDefinitionPermission { return v.Permissions }).(GetRoleDefinitionPermissionArrayOutput)
 }

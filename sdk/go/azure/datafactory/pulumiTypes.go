@@ -16106,7 +16106,7 @@ type TriggerScheduleSchedule struct {
 	Hours []int `pulumi:"hours"`
 	// Minutes of the hour on which the trigger is scheduled.
 	Minutes []int `pulumi:"minutes"`
-	// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+	// A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
 	Monthlies []TriggerScheduleScheduleMonthly `pulumi:"monthlies"`
 }
 
@@ -16130,7 +16130,7 @@ type TriggerScheduleScheduleArgs struct {
 	Hours pulumi.IntArrayInput `pulumi:"hours"`
 	// Minutes of the hour on which the trigger is scheduled.
 	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
-	// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+	// A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
 	Monthlies TriggerScheduleScheduleMonthlyArrayInput `pulumi:"monthlies"`
 }
 
@@ -16231,7 +16231,7 @@ func (o TriggerScheduleScheduleOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v TriggerScheduleSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
 }
 
-// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+// A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
 func (o TriggerScheduleScheduleOutput) Monthlies() TriggerScheduleScheduleMonthlyArrayOutput {
 	return o.ApplyT(func(v TriggerScheduleSchedule) []TriggerScheduleScheduleMonthly { return v.Monthlies }).(TriggerScheduleScheduleMonthlyArrayOutput)
 }
@@ -16300,7 +16300,7 @@ func (o TriggerScheduleSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+// A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
 func (o TriggerScheduleSchedulePtrOutput) Monthlies() TriggerScheduleScheduleMonthlyArrayOutput {
 	return o.ApplyT(func(v *TriggerScheduleSchedule) []TriggerScheduleScheduleMonthly {
 		if v == nil {
@@ -17251,7 +17251,7 @@ type GetTriggerScheduleSchedule struct {
 	Hours []int `pulumi:"hours"`
 	// Minutes of the hour on which the trigger is scheduled.
 	Minutes []int `pulumi:"minutes"`
-	// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+	// A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled.
 	Monthlies []GetTriggerScheduleScheduleMonthly `pulumi:"monthlies"`
 }
 
@@ -17275,7 +17275,7 @@ type GetTriggerScheduleScheduleArgs struct {
 	Hours pulumi.IntArrayInput `pulumi:"hours"`
 	// Minutes of the hour on which the trigger is scheduled.
 	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
-	// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+	// A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled.
 	Monthlies GetTriggerScheduleScheduleMonthlyArrayInput `pulumi:"monthlies"`
 }
 
@@ -17350,7 +17350,7 @@ func (o GetTriggerScheduleScheduleOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetTriggerScheduleSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
 }
 
-// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+// A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled.
 func (o GetTriggerScheduleScheduleOutput) Monthlies() GetTriggerScheduleScheduleMonthlyArrayOutput {
 	return o.ApplyT(func(v GetTriggerScheduleSchedule) []GetTriggerScheduleScheduleMonthly { return v.Monthlies }).(GetTriggerScheduleScheduleMonthlyArrayOutput)
 }

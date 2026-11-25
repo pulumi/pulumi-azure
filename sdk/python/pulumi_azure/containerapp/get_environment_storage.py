@@ -127,9 +127,9 @@ def get_environment_storage(container_app_environment_id: Optional[_builtins.str
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.containerapp.get_environment(name="existing-environment",
-        resource_group_name="existing-resources")
-    example_get_environment_storage = azure.containerapp.get_environment_storage(name="existing-storage",
+    example = azure.containerapp.get_environment(name="example-environment",
+        resource_group_name="example-resources")
+    example_get_environment_storage = azure.containerapp.get_environment_storage(name="example-storage",
         container_app_environment_id=example.id)
     ```
 
@@ -170,9 +170,9 @@ def get_environment_storage_output(container_app_environment_id: pulumi.Input[Op
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.containerapp.get_environment(name="existing-environment",
-        resource_group_name="existing-resources")
-    example_get_environment_storage = azure.containerapp.get_environment_storage(name="existing-storage",
+    example = azure.containerapp.get_environment(name="example-environment",
+        resource_group_name="example-resources")
+    example_get_environment_storage = azure.containerapp.get_environment_storage(name="example-storage",
         container_app_environment_id=example.id)
     ```
 

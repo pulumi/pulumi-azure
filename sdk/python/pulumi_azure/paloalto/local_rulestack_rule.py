@@ -61,10 +61,10 @@ class LocalRulestackRuleArgs:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Local Rulestack Rule.
         :param pulumi.Input[_builtins.bool] negate_destination: Should the inverse of the Destination configuration be used. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] negate_source: Should the inverse of the Source configuration be used. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`.
+        :param pulumi.Input[_builtins.str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocol_ports`.
                
                > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
         """
         pulumi.set(__self__, "action", action)
@@ -298,7 +298,7 @@ class LocalRulestackRuleArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`.
+        The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocol_ports`.
 
         > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         """
@@ -312,7 +312,7 @@ class LocalRulestackRuleArgs:
     @pulumi.getter(name="protocolPorts")
     def protocol_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
         """
         return pulumi.get(self, "protocol_ports")
 
@@ -374,10 +374,10 @@ class _LocalRulestackRuleState:
         :param pulumi.Input[_builtins.int] priority: The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
                
                > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
-        :param pulumi.Input[_builtins.str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`.
+        :param pulumi.Input[_builtins.str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocol_ports`.
                
                > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
         :param pulumi.Input[_builtins.str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         :param pulumi.Input['LocalRulestackRuleSourceArgs'] source: One or more `source` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
@@ -595,7 +595,7 @@ class _LocalRulestackRuleState:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`.
+        The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocol_ports`.
 
         > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         """
@@ -609,7 +609,7 @@ class _LocalRulestackRuleState:
     @pulumi.getter(name="protocolPorts")
     def protocol_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
         """
         return pulumi.get(self, "protocol_ports")
 
@@ -745,10 +745,10 @@ class LocalRulestackRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] priority: The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
                
                > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
-        :param pulumi.Input[_builtins.str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`.
+        :param pulumi.Input[_builtins.str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocol_ports`.
                
                > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
         :param pulumi.Input[_builtins.str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         :param pulumi.Input[Union['LocalRulestackRuleSourceArgs', 'LocalRulestackRuleSourceArgsDict', 'outputs.LocalRulestackRuleSource']] source: One or more `source` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
@@ -932,10 +932,10 @@ class LocalRulestackRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] priority: The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
                
                > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
-        :param pulumi.Input[_builtins.str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`.
+        :param pulumi.Input[_builtins.str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocol_ports`.
                
                > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
         :param pulumi.Input[_builtins.str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         :param pulumi.Input[Union['LocalRulestackRuleSourceArgs', 'LocalRulestackRuleSourceArgsDict', 'outputs.LocalRulestackRuleSource']] source: One or more `source` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
@@ -1083,7 +1083,7 @@ class LocalRulestackRule(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`.
+        The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocol_ports`.
 
         > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         """
@@ -1093,7 +1093,7 @@ class LocalRulestackRule(pulumi.CustomResource):
     @pulumi.getter(name="protocolPorts")
     def protocol_ports(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[start_port]-[end_port]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
         """
         return pulumi.get(self, "protocol_ports")
 

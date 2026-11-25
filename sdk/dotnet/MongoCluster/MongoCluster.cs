@@ -197,13 +197,15 @@ namespace Pulumi.Azure.MongoCluster
         /// The size of the data disk space for the MongoDB Cluster.
         /// </summary>
         [Output("storageSizeInGb")]
-        public Output<int?> StorageSizeInGb { get; private set; } = null!;
+        public Output<int> StorageSizeInGb { get; private set; } = null!;
 
         /// <summary>
-        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `StorageType` is omitted, Azure will determine the preferred type based on the region's availability.
         /// </summary>
         [Output("storageType")]
-        public Output<string?> StorageType { get; private set; } = null!;
+        public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the MongoDB Cluster.
@@ -428,7 +430,9 @@ namespace Pulumi.Azure.MongoCluster
         public Input<int>? StorageSizeInGb { get; set; }
 
         /// <summary>
-        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `StorageType` is omitted, Azure will determine the preferred type based on the region's availability.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -630,7 +634,9 @@ namespace Pulumi.Azure.MongoCluster
         public Input<int>? StorageSizeInGb { get; set; }
 
         /// <summary>
-        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `StorageType` is omitted, Azure will determine the preferred type based on the region's availability.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

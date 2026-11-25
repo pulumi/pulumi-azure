@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var exampleGetShare = Azure.Storage.GetShare.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-share",
         ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var exampleGetShare = Azure.Storage.GetShare.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-share",
         ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var exampleGetShare = Azure.Storage.GetShare.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-share",
         ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 

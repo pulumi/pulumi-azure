@@ -15,6 +15,8 @@ namespace Pulumi.Azure.NetApp.Outputs
     {
         /// <summary>
         /// The identity id of the user assigned identity to use when type is `UserAssigned`
+        /// 
+        /// &gt; **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;

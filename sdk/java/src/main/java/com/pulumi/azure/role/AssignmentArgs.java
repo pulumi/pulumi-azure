@@ -86,14 +86,18 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     * The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     * @return The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
      * 
      */
     public Optional<Output<String>> name() {
@@ -329,7 +333,9 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+         * @param name The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
          * 
          * @return builder
          * 
@@ -340,7 +346,9 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+         * @param name The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
          * 
          * @return builder
          * 

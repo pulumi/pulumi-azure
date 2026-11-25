@@ -56,7 +56,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.CostManagement` - 2023-08-01
+// * `Microsoft.CostManagement` - 2025-03-01
 //
 // ## Import
 //
@@ -75,6 +75,8 @@ type ScheduledAction struct {
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+	//
+	// > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
 	EmailAddressSender pulumi.StringOutput `pulumi:"emailAddressSender"`
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses pulumi.StringArrayOutput `pulumi:"emailAddresses"`
@@ -107,9 +109,6 @@ func NewScheduledAction(ctx *pulumi.Context,
 
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
-	}
-	if args.EmailAddressSender == nil {
-		return nil, errors.New("invalid value for required argument 'EmailAddressSender'")
 	}
 	if args.EmailAddresses == nil {
 		return nil, errors.New("invalid value for required argument 'EmailAddresses'")
@@ -159,6 +158,8 @@ type scheduledActionState struct {
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+	//
+	// > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
 	EmailAddressSender *string `pulumi:"emailAddressSender"`
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses []string `pulumi:"emailAddresses"`
@@ -190,6 +191,8 @@ type ScheduledActionState struct {
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName pulumi.StringPtrInput
 	// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+	//
+	// > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
 	EmailAddressSender pulumi.StringPtrInput
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses pulumi.StringArrayInput
@@ -225,7 +228,9 @@ type scheduledActionArgs struct {
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName string `pulumi:"displayName"`
 	// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
-	EmailAddressSender string `pulumi:"emailAddressSender"`
+	//
+	// > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+	EmailAddressSender *string `pulumi:"emailAddressSender"`
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Subject of the email. Length is limited to 50 characters.
@@ -257,7 +262,9 @@ type ScheduledActionArgs struct {
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName pulumi.StringInput
 	// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
-	EmailAddressSender pulumi.StringInput
+	//
+	// > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+	EmailAddressSender pulumi.StringPtrInput
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses pulumi.StringArrayInput
 	// Subject of the email. Length is limited to 50 characters.
@@ -383,6 +390,8 @@ func (o ScheduledActionOutput) DisplayName() pulumi.StringOutput {
 }
 
 // Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+//
+// > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
 func (o ScheduledActionOutput) EmailAddressSender() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.EmailAddressSender }).(pulumi.StringOutput)
 }

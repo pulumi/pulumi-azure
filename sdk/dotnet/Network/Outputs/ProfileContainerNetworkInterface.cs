@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ProfileContainerNetworkInterface
     {
         /// <summary>
-        /// One or more `IpConfiguration` blocks as documented below.
+        /// One or more `IpConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ProfileContainerNetworkInterfaceIpConfiguration> IpConfigurations;
         /// <summary>

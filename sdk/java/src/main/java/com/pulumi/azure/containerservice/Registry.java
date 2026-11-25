@@ -346,14 +346,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.dataEndpointHostNames;
     }
     /**
-     * An `encryption` block as documented below.
+     * An `encryption` block as defined below.
      * 
      */
     @Export(name="encryption", refs={RegistryEncryption.class}, tree="[0]")
     private Output</* @Nullable */ RegistryEncryption> encryption;
 
     /**
-     * @return An `encryption` block as documented below.
+     * @return An `encryption` block as defined below.
      * 
      */
     public Output<Optional<RegistryEncryption>> encryption() {
@@ -374,7 +374,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.exportPolicyEnabled);
     }
     /**
-     * One or more `georeplications` blocks as documented below.
+     * One or more `georeplications` blocks as defined below.
      * 
      * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
@@ -387,7 +387,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<RegistryGeoreplication>> georeplications;
 
     /**
-     * @return One or more `georeplications` blocks as documented below.
+     * @return One or more `georeplications` blocks as defined below.
      * 
      * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
@@ -484,14 +484,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkRuleBypassOption);
     }
     /**
-     * A `networkRuleSet` block as documented below.
+     * A `networkRuleSet` block as defined below.
      * 
      */
     @Export(name="networkRuleSet", refs={RegistryNetworkRuleSet.class}, tree="[0]")
     private Output<RegistryNetworkRuleSet> networkRuleSet;
 
     /**
-     * @return A `networkRuleSet` block as documented below.
+     * @return A `networkRuleSet` block as defined below.
      * 
      */
     public Output<RegistryNetworkRuleSet> networkRuleSet() {

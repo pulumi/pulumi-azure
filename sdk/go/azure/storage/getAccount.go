@@ -79,7 +79,7 @@ type LookupAccountResult struct {
 	AccountTier string `pulumi:"accountTier"`
 	// Can nested items in the storage account opt into allowing public access?
 	AllowNestedItemsToBePublic bool `pulumi:"allowNestedItemsToBePublic"`
-	// A `azureFilesAuthentication` block as documented below.
+	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentications []GetAccountAzureFilesAuthentication `pulumi:"azureFilesAuthentications"`
 	// supports the following:
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
@@ -89,7 +89,7 @@ type LookupAccountResult struct {
 	HttpsTrafficOnlyEnabled bool `pulumi:"httpsTrafficOnlyEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identities []GetAccountIdentity `pulumi:"identities"`
 	// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
 	// for more information.
@@ -253,6 +253,8 @@ type LookupAccountResult struct {
 	SecondaryWebMicrosoftEndpoint string `pulumi:"secondaryWebMicrosoftEndpoint"`
 	// The microsoft routing hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebMicrosoftHost string `pulumi:"secondaryWebMicrosoftHost"`
+	// Whether managed identities can access SMB Azure file shares using OAuth.
+	SmbOauthEnabled bool `pulumi:"smbOauthEnabled"`
 	// The encryption key type of the table.
 	TableEncryptionKeyType string `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assigned to the resource.
@@ -318,7 +320,7 @@ func (o LookupAccountResultOutput) AllowNestedItemsToBePublic() pulumi.BoolOutpu
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.AllowNestedItemsToBePublic }).(pulumi.BoolOutput)
 }
 
-// A `azureFilesAuthentication` block as documented below.
+// A `azureFilesAuthentication` block as defined below.
 func (o LookupAccountResultOutput) AzureFilesAuthentications() GetAccountAzureFilesAuthenticationArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountAzureFilesAuthentication { return v.AzureFilesAuthentications }).(GetAccountAzureFilesAuthenticationArrayOutput)
 }
@@ -343,7 +345,7 @@ func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An `identity` block as documented below.
+// An `identity` block as defined below.
 func (o LookupAccountResultOutput) Identities() GetAccountIdentityArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountIdentity { return v.Identities }).(GetAccountIdentityArrayOutput)
 }
@@ -751,6 +753,11 @@ func (o LookupAccountResultOutput) SecondaryWebMicrosoftEndpoint() pulumi.String
 // The microsoft routing hostname with port if applicable for web storage in the secondary location.
 func (o LookupAccountResultOutput) SecondaryWebMicrosoftHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryWebMicrosoftHost }).(pulumi.StringOutput)
+}
+
+// Whether managed identities can access SMB Azure file shares using OAuth.
+func (o LookupAccountResultOutput) SmbOauthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.SmbOauthEnabled }).(pulumi.BoolOutput)
 }
 
 // The encryption key type of the table.

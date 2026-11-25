@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.avs.getPrivateCloud({
- *     name: "existing-vmware-private-cloud",
- *     resourceGroupName: "existing-resgroup",
+ *     name: "example-vmware-private-cloud",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -136,8 +136,8 @@ export interface GetPrivateCloudResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.avs.getPrivateCloud({
- *     name: "existing-vmware-private-cloud",
- *     resourceGroupName: "existing-resgroup",
+ *     name: "example-vmware-private-cloud",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

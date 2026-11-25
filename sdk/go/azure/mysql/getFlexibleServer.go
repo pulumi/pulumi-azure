@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := mysql.LookupFlexibleServer(ctx, &mysql.LookupFlexibleServerArgs{
-//				Name:              "existingMySqlFlexibleServer",
-//				ResourceGroupName: "existingResGroup",
+//				Name:              "example-mysql-flexible-server",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -80,14 +80,14 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
-     * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+     * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -167,7 +167,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
-     * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+     * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
      * 
      * &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
      * 
@@ -176,7 +176,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
      * 
      * &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
      * 
@@ -343,7 +343,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+         * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
          * 
          * &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          * 
@@ -473,7 +473,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+         * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
          * 
          * &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          * 

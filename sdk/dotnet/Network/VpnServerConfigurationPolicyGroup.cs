@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `Policy` blocks as documented below.
+        /// One or more `Policy` blocks as defined below.
         /// </summary>
         [Output("policies")]
         public Output<ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupPolicy>> Policies { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnServerConfigurationPolicyGroupPolicyArgs>? _policies;
 
         /// <summary>
-        /// One or more `Policy` blocks as documented below.
+        /// One or more `Policy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationPolicyGroupPolicyArgs> Policies
         {
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnServerConfigurationPolicyGroupPolicyGetArgs>? _policies;
 
         /// <summary>
-        /// One or more `Policy` blocks as documented below.
+        /// One or more `Policy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationPolicyGroupPolicyGetArgs> Policies
         {

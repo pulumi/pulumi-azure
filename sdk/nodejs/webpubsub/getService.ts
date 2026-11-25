@@ -66,11 +66,11 @@ export interface GetServiceResult {
      */
     readonly id: string;
     /**
-     * An `identity` block as documented below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.webpubsub.GetServiceIdentity[];
     /**
-     * A `liveTrace` block as documented below.
+     * A `liveTrace` block as defined below.
      */
     readonly liveTraces: outputs.webpubsub.GetServiceLiveTrace[];
     readonly localAuthEnabled: boolean;

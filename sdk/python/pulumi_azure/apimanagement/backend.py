@@ -42,14 +42,14 @@ class BackendArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         :param pulumi.Input['BackendCircuitBreakerRuleArgs'] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
-        :param pulumi.Input['BackendCredentialsArgs'] credentials: A `credentials` block as documented below.
+        :param pulumi.Input['BackendCredentialsArgs'] credentials: A `credentials` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the backend.
         :param pulumi.Input[_builtins.str] name: The name of the API Management backend. Changing this forces a new resource to be created.
-        :param pulumi.Input['BackendProxyArgs'] proxy: A `proxy` block as documented below.
+        :param pulumi.Input['BackendProxyArgs'] proxy: A `proxy` block as defined below.
         :param pulumi.Input[_builtins.str] resource_id: The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        :param pulumi.Input['BackendServiceFabricClusterArgs'] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
+        :param pulumi.Input['BackendServiceFabricClusterArgs'] service_fabric_cluster: A `service_fabric_cluster` block as defined below.
         :param pulumi.Input[_builtins.str] title: The title of the backend.
-        :param pulumi.Input['BackendTlsArgs'] tls: A `tls` block as documented below.
+        :param pulumi.Input['BackendTlsArgs'] tls: A `tls` block as defined below.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "protocol", protocol)
@@ -138,7 +138,7 @@ class BackendArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Optional['BackendCredentialsArgs']]:
         """
-        A `credentials` block as documented below.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
@@ -174,7 +174,7 @@ class BackendArgs:
     @pulumi.getter
     def proxy(self) -> pulumi.Input[Optional['BackendProxyArgs']]:
         """
-        A `proxy` block as documented below.
+        A `proxy` block as defined below.
         """
         return pulumi.get(self, "proxy")
 
@@ -198,7 +198,7 @@ class BackendArgs:
     @pulumi.getter(name="serviceFabricCluster")
     def service_fabric_cluster(self) -> pulumi.Input[Optional['BackendServiceFabricClusterArgs']]:
         """
-        A `service_fabric_cluster` block as documented below.
+        A `service_fabric_cluster` block as defined below.
         """
         return pulumi.get(self, "service_fabric_cluster")
 
@@ -222,7 +222,7 @@ class BackendArgs:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['BackendTlsArgs']]:
         """
-        A `tls` block as documented below.
+        A `tls` block as defined below.
         """
         return pulumi.get(self, "tls")
 
@@ -252,16 +252,16 @@ class _BackendState:
 
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['BackendCircuitBreakerRuleArgs'] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
-        :param pulumi.Input['BackendCredentialsArgs'] credentials: A `credentials` block as documented below.
+        :param pulumi.Input['BackendCredentialsArgs'] credentials: A `credentials` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the backend.
         :param pulumi.Input[_builtins.str] name: The name of the API Management backend. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
-        :param pulumi.Input['BackendProxyArgs'] proxy: A `proxy` block as documented below.
+        :param pulumi.Input['BackendProxyArgs'] proxy: A `proxy` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_id: The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        :param pulumi.Input['BackendServiceFabricClusterArgs'] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
+        :param pulumi.Input['BackendServiceFabricClusterArgs'] service_fabric_cluster: A `service_fabric_cluster` block as defined below.
         :param pulumi.Input[_builtins.str] title: The title of the backend.
-        :param pulumi.Input['BackendTlsArgs'] tls: A `tls` block as documented below.
+        :param pulumi.Input['BackendTlsArgs'] tls: A `tls` block as defined below.
         :param pulumi.Input[_builtins.str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         if api_management_name is not None:
@@ -319,7 +319,7 @@ class _BackendState:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Optional['BackendCredentialsArgs']]:
         """
-        A `credentials` block as documented below.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
@@ -367,7 +367,7 @@ class _BackendState:
     @pulumi.getter
     def proxy(self) -> pulumi.Input[Optional['BackendProxyArgs']]:
         """
-        A `proxy` block as documented below.
+        A `proxy` block as defined below.
         """
         return pulumi.get(self, "proxy")
 
@@ -403,7 +403,7 @@ class _BackendState:
     @pulumi.getter(name="serviceFabricCluster")
     def service_fabric_cluster(self) -> pulumi.Input[Optional['BackendServiceFabricClusterArgs']]:
         """
-        A `service_fabric_cluster` block as documented below.
+        A `service_fabric_cluster` block as defined below.
         """
         return pulumi.get(self, "service_fabric_cluster")
 
@@ -427,7 +427,7 @@ class _BackendState:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['BackendTlsArgs']]:
         """
-        A `tls` block as documented below.
+        A `tls` block as defined below.
         """
         return pulumi.get(self, "tls")
 
@@ -515,16 +515,16 @@ class Backend(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict', 'outputs.BackendCircuitBreakerRule']] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
-        :param pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict', 'outputs.BackendCredentials']] credentials: A `credentials` block as documented below.
+        :param pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict', 'outputs.BackendCredentials']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the backend.
         :param pulumi.Input[_builtins.str] name: The name of the API Management backend. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
-        :param pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict', 'outputs.BackendProxy']] proxy: A `proxy` block as documented below.
+        :param pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict', 'outputs.BackendProxy']] proxy: A `proxy` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_id: The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        :param pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict', 'outputs.BackendServiceFabricCluster']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
+        :param pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict', 'outputs.BackendServiceFabricCluster']] service_fabric_cluster: A `service_fabric_cluster` block as defined below.
         :param pulumi.Input[_builtins.str] title: The title of the backend.
-        :param pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict', 'outputs.BackendTls']] tls: A `tls` block as documented below.
+        :param pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict', 'outputs.BackendTls']] tls: A `tls` block as defined below.
         :param pulumi.Input[_builtins.str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         ...
@@ -666,16 +666,16 @@ class Backend(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict', 'outputs.BackendCircuitBreakerRule']] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
-        :param pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict', 'outputs.BackendCredentials']] credentials: A `credentials` block as documented below.
+        :param pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict', 'outputs.BackendCredentials']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the backend.
         :param pulumi.Input[_builtins.str] name: The name of the API Management backend. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
-        :param pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict', 'outputs.BackendProxy']] proxy: A `proxy` block as documented below.
+        :param pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict', 'outputs.BackendProxy']] proxy: A `proxy` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_id: The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        :param pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict', 'outputs.BackendServiceFabricCluster']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
+        :param pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict', 'outputs.BackendServiceFabricCluster']] service_fabric_cluster: A `service_fabric_cluster` block as defined below.
         :param pulumi.Input[_builtins.str] title: The title of the backend.
-        :param pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict', 'outputs.BackendTls']] tls: A `tls` block as documented below.
+        :param pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict', 'outputs.BackendTls']] tls: A `tls` block as defined below.
         :param pulumi.Input[_builtins.str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -717,7 +717,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.BackendCredentials']]:
         """
-        A `credentials` block as documented below.
+        A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
@@ -749,7 +749,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter
     def proxy(self) -> pulumi.Output[Optional['outputs.BackendProxy']]:
         """
-        A `proxy` block as documented below.
+        A `proxy` block as defined below.
         """
         return pulumi.get(self, "proxy")
 
@@ -773,7 +773,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter(name="serviceFabricCluster")
     def service_fabric_cluster(self) -> pulumi.Output[Optional['outputs.BackendServiceFabricCluster']]:
         """
-        A `service_fabric_cluster` block as documented below.
+        A `service_fabric_cluster` block as defined below.
         """
         return pulumi.get(self, "service_fabric_cluster")
 
@@ -789,7 +789,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter
     def tls(self) -> pulumi.Output[Optional['outputs.BackendTls']]:
         """
-        A `tls` block as documented below.
+        A `tls` block as defined below.
         """
         return pulumi.get(self, "tls")
 

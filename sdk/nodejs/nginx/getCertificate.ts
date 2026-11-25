@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.nginx.getCertificate({
- *     name: "existing",
+ *     name: "example-certificate",
  *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
  * });
  * export const id = example.then(example => example.id);
@@ -102,7 +102,7 @@ export interface GetCertificateResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.nginx.getCertificate({
- *     name: "existing",
+ *     name: "example-certificate",
  *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
  * });
  * export const id = example.then(example => example.id);

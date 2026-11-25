@@ -89,7 +89,7 @@ public final class LinuxFunctionAppSiteConfig {
      */
     private @Nullable List<String> defaultDocuments;
     /**
-     * @return Is detailed error logging enabled
+     * @return Is detailed error logging enabled?
      * 
      */
     private @Nullable Boolean detailedErrorLoggingEnabled;
@@ -129,7 +129,7 @@ public final class LinuxFunctionAppSiteConfig {
      */
     private @Nullable List<LinuxFunctionAppSiteConfigIpRestriction> ipRestrictions;
     /**
-     * @return The Linux FX Version
+     * @return The Linux FX Version.
      * 
      */
     private @Nullable String linuxFxVersion;
@@ -318,7 +318,7 @@ public final class LinuxFunctionAppSiteConfig {
         return this.defaultDocuments == null ? List.of() : this.defaultDocuments;
     }
     /**
-     * @return Is detailed error logging enabled
+     * @return Is detailed error logging enabled?
      * 
      */
     public Optional<Boolean> detailedErrorLoggingEnabled() {
@@ -374,7 +374,7 @@ public final class LinuxFunctionAppSiteConfig {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
     }
     /**
-     * @return The Linux FX Version
+     * @return The Linux FX Version.
      * 
      */
     public Optional<String> linuxFxVersion() {

@@ -13,13 +13,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterKeyManagementServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        /// The ID of the Key Vault in which the key is located.
+        /// 
+        /// &gt; **Note:** This must be provided in cross-subscription scenarios when `KeyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `KeyVaultKeyId`).
+        /// </summary>
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
+        /// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
         /// </summary>
         [Input("keyVaultKeyId", required: true)]
         public Input<string> KeyVaultKeyId { get; set; } = null!;
 
         /// <summary>
-        /// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+        /// Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         /// </summary>
         [Input("keyVaultNetworkAccess")]
         public Input<string>? KeyVaultNetworkAccess { get; set; }

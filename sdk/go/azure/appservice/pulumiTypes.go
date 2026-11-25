@@ -5182,7 +5182,7 @@ type AppFlexConsumptionSiteConfig struct {
 	Cors *AppFlexConsumptionSiteConfigCors `pulumi:"cors"`
 	// Specifies a list of Default Documents for the Linux Web App.
 	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// Is detailed error logging enabled
+	// Is detailed error logging enabled?
 	DetailedErrorLoggingEnabled *bool `pulumi:"detailedErrorLoggingEnabled"`
 	// The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
 	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
@@ -5262,7 +5262,7 @@ type AppFlexConsumptionSiteConfigArgs struct {
 	Cors AppFlexConsumptionSiteConfigCorsPtrInput `pulumi:"cors"`
 	// Specifies a list of Default Documents for the Linux Web App.
 	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// Is detailed error logging enabled
+	// Is detailed error logging enabled?
 	DetailedErrorLoggingEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorLoggingEnabled"`
 	// The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
 	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
@@ -5439,7 +5439,7 @@ func (o AppFlexConsumptionSiteConfigOutput) DefaultDocuments() pulumi.StringArra
 	return o.ApplyT(func(v AppFlexConsumptionSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
-// Is detailed error logging enabled
+// Is detailed error logging enabled?
 func (o AppFlexConsumptionSiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppFlexConsumptionSiteConfig) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -5679,7 +5679,7 @@ func (o AppFlexConsumptionSiteConfigPtrOutput) DefaultDocuments() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Is detailed error logging enabled
+// Is detailed error logging enabled?
 func (o AppFlexConsumptionSiteConfigPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppFlexConsumptionSiteConfig) *bool {
 		if v == nil {
@@ -13161,7 +13161,7 @@ type LinuxFunctionAppSiteConfig struct {
 	Cors *LinuxFunctionAppSiteConfigCors `pulumi:"cors"`
 	// Specifies a list of Default Documents for the Linux Web App.
 	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// Is detailed error logging enabled
+	// Is detailed error logging enabled?
 	DetailedErrorLoggingEnabled *bool `pulumi:"detailedErrorLoggingEnabled"`
 	// The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
 	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
@@ -13177,7 +13177,7 @@ type LinuxFunctionAppSiteConfig struct {
 	IpRestrictionDefaultAction *string `pulumi:"ipRestrictionDefaultAction"`
 	// One or more `ipRestriction` blocks as defined above.
 	IpRestrictions []LinuxFunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
-	// The Linux FX Version
+	// The Linux FX Version.
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
@@ -13259,7 +13259,7 @@ type LinuxFunctionAppSiteConfigArgs struct {
 	Cors LinuxFunctionAppSiteConfigCorsPtrInput `pulumi:"cors"`
 	// Specifies a list of Default Documents for the Linux Web App.
 	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// Is detailed error logging enabled
+	// Is detailed error logging enabled?
 	DetailedErrorLoggingEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorLoggingEnabled"`
 	// The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
 	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
@@ -13275,7 +13275,7 @@ type LinuxFunctionAppSiteConfigArgs struct {
 	IpRestrictionDefaultAction pulumi.StringPtrInput `pulumi:"ipRestrictionDefaultAction"`
 	// One or more `ipRestriction` blocks as defined above.
 	IpRestrictions LinuxFunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
-	// The Linux FX Version
+	// The Linux FX Version.
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
 	LoadBalancingMode pulumi.StringPtrInput `pulumi:"loadBalancingMode"`
@@ -13463,7 +13463,7 @@ func (o LinuxFunctionAppSiteConfigOutput) DefaultDocuments() pulumi.StringArrayO
 	return o.ApplyT(func(v LinuxFunctionAppSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
-// Is detailed error logging enabled
+// Is detailed error logging enabled?
 func (o LinuxFunctionAppSiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxFunctionAppSiteConfig) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13503,7 +13503,7 @@ func (o LinuxFunctionAppSiteConfigOutput) IpRestrictions() LinuxFunctionAppSiteC
 	return o.ApplyT(func(v LinuxFunctionAppSiteConfig) []LinuxFunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(LinuxFunctionAppSiteConfigIpRestrictionArrayOutput)
 }
 
-// The Linux FX Version
+// The Linux FX Version.
 func (o LinuxFunctionAppSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxFunctionAppSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
 }
@@ -13755,7 +13755,7 @@ func (o LinuxFunctionAppSiteConfigPtrOutput) DefaultDocuments() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Is detailed error logging enabled
+// Is detailed error logging enabled?
 func (o LinuxFunctionAppSiteConfigPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSiteConfig) *bool {
 		if v == nil {
@@ -13835,7 +13835,7 @@ func (o LinuxFunctionAppSiteConfigPtrOutput) IpRestrictions() LinuxFunctionAppSi
 	}).(LinuxFunctionAppSiteConfigIpRestrictionArrayOutput)
 }
 
-// The Linux FX Version
+// The Linux FX Version.
 func (o LinuxFunctionAppSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSiteConfig) *string {
 		if v == nil {
@@ -14184,7 +14184,7 @@ func (o LinuxFunctionAppSiteConfigAppServiceLogsPtrOutput) RetentionPeriodDays()
 type LinuxFunctionAppSiteConfigApplicationStack struct {
 	// One or more `docker` blocks as defined below.
 	Dockers []LinuxFunctionAppSiteConfigApplicationStackDocker `pulumi:"dockers"`
-	// The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+	// The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 	DotnetVersion *string `pulumi:"dotnetVersion"`
 	// The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
 	//
@@ -14216,7 +14216,7 @@ type LinuxFunctionAppSiteConfigApplicationStackInput interface {
 type LinuxFunctionAppSiteConfigApplicationStackArgs struct {
 	// One or more `docker` blocks as defined below.
 	Dockers LinuxFunctionAppSiteConfigApplicationStackDockerArrayInput `pulumi:"dockers"`
-	// The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+	// The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 	DotnetVersion pulumi.StringPtrInput `pulumi:"dotnetVersion"`
 	// The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
 	//
@@ -14318,7 +14318,7 @@ func (o LinuxFunctionAppSiteConfigApplicationStackOutput) Dockers() LinuxFunctio
 	}).(LinuxFunctionAppSiteConfigApplicationStackDockerArrayOutput)
 }
 
-// The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+// The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 func (o LinuxFunctionAppSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxFunctionAppSiteConfigApplicationStack) *string { return v.DotnetVersion }).(pulumi.StringPtrOutput)
 }
@@ -14389,7 +14389,7 @@ func (o LinuxFunctionAppSiteConfigApplicationStackPtrOutput) Dockers() LinuxFunc
 	}).(LinuxFunctionAppSiteConfigApplicationStackDockerArrayOutput)
 }
 
-// The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+// The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 func (o LinuxFunctionAppSiteConfigApplicationStackPtrOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -21751,7 +21751,7 @@ func (o LinuxFunctionAppSlotSiteConfigAppServiceLogsPtrOutput) RetentionPeriodDa
 type LinuxFunctionAppSlotSiteConfigApplicationStack struct {
 	// a `docker` block as detailed below.
 	Dockers []LinuxFunctionAppSlotSiteConfigApplicationStackDocker `pulumi:"dockers"`
-	// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+	// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 	DotnetVersion *string `pulumi:"dotnetVersion"`
 	// The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
 	JavaVersion *string `pulumi:"javaVersion"`
@@ -21781,7 +21781,7 @@ type LinuxFunctionAppSlotSiteConfigApplicationStackInput interface {
 type LinuxFunctionAppSlotSiteConfigApplicationStackArgs struct {
 	// a `docker` block as detailed below.
 	Dockers LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrayInput `pulumi:"dockers"`
-	// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+	// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 	DotnetVersion pulumi.StringPtrInput `pulumi:"dotnetVersion"`
 	// The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
@@ -21881,7 +21881,7 @@ func (o LinuxFunctionAppSlotSiteConfigApplicationStackOutput) Dockers() LinuxFun
 	}).(LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrayOutput)
 }
 
-// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 func (o LinuxFunctionAppSlotSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxFunctionAppSlotSiteConfigApplicationStack) *string { return v.DotnetVersion }).(pulumi.StringPtrOutput)
 }
@@ -21950,7 +21950,7 @@ func (o LinuxFunctionAppSlotSiteConfigApplicationStackPtrOutput) Dockers() Linux
 	}).(LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrayOutput)
 }
 
-// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 func (o LinuxFunctionAppSlotSiteConfigApplicationStackPtrOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlotSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -30455,7 +30455,7 @@ type LinuxWebAppSiteConfigApplicationStack struct {
 	DockerRegistryUrl *string `pulumi:"dockerRegistryUrl"`
 	// The User Name to use for authentication against the registry to pull the image.
 	DockerRegistryUsername *string `pulumi:"dockerRegistryUsername"`
-	// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+	// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 	DotnetVersion *string `pulumi:"dotnetVersion"`
 	// The version of Go to use. Possible values include `1.18`, and `1.19`.
 	GoVersion *string `pulumi:"goVersion"`
@@ -30471,7 +30471,7 @@ type LinuxWebAppSiteConfigApplicationStack struct {
 	//
 	// > **Note:** `javaServer`, `javaServerVersion`, and `javaVersion` must all be specified if building a java app
 	JavaVersion *string `pulumi:"javaVersion"`
-	// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+	// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
 	//
 	// > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 	NodeVersion *string `pulumi:"nodeVersion"`
@@ -30505,7 +30505,7 @@ type LinuxWebAppSiteConfigApplicationStackArgs struct {
 	DockerRegistryUrl pulumi.StringPtrInput `pulumi:"dockerRegistryUrl"`
 	// The User Name to use for authentication against the registry to pull the image.
 	DockerRegistryUsername pulumi.StringPtrInput `pulumi:"dockerRegistryUsername"`
-	// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+	// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 	DotnetVersion pulumi.StringPtrInput `pulumi:"dotnetVersion"`
 	// The version of Go to use. Possible values include `1.18`, and `1.19`.
 	GoVersion pulumi.StringPtrInput `pulumi:"goVersion"`
@@ -30521,7 +30521,7 @@ type LinuxWebAppSiteConfigApplicationStackArgs struct {
 	//
 	// > **Note:** `javaServer`, `javaServerVersion`, and `javaVersion` must all be specified if building a java app
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
-	// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+	// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
 	//
 	// > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
@@ -30632,7 +30632,7 @@ func (o LinuxWebAppSiteConfigApplicationStackOutput) DockerRegistryUsername() pu
 	return o.ApplyT(func(v LinuxWebAppSiteConfigApplicationStack) *string { return v.DockerRegistryUsername }).(pulumi.StringPtrOutput)
 }
 
-// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 func (o LinuxWebAppSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxWebAppSiteConfigApplicationStack) *string { return v.DotnetVersion }).(pulumi.StringPtrOutput)
 }
@@ -30663,7 +30663,7 @@ func (o LinuxWebAppSiteConfigApplicationStackOutput) JavaVersion() pulumi.String
 	return o.ApplyT(func(v LinuxWebAppSiteConfigApplicationStack) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
 //
 // > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 func (o LinuxWebAppSiteConfigApplicationStackOutput) NodeVersion() pulumi.StringPtrOutput {
@@ -30748,7 +30748,7 @@ func (o LinuxWebAppSiteConfigApplicationStackPtrOutput) DockerRegistryUsername()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 func (o LinuxWebAppSiteConfigApplicationStackPtrOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -30804,7 +30804,7 @@ func (o LinuxWebAppSiteConfigApplicationStackPtrOutput) JavaVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
 //
 // > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 func (o LinuxWebAppSiteConfigApplicationStackPtrOutput) NodeVersion() pulumi.StringPtrOutput {
@@ -39840,7 +39840,7 @@ type LinuxWebAppSlotSiteConfigApplicationStack struct {
 	DockerRegistryUrl *string `pulumi:"dockerRegistryUrl"`
 	// The User Name to use for authentication against the registry to pull the image.
 	DockerRegistryUsername *string `pulumi:"dockerRegistryUsername"`
-	// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+	// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 	DotnetVersion *string `pulumi:"dotnetVersion"`
 	// The version of Go to use. Possible values include `1.18`, and `1.19`.
 	GoVersion *string `pulumi:"goVersion"`
@@ -39854,7 +39854,7 @@ type LinuxWebAppSlotSiteConfigApplicationStack struct {
 	//
 	// > **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
 	JavaVersion *string `pulumi:"javaVersion"`
-	// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+	// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
 	//
 	// > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 	NodeVersion *string `pulumi:"nodeVersion"`
@@ -39888,7 +39888,7 @@ type LinuxWebAppSlotSiteConfigApplicationStackArgs struct {
 	DockerRegistryUrl pulumi.StringPtrInput `pulumi:"dockerRegistryUrl"`
 	// The User Name to use for authentication against the registry to pull the image.
 	DockerRegistryUsername pulumi.StringPtrInput `pulumi:"dockerRegistryUsername"`
-	// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+	// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 	DotnetVersion pulumi.StringPtrInput `pulumi:"dotnetVersion"`
 	// The version of Go to use. Possible values include `1.18`, and `1.19`.
 	GoVersion pulumi.StringPtrInput `pulumi:"goVersion"`
@@ -39902,7 +39902,7 @@ type LinuxWebAppSlotSiteConfigApplicationStackArgs struct {
 	//
 	// > **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
-	// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+	// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
 	//
 	// > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
@@ -40013,7 +40013,7 @@ func (o LinuxWebAppSlotSiteConfigApplicationStackOutput) DockerRegistryUsername(
 	return o.ApplyT(func(v LinuxWebAppSlotSiteConfigApplicationStack) *string { return v.DockerRegistryUsername }).(pulumi.StringPtrOutput)
 }
 
-// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 func (o LinuxWebAppSlotSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxWebAppSlotSiteConfigApplicationStack) *string { return v.DotnetVersion }).(pulumi.StringPtrOutput)
 }
@@ -40042,7 +40042,7 @@ func (o LinuxWebAppSlotSiteConfigApplicationStackOutput) JavaVersion() pulumi.St
 	return o.ApplyT(func(v LinuxWebAppSlotSiteConfigApplicationStack) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
 //
 // > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 func (o LinuxWebAppSlotSiteConfigApplicationStackOutput) NodeVersion() pulumi.StringPtrOutput {
@@ -40127,7 +40127,7 @@ func (o LinuxWebAppSlotSiteConfigApplicationStackPtrOutput) DockerRegistryUserna
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
 func (o LinuxWebAppSlotSiteConfigApplicationStackPtrOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlotSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -40181,7 +40181,7 @@ func (o LinuxWebAppSlotSiteConfigApplicationStackPtrOutput) JavaVersion() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
 //
 // > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 func (o LinuxWebAppSlotSiteConfigApplicationStackPtrOutput) NodeVersion() pulumi.StringPtrOutput {
@@ -42769,7 +42769,7 @@ type SourceControlGithubActionConfiguration struct {
 	ContainerConfiguration *SourceControlGithubActionConfigurationContainerConfiguration `pulumi:"containerConfiguration"`
 	// Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
 	GenerateWorkflowFile *bool `pulumi:"generateWorkflowFile"`
-	// Denotes this action uses a Linux base image.
+	// Whether this action uses a Linux base image.
 	LinuxAction *bool `pulumi:"linuxAction"`
 }
 
@@ -42791,7 +42791,7 @@ type SourceControlGithubActionConfigurationArgs struct {
 	ContainerConfiguration SourceControlGithubActionConfigurationContainerConfigurationPtrInput `pulumi:"containerConfiguration"`
 	// Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
 	GenerateWorkflowFile pulumi.BoolPtrInput `pulumi:"generateWorkflowFile"`
-	// Denotes this action uses a Linux base image.
+	// Whether this action uses a Linux base image.
 	LinuxAction pulumi.BoolPtrInput `pulumi:"linuxAction"`
 }
 
@@ -42891,7 +42891,7 @@ func (o SourceControlGithubActionConfigurationOutput) GenerateWorkflowFile() pul
 	return o.ApplyT(func(v SourceControlGithubActionConfiguration) *bool { return v.GenerateWorkflowFile }).(pulumi.BoolPtrOutput)
 }
 
-// Denotes this action uses a Linux base image.
+// Whether this action uses a Linux base image.
 func (o SourceControlGithubActionConfigurationOutput) LinuxAction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SourceControlGithubActionConfiguration) *bool { return v.LinuxAction }).(pulumi.BoolPtrOutput)
 }
@@ -42950,7 +42950,7 @@ func (o SourceControlGithubActionConfigurationPtrOutput) GenerateWorkflowFile() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Denotes this action uses a Linux base image.
+// Whether this action uses a Linux base image.
 func (o SourceControlGithubActionConfigurationPtrOutput) LinuxAction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SourceControlGithubActionConfiguration) *bool {
 		if v == nil {
@@ -49323,7 +49323,7 @@ type WindowsFunctionAppSiteConfig struct {
 	Cors *WindowsFunctionAppSiteConfigCors `pulumi:"cors"`
 	// Specifies a list of Default Documents for the Windows Function App.
 	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// Is detailed error logging enabled
+	// Is detailed error logging enabled?
 	DetailedErrorLoggingEnabled *bool `pulumi:"detailedErrorLoggingEnabled"`
 	// The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
 	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
@@ -49417,7 +49417,7 @@ type WindowsFunctionAppSiteConfigArgs struct {
 	Cors WindowsFunctionAppSiteConfigCorsPtrInput `pulumi:"cors"`
 	// Specifies a list of Default Documents for the Windows Function App.
 	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// Is detailed error logging enabled
+	// Is detailed error logging enabled?
 	DetailedErrorLoggingEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorLoggingEnabled"`
 	// The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
 	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
@@ -49613,7 +49613,7 @@ func (o WindowsFunctionAppSiteConfigOutput) DefaultDocuments() pulumi.StringArra
 	return o.ApplyT(func(v WindowsFunctionAppSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
-// Is detailed error logging enabled
+// Is detailed error logging enabled?
 func (o WindowsFunctionAppSiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsFunctionAppSiteConfig) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -49887,7 +49887,7 @@ func (o WindowsFunctionAppSiteConfigPtrOutput) DefaultDocuments() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Is detailed error logging enabled
+// Is detailed error logging enabled?
 func (o WindowsFunctionAppSiteConfigPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSiteConfig) *bool {
 		if v == nil {
@@ -50314,7 +50314,7 @@ func (o WindowsFunctionAppSiteConfigAppServiceLogsPtrOutput) RetentionPeriodDays
 }
 
 type WindowsFunctionAppSiteConfigApplicationStack struct {
-	// The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+	// The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
 	DotnetVersion *string `pulumi:"dotnetVersion"`
 	// The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
 	JavaVersion *string `pulumi:"javaVersion"`
@@ -50342,7 +50342,7 @@ type WindowsFunctionAppSiteConfigApplicationStackInput interface {
 }
 
 type WindowsFunctionAppSiteConfigApplicationStackArgs struct {
-	// The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+	// The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
 	DotnetVersion pulumi.StringPtrInput `pulumi:"dotnetVersion"`
 	// The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
@@ -50435,7 +50435,7 @@ func (o WindowsFunctionAppSiteConfigApplicationStackOutput) ToWindowsFunctionApp
 	}).(WindowsFunctionAppSiteConfigApplicationStackPtrOutput)
 }
 
-// The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+// The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
 func (o WindowsFunctionAppSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFunctionAppSiteConfigApplicationStack) *string { return v.DotnetVersion }).(pulumi.StringPtrOutput)
 }
@@ -50491,7 +50491,7 @@ func (o WindowsFunctionAppSiteConfigApplicationStackPtrOutput) Elem() WindowsFun
 	}).(WindowsFunctionAppSiteConfigApplicationStackOutput)
 }
 
-// The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+// The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
 func (o WindowsFunctionAppSiteConfigApplicationStackPtrOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -57666,7 +57666,7 @@ func (o WindowsFunctionAppSlotSiteConfigAppServiceLogsPtrOutput) RetentionPeriod
 }
 
 type WindowsFunctionAppSlotSiteConfigApplicationStack struct {
-	// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+	// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
 	DotnetVersion *string `pulumi:"dotnetVersion"`
 	// The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
 	JavaVersion *string `pulumi:"javaVersion"`
@@ -57692,7 +57692,7 @@ type WindowsFunctionAppSlotSiteConfigApplicationStackInput interface {
 }
 
 type WindowsFunctionAppSlotSiteConfigApplicationStackArgs struct {
-	// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+	// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
 	DotnetVersion pulumi.StringPtrInput `pulumi:"dotnetVersion"`
 	// The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
@@ -57783,7 +57783,7 @@ func (o WindowsFunctionAppSlotSiteConfigApplicationStackOutput) ToWindowsFunctio
 	}).(WindowsFunctionAppSlotSiteConfigApplicationStackPtrOutput)
 }
 
-// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
 func (o WindowsFunctionAppSlotSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFunctionAppSlotSiteConfigApplicationStack) *string { return v.DotnetVersion }).(pulumi.StringPtrOutput)
 }
@@ -57837,7 +57837,7 @@ func (o WindowsFunctionAppSlotSiteConfigApplicationStackPtrOutput) Elem() Window
 	}).(WindowsFunctionAppSlotSiteConfigApplicationStackOutput)
 }
 
-// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
 func (o WindowsFunctionAppSlotSiteConfigApplicationStackPtrOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlotSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -66254,7 +66254,7 @@ type WindowsWebAppSiteConfigApplicationStack struct {
 	DockerRegistryUsername *string `pulumi:"dockerRegistryUsername"`
 	// The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
 	DotnetCoreVersion *string `pulumi:"dotnetCoreVersion"`
-	// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+	// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 	//
 	// > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
 	// Portal Value | API value
@@ -66323,7 +66323,7 @@ type WindowsWebAppSiteConfigApplicationStackArgs struct {
 	DockerRegistryUsername pulumi.StringPtrInput `pulumi:"dockerRegistryUsername"`
 	// The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
 	DotnetCoreVersion pulumi.StringPtrInput `pulumi:"dotnetCoreVersion"`
-	// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+	// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 	//
 	// > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
 	// Portal Value | API value
@@ -66475,7 +66475,7 @@ func (o WindowsWebAppSiteConfigApplicationStackOutput) DotnetCoreVersion() pulum
 	return o.ApplyT(func(v WindowsWebAppSiteConfigApplicationStack) *string { return v.DotnetCoreVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 //
 // > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
 // Portal Value | API value
@@ -66629,7 +66629,7 @@ func (o WindowsWebAppSiteConfigApplicationStackPtrOutput) DotnetCoreVersion() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 //
 // > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
 // Portal Value | API value
@@ -76335,7 +76335,7 @@ type WindowsWebAppSlotSiteConfigApplicationStack struct {
 	DockerRegistryUsername *string `pulumi:"dockerRegistryUsername"`
 	// The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
 	DotnetCoreVersion *string `pulumi:"dotnetCoreVersion"`
-	// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+	// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 	DotnetVersion *string `pulumi:"dotnetVersion"`
 	// Deprecated: this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
 	JavaContainer *string `pulumi:"javaContainer"`
@@ -76391,7 +76391,7 @@ type WindowsWebAppSlotSiteConfigApplicationStackArgs struct {
 	DockerRegistryUsername pulumi.StringPtrInput `pulumi:"dockerRegistryUsername"`
 	// The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
 	DotnetCoreVersion pulumi.StringPtrInput `pulumi:"dotnetCoreVersion"`
-	// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+	// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 	DotnetVersion pulumi.StringPtrInput `pulumi:"dotnetVersion"`
 	// Deprecated: this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
 	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
@@ -76530,7 +76530,7 @@ func (o WindowsWebAppSlotSiteConfigApplicationStackOutput) DotnetCoreVersion() p
 	return o.ApplyT(func(v WindowsWebAppSlotSiteConfigApplicationStack) *string { return v.DotnetCoreVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 func (o WindowsWebAppSlotSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsWebAppSlotSiteConfigApplicationStack) *string { return v.DotnetVersion }).(pulumi.StringPtrOutput)
 }
@@ -76671,7 +76671,7 @@ func (o WindowsWebAppSlotSiteConfigApplicationStackPtrOutput) DotnetCoreVersion(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+// The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 func (o WindowsWebAppSlotSiteConfigApplicationStackPtrOutput) DotnetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlotSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -84296,7 +84296,7 @@ func (o GetLinuxFunctionAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) Ge
 type GetLinuxFunctionAppSiteConfigIpRestriction struct {
 	// The action taken.
 	Action string `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description string `pulumi:"description"`
 	// A `headers` block as defined above.
 	Headers []GetLinuxFunctionAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
@@ -84326,7 +84326,7 @@ type GetLinuxFunctionAppSiteConfigIpRestrictionInput interface {
 type GetLinuxFunctionAppSiteConfigIpRestrictionArgs struct {
 	// The action taken.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description pulumi.StringInput `pulumi:"description"`
 	// A `headers` block as defined above.
 	Headers GetLinuxFunctionAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
@@ -84398,7 +84398,7 @@ func (o GetLinuxFunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.String
 	return o.ApplyT(func(v GetLinuxFunctionAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The description of the ip restriction rule.
+// The description of the IP restriction rule.
 func (o GetLinuxFunctionAppSiteConfigIpRestrictionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxFunctionAppSiteConfigIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -84582,7 +84582,7 @@ func (o GetLinuxFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pul
 type GetLinuxFunctionAppSiteConfigScmIpRestriction struct {
 	// The action taken.
 	Action string `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description string `pulumi:"description"`
 	// A `headers` block as defined above.
 	Headers []GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
@@ -84612,7 +84612,7 @@ type GetLinuxFunctionAppSiteConfigScmIpRestrictionInput interface {
 type GetLinuxFunctionAppSiteConfigScmIpRestrictionArgs struct {
 	// The action taken.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description pulumi.StringInput `pulumi:"description"`
 	// A `headers` block as defined above.
 	Headers GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
@@ -84684,7 +84684,7 @@ func (o GetLinuxFunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.Str
 	return o.ApplyT(func(v GetLinuxFunctionAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The description of the ip restriction rule.
+// The description of the IP restriction rule.
 func (o GetLinuxFunctionAppSiteConfigScmIpRestrictionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxFunctionAppSiteConfigScmIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -90410,7 +90410,7 @@ func (o GetLinuxWebAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetLinu
 type GetLinuxWebAppSiteConfigIpRestriction struct {
 	// A `action` block as defined above.
 	Action string `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description string                                        `pulumi:"description"`
 	Headers     []GetLinuxWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -90439,7 +90439,7 @@ type GetLinuxWebAppSiteConfigIpRestrictionInput interface {
 type GetLinuxWebAppSiteConfigIpRestrictionArgs struct {
 	// A `action` block as defined above.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description pulumi.StringInput                                    `pulumi:"description"`
 	Headers     GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -90510,7 +90510,7 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutpu
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The description of the ip restriction rule.
+// The description of the IP restriction rule.
 func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -90569,7 +90569,7 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInpu
 type GetLinuxWebAppSiteConfigIpRestrictionHeader struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids []string `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors []string `pulumi:"xForwardedFors"`
@@ -90591,7 +90591,7 @@ type GetLinuxWebAppSiteConfigIpRestrictionHeaderInput interface {
 type GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
@@ -90655,7 +90655,7 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if a Front Door Health Probe is expected.
+// Whether a Front Door Health Probe is expected.
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
@@ -90693,7 +90693,7 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi.I
 type GetLinuxWebAppSiteConfigScmIpRestriction struct {
 	// A `action` block as defined above.
 	Action string `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description string                                           `pulumi:"description"`
 	Headers     []GetLinuxWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -90722,7 +90722,7 @@ type GetLinuxWebAppSiteConfigScmIpRestrictionInput interface {
 type GetLinuxWebAppSiteConfigScmIpRestrictionArgs struct {
 	// A `action` block as defined above.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description pulumi.StringInput                                       `pulumi:"description"`
 	Headers     GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -90793,7 +90793,7 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOu
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The description of the ip restriction rule.
+// The description of the IP restriction rule.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -90852,7 +90852,7 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntI
 type GetLinuxWebAppSiteConfigScmIpRestrictionHeader struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids []string `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors []string `pulumi:"xForwardedFors"`
@@ -90874,7 +90874,7 @@ type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderInput interface {
 type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
@@ -90938,7 +90938,7 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulu
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if a Front Door Health Probe is expected.
+// Whether a Front Door Health Probe is expected.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
@@ -95478,7 +95478,7 @@ func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) 
 type GetWindowsFunctionAppSiteConfigIpRestriction struct {
 	// The action to take.
 	Action string `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description string                                               `pulumi:"description"`
 	Headers     []GetWindowsFunctionAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -95507,7 +95507,7 @@ type GetWindowsFunctionAppSiteConfigIpRestrictionInput interface {
 type GetWindowsFunctionAppSiteConfigIpRestrictionArgs struct {
 	// The action to take.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description pulumi.StringInput                                           `pulumi:"description"`
 	Headers     GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -95578,7 +95578,7 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.Stri
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The description of the ip restriction rule.
+// The description of the IP restriction rule.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -95637,7 +95637,7 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.
 type GetWindowsFunctionAppSiteConfigIpRestrictionHeader struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids []string `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors []string `pulumi:"xForwardedFors"`
@@ -95659,7 +95659,7 @@ type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderInput interface {
 type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
@@ -95723,7 +95723,7 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() 
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if a Front Door Health Probe is expected.
+// Whether a Front Door Health Probe is expected.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
@@ -95761,7 +95761,7 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i p
 type GetWindowsFunctionAppSiteConfigScmIpRestriction struct {
 	// The action to take.
 	Action string `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description string                                                  `pulumi:"description"`
 	Headers     []GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -95790,7 +95790,7 @@ type GetWindowsFunctionAppSiteConfigScmIpRestrictionInput interface {
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs struct {
 	// The action to take.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description pulumi.StringInput                                              `pulumi:"description"`
 	Headers     GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -95861,7 +95861,7 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.S
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The description of the ip restriction rule.
+// The description of the IP restriction rule.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -95920,7 +95920,7 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulu
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids []string `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors []string `pulumi:"xForwardedFors"`
@@ -95942,7 +95942,7 @@ type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderInput interface {
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
@@ -96006,7 +96006,7 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if a Front Door Health Probe is expected.
+// Whether a Front Door Health Probe is expected.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }

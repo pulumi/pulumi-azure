@@ -32,14 +32,14 @@ public final class ProviderFeaturesEnhancedValidationArgs extends com.pulumi.res
     }
 
     /**
-     * Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+     * Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
      * 
      */
     @Import(name="preflightEnabled")
     private @Nullable Output<Boolean> preflightEnabled;
 
     /**
-     * @return Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+     * @return Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
      * 
      */
     public Optional<Output<Boolean>> preflightEnabled() {
@@ -62,14 +62,14 @@ public final class ProviderFeaturesEnhancedValidationArgs extends com.pulumi.res
     }
 
     /**
-     * Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+     * Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
      * 
      */
     @Import(name="resourceProviders")
     private @Nullable Output<Boolean> resourceProviders;
 
     /**
-     * @return Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+     * @return Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
      * 
      */
     public Optional<Output<Boolean>> resourceProviders() {
@@ -125,7 +125,7 @@ public final class ProviderFeaturesEnhancedValidationArgs extends com.pulumi.res
         }
 
         /**
-         * @param preflightEnabled Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+         * @param preflightEnabled Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ProviderFeaturesEnhancedValidationArgs extends com.pulumi.res
         }
 
         /**
-         * @param preflightEnabled Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+         * @param preflightEnabled Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ProviderFeaturesEnhancedValidationArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceProviders Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+         * @param resourceProviders Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ProviderFeaturesEnhancedValidationArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceProviders Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+         * @param resourceProviders Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
          * 
          * @return builder
          * 

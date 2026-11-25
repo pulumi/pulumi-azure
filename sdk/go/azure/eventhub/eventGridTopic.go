@@ -74,6 +74,8 @@ import (
 type EventGridTopic struct {
 	pulumi.CustomResourceState
 
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary pulumi.StringOutput `pulumi:"dataResidencyBoundary"`
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// An `identity` block as defined below.
@@ -90,6 +92,8 @@ type EventGridTopic struct {
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Topic.
@@ -142,6 +146,8 @@ func GetEventGridTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventGridTopic resources.
 type eventGridTopicState struct {
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary *string `pulumi:"dataResidencyBoundary"`
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint *string `pulumi:"endpoint"`
 	// An `identity` block as defined below.
@@ -158,6 +164,8 @@ type eventGridTopicState struct {
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Topic.
@@ -173,6 +181,8 @@ type eventGridTopicState struct {
 }
 
 type EventGridTopicState struct {
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary pulumi.StringPtrInput
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -189,6 +199,8 @@ type EventGridTopicState struct {
 	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The Primary Shared Access Key associated with the EventGrid Topic.
@@ -208,6 +220,8 @@ func (EventGridTopicState) ElementType() reflect.Type {
 }
 
 type eventGridTopicArgs struct {
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary *string `pulumi:"dataResidencyBoundary"`
 	// An `identity` block as defined below.
 	Identity *EventGridTopicIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
@@ -222,6 +236,8 @@ type eventGridTopicArgs struct {
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -234,6 +250,8 @@ type eventGridTopicArgs struct {
 
 // The set of arguments for constructing a EventGridTopic resource.
 type EventGridTopicArgs struct {
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity EventGridTopicIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
@@ -248,6 +266,8 @@ type EventGridTopicArgs struct {
 	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -345,6 +365,11 @@ func (o EventGridTopicOutput) ToEventGridTopicOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+func (o EventGridTopicOutput) DataResidencyBoundary() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridTopic) pulumi.StringOutput { return v.DataResidencyBoundary }).(pulumi.StringOutput)
+}
+
 // The Endpoint associated with the EventGrid Topic.
 func (o EventGridTopicOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventGridTopic) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
@@ -385,6 +410,11 @@ func (o EventGridTopicOutput) LocalAuthEnabled() pulumi.BoolPtrOutput {
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o EventGridTopicOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventGridTopic) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+func (o EventGridTopicOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridTopic) pulumi.StringOutput { return v.MinimumTlsVersion }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.

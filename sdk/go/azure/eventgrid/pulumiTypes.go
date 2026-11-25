@@ -5487,10 +5487,12 @@ type PartnerConfigurationPartnerAuthorization struct {
 	//
 	// > **Note:** If the time from `authorizationExpirationTimeInUtc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `defaultMaximumExpirationTimeInDays`.
 	AuthorizationExpirationTimeInUtc *string `pulumi:"authorizationExpirationTimeInUtc"`
-	// The partner name.
-	PartnerName string `pulumi:"partnerName"`
+	// The name of a verified partner.
+	PartnerName *string `pulumi:"partnerName"`
 	// The immutable id of the corresponding partner registration.
-	PartnerRegistrationId string `pulumi:"partnerRegistrationId"`
+	//
+	// > **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
+	PartnerRegistrationId *string `pulumi:"partnerRegistrationId"`
 }
 
 // PartnerConfigurationPartnerAuthorizationInput is an input type that accepts PartnerConfigurationPartnerAuthorizationArgs and PartnerConfigurationPartnerAuthorizationOutput values.
@@ -5509,10 +5511,12 @@ type PartnerConfigurationPartnerAuthorizationArgs struct {
 	//
 	// > **Note:** If the time from `authorizationExpirationTimeInUtc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `defaultMaximumExpirationTimeInDays`.
 	AuthorizationExpirationTimeInUtc pulumi.StringPtrInput `pulumi:"authorizationExpirationTimeInUtc"`
-	// The partner name.
-	PartnerName pulumi.StringInput `pulumi:"partnerName"`
+	// The name of a verified partner.
+	PartnerName pulumi.StringPtrInput `pulumi:"partnerName"`
 	// The immutable id of the corresponding partner registration.
-	PartnerRegistrationId pulumi.StringInput `pulumi:"partnerRegistrationId"`
+	//
+	// > **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
+	PartnerRegistrationId pulumi.StringPtrInput `pulumi:"partnerRegistrationId"`
 }
 
 func (PartnerConfigurationPartnerAuthorizationArgs) ElementType() reflect.Type {
@@ -5573,14 +5577,16 @@ func (o PartnerConfigurationPartnerAuthorizationOutput) AuthorizationExpirationT
 	return o.ApplyT(func(v PartnerConfigurationPartnerAuthorization) *string { return v.AuthorizationExpirationTimeInUtc }).(pulumi.StringPtrOutput)
 }
 
-// The partner name.
-func (o PartnerConfigurationPartnerAuthorizationOutput) PartnerName() pulumi.StringOutput {
-	return o.ApplyT(func(v PartnerConfigurationPartnerAuthorization) string { return v.PartnerName }).(pulumi.StringOutput)
+// The name of a verified partner.
+func (o PartnerConfigurationPartnerAuthorizationOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerConfigurationPartnerAuthorization) *string { return v.PartnerName }).(pulumi.StringPtrOutput)
 }
 
 // The immutable id of the corresponding partner registration.
-func (o PartnerConfigurationPartnerAuthorizationOutput) PartnerRegistrationId() pulumi.StringOutput {
-	return o.ApplyT(func(v PartnerConfigurationPartnerAuthorization) string { return v.PartnerRegistrationId }).(pulumi.StringOutput)
+//
+// > **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
+func (o PartnerConfigurationPartnerAuthorizationOutput) PartnerRegistrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerConfigurationPartnerAuthorization) *string { return v.PartnerRegistrationId }).(pulumi.StringPtrOutput)
 }
 
 type PartnerConfigurationPartnerAuthorizationArrayOutput struct{ *pulumi.OutputState }

@@ -86,9 +86,9 @@ type SharedImageVersion struct {
 
 	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri pulumi.StringPtrOutput `pulumi:"blobUri"`
 	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
 	DeletionOfReplicatedLocationsEnabled pulumi.BoolPtrOutput `pulumi:"deletionOfReplicatedLocationsEnabled"`
@@ -104,15 +104,15 @@ type SharedImageVersion struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+	// > **Note:** The ID can be sourced from the `compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	ManagedImageId pulumi.StringPtrOutput `pulumi:"managedImageId"`
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	OsDiskSnapshotId pulumi.StringPtrOutput `pulumi:"osDiskSnapshotId"`
 	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
 	ReplicationMode pulumi.StringPtrOutput `pulumi:"replicationMode"`
@@ -120,12 +120,14 @@ type SharedImageVersion struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
-	// A collection of tags which should be applied to this resource.
+	// A mapping of tags which should be applied to this resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// One or more `targetRegion` blocks as documented below.
+	// One or more `targetRegion` blocks as defined below.
 	TargetRegions SharedImageVersionTargetRegionArrayOutput `pulumi:"targetRegions"`
+	// A `uefi` block as defined below. Changing this forces a new resource to be created.
+	Uefi SharedImageVersionUefiPtrOutput `pulumi:"uefi"`
 }
 
 // NewSharedImageVersion registers a new resource with the given unique name, arguments, and options.
@@ -172,9 +174,9 @@ func GetSharedImageVersion(ctx *pulumi.Context,
 type sharedImageVersionState struct {
 	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri *string `pulumi:"blobUri"`
 	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
 	DeletionOfReplicatedLocationsEnabled *bool `pulumi:"deletionOfReplicatedLocationsEnabled"`
@@ -190,15 +192,15 @@ type sharedImageVersionState struct {
 	Location *string `pulumi:"location"`
 	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+	// > **Note:** The ID can be sourced from the `compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	ManagedImageId *string `pulumi:"managedImageId"`
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	OsDiskSnapshotId *string `pulumi:"osDiskSnapshotId"`
 	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
 	ReplicationMode *string `pulumi:"replicationMode"`
@@ -206,20 +208,22 @@ type sharedImageVersionState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// A collection of tags which should be applied to this resource.
+	// A mapping of tags which should be applied to this resource.
 	Tags map[string]string `pulumi:"tags"`
-	// One or more `targetRegion` blocks as documented below.
+	// One or more `targetRegion` blocks as defined below.
 	TargetRegions []SharedImageVersionTargetRegion `pulumi:"targetRegions"`
+	// A `uefi` block as defined below. Changing this forces a new resource to be created.
+	Uefi *SharedImageVersionUefi `pulumi:"uefi"`
 }
 
 type SharedImageVersionState struct {
 	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri pulumi.StringPtrInput
 	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
 	DeletionOfReplicatedLocationsEnabled pulumi.BoolPtrInput
@@ -235,15 +239,15 @@ type SharedImageVersionState struct {
 	Location pulumi.StringPtrInput
 	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+	// > **Note:** The ID can be sourced from the `compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	ManagedImageId pulumi.StringPtrInput
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	OsDiskSnapshotId pulumi.StringPtrInput
 	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
 	ReplicationMode pulumi.StringPtrInput
@@ -251,12 +255,14 @@ type SharedImageVersionState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	StorageAccountId pulumi.StringPtrInput
-	// A collection of tags which should be applied to this resource.
+	// A mapping of tags which should be applied to this resource.
 	Tags pulumi.StringMapInput
-	// One or more `targetRegion` blocks as documented below.
+	// One or more `targetRegion` blocks as defined below.
 	TargetRegions SharedImageVersionTargetRegionArrayInput
+	// A `uefi` block as defined below. Changing this forces a new resource to be created.
+	Uefi SharedImageVersionUefiPtrInput
 }
 
 func (SharedImageVersionState) ElementType() reflect.Type {
@@ -266,9 +272,9 @@ func (SharedImageVersionState) ElementType() reflect.Type {
 type sharedImageVersionArgs struct {
 	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri *string `pulumi:"blobUri"`
 	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
 	DeletionOfReplicatedLocationsEnabled *bool `pulumi:"deletionOfReplicatedLocationsEnabled"`
@@ -284,15 +290,15 @@ type sharedImageVersionArgs struct {
 	Location *string `pulumi:"location"`
 	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+	// > **Note:** The ID can be sourced from the `compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	ManagedImageId *string `pulumi:"managedImageId"`
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	OsDiskSnapshotId *string `pulumi:"osDiskSnapshotId"`
 	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
 	ReplicationMode *string `pulumi:"replicationMode"`
@@ -300,21 +306,23 @@ type sharedImageVersionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// A collection of tags which should be applied to this resource.
+	// A mapping of tags which should be applied to this resource.
 	Tags map[string]string `pulumi:"tags"`
-	// One or more `targetRegion` blocks as documented below.
+	// One or more `targetRegion` blocks as defined below.
 	TargetRegions []SharedImageVersionTargetRegion `pulumi:"targetRegions"`
+	// A `uefi` block as defined below. Changing this forces a new resource to be created.
+	Uefi *SharedImageVersionUefi `pulumi:"uefi"`
 }
 
 // The set of arguments for constructing a SharedImageVersion resource.
 type SharedImageVersionArgs struct {
 	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri pulumi.StringPtrInput
 	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
 	DeletionOfReplicatedLocationsEnabled pulumi.BoolPtrInput
@@ -330,15 +338,15 @@ type SharedImageVersionArgs struct {
 	Location pulumi.StringPtrInput
 	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+	// > **Note:** The ID can be sourced from the `compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	ManagedImageId pulumi.StringPtrInput
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+	// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 	OsDiskSnapshotId pulumi.StringPtrInput
 	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
 	ReplicationMode pulumi.StringPtrInput
@@ -346,12 +354,14 @@ type SharedImageVersionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+	// > **Note:** `blobUri` and `storageAccountId` must be specified together
 	StorageAccountId pulumi.StringPtrInput
-	// A collection of tags which should be applied to this resource.
+	// A mapping of tags which should be applied to this resource.
 	Tags pulumi.StringMapInput
-	// One or more `targetRegion` blocks as documented below.
+	// One or more `targetRegion` blocks as defined below.
 	TargetRegions SharedImageVersionTargetRegionArrayInput
+	// A `uefi` block as defined below. Changing this forces a new resource to be created.
+	Uefi SharedImageVersionUefiPtrInput
 }
 
 func (SharedImageVersionArgs) ElementType() reflect.Type {
@@ -443,9 +453,9 @@ func (o SharedImageVersionOutput) ToSharedImageVersionOutputWithContext(ctx cont
 
 // URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 //
-// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 //
-// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+// > **Note:** `blobUri` and `storageAccountId` must be specified together
 func (o SharedImageVersionOutput) BlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.BlobUri }).(pulumi.StringPtrOutput)
 }
@@ -482,9 +492,9 @@ func (o SharedImageVersionOutput) Location() pulumi.StringOutput {
 
 // The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+// > **Note:** The ID can be sourced from the `compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
 //
-// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 func (o SharedImageVersionOutput) ManagedImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.ManagedImageId }).(pulumi.StringPtrOutput)
 }
@@ -496,7 +506,7 @@ func (o SharedImageVersionOutput) Name() pulumi.StringOutput {
 
 // The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 //
-// > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+// > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
 func (o SharedImageVersionOutput) OsDiskSnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.OsDiskSnapshotId }).(pulumi.StringPtrOutput)
 }
@@ -513,19 +523,24 @@ func (o SharedImageVersionOutput) ResourceGroupName() pulumi.StringOutput {
 
 // The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+// > **Note:** `blobUri` and `storageAccountId` must be specified together
 func (o SharedImageVersionOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// A collection of tags which should be applied to this resource.
+// A mapping of tags which should be applied to this resource.
 func (o SharedImageVersionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// One or more `targetRegion` blocks as documented below.
+// One or more `targetRegion` blocks as defined below.
 func (o SharedImageVersionOutput) TargetRegions() SharedImageVersionTargetRegionArrayOutput {
 	return o.ApplyT(func(v *SharedImageVersion) SharedImageVersionTargetRegionArrayOutput { return v.TargetRegions }).(SharedImageVersionTargetRegionArrayOutput)
+}
+
+// A `uefi` block as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionOutput) Uefi() SharedImageVersionUefiPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersion) SharedImageVersionUefiPtrOutput { return v.Uefi }).(SharedImageVersionUefiPtrOutput)
 }
 
 type SharedImageVersionArrayOutput struct{ *pulumi.OutputState }

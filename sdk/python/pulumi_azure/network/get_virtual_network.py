@@ -26,10 +26,13 @@ class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, address_spaces=None, dns_servers=None, guid=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None, vnet_peerings=None, vnet_peerings_addresses=None):
+    def __init__(__self__, address_spaces=None, advertised_gateway_prefixes=None, dns_servers=None, guid=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None, vnet_peerings=None, vnet_peerings_addresses=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError("Expected argument 'address_spaces' to be a list")
         pulumi.set(__self__, "address_spaces", address_spaces)
+        if advertised_gateway_prefixes and not isinstance(advertised_gateway_prefixes, list):
+            raise TypeError("Expected argument 'advertised_gateway_prefixes' to be a list")
+        pulumi.set(__self__, "advertised_gateway_prefixes", advertised_gateway_prefixes)
         if dns_servers and not isinstance(dns_servers, list):
             raise TypeError("Expected argument 'dns_servers' to be a list")
         pulumi.set(__self__, "dns_servers", dns_servers)
@@ -68,6 +71,14 @@ class GetVirtualNetworkResult:
         The list of address spaces used by the virtual network.
         """
         return pulumi.get(self, "address_spaces")
+
+    @_builtins.property
+    @pulumi.getter(name="advertisedGatewayPrefixes")
+    def advertised_gateway_prefixes(self) -> Sequence[_builtins.str]:
+        """
+        The list of CIDR prefixes that Azure gateways advertise to on-premises networks.
+        """
+        return pulumi.get(self, "advertised_gateway_prefixes")
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
@@ -151,6 +162,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             yield self
         return GetVirtualNetworkResult(
             address_spaces=self.address_spaces,
+            advertised_gateway_prefixes=self.advertised_gateway_prefixes,
             dns_servers=self.dns_servers,
             guid=self.guid,
             id=self.id,
@@ -199,6 +211,7 @@ def get_virtual_network(name: Optional[_builtins.str] = None,
 
     return AwaitableGetVirtualNetworkResult(
         address_spaces=pulumi.get(__ret__, 'address_spaces'),
+        advertised_gateway_prefixes=pulumi.get(__ret__, 'advertised_gateway_prefixes'),
         dns_servers=pulumi.get(__ret__, 'dns_servers'),
         guid=pulumi.get(__ret__, 'guid'),
         id=pulumi.get(__ret__, 'id'),
@@ -244,6 +257,7 @@ def get_virtual_network_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
         address_spaces=pulumi.get(__response__, 'address_spaces'),
+        advertised_gateway_prefixes=pulumi.get(__response__, 'advertised_gateway_prefixes'),
         dns_servers=pulumi.get(__response__, 'dns_servers'),
         guid=pulumi.get(__response__, 'guid'),
         id=pulumi.get(__response__, 'id'),

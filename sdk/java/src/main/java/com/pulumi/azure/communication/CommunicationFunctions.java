@@ -43,8 +43,8 @@ public final class CommunicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CommunicationFunctions.getService(GetServiceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-communication-service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -92,8 +92,8 @@ public final class CommunicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CommunicationFunctions.getService(GetServiceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-communication-service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -141,8 +141,8 @@ public final class CommunicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CommunicationFunctions.getService(GetServiceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-communication-service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -190,8 +190,8 @@ public final class CommunicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CommunicationFunctions.getService(GetServiceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-communication-service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -239,8 +239,8 @@ public final class CommunicationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CommunicationFunctions.getService(GetServiceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-communication-service")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

@@ -26,7 +26,7 @@ class ApiTagDescriptionArgs:
         """
         The set of arguments for constructing a ApiTagDescription resource.
 
-        :param pulumi.Input[_builtins.str] api_tag_id: The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        :param pulumi.Input[_builtins.str] api_tag_id: The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Tag.
         :param pulumi.Input[_builtins.str] external_documentation_description: The description of the external documentation resources describing the tag.
         :param pulumi.Input[_builtins.str] external_documentation_url: The URL of external documentation resources describing the tag.
@@ -43,7 +43,7 @@ class ApiTagDescriptionArgs:
     @pulumi.getter(name="apiTagId")
     def api_tag_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         """
         return pulumi.get(self, "api_tag_id")
 
@@ -98,7 +98,7 @@ class _ApiTagDescriptionState:
         """
         Input properties used for looking up and filtering ApiTagDescription resources.
 
-        :param pulumi.Input[_builtins.str] api_tag_id: The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        :param pulumi.Input[_builtins.str] api_tag_id: The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Tag.
         :param pulumi.Input[_builtins.str] external_documentation_description: The description of the external documentation resources describing the tag.
         :param pulumi.Input[_builtins.str] external_documentation_url: The URL of external documentation resources describing the tag.
@@ -116,7 +116,7 @@ class _ApiTagDescriptionState:
     @pulumi.getter(name="apiTagId")
     def api_tag_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         """
         return pulumi.get(self, "api_tag_id")
 
@@ -231,7 +231,7 @@ class ApiTagDescription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_tag_id: The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        :param pulumi.Input[_builtins.str] api_tag_id: The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Tag.
         :param pulumi.Input[_builtins.str] external_documentation_description: The description of the external documentation resources describing the tag.
         :param pulumi.Input[_builtins.str] external_documentation_url: The URL of external documentation resources describing the tag.
@@ -354,7 +354,7 @@ class ApiTagDescription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_tag_id: The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        :param pulumi.Input[_builtins.str] api_tag_id: The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Tag.
         :param pulumi.Input[_builtins.str] external_documentation_description: The description of the external documentation resources describing the tag.
         :param pulumi.Input[_builtins.str] external_documentation_url: The URL of external documentation resources describing the tag.
@@ -373,7 +373,7 @@ class ApiTagDescription(pulumi.CustomResource):
     @pulumi.getter(name="apiTagId")
     def api_tag_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+        The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         """
         return pulumi.get(self, "api_tag_id")
 

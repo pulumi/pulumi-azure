@@ -81,7 +81,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<Outputs.BackendCircuitBreakerRule?> CircuitBreakerRule { get; private set; } = null!;
 
         /// <summary>
-        /// A `Credentials` block as documented below.
+        /// A `Credentials` block as defined below.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.BackendCredentials?> Credentials { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// A `Proxy` block as documented below.
+        /// A `Proxy` block as defined below.
         /// </summary>
         [Output("proxy")]
         public Output<Outputs.BackendProxy?> Proxy { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `ServiceFabricCluster` block as documented below.
+        /// A `ServiceFabricCluster` block as defined below.
         /// </summary>
         [Output("serviceFabricCluster")]
         public Output<Outputs.BackendServiceFabricCluster?> ServiceFabricCluster { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Title { get; private set; } = null!;
 
         /// <summary>
-        /// A `Tls` block as documented below.
+        /// A `Tls` block as defined below.
         /// </summary>
         [Output("tls")]
         public Output<Outputs.BackendTls?> Tls { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.BackendCircuitBreakerRuleArgs>? CircuitBreakerRule { get; set; }
 
         /// <summary>
-        /// A `Credentials` block as documented below.
+        /// A `Credentials` block as defined below.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.BackendCredentialsArgs>? Credentials { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// A `Proxy` block as documented below.
+        /// A `Proxy` block as defined below.
         /// </summary>
         [Input("proxy")]
         public Input<Inputs.BackendProxyArgs>? Proxy { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// A `ServiceFabricCluster` block as documented below.
+        /// A `ServiceFabricCluster` block as defined below.
         /// </summary>
         [Input("serviceFabricCluster")]
         public Input<Inputs.BackendServiceFabricClusterArgs>? ServiceFabricCluster { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// A `Tls` block as documented below.
+        /// A `Tls` block as defined below.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.BackendTlsArgs>? Tls { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.BackendCircuitBreakerRuleGetArgs>? CircuitBreakerRule { get; set; }
 
         /// <summary>
-        /// A `Credentials` block as documented below.
+        /// A `Credentials` block as defined below.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.BackendCredentialsGetArgs>? Credentials { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// A `Proxy` block as documented below.
+        /// A `Proxy` block as defined below.
         /// </summary>
         [Input("proxy")]
         public Input<Inputs.BackendProxyGetArgs>? Proxy { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// A `ServiceFabricCluster` block as documented below.
+        /// A `ServiceFabricCluster` block as defined below.
         /// </summary>
         [Input("serviceFabricCluster")]
         public Input<Inputs.BackendServiceFabricClusterGetArgs>? ServiceFabricCluster { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// A `Tls` block as documented below.
+        /// A `Tls` block as defined below.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.BackendTlsGetArgs>? Tls { get; set; }

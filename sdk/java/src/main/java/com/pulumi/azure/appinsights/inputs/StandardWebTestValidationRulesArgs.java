@@ -48,6 +48,27 @@ public final class StandardWebTestValidationRulesArgs extends com.pulumi.resourc
     }
 
     /**
+     * Should status code of the response be ignored? Defaults to `false`.
+     * *
+     * 
+     * &gt; **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+     * 
+     */
+    @Import(name="ignoreStatusCode")
+    private @Nullable Output<Boolean> ignoreStatusCode;
+
+    /**
+     * @return Should status code of the response be ignored? Defaults to `false`.
+     * *
+     * 
+     * &gt; **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+     * 
+     */
+    public Optional<Output<Boolean>> ignoreStatusCode() {
+        return Optional.ofNullable(this.ignoreStatusCode);
+    }
+
+    /**
      * The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
      * 
      */
@@ -82,6 +103,7 @@ public final class StandardWebTestValidationRulesArgs extends com.pulumi.resourc
     private StandardWebTestValidationRulesArgs(StandardWebTestValidationRulesArgs $) {
         this.content = $.content;
         this.expectedStatusCode = $.expectedStatusCode;
+        this.ignoreStatusCode = $.ignoreStatusCode;
         this.sslCertRemainingLifetime = $.sslCertRemainingLifetime;
         this.sslCheckEnabled = $.sslCheckEnabled;
     }
@@ -144,6 +166,33 @@ public final class StandardWebTestValidationRulesArgs extends com.pulumi.resourc
          */
         public Builder expectedStatusCode(Integer expectedStatusCode) {
             return expectedStatusCode(Output.of(expectedStatusCode));
+        }
+
+        /**
+         * @param ignoreStatusCode Should status code of the response be ignored? Defaults to `false`.
+         * *
+         * 
+         * &gt; **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreStatusCode(@Nullable Output<Boolean> ignoreStatusCode) {
+            $.ignoreStatusCode = ignoreStatusCode;
+            return this;
+        }
+
+        /**
+         * @param ignoreStatusCode Should status code of the response be ignored? Defaults to `false`.
+         * *
+         * 
+         * &gt; **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreStatusCode(Boolean ignoreStatusCode) {
+            return ignoreStatusCode(Output.of(ignoreStatusCode));
         }
 
         /**

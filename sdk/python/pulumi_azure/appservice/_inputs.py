@@ -3722,7 +3722,7 @@ class AppFlexConsumptionSiteConfigArgsDict(TypedDict):
     """
     detailed_error_logging_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Is detailed error logging enabled
+    Is detailed error logging enabled?
     """
     elastic_instance_minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -3857,7 +3857,7 @@ class AppFlexConsumptionSiteConfigArgs:
         :param pulumi.Input[_builtins.bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param pulumi.Input['AppFlexConsumptionSiteConfigCorsArgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
-        :param pulumi.Input[_builtins.bool] detailed_error_logging_enabled: Is detailed error logging enabled
+        :param pulumi.Input[_builtins.bool] detailed_error_logging_enabled: Is detailed error logging enabled?
         :param pulumi.Input[_builtins.int] elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param pulumi.Input[_builtins.int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[_builtins.str] health_check_path: The path to be checked for this function app health.
@@ -4071,7 +4071,7 @@ class AppFlexConsumptionSiteConfigArgs:
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Is detailed error logging enabled
+        Is detailed error logging enabled?
         """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
@@ -8480,7 +8480,7 @@ class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
     """
     detailed_error_logging_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Is detailed error logging enabled
+    Is detailed error logging enabled?
     """
     elastic_instance_minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -8512,7 +8512,7 @@ class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
     """
     linux_fx_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Linux FX Version
+    The Linux FX Version.
     """
     load_balancing_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -8645,7 +8645,7 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[_builtins.bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
-        :param pulumi.Input[_builtins.bool] detailed_error_logging_enabled: Is detailed error logging enabled
+        :param pulumi.Input[_builtins.bool] detailed_error_logging_enabled: Is detailed error logging enabled?
         :param pulumi.Input[_builtins.int] elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param pulumi.Input[_builtins.str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -8653,7 +8653,7 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[_builtins.bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
-        :param pulumi.Input[_builtins.str] linux_fx_version: The Linux FX Version
+        :param pulumi.Input[_builtins.str] linux_fx_version: The Linux FX Version.
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
@@ -8917,7 +8917,7 @@ class LinuxFunctionAppSiteConfigArgs:
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Is detailed error logging enabled
+        Is detailed error logging enabled?
         """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
@@ -9013,7 +9013,7 @@ class LinuxFunctionAppSiteConfigArgs:
     @pulumi.getter(name="linuxFxVersion")
     def linux_fx_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Linux FX Version
+        The Linux FX Version.
         """
         return pulumi.get(self, "linux_fx_version")
 
@@ -9290,7 +9290,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     dotnet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+    The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
     """
     java_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -9332,7 +9332,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
-        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
                
                > **Note:** The value `21` is currently in Preview for `java_version`.
@@ -9375,7 +9375,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -14008,7 +14008,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
     """
     dotnet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+    The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
     """
     java_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -14048,7 +14048,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]] dockers: a `docker` block as detailed below.
-        :param pulumi.Input[_builtins.str] dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        :param pulumi.Input[_builtins.str] dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         :param pulumi.Input[_builtins.str] java_version: The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
         :param pulumi.Input[_builtins.str] node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
         :param pulumi.Input[_builtins.str] powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
@@ -14089,7 +14089,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -19200,7 +19200,7 @@ class LinuxWebAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     dotnet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+    The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
     """
     go_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -19226,7 +19226,7 @@ class LinuxWebAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     node_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+    The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
 
     > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
     """
@@ -19263,7 +19263,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
                > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param pulumi.Input[_builtins.str] docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param pulumi.Input[_builtins.str] docker_registry_username: The User Name to use for authentication against the registry to pull the image.
-        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         :param pulumi.Input[_builtins.str] go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param pulumi.Input[_builtins.str] java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
                
@@ -19274,7 +19274,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
                > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
                
                > **Note:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
-        :param pulumi.Input[_builtins.str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+        :param pulumi.Input[_builtins.str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param pulumi.Input[_builtins.str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
@@ -19361,7 +19361,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -19427,7 +19427,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
 
         > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -24616,7 +24616,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
     """
     dotnet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+    The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
     """
     go_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -24640,7 +24640,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
     """
     node_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+    The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
 
     > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
     """
@@ -24677,7 +24677,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
                > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param pulumi.Input[_builtins.str] docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param pulumi.Input[_builtins.str] docker_registry_username: The User Name to use for authentication against the registry to pull the image.
-        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         :param pulumi.Input[_builtins.str] go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param pulumi.Input[_builtins.str] java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
                
@@ -24686,7 +24686,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
                
                > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
-        :param pulumi.Input[_builtins.str] node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+        :param pulumi.Input[_builtins.str] node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param pulumi.Input[_builtins.str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
@@ -24773,7 +24773,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -24837,7 +24837,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `java_version`.
 
         > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -26329,7 +26329,7 @@ class SourceControlGithubActionConfigurationArgsDict(TypedDict):
     """
     linux_action: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Denotes this action uses a Linux base image.
+    Whether this action uses a Linux base image.
     """
 
 @pulumi.input_type
@@ -26343,7 +26343,7 @@ class SourceControlGithubActionConfigurationArgs:
         :param pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs'] code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs'] container_configuration: A `container_configuration` block as defined above.
         :param pulumi.Input[_builtins.bool] generate_workflow_file: Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] linux_action: Denotes this action uses a Linux base image.
+        :param pulumi.Input[_builtins.bool] linux_action: Whether this action uses a Linux base image.
         """
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
@@ -26394,7 +26394,7 @@ class SourceControlGithubActionConfigurationArgs:
     @pulumi.getter(name="linuxAction")
     def linux_action(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Denotes this action uses a Linux base image.
+        Whether this action uses a Linux base image.
         """
         return pulumi.get(self, "linux_action")
 
@@ -29861,7 +29861,7 @@ class WindowsFunctionAppSiteConfigArgsDict(TypedDict):
     """
     detailed_error_logging_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Is detailed error logging enabled
+    Is detailed error logging enabled?
     """
     elastic_instance_minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -30022,7 +30022,7 @@ class WindowsFunctionAppSiteConfigArgs:
                > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
         :param pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_documents: Specifies a list of Default Documents for the Windows Function App.
-        :param pulumi.Input[_builtins.bool] detailed_error_logging_enabled: Is detailed error logging enabled
+        :param pulumi.Input[_builtins.bool] detailed_error_logging_enabled: Is detailed error logging enabled?
         :param pulumi.Input[_builtins.int] elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
         :param pulumi.Input[_builtins.str] ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -30266,7 +30266,7 @@ class WindowsFunctionAppSiteConfigArgs:
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Is detailed error logging enabled
+        Is detailed error logging enabled?
         """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
@@ -30635,7 +30635,7 @@ class WindowsFunctionAppSiteConfigAppServiceLogsArgs:
 class WindowsFunctionAppSiteConfigApplicationStackArgsDict(TypedDict):
     dotnet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+    The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
     """
     java_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -30670,7 +30670,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
                  use_custom_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_dotnet_isolated_runtime: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
         :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
         :param pulumi.Input[_builtins.str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20`, `~22` and `~24`.
         :param pulumi.Input[_builtins.str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
@@ -30696,7 +30696,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -35155,7 +35155,7 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs:
 class WindowsFunctionAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
     dotnet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+    The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
     """
     java_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -35188,7 +35188,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
                  use_custom_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_dotnet_isolated_runtime: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+        :param pulumi.Input[_builtins.str] dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
         :param pulumi.Input[_builtins.str] java_version: The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
         :param pulumi.Input[_builtins.str] node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
         :param pulumi.Input[_builtins.str] powershell_core_version: The PowerShell Core version to use. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
@@ -35212,7 +35212,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -40258,7 +40258,7 @@ class WindowsWebAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     dotnet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+    The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 
     > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
     Portal Value | API value
@@ -40337,7 +40337,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[_builtins.str] docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param pulumi.Input[_builtins.str] docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param pulumi.Input[_builtins.str] dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
-        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
                
                > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
                Portal Value | API value
@@ -40483,7 +40483,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
 
         > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
         Portal Value | API value
@@ -46087,7 +46087,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
     """
     dotnet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+    The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
     """
     java_container: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     java_container_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -46153,7 +46153,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[_builtins.str] docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param pulumi.Input[_builtins.str] docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param pulumi.Input[_builtins.str] dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
-        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+        :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
         :param pulumi.Input[_builtins.bool] java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param pulumi.Input[_builtins.str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
                
@@ -46286,7 +46286,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
         """
         return pulumi.get(self, "dotnet_version")
 

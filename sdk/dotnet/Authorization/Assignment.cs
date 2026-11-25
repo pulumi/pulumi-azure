@@ -304,7 +304,9 @@ namespace Pulumi.Azure.Authorization
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        /// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `Name` is omitted, a deterministic UUIDv5 is generated from the `Scope`, `PrincipalId`, and `RoleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -430,7 +432,9 @@ namespace Pulumi.Azure.Authorization
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        /// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `Name` is omitted, a deterministic UUIDv5 is generated from the `Scope`, `PrincipalId`, and `RoleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -514,7 +518,9 @@ namespace Pulumi.Azure.Authorization
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        /// The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `Name` is omitted, a deterministic UUIDv5 is generated from the `Scope`, `PrincipalId`, and `RoleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

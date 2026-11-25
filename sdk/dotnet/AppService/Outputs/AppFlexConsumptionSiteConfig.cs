@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
         /// <summary>
-        /// Is detailed error logging enabled
+        /// Is detailed error logging enabled?
         /// </summary>
         public readonly bool? DetailedErrorLoggingEnabled;
         /// <summary>

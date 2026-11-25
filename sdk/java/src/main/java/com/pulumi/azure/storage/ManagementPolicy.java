@@ -147,14 +147,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:storage/managementPolicy:ManagementPolicy")
 public class ManagementPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * A `rule` block as documented below.
+     * A `rule` block as defined below.
      * 
      */
     @Export(name="rules", refs={List.class,ManagementPolicyRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ManagementPolicyRule>> rules;
 
     /**
-     * @return A `rule` block as documented below.
+     * @return A `rule` block as defined below.
      * 
      */
     public Output<Optional<List<ManagementPolicyRule>>> rules() {

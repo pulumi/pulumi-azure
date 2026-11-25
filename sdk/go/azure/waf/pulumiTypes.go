@@ -430,9 +430,17 @@ func (o PolicyCustomRuleMatchConditionMatchVariableArrayOutput) Index(i pulumi.I
 }
 
 type PolicyManagedRules struct {
+	// One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+	//
+	// > **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+	Exceptions []PolicyManagedRulesException `pulumi:"exceptions"`
 	// One or more `exclusion` block defined below.
+	//
+	// > **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
 	Exclusions []PolicyManagedRulesExclusion `pulumi:"exclusions"`
-	// One or more `managedRuleSet` block defined below.
+	// One or more `managedRuleSet` blocks as defined below.
+	//
+	// > **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
 	ManagedRuleSets []PolicyManagedRulesManagedRuleSet `pulumi:"managedRuleSets"`
 }
 
@@ -448,9 +456,17 @@ type PolicyManagedRulesInput interface {
 }
 
 type PolicyManagedRulesArgs struct {
+	// One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+	//
+	// > **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+	Exceptions PolicyManagedRulesExceptionArrayInput `pulumi:"exceptions"`
 	// One or more `exclusion` block defined below.
+	//
+	// > **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
 	Exclusions PolicyManagedRulesExclusionArrayInput `pulumi:"exclusions"`
-	// One or more `managedRuleSet` block defined below.
+	// One or more `managedRuleSet` blocks as defined below.
+	//
+	// > **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
 	ManagedRuleSets PolicyManagedRulesManagedRuleSetArrayInput `pulumi:"managedRuleSets"`
 }
 
@@ -531,12 +547,23 @@ func (o PolicyManagedRulesOutput) ToPolicyManagedRulesPtrOutputWithContext(ctx c
 	}).(PolicyManagedRulesPtrOutput)
 }
 
+// One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+//
+// > **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+func (o PolicyManagedRulesOutput) Exceptions() PolicyManagedRulesExceptionArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRules) []PolicyManagedRulesException { return v.Exceptions }).(PolicyManagedRulesExceptionArrayOutput)
+}
+
 // One or more `exclusion` block defined below.
+//
+// > **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
 func (o PolicyManagedRulesOutput) Exclusions() PolicyManagedRulesExclusionArrayOutput {
 	return o.ApplyT(func(v PolicyManagedRules) []PolicyManagedRulesExclusion { return v.Exclusions }).(PolicyManagedRulesExclusionArrayOutput)
 }
 
-// One or more `managedRuleSet` block defined below.
+// One or more `managedRuleSet` blocks as defined below.
+//
+// > **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
 func (o PolicyManagedRulesOutput) ManagedRuleSets() PolicyManagedRulesManagedRuleSetArrayOutput {
 	return o.ApplyT(func(v PolicyManagedRules) []PolicyManagedRulesManagedRuleSet { return v.ManagedRuleSets }).(PolicyManagedRulesManagedRuleSetArrayOutput)
 }
@@ -565,7 +592,21 @@ func (o PolicyManagedRulesPtrOutput) Elem() PolicyManagedRulesOutput {
 	}).(PolicyManagedRulesOutput)
 }
 
+// One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+//
+// > **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+func (o PolicyManagedRulesPtrOutput) Exceptions() PolicyManagedRulesExceptionArrayOutput {
+	return o.ApplyT(func(v *PolicyManagedRules) []PolicyManagedRulesException {
+		if v == nil {
+			return nil
+		}
+		return v.Exceptions
+	}).(PolicyManagedRulesExceptionArrayOutput)
+}
+
 // One or more `exclusion` block defined below.
+//
+// > **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
 func (o PolicyManagedRulesPtrOutput) Exclusions() PolicyManagedRulesExclusionArrayOutput {
 	return o.ApplyT(func(v *PolicyManagedRules) []PolicyManagedRulesExclusion {
 		if v == nil {
@@ -575,7 +616,9 @@ func (o PolicyManagedRulesPtrOutput) Exclusions() PolicyManagedRulesExclusionArr
 	}).(PolicyManagedRulesExclusionArrayOutput)
 }
 
-// One or more `managedRuleSet` block defined below.
+// One or more `managedRuleSet` blocks as defined below.
+//
+// > **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
 func (o PolicyManagedRulesPtrOutput) ManagedRuleSets() PolicyManagedRulesManagedRuleSetArrayOutput {
 	return o.ApplyT(func(v *PolicyManagedRules) []PolicyManagedRulesManagedRuleSet {
 		if v == nil {
@@ -583,6 +626,379 @@ func (o PolicyManagedRulesPtrOutput) ManagedRuleSets() PolicyManagedRulesManaged
 		}
 		return v.ManagedRuleSets
 	}).(PolicyManagedRulesManagedRuleSetArrayOutput)
+}
+
+type PolicyManagedRulesException struct {
+	// One or more `exceptionRuleSet` blocks as defined below.
+	ExceptionRuleSets []PolicyManagedRulesExceptionExceptionRuleSet `pulumi:"exceptionRuleSets"`
+	// The request attribute to match. Possible values are `RemoteAddr`, `RequestHeader`, and `RequestURI`.
+	MatchVariable string `pulumi:"matchVariable"`
+	// The request header selector to match.
+	Selector *string `pulumi:"selector"`
+	// The operator used to match `selector`. Possible values are `Contains`, `EndsWith`, `Equals`, and `StartsWith`.
+	SelectorMatchOperator *string `pulumi:"selectorMatchOperator"`
+	// The operator used to match `values`. Possible values are `Contains`, `EndsWith`, `Equals`, `IPMatch`, and `StartsWith`.
+	ValueMatchOperator string `pulumi:"valueMatchOperator"`
+	// A non-empty list of values to match. Each value must be between 1 and 256 characters in length.
+	//
+	// > **Note:** A maximum of 600 values is supported when `matchVariable` is `RemoteAddr`, and a maximum of 10 values is supported when `matchVariable` is `RequestHeader` or `RequestURI`.
+	Values []string `pulumi:"values"`
+}
+
+// PolicyManagedRulesExceptionInput is an input type that accepts PolicyManagedRulesExceptionArgs and PolicyManagedRulesExceptionOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExceptionInput` via:
+//
+//	PolicyManagedRulesExceptionArgs{...}
+type PolicyManagedRulesExceptionInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExceptionOutput() PolicyManagedRulesExceptionOutput
+	ToPolicyManagedRulesExceptionOutputWithContext(context.Context) PolicyManagedRulesExceptionOutput
+}
+
+type PolicyManagedRulesExceptionArgs struct {
+	// One or more `exceptionRuleSet` blocks as defined below.
+	ExceptionRuleSets PolicyManagedRulesExceptionExceptionRuleSetArrayInput `pulumi:"exceptionRuleSets"`
+	// The request attribute to match. Possible values are `RemoteAddr`, `RequestHeader`, and `RequestURI`.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// The request header selector to match.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// The operator used to match `selector`. Possible values are `Contains`, `EndsWith`, `Equals`, and `StartsWith`.
+	SelectorMatchOperator pulumi.StringPtrInput `pulumi:"selectorMatchOperator"`
+	// The operator used to match `values`. Possible values are `Contains`, `EndsWith`, `Equals`, `IPMatch`, and `StartsWith`.
+	ValueMatchOperator pulumi.StringInput `pulumi:"valueMatchOperator"`
+	// A non-empty list of values to match. Each value must be between 1 and 256 characters in length.
+	//
+	// > **Note:** A maximum of 600 values is supported when `matchVariable` is `RemoteAddr`, and a maximum of 10 values is supported when `matchVariable` is `RequestHeader` or `RequestURI`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PolicyManagedRulesExceptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesException)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExceptionArgs) ToPolicyManagedRulesExceptionOutput() PolicyManagedRulesExceptionOutput {
+	return i.ToPolicyManagedRulesExceptionOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExceptionArgs) ToPolicyManagedRulesExceptionOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExceptionOutput)
+}
+
+// PolicyManagedRulesExceptionArrayInput is an input type that accepts PolicyManagedRulesExceptionArray and PolicyManagedRulesExceptionArrayOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExceptionArrayInput` via:
+//
+//	PolicyManagedRulesExceptionArray{ PolicyManagedRulesExceptionArgs{...} }
+type PolicyManagedRulesExceptionArrayInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExceptionArrayOutput() PolicyManagedRulesExceptionArrayOutput
+	ToPolicyManagedRulesExceptionArrayOutputWithContext(context.Context) PolicyManagedRulesExceptionArrayOutput
+}
+
+type PolicyManagedRulesExceptionArray []PolicyManagedRulesExceptionInput
+
+func (PolicyManagedRulesExceptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesException)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExceptionArray) ToPolicyManagedRulesExceptionArrayOutput() PolicyManagedRulesExceptionArrayOutput {
+	return i.ToPolicyManagedRulesExceptionArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExceptionArray) ToPolicyManagedRulesExceptionArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExceptionArrayOutput)
+}
+
+type PolicyManagedRulesExceptionOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExceptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesException)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExceptionOutput) ToPolicyManagedRulesExceptionOutput() PolicyManagedRulesExceptionOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionOutput) ToPolicyManagedRulesExceptionOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionOutput {
+	return o
+}
+
+// One or more `exceptionRuleSet` blocks as defined below.
+func (o PolicyManagedRulesExceptionOutput) ExceptionRuleSets() PolicyManagedRulesExceptionExceptionRuleSetArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesException) []PolicyManagedRulesExceptionExceptionRuleSet {
+		return v.ExceptionRuleSets
+	}).(PolicyManagedRulesExceptionExceptionRuleSetArrayOutput)
+}
+
+// The request attribute to match. Possible values are `RemoteAddr`, `RequestHeader`, and `RequestURI`.
+func (o PolicyManagedRulesExceptionOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesException) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// The request header selector to match.
+func (o PolicyManagedRulesExceptionOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRulesException) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// The operator used to match `selector`. Possible values are `Contains`, `EndsWith`, `Equals`, and `StartsWith`.
+func (o PolicyManagedRulesExceptionOutput) SelectorMatchOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRulesException) *string { return v.SelectorMatchOperator }).(pulumi.StringPtrOutput)
+}
+
+// The operator used to match `values`. Possible values are `Contains`, `EndsWith`, `Equals`, `IPMatch`, and `StartsWith`.
+func (o PolicyManagedRulesExceptionOutput) ValueMatchOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesException) string { return v.ValueMatchOperator }).(pulumi.StringOutput)
+}
+
+// A non-empty list of values to match. Each value must be between 1 and 256 characters in length.
+//
+// > **Note:** A maximum of 600 values is supported when `matchVariable` is `RemoteAddr`, and a maximum of 10 values is supported when `matchVariable` is `RequestHeader` or `RequestURI`.
+func (o PolicyManagedRulesExceptionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesException) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PolicyManagedRulesExceptionArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExceptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesException)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExceptionArrayOutput) ToPolicyManagedRulesExceptionArrayOutput() PolicyManagedRulesExceptionArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionArrayOutput) ToPolicyManagedRulesExceptionArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesExceptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesException {
+		return vs[0].([]PolicyManagedRulesException)[vs[1].(int)]
+	}).(PolicyManagedRulesExceptionOutput)
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSet struct {
+	// One or more `ruleGroup` blocks as defined below.
+	RuleGroups []PolicyManagedRulesExceptionExceptionRuleSetRuleGroup `pulumi:"ruleGroups"`
+	// The rule set type. Possible values are `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet`, and `OWASP`.
+	Type string `pulumi:"type"`
+	// The rule set version. Possible values are `1.0`, `1.1`, `2.1`, `2.2`, and `3.2`.
+	Version string `pulumi:"version"`
+}
+
+// PolicyManagedRulesExceptionExceptionRuleSetInput is an input type that accepts PolicyManagedRulesExceptionExceptionRuleSetArgs and PolicyManagedRulesExceptionExceptionRuleSetOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExceptionExceptionRuleSetInput` via:
+//
+//	PolicyManagedRulesExceptionExceptionRuleSetArgs{...}
+type PolicyManagedRulesExceptionExceptionRuleSetInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExceptionExceptionRuleSetOutput() PolicyManagedRulesExceptionExceptionRuleSetOutput
+	ToPolicyManagedRulesExceptionExceptionRuleSetOutputWithContext(context.Context) PolicyManagedRulesExceptionExceptionRuleSetOutput
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetArgs struct {
+	// One or more `ruleGroup` blocks as defined below.
+	RuleGroups PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayInput `pulumi:"ruleGroups"`
+	// The rule set type. Possible values are `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet`, and `OWASP`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The rule set version. Possible values are `1.0`, `1.1`, `2.1`, `2.2`, and `3.2`.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (PolicyManagedRulesExceptionExceptionRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExceptionExceptionRuleSet)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExceptionExceptionRuleSetArgs) ToPolicyManagedRulesExceptionExceptionRuleSetOutput() PolicyManagedRulesExceptionExceptionRuleSetOutput {
+	return i.ToPolicyManagedRulesExceptionExceptionRuleSetOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExceptionExceptionRuleSetArgs) ToPolicyManagedRulesExceptionExceptionRuleSetOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionExceptionRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExceptionExceptionRuleSetOutput)
+}
+
+// PolicyManagedRulesExceptionExceptionRuleSetArrayInput is an input type that accepts PolicyManagedRulesExceptionExceptionRuleSetArray and PolicyManagedRulesExceptionExceptionRuleSetArrayOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExceptionExceptionRuleSetArrayInput` via:
+//
+//	PolicyManagedRulesExceptionExceptionRuleSetArray{ PolicyManagedRulesExceptionExceptionRuleSetArgs{...} }
+type PolicyManagedRulesExceptionExceptionRuleSetArrayInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExceptionExceptionRuleSetArrayOutput() PolicyManagedRulesExceptionExceptionRuleSetArrayOutput
+	ToPolicyManagedRulesExceptionExceptionRuleSetArrayOutputWithContext(context.Context) PolicyManagedRulesExceptionExceptionRuleSetArrayOutput
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetArray []PolicyManagedRulesExceptionExceptionRuleSetInput
+
+func (PolicyManagedRulesExceptionExceptionRuleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesExceptionExceptionRuleSet)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExceptionExceptionRuleSetArray) ToPolicyManagedRulesExceptionExceptionRuleSetArrayOutput() PolicyManagedRulesExceptionExceptionRuleSetArrayOutput {
+	return i.ToPolicyManagedRulesExceptionExceptionRuleSetArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExceptionExceptionRuleSetArray) ToPolicyManagedRulesExceptionExceptionRuleSetArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionExceptionRuleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExceptionExceptionRuleSetArrayOutput)
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExceptionExceptionRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExceptionExceptionRuleSet)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetOutput) ToPolicyManagedRulesExceptionExceptionRuleSetOutput() PolicyManagedRulesExceptionExceptionRuleSetOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetOutput) ToPolicyManagedRulesExceptionExceptionRuleSetOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionExceptionRuleSetOutput {
+	return o
+}
+
+// One or more `ruleGroup` blocks as defined below.
+func (o PolicyManagedRulesExceptionExceptionRuleSetOutput) RuleGroups() PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExceptionExceptionRuleSet) []PolicyManagedRulesExceptionExceptionRuleSetRuleGroup {
+		return v.RuleGroups
+	}).(PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput)
+}
+
+// The rule set type. Possible values are `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet`, and `OWASP`.
+func (o PolicyManagedRulesExceptionExceptionRuleSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExceptionExceptionRuleSet) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The rule set version. Possible values are `1.0`, `1.1`, `2.1`, `2.2`, and `3.2`.
+func (o PolicyManagedRulesExceptionExceptionRuleSetOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExceptionExceptionRuleSet) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExceptionExceptionRuleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesExceptionExceptionRuleSet)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetArrayOutput) ToPolicyManagedRulesExceptionExceptionRuleSetArrayOutput() PolicyManagedRulesExceptionExceptionRuleSetArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetArrayOutput) ToPolicyManagedRulesExceptionExceptionRuleSetArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionExceptionRuleSetArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesExceptionExceptionRuleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesExceptionExceptionRuleSet {
+		return vs[0].([]PolicyManagedRulesExceptionExceptionRuleSet)[vs[1].(int)]
+	}).(PolicyManagedRulesExceptionExceptionRuleSetOutput)
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetRuleGroup struct {
+	// The name of the managed rule group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
+	RuleGroupName string `pulumi:"ruleGroupName"`
+	// A list of managed Rule IDs for the exception.
+	Rules []string `pulumi:"rules"`
+}
+
+// PolicyManagedRulesExceptionExceptionRuleSetRuleGroupInput is an input type that accepts PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs and PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExceptionExceptionRuleSetRuleGroupInput` via:
+//
+//	PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs{...}
+type PolicyManagedRulesExceptionExceptionRuleSetRuleGroupInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput() PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput
+	ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutputWithContext(context.Context) PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs struct {
+	// The name of the managed rule group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	// A list of managed Rule IDs for the exception.
+	Rules pulumi.StringArrayInput `pulumi:"rules"`
+}
+
+func (PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExceptionExceptionRuleSetRuleGroup)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs) ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput() PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput {
+	return i.ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs) ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput)
+}
+
+// PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayInput is an input type that accepts PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArray and PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayInput` via:
+//
+//	PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArray{ PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs{...} }
+type PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput() PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput
+	ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutputWithContext(context.Context) PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArray []PolicyManagedRulesExceptionExceptionRuleSetRuleGroupInput
+
+func (PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesExceptionExceptionRuleSetRuleGroup)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArray) ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput() PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput {
+	return i.ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArray) ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput)
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExceptionExceptionRuleSetRuleGroup)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput) ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput() PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput) ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput {
+	return o
+}
+
+// The name of the managed rule group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
+func (o PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExceptionExceptionRuleSetRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+// A list of managed Rule IDs for the exception.
+func (o PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput) Rules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExceptionExceptionRuleSetRuleGroup) []string { return v.Rules }).(pulumi.StringArrayOutput)
+}
+
+type PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesExceptionExceptionRuleSetRuleGroup)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput) ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput() PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput) ToPolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesExceptionExceptionRuleSetRuleGroup {
+		return vs[0].([]PolicyManagedRulesExceptionExceptionRuleSetRuleGroup)[vs[1].(int)]
+	}).(PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput)
 }
 
 type PolicyManagedRulesExclusion struct {
@@ -891,7 +1307,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Version() pulumi.St
 type PolicyManagedRulesExclusionExcludedRuleSetRuleGroup struct {
 	// One or more Rule IDs for exclusion.
 	ExcludedRules []string `pulumi:"excludedRules"`
-	// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
+	// The name of the managed rule group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 }
 
@@ -909,7 +1325,7 @@ type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupInput interface {
 type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs struct {
 	// One or more Rule IDs for exclusion.
 	ExcludedRules pulumi.StringArrayInput `pulumi:"excludedRules"`
-	// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
+	// The name of the managed rule group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 }
 
@@ -969,7 +1385,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ExcludedRules
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSetRuleGroup) []string { return v.ExcludedRules }).(pulumi.StringArrayOutput)
 }
 
-// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
+// The name of the managed rule group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSetRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
@@ -1925,6 +2341,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleMatchConditionMatchVariableArrayInput)(nil)).Elem(), PolicyCustomRuleMatchConditionMatchVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesInput)(nil)).Elem(), PolicyManagedRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesPtrInput)(nil)).Elem(), PolicyManagedRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExceptionInput)(nil)).Elem(), PolicyManagedRulesExceptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExceptionArrayInput)(nil)).Elem(), PolicyManagedRulesExceptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExceptionExceptionRuleSetInput)(nil)).Elem(), PolicyManagedRulesExceptionExceptionRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExceptionExceptionRuleSetArrayInput)(nil)).Elem(), PolicyManagedRulesExceptionExceptionRuleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExceptionExceptionRuleSetRuleGroupInput)(nil)).Elem(), PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayInput)(nil)).Elem(), PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionInput)(nil)).Elem(), PolicyManagedRulesExclusionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionArrayInput)(nil)).Elem(), PolicyManagedRulesExclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSetInput)(nil)).Elem(), PolicyManagedRulesExclusionExcludedRuleSetArgs{})
@@ -1951,6 +2373,12 @@ func init() {
 	pulumi.RegisterOutputType(PolicyCustomRuleMatchConditionMatchVariableArrayOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesPtrOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExceptionOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExceptionArrayOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExceptionExceptionRuleSetOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExceptionExceptionRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExceptionExceptionRuleSetRuleGroupOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArrayOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesExclusionOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesExclusionArrayOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesExclusionExcludedRuleSetOutput{})

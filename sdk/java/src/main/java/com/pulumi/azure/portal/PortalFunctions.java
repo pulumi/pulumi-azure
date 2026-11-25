@@ -43,7 +43,7 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
-     *             .name("existing-dashboard")
+     *             .name("example-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
@@ -92,7 +92,7 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
-     *             .name("existing-dashboard")
+     *             .name("example-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
@@ -141,7 +141,7 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
-     *             .name("existing-dashboard")
+     *             .name("example-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
@@ -190,7 +190,7 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
-     *             .name("existing-dashboard")
+     *             .name("example-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
@@ -239,7 +239,7 @@ public final class PortalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
-     *             .name("existing-dashboard")
+     *             .name("example-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 

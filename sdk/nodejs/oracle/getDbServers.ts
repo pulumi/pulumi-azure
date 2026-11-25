@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.oracle.getDbServers({
- *     resourceGroupName: "existing",
- *     cloudExadataInfrastructureName: "existing",
+ *     resourceGroupName: "example-resources",
+ *     cloudExadataInfrastructureName: "example-exadata-infrastructure",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -76,8 +76,8 @@ export interface GetDbServersResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.oracle.getDbServers({
- *     resourceGroupName: "existing",
- *     cloudExadataInfrastructureName: "existing",
+ *     resourceGroupName: "example-resources",
+ *     cloudExadataInfrastructureName: "example-exadata-infrastructure",
  * });
  * export const id = example.then(example => example.id);
  * ```

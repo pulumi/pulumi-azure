@@ -26,13 +26,13 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkSecurityPerimeter.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-perimeter",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetNetworkSecurityPerimeterProfile = Azure.Network.GetNetworkSecurityPerimeterProfile.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-profile",
         ///         NetworkSecurityPerimeterId = example.Apply(getNetworkSecurityPerimeterResult =&gt; getNetworkSecurityPerimeterResult.Id),
         ///     });
         /// 
@@ -68,13 +68,13 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkSecurityPerimeter.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-perimeter",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetNetworkSecurityPerimeterProfile = Azure.Network.GetNetworkSecurityPerimeterProfile.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-profile",
         ///         NetworkSecurityPerimeterId = example.Apply(getNetworkSecurityPerimeterResult =&gt; getNetworkSecurityPerimeterResult.Id),
         ///     });
         /// 
@@ -110,13 +110,13 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkSecurityPerimeter.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-perimeter",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetNetworkSecurityPerimeterProfile = Azure.Network.GetNetworkSecurityPerimeterProfile.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-profile",
         ///         NetworkSecurityPerimeterId = example.Apply(getNetworkSecurityPerimeterResult =&gt; getNetworkSecurityPerimeterResult.Id),
         ///     });
         /// 

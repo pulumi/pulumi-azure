@@ -117,7 +117,7 @@ export interface GetSharedImageVersionResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * One or more `targetRegion` blocks as documented below.
+     * One or more `targetRegion` blocks as defined below.
      */
     readonly targetRegions: outputs.compute.GetSharedImageVersionTargetRegion[];
 }

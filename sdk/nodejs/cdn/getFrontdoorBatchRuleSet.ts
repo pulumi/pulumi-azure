@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorBatchRuleSet({
- *     name: "existing",
- *     profileName: "existing-profile",
- *     resourceGroupName: "existing-resources",
+ *     name: "exampleruleset",
+ *     profileName: "example-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorBatchRuleSet(args: GetFrontdoorBatchRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorBatchRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,9 +93,9 @@ export interface GetFrontdoorBatchRuleSetResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorBatchRuleSet({
- *     name: "existing",
- *     profileName: "existing-profile",
- *     resourceGroupName: "existing-resources",
+ *     name: "exampleruleset",
+ *     profileName: "example-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -104,7 +104,7 @@ export interface GetFrontdoorBatchRuleSetResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorBatchRuleSetOutput(args: GetFrontdoorBatchRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorBatchRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

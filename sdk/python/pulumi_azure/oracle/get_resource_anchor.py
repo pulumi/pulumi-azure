@@ -115,8 +115,8 @@ def get_resource_anchor(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_resource_anchor(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_resource_anchor(name="example-resource-anchor",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -156,8 +156,8 @@ def get_resource_anchor_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_resource_anchor(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_resource_anchor(name="example-resource-anchor",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

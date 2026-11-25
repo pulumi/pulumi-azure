@@ -20,6 +20,8 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
         /// <summary>
         /// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+        /// 
+        /// &gt; **Note:** The `MaximumCount` and `MinimumCount` arguments are not supported when `WorkloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
         /// </summary>
         [Input("minimumCount")]
         public Input<int>? MinimumCount { get; set; }

@@ -152,8 +152,8 @@ def get_resource_bridge_appliance(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.arc.get_resource_bridge_appliance(name="existing",
-        resource_group_name="existing")
+    example = azure.arc.get_resource_bridge_appliance(name="example-appliance",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -196,8 +196,8 @@ def get_resource_bridge_appliance_output(name: pulumi.Input[Optional[_builtins.s
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.arc.get_resource_bridge_appliance(name="existing",
-        resource_group_name="existing")
+    example = azure.arc.get_resource_bridge_appliance(name="example-appliance",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

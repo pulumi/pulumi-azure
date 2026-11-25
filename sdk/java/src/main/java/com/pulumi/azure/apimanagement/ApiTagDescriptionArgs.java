@@ -17,14 +17,14 @@ public final class ApiTagDescriptionArgs extends com.pulumi.resources.ResourceAr
     public static final ApiTagDescriptionArgs Empty = new ApiTagDescriptionArgs();
 
     /**
-     * The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+     * The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      * 
      */
     @Import(name="apiTagId", required=true)
     private Output<String> apiTagId;
 
     /**
-     * @return The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+     * @return The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      * 
      */
     public Output<String> apiTagId() {
@@ -104,7 +104,7 @@ public final class ApiTagDescriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiTagId The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+         * @param apiTagId The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ApiTagDescriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiTagId The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+         * @param apiTagId The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
          * 
          * @return builder
          * 

@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.containerservice.getClusterNodePool({
- *     name: "existing",
- *     kubernetesClusterName: "existing-cluster",
- *     resourceGroupName: "existing-resource-group",
+ *     name: "example",
+ *     kubernetesClusterName: "example-cluster",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2026-05-01
+ * * `Microsoft.ContainerService` - 2026-07-01
  */
 export function getClusterNodePool(args: GetClusterNodePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterNodePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -150,7 +150,7 @@ export interface GetClusterNodePoolResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * A `upgradeSettings` block as documented below.
+     * A `upgradeSettings` block as defined below.
      */
     readonly upgradeSettings: outputs.containerservice.GetClusterNodePoolUpgradeSetting[];
     /**
@@ -176,9 +176,9 @@ export interface GetClusterNodePoolResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.containerservice.getClusterNodePool({
- *     name: "existing",
- *     kubernetesClusterName: "existing-cluster",
- *     resourceGroupName: "existing-resource-group",
+ *     name: "example",
+ *     kubernetesClusterName: "example-cluster",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -188,7 +188,7 @@ export interface GetClusterNodePoolResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2026-05-01
+ * * `Microsoft.ContainerService` - 2026-07-01
  */
 export function getClusterNodePoolOutput(args: GetClusterNodePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterNodePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

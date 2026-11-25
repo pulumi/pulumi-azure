@@ -63,7 +63,7 @@ export interface GetServiceResult {
      */
     readonly connectivityLogsEnabled: boolean;
     /**
-     * A `cors` block as documented below.
+     * A `cors` block as defined below.
      */
     readonly cors: outputs.signalr.GetServiceCor[];
     /**
@@ -79,7 +79,7 @@ export interface GetServiceResult {
      */
     readonly id: string;
     /**
-     * An `identity` block as documented below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.signalr.GetServiceIdentity[];
     /**
@@ -144,7 +144,7 @@ export interface GetServiceResult {
      */
     readonly serviceMode: string;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      */
     readonly skus: outputs.signalr.GetServiceSkus[];
     readonly tags: {[key: string]: string};
@@ -153,7 +153,7 @@ export interface GetServiceResult {
      */
     readonly tlsClientCertEnabled: boolean;
     /**
-     * One or more `upstreamEndpoint` blocks as documented below.
+     * One or more `upstreamEndpoint` blocks as defined below.
      */
     readonly upstreamEndpoints: outputs.signalr.GetServiceUpstreamEndpoint[];
 }

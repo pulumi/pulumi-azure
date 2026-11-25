@@ -326,6 +326,24 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
         return this.logClientIp;
     }
     /**
+     * Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+     * 
+     * &gt; **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+     * 
+     */
+    @Export(name="metricsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> metricsEnabled;
+
+    /**
+     * @return Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+     * 
+     * &gt; **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+     * 
+     */
+    public Output<Optional<Boolean>> metricsEnabled() {
+        return Codegen.optional(this.metricsEnabled);
+    }
+    /**
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
      * 
      */

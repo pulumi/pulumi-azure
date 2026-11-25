@@ -115,11 +115,11 @@ def get_volume_snapshot(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.elasticsan.get(name="existing",
-        resource_group_name="existing")
-    example_get_volume_group = azure.elasticsan.get_volume_group(name="existing",
+    example = azure.elasticsan.get(name="example-elastic-san",
+        resource_group_name="example-resources")
+    example_get_volume_group = azure.elasticsan.get_volume_group(name="example-volume-group",
         elastic_san_id=example.id)
-    example_get_volume_snapshot = azure.elasticsan.get_volume_snapshot(name="existing",
+    example_get_volume_snapshot = azure.elasticsan.get_volume_snapshot(name="example-snapshot",
         volume_group_id=example_get_volume_group.id)
     pulumi.export("id", example_get_volume_snapshot.id)
     ```
@@ -160,11 +160,11 @@ def get_volume_snapshot_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.elasticsan.get(name="existing",
-        resource_group_name="existing")
-    example_get_volume_group = azure.elasticsan.get_volume_group(name="existing",
+    example = azure.elasticsan.get(name="example-elastic-san",
+        resource_group_name="example-resources")
+    example_get_volume_group = azure.elasticsan.get_volume_group(name="example-volume-group",
         elastic_san_id=example.id)
-    example_get_volume_snapshot = azure.elasticsan.get_volume_snapshot(name="existing",
+    example_get_volume_snapshot = azure.elasticsan.get_volume_snapshot(name="example-snapshot",
         volume_group_id=example_get_volume_group.id)
     pulumi.export("id", example_get_volume_snapshot.id)
     ```

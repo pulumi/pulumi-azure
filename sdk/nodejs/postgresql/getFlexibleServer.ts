@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.postgresql.getFlexibleServer({
- *     name: "existing-postgresql-fs",
- *     resourceGroupName: "existing-postgresql-resgroup",
+ *     name: "example-postgresql-flexible-server",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DBforPostgreSQL` - 2025-08-01
+ * * `Microsoft.DBforPostgreSQL` - 2026-10-01
  */
 export function getFlexibleServer(args: GetFlexibleServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFlexibleServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -124,8 +124,8 @@ export interface GetFlexibleServerResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.postgresql.getFlexibleServer({
- *     name: "existing-postgresql-fs",
- *     resourceGroupName: "existing-postgresql-resgroup",
+ *     name: "example-postgresql-flexible-server",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -135,7 +135,7 @@ export interface GetFlexibleServerResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DBforPostgreSQL` - 2025-08-01
+ * * `Microsoft.DBforPostgreSQL` - 2026-10-01
  */
 export function getFlexibleServerOutput(args: GetFlexibleServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlexibleServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

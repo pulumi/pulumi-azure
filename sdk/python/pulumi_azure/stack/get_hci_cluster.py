@@ -188,8 +188,8 @@ def get_hci_cluster(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.stack.get_hci_cluster(name="existing",
-        resource_group_name="existing")
+    example = azure.stack.get_hci_cluster(name="example-cluster",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     pulumi.export("location", example.location)
     pulumi.export("clientId", example.client_id)
@@ -237,8 +237,8 @@ def get_hci_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.stack.get_hci_cluster(name="existing",
-        resource_group_name="existing")
+    example = azure.stack.get_hci_cluster(name="example-cluster",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     pulumi.export("location", example.location)
     pulumi.export("clientId", example.client_id)

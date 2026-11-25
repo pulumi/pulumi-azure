@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Inputs
     public sealed class ProviderFeaturesNetappArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+        /// When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
         /// </summary>
         [Input("deleteBackupsOnBackupVaultDestroy")]
         public Input<bool>? DeleteBackupsOnBackupVaultDestroy { get; set; }
 
         /// <summary>
-        /// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+        /// When enabled, the volume will not be destroyed, safeguarding from severe data loss.
         /// </summary>
         [Input("preventVolumeDestruction")]
         public Input<bool>? PreventVolumeDestruction { get; set; }

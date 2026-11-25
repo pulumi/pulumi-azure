@@ -15,11 +15,93 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ServiceDatasourceBlobEncryptionKeyArgs',
+    'ServiceDatasourceBlobEncryptionKeyArgsDict',
     'ServiceIdentityArgs',
     'ServiceIdentityArgsDict',
     'ServiceQueryKeyArgs',
     'ServiceQueryKeyArgsDict',
 ]
+
+class ServiceDatasourceBlobEncryptionKeyArgsDict(TypedDict):
+    key_vault_key_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Key Vault Key used for encryption.
+    """
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Client ID of the Microsoft Entra ID application used for authentication.
+
+    > **Note:** `client_id` and `client_secret` must be specified together.
+    """
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Client Secret of the Microsoft Entra ID application used for authentication.
+
+    > **Note:** If `client_id` and `client_secret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+    """
+
+@pulumi.input_type
+class ServiceDatasourceBlobEncryptionKeyArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: pulumi.Input[_builtins.str],
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key used for encryption.
+        :param pulumi.Input[_builtins.str] client_id: The Client ID of the Microsoft Entra ID application used for authentication.
+               
+               > **Note:** `client_id` and `client_secret` must be specified together.
+        :param pulumi.Input[_builtins.str] client_secret: The Client Secret of the Microsoft Entra ID application used for authentication.
+               
+               > **Note:** If `client_id` and `client_secret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Key Vault Key used for encryption.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Client ID of the Microsoft Entra ID application used for authentication.
+
+        > **Note:** `client_id` and `client_secret` must be specified together.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Client Secret of the Microsoft Entra ID application used for authentication.
+
+        > **Note:** If `client_id` and `client_secret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_secret", value)
+
 
 class ServiceIdentityArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]

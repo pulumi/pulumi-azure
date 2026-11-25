@@ -21,14 +21,14 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
     public static final ServiceHostnameConfigurationArgs Empty = new ServiceHostnameConfigurationArgs();
 
     /**
-     * One or more `developerPortal` blocks as documented below.
+     * One or more `developerPortal` blocks as defined below.
      * 
      */
     @Import(name="developerPortals")
     private @Nullable Output<List<ServiceHostnameConfigurationDeveloperPortalArgs>> developerPortals;
 
     /**
-     * @return One or more `developerPortal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as defined below.
      * 
      */
     public Optional<Output<List<ServiceHostnameConfigurationDeveloperPortalArgs>>> developerPortals() {
@@ -36,14 +36,14 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * One or more `management` blocks as documented below.
+     * One or more `management` blocks as defined below.
      * 
      */
     @Import(name="managements")
     private @Nullable Output<List<ServiceHostnameConfigurationManagementArgs>> managements;
 
     /**
-     * @return One or more `management` blocks as documented below.
+     * @return One or more `management` blocks as defined below.
      * 
      */
     public Optional<Output<List<ServiceHostnameConfigurationManagementArgs>>> managements() {
@@ -51,14 +51,14 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * One or more `portal` blocks as documented below.
+     * One or more `portal` blocks as defined below.
      * 
      */
     @Import(name="portals")
     private @Nullable Output<List<ServiceHostnameConfigurationPortalArgs>> portals;
 
     /**
-     * @return One or more `portal` blocks as documented below.
+     * @return One or more `portal` blocks as defined below.
      * 
      */
     public Optional<Output<List<ServiceHostnameConfigurationPortalArgs>>> portals() {
@@ -66,14 +66,14 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * One or more `proxy` blocks as documented below.
+     * One or more `proxy` blocks as defined below.
      * 
      */
     @Import(name="proxies")
     private @Nullable Output<List<ServiceHostnameConfigurationProxyArgs>> proxies;
 
     /**
-     * @return One or more `proxy` blocks as documented below.
+     * @return One or more `proxy` blocks as defined below.
      * 
      */
     public Optional<Output<List<ServiceHostnameConfigurationProxyArgs>>> proxies() {
@@ -81,14 +81,14 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * One or more `scm` blocks as documented below.
+     * One or more `scm` blocks as defined below.
      * 
      */
     @Import(name="scms")
     private @Nullable Output<List<ServiceHostnameConfigurationScmArgs>> scms;
 
     /**
-     * @return One or more `scm` blocks as documented below.
+     * @return One or more `scm` blocks as defined below.
      * 
      */
     public Optional<Output<List<ServiceHostnameConfigurationScmArgs>>> scms() {
@@ -124,7 +124,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param developerPortals One or more `developerPortal` blocks as documented below.
+         * @param developerPortals One or more `developerPortal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param developerPortals One or more `developerPortal` blocks as documented below.
+         * @param developerPortals One or more `developerPortal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param developerPortals One or more `developerPortal` blocks as documented below.
+         * @param developerPortals One or more `developerPortal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managements One or more `management` blocks as documented below.
+         * @param managements One or more `management` blocks as defined below.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managements One or more `management` blocks as documented below.
+         * @param managements One or more `management` blocks as defined below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managements One or more `management` blocks as documented below.
+         * @param managements One or more `management` blocks as defined below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param portals One or more `portal` blocks as documented below.
+         * @param portals One or more `portal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param portals One or more `portal` blocks as documented below.
+         * @param portals One or more `portal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param portals One or more `portal` blocks as documented below.
+         * @param portals One or more `portal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param proxies One or more `proxy` blocks as documented below.
+         * @param proxies One or more `proxy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param proxies One or more `proxy` blocks as documented below.
+         * @param proxies One or more `proxy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param proxies One or more `proxy` blocks as documented below.
+         * @param proxies One or more `proxy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scms One or more `scm` blocks as documented below.
+         * @param scms One or more `scm` blocks as defined below.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scms One or more `scm` blocks as documented below.
+         * @param scms One or more `scm` blocks as defined below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scms One or more `scm` blocks as documented below.
+         * @param scms One or more `scm` blocks as defined below.
          * 
          * @return builder
          * 

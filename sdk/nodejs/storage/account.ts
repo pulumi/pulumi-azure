@@ -176,11 +176,11 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly crossTenantReplicationEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A `customDomain` block as documented below.
+     * A `customDomain` block as defined below.
      */
     declare public readonly customDomain: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      *
      * > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      */
@@ -250,7 +250,7 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A `networkRules` block as documented below.
+     * A `networkRules` block as defined below.
      */
     declare public readonly networkRules: pulumi.Output<outputs.storage.AccountNetworkRules>;
     /**
@@ -594,6 +594,10 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly sharedAccessKeyEnabled: pulumi.Output<boolean | undefined>;
     /**
+     * Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+     */
+    declare public readonly smbOauthEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
      * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -727,6 +731,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["sftpEnabled"] = state?.sftpEnabled;
             resourceInputs["shareProperties"] = state?.shareProperties;
             resourceInputs["sharedAccessKeyEnabled"] = state?.sharedAccessKeyEnabled;
+            resourceInputs["smbOauthEnabled"] = state?.smbOauthEnabled;
             resourceInputs["tableEncryptionKeyType"] = state?.tableEncryptionKeyType;
             resourceInputs["tags"] = state?.tags;
         } else {
@@ -776,6 +781,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["sftpEnabled"] = args?.sftpEnabled;
             resourceInputs["shareProperties"] = args?.shareProperties;
             resourceInputs["sharedAccessKeyEnabled"] = args?.sharedAccessKeyEnabled;
+            resourceInputs["smbOauthEnabled"] = args?.smbOauthEnabled;
             resourceInputs["tableEncryptionKeyType"] = args?.tableEncryptionKeyType;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["accountReplicationTypeMigratingTo"] = undefined /*out*/;
@@ -919,11 +925,11 @@ export interface AccountState {
      */
     crossTenantReplicationEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `customDomain` block as documented below.
+     * A `customDomain` block as defined below.
      */
     customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain | undefined>;
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      *
      * > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      */
@@ -993,7 +999,7 @@ export interface AccountState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A `networkRules` block as documented below.
+     * A `networkRules` block as defined below.
      */
     networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules | undefined>;
     /**
@@ -1337,6 +1343,10 @@ export interface AccountState {
      */
     sharedAccessKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
+     * Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+     */
+    smbOauthEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
      * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1399,11 +1409,11 @@ export interface AccountArgs {
      */
     crossTenantReplicationEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `customDomain` block as documented below.
+     * A `customDomain` block as defined below.
      */
     customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain | undefined>;
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      *
      * > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      */
@@ -1473,7 +1483,7 @@ export interface AccountArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A `networkRules` block as documented below.
+     * A `networkRules` block as defined below.
      */
     networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules | undefined>;
     /**
@@ -1528,6 +1538,10 @@ export interface AccountArgs {
      * > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
      */
     sharedAccessKeyEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+     */
+    smbOauthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *

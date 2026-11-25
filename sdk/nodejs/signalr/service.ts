@@ -98,7 +98,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly connectivityLogsEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A `cors` block as documented below.
+     * A `cors` block as defined below.
      */
     declare public readonly cors: pulumi.Output<outputs.signalr.ServiceCor[]>;
     /**
@@ -184,7 +184,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly serviceMode: pulumi.Output<string | undefined>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      */
     declare public readonly sku: pulumi.Output<outputs.signalr.ServiceSku>;
     /**
@@ -198,7 +198,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly tlsClientCertEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
     declare public readonly upstreamEndpoints: pulumi.Output<outputs.signalr.ServiceUpstreamEndpoint[] | undefined>;
 
@@ -298,7 +298,7 @@ export interface ServiceState {
      */
     connectivityLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `cors` block as documented below.
+     * A `cors` block as defined below.
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[] | undefined>;
     /**
@@ -384,7 +384,7 @@ export interface ServiceState {
      */
     serviceMode?: pulumi.Input<string | undefined>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      */
     sku?: pulumi.Input<inputs.signalr.ServiceSku | undefined>;
     /**
@@ -398,7 +398,7 @@ export interface ServiceState {
      */
     tlsClientCertEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
     upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[] | undefined>;
 }
@@ -416,7 +416,7 @@ export interface ServiceArgs {
      */
     connectivityLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `cors` block as documented below.
+     * A `cors` block as defined below.
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[] | undefined>;
     /**
@@ -470,7 +470,7 @@ export interface ServiceArgs {
      */
     serviceMode?: pulumi.Input<string | undefined>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      */
     sku: pulumi.Input<inputs.signalr.ServiceSku>;
     /**
@@ -484,7 +484,7 @@ export interface ServiceArgs {
      */
     tlsClientCertEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
     upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[] | undefined>;
 }

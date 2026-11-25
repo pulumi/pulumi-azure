@@ -114,11 +114,11 @@ type Firewall struct {
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// The ID of the Firewall Policy applied to this Firewall.
 	FirewallPolicyId pulumi.StringPtrOutput `pulumi:"firewallPolicyId"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations FirewallIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+	// A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrOutput `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -134,7 +134,7 @@ type Firewall struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode pulumi.StringOutput `pulumi:"threatIntelMode"`
-	// A `virtualHub` block as documented below.
+	// A `virtualHub` block as defined below.
 	VirtualHub FirewallVirtualHubPtrOutput `pulumi:"virtualHub"`
 	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	//
@@ -187,11 +187,11 @@ type firewallState struct {
 	DnsServers []string `pulumi:"dnsServers"`
 	// The ID of the Firewall Policy applied to this Firewall.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations []FirewallIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+	// A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration *FirewallManagementIpConfiguration `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -207,7 +207,7 @@ type firewallState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// A `virtualHub` block as documented below.
+	// A `virtualHub` block as defined below.
 	VirtualHub *FirewallVirtualHub `pulumi:"virtualHub"`
 	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	//
@@ -222,11 +222,11 @@ type FirewallState struct {
 	DnsServers pulumi.StringArrayInput
 	// The ID of the Firewall Policy applied to this Firewall.
 	FirewallPolicyId pulumi.StringPtrInput
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations FirewallIpConfigurationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+	// A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrInput
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -242,7 +242,7 @@ type FirewallState struct {
 	Tags pulumi.StringMapInput
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode pulumi.StringPtrInput
-	// A `virtualHub` block as documented below.
+	// A `virtualHub` block as defined below.
 	VirtualHub FirewallVirtualHubPtrInput
 	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	//
@@ -261,11 +261,11 @@ type firewallArgs struct {
 	DnsServers []string `pulumi:"dnsServers"`
 	// The ID of the Firewall Policy applied to this Firewall.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations []FirewallIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+	// A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration *FirewallManagementIpConfiguration `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -281,7 +281,7 @@ type firewallArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// A `virtualHub` block as documented below.
+	// A `virtualHub` block as defined below.
 	VirtualHub *FirewallVirtualHub `pulumi:"virtualHub"`
 	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	//
@@ -297,11 +297,11 @@ type FirewallArgs struct {
 	DnsServers pulumi.StringArrayInput
 	// The ID of the Firewall Policy applied to this Firewall.
 	FirewallPolicyId pulumi.StringPtrInput
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations FirewallIpConfigurationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+	// A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrInput
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type FirewallArgs struct {
 	Tags pulumi.StringMapInput
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode pulumi.StringPtrInput
-	// A `virtualHub` block as documented below.
+	// A `virtualHub` block as defined below.
 	VirtualHub FirewallVirtualHubPtrInput
 	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	//
@@ -427,7 +427,7 @@ func (o FirewallOutput) FirewallPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.FirewallPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// An `ipConfiguration` block as documented below.
+// An `ipConfiguration` block as defined below.
 func (o FirewallOutput) IpConfigurations() FirewallIpConfigurationArrayOutput {
 	return o.ApplyT(func(v *Firewall) FirewallIpConfigurationArrayOutput { return v.IpConfigurations }).(FirewallIpConfigurationArrayOutput)
 }
@@ -437,7 +437,7 @@ func (o FirewallOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+// A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 func (o FirewallOutput) ManagementIpConfiguration() FirewallManagementIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *Firewall) FirewallManagementIpConfigurationPtrOutput { return v.ManagementIpConfiguration }).(FirewallManagementIpConfigurationPtrOutput)
 }
@@ -477,7 +477,7 @@ func (o FirewallOutput) ThreatIntelMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.ThreatIntelMode }).(pulumi.StringOutput)
 }
 
-// A `virtualHub` block as documented below.
+// A `virtualHub` block as defined below.
 func (o FirewallOutput) VirtualHub() FirewallVirtualHubPtrOutput {
 	return o.ApplyT(func(v *Firewall) FirewallVirtualHubPtrOutput { return v.VirtualHub }).(FirewallVirtualHubPtrOutput)
 }

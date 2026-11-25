@@ -109,7 +109,7 @@ type ExpressRouteCircuit struct {
 	ServiceProviderName pulumi.StringPtrOutput `pulumi:"serviceProviderName"`
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 	ServiceProviderProvisioningState pulumi.StringOutput `pulumi:"serviceProviderProvisioningState"`
-	// A `sku` block for the ExpressRoute circuit as documented below.
+	// A `sku` block for the ExpressRoute circuit as defined below.
 	Sku ExpressRouteCircuitSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -191,7 +191,7 @@ type expressRouteCircuitState struct {
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
-	// A `sku` block for the ExpressRoute circuit as documented below.
+	// A `sku` block for the ExpressRoute circuit as defined below.
 	Sku *ExpressRouteCircuitSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -230,7 +230,7 @@ type ExpressRouteCircuitState struct {
 	ServiceProviderName pulumi.StringPtrInput
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 	ServiceProviderProvisioningState pulumi.StringPtrInput
-	// A `sku` block for the ExpressRoute circuit as documented below.
+	// A `sku` block for the ExpressRoute circuit as defined below.
 	Sku ExpressRouteCircuitSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -269,7 +269,7 @@ type expressRouteCircuitArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
-	// A `sku` block for the ExpressRoute circuit as documented below.
+	// A `sku` block for the ExpressRoute circuit as defined below.
 	Sku ExpressRouteCircuitSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -305,7 +305,7 @@ type ExpressRouteCircuitArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringPtrInput
-	// A `sku` block for the ExpressRoute circuit as documented below.
+	// A `sku` block for the ExpressRoute circuit as defined below.
 	Sku ExpressRouteCircuitSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -469,7 +469,7 @@ func (o ExpressRouteCircuitOutput) ServiceProviderProvisioningState() pulumi.Str
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringOutput { return v.ServiceProviderProvisioningState }).(pulumi.StringOutput)
 }
 
-// A `sku` block for the ExpressRoute circuit as documented below.
+// A `sku` block for the ExpressRoute circuit as defined below.
 func (o ExpressRouteCircuitOutput) Sku() ExpressRouteCircuitSkuOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitSkuOutput { return v.Sku }).(ExpressRouteCircuitSkuOutput)
 }

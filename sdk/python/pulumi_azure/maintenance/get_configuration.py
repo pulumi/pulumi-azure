@@ -176,9 +176,9 @@ def get_configuration(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.maintenance.get_configuration(name="example-mc",
+    example = azure.maintenance.get_configuration(name="example-mc",
         resource_group_name="example-resources")
-    pulumi.export("id", existing_azurerm_maintenance_configuration["id"])
+    pulumi.export("id", example.id)
     ```
 
     ## API Providers
@@ -222,9 +222,9 @@ def get_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.maintenance.get_configuration(name="example-mc",
+    example = azure.maintenance.get_configuration(name="example-mc",
         resource_group_name="example-resources")
-    pulumi.export("id", existing_azurerm_maintenance_configuration["id"])
+    pulumi.export("id", example.id)
     ```
 
     ## API Providers

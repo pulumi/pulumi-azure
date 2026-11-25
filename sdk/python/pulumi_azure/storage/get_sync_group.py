@@ -79,8 +79,8 @@ def get_sync_group(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_sync_group(name="existing-ss-group",
-        storage_sync_id="existing-ss-id")
+    example = azure.storage.get_sync_group(name="example-sync-group",
+        storage_sync_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync")
     pulumi.export("id", example.id)
     ```
 
@@ -117,8 +117,8 @@ def get_sync_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_sync_group(name="existing-ss-group",
-        storage_sync_id="existing-ss-id")
+    example = azure.storage.get_sync_group(name="example-sync-group",
+        storage_sync_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync")
     pulumi.export("id", example.id)
     ```
 

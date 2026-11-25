@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * export = async () => {
  *     const example = await azure.oracle.getDbNodes({
- *         cloudVmClusterId: "existing",
+ *         cloudVmClusterId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster",
  *     });
  *     return {
  *         example: example,
@@ -74,7 +74,7 @@ export interface GetDbNodesResult {
  *
  * export = async () => {
  *     const example = await azure.oracle.getDbNodes({
- *         cloudVmClusterId: "existing",
+ *         cloudVmClusterId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster",
  *     });
  *     return {
  *         example: example,

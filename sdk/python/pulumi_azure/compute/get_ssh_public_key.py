@@ -101,8 +101,8 @@ def get_ssh_public_key(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_ssh_public_key(name="existing",
-        resource_group_name="existing")
+    example = azure.compute.get_ssh_public_key(name="example-ssh-key",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -144,8 +144,8 @@ def get_ssh_public_key_output(name: pulumi.Input[Optional[_builtins.str]] = None
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_ssh_public_key(name="existing",
-        resource_group_name="existing")
+    example = azure.compute.get_ssh_public_key(name="example-ssh-key",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

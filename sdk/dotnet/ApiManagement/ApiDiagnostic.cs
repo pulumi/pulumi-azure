@@ -218,6 +218,14 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool> LogClientIp { get; private set; } = null!;
 
         /// <summary>
+        /// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+        /// 
+        /// &gt; **Note:** `MetricsEnabled` can only be set when `Identifier` is set to `Applicationinsights`.
+        /// </summary>
+        [Output("metricsEnabled")]
+        public Output<bool?> MetricsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
         /// </summary>
         [Output("operationNameFormat")]
@@ -354,6 +362,14 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? LogClientIp { get; set; }
 
         /// <summary>
+        /// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+        /// 
+        /// &gt; **Note:** `MetricsEnabled` can only be set when `Identifier` is set to `Applicationinsights`.
+        /// </summary>
+        [Input("metricsEnabled")]
+        public Input<bool>? MetricsEnabled { get; set; }
+
+        /// <summary>
         /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
         /// </summary>
         [Input("operationNameFormat")]
@@ -450,6 +466,14 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("logClientIp")]
         public Input<bool>? LogClientIp { get; set; }
+
+        /// <summary>
+        /// Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+        /// 
+        /// &gt; **Note:** `MetricsEnabled` can only be set when `Identifier` is set to `Applicationinsights`.
+        /// </summary>
+        [Input("metricsEnabled")]
+        public Input<bool>? MetricsEnabled { get; set; }
 
         /// <summary>
         /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.

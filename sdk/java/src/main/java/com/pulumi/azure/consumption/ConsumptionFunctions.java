@@ -46,7 +46,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -95,7 +95,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -144,7 +144,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -193,7 +193,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -242,7 +242,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -291,7 +291,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
@@ -340,7 +340,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
@@ -389,7 +389,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
@@ -438,7 +438,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
@@ -487,7 +487,7 @@ public final class ConsumptionFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name("existing")
+     *             .name("example-budget")
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 

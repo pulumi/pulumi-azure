@@ -92,7 +92,7 @@ export class Logger extends pulumi.CustomResource {
      */
     declare public readonly apiManagementName: pulumi.Output<string>;
     /**
-     * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+     * An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly applicationInsights: pulumi.Output<outputs.apimanagement.LoggerApplicationInsights | undefined>;
     /**
@@ -104,7 +104,7 @@ export class Logger extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * An `eventhub` block as documented below. Changing this forces a new resource to be created.
+     * An `eventhub` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly eventhub: pulumi.Output<outputs.apimanagement.LoggerEventhub | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface LoggerState {
      */
     apiManagementName?: pulumi.Input<string | undefined>;
     /**
-     * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+     * An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
      */
     applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface LoggerState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * An `eventhub` block as documented below. Changing this forces a new resource to be created.
+     * An `eventhub` block as defined below. Changing this forces a new resource to be created.
      */
     eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface LoggerArgs {
      */
     apiManagementName: pulumi.Input<string>;
     /**
-     * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+     * An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
      */
     applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface LoggerArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * An `eventhub` block as documented below. Changing this forces a new resource to be created.
+     * An `eventhub` block as defined below. Changing this forces a new resource to be created.
      */
     eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub | undefined>;
     /**

@@ -27,14 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := maintenance.LookupConfiguration(ctx, &maintenance.LookupConfigurationArgs{
+//			example, err := maintenance.LookupConfiguration(ctx, &maintenance.LookupConfigurationArgs{
 //				Name:              "example-mc",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", pulumi.Any(existingAzurermMaintenanceConfiguration.Id))
+//			ctx.Export("id", example.Id)
 //			return nil
 //		})
 //	}

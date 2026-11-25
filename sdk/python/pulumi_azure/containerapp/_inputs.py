@@ -320,6 +320,12 @@ class AppIngressArgsDict(TypedDict):
     """
     One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
     """
+    session_affinity_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Is session affinity enabled. Defaults to `false`.
+
+    > **Note:** Session affinity requires `Single` `revision_mode` and an ingress `transport` of `auto`, `http`, or `http2`.
+    """
     transport: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
@@ -340,6 +346,7 @@ class AppIngressArgs:
                  external_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_security_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['AppIngressIpSecurityRestrictionArgs']]]] = None,
+                 session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  transport: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] target_port: The target port on the container for the Ingress traffic.
@@ -354,6 +361,9 @@ class AppIngressArgs:
         :param pulumi.Input[_builtins.bool] external_enabled: Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the ingress.
         :param pulumi.Input[Sequence[pulumi.Input['AppIngressIpSecurityRestrictionArgs']]] ip_security_restrictions: One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        :param pulumi.Input[_builtins.bool] session_affinity_enabled: Is session affinity enabled. Defaults to `false`.
+               
+               > **Note:** Session affinity requires `Single` `revision_mode` and an ingress `transport` of `auto`, `http`, or `http2`.
         :param pulumi.Input[_builtins.str] transport: The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
                
                > **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
@@ -376,6 +386,8 @@ class AppIngressArgs:
             pulumi.set(__self__, "fqdn", fqdn)
         if ip_security_restrictions is not None:
             pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+        if session_affinity_enabled is not None:
+            pulumi.set(__self__, "session_affinity_enabled", session_affinity_enabled)
         if transport is not None:
             pulumi.set(__self__, "transport", transport)
 
@@ -500,6 +512,20 @@ class AppIngressArgs:
     @ip_security_restrictions.setter
     def ip_security_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppIngressIpSecurityRestrictionArgs']]]]):
         pulumi.set(self, "ip_security_restrictions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionAffinityEnabled")
+    def session_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Is session affinity enabled. Defaults to `false`.
+
+        > **Note:** Session affinity requires `Single` `revision_mode` and an ingress `transport` of `auto`, `http`, or `http2`.
+        """
+        return pulumi.get(self, "session_affinity_enabled")
+
+    @session_affinity_enabled.setter
+    def session_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "session_affinity_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2640,7 +2666,7 @@ class AppTemplateContainerVolumeMountArgs:
 class AppTemplateCustomScaleRuleArgsDict(TypedDict):
     custom_rule_type: pulumi.Input[_builtins.str]
     """
-    The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+    The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
     """
     metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
     """
@@ -2670,7 +2696,7 @@ class AppTemplateCustomScaleRuleArgs:
                  authentications: pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]] = None,
                  identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] custom_rule_type: The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+        :param pulumi.Input[_builtins.str] custom_rule_type: The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A map of string key-value pairs to configure the Custom Scale Rule.
         :param pulumi.Input[_builtins.str] name: The name of the Scaling Rule
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]] authentications: Zero or more `authentication` blocks as defined below.
@@ -2690,7 +2716,7 @@ class AppTemplateCustomScaleRuleArgs:
     @pulumi.getter(name="customRuleType")
     def custom_rule_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+        The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
         """
         return pulumi.get(self, "custom_rule_type")
 
@@ -3764,6 +3790,8 @@ class EnvironmentWorkloadProfileArgsDict(TypedDict):
     minimum_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+
+    > **Note:** The `maximum_count` and `minimum_count` arguments are not supported when `workload_profile_type` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
     """
 
 @pulumi.input_type
@@ -3782,6 +3810,8 @@ class EnvironmentWorkloadProfileArgs:
                > **Note:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
         :param pulumi.Input[_builtins.int] maximum_count: The maximum number of instances of workload profile that can be deployed in the Container App Environment.
         :param pulumi.Input[_builtins.int] minimum_count: The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+               
+               > **Note:** The `maximum_count` and `minimum_count` arguments are not supported when `workload_profile_type` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "workload_profile_type", workload_profile_type)
@@ -3835,6 +3865,8 @@ class EnvironmentWorkloadProfileArgs:
     def minimum_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+
+        > **Note:** The `maximum_count` and `minimum_count` arguments are not supported when `workload_profile_type` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
         """
         return pulumi.get(self, "minimum_count")
 
@@ -4004,7 +4036,7 @@ class JobEventTriggerConfigScaleArgs:
 class JobEventTriggerConfigScaleRuleArgsDict(TypedDict):
     custom_rule_type: pulumi.Input[_builtins.str]
     """
-    Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+    Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
     """
     metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
     """
@@ -4032,7 +4064,7 @@ class JobEventTriggerConfigScaleRuleArgs:
                  authentications: pulumi.Input[Optional[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]]] = None,
                  identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] custom_rule_type: Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+        :param pulumi.Input[_builtins.str] custom_rule_type: Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata properties to describe the scale rule.
         :param pulumi.Input[_builtins.str] name: Name of the scale rule.
         :param pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]] authentications: One or more `authentication` blocks as defined below.
@@ -4050,7 +4082,7 @@ class JobEventTriggerConfigScaleRuleArgs:
     @pulumi.getter(name="customRuleType")
     def custom_rule_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+        Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
         """
         return pulumi.get(self, "custom_rule_type")
 

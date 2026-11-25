@@ -131,7 +131,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * A `retentionPolicy` block as documented below.
+     * A `retentionPolicy` block as defined below.
      */
     declare public readonly retentionPolicy: pulumi.Output<outputs.network.NetworkWatcherFlowLogRetentionPolicy>;
     /**
@@ -149,7 +149,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     declare public readonly targetResourceId: pulumi.Output<string>;
     /**
-     * A `trafficAnalytics` block as documented below.
+     * A `trafficAnalytics` block as defined below.
      */
     declare public readonly trafficAnalytics: pulumi.Output<outputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface NetworkWatcherFlowLogState {
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * A `retentionPolicy` block as documented below.
+     * A `retentionPolicy` block as defined below.
      */
     retentionPolicy?: pulumi.Input<inputs.network.NetworkWatcherFlowLogRetentionPolicy | undefined>;
     /**
@@ -261,7 +261,7 @@ export interface NetworkWatcherFlowLogState {
      */
     targetResourceId?: pulumi.Input<string | undefined>;
     /**
-     * A `trafficAnalytics` block as documented below.
+     * A `trafficAnalytics` block as defined below.
      */
     trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
@@ -295,7 +295,7 @@ export interface NetworkWatcherFlowLogArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `retentionPolicy` block as documented below.
+     * A `retentionPolicy` block as defined below.
      */
     retentionPolicy: pulumi.Input<inputs.network.NetworkWatcherFlowLogRetentionPolicy>;
     /**
@@ -313,7 +313,7 @@ export interface NetworkWatcherFlowLogArgs {
      */
     targetResourceId: pulumi.Input<string>;
     /**
-     * A `trafficAnalytics` block as documented below.
+     * A `trafficAnalytics` block as defined below.
      */
     trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**

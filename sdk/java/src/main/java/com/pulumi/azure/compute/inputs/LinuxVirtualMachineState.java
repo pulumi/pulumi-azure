@@ -174,6 +174,8 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
      * 
      * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      * 
+     * &gt; **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
+     * 
      */
     @Import(name="capacityReservationGroupId")
     private @Nullable Output<String> capacityReservationGroupId;
@@ -182,6 +184,8 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
      * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+     * 
+     * &gt; **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
      * 
      */
     public Optional<Output<String>> capacityReservationGroupId() {
@@ -1219,6 +1223,8 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
          * 
          * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
          * 
+         * &gt; **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
+         * 
          * @return builder
          * 
          */
@@ -1231,6 +1237,8 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
          * 
          * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+         * 
+         * &gt; **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
          * 
          * @return builder
          * 

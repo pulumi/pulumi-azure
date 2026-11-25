@@ -49,8 +49,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-application-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -98,8 +98,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-application-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -147,8 +147,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-application-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -196,8 +196,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-application-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -245,8 +245,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-application-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -534,8 +534,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -583,8 +583,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -632,8 +632,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -681,8 +681,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -730,8 +730,8 @@ public final class DesktopvirtualizationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-workspace")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

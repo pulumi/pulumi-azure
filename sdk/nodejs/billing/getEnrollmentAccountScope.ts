@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.billing.getEnrollmentAccountScope({
- *     billingAccountName: "existing",
- *     enrollmentAccountName: "existing",
+ *     billingAccountName: "example-billing-account",
+ *     enrollmentAccountName: "example-enrollment-account",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -63,8 +63,8 @@ export interface GetEnrollmentAccountScopeResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.billing.getEnrollmentAccountScope({
- *     billingAccountName: "existing",
- *     enrollmentAccountName: "existing",
+ *     billingAccountName: "example-billing-account",
+ *     enrollmentAccountName: "example-enrollment-account",
  * });
  * export const id = example.then(example => example.id);
  * ```

@@ -117,7 +117,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
      */
     declare public readonly content: pulumi.Output<string>;
     /**
-     * A `guestIdentity` block as documented below.
+     * A `guestIdentity` block as defined below.
      */
     declare public readonly guestIdentity: pulumi.Output<outputs.logicapps.IntegrationAccountAgreementGuestIdentity>;
     /**
@@ -125,7 +125,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
      */
     declare public readonly guestPartnerName: pulumi.Output<string>;
     /**
-     * A `hostIdentity` block as documented below.
+     * A `hostIdentity` block as defined below.
      */
     declare public readonly hostIdentity: pulumi.Output<outputs.logicapps.IntegrationAccountAgreementHostIdentity>;
     /**
@@ -227,7 +227,7 @@ export interface IntegrationAccountAgreementState {
      */
     content?: pulumi.Input<string | undefined>;
     /**
-     * A `guestIdentity` block as documented below.
+     * A `guestIdentity` block as defined below.
      */
     guestIdentity?: pulumi.Input<inputs.logicapps.IntegrationAccountAgreementGuestIdentity | undefined>;
     /**
@@ -235,7 +235,7 @@ export interface IntegrationAccountAgreementState {
      */
     guestPartnerName?: pulumi.Input<string | undefined>;
     /**
-     * A `hostIdentity` block as documented below.
+     * A `hostIdentity` block as defined below.
      */
     hostIdentity?: pulumi.Input<inputs.logicapps.IntegrationAccountAgreementHostIdentity | undefined>;
     /**
@@ -273,7 +273,7 @@ export interface IntegrationAccountAgreementArgs {
      */
     content: pulumi.Input<string>;
     /**
-     * A `guestIdentity` block as documented below.
+     * A `guestIdentity` block as defined below.
      */
     guestIdentity: pulumi.Input<inputs.logicapps.IntegrationAccountAgreementGuestIdentity>;
     /**
@@ -281,7 +281,7 @@ export interface IntegrationAccountAgreementArgs {
      */
     guestPartnerName: pulumi.Input<string>;
     /**
-     * A `hostIdentity` block as documented below.
+     * A `hostIdentity` block as defined below.
      */
     hostIdentity: pulumi.Input<inputs.logicapps.IntegrationAccountAgreementHostIdentity>;
     /**

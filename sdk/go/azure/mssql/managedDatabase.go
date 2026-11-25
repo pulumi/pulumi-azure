@@ -112,8 +112,10 @@ type ManagedDatabase struct {
 	ManagedInstanceId pulumi.StringOutput `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrOutput `pulumi:"pointInTimeRestore"`
+	// The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+	RecoverDatabaseId pulumi.StringPtrOutput `pulumi:"recoverDatabaseId"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrOutput `pulumi:"shortTermRetentionDays"`
 	// A mapping of tags to assign to the resource.
@@ -165,8 +167,10 @@ type managedDatabaseState struct {
 	ManagedInstanceId *string `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
 	PointInTimeRestore *ManagedDatabasePointInTimeRestore `pulumi:"pointInTimeRestore"`
+	// The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+	RecoverDatabaseId *string `pulumi:"recoverDatabaseId"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays *int `pulumi:"shortTermRetentionDays"`
 	// A mapping of tags to assign to the resource.
@@ -180,8 +184,10 @@ type ManagedDatabaseState struct {
 	ManagedInstanceId pulumi.StringPtrInput
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrInput
+	// The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+	RecoverDatabaseId pulumi.StringPtrInput
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
@@ -199,8 +205,10 @@ type managedDatabaseArgs struct {
 	ManagedInstanceId string `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
 	PointInTimeRestore *ManagedDatabasePointInTimeRestore `pulumi:"pointInTimeRestore"`
+	// The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+	RecoverDatabaseId *string `pulumi:"recoverDatabaseId"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays *int `pulumi:"shortTermRetentionDays"`
 	// A mapping of tags to assign to the resource.
@@ -215,8 +223,10 @@ type ManagedDatabaseArgs struct {
 	ManagedInstanceId pulumi.StringInput
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrInput
+	// The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+	RecoverDatabaseId pulumi.StringPtrInput
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
@@ -327,9 +337,14 @@ func (o ManagedDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
 func (o ManagedDatabaseOutput) PointInTimeRestore() ManagedDatabasePointInTimeRestorePtrOutput {
 	return o.ApplyT(func(v *ManagedDatabase) ManagedDatabasePointInTimeRestorePtrOutput { return v.PointInTimeRestore }).(ManagedDatabasePointInTimeRestorePtrOutput)
+}
+
+// The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+func (o ManagedDatabaseOutput) RecoverDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringPtrOutput { return v.RecoverDatabaseId }).(pulumi.StringPtrOutput)
 }
 
 // The backup retention period in days. This is how many days Point-in-Time Restore will be supported.

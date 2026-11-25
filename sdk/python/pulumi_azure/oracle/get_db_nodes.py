@@ -82,7 +82,7 @@ def get_db_nodes(cloud_vm_cluster_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_db_nodes(cloud_vm_cluster_id="existing")
+    example = azure.oracle.get_db_nodes(cloud_vm_cluster_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster")
     pulumi.export("example", example)
     ```
 
@@ -116,7 +116,7 @@ def get_db_nodes_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_db_nodes(cloud_vm_cluster_id="existing")
+    example = azure.oracle.get_db_nodes(cloud_vm_cluster_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster")
     pulumi.export("example", example)
     ```
 

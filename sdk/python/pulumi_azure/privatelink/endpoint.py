@@ -27,6 +27,7 @@ class EndpointArgs:
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
+                 ip_version_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_group: pulumi.Input[Optional['EndpointPrivateDnsZoneGroupArgs']] = None,
@@ -40,6 +41,11 @@ class EndpointArgs:
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        :param pulumi.Input[_builtins.str] ip_version_type: The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+               
+               > **Note:** When `ip_version_type` is set to `IPv6` or `DualStack`, `private_endpoint_vnet_policies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `private_endpoint_network_policies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+               
+               > **Note:** Only changing `ip_version_type` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ip_version_type` force a new Private Endpoint to be created.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input['EndpointPrivateDnsZoneGroupArgs'] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
@@ -54,6 +60,8 @@ class EndpointArgs:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if ip_version_type is not None:
+            pulumi.set(__self__, "ip_version_type", ip_version_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -136,6 +144,22 @@ class EndpointArgs:
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipVersionType")
+    def ip_version_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+
+        > **Note:** When `ip_version_type` is set to `IPv6` or `DualStack`, `private_endpoint_vnet_policies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `private_endpoint_network_policies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+
+        > **Note:** Only changing `ip_version_type` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ip_version_type` force a new Private Endpoint to be created.
+        """
+        return pulumi.get(self, "ip_version_type")
+
+    @ip_version_type.setter
+    def ip_version_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ip_version_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -191,6 +215,7 @@ class _EndpointState:
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
+                 ip_version_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
@@ -207,6 +232,11 @@ class _EndpointState:
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        :param pulumi.Input[_builtins.str] ip_version_type: The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+               
+               > **Note:** When `ip_version_type` is set to `IPv6` or `DualStack`, `private_endpoint_vnet_policies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `private_endpoint_network_policies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+               
+               > **Note:** Only changing `ip_version_type` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ip_version_type` force a new Private Endpoint to be created.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]] network_interfaces: A `network_interface` block as defined below.
@@ -225,6 +255,8 @@ class _EndpointState:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if ip_version_type is not None:
+            pulumi.set(__self__, "ip_version_type", ip_version_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -291,6 +323,22 @@ class _EndpointState:
     @ip_configurations.setter
     def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipVersionType")
+    def ip_version_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+
+        > **Note:** When `ip_version_type` is set to `IPv6` or `DualStack`, `private_endpoint_vnet_policies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `private_endpoint_network_policies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+
+        > **Note:** Only changing `ip_version_type` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ip_version_type` force a new Private Endpoint to be created.
+        """
+        return pulumi.get(self, "ip_version_type")
+
+    @ip_version_type.setter
+    def ip_version_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ip_version_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -410,6 +458,7 @@ class Endpoint(pulumi.CustomResource):
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]]] = None,
+                 ip_version_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']]] = None,
@@ -592,6 +641,11 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        :param pulumi.Input[_builtins.str] ip_version_type: The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+               
+               > **Note:** When `ip_version_type` is set to `IPv6` or `DualStack`, `private_endpoint_vnet_policies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `private_endpoint_network_policies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+               
+               > **Note:** Only changing `ip_version_type` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ip_version_type` force a new Private Endpoint to be created.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
@@ -793,6 +847,7 @@ class Endpoint(pulumi.CustomResource):
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]]] = None,
+                 ip_version_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']]] = None,
@@ -812,6 +867,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["custom_network_interface_name"] = custom_network_interface_name
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["ip_configurations"] = ip_configurations
+            __props__.__dict__["ip_version_type"] = ip_version_type
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["private_dns_zone_group"] = private_dns_zone_group
@@ -842,6 +898,7 @@ class Endpoint(pulumi.CustomResource):
             custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
             ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]]] = None,
+            ip_version_type: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict', 'outputs.EndpointNetworkInterface']]]]] = None,
@@ -862,6 +919,11 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        :param pulumi.Input[_builtins.str] ip_version_type: The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+               
+               > **Note:** When `ip_version_type` is set to `IPv6` or `DualStack`, `private_endpoint_vnet_policies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `private_endpoint_network_policies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+               
+               > **Note:** Only changing `ip_version_type` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ip_version_type` force a new Private Endpoint to be created.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict', 'outputs.EndpointNetworkInterface']]]] network_interfaces: A `network_interface` block as defined below.
@@ -880,6 +942,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["custom_network_interface_name"] = custom_network_interface_name
         __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["ip_configurations"] = ip_configurations
+        __props__.__dict__["ip_version_type"] = ip_version_type
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["network_interfaces"] = network_interfaces
@@ -922,6 +985,18 @@ class Endpoint(pulumi.CustomResource):
         One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         """
         return pulumi.get(self, "ip_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="ipVersionType")
+    def ip_version_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+
+        > **Note:** When `ip_version_type` is set to `IPv6` or `DualStack`, `private_endpoint_vnet_policies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `private_endpoint_network_policies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+
+        > **Note:** Only changing `ip_version_type` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ip_version_type` force a new Private Endpoint to be created.
+        """
+        return pulumi.get(self, "ip_version_type")
 
     @_builtins.property
     @pulumi.getter

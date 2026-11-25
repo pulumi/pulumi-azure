@@ -14,9 +14,17 @@ namespace Pulumi.Azure.NetApp.Outputs
     public sealed class AccountActiveDirectory
     {
         /// <summary>
+        /// A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+        /// </summary>
+        public readonly ImmutableArray<string> AdministratorUsers;
+        /// <summary>
         /// If enabled, AES encryption will be enabled for SMB communication. Defaults to `False`.
         /// </summary>
         public readonly bool? AesEncryptionEnabled;
+        /// <summary>
+        /// A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+        /// </summary>
+        public readonly ImmutableArray<string> BackupUsers;
         /// <summary>
         /// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
         /// </summary>
@@ -25,6 +33,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// The name of the Active Directory domain.
         /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `False`.
+        /// </summary>
+        public readonly bool? DomainControllerConnectionEncryptionEnabled;
         /// <summary>
         /// Name of the active directory machine.
         /// </summary>
@@ -36,9 +48,17 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string? KerberosKdcIp;
         /// <summary>
+        /// Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+        /// </summary>
+        public readonly ImmutableArray<string> LdapClientPreferredServers;
+        /// <summary>
         /// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `False`.
         /// </summary>
         public readonly bool? LdapOverTlsEnabled;
+        /// <summary>
+        /// An `LdapSearchScope` block as defined below.
+        /// </summary>
+        public readonly Outputs.AccountActiveDirectoryLdapSearchScope? LdapSearchScope;
         /// <summary>
         /// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `False`.
         /// </summary>
@@ -55,6 +75,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// The password associated with the `Username`.
         /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+        /// </summary>
+        public readonly ImmutableArray<string> SecurityUsers;
         /// <summary>
         /// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `LdapOverTlsEnabled` is set to `True`.
         /// </summary>
@@ -74,17 +98,27 @@ namespace Pulumi.Azure.NetApp.Outputs
 
         [OutputConstructor]
         private AccountActiveDirectory(
+            ImmutableArray<string> administratorUsers,
+
             bool? aesEncryptionEnabled,
+
+            ImmutableArray<string> backupUsers,
 
             ImmutableArray<string> dnsServers,
 
             string domain,
 
+            bool? domainControllerConnectionEncryptionEnabled,
+
             string? kerberosAdName,
 
             string? kerberosKdcIp,
 
+            ImmutableArray<string> ldapClientPreferredServers,
+
             bool? ldapOverTlsEnabled,
+
+            Outputs.AccountActiveDirectoryLdapSearchScope? ldapSearchScope,
 
             bool? ldapSigningEnabled,
 
@@ -94,6 +128,8 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             string password,
 
+            ImmutableArray<string> securityUsers,
+
             string? serverRootCaCertificate,
 
             string? siteName,
@@ -102,16 +138,22 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             string username)
         {
+            AdministratorUsers = administratorUsers;
             AesEncryptionEnabled = aesEncryptionEnabled;
+            BackupUsers = backupUsers;
             DnsServers = dnsServers;
             Domain = domain;
+            DomainControllerConnectionEncryptionEnabled = domainControllerConnectionEncryptionEnabled;
             KerberosAdName = kerberosAdName;
             KerberosKdcIp = kerberosKdcIp;
+            LdapClientPreferredServers = ldapClientPreferredServers;
             LdapOverTlsEnabled = ldapOverTlsEnabled;
+            LdapSearchScope = ldapSearchScope;
             LdapSigningEnabled = ldapSigningEnabled;
             LocalNfsUsersWithLdapAllowed = localNfsUsersWithLdapAllowed;
             OrganizationalUnit = organizationalUnit;
             Password = password;
+            SecurityUsers = securityUsers;
             ServerRootCaCertificate = serverRootCaCertificate;
             SiteName = siteName;
             SmbServerName = smbServerName;

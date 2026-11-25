@@ -17,7 +17,7 @@ public final class GetLinuxWebAppSiteConfigIpRestrictionHeader {
      */
     private List<String> xAzureFdids;
     /**
-     * @return Specifies if a Front Door Health Probe is expected.
+     * @return Whether a Front Door Health Probe is expected.
      * 
      */
     private List<String> xFdHealthProbes;
@@ -41,7 +41,7 @@ public final class GetLinuxWebAppSiteConfigIpRestrictionHeader {
         return this.xAzureFdids;
     }
     /**
-     * @return Specifies if a Front Door Health Probe is expected.
+     * @return Whether a Front Door Health Probe is expected.
      * 
      */
     public List<String> xFdHealthProbes() {

@@ -112,6 +112,14 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> AddressSpaces { get; private set; } = null!;
 
         /// <summary>
+        /// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+        /// 
+        /// &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+        /// </summary>
+        [Output("advertisedGatewayPrefixes")]
+        public Output<ImmutableArray<string>> AdvertisedGatewayPrefixes { get; private set; } = null!;
+
+        /// <summary>
         /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
         /// 
         /// &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -120,7 +128,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> BgpCommunity { get; private set; } = null!;
 
         /// <summary>
-        /// A `DdosProtectionPlan` block as documented below.
+        /// A `DdosProtectionPlan` block as defined below.
         /// </summary>
         [Output("ddosProtectionPlan")]
         public Output<Outputs.VirtualNetworkDdosProtectionPlan?> DdosProtectionPlan { get; private set; } = null!;
@@ -190,7 +198,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields defined below.
         /// 
         /// &gt; **NOTE** Since `Subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
@@ -263,6 +271,20 @@ namespace Pulumi.Azure.Network
             set => _addressSpaces = value;
         }
 
+        [Input("advertisedGatewayPrefixes")]
+        private InputList<string>? _advertisedGatewayPrefixes;
+
+        /// <summary>
+        /// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+        /// 
+        /// &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+        /// </summary>
+        public InputList<string> AdvertisedGatewayPrefixes
+        {
+            get => _advertisedGatewayPrefixes ?? (_advertisedGatewayPrefixes = new InputList<string>());
+            set => _advertisedGatewayPrefixes = value;
+        }
+
         /// <summary>
         /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
         /// 
@@ -272,7 +294,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? BgpCommunity { get; set; }
 
         /// <summary>
-        /// A `DdosProtectionPlan` block as documented below.
+        /// A `DdosProtectionPlan` block as defined below.
         /// </summary>
         [Input("ddosProtectionPlan")]
         public Input<Inputs.VirtualNetworkDdosProtectionPlanArgs>? DdosProtectionPlan { get; set; }
@@ -351,7 +373,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkSubnetArgs>? _subnets;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields defined below.
         /// 
         /// &gt; **NOTE** Since `Subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
@@ -395,6 +417,20 @@ namespace Pulumi.Azure.Network
             set => _addressSpaces = value;
         }
 
+        [Input("advertisedGatewayPrefixes")]
+        private InputList<string>? _advertisedGatewayPrefixes;
+
+        /// <summary>
+        /// A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+        /// 
+        /// &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+        /// </summary>
+        public InputList<string> AdvertisedGatewayPrefixes
+        {
+            get => _advertisedGatewayPrefixes ?? (_advertisedGatewayPrefixes = new InputList<string>());
+            set => _advertisedGatewayPrefixes = value;
+        }
+
         /// <summary>
         /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
         /// 
@@ -404,7 +440,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? BgpCommunity { get; set; }
 
         /// <summary>
-        /// A `DdosProtectionPlan` block as documented below.
+        /// A `DdosProtectionPlan` block as defined below.
         /// </summary>
         [Input("ddosProtectionPlan")]
         public Input<Inputs.VirtualNetworkDdosProtectionPlanGetArgs>? DdosProtectionPlan { get; set; }
@@ -489,7 +525,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkSubnetGetArgs>? _subnets;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields defined below.
         /// 
         /// &gt; **NOTE** Since `Subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>

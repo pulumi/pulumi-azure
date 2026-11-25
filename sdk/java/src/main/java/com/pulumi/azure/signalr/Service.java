@@ -137,14 +137,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.connectivityLogsEnabled);
     }
     /**
-     * A `cors` block as documented below.
+     * A `cors` block as defined below.
      * 
      */
     @Export(name="cors", refs={List.class,ServiceCor.class}, tree="[0,1]")
     private Output<List<ServiceCor>> cors;
 
     /**
-     * @return A `cors` block as documented below.
+     * @return A `cors` block as defined below.
      * 
      */
     public Output<List<ServiceCor>> cors() {
@@ -433,14 +433,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceMode);
     }
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      * 
      */
     @Export(name="sku", refs={ServiceSku.class}, tree="[0]")
     private Output<ServiceSku> sku;
 
     /**
-     * @return A `sku` block as documented below.
+     * @return A `sku` block as defined below.
      * 
      */
     public Output<ServiceSku> sku() {
@@ -479,14 +479,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tlsClientCertEnabled);
     }
     /**
-     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
     @Export(name="upstreamEndpoints", refs={List.class,ServiceUpstreamEndpoint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceUpstreamEndpoint>> upstreamEndpoints;
 
     /**
-     * @return An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * @return An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
     public Output<Optional<List<ServiceUpstreamEndpoint>>> upstreamEndpoints() {

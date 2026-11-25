@@ -563,8 +563,8 @@ def get_linux_function_app(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_linux_function_app(name="existing",
-        resource_group_name="existing")
+    example = azure.appservice.get_linux_function_app(name="example-function-app",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -641,8 +641,8 @@ def get_linux_function_app_output(name: pulumi.Input[Optional[_builtins.str]] = 
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_linux_function_app(name="existing",
-        resource_group_name="existing")
+    example = azure.appservice.get_linux_function_app(name="example-function-app",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

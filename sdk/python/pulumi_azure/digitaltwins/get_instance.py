@@ -115,8 +115,8 @@ def get_instance(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.digitaltwins.get_instance(name="existing-digital-twins",
-        resource_group_name="existing-resgroup")
+    example = azure.digitaltwins.get_instance(name="example-digital-twins",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -156,8 +156,8 @@ def get_instance_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.digitaltwins.get_instance(name="existing-digital-twins",
-        resource_group_name="existing-resgroup")
+    example = azure.digitaltwins.get_instance(name="example-digital-twins",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

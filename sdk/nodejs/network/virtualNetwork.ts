@@ -107,13 +107,19 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     declare public readonly addressSpaces: pulumi.Output<string[] | undefined>;
     /**
+     * A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     *
+     * > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+     */
+    declare public readonly advertisedGatewayPrefixes: pulumi.Output<string[] | undefined>;
+    /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      *
      * > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      */
     declare public readonly bgpCommunity: pulumi.Output<string | undefined>;
     /**
-     * A `ddosProtectionPlan` block as documented below.
+     * A `ddosProtectionPlan` block as defined below.
      */
     declare public readonly ddosProtectionPlan: pulumi.Output<outputs.network.VirtualNetworkDdosProtectionPlan | undefined>;
     /**
@@ -161,7 +167,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
      *
      * > **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
@@ -185,6 +191,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualNetworkState | undefined;
             resourceInputs["addressSpaces"] = state?.addressSpaces;
+            resourceInputs["advertisedGatewayPrefixes"] = state?.advertisedGatewayPrefixes;
             resourceInputs["bgpCommunity"] = state?.bgpCommunity;
             resourceInputs["ddosProtectionPlan"] = state?.ddosProtectionPlan;
             resourceInputs["dnsServers"] = state?.dnsServers;
@@ -205,6 +212,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addressSpaces"] = args?.addressSpaces;
+            resourceInputs["advertisedGatewayPrefixes"] = args?.advertisedGatewayPrefixes;
             resourceInputs["bgpCommunity"] = args?.bgpCommunity;
             resourceInputs["ddosProtectionPlan"] = args?.ddosProtectionPlan;
             resourceInputs["dnsServers"] = args?.dnsServers;
@@ -236,13 +244,19 @@ export interface VirtualNetworkState {
      */
     addressSpaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     *
+     * > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+     */
+    advertisedGatewayPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      *
      * > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      */
     bgpCommunity?: pulumi.Input<string | undefined>;
     /**
-     * A `ddosProtectionPlan` block as documented below.
+     * A `ddosProtectionPlan` block as defined below.
      */
     ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan | undefined>;
     /**
@@ -290,7 +304,7 @@ export interface VirtualNetworkState {
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
      *
      * > **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
@@ -312,13 +326,19 @@ export interface VirtualNetworkArgs {
      */
     addressSpaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     *
+     * > **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+     */
+    advertisedGatewayPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      *
      * > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      */
     bgpCommunity?: pulumi.Input<string | undefined>;
     /**
-     * A `ddosProtectionPlan` block as documented below.
+     * A `ddosProtectionPlan` block as defined below.
      */
     ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan | undefined>;
     /**
@@ -362,7 +382,7 @@ export interface VirtualNetworkArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
      *
      * > **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */

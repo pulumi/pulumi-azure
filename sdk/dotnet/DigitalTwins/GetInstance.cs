@@ -26,8 +26,8 @@ namespace Pulumi.Azure.DigitalTwins
         /// {
         ///     var example = Azure.DigitalTwins.GetInstance.Invoke(new()
         ///     {
-        ///         Name = "existing-digital-twins",
-        ///         ResourceGroupName = "existing-resgroup",
+        ///         Name = "example-digital-twins",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.DigitalTwins
         /// {
         ///     var example = Azure.DigitalTwins.GetInstance.Invoke(new()
         ///     {
-        ///         Name = "existing-digital-twins",
-        ///         ResourceGroupName = "existing-resgroup",
+        ///         Name = "example-digital-twins",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.DigitalTwins
         /// {
         ///     var example = Azure.DigitalTwins.GetInstance.Invoke(new()
         ///     {
-        ///         Name = "existing-digital-twins",
-        ///         ResourceGroupName = "existing-resgroup",
+        ///         Name = "example-digital-twins",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

@@ -18,14 +18,14 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
     public static final ManagementPolicyRuleActionsArgs Empty = new ManagementPolicyRuleActionsArgs();
 
     /**
-     * A `baseBlob` block as documented below.
+     * A `baseBlob` block as defined below.
      * 
      */
     @Import(name="baseBlob")
     private @Nullable Output<ManagementPolicyRuleActionsBaseBlobArgs> baseBlob;
 
     /**
-     * @return A `baseBlob` block as documented below.
+     * @return A `baseBlob` block as defined below.
      * 
      */
     public Optional<Output<ManagementPolicyRuleActionsBaseBlobArgs>> baseBlob() {
@@ -33,14 +33,14 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `snapshot` block as documented below.
+     * A `snapshot` block as defined below.
      * 
      */
     @Import(name="snapshot")
     private @Nullable Output<ManagementPolicyRuleActionsSnapshotArgs> snapshot;
 
     /**
-     * @return A `snapshot` block as documented below.
+     * @return A `snapshot` block as defined below.
      * 
      */
     public Optional<Output<ManagementPolicyRuleActionsSnapshotArgs>> snapshot() {
@@ -48,14 +48,14 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `version` block as documented below.
+     * A `version` block as defined below.
      * 
      */
     @Import(name="version")
     private @Nullable Output<ManagementPolicyRuleActionsVersionArgs> version;
 
     /**
-     * @return A `version` block as documented below.
+     * @return A `version` block as defined below.
      * 
      */
     public Optional<Output<ManagementPolicyRuleActionsVersionArgs>> version() {
@@ -89,7 +89,7 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param baseBlob A `baseBlob` block as documented below.
+         * @param baseBlob A `baseBlob` block as defined below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param baseBlob A `baseBlob` block as documented below.
+         * @param baseBlob A `baseBlob` block as defined below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param snapshot A `snapshot` block as documented below.
+         * @param snapshot A `snapshot` block as defined below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param snapshot A `snapshot` block as documented below.
+         * @param snapshot A `snapshot` block as defined below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param version A `version` block as documented below.
+         * @param version A `version` block as defined below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param version A `version` block as documented below.
+         * @param version A `version` block as defined below.
          * 
          * @return builder
          * 

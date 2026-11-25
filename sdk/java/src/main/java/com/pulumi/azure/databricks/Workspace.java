@@ -119,14 +119,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessConnectorId);
     }
     /**
-     * A `customParameters` block as documented below.
+     * A `customParameters` block as defined below.
      * 
      */
     @Export(name="customParameters", refs={WorkspaceCustomParameters.class}, tree="[0]")
     private Output<WorkspaceCustomParameters> customParameters;
 
     /**
-     * @return A `customParameters` block as documented below.
+     * @return A `customParameters` block as defined below.
      * 
      */
     public Output<WorkspaceCustomParameters> customParameters() {
@@ -175,14 +175,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.diskEncryptionSetId;
     }
     /**
-     * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
      * 
      */
     @Export(name="enhancedSecurityCompliance", refs={WorkspaceEnhancedSecurityCompliance.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliance;
 
     /**
-     * @return An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * @return An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
      * 
      */
     public Output<Optional<WorkspaceEnhancedSecurityCompliance>> enhancedSecurityCompliance() {
@@ -277,14 +277,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.managedDiskCmkRotationToLatestVersionEnabled);
     }
     /**
-     * A `managedDiskIdentity` block as documented below.
+     * A `managedDiskIdentity` block as defined below.
      * 
      */
     @Export(name="managedDiskIdentities", refs={List.class,WorkspaceManagedDiskIdentity.class}, tree="[0,1]")
     private Output<List<WorkspaceManagedDiskIdentity>> managedDiskIdentities;
 
     /**
-     * @return A `managedDiskIdentity` block as documented below.
+     * @return A `managedDiskIdentity` block as defined below.
      * 
      */
     public Output<List<WorkspaceManagedDiskIdentity>> managedDiskIdentities() {
@@ -429,14 +429,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.sku;
     }
     /**
-     * A `storageAccountIdentity` block as documented below.
+     * A `storageAccountIdentity` block as defined below.
      * 
      */
     @Export(name="storageAccountIdentities", refs={List.class,WorkspaceStorageAccountIdentity.class}, tree="[0,1]")
     private Output<List<WorkspaceStorageAccountIdentity>> storageAccountIdentities;
 
     /**
-     * @return A `storageAccountIdentity` block as documented below.
+     * @return A `storageAccountIdentity` block as defined below.
      * 
      */
     public Output<List<WorkspaceStorageAccountIdentity>> storageAccountIdentities() {

@@ -94,7 +94,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly apiType: pulumi.Output<string>;
     /**
-     * A `contact` block as documented below.
+     * A `contact` block as defined below.
      */
     declare public readonly contact: pulumi.Output<outputs.apimanagement.ApiContact | undefined>;
     /**
@@ -106,7 +106,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * A `import` block as documented below.
+     * A `import` block as defined below.
      *
      * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
@@ -120,7 +120,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly isOnline: pulumi.Output<boolean>;
     /**
-     * A `license` block as documented below.
+     * A `license` block as defined below.
      */
     declare public readonly license: pulumi.Output<outputs.apimanagement.ApiLicense | undefined>;
     /**
@@ -128,11 +128,11 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * An `oauth2Authorization` block as documented below.
+     * An `oauth2Authorization` block as defined below.
      */
     declare public readonly oauth2Authorization: pulumi.Output<outputs.apimanagement.ApiOauth2Authorization | undefined>;
     /**
-     * An `openidAuthentication` block as documented below.
+     * An `openidAuthentication` block as defined below.
      */
     declare public readonly openidAuthentication: pulumi.Output<outputs.apimanagement.ApiOpenidAuthentication | undefined>;
     /**
@@ -168,7 +168,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly sourceApiId: pulumi.Output<string | undefined>;
     /**
-     * A `subscriptionKeyParameterNames` block as documented below.
+     * A `subscriptionKeyParameterNames` block as defined below.
      */
     declare public readonly subscriptionKeyParameterNames: pulumi.Output<outputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
@@ -287,7 +287,7 @@ export interface ApiState {
      */
     apiType?: pulumi.Input<string | undefined>;
     /**
-     * A `contact` block as documented below.
+     * A `contact` block as defined below.
      */
     contact?: pulumi.Input<inputs.apimanagement.ApiContact | undefined>;
     /**
@@ -299,7 +299,7 @@ export interface ApiState {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * A `import` block as documented below.
+     * A `import` block as defined below.
      *
      * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
@@ -313,7 +313,7 @@ export interface ApiState {
      */
     isOnline?: pulumi.Input<boolean | undefined>;
     /**
-     * A `license` block as documented below.
+     * A `license` block as defined below.
      */
     license?: pulumi.Input<inputs.apimanagement.ApiLicense | undefined>;
     /**
@@ -321,11 +321,11 @@ export interface ApiState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * An `oauth2Authorization` block as documented below.
+     * An `oauth2Authorization` block as defined below.
      */
     oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization | undefined>;
     /**
-     * An `openidAuthentication` block as documented below.
+     * An `openidAuthentication` block as defined below.
      */
     openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication | undefined>;
     /**
@@ -361,7 +361,7 @@ export interface ApiState {
      */
     sourceApiId?: pulumi.Input<string | undefined>;
     /**
-     * A `subscriptionKeyParameterNames` block as documented below.
+     * A `subscriptionKeyParameterNames` block as defined below.
      */
     subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames | undefined>;
     /**
@@ -401,7 +401,7 @@ export interface ApiArgs {
      */
     apiType?: pulumi.Input<string | undefined>;
     /**
-     * A `contact` block as documented below.
+     * A `contact` block as defined below.
      */
     contact?: pulumi.Input<inputs.apimanagement.ApiContact | undefined>;
     /**
@@ -413,13 +413,13 @@ export interface ApiArgs {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * A `import` block as documented below.
+     * A `import` block as defined below.
      *
      * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
     import?: pulumi.Input<inputs.apimanagement.ApiImport | undefined>;
     /**
-     * A `license` block as documented below.
+     * A `license` block as defined below.
      */
     license?: pulumi.Input<inputs.apimanagement.ApiLicense | undefined>;
     /**
@@ -427,11 +427,11 @@ export interface ApiArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * An `oauth2Authorization` block as documented below.
+     * An `oauth2Authorization` block as defined below.
      */
     oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization | undefined>;
     /**
-     * An `openidAuthentication` block as documented below.
+     * An `openidAuthentication` block as defined below.
      */
     openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication | undefined>;
     /**
@@ -467,7 +467,7 @@ export interface ApiArgs {
      */
     sourceApiId?: pulumi.Input<string | undefined>;
     /**
-     * A `subscriptionKeyParameterNames` block as documented below.
+     * A `subscriptionKeyParameterNames` block as defined below.
      */
     subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames | undefined>;
     /**

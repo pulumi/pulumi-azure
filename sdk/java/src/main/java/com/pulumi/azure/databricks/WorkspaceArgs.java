@@ -40,14 +40,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `customParameters` block as documented below.
+     * A `customParameters` block as defined below.
      * 
      */
     @Import(name="customParameters")
     private @Nullable Output<WorkspaceCustomParametersArgs> customParameters;
 
     /**
-     * @return A `customParameters` block as documented below.
+     * @return A `customParameters` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceCustomParametersArgs>> customParameters() {
@@ -85,14 +85,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
      * 
      */
     @Import(name="enhancedSecurityCompliance")
     private @Nullable Output<WorkspaceEnhancedSecurityComplianceArgs> enhancedSecurityCompliance;
 
     /**
-     * @return An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * @return An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
      * 
      */
     public Optional<Output<WorkspaceEnhancedSecurityComplianceArgs>> enhancedSecurityCompliance() {
@@ -417,7 +417,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customParameters A `customParameters` block as documented below.
+         * @param customParameters A `customParameters` block as defined below.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customParameters A `customParameters` block as documented below.
+         * @param customParameters A `customParameters` block as defined below.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedSecurityCompliance An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+         * @param enhancedSecurityCompliance An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedSecurityCompliance An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+         * @param enhancedSecurityCompliance An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
          * 
          * @return builder
          * 

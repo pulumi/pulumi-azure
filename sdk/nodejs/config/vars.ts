@@ -29,7 +29,7 @@ Object.defineProperty(exports, "auxiliaryTenantIds", {
 });
 
 /**
- * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+ * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
  */
 export declare const clientCertificate: string | undefined;
 Object.defineProperty(exports, "clientCertificate", {
@@ -40,7 +40,7 @@ Object.defineProperty(exports, "clientCertificate", {
 });
 
 /**
- * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+ * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
  */
 export declare const clientCertificatePassword: string | undefined;
 Object.defineProperty(exports, "clientCertificatePassword", {
@@ -331,7 +331,7 @@ Object.defineProperty(exports, "useMsi", {
 });
 
 /**
- * Allow OpenID Connect to be used for authentication
+ * Allow OpenID Connect to be used for authentication.
  */
 export declare const useOidc: boolean | undefined;
 Object.defineProperty(exports, "useOidc", {

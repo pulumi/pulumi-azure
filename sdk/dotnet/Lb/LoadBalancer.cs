@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Lb
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `FrontendIpConfiguration` blocks as documented below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// 
         /// &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `FrontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
         /// </summary>
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or more `FrontendIpConfiguration` blocks as documented below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// 
         /// &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `FrontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
         /// </summary>
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.LoadBalancerFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or more `FrontendIpConfiguration` blocks as documented below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// 
         /// &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `FrontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
         /// </summary>

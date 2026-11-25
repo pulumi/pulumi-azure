@@ -537,8 +537,8 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-iothub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -579,8 +579,8 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-iothub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -621,8 +621,8 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-iothub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -663,8 +663,8 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-iothub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -705,8 +705,8 @@ public final class IotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-iothub")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

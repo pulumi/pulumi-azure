@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkSecurityPerimeter({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-perimeter",
+ *     resourceGroupName: "example-resources",
  * });
  * const exampleGetNetworkSecurityPerimeterProfile = example.then(example => azure.network.getNetworkSecurityPerimeterProfile({
- *     name: "existing",
+ *     name: "example-profile",
  *     networkSecurityPerimeterId: example.id,
  * }));
  * export const id = exampleGetNetworkSecurityPerimeterProfile.then(exampleGetNetworkSecurityPerimeterProfile => exampleGetNetworkSecurityPerimeterProfile.id);
@@ -74,11 +74,11 @@ export interface GetNetworkSecurityPerimeterProfileResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkSecurityPerimeter({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-perimeter",
+ *     resourceGroupName: "example-resources",
  * });
  * const exampleGetNetworkSecurityPerimeterProfile = example.then(example => azure.network.getNetworkSecurityPerimeterProfile({
- *     name: "existing",
+ *     name: "example-profile",
  *     networkSecurityPerimeterId: example.id,
  * }));
  * export const id = exampleGetNetworkSecurityPerimeterProfile.then(exampleGetNetworkSecurityPerimeterProfile => exampleGetNetworkSecurityPerimeterProfile.id);

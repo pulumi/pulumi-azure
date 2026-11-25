@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetVpnServerConfiguration.Invoke(new()
         ///     {
-        ///         Name = "existing-local-vpn-server-configuration",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example-vpn-server-configuration",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetVpnServerConfiguration.Invoke(new()
         ///     {
-        ///         Name = "existing-local-vpn-server-configuration",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example-vpn-server-configuration",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetVpnServerConfiguration.Invoke(new()
         ///     {
-        ///         Name = "existing-local-vpn-server-configuration",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example-vpn-server-configuration",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

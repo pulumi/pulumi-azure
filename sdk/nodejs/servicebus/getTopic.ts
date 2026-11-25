@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.servicebus.getTopic({
- *     name: "existing",
- *     namespaceId: "existing",
+ *     name: "example-topic",
+ *     namespaceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -114,8 +114,8 @@ export interface GetTopicResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.servicebus.getTopic({
- *     name: "existing",
- *     namespaceId: "existing",
+ *     name: "example-topic",
+ *     namespaceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace",
  * });
  * export const id = example.then(example => example.id);
  * ```

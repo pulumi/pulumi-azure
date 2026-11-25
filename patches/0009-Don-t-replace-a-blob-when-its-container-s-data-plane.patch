@@ -6,7 +6,7 @@ Subject: [PATCH] Don't replace a blob when its container's data-plane URL is
 
 
 diff --git a/internal/services/storage/storage_blob_resource.go b/internal/services/storage/storage_blob_resource.go
-index 48a52476caa4..5b0d5dcd0bd0 100644
+index d773a706bbb1..73d98b914074 100644
 --- a/internal/services/storage/storage_blob_resource.go
 +++ b/internal/services/storage/storage_blob_resource.go
 @@ -7,6 +7,7 @@ import (

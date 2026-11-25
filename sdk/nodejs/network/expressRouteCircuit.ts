@@ -138,7 +138,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serviceProviderProvisioningState: pulumi.Output<string>;
     /**
-     * A `sku` block for the ExpressRoute circuit as documented below.
+     * A `sku` block for the ExpressRoute circuit as defined below.
      */
     declare public readonly sku: pulumi.Output<outputs.network.ExpressRouteCircuitSku>;
     /**
@@ -268,7 +268,7 @@ export interface ExpressRouteCircuitState {
      */
     serviceProviderProvisioningState?: pulumi.Input<string | undefined>;
     /**
-     * A `sku` block for the ExpressRoute circuit as documented below.
+     * A `sku` block for the ExpressRoute circuit as defined below.
      */
     sku?: pulumi.Input<inputs.network.ExpressRouteCircuitSku | undefined>;
     /**
@@ -332,7 +332,7 @@ export interface ExpressRouteCircuitArgs {
      */
     serviceProviderName?: pulumi.Input<string | undefined>;
     /**
-     * A `sku` block for the ExpressRoute circuit as documented below.
+     * A `sku` block for the ExpressRoute circuit as defined below.
      */
     sku: pulumi.Input<inputs.network.ExpressRouteCircuitSku>;
     /**

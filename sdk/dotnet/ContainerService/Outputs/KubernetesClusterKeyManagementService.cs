@@ -14,20 +14,29 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterKeyManagementService
     {
         /// <summary>
-        /// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        /// The ID of the Key Vault in which the key is located.
+        /// 
+        /// &gt; **Note:** This must be provided in cross-subscription scenarios when `KeyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `KeyVaultKeyId`).
+        /// </summary>
+        public readonly string? KeyVaultId;
+        /// <summary>
+        /// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
         /// </summary>
         public readonly string KeyVaultKeyId;
         /// <summary>
-        /// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+        /// Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         /// </summary>
         public readonly string? KeyVaultNetworkAccess;
 
         [OutputConstructor]
         private KubernetesClusterKeyManagementService(
+            string? keyVaultId,
+
             string keyVaultKeyId,
 
             string? keyVaultNetworkAccess)
         {
+            KeyVaultId = keyVaultId;
             KeyVaultKeyId = keyVaultKeyId;
             KeyVaultNetworkAccess = keyVaultNetworkAccess;
         }

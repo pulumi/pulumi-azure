@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.azure.compute.inputs.SharedImageVersionTargetRegionArgs;
+import com.pulumi.azure.compute.inputs.SharedImageVersionUefiArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -22,9 +23,9 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
-     * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
      * 
      */
     @Import(name="blobUri")
@@ -33,9 +34,9 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     /**
      * @return URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
-     * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
      * 
      */
     public Optional<Output<String>> blobUri() {
@@ -135,9 +136,9 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
      */
     @Import(name="managedImageId")
@@ -146,9 +147,9 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     /**
      * @return The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
      */
     public Optional<Output<String>> managedImageId() {
@@ -173,7 +174,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
      */
     @Import(name="osDiskSnapshotId")
@@ -182,7 +183,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     /**
      * @return The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      * 
      */
     public Optional<Output<String>> osDiskSnapshotId() {
@@ -222,7 +223,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
      * 
      */
     @Import(name="storageAccountId")
@@ -231,7 +232,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     /**
      * @return The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -239,14 +240,14 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A collection of tags which should be applied to this resource.
+     * A mapping of tags which should be applied to this resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A collection of tags which should be applied to this resource.
+     * @return A mapping of tags which should be applied to this resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -254,18 +255,33 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `targetRegion` blocks as documented below.
+     * One or more `targetRegion` blocks as defined below.
      * 
      */
     @Import(name="targetRegions")
     private @Nullable Output<List<SharedImageVersionTargetRegionArgs>> targetRegions;
 
     /**
-     * @return One or more `targetRegion` blocks as documented below.
+     * @return One or more `targetRegion` blocks as defined below.
      * 
      */
     public Optional<Output<List<SharedImageVersionTargetRegionArgs>>> targetRegions() {
         return Optional.ofNullable(this.targetRegions);
+    }
+
+    /**
+     * A `uefi` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="uefi")
+    private @Nullable Output<SharedImageVersionUefiArgs> uefi;
+
+    /**
+     * @return A `uefi` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<SharedImageVersionUefiArgs>> uefi() {
+        return Optional.ofNullable(this.uefi);
     }
 
     private SharedImageVersionState() {}
@@ -286,6 +302,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         this.storageAccountId = $.storageAccountId;
         this.tags = $.tags;
         this.targetRegions = $.targetRegions;
+        this.uefi = $.uefi;
     }
 
     public static Builder builder() {
@@ -309,9 +326,9 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         /**
          * @param blobUri URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+         * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
          * 
-         * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+         * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
          * 
          * @return builder
          * 
@@ -324,9 +341,9 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         /**
          * @param blobUri URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+         * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
          * 
-         * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+         * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
          * 
          * @return builder
          * 
@@ -464,9 +481,9 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         /**
          * @param managedImageId The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+         * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+         * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
          * 
          * @return builder
          * 
@@ -479,9 +496,9 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         /**
          * @param managedImageId The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+         * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+         * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
          * 
          * @return builder
          * 
@@ -514,7 +531,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         /**
          * @param osDiskSnapshotId The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+         * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
          * 
          * @return builder
          * 
@@ -527,7 +544,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         /**
          * @param osDiskSnapshotId The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+         * &gt; **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
          * 
          * @return builder
          * 
@@ -581,7 +598,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         /**
          * @param storageAccountId The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+         * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
          * 
          * @return builder
          * 
@@ -594,7 +611,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         /**
          * @param storageAccountId The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `blobUri` and `storageAccountId` must be specified together
+         * &gt; **Note:** `blobUri` and `storageAccountId` must be specified together
          * 
          * @return builder
          * 
@@ -604,7 +621,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A collection of tags which should be applied to this resource.
+         * @param tags A mapping of tags which should be applied to this resource.
          * 
          * @return builder
          * 
@@ -615,7 +632,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A collection of tags which should be applied to this resource.
+         * @param tags A mapping of tags which should be applied to this resource.
          * 
          * @return builder
          * 
@@ -625,7 +642,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetRegions One or more `targetRegion` blocks as documented below.
+         * @param targetRegions One or more `targetRegion` blocks as defined below.
          * 
          * @return builder
          * 
@@ -636,7 +653,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetRegions One or more `targetRegion` blocks as documented below.
+         * @param targetRegions One or more `targetRegion` blocks as defined below.
          * 
          * @return builder
          * 
@@ -646,13 +663,34 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetRegions One or more `targetRegion` blocks as documented below.
+         * @param targetRegions One or more `targetRegion` blocks as defined below.
          * 
          * @return builder
          * 
          */
         public Builder targetRegions(SharedImageVersionTargetRegionArgs... targetRegions) {
             return targetRegions(List.of(targetRegions));
+        }
+
+        /**
+         * @param uefi A `uefi` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uefi(@Nullable Output<SharedImageVersionUefiArgs> uefi) {
+            $.uefi = uefi;
+            return this;
+        }
+
+        /**
+         * @param uefi A `uefi` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uefi(SharedImageVersionUefiArgs uefi) {
+            return uefi(Output.of(uefi));
         }
 
         public SharedImageVersionState build() {

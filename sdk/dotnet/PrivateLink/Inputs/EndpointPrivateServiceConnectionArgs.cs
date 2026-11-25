@@ -13,6 +13,18 @@ namespace Pulumi.Azure.PrivateLink.Inputs
     public sealed class EndpointPrivateServiceConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates if changes on the service provider require any updates on the consumer.
+        /// </summary>
+        [Input("actionRequired")]
+        public Input<string>? ActionRequired { get; set; }
+
+        /// <summary>
+        /// The reason for approval/rejection of the connection.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `True`.
@@ -51,6 +63,12 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         /// </summary>
         [Input("requestMessage")]
         public Input<string>? RequestMessage { get; set; }
+
+        /// <summary>
+        /// The status of the connection between the service consumer and provider.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("subresourceNames")]
         private InputList<string>? _subresourceNames;

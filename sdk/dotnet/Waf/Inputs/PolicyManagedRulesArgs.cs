@@ -12,11 +12,27 @@ namespace Pulumi.Azure.Waf.Inputs
 
     public sealed class PolicyManagedRulesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("exceptions")]
+        private InputList<Inputs.PolicyManagedRulesExceptionArgs>? _exceptions;
+
+        /// <summary>
+        /// One or more `Exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+        /// 
+        /// &gt; **Note:** An `Exception` block requires a `ManagedRuleSet` with `Type` set to `OWASP` and `Version` set to `3.2` or later, or `Type` set to `Microsoft_DefaultRuleSet` and `Version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+        /// </summary>
+        public InputList<Inputs.PolicyManagedRulesExceptionArgs> Exceptions
+        {
+            get => _exceptions ?? (_exceptions = new InputList<Inputs.PolicyManagedRulesExceptionArgs>());
+            set => _exceptions = value;
+        }
+
         [Input("exclusions")]
         private InputList<Inputs.PolicyManagedRulesExclusionArgs>? _exclusions;
 
         /// <summary>
         /// One or more `Exclusion` block defined below.
+        /// 
+        /// &gt; **Note:** Exactly one `ManagedRuleSet` block must have a `Type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
         /// </summary>
         public InputList<Inputs.PolicyManagedRulesExclusionArgs> Exclusions
         {
@@ -28,7 +44,9 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyManagedRulesManagedRuleSetArgs>? _managedRuleSets;
 
         /// <summary>
-        /// One or more `ManagedRuleSet` block defined below.
+        /// One or more `ManagedRuleSet` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Only one primary `ManagedRuleSet` block is allowed in total, with `Type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
         /// </summary>
         public InputList<Inputs.PolicyManagedRulesManagedRuleSetArgs> ManagedRuleSets
         {

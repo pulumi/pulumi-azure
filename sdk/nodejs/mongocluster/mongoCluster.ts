@@ -169,11 +169,13 @@ export class MongoCluster extends pulumi.CustomResource {
     /**
      * The size of the data disk space for the MongoDB Cluster.
      */
-    declare public readonly storageSizeInGb: pulumi.Output<number | undefined>;
+    declare public readonly storageSizeInGb: pulumi.Output<number>;
     /**
-     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
      */
-    declare public readonly storageType: pulumi.Output<string | undefined>;
+    declare public readonly storageType: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the MongoDB Cluster.
      */
@@ -360,7 +362,9 @@ export interface MongoClusterState {
      */
     storageSizeInGb?: pulumi.Input<number | undefined>;
     /**
-     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
      */
     storageType?: pulumi.Input<string | undefined>;
     /**
@@ -470,7 +474,9 @@ export interface MongoClusterArgs {
      */
     storageSizeInGb?: pulumi.Input<number | undefined>;
     /**
-     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region's availability.
      */
     storageType?: pulumi.Input<string | undefined>;
     /**

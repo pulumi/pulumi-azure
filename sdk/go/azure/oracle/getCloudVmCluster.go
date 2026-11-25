@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := oracle.LookupCloudVmCluster(ctx, &oracle.LookupCloudVmClusterArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-cloud-vm-cluster",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

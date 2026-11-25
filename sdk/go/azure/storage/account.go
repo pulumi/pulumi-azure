@@ -185,9 +185,9 @@ type Account struct {
 	BlobProperties AccountBlobPropertiesOutput `pulumi:"blobProperties"`
 	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled pulumi.BoolPtrOutput `pulumi:"crossTenantReplicationEnabled"`
-	// A `customDomain` block as documented below.
+	// A `customDomain` block as defined below.
 	CustomDomain AccountCustomDomainPtrOutput `pulumi:"customDomain"`
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	//
 	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey AccountCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
@@ -229,7 +229,7 @@ type Account struct {
 	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `networkRules` block as documented below.
+	// A `networkRules` block as defined below.
 	NetworkRules AccountNetworkRulesTypeOutput `pulumi:"networkRules"`
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
@@ -405,6 +405,8 @@ type Account struct {
 	//
 	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 	SharedAccessKeyEnabled pulumi.BoolPtrOutput `pulumi:"sharedAccessKeyEnabled"`
+	// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+	SmbOauthEnabled pulumi.BoolPtrOutput `pulumi:"smbOauthEnabled"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -493,9 +495,9 @@ type accountState struct {
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled *bool `pulumi:"crossTenantReplicationEnabled"`
-	// A `customDomain` block as documented below.
+	// A `customDomain` block as defined below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	//
 	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -537,7 +539,7 @@ type accountState struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
-	// A `networkRules` block as documented below.
+	// A `networkRules` block as defined below.
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
@@ -713,6 +715,8 @@ type accountState struct {
 	//
 	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
+	// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+	SmbOauthEnabled *bool `pulumi:"smbOauthEnabled"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -754,9 +758,9 @@ type AccountState struct {
 	BlobProperties AccountBlobPropertiesPtrInput
 	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled pulumi.BoolPtrInput
-	// A `customDomain` block as documented below.
+	// A `customDomain` block as defined below.
 	CustomDomain AccountCustomDomainPtrInput
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	//
 	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
@@ -798,7 +802,7 @@ type AccountState struct {
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
-	// A `networkRules` block as documented below.
+	// A `networkRules` block as defined below.
 	NetworkRules AccountNetworkRulesTypePtrInput
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
@@ -974,6 +978,8 @@ type AccountState struct {
 	//
 	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
+	// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+	SmbOauthEnabled pulumi.BoolPtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1015,9 +1021,9 @@ type accountArgs struct {
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled *bool `pulumi:"crossTenantReplicationEnabled"`
-	// A `customDomain` block as documented below.
+	// A `customDomain` block as defined below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	//
 	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -1059,7 +1065,7 @@ type accountArgs struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
-	// A `networkRules` block as documented below.
+	// A `networkRules` block as defined below.
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
@@ -1091,6 +1097,8 @@ type accountArgs struct {
 	//
 	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
+	// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+	SmbOauthEnabled *bool `pulumi:"smbOauthEnabled"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1129,9 +1137,9 @@ type AccountArgs struct {
 	BlobProperties AccountBlobPropertiesPtrInput
 	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled pulumi.BoolPtrInput
-	// A `customDomain` block as documented below.
+	// A `customDomain` block as defined below.
 	CustomDomain AccountCustomDomainPtrInput
-	// A `customerManagedKey` block as documented below.
+	// A `customerManagedKey` block as defined below.
 	//
 	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
@@ -1173,7 +1181,7 @@ type AccountArgs struct {
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
-	// A `networkRules` block as documented below.
+	// A `networkRules` block as defined below.
 	NetworkRules AccountNetworkRulesTypePtrInput
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
@@ -1205,6 +1213,8 @@ type AccountArgs struct {
 	//
 	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
+	// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+	SmbOauthEnabled pulumi.BoolPtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1365,12 +1375,12 @@ func (o AccountOutput) CrossTenantReplicationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.CrossTenantReplicationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `customDomain` block as documented below.
+// A `customDomain` block as defined below.
 func (o AccountOutput) CustomDomain() AccountCustomDomainPtrOutput {
 	return o.ApplyT(func(v *Account) AccountCustomDomainPtrOutput { return v.CustomDomain }).(AccountCustomDomainPtrOutput)
 }
 
-// A `customerManagedKey` block as documented below.
+// A `customerManagedKey` block as defined below.
 //
 // > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 func (o AccountOutput) CustomerManagedKey() AccountCustomerManagedKeyPtrOutput {
@@ -1454,7 +1464,7 @@ func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `networkRules` block as documented below.
+// A `networkRules` block as defined below.
 func (o AccountOutput) NetworkRules() AccountNetworkRulesTypeOutput {
 	return o.ApplyT(func(v *Account) AccountNetworkRulesTypeOutput { return v.NetworkRules }).(AccountNetworkRulesTypeOutput)
 }
@@ -1880,6 +1890,11 @@ func (o AccountOutput) ShareProperties() AccountSharePropertiesOutput {
 // > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 func (o AccountOutput) SharedAccessKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.SharedAccessKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+func (o AccountOutput) SmbOauthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.SmbOauthEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

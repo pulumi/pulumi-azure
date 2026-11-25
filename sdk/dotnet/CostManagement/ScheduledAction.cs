@@ -47,7 +47,7 @@ namespace Pulumi.Azure.CostManagement
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.CostManagement` - 2023-08-01
+    /// * `Microsoft.CostManagement` - 2025-03-01
     /// 
     /// ## Import
     /// 
@@ -80,6 +80,8 @@ namespace Pulumi.Azure.CostManagement
 
         /// <summary>
         /// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+        /// 
+        /// &gt; **Note:** This attribute is only optional when you use a user principal to run `Terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         /// </summary>
         [Output("emailAddressSender")]
         public Output<string> EmailAddressSender { get; private set; } = null!;
@@ -216,9 +218,11 @@ namespace Pulumi.Azure.CostManagement
 
         /// <summary>
         /// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+        /// 
+        /// &gt; **Note:** This attribute is only optional when you use a user principal to run `Terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         /// </summary>
-        [Input("emailAddressSender", required: true)]
-        public Input<string> EmailAddressSender { get; set; } = null!;
+        [Input("emailAddressSender")]
+        public Input<string>? EmailAddressSender { get; set; }
 
         [Input("emailAddresses", required: true)]
         private InputList<string>? _emailAddresses;
@@ -326,6 +330,8 @@ namespace Pulumi.Azure.CostManagement
 
         /// <summary>
         /// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+        /// 
+        /// &gt; **Note:** This attribute is only optional when you use a user principal to run `Terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         /// </summary>
         [Input("emailAddressSender")]
         public Input<string>? EmailAddressSender { get; set; }

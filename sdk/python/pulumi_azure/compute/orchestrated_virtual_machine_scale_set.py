@@ -25,6 +25,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  additional_capabilities: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
                  automatic_instance_repair: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
+                 automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] = None,
@@ -47,6 +48,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_mix: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] = None,
                  proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_virtual_machine_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_virtual_machine_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  rolling_upgrade_policy: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -70,6 +73,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
                
                > **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        :param pulumi.Input[_builtins.bool] automatic_zone_rebalancing_enabled: Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
@@ -100,6 +104,12 @@ class OrchestratedVirtualMachineScaleSetArgs:
                
                > **Note:** `priority_mix` can only be specified when `priority` is set to `Spot`.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] resilient_virtual_machine_creation_enabled: Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+               
+               > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        :param pulumi.Input[_builtins.bool] resilient_virtual_machine_deletion_enabled: Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+               
+               > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** `rolling_upgrade_policy` is required when `upgrade_mode` is set to `Rolling`, cannot be specified when `upgrade_mode` is set to `Manual`, and requires a valid application health extension when `upgrade_mode` is set to `Rolling`.
@@ -137,6 +147,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if automatic_instance_repair is not None:
             pulumi.set(__self__, "automatic_instance_repair", automatic_instance_repair)
+        if automatic_zone_rebalancing_enabled is not None:
+            pulumi.set(__self__, "automatic_zone_rebalancing_enabled", automatic_zone_rebalancing_enabled)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
         if capacity_reservation_group_id is not None:
@@ -181,6 +193,10 @@ class OrchestratedVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "priority_mix", priority_mix)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if resilient_virtual_machine_creation_enabled is not None:
+            pulumi.set(__self__, "resilient_virtual_machine_creation_enabled", resilient_virtual_machine_creation_enabled)
+        if resilient_virtual_machine_deletion_enabled is not None:
+            pulumi.set(__self__, "resilient_virtual_machine_deletion_enabled", resilient_virtual_machine_deletion_enabled)
         if rolling_upgrade_policy is not None:
             pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if single_placement_group is not None:
@@ -257,6 +273,18 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @automatic_instance_repair.setter
     def automatic_instance_repair(self, value: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
         pulumi.set(self, "automatic_instance_repair", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticZoneRebalancingEnabled")
+    def automatic_zone_rebalancing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+        """
+        return pulumi.get(self, "automatic_zone_rebalancing_enabled")
+
+    @automatic_zone_rebalancing_enabled.setter
+    def automatic_zone_rebalancing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "automatic_zone_rebalancing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
@@ -531,6 +559,34 @@ class OrchestratedVirtualMachineScaleSetArgs:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="resilientVirtualMachineCreationEnabled")
+    def resilient_virtual_machine_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+
+        > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        """
+        return pulumi.get(self, "resilient_virtual_machine_creation_enabled")
+
+    @resilient_virtual_machine_creation_enabled.setter
+    def resilient_virtual_machine_creation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "resilient_virtual_machine_creation_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resilientVirtualMachineDeletionEnabled")
+    def resilient_virtual_machine_deletion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+
+        > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+        """
+        return pulumi.get(self, "resilient_virtual_machine_deletion_enabled")
+
+    @resilient_virtual_machine_deletion_enabled.setter
+    def resilient_virtual_machine_deletion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "resilient_virtual_machine_deletion_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="rollingUpgradePolicy")
     def rolling_upgrade_policy(self) -> pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
         """
@@ -698,6 +754,7 @@ class _OrchestratedVirtualMachineScaleSetState:
     def __init__(__self__, *,
                  additional_capabilities: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
                  automatic_instance_repair: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
+                 automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] = None,
@@ -721,6 +778,8 @@ class _OrchestratedVirtualMachineScaleSetState:
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_mix: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] = None,
                  proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_virtual_machine_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_virtual_machine_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rolling_upgrade_policy: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -742,6 +801,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
                
                > **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        :param pulumi.Input[_builtins.bool] automatic_zone_rebalancing_enabled: Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
@@ -775,6 +835,12 @@ class _OrchestratedVirtualMachineScaleSetState:
                
                > **Note:** `priority_mix` can only be specified when `priority` is set to `Spot`.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] resilient_virtual_machine_creation_enabled: Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+               
+               > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        :param pulumi.Input[_builtins.bool] resilient_virtual_machine_deletion_enabled: Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+               
+               > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
                
@@ -812,6 +878,8 @@ class _OrchestratedVirtualMachineScaleSetState:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if automatic_instance_repair is not None:
             pulumi.set(__self__, "automatic_instance_repair", automatic_instance_repair)
+        if automatic_zone_rebalancing_enabled is not None:
+            pulumi.set(__self__, "automatic_zone_rebalancing_enabled", automatic_zone_rebalancing_enabled)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
         if capacity_reservation_group_id is not None:
@@ -858,6 +926,10 @@ class _OrchestratedVirtualMachineScaleSetState:
             pulumi.set(__self__, "priority_mix", priority_mix)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if resilient_virtual_machine_creation_enabled is not None:
+            pulumi.set(__self__, "resilient_virtual_machine_creation_enabled", resilient_virtual_machine_creation_enabled)
+        if resilient_virtual_machine_deletion_enabled is not None:
+            pulumi.set(__self__, "resilient_virtual_machine_deletion_enabled", resilient_virtual_machine_deletion_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rolling_upgrade_policy is not None:
@@ -912,6 +984,18 @@ class _OrchestratedVirtualMachineScaleSetState:
     @automatic_instance_repair.setter
     def automatic_instance_repair(self, value: pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
         pulumi.set(self, "automatic_instance_repair", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticZoneRebalancingEnabled")
+    def automatic_zone_rebalancing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+        """
+        return pulumi.get(self, "automatic_zone_rebalancing_enabled")
+
+    @automatic_zone_rebalancing_enabled.setter
+    def automatic_zone_rebalancing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "automatic_zone_rebalancing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
@@ -1200,6 +1284,34 @@ class _OrchestratedVirtualMachineScaleSetState:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="resilientVirtualMachineCreationEnabled")
+    def resilient_virtual_machine_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+
+        > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        """
+        return pulumi.get(self, "resilient_virtual_machine_creation_enabled")
+
+    @resilient_virtual_machine_creation_enabled.setter
+    def resilient_virtual_machine_creation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "resilient_virtual_machine_creation_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resilientVirtualMachineDeletionEnabled")
+    def resilient_virtual_machine_deletion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+
+        > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+        """
+        return pulumi.get(self, "resilient_virtual_machine_deletion_enabled")
+
+    @resilient_virtual_machine_deletion_enabled.setter
+    def resilient_virtual_machine_deletion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "resilient_virtual_machine_deletion_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1394,6 +1506,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_capabilities: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilities']]] = None,
                  automatic_instance_repair: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair']]] = None,
+                 automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics']]] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetDataDisk']]]]] = None,
@@ -1417,6 +1530,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_mix: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPriorityMix']]] = None,
                  proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_virtual_machine_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_virtual_machine_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rolling_upgrade_policy: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy']]] = None,
                  single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1480,6 +1595,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair']] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
                
                > **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        :param pulumi.Input[_builtins.bool] automatic_zone_rebalancing_enabled: Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
@@ -1513,6 +1629,12 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **Note:** `priority_mix` can only be specified when `priority` is set to `Spot`.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] resilient_virtual_machine_creation_enabled: Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+               
+               > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        :param pulumi.Input[_builtins.bool] resilient_virtual_machine_deletion_enabled: Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+               
+               > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
                
@@ -1611,6 +1733,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_capabilities: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilities']]] = None,
                  automatic_instance_repair: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair']]] = None,
+                 automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics']]] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetDataDisk']]]]] = None,
@@ -1634,6 +1757,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_mix: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPriorityMix']]] = None,
                  proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_virtual_machine_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_virtual_machine_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rolling_upgrade_policy: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy']]] = None,
                  single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1658,6 +1783,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
+            __props__.__dict__["automatic_zone_rebalancing_enabled"] = automatic_zone_rebalancing_enabled
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["data_disks"] = data_disks
@@ -1683,6 +1809,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["priority"] = priority
             __props__.__dict__["priority_mix"] = priority_mix
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+            __props__.__dict__["resilient_virtual_machine_creation_enabled"] = resilient_virtual_machine_creation_enabled
+            __props__.__dict__["resilient_virtual_machine_deletion_enabled"] = resilient_virtual_machine_deletion_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1713,6 +1841,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_capabilities: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilities']]] = None,
             automatic_instance_repair: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair']]] = None,
+            automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             boot_diagnostics: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics']]] = None,
             capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetDataDisk']]]]] = None,
@@ -1736,6 +1865,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             priority: pulumi.Input[Optional[_builtins.str]] = None,
             priority_mix: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPriorityMix']]] = None,
             proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resilient_virtual_machine_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resilient_virtual_machine_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             rolling_upgrade_policy: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy']]] = None,
             single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1761,6 +1892,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair']] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
                
                > **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        :param pulumi.Input[_builtins.bool] automatic_zone_rebalancing_enabled: Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
@@ -1794,6 +1926,12 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **Note:** `priority_mix` can only be specified when `priority` is set to `Spot`.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] resilient_virtual_machine_creation_enabled: Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+               
+               > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        :param pulumi.Input[_builtins.bool] resilient_virtual_machine_deletion_enabled: Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+               
+               > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
                
@@ -1833,6 +1971,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
         __props__.__dict__["additional_capabilities"] = additional_capabilities
         __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
+        __props__.__dict__["automatic_zone_rebalancing_enabled"] = automatic_zone_rebalancing_enabled
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
         __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
         __props__.__dict__["data_disks"] = data_disks
@@ -1856,6 +1995,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         __props__.__dict__["priority_mix"] = priority_mix
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+        __props__.__dict__["resilient_virtual_machine_creation_enabled"] = resilient_virtual_machine_creation_enabled
+        __props__.__dict__["resilient_virtual_machine_deletion_enabled"] = resilient_virtual_machine_deletion_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
         __props__.__dict__["single_placement_group"] = single_placement_group
@@ -1889,6 +2030,14 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         > **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         """
         return pulumi.get(self, "automatic_instance_repair")
+
+    @_builtins.property
+    @pulumi.getter(name="automaticZoneRebalancingEnabled")
+    def automatic_zone_rebalancing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+        """
+        return pulumi.get(self, "automatic_zone_rebalancing_enabled")
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
@@ -2083,6 +2232,26 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resilientVirtualMachineCreationEnabled")
+    def resilient_virtual_machine_creation_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+
+        > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        """
+        return pulumi.get(self, "resilient_virtual_machine_creation_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="resilientVirtualMachineDeletionEnabled")
+    def resilient_virtual_machine_deletion_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+
+        > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+        """
+        return pulumi.get(self, "resilient_virtual_machine_deletion_enabled")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

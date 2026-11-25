@@ -108,7 +108,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     declare public readonly firewallPolicyId: pulumi.Output<string | undefined>;
     /**
-     * An `ipConfiguration` block as documented below.
+     * An `ipConfiguration` block as defined below.
      */
     declare public readonly ipConfigurations: pulumi.Output<outputs.network.FirewallIpConfiguration[] | undefined>;
     /**
@@ -116,7 +116,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
     declare public readonly managementIpConfiguration: pulumi.Output<outputs.network.FirewallManagementIpConfiguration | undefined>;
     /**
@@ -148,7 +148,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     declare public readonly threatIntelMode: pulumi.Output<string>;
     /**
-     * A `virtualHub` block as documented below.
+     * A `virtualHub` block as defined below.
      */
     declare public readonly virtualHub: pulumi.Output<outputs.network.FirewallVirtualHub | undefined>;
     /**
@@ -235,7 +235,7 @@ export interface FirewallState {
      */
     firewallPolicyId?: pulumi.Input<string | undefined>;
     /**
-     * An `ipConfiguration` block as documented below.
+     * An `ipConfiguration` block as defined below.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[] | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface FirewallState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
     managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration | undefined>;
     /**
@@ -275,7 +275,7 @@ export interface FirewallState {
      */
     threatIntelMode?: pulumi.Input<string | undefined>;
     /**
-     * A `virtualHub` block as documented below.
+     * A `virtualHub` block as defined below.
      */
     virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface FirewallArgs {
      */
     firewallPolicyId?: pulumi.Input<string | undefined>;
     /**
-     * An `ipConfiguration` block as documented below.
+     * An `ipConfiguration` block as defined below.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[] | undefined>;
     /**
@@ -311,7 +311,7 @@ export interface FirewallArgs {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
     managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration | undefined>;
     /**
@@ -343,7 +343,7 @@ export interface FirewallArgs {
      */
     threatIntelMode?: pulumi.Input<string | undefined>;
     /**
-     * A `virtualHub` block as documented below.
+     * A `virtualHub` block as defined below.
      */
     virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub | undefined>;
     /**

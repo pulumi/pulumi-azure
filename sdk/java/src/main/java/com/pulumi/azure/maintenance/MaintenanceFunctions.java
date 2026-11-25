@@ -45,12 +45,12 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name("example-mc")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -94,12 +94,12 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name("example-mc")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -143,12 +143,12 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name("example-mc")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -192,12 +192,12 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name("example-mc")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -241,12 +241,12 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name("example-mc")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -290,13 +290,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var example = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location("West Europe")
      *             .scope("SQLManagedInstance")
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.configs()[0].name());
+     *         ctx.export("name", example.configs()[0].name());
      *     }
      * }
      * }
@@ -340,13 +340,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var example = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location("West Europe")
      *             .scope("SQLManagedInstance")
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.configs()[0].name());
+     *         ctx.export("name", example.configs()[0].name());
      *     }
      * }
      * }
@@ -390,13 +390,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var example = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location("West Europe")
      *             .scope("SQLManagedInstance")
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.configs()[0].name());
+     *         ctx.export("name", example.configs()[0].name());
      *     }
      * }
      * }
@@ -440,13 +440,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var example = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location("West Europe")
      *             .scope("SQLManagedInstance")
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.configs()[0].name());
+     *         ctx.export("name", example.configs()[0].name());
      *     }
      * }
      * }
@@ -490,13 +490,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var example = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location("West Europe")
      *             .scope("SQLManagedInstance")
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.configs()[0].name());
+     *         ctx.export("name", example.configs()[0].name());
      *     }
      * }
      * }
@@ -540,13 +540,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var example = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location("West Europe")
      *             .scope("SQLManagedInstance")
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.configs()[0].name());
+     *         ctx.export("name", example.configs()[0].name());
      *     }
      * }
      * }
@@ -590,13 +590,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var example = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location("West Europe")
      *             .scope("SQLManagedInstance")
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.configs()[0].name());
+     *         ctx.export("name", example.configs()[0].name());
      *     }
      * }
      * }

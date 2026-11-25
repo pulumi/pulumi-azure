@@ -151,7 +151,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? NetIpv4TcpMaxTwBuckets { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_tw_reuse.
+        /// Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
         /// </summary>
         [Input("netIpv4TcpTwReuse")]
         public Input<bool>? NetIpv4TcpTwReuse { get; set; }

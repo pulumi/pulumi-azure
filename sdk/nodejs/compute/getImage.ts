@@ -66,7 +66,7 @@ export interface GetImageArgs {
  */
 export interface GetImageResult {
     /**
-     * a collection of `dataDisk` blocks as defined below.
+     * One or more `dataDisk` blocks as defined below.
      */
     readonly dataDisks: outputs.compute.GetImageDataDisk[];
     /**
