@@ -110,7 +110,7 @@ export class CaaRecord extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A list of values that make up the CAA record. Each `record` block supports fields documented below.
+     * A list of values that make up the CAA record. Each `record` block supports fields defined below.
      */
     declare public readonly records: pulumi.Output<outputs.dns.CaaRecordRecord[]>;
     /**
@@ -190,7 +190,7 @@ export interface CaaRecordState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of values that make up the CAA record. Each `record` block supports fields documented below.
+     * A list of values that make up the CAA record. Each `record` block supports fields defined below.
      */
     records?: pulumi.Input<pulumi.Input<inputs.dns.CaaRecordRecord>[] | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface CaaRecordArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of values that make up the CAA record. Each `record` block supports fields documented below.
+     * A list of values that make up the CAA record. Each `record` block supports fields defined below.
      */
     records: pulumi.Input<pulumi.Input<inputs.dns.CaaRecordRecord>[]>;
     /**

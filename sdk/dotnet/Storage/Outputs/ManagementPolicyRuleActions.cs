@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ManagementPolicyRuleActions
     {
         /// <summary>
-        /// A `BaseBlob` block as documented below.
+        /// A `BaseBlob` block as defined below.
         /// </summary>
         public readonly Outputs.ManagementPolicyRuleActionsBaseBlob? BaseBlob;
         /// <summary>
-        /// A `Snapshot` block as documented below.
+        /// A `Snapshot` block as defined below.
         /// </summary>
         public readonly Outputs.ManagementPolicyRuleActionsSnapshot? Snapshot;
         /// <summary>
-        /// A `Version` block as documented below.
+        /// A `Version` block as defined below.
         /// </summary>
         public readonly Outputs.ManagementPolicyRuleActionsVersion? Version;
 

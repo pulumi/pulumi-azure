@@ -185,9 +185,9 @@ def get_runbook(automation_account_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.automation.get_runbook(name="existing-runbook",
-        resource_group_name="existing",
-        automation_account_name="existing-automation")
+    example = azure.automation.get_runbook(name="example-runbook",
+        resource_group_name="example-resources",
+        automation_account_name="example-automation")
     pulumi.export("id", example.id)
     ```
 
@@ -236,9 +236,9 @@ def get_runbook_output(automation_account_name: pulumi.Input[Optional[_builtins.
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.automation.get_runbook(name="existing-runbook",
-        resource_group_name="existing",
-        automation_account_name="existing-automation")
+    example = azure.automation.get_runbook(name="example-runbook",
+        resource_group_name="example-resources",
+        automation_account_name="example-automation")
     pulumi.export("id", example.id)
     ```
 

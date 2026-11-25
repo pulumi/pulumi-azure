@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class ManagementPolicyRuleActionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `BaseBlob` block as documented below.
+        /// A `BaseBlob` block as defined below.
         /// </summary>
         [Input("baseBlob")]
         public Input<Inputs.ManagementPolicyRuleActionsBaseBlobGetArgs>? BaseBlob { get; set; }
 
         /// <summary>
-        /// A `Snapshot` block as documented below.
+        /// A `Snapshot` block as defined below.
         /// </summary>
         [Input("snapshot")]
         public Input<Inputs.ManagementPolicyRuleActionsSnapshotGetArgs>? Snapshot { get; set; }
 
         /// <summary>
-        /// A `Version` block as documented below.
+        /// A `Version` block as defined below.
         /// </summary>
         [Input("version")]
         public Input<Inputs.ManagementPolicyRuleActionsVersionGetArgs>? Version { get; set; }

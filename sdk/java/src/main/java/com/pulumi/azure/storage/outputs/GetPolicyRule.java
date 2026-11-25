@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPolicyRule {
     /**
-     * @return An `actions` block as documented below.
+     * @return An `actions` block as defined below.
      * 
      */
     private List<GetPolicyRuleAction> actions;
@@ -25,7 +25,7 @@ public final class GetPolicyRule {
      */
     private Boolean enabled;
     /**
-     * @return A `filter` block as documented below.
+     * @return A `filter` block as defined below.
      * 
      */
     private List<GetPolicyRuleFilter> filters;
@@ -37,7 +37,7 @@ public final class GetPolicyRule {
 
     private GetPolicyRule() {}
     /**
-     * @return An `actions` block as documented below.
+     * @return An `actions` block as defined below.
      * 
      */
     public List<GetPolicyRuleAction> actions() {
@@ -51,7 +51,7 @@ public final class GetPolicyRule {
         return this.enabled;
     }
     /**
-     * @return A `filter` block as documented below.
+     * @return A `filter` block as defined below.
      * 
      */
     public List<GetPolicyRuleFilter> filters() {

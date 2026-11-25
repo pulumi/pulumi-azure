@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getVpnGateway({
- *     name: "existing-local-vpn_gateway",
- *     resourceGroupName: "existing-vpn_gateway",
+ *     name: "example-vpn-gateway",
+ *     resourceGroupName: "example-resources",
  * });
  * export const azurermVpnGatewayId = example.then(example => example.id);
  * ```
@@ -96,8 +96,8 @@ export interface GetVpnGatewayResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getVpnGateway({
- *     name: "existing-local-vpn_gateway",
- *     resourceGroupName: "existing-vpn_gateway",
+ *     name: "example-vpn-gateway",
+ *     resourceGroupName: "example-resources",
  * });
  * export const azurermVpnGatewayId = example.then(example => example.id);
  * ```

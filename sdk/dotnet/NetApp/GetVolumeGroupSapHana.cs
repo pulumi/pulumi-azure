@@ -26,9 +26,9 @@ namespace Pulumi.Azure.NetApp
         /// {
         ///     var example = Azure.NetApp.GetVolumeGroupSapHana.Invoke(new()
         ///     {
-        ///         Name = "existing application volume group name",
+        ///         Name = "example-volume-group",
         ///         ResourceGroupName = "resource group name where the account and volume group belong to",
-        ///         AccountName = "existing account where the application volume group belong to",
+        ///         AccountName = "example-netapp-account",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -63,9 +63,9 @@ namespace Pulumi.Azure.NetApp
         /// {
         ///     var example = Azure.NetApp.GetVolumeGroupSapHana.Invoke(new()
         ///     {
-        ///         Name = "existing application volume group name",
+        ///         Name = "example-volume-group",
         ///         ResourceGroupName = "resource group name where the account and volume group belong to",
-        ///         AccountName = "existing account where the application volume group belong to",
+        ///         AccountName = "example-netapp-account",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -100,9 +100,9 @@ namespace Pulumi.Azure.NetApp
         /// {
         ///     var example = Azure.NetApp.GetVolumeGroupSapHana.Invoke(new()
         ///     {
-        ///         Name = "existing application volume group name",
+        ///         Name = "example-volume-group",
         ///         ResourceGroupName = "resource group name where the account and volume group belong to",
-        ///         AccountName = "existing account where the application volume group belong to",
+        ///         AccountName = "example-netapp-account",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

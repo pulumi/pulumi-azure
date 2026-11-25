@@ -251,6 +251,18 @@ __all__ = [
     'SharedImagePurchasePlanArgsDict',
     'SharedImageVersionTargetRegionArgs',
     'SharedImageVersionTargetRegionArgsDict',
+    'SharedImageVersionUefiArgs',
+    'SharedImageVersionUefiArgsDict',
+    'SharedImageVersionUefiAdditionalSignaturesArgs',
+    'SharedImageVersionUefiAdditionalSignaturesArgsDict',
+    'SharedImageVersionUefiAdditionalSignaturesDbArgs',
+    'SharedImageVersionUefiAdditionalSignaturesDbArgsDict',
+    'SharedImageVersionUefiAdditionalSignaturesDbxArgs',
+    'SharedImageVersionUefiAdditionalSignaturesDbxArgsDict',
+    'SharedImageVersionUefiAdditionalSignaturesKekArgs',
+    'SharedImageVersionUefiAdditionalSignaturesKekArgsDict',
+    'SharedImageVersionUefiAdditionalSignaturesPkArgs',
+    'SharedImageVersionUefiAdditionalSignaturesPkArgsDict',
     'SnapshotEncryptionSettingsArgs',
     'SnapshotEncryptionSettingsArgsDict',
     'SnapshotEncryptionSettingsDiskEncryptionKeyArgs',
@@ -8410,7 +8422,7 @@ class ScaleSetIdentityArgs:
 class ScaleSetNetworkProfileArgsDict(TypedDict):
     ip_configurations: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgsDict']]]
     """
-    An `ip_configuration` block as documented below.
+    An `ip_configuration` block as defined below.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -8426,7 +8438,7 @@ class ScaleSetNetworkProfileArgsDict(TypedDict):
     """
     dns_settings: NotRequired[pulumi.Input[Optional['ScaleSetNetworkProfileDnsSettingsArgsDict']]]
     """
-    A `dns_settings` block as documented below.
+    A `dns_settings` block as defined below.
     """
     ip_forwarding: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -8448,11 +8460,11 @@ class ScaleSetNetworkProfileArgs:
                  ip_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]] ip_configurations: An `ip_configuration` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]] ip_configurations: An `ip_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the network interface configuration.
         :param pulumi.Input[_builtins.bool] primary: Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         :param pulumi.Input[_builtins.bool] accelerated_networking: Specifies whether to enable accelerated networking or not.
-        :param pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs'] dns_settings: A `dns_settings` block as documented below.
+        :param pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[_builtins.bool] ip_forwarding: Whether IP forwarding is enabled on this NIC. Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_security_group_id: Specifies the identifier for the network security group.
         """
@@ -8472,7 +8484,7 @@ class ScaleSetNetworkProfileArgs:
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]]:
         """
-        An `ip_configuration` block as documented below.
+        An `ip_configuration` block as defined below.
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -8520,7 +8532,7 @@ class ScaleSetNetworkProfileArgs:
     @pulumi.getter(name="dnsSettings")
     def dns_settings(self) -> pulumi.Input[Optional['ScaleSetNetworkProfileDnsSettingsArgs']]:
         """
-        A `dns_settings` block as documented below.
+        A `dns_settings` block as defined below.
         """
         return pulumi.get(self, "dns_settings")
 
@@ -8616,7 +8628,7 @@ class ScaleSetNetworkProfileIpConfigurationArgsDict(TypedDict):
     """
     public_ip_address_configuration: NotRequired[pulumi.Input[Optional['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgsDict']]]
     """
-    Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
+    Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is defined below.
     """
 
 @pulumi.input_type
@@ -8642,7 +8654,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_inbound_nat_rules_ids: Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
                
                > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
-        :param pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs'] public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
+        :param pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs'] public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "primary", primary)
@@ -8750,7 +8762,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
     @pulumi.getter(name="publicIpAddressConfiguration")
     def public_ip_address_configuration(self) -> pulumi.Input[Optional['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs']]:
         """
-        Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
+        Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is defined below.
         """
         return pulumi.get(self, "public_ip_address_configuration")
 
@@ -9138,7 +9150,7 @@ class ScaleSetOsProfileSecretVaultCertificateArgs:
 class ScaleSetOsProfileWindowsConfigArgsDict(TypedDict):
     additional_unattend_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgsDict']]]]]
     """
-    An `additional_unattend_config` block as documented below.
+    An `additional_unattend_config` block as defined below.
     """
     enable_automatic_upgrades: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -9150,7 +9162,7 @@ class ScaleSetOsProfileWindowsConfigArgsDict(TypedDict):
     """
     winrms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgsDict']]]]]
     """
-    A collection of `winrm` blocks as documented below.
+    One or more `winrm` blocks as defined below.
     """
 
 @pulumi.input_type
@@ -9161,10 +9173,10 @@ class ScaleSetOsProfileWindowsConfigArgs:
                  provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
                  winrms: pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An `additional_unattend_config` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An `additional_unattend_config` block as defined below.
         :param pulumi.Input[_builtins.bool] enable_automatic_upgrades: Indicates whether virtual machines in the scale set are enabled for automatic updates.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]] winrms: A collection of `winrm` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]] winrms: One or more `winrm` blocks as defined below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -9179,7 +9191,7 @@ class ScaleSetOsProfileWindowsConfigArgs:
     @pulumi.getter(name="additionalUnattendConfigs")
     def additional_unattend_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]:
         """
-        An `additional_unattend_config` block as documented below.
+        An `additional_unattend_config` block as defined below.
         """
         return pulumi.get(self, "additional_unattend_configs")
 
@@ -9215,7 +9227,7 @@ class ScaleSetOsProfileWindowsConfigArgs:
     @pulumi.getter
     def winrms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]]:
         """
-        A collection of `winrm` blocks as documented below.
+        One or more `winrm` blocks as defined below.
         """
         return pulumi.get(self, "winrms")
 
@@ -10638,6 +10650,337 @@ class SharedImageVersionTargetRegionArgs:
     @storage_account_type.setter
     def storage_account_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_type", value)
+
+
+class SharedImageVersionUefiArgsDict(TypedDict):
+    signature_template_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of UEFI signature template names to include in the UEFI settings. Possible values are `MicrosoftUefiCertificateAuthorityTemplate`, `MicrosoftWindowsTemplate` and `NoSignatureTemplate`. Changing this forces a new resource to be created.
+    """
+    additional_signatures: NotRequired[pulumi.Input[Optional['SharedImageVersionUefiAdditionalSignaturesArgsDict']]]
+    """
+    An `additional_signatures` block as defined below. Changing this forces a new resource to be created.
+    """
+
+@pulumi.input_type
+class SharedImageVersionUefiArgs:
+    def __init__(__self__, *,
+                 signature_template_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 additional_signatures: pulumi.Input[Optional['SharedImageVersionUefiAdditionalSignaturesArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] signature_template_names: A list of UEFI signature template names to include in the UEFI settings. Possible values are `MicrosoftUefiCertificateAuthorityTemplate`, `MicrosoftWindowsTemplate` and `NoSignatureTemplate`. Changing this forces a new resource to be created.
+        :param pulumi.Input['SharedImageVersionUefiAdditionalSignaturesArgs'] additional_signatures: An `additional_signatures` block as defined below. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "signature_template_names", signature_template_names)
+        if additional_signatures is not None:
+            pulumi.set(__self__, "additional_signatures", additional_signatures)
+
+    @_builtins.property
+    @pulumi.getter(name="signatureTemplateNames")
+    def signature_template_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of UEFI signature template names to include in the UEFI settings. Possible values are `MicrosoftUefiCertificateAuthorityTemplate`, `MicrosoftWindowsTemplate` and `NoSignatureTemplate`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "signature_template_names")
+
+    @signature_template_names.setter
+    def signature_template_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "signature_template_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalSignatures")
+    def additional_signatures(self) -> pulumi.Input[Optional['SharedImageVersionUefiAdditionalSignaturesArgs']]:
+        """
+        An `additional_signatures` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "additional_signatures")
+
+    @additional_signatures.setter
+    def additional_signatures(self, value: pulumi.Input[Optional['SharedImageVersionUefiAdditionalSignaturesArgs']]):
+        pulumi.set(self, "additional_signatures", value)
+
+
+class SharedImageVersionUefiAdditionalSignaturesArgsDict(TypedDict):
+    dbs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbArgsDict']]]]]
+    """
+    One or more `db` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    dbxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbxArgsDict']]]]]
+    """
+    One or more `dbx` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    keks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesKekArgsDict']]]]]
+    """
+    One or more `kek` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    pk: NotRequired[pulumi.Input[Optional['SharedImageVersionUefiAdditionalSignaturesPkArgsDict']]]
+    """
+    A `pk` block as defined below. Changing this forces a new resource to be created.
+
+    > **Note:** At least one of `db`, `dbx`, `kek` or `pk` must be specified when an `additional_signatures` block is defined.
+    """
+
+@pulumi.input_type
+class SharedImageVersionUefiAdditionalSignaturesArgs:
+    def __init__(__self__, *,
+                 dbs: pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbArgs']]]] = None,
+                 dbxes: pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbxArgs']]]] = None,
+                 keks: pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesKekArgs']]]] = None,
+                 pk: pulumi.Input[Optional['SharedImageVersionUefiAdditionalSignaturesPkArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbArgs']]] dbs: One or more `db` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbxArgs']]] dbxes: One or more `dbx` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesKekArgs']]] keks: One or more `kek` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['SharedImageVersionUefiAdditionalSignaturesPkArgs'] pk: A `pk` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** At least one of `db`, `dbx`, `kek` or `pk` must be specified when an `additional_signatures` block is defined.
+        """
+        if dbs is not None:
+            pulumi.set(__self__, "dbs", dbs)
+        if dbxes is not None:
+            pulumi.set(__self__, "dbxes", dbxes)
+        if keks is not None:
+            pulumi.set(__self__, "keks", keks)
+        if pk is not None:
+            pulumi.set(__self__, "pk", pk)
+
+    @_builtins.property
+    @pulumi.getter
+    def dbs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbArgs']]]]:
+        """
+        One or more `db` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dbs")
+
+    @dbs.setter
+    def dbs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbArgs']]]]):
+        pulumi.set(self, "dbs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def dbxes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbxArgs']]]]:
+        """
+        One or more `dbx` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dbxes")
+
+    @dbxes.setter
+    def dbxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesDbxArgs']]]]):
+        pulumi.set(self, "dbxes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def keks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesKekArgs']]]]:
+        """
+        One or more `kek` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "keks")
+
+    @keks.setter
+    def keks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionUefiAdditionalSignaturesKekArgs']]]]):
+        pulumi.set(self, "keks", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def pk(self) -> pulumi.Input[Optional['SharedImageVersionUefiAdditionalSignaturesPkArgs']]:
+        """
+        A `pk` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** At least one of `db`, `dbx`, `kek` or `pk` must be specified when an `additional_signatures` block is defined.
+        """
+        return pulumi.get(self, "pk")
+
+    @pk.setter
+    def pk(self, value: pulumi.Input[Optional['SharedImageVersionUefiAdditionalSignaturesPkArgs']]):
+        pulumi.set(self, "pk", value)
+
+
+class SharedImageVersionUefiAdditionalSignaturesDbArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+    """
+    values_base64s: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+    """
+
+@pulumi.input_type
+class SharedImageVersionUefiAdditionalSignaturesDbArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 values_base64s: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] type: The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values_base64s: A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values_base64s", values_base64s)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valuesBase64s")
+    def values_base64s(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "values_base64s")
+
+    @values_base64s.setter
+    def values_base64s(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values_base64s", value)
+
+
+class SharedImageVersionUefiAdditionalSignaturesDbxArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+    """
+    values_base64s: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+    """
+
+@pulumi.input_type
+class SharedImageVersionUefiAdditionalSignaturesDbxArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 values_base64s: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] type: The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values_base64s: A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values_base64s", values_base64s)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valuesBase64s")
+    def values_base64s(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "values_base64s")
+
+    @values_base64s.setter
+    def values_base64s(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values_base64s", value)
+
+
+class SharedImageVersionUefiAdditionalSignaturesKekArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+    """
+    values_base64s: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+    """
+
+@pulumi.input_type
+class SharedImageVersionUefiAdditionalSignaturesKekArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 values_base64s: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] type: The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values_base64s: A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values_base64s", values_base64s)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valuesBase64s")
+    def values_base64s(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "values_base64s")
+
+    @values_base64s.setter
+    def values_base64s(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values_base64s", value)
+
+
+class SharedImageVersionUefiAdditionalSignaturesPkArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+    """
+    values_base64s: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+    """
+
+@pulumi.input_type
+class SharedImageVersionUefiAdditionalSignaturesPkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 values_base64s: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] type: The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values_base64s: A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values_base64s", values_base64s)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valuesBase64s")
+    def values_base64s(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "values_base64s")
+
+    @values_base64s.setter
+    def values_base64s(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values_base64s", value)
 
 
 class SnapshotEncryptionSettingsArgsDict(TypedDict):

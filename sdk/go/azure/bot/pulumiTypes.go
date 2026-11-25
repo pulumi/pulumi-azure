@@ -18,7 +18,7 @@ type ChannelDirectLineSite struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Is the endpoint parameters enabled for this site?
 	EndpointParametersEnabled *bool `pulumi:"endpointParametersEnabled"`
-	// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+	// Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
 	EnhancedAuthenticationEnabled *bool `pulumi:"enhancedAuthenticationEnabled"`
 	// Id for the site
 	Id *string `pulumi:"id"`
@@ -56,7 +56,7 @@ type ChannelDirectLineSiteArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Is the endpoint parameters enabled for this site?
 	EndpointParametersEnabled pulumi.BoolPtrInput `pulumi:"endpointParametersEnabled"`
-	// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+	// Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
 	EnhancedAuthenticationEnabled pulumi.BoolPtrInput `pulumi:"enhancedAuthenticationEnabled"`
 	// Id for the site
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -139,7 +139,7 @@ func (o ChannelDirectLineSiteOutput) EndpointParametersEnabled() pulumi.BoolPtrO
 	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.EndpointParametersEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+// Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
 func (o ChannelDirectLineSiteOutput) EnhancedAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.EnhancedAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }

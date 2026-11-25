@@ -489,8 +489,8 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-app-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -538,8 +538,8 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-app-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -587,8 +587,8 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-app-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -636,8 +636,8 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-app-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -685,8 +685,8 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-app-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

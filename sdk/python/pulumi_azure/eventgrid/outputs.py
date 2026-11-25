@@ -2092,12 +2092,12 @@ class PartnerConfigurationPartnerAuthorization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "partnerName":
+        if key == "authorizationExpirationTimeInUtc":
+            suggest = "authorization_expiration_time_in_utc"
+        elif key == "partnerName":
             suggest = "partner_name"
         elif key == "partnerRegistrationId":
             suggest = "partner_registration_id"
-        elif key == "authorizationExpirationTimeInUtc":
-            suggest = "authorization_expiration_time_in_utc"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PartnerConfigurationPartnerAuthorization. Access the value via the '{suggest}' property getter instead.")
@@ -2111,36 +2111,24 @@ class PartnerConfigurationPartnerAuthorization(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 partner_name: _builtins.str,
-                 partner_registration_id: _builtins.str,
-                 authorization_expiration_time_in_utc: Optional[_builtins.str] = None):
+                 authorization_expiration_time_in_utc: Optional[_builtins.str] = None,
+                 partner_name: Optional[_builtins.str] = None,
+                 partner_registration_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str partner_name: The partner name.
-        :param _builtins.str partner_registration_id: The immutable id of the corresponding partner registration.
         :param _builtins.str authorization_expiration_time_in_utc: Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: "2025-02-04T00:00:00Z".
                
                > **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+        :param _builtins.str partner_name: The name of a verified partner.
+        :param _builtins.str partner_registration_id: The immutable id of the corresponding partner registration.
+               
+               > **Note:** At least one of `partner_name` or `partner_registration_id` must be provided in each `partner_authorization` block.
         """
-        pulumi.set(__self__, "partner_name", partner_name)
-        pulumi.set(__self__, "partner_registration_id", partner_registration_id)
         if authorization_expiration_time_in_utc is not None:
             pulumi.set(__self__, "authorization_expiration_time_in_utc", authorization_expiration_time_in_utc)
-
-    @_builtins.property
-    @pulumi.getter(name="partnerName")
-    def partner_name(self) -> _builtins.str:
-        """
-        The partner name.
-        """
-        return pulumi.get(self, "partner_name")
-
-    @_builtins.property
-    @pulumi.getter(name="partnerRegistrationId")
-    def partner_registration_id(self) -> _builtins.str:
-        """
-        The immutable id of the corresponding partner registration.
-        """
-        return pulumi.get(self, "partner_registration_id")
+        if partner_name is not None:
+            pulumi.set(__self__, "partner_name", partner_name)
+        if partner_registration_id is not None:
+            pulumi.set(__self__, "partner_registration_id", partner_registration_id)
 
     @_builtins.property
     @pulumi.getter(name="authorizationExpirationTimeInUtc")
@@ -2151,6 +2139,24 @@ class PartnerConfigurationPartnerAuthorization(dict):
         > **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
         """
         return pulumi.get(self, "authorization_expiration_time_in_utc")
+
+    @_builtins.property
+    @pulumi.getter(name="partnerName")
+    def partner_name(self) -> Optional[_builtins.str]:
+        """
+        The name of a verified partner.
+        """
+        return pulumi.get(self, "partner_name")
+
+    @_builtins.property
+    @pulumi.getter(name="partnerRegistrationId")
+    def partner_registration_id(self) -> Optional[_builtins.str]:
+        """
+        The immutable id of the corresponding partner registration.
+
+        > **Note:** At least one of `partner_name` or `partner_registration_id` must be provided in each `partner_authorization` block.
+        """
+        return pulumi.get(self, "partner_registration_id")
 
 
 @pulumi.output_type

@@ -86,7 +86,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
-        /// An `ApplicationInsights` block as documented below. Changing this forces a new resource to be created.
+        /// An `ApplicationInsights` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("applicationInsights")]
         public Output<Outputs.LoggerApplicationInsights?> ApplicationInsights { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `Eventhub` block as documented below. Changing this forces a new resource to be created.
+        /// An `Eventhub` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventhub")]
         public Output<Outputs.LoggerEventhub?> Eventhub { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
-        /// An `ApplicationInsights` block as documented below. Changing this forces a new resource to be created.
+        /// An `ApplicationInsights` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationInsights")]
         public Input<Inputs.LoggerApplicationInsightsArgs>? ApplicationInsights { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `Eventhub` block as documented below. Changing this forces a new resource to be created.
+        /// An `Eventhub` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventhub")]
         public Input<Inputs.LoggerEventhubArgs>? Eventhub { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
-        /// An `ApplicationInsights` block as documented below. Changing this forces a new resource to be created.
+        /// An `ApplicationInsights` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationInsights")]
         public Input<Inputs.LoggerApplicationInsightsGetArgs>? ApplicationInsights { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `Eventhub` block as documented below. Changing this forces a new resource to be created.
+        /// An `Eventhub` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventhub")]
         public Input<Inputs.LoggerEventhubGetArgs>? Eventhub { get; set; }

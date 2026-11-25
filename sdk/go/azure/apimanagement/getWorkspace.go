@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			example := apimanagement.LookupWorkspaceOutput(ctx, apimanagement.GetWorkspaceOutputArgs{
-//				Name:            pulumi.String("existing"),
+//				Name:            pulumi.String("example-workspace"),
 //				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			ctx.Export("id", example.Id())

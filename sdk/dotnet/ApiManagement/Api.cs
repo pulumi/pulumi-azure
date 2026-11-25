@@ -91,7 +91,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiType { get; private set; } = null!;
 
         /// <summary>
-        /// A `Contact` block as documented below.
+        /// A `Contact` block as defined below.
         /// </summary>
         [Output("contact")]
         public Output<Outputs.ApiContact?> Contact { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// A `Import` block as documented below.
+        /// A `Import` block as defined below.
         /// 
         /// &gt; **Note:** The `DisplayName`, `Description`, `Contact`, and `License` fields can be imported by the `Import` block, which might cause a drift if these fields are set along with the `Import` block.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool> IsOnline { get; private set; } = null!;
 
         /// <summary>
-        /// A `License` block as documented below.
+        /// A `License` block as defined below.
         /// </summary>
         [Output("license")]
         public Output<Outputs.ApiLicense?> License { get; private set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `Oauth2Authorization` block as documented below.
+        /// An `Oauth2Authorization` block as defined below.
         /// </summary>
         [Output("oauth2Authorization")]
         public Output<Outputs.ApiOauth2Authorization?> Oauth2Authorization { get; private set; } = null!;
 
         /// <summary>
-        /// An `OpenidAuthentication` block as documented below.
+        /// An `OpenidAuthentication` block as defined below.
         /// </summary>
         [Output("openidAuthentication")]
         public Output<Outputs.ApiOpenidAuthentication?> OpenidAuthentication { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> SourceApiId { get; private set; } = null!;
 
         /// <summary>
-        /// A `SubscriptionKeyParameterNames` block as documented below.
+        /// A `SubscriptionKeyParameterNames` block as defined below.
         /// </summary>
         [Output("subscriptionKeyParameterNames")]
         public Output<Outputs.ApiSubscriptionKeyParameterNames> SubscriptionKeyParameterNames { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiType { get; set; }
 
         /// <summary>
-        /// A `Contact` block as documented below.
+        /// A `Contact` block as defined below.
         /// </summary>
         [Input("contact")]
         public Input<Inputs.ApiContactArgs>? Contact { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// A `Import` block as documented below.
+        /// A `Import` block as defined below.
         /// 
         /// &gt; **Note:** The `DisplayName`, `Description`, `Contact`, and `License` fields can be imported by the `Import` block, which might cause a drift if these fields are set along with the `Import` block.
         /// </summary>
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ApiImportArgs>? Import { get; set; }
 
         /// <summary>
-        /// A `License` block as documented below.
+        /// A `License` block as defined below.
         /// </summary>
         [Input("license")]
         public Input<Inputs.ApiLicenseArgs>? License { get; set; }
@@ -333,13 +333,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `Oauth2Authorization` block as documented below.
+        /// An `Oauth2Authorization` block as defined below.
         /// </summary>
         [Input("oauth2Authorization")]
         public Input<Inputs.ApiOauth2AuthorizationArgs>? Oauth2Authorization { get; set; }
 
         /// <summary>
-        /// An `OpenidAuthentication` block as documented below.
+        /// An `OpenidAuthentication` block as defined below.
         /// </summary>
         [Input("openidAuthentication")]
         public Input<Inputs.ApiOpenidAuthenticationArgs>? OpenidAuthentication { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? SourceApiId { get; set; }
 
         /// <summary>
-        /// A `SubscriptionKeyParameterNames` block as documented below.
+        /// A `SubscriptionKeyParameterNames` block as defined below.
         /// </summary>
         [Input("subscriptionKeyParameterNames")]
         public Input<Inputs.ApiSubscriptionKeyParameterNamesArgs>? SubscriptionKeyParameterNames { get; set; }
@@ -455,7 +455,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiType { get; set; }
 
         /// <summary>
-        /// A `Contact` block as documented below.
+        /// A `Contact` block as defined below.
         /// </summary>
         [Input("contact")]
         public Input<Inputs.ApiContactGetArgs>? Contact { get; set; }
@@ -473,7 +473,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// A `Import` block as documented below.
+        /// A `Import` block as defined below.
         /// 
         /// &gt; **Note:** The `DisplayName`, `Description`, `Contact`, and `License` fields can be imported by the `Import` block, which might cause a drift if these fields are set along with the `Import` block.
         /// </summary>
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? IsOnline { get; set; }
 
         /// <summary>
-        /// A `License` block as documented below.
+        /// A `License` block as defined below.
         /// </summary>
         [Input("license")]
         public Input<Inputs.ApiLicenseGetArgs>? License { get; set; }
@@ -505,13 +505,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `Oauth2Authorization` block as documented below.
+        /// An `Oauth2Authorization` block as defined below.
         /// </summary>
         [Input("oauth2Authorization")]
         public Input<Inputs.ApiOauth2AuthorizationGetArgs>? Oauth2Authorization { get; set; }
 
         /// <summary>
-        /// An `OpenidAuthentication` block as documented below.
+        /// An `OpenidAuthentication` block as defined below.
         /// </summary>
         [Input("openidAuthentication")]
         public Input<Inputs.ApiOpenidAuthenticationGetArgs>? OpenidAuthentication { get; set; }
@@ -569,7 +569,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? SourceApiId { get; set; }
 
         /// <summary>
-        /// A `SubscriptionKeyParameterNames` block as documented below.
+        /// A `SubscriptionKeyParameterNames` block as defined below.
         /// </summary>
         [Input("subscriptionKeyParameterNames")]
         public Input<Inputs.ApiSubscriptionKeyParameterNamesGetArgs>? SubscriptionKeyParameterNames { get; set; }

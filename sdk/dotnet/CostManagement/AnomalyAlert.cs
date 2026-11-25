@@ -44,7 +44,7 @@ namespace Pulumi.Azure.CostManagement
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.CostManagement` - 2023-08-01
+    /// * `Microsoft.CostManagement` - 2025-03-01
     /// 
     /// ## Import
     /// 

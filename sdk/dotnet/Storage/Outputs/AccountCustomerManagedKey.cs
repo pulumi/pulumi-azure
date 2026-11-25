@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// The ID of a user assigned identity.
         /// 
-        /// &gt; **Note:** `CustomerManagedKey` can only be set when the `AccountKind` is set to `StorageV2` or `AccountTier` set to `Premium`, and the identity type is `UserAssigned`.
+        /// &gt; **Note:** `CustomerManagedKey` can only be set when the `AccountKind` is set to `StorageV2` or `FileStorage` with `ProvisionedBillingModelVersion` set to `V2`, or `AccountTier` set to `Premium`, and the identity type is `UserAssigned`.
         /// </summary>
         public readonly string UserAssignedIdentityId;
 

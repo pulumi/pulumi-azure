@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.dataprotection.getBackupVault({
- *     name: "existing-backup-vault",
- *     resourceGroupName: "existing-resource-group",
+ *     name: "example-backup-vault",
+ *     resourceGroupName: "example-resources",
  * });
  * export const azurermDataProtectionBackupVaultId = exampleAzurermVpnGateway.id;
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
@@ -93,8 +93,8 @@ export interface GetBackupVaultResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.dataprotection.getBackupVault({
- *     name: "existing-backup-vault",
- *     resourceGroupName: "existing-resource-group",
+ *     name: "example-backup-vault",
+ *     resourceGroupName: "example-resources",
  * });
  * export const azurermDataProtectionBackupVaultId = exampleAzurermVpnGateway.id;
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);

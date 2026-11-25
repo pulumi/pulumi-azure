@@ -73,9 +73,9 @@ type LookupServiceResult struct {
 	Hostname string `pulumi:"hostname"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identities []GetServiceIdentity `pulumi:"identities"`
-	// A `liveTrace` block as documented below.
+	// A `liveTrace` block as defined below.
 	LiveTraces       []GetServiceLiveTrace `pulumi:"liveTraces"`
 	LocalAuthEnabled bool                  `pulumi:"localAuthEnabled"`
 	// The Azure location where the Web Pubsub service exists.
@@ -155,12 +155,12 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An `identity` block as documented below.
+// An `identity` block as defined below.
 func (o LookupServiceResultOutput) Identities() GetServiceIdentityArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceIdentity { return v.Identities }).(GetServiceIdentityArrayOutput)
 }
 
-// A `liveTrace` block as documented below.
+// A `liveTrace` block as defined below.
 func (o LookupServiceResultOutput) LiveTraces() GetServiceLiveTraceArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceLiveTrace { return v.LiveTraces }).(GetServiceLiveTraceArrayOutput)
 }

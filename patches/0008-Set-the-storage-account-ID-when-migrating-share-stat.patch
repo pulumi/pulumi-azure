@@ -5,7 +5,7 @@ Subject: [PATCH] Set the storage account ID when migrating share state from v4
 
 
 diff --git a/internal/services/storage/migration/storage_share_v2_to_v3.go b/internal/services/storage/migration/storage_share_v2_to_v3.go
-index 14c687568c17..a3e561133962 100644
+index a7940235ddc7..4b0fde5fa018 100644
 --- a/internal/services/storage/migration/storage_share_v2_to_v3.go
 +++ b/internal/services/storage/migration/storage_share_v2_to_v3.go
 @@ -7,6 +7,7 @@ import (

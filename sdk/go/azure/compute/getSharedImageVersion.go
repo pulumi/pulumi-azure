@@ -100,7 +100,7 @@ type LookupSharedImageVersionResult struct {
 	SortVersionsBySemver *bool  `pulumi:"sortVersionsBySemver"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
-	// One or more `targetRegion` blocks as documented below.
+	// One or more `targetRegion` blocks as defined below.
 	TargetRegions []GetSharedImageVersionTargetRegion `pulumi:"targetRegions"`
 }
 
@@ -204,7 +204,7 @@ func (o LookupSharedImageVersionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSharedImageVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// One or more `targetRegion` blocks as documented below.
+// One or more `targetRegion` blocks as defined below.
 func (o LookupSharedImageVersionResultOutput) TargetRegions() GetSharedImageVersionTargetRegionArrayOutput {
 	return o.ApplyT(func(v LookupSharedImageVersionResult) []GetSharedImageVersionTargetRegion { return v.TargetRegions }).(GetSharedImageVersionTargetRegionArrayOutput)
 }

@@ -241,6 +241,14 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly ipConfigurations: pulumi.Output<outputs.privatelink.EndpointIpConfiguration[] | undefined>;
     /**
+     * The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+     *
+     * > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+     *
+     * > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+     */
+    declare public readonly ipVersionType: pulumi.Output<string | undefined>;
+    /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     declare public readonly location: pulumi.Output<string>;
@@ -294,6 +302,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["customNetworkInterfaceName"] = state?.customNetworkInterfaceName;
             resourceInputs["edgeZone"] = state?.edgeZone;
             resourceInputs["ipConfigurations"] = state?.ipConfigurations;
+            resourceInputs["ipVersionType"] = state?.ipVersionType;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkInterfaces"] = state?.networkInterfaces;
@@ -317,6 +326,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["customNetworkInterfaceName"] = args?.customNetworkInterfaceName;
             resourceInputs["edgeZone"] = args?.edgeZone;
             resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["ipVersionType"] = args?.ipVersionType;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["privateDnsZoneGroup"] = args?.privateDnsZoneGroup;
@@ -353,6 +363,14 @@ export interface EndpointState {
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[] | undefined>;
+    /**
+     * The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+     *
+     * > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+     *
+     * > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+     */
+    ipVersionType?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -407,6 +425,14 @@ export interface EndpointArgs {
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[] | undefined>;
+    /**
+     * The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+     *
+     * > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+     *
+     * > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+     */
+    ipVersionType?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

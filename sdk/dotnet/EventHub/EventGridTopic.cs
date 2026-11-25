@@ -64,6 +64,12 @@ namespace Pulumi.Azure.EventHub
     public partial class EventGridTopic : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        /// </summary>
+        [Output("dataResidencyBoundary")]
+        public Output<string> DataResidencyBoundary { get; private set; } = null!;
+
+        /// <summary>
         /// The Endpoint associated with the EventGrid Topic.
         /// </summary>
         [Output("endpoint")]
@@ -110,6 +116,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -199,6 +211,12 @@ namespace Pulumi.Azure.EventHub
     public sealed class EventGridTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        /// </summary>
+        [Input("dataResidencyBoundary")]
+        public Input<string>? DataResidencyBoundary { get; set; }
+
+        /// <summary>
         /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -247,6 +265,12 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -284,6 +308,12 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventGridTopicState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        /// </summary>
+        [Input("dataResidencyBoundary")]
+        public Input<string>? DataResidencyBoundary { get; set; }
+
         /// <summary>
         /// The Endpoint associated with the EventGrid Topic.
         /// </summary>
@@ -337,6 +367,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.

@@ -38,28 +38,28 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.adoPipelineServiceConnectionId);
     }
     /**
-     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     @Export(name="clientCertificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificate;
 
     /**
-     * @return Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * @return Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     public Output<Optional<String>> clientCertificate() {
         return Codegen.optional(this.clientCertificate);
     }
     /**
-     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     @Export(name="clientCertificatePassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificatePassword;
 
     /**
-     * @return The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+     * @return The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     public Output<Optional<String>> clientCertificatePassword() {

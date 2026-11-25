@@ -162,14 +162,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.firewallPolicyId);
     }
     /**
-     * An `ipConfiguration` block as documented below.
+     * An `ipConfiguration` block as defined below.
      * 
      */
     @Export(name="ipConfigurations", refs={List.class,FirewallIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FirewallIpConfiguration>> ipConfigurations;
 
     /**
-     * @return An `ipConfiguration` block as documented below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     public Output<Optional<List<FirewallIpConfiguration>>> ipConfigurations() {
@@ -190,14 +190,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managementIpConfiguration", refs={FirewallManagementIpConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirewallManagementIpConfiguration> managementIpConfiguration;
 
     /**
-     * @return A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * @return A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<FirewallManagementIpConfiguration>> managementIpConfiguration() {
@@ -302,14 +302,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.threatIntelMode;
     }
     /**
-     * A `virtualHub` block as documented below.
+     * A `virtualHub` block as defined below.
      * 
      */
     @Export(name="virtualHub", refs={FirewallVirtualHub.class}, tree="[0]")
     private Output</* @Nullable */ FirewallVirtualHub> virtualHub;
 
     /**
-     * @return A `virtualHub` block as documented below.
+     * @return A `virtualHub` block as defined below.
      * 
      */
     public Output<Optional<FirewallVirtualHub>> virtualHub() {

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "some-resource-group",
  * });
  * const exampleGetCertificateIssuer = example.then(example => azure.keyvault.getCertificateIssuer({
- *     name: "existing",
+ *     name: "example-issuer",
  *     keyVaultId: example.id,
  * }));
  * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);
@@ -89,7 +89,7 @@ export interface GetCertificateIssuerResult {
  *     resourceGroupName: "some-resource-group",
  * });
  * const exampleGetCertificateIssuer = example.then(example => azure.keyvault.getCertificateIssuer({
- *     name: "existing",
+ *     name: "example-issuer",
  *     keyVaultId: example.id,
  * }));
  * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);

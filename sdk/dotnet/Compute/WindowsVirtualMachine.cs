@@ -191,6 +191,8 @@ namespace Pulumi.Azure.Compute
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
         /// &gt; **NOTE:** `CapacityReservationGroupId` cannot be used with `AvailabilitySetId` or `ProximityPlacementGroupId`
+        /// 
+        /// &gt; **Note:** Associating `CapacityReservationGroupId` on a Virtual Machine with a `Zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `Zone` configured, requires the Virtual Machine to be deallocated and restarted.
         /// </summary>
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
@@ -642,6 +644,8 @@ namespace Pulumi.Azure.Compute
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
         /// &gt; **NOTE:** `CapacityReservationGroupId` cannot be used with `AvailabilitySetId` or `ProximityPlacementGroupId`
+        /// 
+        /// &gt; **Note:** Associating `CapacityReservationGroupId` on a Virtual Machine with a `Zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `Zone` configured, requires the Virtual Machine to be deallocated and restarted.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -1054,6 +1058,8 @@ namespace Pulumi.Azure.Compute
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
         /// &gt; **NOTE:** `CapacityReservationGroupId` cannot be used with `AvailabilitySetId` or `ProximityPlacementGroupId`
+        /// 
+        /// &gt; **Note:** Associating `CapacityReservationGroupId` on a Virtual Machine with a `Zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `Zone` configured, requires the Virtual Machine to be deallocated and restarted.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }

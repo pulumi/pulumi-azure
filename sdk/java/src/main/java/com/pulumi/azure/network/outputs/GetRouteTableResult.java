@@ -36,7 +36,7 @@ public final class GetRouteTableResult {
     private String name;
     private String resourceGroupName;
     /**
-     * @return One or more `route` blocks as documented below.
+     * @return One or more `route` blocks as defined below.
      * 
      */
     private List<GetRouteTableRoute> routes;
@@ -84,7 +84,7 @@ public final class GetRouteTableResult {
         return this.resourceGroupName;
     }
     /**
-     * @return One or more `route` blocks as documented below.
+     * @return One or more `route` blocks as defined below.
      * 
      */
     public List<GetRouteTableRoute> routes() {

@@ -19,7 +19,7 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
      */
     private String action;
     /**
-     * @return The description of the ip restriction rule.
+     * @return The description of the IP restriction rule.
      * 
      */
     private String description;
@@ -59,7 +59,7 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
         return this.action;
     }
     /**
-     * @return The description of the ip restriction rule.
+     * @return The description of the IP restriction rule.
      * 
      */
     public String description() {

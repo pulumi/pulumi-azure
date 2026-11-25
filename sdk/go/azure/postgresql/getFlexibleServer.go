@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := postgresql.LookupFlexibleServer(ctx, &postgresql.LookupFlexibleServerArgs{
-//				Name:              "existing-postgresql-fs",
-//				ResourceGroupName: "existing-postgresql-resgroup",
+//				Name:              "example-postgresql-flexible-server",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.DBforPostgreSQL` - 2025-08-01
+// * `Microsoft.DBforPostgreSQL` - 2026-10-01
 func LookupFlexibleServer(ctx *pulumi.Context, args *LookupFlexibleServerArgs, opts ...pulumi.InvokeOption) (*LookupFlexibleServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlexibleServerResult

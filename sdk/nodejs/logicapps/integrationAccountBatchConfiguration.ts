@@ -96,7 +96,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+     * A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
      */
     declare public readonly releaseCriteria: pulumi.Output<outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteria>;
     /**
@@ -170,7 +170,7 @@ export interface IntegrationAccountBatchConfigurationState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+     * A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
      */
     releaseCriteria?: pulumi.Input<inputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteria | undefined>;
     /**
@@ -200,7 +200,7 @@ export interface IntegrationAccountBatchConfigurationArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+     * A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
      */
     releaseCriteria: pulumi.Input<inputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteria>;
     /**

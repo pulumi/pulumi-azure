@@ -14,38 +14,38 @@ import java.util.Objects;
 @CustomType
 public final class GetPolicyRuleAction {
     /**
-     * @return A `baseBlob` block as documented below.
+     * @return A `baseBlob` block as defined below.
      * 
      */
     private List<GetPolicyRuleActionBaseBlob> baseBlobs;
     /**
-     * @return A `snapshot` block as documented below.
+     * @return A `snapshot` block as defined below.
      * 
      */
     private List<GetPolicyRuleActionSnapshot> snapshots;
     /**
-     * @return A `version` block as documented below.
+     * @return A `version` block as defined below.
      * 
      */
     private List<GetPolicyRuleActionVersion> versions;
 
     private GetPolicyRuleAction() {}
     /**
-     * @return A `baseBlob` block as documented below.
+     * @return A `baseBlob` block as defined below.
      * 
      */
     public List<GetPolicyRuleActionBaseBlob> baseBlobs() {
         return this.baseBlobs;
     }
     /**
-     * @return A `snapshot` block as documented below.
+     * @return A `snapshot` block as defined below.
      * 
      */
     public List<GetPolicyRuleActionSnapshot> snapshots() {
         return this.snapshots;
     }
     /**
-     * @return A `version` block as documented below.
+     * @return A `version` block as defined below.
      * 
      */
     public List<GetPolicyRuleActionVersion> versions() {

@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.datafactory.getFactory({
- *     name: "existing-adf",
- *     resourceGroupName: "existing-rg",
+ *     name: "example-data-factory",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -92,8 +92,8 @@ export interface GetFactoryResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.datafactory.getFactory({
- *     name: "existing-adf",
- *     resourceGroupName: "existing-rg",
+ *     name: "example-data-factory",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

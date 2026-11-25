@@ -63,14 +63,14 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Denotes this action uses a Linux base image.
+     * Whether this action uses a Linux base image.
      * 
      */
     @Import(name="linuxAction")
     private @Nullable Output<Boolean> linuxAction;
 
     /**
-     * @return Denotes this action uses a Linux base image.
+     * @return Whether this action uses a Linux base image.
      * 
      */
     public Optional<Output<Boolean>> linuxAction() {
@@ -168,7 +168,7 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param linuxAction Denotes this action uses a Linux base image.
+         * @param linuxAction Whether this action uses a Linux base image.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param linuxAction Denotes this action uses a Linux base image.
+         * @param linuxAction Whether this action uses a Linux base image.
          * 
          * @return builder
          * 

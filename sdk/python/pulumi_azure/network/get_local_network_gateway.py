@@ -152,8 +152,8 @@ def get_local_network_gateway(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_local_network_gateway(name="existing-local-network-gateway",
-        resource_group_name="existing-resources")
+    example = azure.network.get_local_network_gateway(name="example-local-network-gateway",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -196,8 +196,8 @@ def get_local_network_gateway_output(name: pulumi.Input[Optional[_builtins.str]]
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_local_network_gateway(name="existing-local-network-gateway",
-        resource_group_name="existing-resources")
+    example = azure.network.get_local_network_gateway(name="example-local-network-gateway",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

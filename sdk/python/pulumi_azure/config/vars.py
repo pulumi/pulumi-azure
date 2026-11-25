@@ -35,14 +35,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def client_certificate(self) -> Optional[str]:
         """
-        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
         """
         return __config__.get('clientCertificate')
 
     @_builtins.property
     def client_certificate_password(self) -> Optional[str]:
         """
-        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
         """
         return __config__.get('clientCertificatePassword')
 
@@ -225,7 +225,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def use_oidc(self) -> Optional[bool]:
         """
-        Allow OpenID Connect to be used for authentication
+        Allow OpenID Connect to be used for authentication.
         """
         return __config__.get_bool('useOidc')
 

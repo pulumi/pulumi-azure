@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := consumption.LookupBudgetResourceGroup(ctx, &consumption.LookupBudgetResourceGroupArgs{
-//				Name:            "existing",
+//				Name:            "example-budget",
 //				ResourceGroupId: exampleAzurermResourceGroup.Id,
 //			}, nil)
 //			if err != nil {

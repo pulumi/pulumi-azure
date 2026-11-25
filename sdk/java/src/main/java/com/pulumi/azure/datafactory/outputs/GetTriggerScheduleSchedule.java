@@ -34,7 +34,7 @@ public final class GetTriggerScheduleSchedule {
      */
     private List<Integer> minutes;
     /**
-     * @return A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+     * @return A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled.
      * 
      */
     private List<GetTriggerScheduleScheduleMonthly> monthlies;
@@ -69,7 +69,7 @@ public final class GetTriggerScheduleSchedule {
         return this.minutes;
     }
     /**
-     * @return A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+     * @return A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled.
      * 
      */
     public List<GetTriggerScheduleScheduleMonthly> monthlies() {

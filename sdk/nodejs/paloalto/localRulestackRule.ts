@@ -142,13 +142,13 @@ export class LocalRulestackRule extends pulumi.CustomResource {
      */
     declare public readonly priority: pulumi.Output<number>;
     /**
-     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
      *
      * > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
     declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
-     * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+     * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
      */
     declare public readonly protocolPorts: pulumi.Output<string[] | undefined>;
     /**
@@ -304,13 +304,13 @@ export interface LocalRulestackRuleState {
      */
     priority?: pulumi.Input<number | undefined>;
     /**
-     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
      *
      * > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
     protocol?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+     * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
      */
     protocolPorts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -390,13 +390,13 @@ export interface LocalRulestackRuleArgs {
      */
     priority: pulumi.Input<number>;
     /**
-     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
      *
      * > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
     protocol?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+     * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
      */
     protocolPorts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

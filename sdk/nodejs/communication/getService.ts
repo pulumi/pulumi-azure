@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.communication.getService({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-communication-service",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -104,8 +104,8 @@ export interface GetServiceResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.communication.getService({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-communication-service",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

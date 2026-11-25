@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := appconfiguration.LookupConfigurationStore(ctx, &appconfiguration.LookupConfigurationStoreArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-app-configuration",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

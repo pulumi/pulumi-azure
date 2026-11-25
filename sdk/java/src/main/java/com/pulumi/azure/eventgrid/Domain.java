@@ -115,6 +115,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoDeleteTopicWithLastSubscription);
     }
     /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     * 
+     */
+    @Export(name="dataResidencyBoundary", refs={String.class}, tree="[0]")
+    private Output<String> dataResidencyBoundary;
+
+    /**
+     * @return Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     * 
+     */
+    public Output<String> dataResidencyBoundary() {
+        return this.dataResidencyBoundary;
+    }
+    /**
      * The Endpoint associated with the EventGrid Domain.
      * 
      */
@@ -225,6 +239,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     * 
+     */
+    @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
+    private Output<String> minimumTlsVersion;
+
+    /**
+     * @return The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     * 
+     */
+    public Output<String> minimumTlsVersion() {
+        return this.minimumTlsVersion;
     }
     /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.

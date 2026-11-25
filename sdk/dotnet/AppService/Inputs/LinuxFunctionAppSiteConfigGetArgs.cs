@@ -121,7 +121,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// Is detailed error logging enabled
+        /// Is detailed error logging enabled?
         /// </summary>
         [Input("detailedErrorLoggingEnabled")]
         public Input<bool>? DetailedErrorLoggingEnabled { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The Linux FX Version
+        /// The Linux FX Version.
         /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }

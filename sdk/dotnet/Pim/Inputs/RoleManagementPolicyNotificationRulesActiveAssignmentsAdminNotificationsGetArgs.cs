@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Pim.Inputs
         private InputList<string>? _additionalRecipients;
 
         /// <summary>
-        /// The additional recipients to notify
+        /// The additional recipients to notify.
         /// </summary>
         public InputList<string> AdditionalRecipients
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Pim.Inputs
         }
 
         /// <summary>
-        /// Whether the default recipients are notified
+        /// Whether the default recipients are notified.
         /// </summary>
         [Input("defaultRecipients", required: true)]
         public Input<bool> DefaultRecipients { get; set; } = null!;
 
         /// <summary>
-        /// What level of notifications are sent
+        /// What level of notifications are sent.
         /// </summary>
         [Input("notificationLevel", required: true)]
         public Input<string> NotificationLevel { get; set; } = null!;

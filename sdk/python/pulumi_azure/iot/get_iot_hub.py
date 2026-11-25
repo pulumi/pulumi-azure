@@ -114,8 +114,8 @@ def get_iot_hub(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.iot.get_iot_hub(name="existing",
-        resource_group_name="existing")
+    example = azure.iot.get_iot_hub(name="example-iothub",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -151,8 +151,8 @@ def get_iot_hub_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.iot.get_iot_hub(name="existing",
-        resource_group_name="existing")
+    example = azure.iot.get_iot_hub(name="example-iothub",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

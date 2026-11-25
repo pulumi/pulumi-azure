@@ -262,7 +262,7 @@ namespace Pulumi.Azure.Authorization
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A `Permissions` block as documented below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> Permissions;
         public readonly string RoleDefinitionId;

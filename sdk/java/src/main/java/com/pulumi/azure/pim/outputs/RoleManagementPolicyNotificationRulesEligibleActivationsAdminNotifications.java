@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
     /**
-     * @return The additional recipients to notify
+     * @return The additional recipients to notify.
      * 
      */
     private @Nullable List<String> additionalRecipients;
     /**
-     * @return Whether the default recipients are notified
+     * @return Whether the default recipients are notified.
      * 
      */
     private Boolean defaultRecipients;
     /**
-     * @return What level of notifications are sent
+     * @return What level of notifications are sent.
      * 
      */
     private String notificationLevel;
 
     private RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications() {}
     /**
-     * @return The additional recipients to notify
+     * @return The additional recipients to notify.
      * 
      */
     public List<String> additionalRecipients() {
         return this.additionalRecipients == null ? List.of() : this.additionalRecipients;
     }
     /**
-     * @return Whether the default recipients are notified
+     * @return Whether the default recipients are notified.
      * 
      */
     public Boolean defaultRecipients() {
         return this.defaultRecipients;
     }
     /**
-     * @return What level of notifications are sent
+     * @return What level of notifications are sent.
      * 
      */
     public String notificationLevel() {

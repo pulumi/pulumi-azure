@@ -64,14 +64,14 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
     }
 
     /**
-     * A `schedule` block as documented below.
+     * A `schedule` block as defined below.
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs> schedule;
 
     /**
-     * @return A `schedule` block as documented below.
+     * @return A `schedule` block as defined below.
      * 
      */
     public Optional<Output<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs>> schedule() {
@@ -201,7 +201,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         /**
-         * @param schedule A `schedule` block as documented below.
+         * @param schedule A `schedule` block as defined below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         /**
-         * @param schedule A `schedule` block as documented below.
+         * @param schedule A `schedule` block as defined below.
          * 
          * @return builder
          * 

@@ -58,6 +58,11 @@ public final class GetAppIngress {
      */
     private List<GetAppIngressIpSecurityRestriction> ipSecurityRestrictions;
     /**
+     * @return Is session affinity enabled.
+     * 
+     */
+    private Boolean sessionAffinityEnabled;
+    /**
      * @return The target port on the container for the Ingress traffic.
      * 
      */
@@ -131,6 +136,13 @@ public final class GetAppIngress {
         return this.ipSecurityRestrictions;
     }
     /**
+     * @return Is session affinity enabled.
+     * 
+     */
+    public Boolean sessionAffinityEnabled() {
+        return this.sessionAffinityEnabled;
+    }
+    /**
      * @return The target port on the container for the Ingress traffic.
      * 
      */
@@ -169,6 +181,7 @@ public final class GetAppIngress {
         private Boolean externalEnabled;
         private String fqdn;
         private List<GetAppIngressIpSecurityRestriction> ipSecurityRestrictions;
+        private Boolean sessionAffinityEnabled;
         private Integer targetPort;
         private List<GetAppIngressTrafficWeight> trafficWeights;
         private String transport;
@@ -183,6 +196,7 @@ public final class GetAppIngress {
     	      this.externalEnabled = defaults.externalEnabled;
     	      this.fqdn = defaults.fqdn;
     	      this.ipSecurityRestrictions = defaults.ipSecurityRestrictions;
+    	      this.sessionAffinityEnabled = defaults.sessionAffinityEnabled;
     	      this.targetPort = defaults.targetPort;
     	      this.trafficWeights = defaults.trafficWeights;
     	      this.transport = defaults.transport;
@@ -262,6 +276,14 @@ public final class GetAppIngress {
             return ipSecurityRestrictions(List.of(ipSecurityRestrictions));
         }
         @CustomType.Setter
+        public Builder sessionAffinityEnabled(Boolean sessionAffinityEnabled) {
+            if (sessionAffinityEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "sessionAffinityEnabled");
+            }
+            this.sessionAffinityEnabled = sessionAffinityEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder targetPort(Integer targetPort) {
             if (targetPort == null) {
               throw new MissingRequiredPropertyException("GetAppIngress", "targetPort");
@@ -298,6 +320,7 @@ public final class GetAppIngress {
             _resultValue.externalEnabled = externalEnabled;
             _resultValue.fqdn = fqdn;
             _resultValue.ipSecurityRestrictions = ipSecurityRestrictions;
+            _resultValue.sessionAffinityEnabled = sessionAffinityEnabled;
             _resultValue.targetPort = targetPort;
             _resultValue.trafficWeights = trafficWeights;
             _resultValue.transport = transport;

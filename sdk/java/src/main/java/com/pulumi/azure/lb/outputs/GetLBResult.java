@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLBResult {
     /**
-     * @return A `frontendIpConfiguration` block as documented below.
+     * @return A `frontendIpConfiguration` block as defined below.
      * 
      */
     private List<GetLBFrontendIpConfiguration> frontendIpConfigurations;
@@ -57,7 +57,7 @@ public final class GetLBResult {
 
     private GetLBResult() {}
     /**
-     * @return A `frontendIpConfiguration` block as documented below.
+     * @return A `frontendIpConfiguration` block as defined below.
      * 
      */
     public List<GetLBFrontendIpConfiguration> frontendIpConfigurations() {

@@ -85,9 +85,9 @@ export class SharedImageVersion extends pulumi.CustomResource {
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      *
-     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * > **Note:** `blobUri` and `storageAccountId` must be specified together
      */
     declare public readonly blobUri: pulumi.Output<string | undefined>;
     /**
@@ -117,9 +117,9 @@ export class SharedImageVersion extends pulumi.CustomResource {
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * > **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     declare public readonly managedImageId: pulumi.Output<string | undefined>;
     /**
@@ -129,7 +129,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     declare public readonly osDiskSnapshotId: pulumi.Output<string | undefined>;
     /**
@@ -143,17 +143,21 @@ export class SharedImageVersion extends pulumi.CustomResource {
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * > **Note:** `blobUri` and `storageAccountId` must be specified together
      */
     declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
-     * A collection of tags which should be applied to this resource.
+     * A mapping of tags which should be applied to this resource.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * One or more `targetRegion` blocks as documented below.
+     * One or more `targetRegion` blocks as defined below.
      */
     declare public readonly targetRegions: pulumi.Output<outputs.compute.SharedImageVersionTargetRegion[]>;
+    /**
+     * A `uefi` block as defined below. Changing this forces a new resource to be created.
+     */
+    declare public readonly uefi: pulumi.Output<outputs.compute.SharedImageVersionUefi | undefined>;
 
     /**
      * Create a SharedImageVersion resource with the given unique name, arguments, and options.
@@ -183,6 +187,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = state?.storageAccountId;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["targetRegions"] = state?.targetRegions;
+            resourceInputs["uefi"] = state?.uefi;
         } else {
             const args = argsOrState as SharedImageVersionArgs | undefined;
             if (args?.galleryName === undefined && !opts.urn) {
@@ -212,6 +217,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["targetRegions"] = args?.targetRegions;
+            resourceInputs["uefi"] = args?.uefi;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SharedImageVersion.__pulumiType, name, resourceInputs, opts);
@@ -225,9 +231,9 @@ export interface SharedImageVersionState {
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      *
-     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * > **Note:** `blobUri` and `storageAccountId` must be specified together
      */
     blobUri?: pulumi.Input<string | undefined>;
     /**
@@ -257,9 +263,9 @@ export interface SharedImageVersionState {
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * > **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     managedImageId?: pulumi.Input<string | undefined>;
     /**
@@ -269,7 +275,7 @@ export interface SharedImageVersionState {
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     osDiskSnapshotId?: pulumi.Input<string | undefined>;
     /**
@@ -283,17 +289,21 @@ export interface SharedImageVersionState {
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * > **Note:** `blobUri` and `storageAccountId` must be specified together
      */
     storageAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A collection of tags which should be applied to this resource.
+     * A mapping of tags which should be applied to this resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * One or more `targetRegion` blocks as documented below.
+     * One or more `targetRegion` blocks as defined below.
      */
     targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[] | undefined>;
+    /**
+     * A `uefi` block as defined below. Changing this forces a new resource to be created.
+     */
+    uefi?: pulumi.Input<inputs.compute.SharedImageVersionUefi | undefined>;
 }
 
 /**
@@ -303,9 +313,9 @@ export interface SharedImageVersionArgs {
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      *
-     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * > **Note:** `blobUri` and `storageAccountId` must be specified together
      */
     blobUri?: pulumi.Input<string | undefined>;
     /**
@@ -335,9 +345,9 @@ export interface SharedImageVersionArgs {
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * > **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource, or it can be a Virtual Machine ID in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     managedImageId?: pulumi.Input<string | undefined>;
     /**
@@ -347,7 +357,7 @@ export interface SharedImageVersionArgs {
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     * > **Note:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     osDiskSnapshotId?: pulumi.Input<string | undefined>;
     /**
@@ -361,15 +371,19 @@ export interface SharedImageVersionArgs {
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
+     * > **Note:** `blobUri` and `storageAccountId` must be specified together
      */
     storageAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A collection of tags which should be applied to this resource.
+     * A mapping of tags which should be applied to this resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * One or more `targetRegion` blocks as documented below.
+     * One or more `targetRegion` blocks as defined below.
      */
     targetRegions: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[]>;
+    /**
+     * A `uefi` block as defined below. Changing this forces a new resource to be created.
+     */
+    uefi?: pulumi.Input<inputs.compute.SharedImageVersionUefi | undefined>;
 }

@@ -159,6 +159,8 @@ class StandardWebTestValidationRules(dict):
         suggest = None
         if key == "expectedStatusCode":
             suggest = "expected_status_code"
+        elif key == "ignoreStatusCode":
+            suggest = "ignore_status_code"
         elif key == "sslCertRemainingLifetime":
             suggest = "ssl_cert_remaining_lifetime"
         elif key == "sslCheckEnabled":
@@ -178,11 +180,16 @@ class StandardWebTestValidationRules(dict):
     def __init__(__self__, *,
                  content: Optional['outputs.StandardWebTestValidationRulesContent'] = None,
                  expected_status_code: Optional[_builtins.int] = None,
+                 ignore_status_code: Optional[_builtins.bool] = None,
                  ssl_cert_remaining_lifetime: Optional[_builtins.int] = None,
                  ssl_check_enabled: Optional[_builtins.bool] = None):
         """
         :param 'StandardWebTestValidationRulesContentArgs' content: A `content` block as defined above.
         :param _builtins.int expected_status_code: The expected status code of the response. Default is '200', '0' means 'response code < 400'
+        :param _builtins.bool ignore_status_code: Should status code of the response be ignored? Defaults to `false`.
+               *
+               
+               > **Note:** When `ignore_status_code` is set, the `expected_status_code`  will be ignored.
         :param _builtins.int ssl_cert_remaining_lifetime: The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         :param _builtins.bool ssl_check_enabled: Should the SSL check be enabled?
         """
@@ -190,6 +197,8 @@ class StandardWebTestValidationRules(dict):
             pulumi.set(__self__, "content", content)
         if expected_status_code is not None:
             pulumi.set(__self__, "expected_status_code", expected_status_code)
+        if ignore_status_code is not None:
+            pulumi.set(__self__, "ignore_status_code", ignore_status_code)
         if ssl_cert_remaining_lifetime is not None:
             pulumi.set(__self__, "ssl_cert_remaining_lifetime", ssl_cert_remaining_lifetime)
         if ssl_check_enabled is not None:
@@ -210,6 +219,17 @@ class StandardWebTestValidationRules(dict):
         The expected status code of the response. Default is '200', '0' means 'response code < 400'
         """
         return pulumi.get(self, "expected_status_code")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreStatusCode")
+    def ignore_status_code(self) -> Optional[_builtins.bool]:
+        """
+        Should status code of the response be ignored? Defaults to `false`.
+        *
+
+        > **Note:** When `ignore_status_code` is set, the `expected_status_code`  will be ignored.
+        """
+        return pulumi.get(self, "ignore_status_code")
 
     @_builtins.property
     @pulumi.getter(name="sslCertRemainingLifetime")

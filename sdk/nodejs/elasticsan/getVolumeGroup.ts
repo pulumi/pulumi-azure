@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.elasticsan.get({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-elastic-san",
+ *     resourceGroupName: "example-resources",
  * });
  * const exampleGetVolumeGroup = example.then(example => azure.elasticsan.getVolumeGroup({
- *     name: "existing",
+ *     name: "example-volume-group",
  *     elasticSanId: example.id,
  * }));
  * export const id = exampleGetVolumeGroup.then(exampleGetVolumeGroup => exampleGetVolumeGroup.id);
@@ -96,11 +96,11 @@ export interface GetVolumeGroupResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.elasticsan.get({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-elastic-san",
+ *     resourceGroupName: "example-resources",
  * });
  * const exampleGetVolumeGroup = example.then(example => azure.elasticsan.getVolumeGroup({
- *     name: "existing",
+ *     name: "example-volume-group",
  *     elasticSanId: example.id,
  * }));
  * export const id = exampleGetVolumeGroup.then(exampleGetVolumeGroup => exampleGetVolumeGroup.id);

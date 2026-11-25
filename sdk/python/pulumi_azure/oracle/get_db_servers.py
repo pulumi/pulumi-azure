@@ -92,8 +92,8 @@ def get_db_servers(cloud_exadata_infrastructure_name: Optional[_builtins.str] = 
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_db_servers(resource_group_name="existing",
-        cloud_exadata_infrastructure_name="existing")
+    example = azure.oracle.get_db_servers(resource_group_name="example-resources",
+        cloud_exadata_infrastructure_name="example-exadata-infrastructure")
     pulumi.export("id", example.id)
     ```
 
@@ -131,8 +131,8 @@ def get_db_servers_output(cloud_exadata_infrastructure_name: pulumi.Input[Option
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_db_servers(resource_group_name="existing",
-        cloud_exadata_infrastructure_name="existing")
+    example = azure.oracle.get_db_servers(resource_group_name="example-resources",
+        cloud_exadata_infrastructure_name="example-exadata-infrastructure")
     pulumi.export("id", example.id)
     ```
 

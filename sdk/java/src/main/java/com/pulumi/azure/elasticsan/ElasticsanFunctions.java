@@ -49,8 +49,8 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -98,8 +98,8 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -147,8 +147,8 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -196,8 +196,8 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -245,8 +245,8 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -295,12 +295,12 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
@@ -350,12 +350,12 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
@@ -405,12 +405,12 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
@@ -460,12 +460,12 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
@@ -515,12 +515,12 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
@@ -571,17 +571,17 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
-     *             .name("existing")
+     *             .name("example-snapshot")
      *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
@@ -632,17 +632,17 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
-     *             .name("existing")
+     *             .name("example-snapshot")
      *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
@@ -693,17 +693,17 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
-     *             .name("existing")
+     *             .name("example-snapshot")
      *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
@@ -754,17 +754,17 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
-     *             .name("existing")
+     *             .name("example-snapshot")
      *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
@@ -815,17 +815,17 @@ public final class ElasticsanFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticsanFunctions.get(GetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-elastic-san")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
-     *             .name("existing")
+     *             .name("example-volume-group")
      *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
-     *             .name("existing")
+     *             .name("example-snapshot")
      *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 

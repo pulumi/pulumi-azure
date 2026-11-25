@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorCustomDomain({
- *     name: "existing-cdn-frontdoor-custom-domain",
- *     profileName: "existing-cdn-frontdoor-profile",
- *     resourceGroupName: "existing-resource-group",
+ *     name: "example-cdn-frontdoor-custom-domain",
+ *     profileName: "example-cdn-frontdoor-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorCustomDomain(args: GetFrontdoorCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -102,9 +102,9 @@ export interface GetFrontdoorCustomDomainResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorCustomDomain({
- *     name: "existing-cdn-frontdoor-custom-domain",
- *     profileName: "existing-cdn-frontdoor-profile",
- *     resourceGroupName: "existing-resource-group",
+ *     name: "example-cdn-frontdoor-custom-domain",
+ *     profileName: "example-cdn-frontdoor-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -113,7 +113,7 @@ export interface GetFrontdoorCustomDomainResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorCustomDomainOutput(args: GetFrontdoorCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

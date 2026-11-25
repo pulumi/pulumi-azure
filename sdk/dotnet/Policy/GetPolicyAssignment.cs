@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Policy
         /// {
         ///     var example = Azure.Policy.GetPolicyAssignment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-assignment",
         ///         ScopeId = exampleAzurermResourceGroup.Id,
         ///     });
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Policy
         /// {
         ///     var example = Azure.Policy.GetPolicyAssignment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-assignment",
         ///         ScopeId = exampleAzurermResourceGroup.Id,
         ///     });
         /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Policy
         /// {
         ///     var example = Azure.Policy.GetPolicyAssignment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-assignment",
         ///         ScopeId = exampleAzurermResourceGroup.Id,
         ///     });
         /// 

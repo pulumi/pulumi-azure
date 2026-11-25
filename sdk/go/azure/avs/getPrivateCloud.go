@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := avs.LookupPrivateCloud(ctx, &avs.LookupPrivateCloudArgs{
-//				Name:              "existing-vmware-private-cloud",
-//				ResourceGroupName: "existing-resgroup",
+//				Name:              "example-vmware-private-cloud",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

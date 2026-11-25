@@ -43,8 +43,8 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existing-postgresql-fs")
-     *             .resourceGroupName("existing-postgresql-resgroup")
+     *             .name("example-postgresql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -58,7 +58,7 @@ public final class PostgresqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforPostgreSQL` - 2025-08-01
+     * * `Microsoft.DBforPostgreSQL` - 2026-10-01
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args) {
@@ -92,8 +92,8 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existing-postgresql-fs")
-     *             .resourceGroupName("existing-postgresql-resgroup")
+     *             .name("example-postgresql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -107,7 +107,7 @@ public final class PostgresqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforPostgreSQL` - 2025-08-01
+     * * `Microsoft.DBforPostgreSQL` - 2026-10-01
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args) {
@@ -141,8 +141,8 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existing-postgresql-fs")
-     *             .resourceGroupName("existing-postgresql-resgroup")
+     *             .name("example-postgresql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -156,7 +156,7 @@ public final class PostgresqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforPostgreSQL` - 2025-08-01
+     * * `Microsoft.DBforPostgreSQL` - 2026-10-01
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOptions options) {
@@ -190,8 +190,8 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existing-postgresql-fs")
-     *             .resourceGroupName("existing-postgresql-resgroup")
+     *             .name("example-postgresql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -205,7 +205,7 @@ public final class PostgresqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforPostgreSQL` - 2025-08-01
+     * * `Microsoft.DBforPostgreSQL` - 2026-10-01
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOutputOptions options) {
@@ -239,8 +239,8 @@ public final class PostgresqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existing-postgresql-fs")
-     *             .resourceGroupName("existing-postgresql-resgroup")
+     *             .name("example-postgresql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -254,7 +254,7 @@ public final class PostgresqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforPostgreSQL` - 2025-08-01
+     * * `Microsoft.DBforPostgreSQL` - 2026-10-01
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args, InvokeOptions options) {

@@ -79,14 +79,14 @@ public final class TriggerScheduleScheduleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+     * A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
      * 
      */
     @Import(name="monthlies")
     private @Nullable Output<List<TriggerScheduleScheduleMonthlyArgs>> monthlies;
 
     /**
-     * @return A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+     * @return A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
      * 
      */
     public Optional<Output<List<TriggerScheduleScheduleMonthlyArgs>>> monthlies() {
@@ -246,7 +246,7 @@ public final class TriggerScheduleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param monthlies A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+         * @param monthlies A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class TriggerScheduleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param monthlies A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+         * @param monthlies A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class TriggerScheduleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param monthlies A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+         * @param monthlies A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
          * 
          * @return builder
          * 

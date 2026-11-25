@@ -213,14 +213,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `customDomain` block as documented below.
+     * A `customDomain` block as defined below.
      * 
      */
     @Import(name="customDomain")
     private @Nullable Output<AccountCustomDomainArgs> customDomain;
 
     /**
-     * @return A `customDomain` block as documented below.
+     * @return A `customDomain` block as defined below.
      * 
      */
     public Optional<Output<AccountCustomDomainArgs>> customDomain() {
@@ -228,7 +228,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      * 
      * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      * 
@@ -237,7 +237,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<AccountCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return A `customerManagedKey` block as documented below.
+     * @return A `customerManagedKey` block as defined below.
      * 
      * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      * 
@@ -466,14 +466,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `networkRules` block as documented below.
+     * A `networkRules` block as defined below.
      * 
      */
     @Import(name="networkRules")
     private @Nullable Output<AccountNetworkRulesArgs> networkRules;
 
     /**
-     * @return A `networkRules` block as documented below.
+     * @return A `networkRules` block as defined below.
      * 
      */
     public Optional<Output<AccountNetworkRulesArgs>> networkRules() {
@@ -1746,6 +1746,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+     * 
+     */
+    @Import(name="smbOauthEnabled")
+    private @Nullable Output<Boolean> smbOauthEnabled;
+
+    /**
+     * @return Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> smbOauthEnabled() {
+        return Optional.ofNullable(this.smbOauthEnabled);
+    }
+
+    /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
      * &gt; **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1892,6 +1907,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.sftpEnabled = $.sftpEnabled;
         this.shareProperties = $.shareProperties;
         this.sharedAccessKeyEnabled = $.sharedAccessKeyEnabled;
+        this.smbOauthEnabled = $.smbOauthEnabled;
         this.tableEncryptionKeyType = $.tableEncryptionKeyType;
         this.tags = $.tags;
     }
@@ -2166,7 +2182,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomain A `customDomain` block as documented below.
+         * @param customDomain A `customDomain` block as defined below.
          * 
          * @return builder
          * 
@@ -2177,7 +2193,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomain A `customDomain` block as documented below.
+         * @param customDomain A `customDomain` block as defined below.
          * 
          * @return builder
          * 
@@ -2187,7 +2203,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customerManagedKey` block as documented below.
+         * @param customerManagedKey A `customerManagedKey` block as defined below.
          * 
          * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
          * 
@@ -2200,7 +2216,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customerManagedKey` block as documented below.
+         * @param customerManagedKey A `customerManagedKey` block as defined below.
          * 
          * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
          * 
@@ -2509,7 +2525,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRules A `networkRules` block as documented below.
+         * @param networkRules A `networkRules` block as defined below.
          * 
          * @return builder
          * 
@@ -2520,7 +2536,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRules A `networkRules` block as documented below.
+         * @param networkRules A `networkRules` block as defined below.
          * 
          * @return builder
          * 
@@ -4290,6 +4306,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sharedAccessKeyEnabled(Boolean sharedAccessKeyEnabled) {
             return sharedAccessKeyEnabled(Output.of(sharedAccessKeyEnabled));
+        }
+
+        /**
+         * @param smbOauthEnabled Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smbOauthEnabled(@Nullable Output<Boolean> smbOauthEnabled) {
+            $.smbOauthEnabled = smbOauthEnabled;
+            return this;
+        }
+
+        /**
+         * @param smbOauthEnabled Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smbOauthEnabled(Boolean smbOauthEnabled) {
+            return smbOauthEnabled(Output.of(smbOauthEnabled));
         }
 
         /**

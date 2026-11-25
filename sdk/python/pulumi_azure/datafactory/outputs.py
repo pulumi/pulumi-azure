@@ -5739,7 +5739,7 @@ class TriggerScheduleSchedule(dict):
         :param Sequence[_builtins.str] days_of_weeks: Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
         :param Sequence[_builtins.int] hours: Hours of the day on which the trigger is scheduled.
         :param Sequence[_builtins.int] minutes: Minutes of the hour on which the trigger is scheduled.
-        :param Sequence['TriggerScheduleScheduleMonthlyArgs'] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        :param Sequence['TriggerScheduleScheduleMonthlyArgs'] monthlies: A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
         if days_of_months is not None:
             pulumi.set(__self__, "days_of_months", days_of_months)
@@ -5788,7 +5788,7 @@ class TriggerScheduleSchedule(dict):
     @pulumi.getter
     def monthlies(self) -> Optional[Sequence['outputs.TriggerScheduleScheduleMonthly']]:
         """
-        A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
         return pulumi.get(self, "monthlies")
 
@@ -6142,7 +6142,7 @@ class GetTriggerScheduleScheduleResult(dict):
         :param Sequence[_builtins.str] days_of_weeks: Day(s) of the week on which the trigger is scheduled.
         :param Sequence[_builtins.int] hours: Hours of the day on which the trigger is scheduled.
         :param Sequence[_builtins.int] minutes: Minutes of the hour on which the trigger is scheduled.
-        :param Sequence['GetTriggerScheduleScheduleMonthlyArgs'] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+        :param Sequence['GetTriggerScheduleScheduleMonthlyArgs'] monthlies: A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled.
         """
         pulumi.set(__self__, "days_of_months", days_of_months)
         pulumi.set(__self__, "days_of_weeks", days_of_weeks)
@@ -6186,7 +6186,7 @@ class GetTriggerScheduleScheduleResult(dict):
     @pulumi.getter
     def monthlies(self) -> Sequence['outputs.GetTriggerScheduleScheduleMonthlyResult']:
         """
-        A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+        A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled.
         """
         return pulumi.get(self, "monthlies")
 

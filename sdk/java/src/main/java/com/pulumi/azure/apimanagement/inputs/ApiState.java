@@ -54,14 +54,14 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `contact` block as documented below.
+     * A `contact` block as defined below.
      * 
      */
     @Import(name="contact")
     private @Nullable Output<ApiContactArgs> contact;
 
     /**
-     * @return A `contact` block as documented below.
+     * @return A `contact` block as defined below.
      * 
      */
     public Optional<Output<ApiContactArgs>> contact() {
@@ -99,7 +99,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `import` block as documented below.
+     * A `import` block as defined below.
      * 
      * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
@@ -108,7 +108,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ApiImportArgs> import_;
 
     /**
-     * @return A `import` block as documented below.
+     * @return A `import` block as defined below.
      * 
      * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
@@ -148,14 +148,14 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `license` block as documented below.
+     * A `license` block as defined below.
      * 
      */
     @Import(name="license")
     private @Nullable Output<ApiLicenseArgs> license;
 
     /**
-     * @return A `license` block as documented below.
+     * @return A `license` block as defined below.
      * 
      */
     public Optional<Output<ApiLicenseArgs>> license() {
@@ -178,14 +178,14 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `oauth2Authorization` block as documented below.
+     * An `oauth2Authorization` block as defined below.
      * 
      */
     @Import(name="oauth2Authorization")
     private @Nullable Output<ApiOauth2AuthorizationArgs> oauth2Authorization;
 
     /**
-     * @return An `oauth2Authorization` block as documented below.
+     * @return An `oauth2Authorization` block as defined below.
      * 
      */
     public Optional<Output<ApiOauth2AuthorizationArgs>> oauth2Authorization() {
@@ -193,14 +193,14 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `openidAuthentication` block as documented below.
+     * An `openidAuthentication` block as defined below.
      * 
      */
     @Import(name="openidAuthentication")
     private @Nullable Output<ApiOpenidAuthenticationArgs> openidAuthentication;
 
     /**
-     * @return An `openidAuthentication` block as documented below.
+     * @return An `openidAuthentication` block as defined below.
      * 
      */
     public Optional<Output<ApiOpenidAuthenticationArgs>> openidAuthentication() {
@@ -321,14 +321,14 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `subscriptionKeyParameterNames` block as documented below.
+     * A `subscriptionKeyParameterNames` block as defined below.
      * 
      */
     @Import(name="subscriptionKeyParameterNames")
     private @Nullable Output<ApiSubscriptionKeyParameterNamesArgs> subscriptionKeyParameterNames;
 
     /**
-     * @return A `subscriptionKeyParameterNames` block as documented below.
+     * @return A `subscriptionKeyParameterNames` block as defined below.
      * 
      */
     public Optional<Output<ApiSubscriptionKeyParameterNamesArgs>> subscriptionKeyParameterNames() {
@@ -505,7 +505,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contact A `contact` block as documented below.
+         * @param contact A `contact` block as defined below.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contact A `contact` block as documented below.
+         * @param contact A `contact` block as defined below.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param import_ A `import` block as documented below.
+         * @param import_ A `import` block as defined below.
          * 
          * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
          * 
@@ -581,7 +581,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param import_ A `import` block as documented below.
+         * @param import_ A `import` block as defined below.
          * 
          * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
          * 
@@ -635,7 +635,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param license A `license` block as documented below.
+         * @param license A `license` block as defined below.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param license A `license` block as documented below.
+         * @param license A `license` block as defined below.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauth2Authorization An `oauth2Authorization` block as documented below.
+         * @param oauth2Authorization An `oauth2Authorization` block as defined below.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauth2Authorization An `oauth2Authorization` block as documented below.
+         * @param oauth2Authorization An `oauth2Authorization` block as defined below.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openidAuthentication An `openidAuthentication` block as documented below.
+         * @param openidAuthentication An `openidAuthentication` block as defined below.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openidAuthentication An `openidAuthentication` block as documented below.
+         * @param openidAuthentication An `openidAuthentication` block as defined below.
          * 
          * @return builder
          * 
@@ -886,7 +886,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriptionKeyParameterNames A `subscriptionKeyParameterNames` block as documented below.
+         * @param subscriptionKeyParameterNames A `subscriptionKeyParameterNames` block as defined below.
          * 
          * @return builder
          * 
@@ -897,7 +897,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriptionKeyParameterNames A `subscriptionKeyParameterNames` block as documented below.
+         * @param subscriptionKeyParameterNames A `subscriptionKeyParameterNames` block as defined below.
          * 
          * @return builder
          * 

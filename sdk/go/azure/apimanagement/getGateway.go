@@ -78,7 +78,7 @@ type LookupGatewayResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A `locationData` block as documented below.
+	// A `locationData` block as defined below.
 	LocationDatas []GetGatewayLocationData `pulumi:"locationDatas"`
 	// A canonical name for the geographic or physical location.
 	Name string `pulumi:"name"`
@@ -130,7 +130,7 @@ func (o LookupGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A `locationData` block as documented below.
+// A `locationData` block as defined below.
 func (o LookupGatewayResultOutput) LocationDatas() GetGatewayLocationDataArrayOutput {
 	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayLocationData { return v.LocationDatas }).(GetGatewayLocationDataArrayOutput)
 }

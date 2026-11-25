@@ -14,20 +14,30 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountActiveDirectory struct {
+	// A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+	AdministratorUsers []string `pulumi:"administratorUsers"`
 	// If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
 	AesEncryptionEnabled *bool `pulumi:"aesEncryptionEnabled"`
+	// A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+	BackupUsers []string `pulumi:"backupUsers"`
 	// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 	DnsServers []string `pulumi:"dnsServers"`
 	// The name of the Active Directory domain.
 	Domain string `pulumi:"domain"`
+	// If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+	DomainControllerConnectionEncryptionEnabled *bool `pulumi:"domainControllerConnectionEncryptionEnabled"`
 	// Name of the active directory machine.
 	KerberosAdName *string `pulumi:"kerberosAdName"`
 	// kdc server IP addresses for the active directory machine.
 	//
 	// > **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
 	KerberosKdcIp *string `pulumi:"kerberosKdcIp"`
+	// Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+	LdapClientPreferredServers []string `pulumi:"ldapClientPreferredServers"`
 	// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
 	LdapOverTlsEnabled *bool `pulumi:"ldapOverTlsEnabled"`
+	// An `ldapSearchScope` block as defined below.
+	LdapSearchScope *AccountActiveDirectoryLdapSearchScope `pulumi:"ldapSearchScope"`
 	// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
 	LdapSigningEnabled *bool `pulumi:"ldapSigningEnabled"`
 	// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
@@ -36,6 +46,8 @@ type AccountActiveDirectory struct {
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
 	// The password associated with the `username`.
 	Password string `pulumi:"password"`
+	// A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+	SecurityUsers []string `pulumi:"securityUsers"`
 	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
 	ServerRootCaCertificate *string `pulumi:"serverRootCaCertificate"`
 	// The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
@@ -58,20 +70,30 @@ type AccountActiveDirectoryInput interface {
 }
 
 type AccountActiveDirectoryArgs struct {
+	// A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+	AdministratorUsers pulumi.StringArrayInput `pulumi:"administratorUsers"`
 	// If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
 	AesEncryptionEnabled pulumi.BoolPtrInput `pulumi:"aesEncryptionEnabled"`
+	// A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+	BackupUsers pulumi.StringArrayInput `pulumi:"backupUsers"`
 	// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// The name of the Active Directory domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+	DomainControllerConnectionEncryptionEnabled pulumi.BoolPtrInput `pulumi:"domainControllerConnectionEncryptionEnabled"`
 	// Name of the active directory machine.
 	KerberosAdName pulumi.StringPtrInput `pulumi:"kerberosAdName"`
 	// kdc server IP addresses for the active directory machine.
 	//
 	// > **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
 	KerberosKdcIp pulumi.StringPtrInput `pulumi:"kerberosKdcIp"`
+	// Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+	LdapClientPreferredServers pulumi.StringArrayInput `pulumi:"ldapClientPreferredServers"`
 	// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
 	LdapOverTlsEnabled pulumi.BoolPtrInput `pulumi:"ldapOverTlsEnabled"`
+	// An `ldapSearchScope` block as defined below.
+	LdapSearchScope AccountActiveDirectoryLdapSearchScopePtrInput `pulumi:"ldapSearchScope"`
 	// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
 	LdapSigningEnabled pulumi.BoolPtrInput `pulumi:"ldapSigningEnabled"`
 	// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
@@ -80,6 +102,8 @@ type AccountActiveDirectoryArgs struct {
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
 	// The password associated with the `username`.
 	Password pulumi.StringInput `pulumi:"password"`
+	// A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+	SecurityUsers pulumi.StringArrayInput `pulumi:"securityUsers"`
 	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
 	ServerRootCaCertificate pulumi.StringPtrInput `pulumi:"serverRootCaCertificate"`
 	// The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
@@ -167,9 +191,19 @@ func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryPtrOutputWithConte
 	}).(AccountActiveDirectoryPtrOutput)
 }
 
+// A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+func (o AccountActiveDirectoryOutput) AdministratorUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.AdministratorUsers }).(pulumi.StringArrayOutput)
+}
+
 // If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
 func (o AccountActiveDirectoryOutput) AesEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) *bool { return v.AesEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+func (o AccountActiveDirectoryOutput) BackupUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.BackupUsers }).(pulumi.StringArrayOutput)
 }
 
 // A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
@@ -180,6 +214,11 @@ func (o AccountActiveDirectoryOutput) DnsServers() pulumi.StringArrayOutput {
 // The name of the Active Directory domain.
 func (o AccountActiveDirectoryOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+func (o AccountActiveDirectoryOutput) DomainControllerConnectionEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *bool { return v.DomainControllerConnectionEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Name of the active directory machine.
@@ -194,9 +233,19 @@ func (o AccountActiveDirectoryOutput) KerberosKdcIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.KerberosKdcIp }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+func (o AccountActiveDirectoryOutput) LdapClientPreferredServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.LdapClientPreferredServers }).(pulumi.StringArrayOutput)
+}
+
 // Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
 func (o AccountActiveDirectoryOutput) LdapOverTlsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) *bool { return v.LdapOverTlsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// An `ldapSearchScope` block as defined below.
+func (o AccountActiveDirectoryOutput) LdapSearchScope() AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *AccountActiveDirectoryLdapSearchScope { return v.LdapSearchScope }).(AccountActiveDirectoryLdapSearchScopePtrOutput)
 }
 
 // Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
@@ -217,6 +266,11 @@ func (o AccountActiveDirectoryOutput) OrganizationalUnit() pulumi.StringPtrOutpu
 // The password associated with the `username`.
 func (o AccountActiveDirectoryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+func (o AccountActiveDirectoryOutput) SecurityUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.SecurityUsers }).(pulumi.StringArrayOutput)
 }
 
 // When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
@@ -263,6 +317,16 @@ func (o AccountActiveDirectoryPtrOutput) Elem() AccountActiveDirectoryOutput {
 	}).(AccountActiveDirectoryOutput)
 }
 
+// A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+func (o AccountActiveDirectoryPtrOutput) AdministratorUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdministratorUsers
+	}).(pulumi.StringArrayOutput)
+}
+
 // If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
 func (o AccountActiveDirectoryPtrOutput) AesEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountActiveDirectory) *bool {
@@ -271,6 +335,16 @@ func (o AccountActiveDirectoryPtrOutput) AesEncryptionEnabled() pulumi.BoolPtrOu
 		}
 		return v.AesEncryptionEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+func (o AccountActiveDirectoryPtrOutput) BackupUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BackupUsers
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
@@ -291,6 +365,16 @@ func (o AccountActiveDirectoryPtrOutput) Domain() pulumi.StringPtrOutput {
 		}
 		return &v.Domain
 	}).(pulumi.StringPtrOutput)
+}
+
+// If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+func (o AccountActiveDirectoryPtrOutput) DomainControllerConnectionEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DomainControllerConnectionEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Name of the active directory machine.
@@ -315,6 +399,16 @@ func (o AccountActiveDirectoryPtrOutput) KerberosKdcIp() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+func (o AccountActiveDirectoryPtrOutput) LdapClientPreferredServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapClientPreferredServers
+	}).(pulumi.StringArrayOutput)
+}
+
 // Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
 func (o AccountActiveDirectoryPtrOutput) LdapOverTlsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountActiveDirectory) *bool {
@@ -323,6 +417,16 @@ func (o AccountActiveDirectoryPtrOutput) LdapOverTlsEnabled() pulumi.BoolPtrOutp
 		}
 		return v.LdapOverTlsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// An `ldapSearchScope` block as defined below.
+func (o AccountActiveDirectoryPtrOutput) LdapSearchScope() AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *AccountActiveDirectoryLdapSearchScope {
+		if v == nil {
+			return nil
+		}
+		return v.LdapSearchScope
+	}).(AccountActiveDirectoryLdapSearchScopePtrOutput)
 }
 
 // Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
@@ -365,6 +469,16 @@ func (o AccountActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+func (o AccountActiveDirectoryPtrOutput) SecurityUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityUsers
+	}).(pulumi.StringArrayOutput)
+}
+
 // When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
 func (o AccountActiveDirectoryPtrOutput) ServerRootCaCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountActiveDirectory) *string {
@@ -405,8 +519,193 @@ func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AccountActiveDirectoryLdapSearchScope struct {
+	// Specifies the group DN, which overrides the base DN for group lookups.
+	GroupDn *string `pulumi:"groupDn"`
+	// Specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+	GroupMembershipFilter *string `pulumi:"groupMembershipFilter"`
+	// Specifies the user DN, which overrides the base DN for user lookups.
+	//
+	// > **Note:** When using the `ldapSearchScope` block, at least one of the `groupDn`, `groupMembershipFilter`, or `userDn` must be specified.
+	UserDn *string `pulumi:"userDn"`
+}
+
+// AccountActiveDirectoryLdapSearchScopeInput is an input type that accepts AccountActiveDirectoryLdapSearchScopeArgs and AccountActiveDirectoryLdapSearchScopeOutput values.
+// You can construct a concrete instance of `AccountActiveDirectoryLdapSearchScopeInput` via:
+//
+//	AccountActiveDirectoryLdapSearchScopeArgs{...}
+type AccountActiveDirectoryLdapSearchScopeInput interface {
+	pulumi.Input
+
+	ToAccountActiveDirectoryLdapSearchScopeOutput() AccountActiveDirectoryLdapSearchScopeOutput
+	ToAccountActiveDirectoryLdapSearchScopeOutputWithContext(context.Context) AccountActiveDirectoryLdapSearchScopeOutput
+}
+
+type AccountActiveDirectoryLdapSearchScopeArgs struct {
+	// Specifies the group DN, which overrides the base DN for group lookups.
+	GroupDn pulumi.StringPtrInput `pulumi:"groupDn"`
+	// Specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+	GroupMembershipFilter pulumi.StringPtrInput `pulumi:"groupMembershipFilter"`
+	// Specifies the user DN, which overrides the base DN for user lookups.
+	//
+	// > **Note:** When using the `ldapSearchScope` block, at least one of the `groupDn`, `groupMembershipFilter`, or `userDn` must be specified.
+	UserDn pulumi.StringPtrInput `pulumi:"userDn"`
+}
+
+func (AccountActiveDirectoryLdapSearchScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountActiveDirectoryLdapSearchScope)(nil)).Elem()
+}
+
+func (i AccountActiveDirectoryLdapSearchScopeArgs) ToAccountActiveDirectoryLdapSearchScopeOutput() AccountActiveDirectoryLdapSearchScopeOutput {
+	return i.ToAccountActiveDirectoryLdapSearchScopeOutputWithContext(context.Background())
+}
+
+func (i AccountActiveDirectoryLdapSearchScopeArgs) ToAccountActiveDirectoryLdapSearchScopeOutputWithContext(ctx context.Context) AccountActiveDirectoryLdapSearchScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountActiveDirectoryLdapSearchScopeOutput)
+}
+
+func (i AccountActiveDirectoryLdapSearchScopeArgs) ToAccountActiveDirectoryLdapSearchScopePtrOutput() AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return i.ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(context.Background())
+}
+
+func (i AccountActiveDirectoryLdapSearchScopeArgs) ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(ctx context.Context) AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountActiveDirectoryLdapSearchScopeOutput).ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(ctx)
+}
+
+// AccountActiveDirectoryLdapSearchScopePtrInput is an input type that accepts AccountActiveDirectoryLdapSearchScopeArgs, AccountActiveDirectoryLdapSearchScopePtr and AccountActiveDirectoryLdapSearchScopePtrOutput values.
+// You can construct a concrete instance of `AccountActiveDirectoryLdapSearchScopePtrInput` via:
+//
+//	        AccountActiveDirectoryLdapSearchScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountActiveDirectoryLdapSearchScopePtrInput interface {
+	pulumi.Input
+
+	ToAccountActiveDirectoryLdapSearchScopePtrOutput() AccountActiveDirectoryLdapSearchScopePtrOutput
+	ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(context.Context) AccountActiveDirectoryLdapSearchScopePtrOutput
+}
+
+type accountActiveDirectoryLdapSearchScopePtrType AccountActiveDirectoryLdapSearchScopeArgs
+
+func AccountActiveDirectoryLdapSearchScopePtr(v *AccountActiveDirectoryLdapSearchScopeArgs) AccountActiveDirectoryLdapSearchScopePtrInput {
+	return (*accountActiveDirectoryLdapSearchScopePtrType)(v)
+}
+
+func (*accountActiveDirectoryLdapSearchScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountActiveDirectoryLdapSearchScope)(nil)).Elem()
+}
+
+func (i *accountActiveDirectoryLdapSearchScopePtrType) ToAccountActiveDirectoryLdapSearchScopePtrOutput() AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return i.ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(context.Background())
+}
+
+func (i *accountActiveDirectoryLdapSearchScopePtrType) ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(ctx context.Context) AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountActiveDirectoryLdapSearchScopePtrOutput)
+}
+
+type AccountActiveDirectoryLdapSearchScopeOutput struct{ *pulumi.OutputState }
+
+func (AccountActiveDirectoryLdapSearchScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountActiveDirectoryLdapSearchScope)(nil)).Elem()
+}
+
+func (o AccountActiveDirectoryLdapSearchScopeOutput) ToAccountActiveDirectoryLdapSearchScopeOutput() AccountActiveDirectoryLdapSearchScopeOutput {
+	return o
+}
+
+func (o AccountActiveDirectoryLdapSearchScopeOutput) ToAccountActiveDirectoryLdapSearchScopeOutputWithContext(ctx context.Context) AccountActiveDirectoryLdapSearchScopeOutput {
+	return o
+}
+
+func (o AccountActiveDirectoryLdapSearchScopeOutput) ToAccountActiveDirectoryLdapSearchScopePtrOutput() AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return o.ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(context.Background())
+}
+
+func (o AccountActiveDirectoryLdapSearchScopeOutput) ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(ctx context.Context) AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountActiveDirectoryLdapSearchScope) *AccountActiveDirectoryLdapSearchScope {
+		return &v
+	}).(AccountActiveDirectoryLdapSearchScopePtrOutput)
+}
+
+// Specifies the group DN, which overrides the base DN for group lookups.
+func (o AccountActiveDirectoryLdapSearchScopeOutput) GroupDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectoryLdapSearchScope) *string { return v.GroupDn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+func (o AccountActiveDirectoryLdapSearchScopeOutput) GroupMembershipFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectoryLdapSearchScope) *string { return v.GroupMembershipFilter }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the user DN, which overrides the base DN for user lookups.
+//
+// > **Note:** When using the `ldapSearchScope` block, at least one of the `groupDn`, `groupMembershipFilter`, or `userDn` must be specified.
+func (o AccountActiveDirectoryLdapSearchScopeOutput) UserDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectoryLdapSearchScope) *string { return v.UserDn }).(pulumi.StringPtrOutput)
+}
+
+type AccountActiveDirectoryLdapSearchScopePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountActiveDirectoryLdapSearchScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountActiveDirectoryLdapSearchScope)(nil)).Elem()
+}
+
+func (o AccountActiveDirectoryLdapSearchScopePtrOutput) ToAccountActiveDirectoryLdapSearchScopePtrOutput() AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return o
+}
+
+func (o AccountActiveDirectoryLdapSearchScopePtrOutput) ToAccountActiveDirectoryLdapSearchScopePtrOutputWithContext(ctx context.Context) AccountActiveDirectoryLdapSearchScopePtrOutput {
+	return o
+}
+
+func (o AccountActiveDirectoryLdapSearchScopePtrOutput) Elem() AccountActiveDirectoryLdapSearchScopeOutput {
+	return o.ApplyT(func(v *AccountActiveDirectoryLdapSearchScope) AccountActiveDirectoryLdapSearchScope {
+		if v != nil {
+			return *v
+		}
+		var ret AccountActiveDirectoryLdapSearchScope
+		return ret
+	}).(AccountActiveDirectoryLdapSearchScopeOutput)
+}
+
+// Specifies the group DN, which overrides the base DN for group lookups.
+func (o AccountActiveDirectoryLdapSearchScopePtrOutput) GroupDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectoryLdapSearchScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupDn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+func (o AccountActiveDirectoryLdapSearchScopePtrOutput) GroupMembershipFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectoryLdapSearchScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMembershipFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the user DN, which overrides the base DN for user lookups.
+//
+// > **Note:** When using the `ldapSearchScope` block, at least one of the `groupDn`, `groupMembershipFilter`, or `userDn` must be specified.
+func (o AccountActiveDirectoryLdapSearchScopePtrOutput) UserDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectoryLdapSearchScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserDn
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountIdentity struct {
 	// The identity id of the user assigned identity to use when type is `UserAssigned`
+	//
+	// > **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
@@ -427,6 +726,8 @@ type AccountIdentityInput interface {
 
 type AccountIdentityArgs struct {
 	// The identity id of the user assigned identity to use when type is `UserAssigned`
+	//
+	// > **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
@@ -512,6 +813,8 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 }
 
 // The identity id of the user assigned identity to use when type is `UserAssigned`
+//
+// > **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -554,6 +857,8 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 }
 
 // The identity id of the user assigned identity to use when type is `UserAssigned`
+//
+// > **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {
@@ -7926,6 +8231,8 @@ func (o GetVolumeMountTargetArrayOutput) Index(i pulumi.IntInput) GetVolumeMount
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryPtrInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryLdapSearchScopeInput)(nil)).Elem(), AccountActiveDirectoryLdapSearchScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryLdapSearchScopePtrInput)(nil)).Elem(), AccountActiveDirectoryLdapSearchScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyDailyScheduleInput)(nil)).Elem(), SnapshotPolicyDailyScheduleArgs{})
@@ -8022,6 +8329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeMountTargetArrayInput)(nil)).Elem(), GetVolumeMountTargetArray{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(AccountActiveDirectoryLdapSearchScopeOutput{})
+	pulumi.RegisterOutputType(AccountActiveDirectoryLdapSearchScopePtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyDailyScheduleOutput{})

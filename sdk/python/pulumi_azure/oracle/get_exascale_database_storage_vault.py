@@ -224,8 +224,8 @@ def get_exascale_database_storage_vault(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_exascale_database_storage_vault(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_exascale_database_storage_vault(name="example-storage-vault",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -274,8 +274,8 @@ def get_exascale_database_storage_vault_output(name: pulumi.Input[Optional[_buil
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_exascale_database_storage_vault(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_exascale_database_storage_vault(name="example-storage-vault",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

@@ -52,7 +52,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name("existing")
+     *             .name("example-api-key")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -101,7 +101,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name("existing")
+     *             .name("example-api-key")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -150,7 +150,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name("existing")
+     *             .name("example-api-key")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -199,7 +199,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name("existing")
+     *             .name("example-api-key")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -248,7 +248,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name("existing")
+     *             .name("example-api-key")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -297,7 +297,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name("existing")
+     *             .name("example-certificate")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -346,7 +346,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name("existing")
+     *             .name("example-certificate")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -395,7 +395,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name("existing")
+     *             .name("example-certificate")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -444,7 +444,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name("existing")
+     *             .name("example-certificate")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -493,7 +493,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name("existing")
+     *             .name("example-certificate")
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
@@ -782,8 +782,8 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-nginx-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -831,8 +831,8 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-nginx-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -880,8 +880,8 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-nginx-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -929,8 +929,8 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-nginx-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -978,8 +978,8 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getDeployment(GetDeploymentArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-nginx-deployment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

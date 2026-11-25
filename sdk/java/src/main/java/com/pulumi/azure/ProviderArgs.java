@@ -42,14 +42,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     @Import(name="clientCertificate")
     private @Nullable Output<String> clientCertificate;
 
     /**
-     * @return Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * @return Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     public Optional<Output<String>> clientCertificate() {
@@ -57,14 +57,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     @Import(name="clientCertificatePassword")
     private @Nullable Output<String> clientCertificatePassword;
 
     /**
-     * @return The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+     * @return The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     public Optional<Output<String>> clientCertificatePassword() {
@@ -439,14 +439,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow OpenID Connect to be used for authentication
+     * Allow OpenID Connect to be used for authentication.
      * 
      */
     @Import(name="useOidc", json=true)
     private @Nullable Output<Boolean> useOidc;
 
     /**
-     * @return Allow OpenID Connect to be used for authentication
+     * @return Allow OpenID Connect to be used for authentication.
      * 
      */
     public Optional<Output<Boolean>> useOidc() {
@@ -541,7 +541,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificate Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+         * @param clientCertificate Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificate Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+         * @param clientCertificate Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificatePassword The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+         * @param clientCertificatePassword The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificatePassword The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+         * @param clientCertificatePassword The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
          * 
          * @return builder
          * 
@@ -1106,7 +1106,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useOidc Allow OpenID Connect to be used for authentication
+         * @param useOidc Allow OpenID Connect to be used for authentication.
          * 
          * @return builder
          * 
@@ -1117,7 +1117,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useOidc Allow OpenID Connect to be used for authentication
+         * @param useOidc Allow OpenID Connect to be used for authentication.
          * 
          * @return builder
          * 

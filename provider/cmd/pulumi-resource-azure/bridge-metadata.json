@@ -3028,6 +3028,10 @@
                     }
                 }
             },
+            "azurerm_cdn_frontdoor_edge_action": {
+                "current": "azure:cdn/frontdoorEdgeAction:FrontdoorEdgeAction",
+                "majorVersion": 7
+            },
             "azurerm_cdn_frontdoor_endpoint": {
                 "current": "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint",
                 "majorVersion": 7
@@ -3642,6 +3646,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_cognitive_account_project_connection_entra_id": {
+                "current": "azure:cognitive/accountProjectConnectionEntraId:AccountProjectConnectionEntraId",
+                "majorVersion": 7
             },
             "azurerm_cognitive_account_rai_blocklist": {
                 "current": "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist",
@@ -5887,6 +5895,10 @@
                     }
                 }
             },
+            "azurerm_data_protection_backup_instance_cosmosdb_account": {
+                "current": "azure:dataprotection/backupInstanceCosmosdbAccount:BackupInstanceCosmosdbAccount",
+                "majorVersion": 7
+            },
             "azurerm_data_protection_backup_instance_data_lake_storage": {
                 "current": "azure:dataprotection/backupInstanceDataLakeStorage:BackupInstanceDataLakeStorage",
                 "majorVersion": 7,
@@ -5971,6 +5983,54 @@
                                 },
                                 "life_cycle": {
                                     "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_data_protection_backup_policy_cosmosdb_account": {
+                "current": "azure:dataprotection/backupPolicyCosmosdbAccount:BackupPolicyCosmosdbAccount",
+                "majorVersion": 7,
+                "fields": {
+                    "incremental_backup_schedules": {
+                        "maxItemsOne": false
+                    },
+                    "monthly_retention_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "days_of_week": {
+                                    "maxItemsOne": true
+                                },
+                                "weeks_of_month": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "weekly_retention_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "days_of_week": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "yearly_retention_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "days_of_week": {
+                                    "maxItemsOne": true
+                                },
+                                "months_of_year": {
+                                    "maxItemsOne": false
+                                },
+                                "weeks_of_month": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -6186,6 +6246,10 @@
             },
             "azurerm_data_protection_backup_vault_customer_managed_key": {
                 "current": "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey",
+                "majorVersion": 7
+            },
+            "azurerm_data_protection_backup_vault_resource_guard_association": {
+                "current": "azure:dataprotection/backupVaultResourceGuardAssociation:BackupVaultResourceGuardAssociation",
                 "majorVersion": 7
             },
             "azurerm_data_protection_resource_guard": {
@@ -9659,6 +9723,39 @@
                     }
                 }
             },
+            "azurerm_horizondb_cluster": {
+                "current": "azure:horizondb/cluster:Cluster",
+                "majorVersion": 7,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "point_in_time_restore": {
+                        "maxItemsOne": true
+                    },
+                    "read_write_pool": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "compute": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_horizondb_firewall_rule": {
+                "current": "azure:horizondb/firewallRule:FirewallRule",
+                "majorVersion": 7
+            },
             "azurerm_image": {
                 "current": "azure:compute/image:Image",
                 "majorVersion": 7,
@@ -10409,6 +10506,9 @@
                                         }
                                     }
                                 },
+                                "security": {
+                                    "maxItemsOne": true
+                                },
                                 "upgrade_settings": {
                                     "maxItemsOne": true
                                 },
@@ -10694,6 +10794,9 @@
                     },
                     "node_taints": {
                         "maxItemsOne": false
+                    },
+                    "security": {
+                        "maxItemsOne": true
                     },
                     "upgrade_settings": {
                         "maxItemsOne": true
@@ -15340,7 +15443,22 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "administrator_users": {
+                                    "maxItemsOne": false
+                                },
+                                "backup_users": {
+                                    "maxItemsOne": false
+                                },
                                 "dns_servers": {
+                                    "maxItemsOne": false
+                                },
+                                "ldap_client_preferred_servers": {
+                                    "maxItemsOne": false
+                                },
+                                "ldap_search_scope": {
+                                    "maxItemsOne": true
+                                },
+                                "security_users": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -18089,6 +18207,15 @@
                     }
                 }
             },
+            "azurerm_search_service_datasource_blob": {
+                "current": "azure:search/serviceDatasourceBlob:ServiceDatasourceBlob",
+                "majorVersion": 7,
+                "fields": {
+                    "encryption_key": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_search_shared_private_link_service": {
                 "current": "azure:search/sharedPrivateLinkService:SharedPrivateLinkService",
                 "majorVersion": 7
@@ -18978,6 +19105,63 @@
                 "fields": {
                     "target_region": {
                         "maxItemsOne": false
+                    },
+                    "uefi": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "additional_signatures": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "db": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values_base64": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "dbx": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values_base64": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "kek": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values_base64": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "pk": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values_base64": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "signature_template_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -21686,6 +21870,9 @@
                     "address_space": {
                         "maxItemsOne": false
                     },
+                    "advertised_gateway_prefixes": {
+                        "maxItemsOne": false
+                    },
                     "ddos_protection_plan": {
                         "maxItemsOne": true
                     },
@@ -22175,6 +22362,33 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "exception": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "exception_rule_set": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "rule_group": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "rules": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "values": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "exclusion": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -30436,6 +30650,10 @@
                     }
                 }
             },
+            "azurerm_relay_namespace": {
+                "current": "azure:relay/getNamespace:getNamespace",
+                "majorVersion": 7
+            },
             "azurerm_resource_group": {
                 "current": "azure:core/getResourceGroup:getResourceGroup",
                 "majorVersion": 7
@@ -31181,6 +31399,10 @@
                     }
                 }
             },
+            "azurerm_storage_account_static_website": {
+                "current": "azure:storage/getAccountStaticWebsite:getAccountStaticWebsite",
+                "majorVersion": 7
+            },
             "azurerm_storage_blob": {
                 "current": "azure:storage/getBlob:getBlob",
                 "majorVersion": 7
@@ -31610,6 +31832,9 @@
                 "majorVersion": 7,
                 "fields": {
                     "address_space": {
+                        "maxItemsOne": false
+                    },
+                    "advertised_gateway_prefixes": {
                         "maxItemsOne": false
                     },
                     "dns_servers": {

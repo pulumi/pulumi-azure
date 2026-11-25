@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.CostManagement` - 2023-08-01
+ * * `Microsoft.CostManagement` - 2025-03-01
  *
  * ## Import
  *
@@ -84,6 +84,8 @@ export class ScheduledAction extends pulumi.CustomResource {
     declare public readonly displayName: pulumi.Output<string>;
     /**
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+     *
+     * > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
      */
     declare public readonly emailAddressSender: pulumi.Output<string>;
     /**
@@ -159,9 +161,6 @@ export class ScheduledAction extends pulumi.CustomResource {
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.emailAddressSender === undefined && !opts.urn) {
-                throw new Error("Missing required property 'emailAddressSender'");
-            }
             if (args?.emailAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailAddresses'");
             }
@@ -218,6 +217,8 @@ export interface ScheduledActionState {
     displayName?: pulumi.Input<string | undefined>;
     /**
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+     *
+     * > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
      */
     emailAddressSender?: pulumi.Input<string | undefined>;
     /**
@@ -280,8 +281,10 @@ export interface ScheduledActionArgs {
     displayName: pulumi.Input<string>;
     /**
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+     *
+     * > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
      */
-    emailAddressSender: pulumi.Input<string>;
+    emailAddressSender?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of email addresses that will receive the Scheduled Action.
      */

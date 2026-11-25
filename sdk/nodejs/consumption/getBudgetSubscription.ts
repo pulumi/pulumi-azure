@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.consumption.getBudgetSubscription({
- *     name: "existing",
+ *     name: "example-budget",
  *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000/",
  * });
  * export const id = exampleAzurermConsumptionBudget.id;
@@ -95,7 +95,7 @@ export interface GetBudgetSubscriptionResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.consumption.getBudgetSubscription({
- *     name: "existing",
+ *     name: "example-budget",
  *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000/",
  * });
  * export const id = exampleAzurermConsumptionBudget.id;

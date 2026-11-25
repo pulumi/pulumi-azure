@@ -138,28 +138,32 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return this.expiryTime;
     }
     /**
-     * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+     * The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
     @Export(name="frequency", refs={String.class}, tree="[0]")
     private Output<String> frequency;
 
     /**
-     * @return The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+     * @return The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
     public Output<String> frequency() {
         return this.frequency;
     }
     /**
-     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * 
+     * &gt; **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
      * 
      */
     @Export(name="interval", refs={Integer.class}, tree="[0]")
     private Output<Integer> interval;
 
     /**
-     * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * @return The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * 
+     * &gt; **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
      * 
      */
     public Output<Integer> interval() {
@@ -180,14 +184,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monthDays);
     }
     /**
-     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
      * 
      */
     @Export(name="monthlyOccurrence", refs={ScheduleMonthlyOccurrence.class}, tree="[0]")
     private Output</* @Nullable */ ScheduleMonthlyOccurrence> monthlyOccurrence;
 
     /**
-     * @return One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * @return One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
      * 
      */
     public Output<Optional<ScheduleMonthlyOccurrence>> monthlyOccurrence() {

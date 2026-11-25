@@ -107,9 +107,13 @@ export class ManagedDatabase extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
      */
     declare public readonly pointInTimeRestore: pulumi.Output<outputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
+    /**
+     * The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+     */
+    declare public readonly recoverDatabaseId: pulumi.Output<string | undefined>;
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
@@ -136,6 +140,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["managedInstanceId"] = state?.managedInstanceId;
             resourceInputs["name"] = state?.name;
             resourceInputs["pointInTimeRestore"] = state?.pointInTimeRestore;
+            resourceInputs["recoverDatabaseId"] = state?.recoverDatabaseId;
             resourceInputs["shortTermRetentionDays"] = state?.shortTermRetentionDays;
             resourceInputs["tags"] = state?.tags;
         } else {
@@ -147,6 +152,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["managedInstanceId"] = args?.managedInstanceId;
             resourceInputs["name"] = args?.name;
             resourceInputs["pointInTimeRestore"] = args?.pointInTimeRestore;
+            resourceInputs["recoverDatabaseId"] = args?.recoverDatabaseId;
             resourceInputs["shortTermRetentionDays"] = args?.shortTermRetentionDays;
             resourceInputs["tags"] = args?.tags;
         }
@@ -174,9 +180,13 @@ export interface ManagedDatabaseState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
      */
     pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
+    /**
+     * The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+     */
+    recoverDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
@@ -204,9 +214,13 @@ export interface ManagedDatabaseArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
      */
     pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
+    /**
+     * The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+     */
+    recoverDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */

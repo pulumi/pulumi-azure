@@ -145,14 +145,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customSubdomainName);
     }
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      * 
      */
     @Export(name="customerManagedKey", refs={AccountCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ AccountCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customerManagedKey` block as documented below.
+     * @return A `customerManagedKey` block as defined below.
      * 
      */
     public Output<Optional<AccountCustomerManagedKey>> customerManagedKey() {

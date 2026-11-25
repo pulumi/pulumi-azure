@@ -34,7 +34,7 @@ public final class TriggerScheduleSchedule {
      */
     private @Nullable List<Integer> minutes;
     /**
-     * @return A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+     * @return A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
      * 
      */
     private @Nullable List<TriggerScheduleScheduleMonthly> monthlies;
@@ -69,7 +69,7 @@ public final class TriggerScheduleSchedule {
         return this.minutes == null ? List.of() : this.minutes;
     }
     /**
-     * @return A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+     * @return A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
      * 
      */
     public List<TriggerScheduleScheduleMonthly> monthlies() {

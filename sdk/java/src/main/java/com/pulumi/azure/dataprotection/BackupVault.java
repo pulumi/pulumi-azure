@@ -84,6 +84,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:dataprotection/backupVault:BackupVault")
 public class BackupVault extends com.pulumi.resources.CustomResource {
     /**
+     * Whether to enable Azure Monitor alerts for all job failures.
+     * 
+     */
+    @Export(name="alertsForAllJobFailuresEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> alertsForAllJobFailuresEnabled;
+
+    /**
+     * @return Whether to enable Azure Monitor alerts for all job failures.
+     * 
+     */
+    public Output<Boolean> alertsForAllJobFailuresEnabled() {
+        return this.alertsForAllJobFailuresEnabled;
+    }
+    /**
      * Whether to enable cross-region restore for the Backup Vault.
      * 
      * &gt; **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.

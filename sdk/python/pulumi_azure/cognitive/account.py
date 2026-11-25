@@ -65,7 +65,7 @@ class AccountArgs:
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
-        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -221,7 +221,7 @@ class AccountArgs:
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]:
         """
-        A `customer_managed_key` block as documented below.
+        A `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 
@@ -489,7 +489,7 @@ class _AccountState:
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
-        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
@@ -624,7 +624,7 @@ class _AccountState:
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]:
         """
-        A `customer_managed_key` block as documented below.
+        A `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 
@@ -1015,7 +1015,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
-        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
         :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
@@ -1234,7 +1234,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
-        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
@@ -1334,7 +1334,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional['outputs.AccountCustomerManagedKey']]:
         """
-        A `customer_managed_key` block as documented below.
+        A `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 

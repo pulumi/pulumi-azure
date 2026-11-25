@@ -25,14 +25,14 @@ type Features struct {
 	MachineLearning       *FeaturesMachineLearning       `pulumi:"machineLearning"`
 	ManagedDisk           *FeaturesManagedDisk           `pulumi:"managedDisk"`
 	Netapp                *FeaturesNetapp                `pulumi:"netapp"`
-	// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+	// Whether to set the resource ID into state before polling asynchronous operations for completion.
 	PersistIdOnCreateBeforePollingForCompletion *bool                             `pulumi:"persistIdOnCreateBeforePollingForCompletion"`
 	PostgresqlFlexibleServer                    *FeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
 	RecoveryService                             *FeaturesRecoveryService          `pulumi:"recoveryService"`
 	RecoveryServicesVaults                      *FeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
 	ResourceGroup                               *FeaturesResourceGroup            `pulumi:"resourceGroup"`
 	Servicebus                                  *FeaturesServicebus               `pulumi:"servicebus"`
-	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
 	SkipImportCheckOnCreateAndAllowOverwritingExistingResources *bool                           `pulumi:"skipImportCheckOnCreateAndAllowOverwritingExistingResources"`
 	Storage                                                     *FeaturesStorage                `pulumi:"storage"`
 	Subscription                                                *FeaturesSubscription           `pulumi:"subscription"`
@@ -64,14 +64,14 @@ type FeaturesArgs struct {
 	MachineLearning       FeaturesMachineLearningPtrInput       `pulumi:"machineLearning"`
 	ManagedDisk           FeaturesManagedDiskPtrInput           `pulumi:"managedDisk"`
 	Netapp                FeaturesNetappPtrInput                `pulumi:"netapp"`
-	// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+	// Whether to set the resource ID into state before polling asynchronous operations for completion.
 	PersistIdOnCreateBeforePollingForCompletion pulumi.BoolPtrInput                      `pulumi:"persistIdOnCreateBeforePollingForCompletion"`
 	PostgresqlFlexibleServer                    FeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
 	RecoveryService                             FeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
 	RecoveryServicesVaults                      FeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
 	ResourceGroup                               FeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
 	Servicebus                                  FeaturesServicebusPtrInput               `pulumi:"servicebus"`
-	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
 	SkipImportCheckOnCreateAndAllowOverwritingExistingResources pulumi.BoolPtrInput                    `pulumi:"skipImportCheckOnCreateAndAllowOverwritingExistingResources"`
 	Storage                                                     FeaturesStoragePtrInput                `pulumi:"storage"`
 	Subscription                                                FeaturesSubscriptionPtrInput           `pulumi:"subscription"`
@@ -150,7 +150,7 @@ func (o FeaturesOutput) Netapp() FeaturesNetappPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesNetapp { return v.Netapp }).(FeaturesNetappPtrOutput)
 }
 
-// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+// Whether to set the resource ID into state before polling asynchronous operations for completion.
 func (o FeaturesOutput) PersistIdOnCreateBeforePollingForCompletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Features) *bool { return v.PersistIdOnCreateBeforePollingForCompletion }).(pulumi.BoolPtrOutput)
 }
@@ -175,7 +175,7 @@ func (o FeaturesOutput) Servicebus() FeaturesServicebusPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesServicebus { return v.Servicebus }).(FeaturesServicebusPtrOutput)
 }
 
-// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+// Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
 func (o FeaturesOutput) SkipImportCheckOnCreateAndAllowOverwritingExistingResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Features) *bool { return v.SkipImportCheckOnCreateAndAllowOverwritingExistingResources }).(pulumi.BoolPtrOutput)
 }
@@ -763,7 +763,7 @@ func (o FeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.Boo
 }
 
 type FeaturesDatabricksWorkspace struct {
-	// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+	// When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
 	ForceDelete *bool `pulumi:"forceDelete"`
 }
 
@@ -779,7 +779,7 @@ type FeaturesDatabricksWorkspaceInput interface {
 }
 
 type FeaturesDatabricksWorkspaceArgs struct {
-	// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+	// When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
 	ForceDelete pulumi.BoolPtrInput `pulumi:"forceDelete"`
 }
 
@@ -860,7 +860,7 @@ func (o FeaturesDatabricksWorkspaceOutput) ToFeaturesDatabricksWorkspacePtrOutpu
 	}).(FeaturesDatabricksWorkspacePtrOutput)
 }
 
-// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+// When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
 func (o FeaturesDatabricksWorkspaceOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesDatabricksWorkspace) *bool { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
@@ -889,7 +889,7 @@ func (o FeaturesDatabricksWorkspacePtrOutput) Elem() FeaturesDatabricksWorkspace
 	}).(FeaturesDatabricksWorkspaceOutput)
 }
 
-// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+// When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
 func (o FeaturesDatabricksWorkspacePtrOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesDatabricksWorkspace) *bool {
 		if v == nil {
@@ -902,11 +902,11 @@ func (o FeaturesDatabricksWorkspacePtrOutput) ForceDelete() pulumi.BoolPtrOutput
 type FeaturesEnhancedValidation struct {
 	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
 	Locations *bool `pulumi:"locations"`
-	// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+	// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
 	PreflightEnabled *bool `pulumi:"preflightEnabled"`
 	// The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
 	PreflightLocationFallback *string `pulumi:"preflightLocationFallback"`
-	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
 	ResourceProviders *bool `pulumi:"resourceProviders"`
 }
 
@@ -924,11 +924,11 @@ type FeaturesEnhancedValidationInput interface {
 type FeaturesEnhancedValidationArgs struct {
 	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
 	Locations pulumi.BoolPtrInput `pulumi:"locations"`
-	// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+	// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
 	PreflightEnabled pulumi.BoolPtrInput `pulumi:"preflightEnabled"`
 	// The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
 	PreflightLocationFallback pulumi.StringPtrInput `pulumi:"preflightLocationFallback"`
-	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
 	ResourceProviders pulumi.BoolPtrInput `pulumi:"resourceProviders"`
 }
 
@@ -1014,7 +1014,7 @@ func (o FeaturesEnhancedValidationOutput) Locations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesEnhancedValidation) *bool { return v.Locations }).(pulumi.BoolPtrOutput)
 }
 
-// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
 func (o FeaturesEnhancedValidationOutput) PreflightEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesEnhancedValidation) *bool { return v.PreflightEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1024,7 +1024,7 @@ func (o FeaturesEnhancedValidationOutput) PreflightLocationFallback() pulumi.Str
 	return o.ApplyT(func(v FeaturesEnhancedValidation) *string { return v.PreflightLocationFallback }).(pulumi.StringPtrOutput)
 }
 
-// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
 func (o FeaturesEnhancedValidationOutput) ResourceProviders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesEnhancedValidation) *bool { return v.ResourceProviders }).(pulumi.BoolPtrOutput)
 }
@@ -1063,7 +1063,7 @@ func (o FeaturesEnhancedValidationPtrOutput) Locations() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
 func (o FeaturesEnhancedValidationPtrOutput) PreflightEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesEnhancedValidation) *bool {
 		if v == nil {
@@ -1083,7 +1083,7 @@ func (o FeaturesEnhancedValidationPtrOutput) PreflightLocationFallback() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
 func (o FeaturesEnhancedValidationPtrOutput) ResourceProviders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesEnhancedValidation) *bool {
 		if v == nil {
@@ -1094,27 +1094,27 @@ func (o FeaturesEnhancedValidationPtrOutput) ResourceProviders() pulumi.BoolPtrO
 }
 
 type FeaturesKeyVault struct {
-	// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
-	// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedCertificatesOnDestroy *bool `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
-	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy *bool `pulumi:"purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy"`
-	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedHardwareSecurityModulesOnDestroy *bool `pulumi:"purgeSoftDeletedHardwareSecurityModulesOnDestroy"`
-	// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedKeysOnDestroy *bool `pulumi:"purgeSoftDeletedKeysOnDestroy"`
-	// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedSecretsOnDestroy *bool `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
-	// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedCertificates *bool `pulumi:"recoverSoftDeletedCertificates"`
-	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedHardwareSecurityModuleKeys *bool `pulumi:"recoverSoftDeletedHardwareSecurityModuleKeys"`
-	// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedKeyVaults *bool `pulumi:"recoverSoftDeletedKeyVaults"`
-	// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedKeys *bool `pulumi:"recoverSoftDeletedKeys"`
-	// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedSecrets *bool `pulumi:"recoverSoftDeletedSecrets"`
 }
 
@@ -1130,27 +1130,27 @@ type FeaturesKeyVaultInput interface {
 }
 
 type FeaturesKeyVaultArgs struct {
-	// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
-	// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedCertificatesOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
-	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy"`
-	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedHardwareSecurityModulesOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedHardwareSecurityModulesOnDestroy"`
-	// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedKeysOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedKeysOnDestroy"`
-	// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+	// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
 	PurgeSoftDeletedSecretsOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
-	// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedCertificates pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedCertificates"`
-	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedHardwareSecurityModuleKeys pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedHardwareSecurityModuleKeys"`
-	// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedKeyVaults pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
-	// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedKeys pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeys"`
-	// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+	// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones.
 	RecoverSoftDeletedSecrets pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedSecrets"`
 }
 
@@ -1231,57 +1231,57 @@ func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx conte
 	}).(FeaturesKeyVaultPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedCertificatesOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedCertificatesOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedHardwareSecurityModulesOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedHardwareSecurityModulesOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedKeysOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedSecretsOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedSecretsOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedCertificates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedCertificates }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedHardwareSecurityModuleKeys() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedHardwareSecurityModuleKeys }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedKeys() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeys }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedSecrets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedSecrets }).(pulumi.BoolPtrOutput)
 }
@@ -1310,7 +1310,7 @@ func (o FeaturesKeyVaultPtrOutput) Elem() FeaturesKeyVaultOutput {
 	}).(FeaturesKeyVaultOutput)
 }
 
-// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1320,7 +1320,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedCertificatesOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1330,7 +1330,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedCertificatesOnDestroy() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1340,7 +1340,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedHardwareSecurityModuleKeysOnD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedHardwareSecurityModulesOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1350,7 +1350,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedHardwareSecurityModulesOnDest
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1360,7 +1360,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedSecretsOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1370,7 +1370,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedSecretsOnDestroy() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedCertificates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1380,7 +1380,7 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedCertificates() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedHardwareSecurityModuleKeys() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1390,7 +1390,7 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedHardwareSecurityModuleKeys(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1400,7 +1400,7 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeys() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1410,7 +1410,7 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeys() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones.
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedSecrets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -1820,9 +1820,9 @@ func (o FeaturesManagedDiskPtrOutput) ExpandWithoutDowntime() pulumi.BoolPtrOutp
 }
 
 type FeaturesNetapp struct {
-	// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+	// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed.
 	DeleteBackupsOnBackupVaultDestroy *bool `pulumi:"deleteBackupsOnBackupVaultDestroy"`
-	// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+	// When enabled, the volume will not be destroyed, safeguarding from severe data loss.
 	PreventVolumeDestruction *bool `pulumi:"preventVolumeDestruction"`
 }
 
@@ -1838,9 +1838,9 @@ type FeaturesNetappInput interface {
 }
 
 type FeaturesNetappArgs struct {
-	// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+	// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed.
 	DeleteBackupsOnBackupVaultDestroy pulumi.BoolPtrInput `pulumi:"deleteBackupsOnBackupVaultDestroy"`
-	// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+	// When enabled, the volume will not be destroyed, safeguarding from severe data loss.
 	PreventVolumeDestruction pulumi.BoolPtrInput `pulumi:"preventVolumeDestruction"`
 }
 
@@ -1921,12 +1921,12 @@ func (o FeaturesNetappOutput) ToFeaturesNetappPtrOutputWithContext(ctx context.C
 	}).(FeaturesNetappPtrOutput)
 }
 
-// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed.
 func (o FeaturesNetappOutput) DeleteBackupsOnBackupVaultDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesNetapp) *bool { return v.DeleteBackupsOnBackupVaultDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+// When enabled, the volume will not be destroyed, safeguarding from severe data loss.
 func (o FeaturesNetappOutput) PreventVolumeDestruction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesNetapp) *bool { return v.PreventVolumeDestruction }).(pulumi.BoolPtrOutput)
 }
@@ -1955,7 +1955,7 @@ func (o FeaturesNetappPtrOutput) Elem() FeaturesNetappOutput {
 	}).(FeaturesNetappOutput)
 }
 
-// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed.
 func (o FeaturesNetappPtrOutput) DeleteBackupsOnBackupVaultDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesNetapp) *bool {
 		if v == nil {
@@ -1965,7 +1965,7 @@ func (o FeaturesNetappPtrOutput) DeleteBackupsOnBackupVaultDestroy() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+// When enabled, the volume will not be destroyed, safeguarding from severe data loss.
 func (o FeaturesNetappPtrOutput) PreventVolumeDestruction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesNetapp) *bool {
 		if v == nil {

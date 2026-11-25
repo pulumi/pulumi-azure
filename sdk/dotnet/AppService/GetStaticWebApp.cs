@@ -26,8 +26,8 @@ namespace Pulumi.Azure.AppService
         /// {
         ///     var example = Azure.AppService.GetStaticWebApp.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-static-web-app",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         /// });
@@ -58,8 +58,8 @@ namespace Pulumi.Azure.AppService
         /// {
         ///     var example = Azure.AppService.GetStaticWebApp.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-static-web-app",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         /// });
@@ -90,8 +90,8 @@ namespace Pulumi.Azure.AppService
         /// {
         ///     var example = Azure.AppService.GetStaticWebApp.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-static-web-app",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         /// });

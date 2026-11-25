@@ -287,14 +287,14 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
         return this.serviceProviderProvisioningState;
     }
     /**
-     * A `sku` block for the ExpressRoute circuit as documented below.
+     * A `sku` block for the ExpressRoute circuit as defined below.
      * 
      */
     @Export(name="sku", refs={ExpressRouteCircuitSku.class}, tree="[0]")
     private Output<ExpressRouteCircuitSku> sku;
 
     /**
-     * @return A `sku` block for the ExpressRoute circuit as documented below.
+     * @return A `sku` block for the ExpressRoute circuit as defined below.
      * 
      */
     public Output<ExpressRouteCircuitSku> sku() {

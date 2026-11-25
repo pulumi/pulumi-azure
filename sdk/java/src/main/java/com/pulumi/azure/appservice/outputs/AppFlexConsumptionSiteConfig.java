@@ -69,7 +69,7 @@ public final class AppFlexConsumptionSiteConfig {
      */
     private @Nullable List<String> defaultDocuments;
     /**
-     * @return Is detailed error logging enabled
+     * @return Is detailed error logging enabled?
      * 
      */
     private @Nullable Boolean detailedErrorLoggingEnabled;
@@ -253,7 +253,7 @@ public final class AppFlexConsumptionSiteConfig {
         return this.defaultDocuments == null ? List.of() : this.defaultDocuments;
     }
     /**
-     * @return Is detailed error logging enabled
+     * @return Is detailed error logging enabled?
      * 
      */
     public Optional<Boolean> detailedErrorLoggingEnabled() {

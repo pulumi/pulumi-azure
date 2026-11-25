@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.maintenance.getPublicConfigurations({
+ * const example = azure.maintenance.getPublicConfigurations({
  *     location: "West Europe",
  *     scope: "SQLManagedInstance",
  *     recurEvery: "Monday-Thursday",
  * });
- * export const name = existing.then(existing => existing.configs?.[0]?.name);
+ * export const name = example.then(example => example.configs?.[0]?.name);
  * ```
  *
  * ## API Providers
@@ -89,12 +89,12 @@ export interface GetPublicConfigurationsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.maintenance.getPublicConfigurations({
+ * const example = azure.maintenance.getPublicConfigurations({
  *     location: "West Europe",
  *     scope: "SQLManagedInstance",
  *     recurEvery: "Monday-Thursday",
  * });
- * export const name = existing.then(existing => existing.configs?.[0]?.name);
+ * export const name = example.then(example => example.configs?.[0]?.name);
  * ```
  *
  * ## API Providers

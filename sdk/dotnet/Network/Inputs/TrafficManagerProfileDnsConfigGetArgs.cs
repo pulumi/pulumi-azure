@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class TrafficManagerProfileDnsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+        /// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("relativeName", required: true)]
         public Input<string> RelativeName { get; set; } = null!;

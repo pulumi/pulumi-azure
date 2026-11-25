@@ -252,6 +252,13 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.longTermBackupSchedule);
     }
 
+    @Import(name="maintenancePatchLevel")
+    private @Nullable Output<String> maintenancePatchLevel;
+
+    public Optional<Output<String>> maintenancePatchLevel() {
+        return Optional.ofNullable(this.maintenancePatchLevel);
+    }
+
     /**
      * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
      * 
@@ -372,6 +379,7 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         this.licenseModel = $.licenseModel;
         this.location = $.location;
         this.longTermBackupSchedule = $.longTermBackupSchedule;
+        this.maintenancePatchLevel = $.maintenancePatchLevel;
         this.mtlsConnectionRequired = $.mtlsConnectionRequired;
         this.name = $.name;
         this.nationalCharacterSet = $.nationalCharacterSet;
@@ -729,6 +737,15 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
 
         public Builder longTermBackupSchedule(AutonomousDatabaseLongTermBackupScheduleArgs longTermBackupSchedule) {
             return longTermBackupSchedule(Output.of(longTermBackupSchedule));
+        }
+
+        public Builder maintenancePatchLevel(@Nullable Output<String> maintenancePatchLevel) {
+            $.maintenancePatchLevel = maintenancePatchLevel;
+            return this;
+        }
+
+        public Builder maintenancePatchLevel(String maintenancePatchLevel) {
+            return maintenancePatchLevel(Output.of(maintenancePatchLevel));
         }
 
         /**

@@ -17,14 +17,33 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
     public static final KubernetesClusterKeyManagementServiceArgs Empty = new KubernetesClusterKeyManagementServiceArgs();
 
     /**
-     * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+     * The ID of the Key Vault in which the key is located.
+     * 
+     * &gt; **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+     * 
+     */
+    @Import(name="keyVaultId")
+    private @Nullable Output<String> keyVaultId;
+
+    /**
+     * @return The ID of the Key Vault in which the key is located.
+     * 
+     * &gt; **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+     * 
+     */
+    public Optional<Output<String>> keyVaultId() {
+        return Optional.ofNullable(this.keyVaultId);
+    }
+
+    /**
+     * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
      * 
      */
     @Import(name="keyVaultKeyId", required=true)
     private Output<String> keyVaultKeyId;
 
     /**
-     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
      * 
      */
     public Output<String> keyVaultKeyId() {
@@ -32,14 +51,14 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
     }
 
     /**
-     * Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+     * Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
      * 
      */
     @Import(name="keyVaultNetworkAccess")
     private @Nullable Output<String> keyVaultNetworkAccess;
 
     /**
-     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+     * @return Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
      * 
      */
     public Optional<Output<String>> keyVaultNetworkAccess() {
@@ -49,6 +68,7 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
     private KubernetesClusterKeyManagementServiceArgs() {}
 
     private KubernetesClusterKeyManagementServiceArgs(KubernetesClusterKeyManagementServiceArgs $) {
+        this.keyVaultId = $.keyVaultId;
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.keyVaultNetworkAccess = $.keyVaultNetworkAccess;
     }
@@ -72,7 +92,32 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
         }
 
         /**
-         * @param keyVaultKeyId Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+         * @param keyVaultId The ID of the Key Vault in which the key is located.
+         * 
+         * &gt; **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
+            $.keyVaultId = keyVaultId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultId The ID of the Key Vault in which the key is located.
+         * 
+         * &gt; **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultId(String keyVaultId) {
+            return keyVaultId(Output.of(keyVaultId));
+        }
+
+        /**
+         * @param keyVaultKeyId Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
          * 
          * @return builder
          * 
@@ -83,7 +128,7 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
         }
 
         /**
-         * @param keyVaultKeyId Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+         * @param keyVaultKeyId Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
          * 
          * @return builder
          * 
@@ -93,7 +138,7 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
         }
 
         /**
-         * @param keyVaultNetworkAccess Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+         * @param keyVaultNetworkAccess Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
          * 
          * @return builder
          * 
@@ -104,7 +149,7 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
         }
 
         /**
-         * @param keyVaultNetworkAccess Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+         * @param keyVaultNetworkAccess Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
          * 
          * @return builder
          * 

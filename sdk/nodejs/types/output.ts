@@ -1067,7 +1067,7 @@ export namespace apimanagement {
          */
         serverCertificateThumbprints?: string[];
         /**
-         * One or more `serverX509Name` blocks as documented below.
+         * One or more `serverX509Name` blocks as defined below.
          */
         serverX509Names?: outputs.apimanagement.BackendServiceFabricClusterServerX509Name[];
     }
@@ -1103,13 +1103,22 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
         certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
         certificateStatus: string;
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
          */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         */
         keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -1134,7 +1143,13 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
         certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
         certificateStatus: string;
         /**
          * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
@@ -1145,6 +1160,9 @@ export namespace apimanagement {
          * The Hostname to use for the API Proxy Endpoint.
          */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         */
         keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -1169,13 +1187,22 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
         certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
         certificateStatus: string;
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
          */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         */
         keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -1200,13 +1227,22 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
         certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
         certificateStatus: string;
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
          */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         */
         keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -1231,13 +1267,22 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
         certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
         certificateStatus: string;
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
          */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         */
         keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -1524,23 +1569,23 @@ export namespace apimanagement {
 
     export interface GetServiceHostnameConfiguration {
         /**
-         * One or more `developerPortal` blocks as documented below.
+         * One or more `developerPortal` blocks as defined below.
          */
         developerPortals: outputs.apimanagement.GetServiceHostnameConfigurationDeveloperPortal[];
         /**
-         * One or more `management` blocks as documented below.
+         * One or more `management` blocks as defined below.
          */
         managements: outputs.apimanagement.GetServiceHostnameConfigurationManagement[];
         /**
-         * One or more `portal` blocks as documented below.
+         * One or more `portal` blocks as defined below.
          */
         portals: outputs.apimanagement.GetServiceHostnameConfigurationPortal[];
         /**
-         * One or more `proxy` blocks as documented below.
+         * One or more `proxy` blocks as defined below.
          */
         proxies: outputs.apimanagement.GetServiceHostnameConfigurationProxy[];
         /**
-         * One or more `scm` blocks as documented below.
+         * One or more `scm` blocks as defined below.
          */
         scms: outputs.apimanagement.GetServiceHostnameConfigurationScm[];
     }
@@ -1809,23 +1854,23 @@ export namespace apimanagement {
 
     export interface ServiceHostnameConfiguration {
         /**
-         * One or more `developerPortal` blocks as documented below.
+         * One or more `developerPortal` blocks as defined below.
          */
         developerPortals?: outputs.apimanagement.ServiceHostnameConfigurationDeveloperPortal[];
         /**
-         * One or more `management` blocks as documented below.
+         * One or more `management` blocks as defined below.
          */
         managements?: outputs.apimanagement.ServiceHostnameConfigurationManagement[];
         /**
-         * One or more `portal` blocks as documented below.
+         * One or more `portal` blocks as defined below.
          */
         portals?: outputs.apimanagement.ServiceHostnameConfigurationPortal[];
         /**
-         * One or more `proxy` blocks as documented below.
+         * One or more `proxy` blocks as defined below.
          */
         proxies?: outputs.apimanagement.ServiceHostnameConfigurationProxy[];
         /**
-         * One or more `scm` blocks as documented below.
+         * One or more `scm` blocks as defined below.
          */
         scms?: outputs.apimanagement.ServiceHostnameConfigurationScm[];
     }
@@ -2653,6 +2698,13 @@ export namespace appinsights {
          * The expected status code of the response. Default is '200', '0' means 'response code < 400'
          */
         expectedStatusCode?: number;
+        /**
+         * Should status code of the response be ignored? Defaults to `false`.
+         * *
+         *
+         * > **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+         */
+        ignoreStatusCode?: boolean;
         /**
          * The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
          */
@@ -4314,7 +4366,7 @@ export namespace appservice {
          */
         defaultDocuments: string[];
         /**
-         * Is detailed error logging enabled
+         * Is detailed error logging enabled?
          */
         detailedErrorLoggingEnabled: boolean;
         /**
@@ -5526,7 +5578,7 @@ export namespace appservice {
          */
         action: string;
         /**
-         * The description of the ip restriction rule.
+         * The description of the IP restriction rule.
          */
         description: string;
         /**
@@ -5580,7 +5632,7 @@ export namespace appservice {
          */
         action: string;
         /**
-         * The description of the ip restriction rule.
+         * The description of the IP restriction rule.
          */
         description: string;
         /**
@@ -6636,7 +6688,7 @@ export namespace appservice {
          */
         action: string;
         /**
-         * The description of the ip restriction rule.
+         * The description of the IP restriction rule.
          */
         description: string;
         headers: outputs.appservice.GetLinuxWebAppSiteConfigIpRestrictionHeader[];
@@ -6668,7 +6720,7 @@ export namespace appservice {
          */
         xAzureFdids: string[];
         /**
-         * Specifies if a Front Door Health Probe is expected.
+         * Whether a Front Door Health Probe is expected.
          */
         xFdHealthProbes: string[];
         /**
@@ -6687,7 +6739,7 @@ export namespace appservice {
          */
         action: string;
         /**
-         * The description of the ip restriction rule.
+         * The description of the IP restriction rule.
          */
         description: string;
         headers: outputs.appservice.GetLinuxWebAppSiteConfigScmIpRestrictionHeader[];
@@ -6719,7 +6771,7 @@ export namespace appservice {
          */
         xAzureFdids: string[];
         /**
-         * Specifies if a Front Door Health Probe is expected.
+         * Whether a Front Door Health Probe is expected.
          */
         xFdHealthProbes: string[];
         /**
@@ -7595,7 +7647,7 @@ export namespace appservice {
          */
         action: string;
         /**
-         * The description of the ip restriction rule.
+         * The description of the IP restriction rule.
          */
         description: string;
         headers: outputs.appservice.GetWindowsFunctionAppSiteConfigIpRestrictionHeader[];
@@ -7627,7 +7679,7 @@ export namespace appservice {
          */
         xAzureFdids: string[];
         /**
-         * Specifies if a Front Door Health Probe is expected.
+         * Whether a Front Door Health Probe is expected.
          */
         xFdHealthProbes: string[];
         /**
@@ -7646,7 +7698,7 @@ export namespace appservice {
          */
         action: string;
         /**
-         * The description of the ip restriction rule.
+         * The description of the IP restriction rule.
          */
         description: string;
         headers: outputs.appservice.GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader[];
@@ -7678,7 +7730,7 @@ export namespace appservice {
          */
         xAzureFdids: string[];
         /**
-         * Specifies if a Front Door Health Probe is expected.
+         * Whether a Front Door Health Probe is expected.
          */
         xFdHealthProbes: string[];
         /**
@@ -8745,7 +8797,7 @@ export namespace appservice {
          */
         action: string;
         /**
-         * The description of the ip restriction rule.
+         * The description of the IP restriction rule.
          */
         description: string;
         headers: outputs.appservice.GetWindowsWebAppSiteConfigIpRestrictionHeader[];
@@ -8777,7 +8829,7 @@ export namespace appservice {
          */
         xAzureFdids: string[];
         /**
-         * Specifies if a Front Door Health Probe is expected.
+         * Whether a Front Door Health Probe is expected.
          */
         xFdHealthProbes: string[];
         /**
@@ -8796,7 +8848,7 @@ export namespace appservice {
          */
         action: string;
         /**
-         * The description of the ip restriction rule.
+         * The description of the IP restriction rule.
          */
         description: string;
         headers: outputs.appservice.GetWindowsWebAppSiteConfigScmIpRestrictionHeader[];
@@ -8828,7 +8880,7 @@ export namespace appservice {
          */
         xAzureFdids: string[];
         /**
-         * Specifies if a Front Door Health Probe is expected.
+         * Whether a Front Door Health Probe is expected.
          */
         xFdHealthProbes: string[];
         /**
@@ -9614,7 +9666,7 @@ export namespace appservice {
          */
         defaultDocuments: string[];
         /**
-         * Is detailed error logging enabled
+         * Is detailed error logging enabled?
          */
         detailedErrorLoggingEnabled: boolean;
         /**
@@ -9646,7 +9698,7 @@ export namespace appservice {
          */
         ipRestrictions?: outputs.appservice.LinuxFunctionAppSiteConfigIpRestriction[];
         /**
-         * The Linux FX Version
+         * The Linux FX Version.
          */
         linuxFxVersion: string;
         /**
@@ -9740,7 +9792,7 @@ export namespace appservice {
          */
         dockers?: outputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker[];
         /**
-         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
          */
         dotnetVersion?: string;
         /**
@@ -10752,7 +10804,7 @@ export namespace appservice {
          */
         dockers?: outputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker[];
         /**
-         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
          */
         dotnetVersion?: string;
         /**
@@ -11879,7 +11931,7 @@ export namespace appservice {
          */
         dockerRegistryUsername?: string;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
          */
         dotnetVersion?: string;
         /**
@@ -11905,7 +11957,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
          *
          * > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -13047,7 +13099,7 @@ export namespace appservice {
          */
         dockerRegistryUsername?: string;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
          */
         dotnetVersion?: string;
         /**
@@ -13071,7 +13123,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts`, `24-lts` and `26`. This property conflicts with `javaVersion`.
          *
          * > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -13416,7 +13468,7 @@ export namespace appservice {
          */
         generateWorkflowFile?: boolean;
         /**
-         * Denotes this action uses a Linux base image.
+         * Whether this action uses a Linux base image.
          */
         linuxAction: boolean;
     }
@@ -14210,7 +14262,7 @@ export namespace appservice {
          */
         defaultDocuments: string[];
         /**
-         * Is detailed error logging enabled
+         * Is detailed error logging enabled?
          */
         detailedErrorLoggingEnabled: boolean;
         /**
@@ -14332,7 +14384,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigApplicationStack {
         /**
-         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: string;
         /**
@@ -15301,7 +15353,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
         /**
-         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
+         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: string;
         /**
@@ -16418,7 +16470,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
          *
          * > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
@@ -17679,7 +17731,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0`, `v10.0` and `v11.0`.
          */
         dotnetVersion: string;
         /**
@@ -19293,7 +19345,7 @@ export namespace backup {
 
     export interface PolicyFileShareBackupHourly {
         /**
-         * Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+         * Specifies the interval at which backup needs to be triggered. Possible values are `1`, `2`, `4`, `6`, `8` and `12`.
          */
         interval: number;
         /**
@@ -20875,7 +20927,7 @@ export namespace bot {
          */
         endpointParametersEnabled?: boolean;
         /**
-         * Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+         * Enables additional security measures for this site, see [Direct Line enhanced authentication](https://learn.microsoft.com/azure/bot-service/bot-builder-security-enhanced?view=azure-bot-service-4.0). Disabled by default.
          */
         enhancedAuthenticationEnabled?: boolean;
         /**
@@ -24728,7 +24780,7 @@ export namespace compute {
          */
         dnsServers: string[];
         /**
-         * An `ipConfiguration` block as documented below.
+         * An `ipConfiguration` block as defined below.
          */
         ipConfigurations: outputs.compute.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
         /**
@@ -24923,7 +24975,7 @@ export namespace compute {
          */
         tags: {[key: string]: string};
         /**
-         * One or more `targetRegion` blocks as documented below.
+         * One or more `targetRegion` blocks as defined below.
          */
         targetRegions: outputs.compute.GetSharedImageVersionsImageTargetRegion[];
     }
@@ -26852,11 +26904,11 @@ export namespace compute {
          */
         acceleratedNetworking?: boolean;
         /**
-         * A `dnsSettings` block as documented below.
+         * A `dnsSettings` block as defined below.
          */
         dnsSettings?: outputs.compute.ScaleSetNetworkProfileDnsSettings;
         /**
-         * An `ipConfiguration` block as documented below.
+         * An `ipConfiguration` block as defined below.
          */
         ipConfigurations: outputs.compute.ScaleSetNetworkProfileIpConfiguration[];
         /**
@@ -26914,7 +26966,7 @@ export namespace compute {
          */
         primary: boolean;
         /**
-         * Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
+         * Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is defined below.
          */
         publicIpAddressConfiguration?: outputs.compute.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration;
         /**
@@ -27013,7 +27065,7 @@ export namespace compute {
 
     export interface ScaleSetOsProfileWindowsConfig {
         /**
-         * An `additionalUnattendConfig` block as documented below.
+         * An `additionalUnattendConfig` block as defined below.
          */
         additionalUnattendConfigs?: outputs.compute.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig[];
         /**
@@ -27025,7 +27077,7 @@ export namespace compute {
          */
         provisionVmAgent?: boolean;
         /**
-         * A collection of `winrm` blocks as documented below.
+         * One or more `winrm` blocks as defined below.
          */
         winrms?: outputs.compute.ScaleSetOsProfileWindowsConfigWinrm[];
     }
@@ -27341,6 +27393,82 @@ export namespace compute {
          * The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
          */
         storageAccountType?: string;
+    }
+
+    export interface SharedImageVersionUefi {
+        /**
+         * An `additionalSignatures` block as defined below. Changing this forces a new resource to be created.
+         */
+        additionalSignatures?: outputs.compute.SharedImageVersionUefiAdditionalSignatures;
+        /**
+         * A list of UEFI signature template names to include in the UEFI settings. Possible values are `MicrosoftUefiCertificateAuthorityTemplate`, `MicrosoftWindowsTemplate` and `NoSignatureTemplate`. Changing this forces a new resource to be created.
+         */
+        signatureTemplateNames: string[];
+    }
+
+    export interface SharedImageVersionUefiAdditionalSignatures {
+        /**
+         * One or more `db` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dbs?: outputs.compute.SharedImageVersionUefiAdditionalSignaturesDb[];
+        /**
+         * One or more `dbx` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dbxes?: outputs.compute.SharedImageVersionUefiAdditionalSignaturesDbx[];
+        /**
+         * One or more `kek` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        keks?: outputs.compute.SharedImageVersionUefiAdditionalSignaturesKek[];
+        /**
+         * A `pk` block as defined below. Changing this forces a new resource to be created.
+         *
+         * > **Note:** At least one of `db`, `dbx`, `kek` or `pk` must be specified when an `additionalSignatures` block is defined.
+         */
+        pk?: outputs.compute.SharedImageVersionUefiAdditionalSignaturesPk;
+    }
+
+    export interface SharedImageVersionUefiAdditionalSignaturesDb {
+        /**
+         * The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+         */
+        type: string;
+        /**
+         * A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+         */
+        valuesBase64s: string[];
+    }
+
+    export interface SharedImageVersionUefiAdditionalSignaturesDbx {
+        /**
+         * The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+         */
+        type: string;
+        /**
+         * A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+         */
+        valuesBase64s: string[];
+    }
+
+    export interface SharedImageVersionUefiAdditionalSignaturesKek {
+        /**
+         * The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+         */
+        type: string;
+        /**
+         * A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+         */
+        valuesBase64s: string[];
+    }
+
+    export interface SharedImageVersionUefiAdditionalSignaturesPk {
+        /**
+         * The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+         */
+        type: string;
+        /**
+         * A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+         */
+        valuesBase64s: string[];
     }
 
     export interface SnapshotEncryptionSettings {
@@ -28535,7 +28663,7 @@ export namespace config {
         managedDisk?: outputs.config.FeaturesManagedDisk;
         netapp?: outputs.config.FeaturesNetapp;
         /**
-         * Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+         * Whether to set the resource ID into state before polling asynchronous operations for completion.
          */
         persistIdOnCreateBeforePollingForCompletion?: boolean;
         postgresqlFlexibleServer?: outputs.config.FeaturesPostgresqlFlexibleServer;
@@ -28544,7 +28672,7 @@ export namespace config {
         resourceGroup?: outputs.config.FeaturesResourceGroup;
         servicebus?: outputs.config.FeaturesServicebus;
         /**
-         * Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+         * Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
          */
         skipImportCheckOnCreateAndAllowOverwritingExistingResources?: boolean;
         storage?: outputs.config.FeaturesStorage;
@@ -28574,7 +28702,7 @@ export namespace config {
 
     export interface FeaturesDatabricksWorkspace {
         /**
-         * When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+         * When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
          */
         forceDelete?: boolean;
     }
@@ -28585,7 +28713,7 @@ export namespace config {
          */
         locations?: boolean;
         /**
-         * Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+         * Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
          */
         preflightEnabled?: boolean;
         /**
@@ -28593,54 +28721,54 @@ export namespace config {
          */
         preflightLocationFallback?: string;
         /**
-         * Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+         * Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
          */
         resourceProviders?: boolean;
     }
 
     export interface FeaturesKeyVault {
         /**
-         * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+         * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
          */
         purgeSoftDeleteOnDestroy?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+         * When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
          */
         purgeSoftDeletedCertificatesOnDestroy?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
          */
         purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
          */
         purgeSoftDeletedHardwareSecurityModulesOnDestroy?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+         * When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
          */
         purgeSoftDeletedKeysOnDestroy?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+         * When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
          */
         purgeSoftDeletedSecretsOnDestroy?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+         * When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
          */
         recoverSoftDeletedCertificates?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
          */
         recoverSoftDeletedHardwareSecurityModuleKeys?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+         * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
          */
         recoverSoftDeletedKeyVaults?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+         * When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
          */
         recoverSoftDeletedKeys?: boolean;
         /**
-         * When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+         * When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
          */
         recoverSoftDeletedSecrets?: boolean;
     }
@@ -28659,11 +28787,11 @@ export namespace config {
 
     export interface FeaturesNetapp {
         /**
-         * When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+         * When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
          */
         deleteBackupsOnBackupVaultDestroy?: boolean;
         /**
-         * When enabled, the volume will not be destroyed, safeguarding from severe data loss
+         * When enabled, the volume will not be destroyed, safeguarding from severe data loss.
          */
         preventVolumeDestruction?: boolean;
     }
@@ -29283,6 +29411,12 @@ export namespace containerapp {
          */
         ipSecurityRestrictions?: outputs.containerapp.AppIngressIpSecurityRestriction[];
         /**
+         * Is session affinity enabled. Defaults to `false`.
+         *
+         * > **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+         */
+        sessionAffinityEnabled?: boolean;
+        /**
          * The target port on the container for the Ingress traffic.
          */
         targetPort: number;
@@ -29768,7 +29902,7 @@ export namespace containerapp {
          */
         authentications?: outputs.containerapp.AppTemplateCustomScaleRuleAuthentication[];
         /**
-         * The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+         * The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, `github-runner`, and `temporal`.
          */
         customRuleType: string;
         /**
@@ -30011,6 +30145,8 @@ export namespace containerapp {
         maximumCount?: number;
         /**
          * The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+         *
+         * > **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
          */
         minimumCount?: number;
         /**
@@ -30088,6 +30224,10 @@ export namespace containerapp {
          * One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
          */
         ipSecurityRestrictions: outputs.containerapp.GetAppIngressIpSecurityRestriction[];
+        /**
+         * Is session affinity enabled.
+         */
+        sessionAffinityEnabled: boolean;
         /**
          * The target port on the container for the Ingress traffic.
          */
@@ -30700,7 +30840,7 @@ export namespace containerapp {
          */
         authentications?: outputs.containerapp.JobEventTriggerConfigScaleRuleAuthentication[];
         /**
-         * Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+         * Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-durabletask-scheduler`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue`, `github-runner` and `temporal`.
          */
         customRuleType: string;
         /**
@@ -31931,7 +32071,7 @@ export namespace containerservice {
          */
         type: string;
         /**
-         * A `upgradeSettings` block as documented below.
+         * A `upgradeSettings` block as defined below.
          */
         upgradeSettings: outputs.containerservice.GetKubernetesClusterAgentPoolProfileUpgradeSetting[];
         /**
@@ -32065,7 +32205,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterKeyVaultSecretsProvider {
         /**
-         * A `secretIdentity` block as documented below.
+         * A `secretIdentity` block as defined below.
          */
         secretIdentities: outputs.containerservice.GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity[];
         /**
@@ -32255,7 +32395,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterServiceMeshProfile {
         /**
-         * A `certificateAuthority` block as documented below.
+         * A `certificateAuthority` block as defined below.
          */
         certificateAuthorities: outputs.containerservice.GetKubernetesClusterServiceMeshProfileCertificateAuthority[];
         /**
@@ -33013,7 +33153,7 @@ export namespace containerservice {
          */
         nodeLabels: {[key: string]: string};
         /**
-         * A `nodeNetworkProfile` block as documented below.
+         * A `nodeNetworkProfile` block as defined below.
          */
         nodeNetworkProfile?: outputs.containerservice.KubernetesClusterDefaultNodePoolNodeNetworkProfile;
         /**
@@ -33061,6 +33201,12 @@ export namespace containerservice {
          */
         scaleDownMode?: string;
         /**
+         * A `security` block as documented below.
+         *
+         * > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+         */
+        security?: outputs.containerservice.KubernetesClusterDefaultNodePoolSecurity;
+        /**
          * The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
          */
         snapshotId?: string;
@@ -33085,7 +33231,7 @@ export namespace containerservice {
          */
         ultraSsdEnabled?: boolean;
         /**
-         * A `upgradeSettings` block as documented below.
+         * A `upgradeSettings` block as defined below.
          */
         upgradeSettings?: outputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings;
         /**
@@ -33268,7 +33414,7 @@ export namespace containerservice {
          */
         netIpv4TcpMaxTwBuckets?: number;
         /**
-         * The sysctl setting net.ipv4.tcp_tw_reuse.
+         * Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
          */
         netIpv4TcpTwReuse?: boolean;
         /**
@@ -33321,6 +33467,17 @@ export namespace containerservice {
          * Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
          */
         protocol?: string;
+    }
+
+    export interface KubernetesClusterDefaultNodePoolSecurity {
+        /**
+         * Specifies whether Secure Boot should be enabled for this Default Node Pool. Defaults to `false`.
+         */
+        secureBootEnabled?: boolean;
+        /**
+         * Specifies whether vTPM should be enabled for this Default Node Pool. Defaults to `false`.
+         */
+        vtpmEnabled?: boolean;
     }
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
@@ -33478,11 +33635,17 @@ export namespace containerservice {
 
     export interface KubernetesClusterKeyManagementService {
         /**
-         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+         * The ID of the Key Vault in which the key is located.
+         *
+         * > **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+         */
+        keyVaultId?: string;
+        /**
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
          */
         keyVaultKeyId: string;
         /**
-         * Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+         * Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
          */
         keyVaultNetworkAccess?: string;
     }
@@ -34149,6 +34312,17 @@ export namespace containerservice {
         protocol?: string;
     }
 
+    export interface KubernetesClusterNodePoolSecurity {
+        /**
+         * Specifies whether Secure Boot should be enabled for this Node Pool. Defaults to `false`.
+         */
+        secureBootEnabled?: boolean;
+        /**
+         * Specifies whether vTPM should be enabled for this Node Pool. Defaults to `false`.
+         */
+        vtpmEnabled?: boolean;
+    }
+
     export interface KubernetesClusterNodePoolUpgradeSettings {
         /**
          * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
@@ -34245,7 +34419,7 @@ export namespace containerservice {
          */
         mode: string;
         /**
-         * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+         * Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
          *
          * > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
          */
@@ -37760,7 +37934,7 @@ export namespace datafactory {
          */
         minutes: number[];
         /**
-         * A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+         * A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled.
          */
         monthlies: outputs.datafactory.GetTriggerScheduleScheduleMonthly[];
     }
@@ -38314,7 +38488,7 @@ export namespace datafactory {
          */
         minutes?: number[];
         /**
-         * A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+         * A `monthly` block as defined below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
          */
         monthlies?: outputs.datafactory.TriggerScheduleScheduleMonthly[];
     }
@@ -38458,6 +38632,69 @@ export namespace dataprotection {
          * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
          */
         duration: string;
+    }
+
+    export interface BackupPolicyCosmosdbAccountMonthlyRetentionRule {
+        /**
+         * A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+         */
+        daysOfWeek?: string;
+        /**
+         * The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The duration must use the ISO 8601 duration format.
+         */
+        duration: string;
+        /**
+         * A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Specify `daysOfWeek` and `weeksOfMonth` together to select backups by day and week. When both fields are omitted, this rule retains the first successful full backup of the month.
+         */
+        weeksOfMonths?: string[];
+    }
+
+    export interface BackupPolicyCosmosdbAccountWeeklyRetentionRule {
+        /**
+         * A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+         *
+         * > **Note:** When `daysOfWeek` is omitted, this rule retains the first successful full backup of the week.
+         */
+        daysOfWeek?: string;
+        /**
+         * The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The duration must use the ISO 8601 duration format.
+         */
+        duration: string;
+    }
+
+    export interface BackupPolicyCosmosdbAccountYearlyRetentionRule {
+        /**
+         * A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+         */
+        daysOfWeek?: string;
+        /**
+         * The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The duration must use the ISO 8601 duration format.
+         */
+        duration: string;
+        /**
+         * A set of calendar months in which backups matching this rule are retained. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+         */
+        monthsOfYears?: string[];
+        /**
+         * A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Specify `daysOfWeek`, `weeksOfMonth`, and `monthsOfYear` together to select backups by day, week, and month. When all three fields are omitted, this rule retains first successful full backup of the year.
+         */
+        weeksOfMonths?: string[];
     }
 
     export interface BackupPolicyDataLakeStorageRetentionRule {
@@ -41779,13 +42016,15 @@ export namespace eventgrid {
          */
         authorizationExpirationTimeInUtc?: string;
         /**
-         * The partner name.
+         * The name of a verified partner.
          */
-        partnerName: string;
+        partnerName?: string;
         /**
          * The immutable id of the corresponding partner registration.
+         *
+         * > **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
          */
-        partnerRegistrationId: string;
+        partnerRegistrationId?: string;
     }
 
     export interface PartnerNamespaceInboundIpRule {
@@ -43284,7 +43523,7 @@ export namespace extendedlocation {
 export namespace fabric {
     export interface CapacitySku {
         /**
-         * The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+         * The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
          */
         name: string;
         /**
@@ -46806,6 +47045,89 @@ export namespace healthcare {
 
 }
 
+export namespace horizondb {
+    export interface ClusterIdentity {
+        /**
+         * A set of User Assigned Identity IDs assigned to the Cluster.
+         *
+         * > **Note:** Identity updates replace the complete set of assigned identities in place. Removing the `identity` block clears all assignments.
+         */
+        identityIds: string[];
+        /**
+         * The type of Managed Identity assigned to the Cluster. The only possible value is `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface ClusterPointInTimeRestore {
+        /**
+         * The restore timestamp in RFC3339 format. Changing this forces a new resource to be created.
+         *
+         * > **Note:** For a same-region restore, HorizonDB uses the latest available backup at or before this timestamp. For a cross-region restore, the timestamp is required but ignored by the service, which uses the latest available geo-replicated backup.
+         */
+        pointInTimeUtc: string;
+        /**
+         * The ID of the source HorizonDB Cluster. Changing this forces a new resource to be created.
+         */
+        sourceHorizondbClusterId: string;
+        /**
+         * The Azure Region of the source HorizonDB Cluster. Changing this forces a new resource to be created.
+         *
+         * > **Note:** This is required for cross-region restores and optional for same-region restores. Cross-region restores require an eligible geo-replicated backup from the source Cluster.
+         *
+         * > **Note:** Restoring a Cluster does not clone the source Pool or its child resources. A new Pool is created from the required `readWritePool` block after restoration using the restored PostgreSQL version to select its default parameter group.
+         */
+        sourceLocation?: string;
+    }
+
+    export interface ClusterReadWritePool {
+        /**
+         * A `compute` block as defined above.
+         */
+        compute: outputs.horizondb.ClusterReadWritePoolCompute;
+        /**
+         * The high-availability mode. Possible values are `AnyZone`, `Disabled`, and `ZoneRedundant`.
+         *
+         * > **Note:** Use `Disabled` with one node, or `AnyZone` or `ZoneRedundant` with two or more nodes. Change the mode and node count together when crossing these ranges. `ZoneRedundant` requires allocation across availability zones; changing the mode can replace nodes and disconnect their clients.
+         */
+        highAvailabilityMode: string;
+        /**
+         * The ID of the HorizonDB Pool.
+         */
+        id: string;
+        /**
+         * The name of the Pool. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The name must contain between 1 and 63 lowercase letters, numbers, or hyphens, must start and end with a letter or number, and must differ from the Cluster name.
+         */
+        name: string;
+        /**
+         * The number of nodes allocated to the Pool.
+         *
+         * > **Note:** The node count must be between `1` and `16`. Zero nodes is not a supported configuration; stopping compute is a separate Azure operation.
+         */
+        nodeCount: number;
+    }
+
+    export interface ClusterReadWritePoolCompute {
+        /**
+         * The compute generation. The only possible value is `1`.
+         */
+        generation: number;
+        /**
+         * The processor type. Possible values are `AMD` and `Intel`.
+         */
+        processor: string;
+        /**
+         * The provisioned compute capacity in vCores. Possible values are `2`, `4`, `8`, `16`, `20`, `32`, `48`, `64`, and `96`.
+         *
+         * > **Note:** Azure validates the supported combinations of processor, generation, and capacity.
+         */
+        vcores: number;
+    }
+
+}
+
 export namespace hsm {
     export interface ModuleManagementNetworkProfile {
         /**
@@ -49054,7 +49376,7 @@ export namespace logicapps {
          */
         messageCount?: number;
         /**
-         * A `recurrence` block as documented below.
+         * A `recurrence` block as defined below.
          */
         recurrence?: outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence;
     }
@@ -49073,7 +49395,7 @@ export namespace logicapps {
          */
         interval: number;
         /**
-         * A `schedule` block as documented below.
+         * A `schedule` block as defined below.
          */
         schedule?: outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule;
         /**
@@ -49100,7 +49422,7 @@ export namespace logicapps {
          */
         monthDays?: number[];
         /**
-         * A `monthly` block as documented below.
+         * A `monthly` block as defined below.
          */
         monthlies?: outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly[];
         /**
@@ -53830,7 +54152,7 @@ export namespace mssql {
          */
         encryptionPassword?: string;
         /**
-         * A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+         * A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
          */
         manualSchedule?: outputs.mssql.VirtualMachineAutoBackupManualSchedule;
         /**
@@ -54268,9 +54590,17 @@ export namespace mysql {
 export namespace netapp {
     export interface AccountActiveDirectory {
         /**
+         * A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+         */
+        administratorUsers?: string[];
+        /**
          * If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
          */
         aesEncryptionEnabled?: boolean;
+        /**
+         * A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+         */
+        backupUsers?: string[];
         /**
          * A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
          */
@@ -54279,6 +54609,10 @@ export namespace netapp {
          * The name of the Active Directory domain.
          */
         domain: string;
+        /**
+         * If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+         */
+        domainControllerConnectionEncryptionEnabled?: boolean;
         /**
          * Name of the active directory machine.
          */
@@ -54290,9 +54624,17 @@ export namespace netapp {
          */
         kerberosKdcIp?: string;
         /**
+         * Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+         */
+        ldapClientPreferredServers?: string[];
+        /**
          * Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
          */
         ldapOverTlsEnabled?: boolean;
+        /**
+         * An `ldapSearchScope` block as defined below.
+         */
+        ldapSearchScope?: outputs.netapp.AccountActiveDirectoryLdapSearchScope;
         /**
          * Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
          */
@@ -54309,6 +54651,10 @@ export namespace netapp {
          * The password associated with the `username`.
          */
         password: string;
+        /**
+         * A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\` and can be up to `255` characters long.
+         */
+        securityUsers?: string[];
         /**
          * When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
          */
@@ -54327,9 +54673,28 @@ export namespace netapp {
         username: string;
     }
 
+    export interface AccountActiveDirectoryLdapSearchScope {
+        /**
+         * Specifies the group DN, which overrides the base DN for group lookups.
+         */
+        groupDn?: string;
+        /**
+         * Specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+         */
+        groupMembershipFilter?: string;
+        /**
+         * Specifies the user DN, which overrides the base DN for user lookups.
+         *
+         * > **Note:** When using the `ldapSearchScope` block, at least one of the `groupDn`, `groupMembershipFilter`, or `userDn` must be specified.
+         */
+        userDn?: string;
+    }
+
     export interface AccountIdentity {
         /**
          * The identity id of the user assigned identity to use when type is `UserAssigned`
+         *
+         * > **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
          */
         identityIds?: string[];
         principalId: string;
@@ -59746,7 +60111,7 @@ export namespace network {
 
     export interface ProfileContainerNetworkInterface {
         /**
-         * One or more `ipConfiguration` blocks as documented below.
+         * One or more `ipConfiguration` blocks as defined below.
          */
         ipConfigurations: outputs.network.ProfileContainerNetworkInterfaceIpConfiguration[];
         /**
@@ -60036,7 +60401,7 @@ export namespace network {
 
     export interface TrafficManagerProfileDnsConfig {
         /**
-         * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+         * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
          */
         relativeName: string;
         /**
@@ -63084,7 +63449,7 @@ export namespace pim {
 
     export interface GetRoleManagementPolicyActivationRuleApprovalStage {
         /**
-         * The IDs of the users or groups who can approve the activation
+         * The IDs of the users or groups who can approve the activation.
          */
         primaryApprovers: outputs.pim.GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover[];
     }
@@ -63433,180 +63798,180 @@ export namespace pim {
 
     export interface RoleManagementPolicyNotificationRulesActiveAssignments {
         /**
-         * Admin notification settings
+         * Admin notification settings.
          */
         adminNotifications: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications;
         /**
-         * Approver notification settings
+         * Approver notification settings.
          */
         approverNotifications: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications;
         /**
-         * Assignee notification settings
+         * Assignee notification settings.
          */
         assigneeNotifications: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications;
     }
 
     export interface RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
 
     export interface RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
 
     export interface RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
 
     export interface RoleManagementPolicyNotificationRulesEligibleActivations {
         /**
-         * Admin notification settings
+         * Admin notification settings.
          */
         adminNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications;
         /**
-         * Approver notification settings
+         * Approver notification settings.
          */
         approverNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications;
         /**
-         * Assignee notification settings
+         * Assignee notification settings.
          */
         assigneeNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications;
     }
 
     export interface RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
 
     export interface RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
 
     export interface RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
 
     export interface RoleManagementPolicyNotificationRulesEligibleAssignments {
         /**
-         * Admin notification settings
+         * Admin notification settings.
          */
         adminNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications;
         /**
-         * Approver notification settings
+         * Approver notification settings.
          */
         approverNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications;
         /**
-         * Assignee notification settings
+         * Assignee notification settings.
          */
         assigneeNotifications: outputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications;
     }
 
     export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
 
     export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
 
     export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
         /**
-         * The additional recipients to notify
+         * The additional recipients to notify.
          */
         additionalRecipients: string[];
         /**
-         * Whether the default recipients are notified
+         * Whether the default recipients are notified.
          */
         defaultRecipients: boolean;
         /**
-         * What level of notifications are sent
+         * What level of notifications are sent.
          */
         notificationLevel: string;
     }
@@ -64208,6 +64573,14 @@ export namespace privatelink {
 
     export interface EndpointPrivateServiceConnection {
         /**
+         * Indicates if changes on the service provider require any updates on the consumer.
+         */
+        actionRequired: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description: string;
+        /**
          * Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
          *
          * > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
@@ -64235,6 +64608,10 @@ export namespace privatelink {
          * > **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
          */
         requestMessage?: string;
+        /**
+         * The status of the connection between the service consumer and provider.
+         */
+        status: string;
         /**
          * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          *
@@ -64920,6 +65297,25 @@ export namespace search {
          * The Name of the Search Service.
          */
         name: string;
+    }
+
+    export interface ServiceDatasourceBlobEncryptionKey {
+        /**
+         * The Client ID of the Microsoft Entra ID application used for authentication.
+         *
+         * > **Note:** `clientId` and `clientSecret` must be specified together.
+         */
+        clientId?: string;
+        /**
+         * The Client Secret of the Microsoft Entra ID application used for authentication.
+         *
+         * > **Note:** If `clientId` and `clientSecret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+         */
+        clientSecret?: string;
+        /**
+         * The ID of the Key Vault Key used for encryption.
+         */
+        keyVaultKeyId: string;
     }
 
     export interface ServiceIdentity {
@@ -67899,7 +68295,7 @@ export namespace storage {
         /**
          * The ID of a user assigned identity.
          *
-         * > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+         * > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
          */
         userAssignedIdentityId: string;
     }
@@ -68379,7 +68775,7 @@ export namespace storage {
 
     export interface GetAccountAzureFilesAuthentication {
         /**
-         * An `activeDirectory` block as documented below.
+         * An `activeDirectory` block as defined below.
          */
         activeDirectories: outputs.storage.GetAccountAzureFilesAuthenticationActiveDirectory[];
         /**
@@ -68602,7 +68998,7 @@ export namespace storage {
 
     export interface GetPolicyRule {
         /**
-         * An `actions` block as documented below.
+         * An `actions` block as defined below.
          */
         actions: outputs.storage.GetPolicyRuleAction[];
         /**
@@ -68610,7 +69006,7 @@ export namespace storage {
          */
         enabled: boolean;
         /**
-         * A `filter` block as documented below.
+         * A `filter` block as defined below.
          */
         filters: outputs.storage.GetPolicyRuleFilter[];
         /**
@@ -68621,15 +69017,15 @@ export namespace storage {
 
     export interface GetPolicyRuleAction {
         /**
-         * A `baseBlob` block as documented below.
+         * A `baseBlob` block as defined below.
          */
         baseBlobs: outputs.storage.GetPolicyRuleActionBaseBlob[];
         /**
-         * A `snapshot` block as documented below.
+         * A `snapshot` block as defined below.
          */
         snapshots: outputs.storage.GetPolicyRuleActionSnapshot[];
         /**
-         * A `version` block as documented below.
+         * A `version` block as defined below.
          */
         versions: outputs.storage.GetPolicyRuleActionVersion[];
     }
@@ -68875,7 +69271,7 @@ export namespace storage {
 
     export interface ManagementPolicyRule {
         /**
-         * An `actions` block as documented below.
+         * An `actions` block as defined below.
          */
         actions: outputs.storage.ManagementPolicyRuleActions;
         /**
@@ -68883,7 +69279,7 @@ export namespace storage {
          */
         enabled: boolean;
         /**
-         * A `filters` block as documented below.
+         * A `filters` block as defined below.
          */
         filters: outputs.storage.ManagementPolicyRuleFilters;
         /**
@@ -68894,15 +69290,15 @@ export namespace storage {
 
     export interface ManagementPolicyRuleActions {
         /**
-         * A `baseBlob` block as documented below.
+         * A `baseBlob` block as defined below.
          */
         baseBlob?: outputs.storage.ManagementPolicyRuleActionsBaseBlob;
         /**
-         * A `snapshot` block as documented below.
+         * A `snapshot` block as defined below.
          */
         snapshot?: outputs.storage.ManagementPolicyRuleActionsSnapshot;
         /**
-         * A `version` block as documented below.
+         * A `version` block as defined below.
          */
         version?: outputs.storage.ManagementPolicyRuleActionsVersion;
     }
@@ -69771,7 +70167,7 @@ export namespace systemcenter {
 export namespace trafficmanager {
     export interface ProfileDnsConfig {
         /**
-         * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+         * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
          */
         relativeName: string;
         /**
@@ -69933,13 +70329,78 @@ export namespace waf {
 
     export interface PolicyManagedRules {
         /**
+         * One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+         *
+         * > **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+         */
+        exceptions?: outputs.waf.PolicyManagedRulesException[];
+        /**
          * One or more `exclusion` block defined below.
+         *
+         * > **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
          */
         exclusions?: outputs.waf.PolicyManagedRulesExclusion[];
         /**
-         * One or more `managedRuleSet` block defined below.
+         * One or more `managedRuleSet` blocks as defined below.
+         *
+         * > **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
          */
         managedRuleSets: outputs.waf.PolicyManagedRulesManagedRuleSet[];
+    }
+
+    export interface PolicyManagedRulesException {
+        /**
+         * One or more `exceptionRuleSet` blocks as defined below.
+         */
+        exceptionRuleSets: outputs.waf.PolicyManagedRulesExceptionExceptionRuleSet[];
+        /**
+         * The request attribute to match. Possible values are `RemoteAddr`, `RequestHeader`, and `RequestURI`.
+         */
+        matchVariable: string;
+        /**
+         * The request header selector to match.
+         */
+        selector?: string;
+        /**
+         * The operator used to match `selector`. Possible values are `Contains`, `EndsWith`, `Equals`, and `StartsWith`.
+         */
+        selectorMatchOperator?: string;
+        /**
+         * The operator used to match `values`. Possible values are `Contains`, `EndsWith`, `Equals`, `IPMatch`, and `StartsWith`.
+         */
+        valueMatchOperator: string;
+        /**
+         * A non-empty list of values to match. Each value must be between 1 and 256 characters in length.
+         *
+         * > **Note:** A maximum of 600 values is supported when `matchVariable` is `RemoteAddr`, and a maximum of 10 values is supported when `matchVariable` is `RequestHeader` or `RequestURI`.
+         */
+        values: string[];
+    }
+
+    export interface PolicyManagedRulesExceptionExceptionRuleSet {
+        /**
+         * One or more `ruleGroup` blocks as defined below.
+         */
+        ruleGroups?: outputs.waf.PolicyManagedRulesExceptionExceptionRuleSetRuleGroup[];
+        /**
+         * The rule set type. Possible values are `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet`, and `OWASP`.
+         */
+        type: string;
+        /**
+         * The rule set version. Possible values are `1.0`, `1.1`, `2.1`, `2.2`, and `3.2`.
+         */
+        version: string;
+    }
+
+    export interface PolicyManagedRulesExceptionExceptionRuleSetRuleGroup {
+        /**
+         * The name of the managed rule group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
+         */
+        ruleGroupName: string;
+        /**
+         * A list of managed Rule IDs for the exception.
+         */
+        rules?: string[];
     }
 
     export interface PolicyManagedRulesExclusion {
@@ -69982,7 +70443,7 @@ export namespace waf {
          */
         excludedRules?: string[];
         /**
-         * The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
+         * The name of the managed rule group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `FIX`, `General`, `GoodBots`, `JAVA`, `Known-CVEs`, `KnownBadBots`, `LFI`, `METHOD-ENFORCEMENT`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-CVEs`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-XSS`, `NODEJS`, `PHP`, `PROTOCOL-ATTACK`, `PROTOCOL-ENFORCEMENT`, `RCE`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `RFI`, `SQLI`, `UnknownBots`, and `XSS`.
          */
         ruleGroupName: string;
     }

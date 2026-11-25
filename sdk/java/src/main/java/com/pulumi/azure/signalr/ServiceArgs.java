@@ -56,14 +56,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `cors` block as documented below.
+     * A `cors` block as defined below.
      * 
      */
     @Import(name="cors")
     private @Nullable Output<List<ServiceCorArgs>> cors;
 
     /**
-     * @return A `cors` block as documented below.
+     * @return A `cors` block as defined below.
      * 
      */
     public Optional<Output<List<ServiceCorArgs>>> cors() {
@@ -259,14 +259,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      * 
      */
     @Import(name="sku", required=true)
     private Output<ServiceSkuArgs> sku;
 
     /**
-     * @return A `sku` block as documented below.
+     * @return A `sku` block as defined below.
      * 
      */
     public Output<ServiceSkuArgs> sku() {
@@ -308,14 +308,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
     @Import(name="upstreamEndpoints")
     private @Nullable Output<List<ServiceUpstreamEndpointArgs>> upstreamEndpoints;
 
     /**
-     * @return An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * @return An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
     public Optional<Output<List<ServiceUpstreamEndpointArgs>>> upstreamEndpoints() {
@@ -407,7 +407,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cors A `cors` block as documented below.
+         * @param cors A `cors` block as defined below.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cors A `cors` block as documented below.
+         * @param cors A `cors` block as defined below.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cors A `cors` block as documented below.
+         * @param cors A `cors` block as defined below.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku A `sku` block as documented below.
+         * @param sku A `sku` block as defined below.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku A `sku` block as documented below.
+         * @param sku A `sku` block as defined below.
          * 
          * @return builder
          * 
@@ -765,7 +765,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamEndpoints An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+         * @param upstreamEndpoints An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
          * 
          * @return builder
          * 
@@ -776,7 +776,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamEndpoints An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+         * @param upstreamEndpoints An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamEndpoints An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+         * @param upstreamEndpoints An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
          * 
          * @return builder
          * 

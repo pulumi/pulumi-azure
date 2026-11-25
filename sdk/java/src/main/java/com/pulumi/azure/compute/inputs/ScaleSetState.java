@@ -82,14 +82,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
      * 
      */
     @Import(name="extensions")
     private @Nullable Output<List<ScaleSetExtensionArgs>> extensions;
 
     /**
-     * @return Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+     * @return Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
      * 
      */
     public Optional<Output<List<ScaleSetExtensionArgs>>> extensions() {
@@ -172,14 +172,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of `networkProfile` blocks as documented below.
+     * One or more `networkProfile` blocks as defined below.
      * 
      */
     @Import(name="networkProfiles")
     private @Nullable Output<List<ScaleSetNetworkProfileArgs>> networkProfiles;
 
     /**
-     * @return A collection of `networkProfile` blocks as documented below.
+     * @return One or more `networkProfile` blocks as defined below.
      * 
      */
     public Optional<Output<List<ScaleSetNetworkProfileArgs>>> networkProfiles() {
@@ -187,14 +187,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `osProfile` block as documented below.
+     * A `osProfile` block as defined below.
      * 
      */
     @Import(name="osProfile")
     private @Nullable Output<ScaleSetOsProfileArgs> osProfile;
 
     /**
-     * @return A `osProfile` block as documented below.
+     * @return A `osProfile` block as defined below.
      * 
      */
     public Optional<Output<ScaleSetOsProfileArgs>> osProfile() {
@@ -202,14 +202,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `osProfileLinuxConfig` block as documented below.
+     * A `osProfileLinuxConfig` block as defined below.
      * 
      */
     @Import(name="osProfileLinuxConfig")
     private @Nullable Output<ScaleSetOsProfileLinuxConfigArgs> osProfileLinuxConfig;
 
     /**
-     * @return A `osProfileLinuxConfig` block as documented below.
+     * @return A `osProfileLinuxConfig` block as defined below.
      * 
      */
     public Optional<Output<ScaleSetOsProfileLinuxConfigArgs>> osProfileLinuxConfig() {
@@ -217,14 +217,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of `osProfileSecrets` blocks as documented below.
+     * One or more `osProfileSecrets` blocks as defined below.
      * 
      */
     @Import(name="osProfileSecrets")
     private @Nullable Output<List<ScaleSetOsProfileSecretArgs>> osProfileSecrets;
 
     /**
-     * @return A collection of `osProfileSecrets` blocks as documented below.
+     * @return One or more `osProfileSecrets` blocks as defined below.
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileSecretArgs>>> osProfileSecrets() {
@@ -232,14 +232,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `osProfileWindowsConfig` block as documented below.
+     * A `osProfileWindowsConfig` block as defined below.
      * 
      */
     @Import(name="osProfileWindowsConfig")
     private @Nullable Output<ScaleSetOsProfileWindowsConfigArgs> osProfileWindowsConfig;
 
     /**
-     * @return A `osProfileWindowsConfig` block as documented below.
+     * @return A `osProfileWindowsConfig` block as defined below.
      * 
      */
     public Optional<Output<ScaleSetOsProfileWindowsConfigArgs>> osProfileWindowsConfig() {
@@ -262,14 +262,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      * 
      */
     @Import(name="plan")
     private @Nullable Output<ScaleSetPlanArgs> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as defined below.
      * 
      */
     public Optional<Output<ScaleSetPlanArgs>> plan() {
@@ -352,14 +352,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<ScaleSetSkuArgs> sku;
 
     /**
-     * @return A `sku` block as documented below.
+     * @return A `sku` block as defined below.
      * 
      */
     public Optional<Output<ScaleSetSkuArgs>> sku() {
@@ -367,14 +367,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storageProfileDataDisk` block as documented below.
+     * A `storageProfileDataDisk` block as defined below.
      * 
      */
     @Import(name="storageProfileDataDisks")
     private @Nullable Output<List<ScaleSetStorageProfileDataDiskArgs>> storageProfileDataDisks;
 
     /**
-     * @return A `storageProfileDataDisk` block as documented below.
+     * @return A `storageProfileDataDisk` block as defined below.
      * 
      */
     public Optional<Output<List<ScaleSetStorageProfileDataDiskArgs>>> storageProfileDataDisks() {
@@ -382,14 +382,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storageProfileImageReference` block as documented below.
+     * A `storageProfileImageReference` block as defined below.
      * 
      */
     @Import(name="storageProfileImageReference")
     private @Nullable Output<ScaleSetStorageProfileImageReferenceArgs> storageProfileImageReference;
 
     /**
-     * @return A `storageProfileImageReference` block as documented below.
+     * @return A `storageProfileImageReference` block as defined below.
      * 
      */
     public Optional<Output<ScaleSetStorageProfileImageReferenceArgs>> storageProfileImageReference() {
@@ -397,14 +397,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storageProfileOsDisk` block as documented below.
+     * A `storageProfileOsDisk` block as defined below.
      * 
      */
     @Import(name="storageProfileOsDisk")
     private @Nullable Output<ScaleSetStorageProfileOsDiskArgs> storageProfileOsDisk;
 
     /**
-     * @return A `storageProfileOsDisk` block as documented below.
+     * @return A `storageProfileOsDisk` block as defined below.
      * 
      */
     public Optional<Output<ScaleSetStorageProfileOsDiskArgs>> storageProfileOsDisk() {
@@ -442,7 +442,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     * A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
@@ -451,7 +451,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     * @return A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
@@ -579,7 +579,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extensions Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+         * @param extensions Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extensions Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+         * @param extensions Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extensions Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+         * @param extensions Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
          * 
          * @return builder
          * 
@@ -715,7 +715,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of `networkProfile` blocks as documented below.
+         * @param networkProfiles One or more `networkProfile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -726,7 +726,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of `networkProfile` blocks as documented below.
+         * @param networkProfiles One or more `networkProfile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of `networkProfile` blocks as documented below.
+         * @param networkProfiles One or more `networkProfile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfile A `osProfile` block as documented below.
+         * @param osProfile A `osProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfile A `osProfile` block as documented below.
+         * @param osProfile A `osProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileLinuxConfig A `osProfileLinuxConfig` block as documented below.
+         * @param osProfileLinuxConfig A `osProfileLinuxConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileLinuxConfig A `osProfileLinuxConfig` block as documented below.
+         * @param osProfileLinuxConfig A `osProfileLinuxConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of `osProfileSecrets` blocks as documented below.
+         * @param osProfileSecrets One or more `osProfileSecrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of `osProfileSecrets` blocks as documented below.
+         * @param osProfileSecrets One or more `osProfileSecrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of `osProfileSecrets` blocks as documented below.
+         * @param osProfileSecrets One or more `osProfileSecrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileWindowsConfig A `osProfileWindowsConfig` block as documented below.
+         * @param osProfileWindowsConfig A `osProfileWindowsConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileWindowsConfig A `osProfileWindowsConfig` block as documented below.
+         * @param osProfileWindowsConfig A `osProfileWindowsConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as defined below.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as defined below.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku A `sku` block as documented below.
+         * @param sku A `sku` block as defined below.
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku A `sku` block as documented below.
+         * @param sku A `sku` block as defined below.
          * 
          * @return builder
          * 
@@ -1008,7 +1008,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A `storageProfileDataDisk` block as documented below.
+         * @param storageProfileDataDisks A `storageProfileDataDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -1019,7 +1019,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A `storageProfileDataDisk` block as documented below.
+         * @param storageProfileDataDisks A `storageProfileDataDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -1029,7 +1029,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A `storageProfileDataDisk` block as documented below.
+         * @param storageProfileDataDisks A `storageProfileDataDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -1039,7 +1039,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileImageReference A `storageProfileImageReference` block as documented below.
+         * @param storageProfileImageReference A `storageProfileImageReference` block as defined below.
          * 
          * @return builder
          * 
@@ -1050,7 +1050,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileImageReference A `storageProfileImageReference` block as documented below.
+         * @param storageProfileImageReference A `storageProfileImageReference` block as defined below.
          * 
          * @return builder
          * 
@@ -1060,7 +1060,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileOsDisk A `storageProfileOsDisk` block as documented below.
+         * @param storageProfileOsDisk A `storageProfileOsDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -1071,7 +1071,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileOsDisk A `storageProfileOsDisk` block as documented below.
+         * @param storageProfileOsDisk A `storageProfileOsDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -1123,7 +1123,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+         * @param zones A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
@@ -1136,7 +1136,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+         * @param zones A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
@@ -1148,7 +1148,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+         * @param zones A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 

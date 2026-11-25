@@ -14,7 +14,8 @@ import (
 
 // Manages a Route Table
 //
-// > **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `routeTable` resource.
+// > **Note:** Terraform currently
+// provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
 // At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
 //
 // ## Example Usage
@@ -88,9 +89,9 @@ type RouteTable struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A list of objects representing routes. Each object accepts the arguments documented below.
+	// List of `route` objects representing routes as defined below. Each object accepts the arguments defined below.
 	//
-	// > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
 	// The collection of Subnets associated with this route table.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
@@ -139,9 +140,9 @@ type routeTableState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A list of objects representing routes. Each object accepts the arguments documented below.
+	// List of `route` objects representing routes as defined below. Each object accepts the arguments defined below.
 	//
-	// > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// The collection of Subnets associated with this route table.
 	Subnets []string `pulumi:"subnets"`
@@ -158,9 +159,9 @@ type RouteTableState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A list of objects representing routes. Each object accepts the arguments documented below.
+	// List of `route` objects representing routes as defined below. Each object accepts the arguments defined below.
 	//
-	// > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Routes RouteTableRouteArrayInput
 	// The collection of Subnets associated with this route table.
 	Subnets pulumi.StringArrayInput
@@ -181,9 +182,9 @@ type routeTableArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A list of objects representing routes. Each object accepts the arguments documented below.
+	// List of `route` objects representing routes as defined below. Each object accepts the arguments defined below.
 	//
-	// > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -199,9 +200,9 @@ type RouteTableArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A list of objects representing routes. Each object accepts the arguments documented below.
+	// List of `route` objects representing routes as defined below. Each object accepts the arguments defined below.
 	//
-	// > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -314,9 +315,9 @@ func (o RouteTableOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A list of objects representing routes. Each object accepts the arguments documented below.
+// List of `route` objects representing routes as defined below. Each object accepts the arguments defined below.
 //
-// > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+// > **Note:** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 func (o RouteTableOutput) Routes() RouteTableRouteArrayOutput {
 	return o.ApplyT(func(v *RouteTable) RouteTableRouteArrayOutput { return v.Routes }).(RouteTableRouteArrayOutput)
 }

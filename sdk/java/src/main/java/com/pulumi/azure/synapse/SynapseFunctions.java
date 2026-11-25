@@ -43,7 +43,7 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-synapse-workspace")
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
@@ -85,7 +85,7 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-synapse-workspace")
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
@@ -127,7 +127,7 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-synapse-workspace")
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
@@ -169,7 +169,7 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-synapse-workspace")
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
@@ -211,7 +211,7 @@ public final class SynapseFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SynapseFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name("existing")
+     *             .name("example-synapse-workspace")
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 

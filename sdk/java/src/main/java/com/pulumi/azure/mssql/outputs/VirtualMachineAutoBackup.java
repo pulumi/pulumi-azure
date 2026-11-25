@@ -21,7 +21,7 @@ public final class VirtualMachineAutoBackup {
      */
     private @Nullable String encryptionPassword;
     /**
-     * @return A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+     * @return A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
     private @Nullable VirtualMachineAutoBackupManualSchedule manualSchedule;
@@ -55,7 +55,7 @@ public final class VirtualMachineAutoBackup {
         return Optional.ofNullable(this.encryptionPassword);
     }
     /**
-     * @return A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+     * @return A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
     public Optional<VirtualMachineAutoBackupManualSchedule> manualSchedule() {

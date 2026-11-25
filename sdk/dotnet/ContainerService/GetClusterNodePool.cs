@@ -26,9 +26,9 @@ namespace Pulumi.Azure.ContainerService
         /// {
         ///     var example = Azure.ContainerService.GetClusterNodePool.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         KubernetesClusterName = "existing-cluster",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example",
+        ///         KubernetesClusterName = "example-cluster",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2026-05-01
+        /// * `Microsoft.ContainerService` - 2026-07-01
         /// </summary>
         public static Task<GetClusterNodePoolResult> InvokeAsync(GetClusterNodePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolArgs(), options.WithDefaults());
@@ -63,9 +63,9 @@ namespace Pulumi.Azure.ContainerService
         /// {
         ///     var example = Azure.ContainerService.GetClusterNodePool.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         KubernetesClusterName = "existing-cluster",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example",
+        ///         KubernetesClusterName = "example-cluster",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2026-05-01
+        /// * `Microsoft.ContainerService` - 2026-07-01
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());
@@ -100,9 +100,9 @@ namespace Pulumi.Azure.ContainerService
         /// {
         ///     var example = Azure.ContainerService.GetClusterNodePool.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         KubernetesClusterName = "existing-cluster",
-        ///         ResourceGroupName = "existing-resource-group",
+        ///         Name = "example",
+        ///         KubernetesClusterName = "example-cluster",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2026-05-01
+        /// * `Microsoft.ContainerService` - 2026-07-01
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A `UpgradeSettings` block as documented below.
+        /// A `UpgradeSettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterNodePoolUpgradeSettingResult> UpgradeSettings;
         /// <summary>

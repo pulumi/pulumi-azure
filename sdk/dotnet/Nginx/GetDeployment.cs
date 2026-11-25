@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Nginx
         /// {
         ///     var example = Azure.Nginx.GetDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-nginx-deployment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Nginx
         /// {
         ///     var example = Azure.Nginx.GetDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-nginx-deployment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Nginx
         /// {
         ///     var example = Azure.Nginx.GetDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-nginx-deployment",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

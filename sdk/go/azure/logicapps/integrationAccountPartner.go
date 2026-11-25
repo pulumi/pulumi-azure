@@ -82,7 +82,7 @@ import (
 type IntegrationAccountPartner struct {
 	pulumi.CustomResourceState
 
-	// A `businessIdentity` block as documented below.
+	// A `businessIdentity` block as defined below.
 	BusinessIdentities IntegrationAccountPartnerBusinessIdentityArrayOutput `pulumi:"businessIdentities"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
 	IntegrationAccountName pulumi.StringOutput `pulumi:"integrationAccountName"`
@@ -133,7 +133,7 @@ func GetIntegrationAccountPartner(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountPartner resources.
 type integrationAccountPartnerState struct {
-	// A `businessIdentity` block as documented below.
+	// A `businessIdentity` block as defined below.
 	BusinessIdentities []IntegrationAccountPartnerBusinessIdentity `pulumi:"businessIdentities"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
 	IntegrationAccountName *string `pulumi:"integrationAccountName"`
@@ -146,7 +146,7 @@ type integrationAccountPartnerState struct {
 }
 
 type IntegrationAccountPartnerState struct {
-	// A `businessIdentity` block as documented below.
+	// A `businessIdentity` block as defined below.
 	BusinessIdentities IntegrationAccountPartnerBusinessIdentityArrayInput
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
 	IntegrationAccountName pulumi.StringPtrInput
@@ -163,7 +163,7 @@ func (IntegrationAccountPartnerState) ElementType() reflect.Type {
 }
 
 type integrationAccountPartnerArgs struct {
-	// A `businessIdentity` block as documented below.
+	// A `businessIdentity` block as defined below.
 	BusinessIdentities []IntegrationAccountPartnerBusinessIdentity `pulumi:"businessIdentities"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
@@ -177,7 +177,7 @@ type integrationAccountPartnerArgs struct {
 
 // The set of arguments for constructing a IntegrationAccountPartner resource.
 type IntegrationAccountPartnerArgs struct {
-	// A `businessIdentity` block as documented below.
+	// A `businessIdentity` block as defined below.
 	BusinessIdentities IntegrationAccountPartnerBusinessIdentityArrayInput
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
 	IntegrationAccountName pulumi.StringInput
@@ -276,7 +276,7 @@ func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutputWithCo
 	return o
 }
 
-// A `businessIdentity` block as documented below.
+// A `businessIdentity` block as defined below.
 func (o IntegrationAccountPartnerOutput) BusinessIdentities() IntegrationAccountPartnerBusinessIdentityArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountPartner) IntegrationAccountPartnerBusinessIdentityArrayOutput {
 		return v.BusinessIdentities

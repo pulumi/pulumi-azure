@@ -223,8 +223,8 @@ def get_service_plan(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_service_plan(name="existing",
-        resource_group_name="existing")
+    example = azure.appservice.get_service_plan(name="example-service-plan",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -273,8 +273,8 @@ def get_service_plan_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_service_plan(name="existing",
-        resource_group_name="existing")
+    example = azure.appservice.get_service_plan(name="example-service-plan",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

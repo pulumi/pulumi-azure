@@ -128,7 +128,7 @@ def get_workspace(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.synapse.get_workspace(name="existing",
+    example = azure.synapse.get_workspace(name="example-synapse-workspace",
         resource_group_name="example-resource-group")
     pulumi.export("id", example.id)
     ```
@@ -163,7 +163,7 @@ def get_workspace_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.synapse.get_workspace(name="existing",
+    example = azure.synapse.get_workspace(name="example-synapse-workspace",
         resource_group_name="example-resource-group")
     pulumi.export("id", example.id)
     ```

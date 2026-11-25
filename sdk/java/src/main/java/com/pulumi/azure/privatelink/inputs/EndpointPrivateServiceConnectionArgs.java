@@ -19,6 +19,36 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     public static final EndpointPrivateServiceConnectionArgs Empty = new EndpointPrivateServiceConnectionArgs();
 
     /**
+     * Indicates if changes on the service provider require any updates on the consumer.
+     * 
+     */
+    @Import(name="actionRequired")
+    private @Nullable Output<String> actionRequired;
+
+    /**
+     * @return Indicates if changes on the service provider require any updates on the consumer.
+     * 
+     */
+    public Optional<Output<String>> actionRequired() {
+        return Optional.ofNullable(this.actionRequired);
+    }
+
+    /**
+     * The reason for approval/rejection of the connection.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The reason for approval/rejection of the connection.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
@@ -117,6 +147,21 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
+     * The status of the connection between the service consumer and provider.
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<String> status;
+
+    /**
+     * @return The status of the connection between the service consumer and provider.
+     * 
+     */
+    public Optional<Output<String>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
      * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
@@ -142,12 +187,15 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     private EndpointPrivateServiceConnectionArgs() {}
 
     private EndpointPrivateServiceConnectionArgs(EndpointPrivateServiceConnectionArgs $) {
+        this.actionRequired = $.actionRequired;
+        this.description = $.description;
         this.isManualConnection = $.isManualConnection;
         this.name = $.name;
         this.privateConnectionResourceAlias = $.privateConnectionResourceAlias;
         this.privateConnectionResourceId = $.privateConnectionResourceId;
         this.privateIpAddress = $.privateIpAddress;
         this.requestMessage = $.requestMessage;
+        this.status = $.status;
         this.subresourceNames = $.subresourceNames;
     }
 
@@ -167,6 +215,48 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
 
         public Builder(EndpointPrivateServiceConnectionArgs defaults) {
             $ = new EndpointPrivateServiceConnectionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param actionRequired Indicates if changes on the service provider require any updates on the consumer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionRequired(@Nullable Output<String> actionRequired) {
+            $.actionRequired = actionRequired;
+            return this;
+        }
+
+        /**
+         * @param actionRequired Indicates if changes on the service provider require any updates on the consumer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionRequired(String actionRequired) {
+            return actionRequired(Output.of(actionRequired));
+        }
+
+        /**
+         * @param description The reason for approval/rejection of the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The reason for approval/rejection of the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**
@@ -301,6 +391,27 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
          */
         public Builder requestMessage(String requestMessage) {
             return requestMessage(Output.of(requestMessage));
+        }
+
+        /**
+         * @param status The status of the connection between the service consumer and provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<String> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status The status of the connection between the service consumer and provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(String status) {
+            return status(Output.of(status));
         }
 
         /**

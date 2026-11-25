@@ -47,14 +47,14 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaArgs exten
     }
 
     /**
-     * A `recurrence` block as documented below.
+     * A `recurrence` block as defined below.
      * 
      */
     @Import(name="recurrence")
     private @Nullable Output<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs> recurrence;
 
     /**
-     * @return A `recurrence` block as documented below.
+     * @return A `recurrence` block as defined below.
      * 
      */
     public Optional<Output<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs>> recurrence() {
@@ -130,7 +130,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaArgs exten
         }
 
         /**
-         * @param recurrence A `recurrence` block as documented below.
+         * @param recurrence A `recurrence` block as defined below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaArgs exten
         }
 
         /**
-         * @param recurrence A `recurrence` block as documented below.
+         * @param recurrence A `recurrence` block as defined below.
          * 
          * @return builder
          * 

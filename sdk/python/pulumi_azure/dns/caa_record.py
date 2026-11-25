@@ -30,7 +30,7 @@ class CaaRecordArgs:
         """
         The set of arguments for constructing a CaaRecord resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['CaaRecordRecordArgs']]] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['CaaRecordRecordArgs']]] records: A list of values that make up the CAA record. Each `record` block supports fields defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[_builtins.str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -50,7 +50,7 @@ class CaaRecordArgs:
     @pulumi.getter
     def records(self) -> pulumi.Input[Sequence[pulumi.Input['CaaRecordRecordArgs']]]:
         """
-        A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        A list of values that make up the CAA record. Each `record` block supports fields defined below.
         """
         return pulumi.get(self, "records")
 
@@ -134,7 +134,7 @@ class _CaaRecordState:
 
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS CAA Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['CaaRecordRecordArgs']]] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['CaaRecordRecordArgs']]] records: A list of values that make up the CAA record. Each `record` block supports fields defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -183,7 +183,7 @@ class _CaaRecordState:
     @pulumi.getter
     def records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CaaRecordRecordArgs']]]]:
         """
-        A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        A list of values that make up the CAA record. Each `record` block supports fields defined below.
         """
         return pulumi.get(self, "records")
 
@@ -321,7 +321,7 @@ class CaaRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict', 'outputs.CaaRecordRecord']]]] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict', 'outputs.CaaRecordRecord']]]] records: A list of values that make up the CAA record. Each `record` block supports fields defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -469,7 +469,7 @@ class CaaRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS CAA Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict', 'outputs.CaaRecordRecord']]]] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict', 'outputs.CaaRecordRecord']]]] records: A list of values that make up the CAA record. Each `record` block supports fields defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -508,7 +508,7 @@ class CaaRecord(pulumi.CustomResource):
     @pulumi.getter
     def records(self) -> pulumi.Output[Sequence['outputs.CaaRecordRecord']]:
         """
-        A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        A list of values that make up the CAA record. Each `record` block supports fields defined below.
         """
         return pulumi.get(self, "records")
 

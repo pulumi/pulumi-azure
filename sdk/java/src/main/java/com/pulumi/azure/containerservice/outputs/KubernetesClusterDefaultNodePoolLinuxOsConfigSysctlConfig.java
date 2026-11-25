@@ -128,7 +128,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
      */
     private @Nullable Integer netIpv4TcpMaxTwBuckets;
     /**
-     * @return The sysctl setting net.ipv4.tcp_tw_reuse.
+     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
      * 
      */
     private @Nullable Boolean netIpv4TcpTwReuse;
@@ -321,7 +321,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
         return Optional.ofNullable(this.netIpv4TcpMaxTwBuckets);
     }
     /**
-     * @return The sysctl setting net.ipv4.tcp_tw_reuse.
+     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
      * 
      */
     public Optional<Boolean> netIpv4TcpTwReuse() {

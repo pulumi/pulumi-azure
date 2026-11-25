@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         Name = "examplelinuxfunctionappsa",
+    ///         Name = "examplelinuxfunctionapps",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         AccountTier = "Standard",

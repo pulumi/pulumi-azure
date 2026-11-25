@@ -164,8 +164,8 @@ def get_firewall_policy(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_firewall_policy(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_firewall_policy(name="example-firewall-policy",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -211,8 +211,8 @@ def get_firewall_policy_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_firewall_policy(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_firewall_policy(name="example-firewall-policy",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

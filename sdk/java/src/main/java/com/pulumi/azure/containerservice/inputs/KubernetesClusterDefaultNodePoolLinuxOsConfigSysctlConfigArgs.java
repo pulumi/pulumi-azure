@@ -362,14 +362,14 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs
     }
 
     /**
-     * The sysctl setting net.ipv4.tcp_tw_reuse.
+     * Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
      * 
      */
     @Import(name="netIpv4TcpTwReuse")
     private @Nullable Output<Boolean> netIpv4TcpTwReuse;
 
     /**
-     * @return The sysctl setting net.ipv4.tcp_tw_reuse.
+     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
      * 
      */
     public Optional<Output<Boolean>> netIpv4TcpTwReuse() {
@@ -987,7 +987,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs
         }
 
         /**
-         * @param netIpv4TcpTwReuse The sysctl setting net.ipv4.tcp_tw_reuse.
+         * @param netIpv4TcpTwReuse Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs
         }
 
         /**
-         * @param netIpv4TcpTwReuse The sysctl setting net.ipv4.tcp_tw_reuse.
+         * @param netIpv4TcpTwReuse Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
          * 
          * @return builder
          * 

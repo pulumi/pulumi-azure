@@ -411,14 +411,18 @@ public class Assignment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     * The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     * @return The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
      * 
      */
     public Output<String> name() {

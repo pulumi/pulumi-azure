@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbNodes.Invoke(new()
         ///     {
-        ///         CloudVmClusterId = "existing",
+        ///         CloudVmClusterId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbNodes.Invoke(new()
         ///     {
-        ///         CloudVmClusterId = "existing",
+        ///         CloudVmClusterId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbNodes.Invoke(new()
         ///     {
-        ///         CloudVmClusterId = "existing",
+        ///         CloudVmClusterId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

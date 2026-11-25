@@ -45,7 +45,9 @@ class AssignmentArgs:
                
                > **Note:** This field is only used in cross tenant scenarios.
         :param pulumi.Input[_builtins.str] description: The description for this Role Assignment.
-        :param pulumi.Input[_builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+               
+               > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principal_id`, and `role_definition_id`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         :param pulumi.Input[_builtins.str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         :param pulumi.Input[_builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created.
@@ -158,7 +160,9 @@ class AssignmentArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+
+        > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principal_id`, and `role_definition_id`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         """
         return pulumi.get(self, "name")
 
@@ -244,7 +248,9 @@ class _AssignmentState:
                
                > **Note:** This field is only used in cross tenant scenarios.
         :param pulumi.Input[_builtins.str] description: The description for this Role Assignment.
-        :param pulumi.Input[_builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+               
+               > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principal_id`, and `role_definition_id`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
@@ -337,7 +343,9 @@ class _AssignmentState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+
+        > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principal_id`, and `role_definition_id`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         """
         return pulumi.get(self, "name")
 
@@ -608,7 +616,9 @@ class Assignment(pulumi.CustomResource):
                
                > **Note:** This field is only used in cross tenant scenarios.
         :param pulumi.Input[_builtins.str] description: The description for this Role Assignment.
-        :param pulumi.Input[_builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+               
+               > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principal_id`, and `role_definition_id`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
@@ -872,7 +882,9 @@ class Assignment(pulumi.CustomResource):
                
                > **Note:** This field is only used in cross tenant scenarios.
         :param pulumi.Input[_builtins.str] description: The description for this Role Assignment.
-        :param pulumi.Input[_builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+               
+               > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principal_id`, and `role_definition_id`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
@@ -943,7 +955,9 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+
+        > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principal_id`, and `role_definition_id`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
         """
         return pulumi.get(self, "name")
 

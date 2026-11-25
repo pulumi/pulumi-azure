@@ -118,14 +118,14 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
+     * Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is defined below.
      * 
      */
     @Import(name="publicIpAddressConfiguration")
     private @Nullable Output<ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs> publicIpAddressConfiguration;
 
     /**
-     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
+     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is defined below.
      * 
      */
     public Optional<Output<ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs>> publicIpAddressConfiguration() {
@@ -357,7 +357,7 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param publicIpAddressConfiguration Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
+         * @param publicIpAddressConfiguration Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is defined below.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param publicIpAddressConfiguration Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
+         * @param publicIpAddressConfiguration Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is defined below.
          * 
          * @return builder
          * 

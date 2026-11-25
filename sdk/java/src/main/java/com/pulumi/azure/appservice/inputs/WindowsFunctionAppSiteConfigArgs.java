@@ -197,14 +197,14 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Is detailed error logging enabled
+     * Is detailed error logging enabled?
      * 
      */
     @Import(name="detailedErrorLoggingEnabled")
     private @Nullable Output<Boolean> detailedErrorLoggingEnabled;
 
     /**
-     * @return Is detailed error logging enabled
+     * @return Is detailed error logging enabled?
      * 
      */
     public Optional<Output<Boolean>> detailedErrorLoggingEnabled() {
@@ -900,7 +900,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param detailedErrorLoggingEnabled Is detailed error logging enabled
+         * @param detailedErrorLoggingEnabled Is detailed error logging enabled?
          * 
          * @return builder
          * 
@@ -911,7 +911,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param detailedErrorLoggingEnabled Is detailed error logging enabled
+         * @param detailedErrorLoggingEnabled Is detailed error logging enabled?
          * 
          * @return builder
          * 

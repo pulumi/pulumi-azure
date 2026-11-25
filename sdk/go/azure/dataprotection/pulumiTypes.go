@@ -568,6 +568,603 @@ func (o BackupPolicyBlobStorageRetentionRuleLifeCycleOutput) Duration() pulumi.S
 	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
 }
 
+type BackupPolicyCosmosdbAccountMonthlyRetentionRule struct {
+	// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+	DaysOfWeek *string `pulumi:"daysOfWeek"`
+	// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The duration must use the ISO 8601 duration format.
+	Duration string `pulumi:"duration"`
+	// A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Specify `daysOfWeek` and `weeksOfMonth` together to select backups by day and week. When both fields are omitted, this rule retains the first successful full backup of the month.
+	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
+}
+
+// BackupPolicyCosmosdbAccountMonthlyRetentionRuleInput is an input type that accepts BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs and BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyCosmosdbAccountMonthlyRetentionRuleInput` via:
+//
+//	BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs{...}
+type BackupPolicyCosmosdbAccountMonthlyRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput() BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput
+	ToBackupPolicyCosmosdbAccountMonthlyRetentionRuleOutputWithContext(context.Context) BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput
+}
+
+type BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs struct {
+	// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+	DaysOfWeek pulumi.StringPtrInput `pulumi:"daysOfWeek"`
+	// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The duration must use the ISO 8601 duration format.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Specify `daysOfWeek` and `weeksOfMonth` together to select backups by day and week. When both fields are omitted, this rule retains the first successful full backup of the month.
+	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
+}
+
+func (BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyCosmosdbAccountMonthlyRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput() BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput {
+	return i.ToBackupPolicyCosmosdbAccountMonthlyRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountMonthlyRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput)
+}
+
+func (i BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput {
+	return i.ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput).ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(ctx)
+}
+
+// BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrInput is an input type that accepts BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs, BackupPolicyCosmosdbAccountMonthlyRetentionRulePtr and BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput values.
+// You can construct a concrete instance of `BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrInput` via:
+//
+//	        BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput
+	ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(context.Context) BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput
+}
+
+type backupPolicyCosmosdbAccountMonthlyRetentionRulePtrType BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs
+
+func BackupPolicyCosmosdbAccountMonthlyRetentionRulePtr(v *BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs) BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrInput {
+	return (*backupPolicyCosmosdbAccountMonthlyRetentionRulePtrType)(v)
+}
+
+func (*backupPolicyCosmosdbAccountMonthlyRetentionRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyCosmosdbAccountMonthlyRetentionRule)(nil)).Elem()
+}
+
+func (i *backupPolicyCosmosdbAccountMonthlyRetentionRulePtrType) ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput {
+	return i.ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyCosmosdbAccountMonthlyRetentionRulePtrType) ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput)
+}
+
+type BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyCosmosdbAccountMonthlyRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput() BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountMonthlyRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput {
+	return o.ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyCosmosdbAccountMonthlyRetentionRule) *BackupPolicyCosmosdbAccountMonthlyRetentionRule {
+		return &v
+	}).(BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput)
+}
+
+// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+//
+// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput) DaysOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountMonthlyRetentionRule) *string { return v.DaysOfWeek }).(pulumi.StringPtrOutput)
+}
+
+// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+//
+// > **Note:** The duration must use the ISO 8601 duration format.
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountMonthlyRetentionRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+//
+// > **Note:** Specify `daysOfWeek` and `weeksOfMonth` together to select backups by day and week. When both fields are omitted, this rule retains the first successful full backup of the month.
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountMonthlyRetentionRule) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyCosmosdbAccountMonthlyRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput) ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput) ToBackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput) Elem() BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountMonthlyRetentionRule) BackupPolicyCosmosdbAccountMonthlyRetentionRule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyCosmosdbAccountMonthlyRetentionRule
+		return ret
+	}).(BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput)
+}
+
+// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+//
+// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput) DaysOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountMonthlyRetentionRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+//
+// > **Note:** The duration must use the ISO 8601 duration format.
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountMonthlyRetentionRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+//
+// > **Note:** Specify `daysOfWeek` and `weeksOfMonth` together to select backups by day and week. When both fields are omitted, this rule retains the first successful full backup of the month.
+func (o BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountMonthlyRetentionRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeksOfMonths
+	}).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyCosmosdbAccountWeeklyRetentionRule struct {
+	// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+	//
+	// > **Note:** When `daysOfWeek` is omitted, this rule retains the first successful full backup of the week.
+	DaysOfWeek *string `pulumi:"daysOfWeek"`
+	// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The duration must use the ISO 8601 duration format.
+	Duration string `pulumi:"duration"`
+}
+
+// BackupPolicyCosmosdbAccountWeeklyRetentionRuleInput is an input type that accepts BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs and BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyCosmosdbAccountWeeklyRetentionRuleInput` via:
+//
+//	BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs{...}
+type BackupPolicyCosmosdbAccountWeeklyRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput() BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput
+	ToBackupPolicyCosmosdbAccountWeeklyRetentionRuleOutputWithContext(context.Context) BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput
+}
+
+type BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs struct {
+	// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+	//
+	// > **Note:** When `daysOfWeek` is omitted, this rule retains the first successful full backup of the week.
+	DaysOfWeek pulumi.StringPtrInput `pulumi:"daysOfWeek"`
+	// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The duration must use the ISO 8601 duration format.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyCosmosdbAccountWeeklyRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput() BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput {
+	return i.ToBackupPolicyCosmosdbAccountWeeklyRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountWeeklyRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput)
+}
+
+func (i BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput {
+	return i.ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput).ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(ctx)
+}
+
+// BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrInput is an input type that accepts BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs, BackupPolicyCosmosdbAccountWeeklyRetentionRulePtr and BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput values.
+// You can construct a concrete instance of `BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrInput` via:
+//
+//	        BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput
+	ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(context.Context) BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput
+}
+
+type backupPolicyCosmosdbAccountWeeklyRetentionRulePtrType BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs
+
+func BackupPolicyCosmosdbAccountWeeklyRetentionRulePtr(v *BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs) BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrInput {
+	return (*backupPolicyCosmosdbAccountWeeklyRetentionRulePtrType)(v)
+}
+
+func (*backupPolicyCosmosdbAccountWeeklyRetentionRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyCosmosdbAccountWeeklyRetentionRule)(nil)).Elem()
+}
+
+func (i *backupPolicyCosmosdbAccountWeeklyRetentionRulePtrType) ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput {
+	return i.ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyCosmosdbAccountWeeklyRetentionRulePtrType) ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput)
+}
+
+type BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyCosmosdbAccountWeeklyRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput() BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountWeeklyRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput {
+	return o.ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyCosmosdbAccountWeeklyRetentionRule) *BackupPolicyCosmosdbAccountWeeklyRetentionRule {
+		return &v
+	}).(BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput)
+}
+
+// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+//
+// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+//
+// > **Note:** When `daysOfWeek` is omitted, this rule retains the first successful full backup of the week.
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput) DaysOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountWeeklyRetentionRule) *string { return v.DaysOfWeek }).(pulumi.StringPtrOutput)
+}
+
+// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+//
+// > **Note:** The duration must use the ISO 8601 duration format.
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountWeeklyRetentionRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyCosmosdbAccountWeeklyRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput) ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput) ToBackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput) Elem() BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountWeeklyRetentionRule) BackupPolicyCosmosdbAccountWeeklyRetentionRule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyCosmosdbAccountWeeklyRetentionRule
+		return ret
+	}).(BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput)
+}
+
+// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+//
+// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+//
+// > **Note:** When `daysOfWeek` is omitted, this rule retains the first successful full backup of the week.
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput) DaysOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountWeeklyRetentionRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+//
+// > **Note:** The duration must use the ISO 8601 duration format.
+func (o BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountWeeklyRetentionRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupPolicyCosmosdbAccountYearlyRetentionRule struct {
+	// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+	DaysOfWeek *string `pulumi:"daysOfWeek"`
+	// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The duration must use the ISO 8601 duration format.
+	Duration string `pulumi:"duration"`
+	// A set of calendar months in which backups matching this rule are retained. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears []string `pulumi:"monthsOfYears"`
+	// A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Specify `daysOfWeek`, `weeksOfMonth`, and `monthsOfYear` together to select backups by day, week, and month. When all three fields are omitted, this rule retains first successful full backup of the year.
+	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
+}
+
+// BackupPolicyCosmosdbAccountYearlyRetentionRuleInput is an input type that accepts BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs and BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyCosmosdbAccountYearlyRetentionRuleInput` via:
+//
+//	BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs{...}
+type BackupPolicyCosmosdbAccountYearlyRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyCosmosdbAccountYearlyRetentionRuleOutput() BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput
+	ToBackupPolicyCosmosdbAccountYearlyRetentionRuleOutputWithContext(context.Context) BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput
+}
+
+type BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs struct {
+	// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+	DaysOfWeek pulumi.StringPtrInput `pulumi:"daysOfWeek"`
+	// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The duration must use the ISO 8601 duration format.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// A set of calendar months in which backups matching this rule are retained. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
+	// A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Specify `daysOfWeek`, `weeksOfMonth`, and `monthsOfYear` together to select backups by day, week, and month. When all three fields are omitted, this rule retains first successful full backup of the year.
+	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
+}
+
+func (BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyCosmosdbAccountYearlyRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountYearlyRetentionRuleOutput() BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput {
+	return i.ToBackupPolicyCosmosdbAccountYearlyRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountYearlyRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput)
+}
+
+func (i BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput {
+	return i.ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs) ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput).ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(ctx)
+}
+
+// BackupPolicyCosmosdbAccountYearlyRetentionRulePtrInput is an input type that accepts BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs, BackupPolicyCosmosdbAccountYearlyRetentionRulePtr and BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput values.
+// You can construct a concrete instance of `BackupPolicyCosmosdbAccountYearlyRetentionRulePtrInput` via:
+//
+//	        BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackupPolicyCosmosdbAccountYearlyRetentionRulePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput
+	ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(context.Context) BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput
+}
+
+type backupPolicyCosmosdbAccountYearlyRetentionRulePtrType BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs
+
+func BackupPolicyCosmosdbAccountYearlyRetentionRulePtr(v *BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs) BackupPolicyCosmosdbAccountYearlyRetentionRulePtrInput {
+	return (*backupPolicyCosmosdbAccountYearlyRetentionRulePtrType)(v)
+}
+
+func (*backupPolicyCosmosdbAccountYearlyRetentionRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyCosmosdbAccountYearlyRetentionRule)(nil)).Elem()
+}
+
+func (i *backupPolicyCosmosdbAccountYearlyRetentionRulePtrType) ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput {
+	return i.ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyCosmosdbAccountYearlyRetentionRulePtrType) ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput)
+}
+
+type BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyCosmosdbAccountYearlyRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountYearlyRetentionRuleOutput() BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountYearlyRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput {
+	return o.ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyCosmosdbAccountYearlyRetentionRule) *BackupPolicyCosmosdbAccountYearlyRetentionRule {
+		return &v
+	}).(BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput)
+}
+
+// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+//
+// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) DaysOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountYearlyRetentionRule) *string { return v.DaysOfWeek }).(pulumi.StringPtrOutput)
+}
+
+// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+//
+// > **Note:** The duration must use the ISO 8601 duration format.
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountYearlyRetentionRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// A set of calendar months in which backups matching this rule are retained. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) MonthsOfYears() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountYearlyRetentionRule) []string { return v.MonthsOfYears }).(pulumi.StringArrayOutput)
+}
+
+// A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+//
+// > **Note:** Specify `daysOfWeek`, `weeksOfMonth`, and `monthsOfYear` together to select backups by day, week, and month. When all three fields are omitted, this rule retains first successful full backup of the year.
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyCosmosdbAccountYearlyRetentionRule) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyCosmosdbAccountYearlyRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput) ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput() BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput) ToBackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput) Elem() BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountYearlyRetentionRule) BackupPolicyCosmosdbAccountYearlyRetentionRule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyCosmosdbAccountYearlyRetentionRule
+		return ret
+	}).(BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput)
+}
+
+// A set containing exactly one day of the week whose scheduled backup is retained by this rule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+//
+// > **Note:** The value specified for `daysOfWeek` must match the day of the week in `backupSchedule`.
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput) DaysOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountYearlyRetentionRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration for which backups matching this retention rule are retained. Changing this forces a new resource to be created.
+//
+// > **Note:** The duration must use the ISO 8601 duration format.
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountYearlyRetentionRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// A set of calendar months in which backups matching this rule are retained. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput) MonthsOfYears() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountYearlyRetentionRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MonthsOfYears
+	}).(pulumi.StringArrayOutput)
+}
+
+// A set of ordinal weeks within each month in which backups matching this rule are retained. Possible values are `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+//
+// > **Note:** Specify `daysOfWeek`, `weeksOfMonth`, and `monthsOfYear` together to select backups by day, week, and month. When all three fields are omitted, this rule retains first successful full backup of the year.
+func (o BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyCosmosdbAccountYearlyRetentionRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeksOfMonths
+	}).(pulumi.StringArrayOutput)
+}
+
 type BackupPolicyDataLakeStorageRetentionRule struct {
 	// Specifies the absolute criteria for the retention rule. Possible values include `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth`, and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
 	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
@@ -2949,6 +3546,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyCosmosdbAccountMonthlyRetentionRuleInput)(nil)).Elem(), BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrInput)(nil)).Elem(), BackupPolicyCosmosdbAccountMonthlyRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyCosmosdbAccountWeeklyRetentionRuleInput)(nil)).Elem(), BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrInput)(nil)).Elem(), BackupPolicyCosmosdbAccountWeeklyRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyCosmosdbAccountYearlyRetentionRuleInput)(nil)).Elem(), BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyCosmosdbAccountYearlyRetentionRulePtrInput)(nil)).Elem(), BackupPolicyCosmosdbAccountYearlyRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDataLakeStorageRetentionRuleInput)(nil)).Elem(), BackupPolicyDataLakeStorageRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDataLakeStorageRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyDataLakeStorageRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArgs{})
@@ -2991,6 +3594,12 @@ func init() {
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleLifeCycleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyCosmosdbAccountMonthlyRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyCosmosdbAccountMonthlyRetentionRulePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyCosmosdbAccountWeeklyRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyCosmosdbAccountWeeklyRetentionRulePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyCosmosdbAccountYearlyRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyCosmosdbAccountYearlyRetentionRulePtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDataLakeStorageRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDataLakeStorageRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleOutput{})

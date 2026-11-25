@@ -130,7 +130,7 @@ class GetServiceResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetServiceIdentityResult']:
         """
-        An `identity` block as documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
 
@@ -138,7 +138,7 @@ class GetServiceResult:
     @pulumi.getter(name="liveTraces")
     def live_traces(self) -> Sequence['outputs.GetServiceLiveTraceResult']:
         """
-        A `live_trace` block as documented below.
+        A `live_trace` block as defined below.
         """
         return pulumi.get(self, "live_traces")
 

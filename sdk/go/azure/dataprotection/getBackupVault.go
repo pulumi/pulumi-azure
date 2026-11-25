@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := dataprotection.LookupBackupVault(ctx, &dataprotection.LookupBackupVaultArgs{
-//				Name:              "existing-backup-vault",
-//				ResourceGroupName: "existing-resource-group",
+//				Name:              "example-backup-vault",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

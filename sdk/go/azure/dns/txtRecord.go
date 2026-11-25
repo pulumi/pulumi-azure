@@ -92,7 +92,7 @@ type TxtRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of values that make up the txt record. Each `record` block supports fields documented below.
+	// A list of values that make up the txt record. Each `record` block supports fields defined below.
 	Records TxtRecordRecordArrayOutput `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -150,7 +150,7 @@ type txtRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the txt record. Each `record` block supports fields documented below.
+	// A list of values that make up the txt record. Each `record` block supports fields defined below.
 	Records []TxtRecordRecord `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -167,7 +167,7 @@ type TxtRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the txt record. Each `record` block supports fields documented below.
+	// A list of values that make up the txt record. Each `record` block supports fields defined below.
 	Records TxtRecordRecordArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -186,7 +186,7 @@ func (TxtRecordState) ElementType() reflect.Type {
 type txtRecordArgs struct {
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the txt record. Each `record` block supports fields documented below.
+	// A list of values that make up the txt record. Each `record` block supports fields defined below.
 	Records []TxtRecordRecord `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -202,7 +202,7 @@ type txtRecordArgs struct {
 type TxtRecordArgs struct {
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the txt record. Each `record` block supports fields documented below.
+	// A list of values that make up the txt record. Each `record` block supports fields defined below.
 	Records TxtRecordRecordArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -311,7 +311,7 @@ func (o TxtRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TxtRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of values that make up the txt record. Each `record` block supports fields documented below.
+// A list of values that make up the txt record. Each `record` block supports fields defined below.
 func (o TxtRecordOutput) Records() TxtRecordRecordArrayOutput {
 	return o.ApplyT(func(v *TxtRecord) TxtRecordRecordArrayOutput { return v.Records }).(TxtRecordRecordArrayOutput)
 }

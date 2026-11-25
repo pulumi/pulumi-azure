@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplelinuxfunctionappsa",
+ *     name: "examplelinuxfunctionapps",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",

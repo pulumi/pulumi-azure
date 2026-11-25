@@ -48,6 +48,12 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AppIngressIpSecurityRestriction> IpSecurityRestrictions;
         /// <summary>
+        /// Is session affinity enabled. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** Session affinity requires `Single` `RevisionMode` and an ingress `Transport` of `Auto`, `Http`, or `Http2`.
+        /// </summary>
+        public readonly bool? SessionAffinityEnabled;
+        /// <summary>
         /// The target port on the container for the Ingress traffic.
         /// </summary>
         public readonly int TargetPort;
@@ -80,6 +86,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             ImmutableArray<Outputs.AppIngressIpSecurityRestriction> ipSecurityRestrictions,
 
+            bool? sessionAffinityEnabled,
+
             int targetPort,
 
             ImmutableArray<Outputs.AppIngressTrafficWeight> trafficWeights,
@@ -94,6 +102,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             ExternalEnabled = externalEnabled;
             Fqdn = fqdn;
             IpSecurityRestrictions = ipSecurityRestrictions;
+            SessionAffinityEnabled = sessionAffinityEnabled;
             TargetPort = targetPort;
             TrafficWeights = trafficWeights;
             Transport = transport;

@@ -52,14 +52,14 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `credentials` block as documented below.
+     * A `credentials` block as defined below.
      * 
      */
     @Import(name="credentials")
     private @Nullable Output<BackendCredentialsArgs> credentials;
 
     /**
-     * @return A `credentials` block as documented below.
+     * @return A `credentials` block as defined below.
      * 
      */
     public Optional<Output<BackendCredentialsArgs>> credentials() {
@@ -112,14 +112,14 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `proxy` block as documented below.
+     * A `proxy` block as defined below.
      * 
      */
     @Import(name="proxy")
     private @Nullable Output<BackendProxyArgs> proxy;
 
     /**
-     * @return A `proxy` block as documented below.
+     * @return A `proxy` block as defined below.
      * 
      */
     public Optional<Output<BackendProxyArgs>> proxy() {
@@ -157,14 +157,14 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `serviceFabricCluster` block as documented below.
+     * A `serviceFabricCluster` block as defined below.
      * 
      */
     @Import(name="serviceFabricCluster")
     private @Nullable Output<BackendServiceFabricClusterArgs> serviceFabricCluster;
 
     /**
-     * @return A `serviceFabricCluster` block as documented below.
+     * @return A `serviceFabricCluster` block as defined below.
      * 
      */
     public Optional<Output<BackendServiceFabricClusterArgs>> serviceFabricCluster() {
@@ -187,14 +187,14 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `tls` block as documented below.
+     * A `tls` block as defined below.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<BackendTlsArgs> tls;
 
     /**
-     * @return A `tls` block as documented below.
+     * @return A `tls` block as defined below.
      * 
      */
     public Optional<Output<BackendTlsArgs>> tls() {
@@ -295,7 +295,7 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentials A `credentials` block as documented below.
+         * @param credentials A `credentials` block as defined below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentials A `credentials` block as documented below.
+         * @param credentials A `credentials` block as defined below.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param proxy A `proxy` block as documented below.
+         * @param proxy A `proxy` block as defined below.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param proxy A `proxy` block as documented below.
+         * @param proxy A `proxy` block as defined below.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceFabricCluster A `serviceFabricCluster` block as documented below.
+         * @param serviceFabricCluster A `serviceFabricCluster` block as defined below.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceFabricCluster A `serviceFabricCluster` block as documented below.
+         * @param serviceFabricCluster A `serviceFabricCluster` block as defined below.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tls A `tls` block as documented below.
+         * @param tls A `tls` block as defined below.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tls A `tls` block as documented below.
+         * @param tls A `tls` block as defined below.
          * 
          * @return builder
          * 

@@ -94,13 +94,13 @@ type Logger struct {
 
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
-	// An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+	// An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
 	ApplicationInsights LoggerApplicationInsightsPtrOutput `pulumi:"applicationInsights"`
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
 	Buffered pulumi.BoolPtrOutput `pulumi:"buffered"`
 	// A description of this Logger.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An `eventhub` block as documented below. Changing this forces a new resource to be created.
+	// An `eventhub` block as defined below. Changing this forces a new resource to be created.
 	Eventhub LoggerEventhubPtrOutput `pulumi:"eventhub"`
 	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -148,13 +148,13 @@ func GetLogger(ctx *pulumi.Context,
 type loggerState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
-	// An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+	// An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
 	ApplicationInsights *LoggerApplicationInsights `pulumi:"applicationInsights"`
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
 	Buffered *bool `pulumi:"buffered"`
 	// A description of this Logger.
 	Description *string `pulumi:"description"`
-	// An `eventhub` block as documented below. Changing this forces a new resource to be created.
+	// An `eventhub` block as defined below. Changing this forces a new resource to be created.
 	Eventhub *LoggerEventhub `pulumi:"eventhub"`
 	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -167,13 +167,13 @@ type loggerState struct {
 type LoggerState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
-	// An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+	// An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
 	ApplicationInsights LoggerApplicationInsightsPtrInput
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
 	Buffered pulumi.BoolPtrInput
 	// A description of this Logger.
 	Description pulumi.StringPtrInput
-	// An `eventhub` block as documented below. Changing this forces a new resource to be created.
+	// An `eventhub` block as defined below. Changing this forces a new resource to be created.
 	Eventhub LoggerEventhubPtrInput
 	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -190,13 +190,13 @@ func (LoggerState) ElementType() reflect.Type {
 type loggerArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
-	// An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+	// An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
 	ApplicationInsights *LoggerApplicationInsights `pulumi:"applicationInsights"`
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
 	Buffered *bool `pulumi:"buffered"`
 	// A description of this Logger.
 	Description *string `pulumi:"description"`
-	// An `eventhub` block as documented below. Changing this forces a new resource to be created.
+	// An `eventhub` block as defined below. Changing this forces a new resource to be created.
 	Eventhub *LoggerEventhub `pulumi:"eventhub"`
 	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -210,13 +210,13 @@ type loggerArgs struct {
 type LoggerArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
-	// An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+	// An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
 	ApplicationInsights LoggerApplicationInsightsPtrInput
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
 	Buffered pulumi.BoolPtrInput
 	// A description of this Logger.
 	Description pulumi.StringPtrInput
-	// An `eventhub` block as documented below. Changing this forces a new resource to be created.
+	// An `eventhub` block as defined below. Changing this forces a new resource to be created.
 	Eventhub LoggerEventhubPtrInput
 	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -318,7 +318,7 @@ func (o LoggerOutput) ApiManagementName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Logger) pulumi.StringOutput { return v.ApiManagementName }).(pulumi.StringOutput)
 }
 
-// An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+// An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
 func (o LoggerOutput) ApplicationInsights() LoggerApplicationInsightsPtrOutput {
 	return o.ApplyT(func(v *Logger) LoggerApplicationInsightsPtrOutput { return v.ApplicationInsights }).(LoggerApplicationInsightsPtrOutput)
 }
@@ -333,7 +333,7 @@ func (o LoggerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Logger) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An `eventhub` block as documented below. Changing this forces a new resource to be created.
+// An `eventhub` block as defined below. Changing this forces a new resource to be created.
 func (o LoggerOutput) Eventhub() LoggerEventhubPtrOutput {
 	return o.ApplyT(func(v *Logger) LoggerEventhubPtrOutput { return v.Eventhub }).(LoggerEventhubPtrOutput)
 }

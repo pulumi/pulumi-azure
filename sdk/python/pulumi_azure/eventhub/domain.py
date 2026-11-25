@@ -24,6 +24,7 @@ class DomainArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_create_topic_with_first_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_delete_topic_with_last_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['DomainIdentityArgs']] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
                  input_mapping_default_values: pulumi.Input[Optional['DomainInputMappingDefaultValuesArgs']] = None,
@@ -31,6 +32,7 @@ class DomainArgs:
                  input_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -40,6 +42,7 @@ class DomainArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] data_residency_boundary: Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
         :param pulumi.Input['DomainIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input['DomainInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
@@ -47,6 +50,7 @@ class DomainArgs:
         :param pulumi.Input[_builtins.str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -56,6 +60,8 @@ class DomainArgs:
             pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
         if auto_delete_topic_with_last_subscription is not None:
             pulumi.set(__self__, "auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
+        if data_residency_boundary is not None:
+            pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
@@ -70,6 +76,8 @@ class DomainArgs:
             pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
@@ -112,6 +120,18 @@ class DomainArgs:
     @auto_delete_topic_with_last_subscription.setter
     def auto_delete_topic_with_last_subscription(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_delete_topic_with_last_subscription", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @data_residency_boundary.setter
+    def data_residency_boundary(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_residency_boundary", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,6 +218,18 @@ class DomainArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -239,6 +271,7 @@ class _DomainState:
     def __init__(__self__, *,
                  auto_create_topic_with_first_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_delete_topic_with_last_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['DomainIdentityArgs']] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
@@ -247,6 +280,7 @@ class _DomainState:
                  input_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -258,6 +292,7 @@ class _DomainState:
 
         :param pulumi.Input[_builtins.bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] data_residency_boundary: Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
         :param pulumi.Input[_builtins.str] endpoint: The Endpoint associated with the EventGrid Domain.
         :param pulumi.Input['DomainIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -266,6 +301,7 @@ class _DomainState:
         :param pulumi.Input[_builtins.str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Domain.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -277,6 +313,8 @@ class _DomainState:
             pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
         if auto_delete_topic_with_last_subscription is not None:
             pulumi.set(__self__, "auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
+        if data_residency_boundary is not None:
+            pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if identity is not None:
@@ -293,6 +331,8 @@ class _DomainState:
             pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_access_key is not None:
@@ -329,6 +369,18 @@ class _DomainState:
     @auto_delete_topic_with_last_subscription.setter
     def auto_delete_topic_with_last_subscription(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_delete_topic_with_last_subscription", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @data_residency_boundary.setter
+    def data_residency_boundary(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_residency_boundary", value)
 
     @_builtins.property
     @pulumi.getter
@@ -427,6 +479,18 @@ class _DomainState:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -512,6 +576,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_create_topic_with_first_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_delete_topic_with_last_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['DomainIdentityArgs', 'DomainIdentityArgsDict', 'outputs.DomainIdentity']]] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainInboundIpRuleArgs', 'DomainInboundIpRuleArgsDict', 'outputs.DomainInboundIpRule']]]]] = None,
                  input_mapping_default_values: pulumi.Input[Optional[Union['DomainInputMappingDefaultValuesArgs', 'DomainInputMappingDefaultValuesArgsDict', 'outputs.DomainInputMappingDefaultValues']]] = None,
@@ -519,6 +584,7 @@ class Domain(pulumi.CustomResource):
                  input_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -565,6 +631,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] data_residency_boundary: Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
         :param pulumi.Input[Union['DomainIdentityArgs', 'DomainIdentityArgsDict', 'outputs.DomainIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainInboundIpRuleArgs', 'DomainInboundIpRuleArgsDict', 'outputs.DomainInboundIpRule']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[Union['DomainInputMappingDefaultValuesArgs', 'DomainInputMappingDefaultValuesArgsDict', 'outputs.DomainInputMappingDefaultValues']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
@@ -572,6 +639,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
@@ -637,6 +705,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_create_topic_with_first_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_delete_topic_with_last_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['DomainIdentityArgs', 'DomainIdentityArgsDict', 'outputs.DomainIdentity']]] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainInboundIpRuleArgs', 'DomainInboundIpRuleArgsDict', 'outputs.DomainInboundIpRule']]]]] = None,
                  input_mapping_default_values: pulumi.Input[Optional[Union['DomainInputMappingDefaultValuesArgs', 'DomainInputMappingDefaultValuesArgsDict', 'outputs.DomainInputMappingDefaultValues']]] = None,
@@ -644,6 +713,7 @@ class Domain(pulumi.CustomResource):
                  input_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -660,6 +730,7 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["auto_create_topic_with_first_subscription"] = auto_create_topic_with_first_subscription
             __props__.__dict__["auto_delete_topic_with_last_subscription"] = auto_delete_topic_with_last_subscription
+            __props__.__dict__["data_residency_boundary"] = data_residency_boundary
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
@@ -667,6 +738,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["input_schema"] = input_schema
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
@@ -690,6 +762,7 @@ class Domain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_create_topic_with_first_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
             auto_delete_topic_with_last_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_residency_boundary: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             identity: pulumi.Input[Optional[Union['DomainIdentityArgs', 'DomainIdentityArgsDict', 'outputs.DomainIdentity']]] = None,
             inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainInboundIpRuleArgs', 'DomainInboundIpRuleArgsDict', 'outputs.DomainInboundIpRule']]]]] = None,
@@ -698,6 +771,7 @@ class Domain(pulumi.CustomResource):
             input_schema: pulumi.Input[Optional[_builtins.str]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -713,6 +787,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] data_residency_boundary: Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
         :param pulumi.Input[_builtins.str] endpoint: The Endpoint associated with the EventGrid Domain.
         :param pulumi.Input[Union['DomainIdentityArgs', 'DomainIdentityArgsDict', 'outputs.DomainIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainInboundIpRuleArgs', 'DomainInboundIpRuleArgsDict', 'outputs.DomainInboundIpRule']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -721,6 +796,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Domain.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -734,6 +810,7 @@ class Domain(pulumi.CustomResource):
 
         __props__.__dict__["auto_create_topic_with_first_subscription"] = auto_create_topic_with_first_subscription
         __props__.__dict__["auto_delete_topic_with_last_subscription"] = auto_delete_topic_with_last_subscription
+        __props__.__dict__["data_residency_boundary"] = data_residency_boundary
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["identity"] = identity
         __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
@@ -742,6 +819,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["input_schema"] = input_schema
         __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["minimum_tls_version"] = minimum_tls_version
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_access_key"] = primary_access_key
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -765,6 +843,14 @@ class Domain(pulumi.CustomResource):
         Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
         """
         return pulumi.get(self, "auto_delete_topic_with_last_subscription")
+
+    @_builtins.property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        """
+        return pulumi.get(self, "data_residency_boundary")
 
     @_builtins.property
     @pulumi.getter
@@ -829,6 +915,14 @@ class Domain(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Output[_builtins.str]:
+        """
+        The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
 
     @_builtins.property
     @pulumi.getter

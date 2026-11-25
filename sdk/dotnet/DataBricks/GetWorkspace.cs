@@ -190,12 +190,12 @@ namespace Pulumi.Azure.DataBricks
     public sealed class GetWorkspaceResult
     {
         /// <summary>
-        /// A `CustomParameters` block as documented below.
+        /// A `CustomParameters` block as defined below.
         /// *
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspaceCustomParameterResult> CustomParameters;
         /// <summary>
-        /// An `EnhancedSecurityCompliance` block as documented below.
+        /// An `EnhancedSecurityCompliance` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspaceEnhancedSecurityComplianceResult> EnhancedSecurityCompliances;
         /// <summary>
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `ManagedDiskIdentity` block as documented below.
+        /// A `ManagedDiskIdentity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspaceManagedDiskIdentityResult> ManagedDiskIdentities;
         public readonly string Name;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         public readonly string Sku;
         /// <summary>
-        /// A `StorageAccountIdentity` block as documented below.
+        /// A `StorageAccountIdentity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspaceStorageAccountIdentityResult> StorageAccountIdentities;
         /// <summary>

@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.compute.getDiskEncryptionSet({
+ * const example = azure.compute.getDiskEncryptionSet({
  *     name: "example-des",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existing.then(existing => existing.id);
+ * export const id = example.then(example => example.id);
  * ```
  *
  * ## API Providers
@@ -91,11 +91,11 @@ export interface GetDiskEncryptionSetResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.compute.getDiskEncryptionSet({
+ * const example = azure.compute.getDiskEncryptionSet({
  *     name: "example-des",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existing.then(existing => existing.id);
+ * export const id = example.then(example => example.id);
  * ```
  *
  * ## API Providers

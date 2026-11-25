@@ -77,6 +77,7 @@ import * as frontdoor from "./frontdoor";
 import * as graph from "./graph";
 import * as hdinsight from "./hdinsight";
 import * as healthcare from "./healthcare";
+import * as horizondb from "./horizondb";
 import * as hsm from "./hsm";
 import * as iot from "./iot";
 import * as iotcentral from "./iotcentral";
@@ -213,6 +214,7 @@ export {
     graph,
     hdinsight,
     healthcare,
+    horizondb,
     hsm,
     iot,
     iotcentral,

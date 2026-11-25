@@ -191,8 +191,8 @@ def get_vpn_server_configuration(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_vpn_server_configuration(name="existing-local-vpn-server-configuration",
-        resource_group_name="existing-resource-group")
+    example = azure.network.get_vpn_server_configuration(name="example-vpn-server-configuration",
+        resource_group_name="example-resources")
     pulumi.export("azurermVpnServerConfiguration", example.id)
     ```
 
@@ -238,8 +238,8 @@ def get_vpn_server_configuration_output(name: pulumi.Input[Optional[_builtins.st
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_vpn_server_configuration(name="existing-local-vpn-server-configuration",
-        resource_group_name="existing-resource-group")
+    example = azure.network.get_vpn_server_configuration(name="example-vpn-server-configuration",
+        resource_group_name="example-resources")
     pulumi.export("azurermVpnServerConfiguration", example.id)
     ```
 

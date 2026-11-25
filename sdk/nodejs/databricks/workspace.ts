@@ -94,7 +94,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly accessConnectorId: pulumi.Output<string | undefined>;
     /**
-     * A `customParameters` block as documented below.
+     * A `customParameters` block as defined below.
      */
     declare public readonly customParameters: pulumi.Output<outputs.databricks.WorkspaceCustomParameters>;
     /**
@@ -110,7 +110,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly diskEncryptionSetId: pulumi.Output<string>;
     /**
-     * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
      */
     declare public readonly enhancedSecurityCompliance: pulumi.Output<outputs.databricks.WorkspaceEnhancedSecurityCompliance | undefined>;
     /**
@@ -140,7 +140,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly managedDiskCmkRotationToLatestVersionEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A `managedDiskIdentity` block as documented below.
+     * A `managedDiskIdentity` block as defined below.
      */
     declare public /*out*/ readonly managedDiskIdentities: pulumi.Output<outputs.databricks.WorkspaceManagedDiskIdentity[]>;
     /**
@@ -186,7 +186,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly sku: pulumi.Output<string>;
     /**
-     * A `storageAccountIdentity` block as documented below.
+     * A `storageAccountIdentity` block as defined below.
      */
     declare public /*out*/ readonly storageAccountIdentities: pulumi.Output<outputs.databricks.WorkspaceStorageAccountIdentity[]>;
     /**
@@ -292,7 +292,7 @@ export interface WorkspaceState {
      */
     accessConnectorId?: pulumi.Input<string | undefined>;
     /**
-     * A `customParameters` block as documented below.
+     * A `customParameters` block as defined below.
      */
     customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters | undefined>;
     /**
@@ -308,7 +308,7 @@ export interface WorkspaceState {
      */
     diskEncryptionSetId?: pulumi.Input<string | undefined>;
     /**
-     * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
      */
     enhancedSecurityCompliance?: pulumi.Input<inputs.databricks.WorkspaceEnhancedSecurityCompliance | undefined>;
     /**
@@ -338,7 +338,7 @@ export interface WorkspaceState {
      */
     managedDiskCmkRotationToLatestVersionEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `managedDiskIdentity` block as documented below.
+     * A `managedDiskIdentity` block as defined below.
      */
     managedDiskIdentities?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceManagedDiskIdentity>[] | undefined>;
     /**
@@ -384,7 +384,7 @@ export interface WorkspaceState {
      */
     sku?: pulumi.Input<string | undefined>;
     /**
-     * A `storageAccountIdentity` block as documented below.
+     * A `storageAccountIdentity` block as defined below.
      */
     storageAccountIdentities?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceStorageAccountIdentity>[] | undefined>;
     /**
@@ -412,7 +412,7 @@ export interface WorkspaceArgs {
      */
     accessConnectorId?: pulumi.Input<string | undefined>;
     /**
-     * A `customParameters` block as documented below.
+     * A `customParameters` block as defined below.
      */
     customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters | undefined>;
     /**
@@ -424,7 +424,7 @@ export interface WorkspaceArgs {
      */
     defaultStorageFirewallEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
      */
     enhancedSecurityCompliance?: pulumi.Input<inputs.databricks.WorkspaceEnhancedSecurityCompliance | undefined>;
     /**

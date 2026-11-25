@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkManagerConnectivityConfiguration.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-connectivity-configuration",
         ///         NetworkManagerId = "TODO",
         ///     });
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkManagerConnectivityConfiguration.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-connectivity-configuration",
         ///         NetworkManagerId = "TODO",
         ///     });
         /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkManagerConnectivityConfiguration.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-connectivity-configuration",
         ///         NetworkManagerId = "TODO",
         ///     });
         /// 

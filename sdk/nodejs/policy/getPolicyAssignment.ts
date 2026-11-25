@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.policy.getPolicyAssignment({
- *     name: "existing",
+ *     name: "example-assignment",
  *     scopeId: exampleAzurermResourceGroup.id,
  * });
  * export const id = example.then(example => example.id);
@@ -112,7 +112,7 @@ export interface GetPolicyAssignmentResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.policy.getPolicyAssignment({
- *     name: "existing",
+ *     name: "example-assignment",
  *     scopeId: exampleAzurermResourceGroup.id,
  * });
  * export const id = example.then(example => example.id);

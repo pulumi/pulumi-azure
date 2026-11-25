@@ -91,7 +91,7 @@ class GetRoleDefinitionResult:
     @pulumi.getter
     def permissions(self) -> Sequence['outputs.GetRoleDefinitionPermissionResult']:
         """
-        A `permissions` block as documented below.
+        A `permissions` block as defined below.
         """
         return pulumi.get(self, "permissions")
 

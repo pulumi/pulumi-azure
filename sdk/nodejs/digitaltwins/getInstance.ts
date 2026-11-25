@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.digitaltwins.getInstance({
- *     name: "existing-digital-twins",
- *     resourceGroupName: "existing-resgroup",
+ *     name: "example-digital-twins",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -82,8 +82,8 @@ export interface GetInstanceResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.digitaltwins.getInstance({
- *     name: "existing-digital-twins",
- *     resourceGroupName: "existing-resgroup",
+ *     name: "example-digital-twins",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

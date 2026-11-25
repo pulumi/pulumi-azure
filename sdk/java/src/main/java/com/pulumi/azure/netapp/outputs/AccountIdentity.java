@@ -16,6 +16,8 @@ public final class AccountIdentity {
     /**
      * @return The identity id of the user assigned identity to use when type is `UserAssigned`
      * 
+     * &gt; **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
+     * 
      */
     private @Nullable List<String> identityIds;
     private @Nullable String principalId;
@@ -29,6 +31,8 @@ public final class AccountIdentity {
     private AccountIdentity() {}
     /**
      * @return The identity id of the user assigned identity to use when type is `UserAssigned`
+     * 
+     * &gt; **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
      * 
      */
     public List<String> identityIds() {

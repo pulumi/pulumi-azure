@@ -170,6 +170,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<string> AddressSpaces;
         /// <summary>
+        /// The list of CIDR prefixes that Azure gateways advertise to on-premises networks.
+        /// </summary>
+        public readonly ImmutableArray<string> AdvertisedGatewayPrefixes;
+        /// <summary>
         /// The list of DNS servers used by the virtual network.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
@@ -208,6 +212,8 @@ namespace Pulumi.Azure.Network
         private GetVirtualNetworkResult(
             ImmutableArray<string> addressSpaces,
 
+            ImmutableArray<string> advertisedGatewayPrefixes,
+
             ImmutableArray<string> dnsServers,
 
             string guid,
@@ -229,6 +235,7 @@ namespace Pulumi.Azure.Network
             ImmutableArray<string> vnetPeeringsAddresses)
         {
             AddressSpaces = addressSpaces;
+            AdvertisedGatewayPrefixes = advertisedGatewayPrefixes;
             DnsServers = dnsServers;
             Guid = guid;
             Id = id;

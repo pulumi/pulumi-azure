@@ -56,7 +56,7 @@ export interface GetWorkspacePrivateEndpointConnectionArgs {
  */
 export interface GetWorkspacePrivateEndpointConnectionResult {
     /**
-     * A `connections` block as documented below.
+     * A `connections` block as defined below.
      */
     readonly connections: outputs.databricks.GetWorkspacePrivateEndpointConnectionConnection[];
     /**

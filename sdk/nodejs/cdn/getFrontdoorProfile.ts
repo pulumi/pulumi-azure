@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorProfile({
- *     name: "existing-cdn-profile",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-cdn-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * export const frontDoorId = example.then(example => example.id);
  * export const logScrubbingMatchVariable = example.then(example => example.logScrubbingRules?.[0]?.matchVariable);
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorProfile(args: GetFrontdoorProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,8 +97,8 @@ export interface GetFrontdoorProfileResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorProfile({
- *     name: "existing-cdn-profile",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-cdn-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * export const frontDoorId = example.then(example => example.id);
  * export const logScrubbingMatchVariable = example.then(example => example.logScrubbingRules?.[0]?.matchVariable);
@@ -109,7 +109,7 @@ export interface GetFrontdoorProfileResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

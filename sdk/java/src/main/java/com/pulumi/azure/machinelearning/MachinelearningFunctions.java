@@ -42,12 +42,12 @@ public final class MachinelearningFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name("example-workspace")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -91,12 +91,12 @@ public final class MachinelearningFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name("example-workspace")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -140,12 +140,12 @@ public final class MachinelearningFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name("example-workspace")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -189,12 +189,12 @@ public final class MachinelearningFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name("example-workspace")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -238,12 +238,12 @@ public final class MachinelearningFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = MachinelearningFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name("example-workspace")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

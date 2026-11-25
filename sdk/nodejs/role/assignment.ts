@@ -227,7 +227,9 @@ export class Assignment extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     * The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -338,7 +340,9 @@ export interface AssignmentState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     * The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -398,7 +402,9 @@ export interface AssignmentArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     * The UUID for this Role Assignment. If omitted, a UUID will be generated. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `name` is omitted, a deterministic UUIDv5 is generated from the `scope`, `principalId`, and `roleDefinitionId`, matching the naming behavior used by ARM templates, Bicep, and the Azure CLI.
      */
     name?: pulumi.Input<string | undefined>;
     /**

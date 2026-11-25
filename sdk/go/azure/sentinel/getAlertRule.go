@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			exampleGetAlertRule, err := sentinel.GetAlertRule(ctx, &sentinel.GetAlertRuleArgs{
-//				Name:                    "existing",
+//				Name:                    "example-alert-rule",
 //				LogAnalyticsWorkspaceId: example.Id,
 //			}, nil)
 //			if err != nil {

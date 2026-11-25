@@ -69,22 +69,22 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	// A `customParameters` block as documented below.
+	// A `customParameters` block as defined below.
 	// *
 	CustomParameters []GetWorkspaceCustomParameter `pulumi:"customParameters"`
-	// An `enhancedSecurityCompliance` block as documented below.
+	// An `enhancedSecurityCompliance` block as defined below.
 	EnhancedSecurityCompliances []GetWorkspaceEnhancedSecurityCompliance `pulumi:"enhancedSecurityCompliances"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Databricks Workspace exists.
 	Location string `pulumi:"location"`
-	// A `managedDiskIdentity` block as documented below.
+	// A `managedDiskIdentity` block as defined below.
 	ManagedDiskIdentities []GetWorkspaceManagedDiskIdentity `pulumi:"managedDiskIdentities"`
 	Name                  string                            `pulumi:"name"`
 	ResourceGroupName     string                            `pulumi:"resourceGroupName"`
 	// SKU of this Databricks Workspace.
 	Sku string `pulumi:"sku"`
-	// A `storageAccountIdentity` block as documented below.
+	// A `storageAccountIdentity` block as defined below.
 	StorageAccountIdentities []GetWorkspaceStorageAccountIdentity `pulumi:"storageAccountIdentities"`
 	// A mapping of tags to assign to the Databricks Workspace.
 	Tags map[string]string `pulumi:"tags"`
@@ -128,13 +128,13 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
-// A `customParameters` block as documented below.
+// A `customParameters` block as defined below.
 // *
 func (o LookupWorkspaceResultOutput) CustomParameters() GetWorkspaceCustomParameterArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceCustomParameter { return v.CustomParameters }).(GetWorkspaceCustomParameterArrayOutput)
 }
 
-// An `enhancedSecurityCompliance` block as documented below.
+// An `enhancedSecurityCompliance` block as defined below.
 func (o LookupWorkspaceResultOutput) EnhancedSecurityCompliances() GetWorkspaceEnhancedSecurityComplianceArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceEnhancedSecurityCompliance {
 		return v.EnhancedSecurityCompliances
@@ -151,7 +151,7 @@ func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// A `managedDiskIdentity` block as documented below.
+// A `managedDiskIdentity` block as defined below.
 func (o LookupWorkspaceResultOutput) ManagedDiskIdentities() GetWorkspaceManagedDiskIdentityArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceManagedDiskIdentity { return v.ManagedDiskIdentities }).(GetWorkspaceManagedDiskIdentityArrayOutput)
 }
@@ -169,7 +169,7 @@ func (o LookupWorkspaceResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-// A `storageAccountIdentity` block as documented below.
+// A `storageAccountIdentity` block as defined below.
 func (o LookupWorkspaceResultOutput) StorageAccountIdentities() GetWorkspaceStorageAccountIdentityArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceStorageAccountIdentity { return v.StorageAccountIdentities }).(GetWorkspaceStorageAccountIdentityArrayOutput)
 }

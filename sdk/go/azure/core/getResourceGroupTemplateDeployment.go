@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.LookupResourceGroupTemplateDeployment(ctx, &core.LookupResourceGroupTemplateDeploymentArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-deployment",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := compute.LookupSshPublicKey(ctx, &compute.LookupSshPublicKeyArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-ssh-key",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

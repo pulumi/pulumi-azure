@@ -175,7 +175,7 @@ def get_certificate(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.nginx.get_certificate(name="existing",
+    example = azure.nginx.get_certificate(name="example-certificate",
         nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
@@ -221,7 +221,7 @@ def get_certificate_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.nginx.get_certificate(name="existing",
+    example = azure.nginx.get_certificate(name="example-certificate",
         nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```

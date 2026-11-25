@@ -51,16 +51,16 @@ class ApiArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
-        :param pulumi.Input['ApiContactArgs'] contact: A `contact` block as documented below.
+        :param pulumi.Input['ApiContactArgs'] contact: A `contact` block as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[_builtins.str] display_name: The display name of the API.
-        :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
+        :param pulumi.Input['ApiImportArgs'] import_: A `import` block as defined below.
                
                > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
-        :param pulumi.Input['ApiLicenseArgs'] license: A `license` block as documented below.
+        :param pulumi.Input['ApiLicenseArgs'] license: A `license` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as documented below.
-        :param pulumi.Input['ApiOpenidAuthenticationArgs'] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as defined below.
+        :param pulumi.Input['ApiOpenidAuthenticationArgs'] openid_authentication: An `openid_authentication` block as defined below.
         :param pulumi.Input[_builtins.str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
@@ -70,7 +70,7 @@ class ApiArgs:
                
                > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         :param pulumi.Input[_builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
-        :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as defined below.
         :param pulumi.Input[_builtins.bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[_builtins.str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[_builtins.str] version: The Version number of this API, if this API is versioned.
@@ -175,7 +175,7 @@ class ApiArgs:
     @pulumi.getter
     def contact(self) -> pulumi.Input[Optional['ApiContactArgs']]:
         """
-        A `contact` block as documented below.
+        A `contact` block as defined below.
         """
         return pulumi.get(self, "contact")
 
@@ -211,7 +211,7 @@ class ApiArgs:
     @pulumi.getter(name="import")
     def import_(self) -> pulumi.Input[Optional['ApiImportArgs']]:
         """
-        A `import` block as documented below.
+        A `import` block as defined below.
 
         > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
@@ -225,7 +225,7 @@ class ApiArgs:
     @pulumi.getter
     def license(self) -> pulumi.Input[Optional['ApiLicenseArgs']]:
         """
-        A `license` block as documented below.
+        A `license` block as defined below.
         """
         return pulumi.get(self, "license")
 
@@ -249,7 +249,7 @@ class ApiArgs:
     @pulumi.getter(name="oauth2Authorization")
     def oauth2_authorization(self) -> pulumi.Input[Optional['ApiOauth2AuthorizationArgs']]:
         """
-        An `oauth2_authorization` block as documented below.
+        An `oauth2_authorization` block as defined below.
         """
         return pulumi.get(self, "oauth2_authorization")
 
@@ -261,7 +261,7 @@ class ApiArgs:
     @pulumi.getter(name="openidAuthentication")
     def openid_authentication(self) -> pulumi.Input[Optional['ApiOpenidAuthenticationArgs']]:
         """
-        An `openid_authentication` block as documented below.
+        An `openid_authentication` block as defined below.
         """
         return pulumi.get(self, "openid_authentication")
 
@@ -337,7 +337,7 @@ class ApiArgs:
     @pulumi.getter(name="subscriptionKeyParameterNames")
     def subscription_key_parameter_names(self) -> pulumi.Input[Optional['ApiSubscriptionKeyParameterNamesArgs']]:
         """
-        A `subscription_key_parameter_names` block as documented below.
+        A `subscription_key_parameter_names` block as defined below.
         """
         return pulumi.get(self, "subscription_key_parameter_names")
 
@@ -441,18 +441,18 @@ class _ApiState:
 
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
-        :param pulumi.Input['ApiContactArgs'] contact: A `contact` block as documented below.
+        :param pulumi.Input['ApiContactArgs'] contact: A `contact` block as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[_builtins.str] display_name: The display name of the API.
-        :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
+        :param pulumi.Input['ApiImportArgs'] import_: A `import` block as defined below.
                
                > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input[_builtins.bool] is_current: Is this the current API Revision?
         :param pulumi.Input[_builtins.bool] is_online: Is this API Revision online/accessible via the Gateway?
-        :param pulumi.Input['ApiLicenseArgs'] license: A `license` block as documented below.
+        :param pulumi.Input['ApiLicenseArgs'] license: A `license` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as documented below.
-        :param pulumi.Input['ApiOpenidAuthenticationArgs'] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as defined below.
+        :param pulumi.Input['ApiOpenidAuthenticationArgs'] openid_authentication: An `openid_authentication` block as defined below.
         :param pulumi.Input[_builtins.str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
@@ -464,7 +464,7 @@ class _ApiState:
                
                > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         :param pulumi.Input[_builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
-        :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as defined below.
         :param pulumi.Input[_builtins.bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[_builtins.str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[_builtins.str] version: The Version number of this API, if this API is versioned.
@@ -552,7 +552,7 @@ class _ApiState:
     @pulumi.getter
     def contact(self) -> pulumi.Input[Optional['ApiContactArgs']]:
         """
-        A `contact` block as documented below.
+        A `contact` block as defined below.
         """
         return pulumi.get(self, "contact")
 
@@ -588,7 +588,7 @@ class _ApiState:
     @pulumi.getter(name="import")
     def import_(self) -> pulumi.Input[Optional['ApiImportArgs']]:
         """
-        A `import` block as documented below.
+        A `import` block as defined below.
 
         > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
@@ -626,7 +626,7 @@ class _ApiState:
     @pulumi.getter
     def license(self) -> pulumi.Input[Optional['ApiLicenseArgs']]:
         """
-        A `license` block as documented below.
+        A `license` block as defined below.
         """
         return pulumi.get(self, "license")
 
@@ -650,7 +650,7 @@ class _ApiState:
     @pulumi.getter(name="oauth2Authorization")
     def oauth2_authorization(self) -> pulumi.Input[Optional['ApiOauth2AuthorizationArgs']]:
         """
-        An `oauth2_authorization` block as documented below.
+        An `oauth2_authorization` block as defined below.
         """
         return pulumi.get(self, "oauth2_authorization")
 
@@ -662,7 +662,7 @@ class _ApiState:
     @pulumi.getter(name="openidAuthentication")
     def openid_authentication(self) -> pulumi.Input[Optional['ApiOpenidAuthenticationArgs']]:
         """
-        An `openid_authentication` block as documented below.
+        An `openid_authentication` block as defined below.
         """
         return pulumi.get(self, "openid_authentication")
 
@@ -762,7 +762,7 @@ class _ApiState:
     @pulumi.getter(name="subscriptionKeyParameterNames")
     def subscription_key_parameter_names(self) -> pulumi.Input[Optional['ApiSubscriptionKeyParameterNamesArgs']]:
         """
-        A `subscription_key_parameter_names` block as documented below.
+        A `subscription_key_parameter_names` block as defined below.
         """
         return pulumi.get(self, "subscription_key_parameter_names")
 
@@ -916,16 +916,16 @@ class Api(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
-        :param pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict', 'outputs.ApiContact']] contact: A `contact` block as documented below.
+        :param pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict', 'outputs.ApiContact']] contact: A `contact` block as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[_builtins.str] display_name: The display name of the API.
-        :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict', 'outputs.ApiImport']] import_: A `import` block as documented below.
+        :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict', 'outputs.ApiImport']] import_: A `import` block as defined below.
                
                > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
-        :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict', 'outputs.ApiLicense']] license: A `license` block as documented below.
+        :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict', 'outputs.ApiLicense']] license: A `license` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict', 'outputs.ApiOauth2Authorization']] oauth2_authorization: An `oauth2_authorization` block as documented below.
-        :param pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict', 'outputs.ApiOpenidAuthentication']] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict', 'outputs.ApiOauth2Authorization']] oauth2_authorization: An `oauth2_authorization` block as defined below.
+        :param pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict', 'outputs.ApiOpenidAuthentication']] openid_authentication: An `openid_authentication` block as defined below.
         :param pulumi.Input[_builtins.str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
@@ -937,7 +937,7 @@ class Api(pulumi.CustomResource):
                
                > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         :param pulumi.Input[_builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
-        :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict', 'outputs.ApiSubscriptionKeyParameterNames']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict', 'outputs.ApiSubscriptionKeyParameterNames']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as defined below.
         :param pulumi.Input[_builtins.bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[_builtins.str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[_builtins.str] version: The Version number of this API, if this API is versioned.
@@ -1123,18 +1123,18 @@ class Api(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
-        :param pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict', 'outputs.ApiContact']] contact: A `contact` block as documented below.
+        :param pulumi.Input[Union['ApiContactArgs', 'ApiContactArgsDict', 'outputs.ApiContact']] contact: A `contact` block as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[_builtins.str] display_name: The display name of the API.
-        :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict', 'outputs.ApiImport']] import_: A `import` block as documented below.
+        :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict', 'outputs.ApiImport']] import_: A `import` block as defined below.
                
                > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input[_builtins.bool] is_current: Is this the current API Revision?
         :param pulumi.Input[_builtins.bool] is_online: Is this API Revision online/accessible via the Gateway?
-        :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict', 'outputs.ApiLicense']] license: A `license` block as documented below.
+        :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict', 'outputs.ApiLicense']] license: A `license` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict', 'outputs.ApiOauth2Authorization']] oauth2_authorization: An `oauth2_authorization` block as documented below.
-        :param pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict', 'outputs.ApiOpenidAuthentication']] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict', 'outputs.ApiOauth2Authorization']] oauth2_authorization: An `oauth2_authorization` block as defined below.
+        :param pulumi.Input[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict', 'outputs.ApiOpenidAuthentication']] openid_authentication: An `openid_authentication` block as defined below.
         :param pulumi.Input[_builtins.str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
@@ -1146,7 +1146,7 @@ class Api(pulumi.CustomResource):
                
                > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         :param pulumi.Input[_builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
-        :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict', 'outputs.ApiSubscriptionKeyParameterNames']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict', 'outputs.ApiSubscriptionKeyParameterNames']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as defined below.
         :param pulumi.Input[_builtins.bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[_builtins.str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[_builtins.str] version: The Version number of this API, if this API is versioned.
@@ -1206,7 +1206,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter
     def contact(self) -> pulumi.Output[Optional['outputs.ApiContact']]:
         """
-        A `contact` block as documented below.
+        A `contact` block as defined below.
         """
         return pulumi.get(self, "contact")
 
@@ -1230,7 +1230,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="import")
     def import_(self) -> pulumi.Output[Optional['outputs.ApiImport']]:
         """
-        A `import` block as documented below.
+        A `import` block as defined below.
 
         > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
@@ -1256,7 +1256,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter
     def license(self) -> pulumi.Output[Optional['outputs.ApiLicense']]:
         """
-        A `license` block as documented below.
+        A `license` block as defined below.
         """
         return pulumi.get(self, "license")
 
@@ -1272,7 +1272,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="oauth2Authorization")
     def oauth2_authorization(self) -> pulumi.Output[Optional['outputs.ApiOauth2Authorization']]:
         """
-        An `oauth2_authorization` block as documented below.
+        An `oauth2_authorization` block as defined below.
         """
         return pulumi.get(self, "oauth2_authorization")
 
@@ -1280,7 +1280,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="openidAuthentication")
     def openid_authentication(self) -> pulumi.Output[Optional['outputs.ApiOpenidAuthentication']]:
         """
-        An `openid_authentication` block as documented below.
+        An `openid_authentication` block as defined below.
         """
         return pulumi.get(self, "openid_authentication")
 
@@ -1348,7 +1348,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="subscriptionKeyParameterNames")
     def subscription_key_parameter_names(self) -> pulumi.Output['outputs.ApiSubscriptionKeyParameterNames']:
         """
-        A `subscription_key_parameter_names` block as documented below.
+        A `subscription_key_parameter_names` block as defined below.
         """
         return pulumi.get(self, "subscription_key_parameter_names")
 

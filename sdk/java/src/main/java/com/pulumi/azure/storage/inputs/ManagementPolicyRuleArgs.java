@@ -18,14 +18,14 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
     public static final ManagementPolicyRuleArgs Empty = new ManagementPolicyRuleArgs();
 
     /**
-     * An `actions` block as documented below.
+     * An `actions` block as defined below.
      * 
      */
     @Import(name="actions", required=true)
     private Output<ManagementPolicyRuleActionsArgs> actions;
 
     /**
-     * @return An `actions` block as documented below.
+     * @return An `actions` block as defined below.
      * 
      */
     public Output<ManagementPolicyRuleActionsArgs> actions() {
@@ -48,14 +48,14 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `filters` block as documented below.
+     * A `filters` block as defined below.
      * 
      */
     @Import(name="filters", required=true)
     private Output<ManagementPolicyRuleFiltersArgs> filters;
 
     /**
-     * @return A `filters` block as documented below.
+     * @return A `filters` block as defined below.
      * 
      */
     public Output<ManagementPolicyRuleFiltersArgs> filters() {
@@ -105,7 +105,7 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param actions An `actions` block as documented below.
+         * @param actions An `actions` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param actions An `actions` block as documented below.
+         * @param actions An `actions` block as defined below.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param filters A `filters` block as documented below.
+         * @param filters A `filters` block as defined below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param filters A `filters` block as documented below.
+         * @param filters A `filters` block as defined below.
          * 
          * @return builder
          * 

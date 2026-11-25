@@ -43,8 +43,8 @@ public final class WafFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .name("existing")
+     *             .resourceGroupName("example-resources")
+     *             .name("example-waf-policy")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -92,8 +92,8 @@ public final class WafFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .name("existing")
+     *             .resourceGroupName("example-resources")
+     *             .name("example-waf-policy")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -141,8 +141,8 @@ public final class WafFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .name("existing")
+     *             .resourceGroupName("example-resources")
+     *             .name("example-waf-policy")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -190,8 +190,8 @@ public final class WafFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .name("existing")
+     *             .resourceGroupName("example-resources")
+     *             .name("example-waf-policy")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -239,8 +239,8 @@ public final class WafFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .name("existing")
+     *             .resourceGroupName("example-resources")
+     *             .name("example-waf-policy")
      *             .build());
      * 
      *         ctx.export("id", example.id());

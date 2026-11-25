@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := datafactory.LookupFactory(ctx, &datafactory.LookupFactoryArgs{
-//				Name:              "existing-adf",
-//				ResourceGroupName: "existing-rg",
+//				Name:              "example-data-factory",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

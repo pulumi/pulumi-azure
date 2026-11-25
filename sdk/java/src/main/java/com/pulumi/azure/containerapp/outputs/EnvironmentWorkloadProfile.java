@@ -21,6 +21,8 @@ public final class EnvironmentWorkloadProfile {
     /**
      * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
+     * &gt; **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
+     * 
      */
     private @Nullable Integer minimumCount;
     /**
@@ -48,6 +50,8 @@ public final class EnvironmentWorkloadProfile {
     }
     /**
      * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     * &gt; **Note:** The `maximumCount` and `minimumCount` arguments are not supported when `workloadProfileType` is set to `Consumption`, `Consumption-GPU-NC24-A100`, or `Consumption-GPU-NC8as-T4`.
      * 
      */
     public Optional<Integer> minimumCount() {

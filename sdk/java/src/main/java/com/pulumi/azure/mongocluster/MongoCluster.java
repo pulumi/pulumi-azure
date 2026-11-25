@@ -398,28 +398,32 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageSizeInGb", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> storageSizeInGb;
+    private Output<Integer> storageSizeInGb;
 
     /**
      * @return The size of the data disk space for the MongoDB Cluster.
      * 
      */
-    public Output<Optional<Integer>> storageSizeInGb() {
-        return Codegen.optional(this.storageSizeInGb);
+    public Output<Integer> storageSizeInGb() {
+        return this.storageSizeInGb;
     }
     /**
-     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region&#39;s availability.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageType;
+    private Output<String> storageType;
 
     /**
-     * @return The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * @return The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `storageType` is omitted, Azure will determine the preferred type based on the region&#39;s availability.
      * 
      */
-    public Output<Optional<String>> storageType() {
-        return Codegen.optional(this.storageType);
+    public Output<String> storageType() {
+        return this.storageType;
     }
     /**
      * A mapping of tags to assign to the MongoDB Cluster.

@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getRouteFilter({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-route-filter",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -87,8 +87,8 @@ export interface GetRouteFilterResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getRouteFilter({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-route-filter",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

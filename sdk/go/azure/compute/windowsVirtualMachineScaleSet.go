@@ -146,9 +146,13 @@ type WindowsVirtualMachineScaleSet struct {
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput `pulumi:"automaticOsUpgradePolicy"`
 	// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
 	AutomaticUpdatesEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpdatesEnabled"`
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `healthProbeId` or a health extension must be configured.
+	AutomaticZoneRebalancingEnabled pulumi.BoolPtrOutput `pulumi:"automaticZoneRebalancingEnabled"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
-	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+	//
+	// > **Note:** Associating a `capacityReservationGroupId` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 	//
 	// > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
 	//
@@ -222,13 +226,13 @@ type WindowsVirtualMachineScaleSet struct {
 	ProvisionVmAgent pulumi.BoolPtrOutput `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
-	// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+	// Whether `resilient VM creation` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
 	ResilientVmCreationEnabled pulumi.BoolPtrOutput `pulumi:"resilientVmCreationEnabled"`
-	// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+	// Whether `resilient VM deletion` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
 	ResilientVmDeletionEnabled pulumi.BoolPtrOutput `pulumi:"resilientVmDeletionEnabled"`
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -362,9 +366,13 @@ type windowsVirtualMachineScaleSetState struct {
 	AutomaticOsUpgradePolicy *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
 	AutomaticUpdatesEnabled *bool `pulumi:"automaticUpdatesEnabled"`
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `healthProbeId` or a health extension must be configured.
+	AutomaticZoneRebalancingEnabled *bool `pulumi:"automaticZoneRebalancingEnabled"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
-	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+	//
+	// > **Note:** Associating a `capacityReservationGroupId` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 	//
 	// > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
 	//
@@ -438,13 +446,13 @@ type windowsVirtualMachineScaleSetState struct {
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
-	// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+	// Whether `resilient VM creation` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
 	ResilientVmCreationEnabled *bool `pulumi:"resilientVmCreationEnabled"`
-	// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+	// Whether `resilient VM deletion` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
 	ResilientVmDeletionEnabled *bool `pulumi:"resilientVmDeletionEnabled"`
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -517,9 +525,13 @@ type WindowsVirtualMachineScaleSetState struct {
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
 	AutomaticUpdatesEnabled pulumi.BoolPtrInput
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `healthProbeId` or a health extension must be configured.
+	AutomaticZoneRebalancingEnabled pulumi.BoolPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
-	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+	//
+	// > **Note:** Associating a `capacityReservationGroupId` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 	//
 	// > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
 	//
@@ -593,13 +605,13 @@ type WindowsVirtualMachineScaleSetState struct {
 	ProvisionVmAgent pulumi.BoolPtrInput
 	// The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
-	// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+	// Whether `resilient VM creation` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
 	ResilientVmCreationEnabled pulumi.BoolPtrInput
-	// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+	// Whether `resilient VM deletion` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
 	ResilientVmDeletionEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -676,9 +688,13 @@ type windowsVirtualMachineScaleSetArgs struct {
 	AutomaticOsUpgradePolicy *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
 	AutomaticUpdatesEnabled *bool `pulumi:"automaticUpdatesEnabled"`
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `healthProbeId` or a health extension must be configured.
+	AutomaticZoneRebalancingEnabled *bool `pulumi:"automaticZoneRebalancingEnabled"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
-	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+	//
+	// > **Note:** Associating a `capacityReservationGroupId` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 	//
 	// > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
 	//
@@ -752,13 +768,13 @@ type windowsVirtualMachineScaleSetArgs struct {
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
-	// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+	// Whether `resilient VM creation` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
 	ResilientVmCreationEnabled *bool `pulumi:"resilientVmCreationEnabled"`
-	// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+	// Whether `resilient VM deletion` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
 	ResilientVmDeletionEnabled *bool `pulumi:"resilientVmDeletionEnabled"`
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -830,9 +846,13 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
 	AutomaticUpdatesEnabled pulumi.BoolPtrInput
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `healthProbeId` or a health extension must be configured.
+	AutomaticZoneRebalancingEnabled pulumi.BoolPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
-	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+	//
+	// > **Note:** Associating a `capacityReservationGroupId` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 	//
 	// > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
 	//
@@ -906,13 +926,13 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	ProvisionVmAgent pulumi.BoolPtrInput
 	// The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
-	// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+	// Whether `resilient VM creation` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
 	ResilientVmCreationEnabled pulumi.BoolPtrInput
-	// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+	// Whether `resilient VM deletion` is enabled. Defaults to `false`.
 	//
-	// > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
 	ResilientVmDeletionEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -1098,6 +1118,11 @@ func (o WindowsVirtualMachineScaleSetOutput) AutomaticUpdatesEnabled() pulumi.Bo
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.AutomaticUpdatesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `healthProbeId` or a health extension must be configured.
+func (o WindowsVirtualMachineScaleSetOutput) AutomaticZoneRebalancingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.AutomaticZoneRebalancingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // A `bootDiagnostics` block as defined below.
 func (o WindowsVirtualMachineScaleSetOutput) BootDiagnostics() WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
@@ -1105,7 +1130,9 @@ func (o WindowsVirtualMachineScaleSetOutput) BootDiagnostics() WindowsVirtualMac
 	}).(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
 
-// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+//
+// > **Note:** Associating a `capacityReservationGroupId` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 //
 // > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
 //
@@ -1275,16 +1302,16 @@ func (o WindowsVirtualMachineScaleSetOutput) ProximityPlacementGroupId() pulumi.
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+// Whether `resilient VM creation` is enabled. Defaults to `false`.
 //
-// > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
 func (o WindowsVirtualMachineScaleSetOutput) ResilientVmCreationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ResilientVmCreationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+// Whether `resilient VM deletion` is enabled. Defaults to `false`.
 //
-// > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
 func (o WindowsVirtualMachineScaleSetOutput) ResilientVmDeletionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ResilientVmDeletionEnabled }).(pulumi.BoolPtrOutput)
 }

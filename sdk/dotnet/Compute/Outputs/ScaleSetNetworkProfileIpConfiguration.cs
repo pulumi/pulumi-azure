@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool Primary;
         /// <summary>
-        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `PublicIpAddressConfiguration` block is documented below.
+        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `PublicIpAddressConfiguration` block is defined below.
         /// </summary>
         public readonly Outputs.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration? PublicIpAddressConfiguration;
         /// <summary>

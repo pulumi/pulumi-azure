@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ServerCertificateThumbprints;
         /// <summary>
-        /// One or more `ServerX509Name` blocks as documented below.
+        /// One or more `ServerX509Name` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BackendServiceFabricClusterServerX509Name> ServerX509Names;
 

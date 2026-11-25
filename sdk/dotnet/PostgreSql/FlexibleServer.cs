@@ -143,7 +143,7 @@ namespace Pulumi.Azure.PostgreSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DBforPostgreSQL` - 2025-08-01
+    /// * `Microsoft.DBforPostgreSQL` - 2026-10-01
     /// 
     /// ## Import
     /// 
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `Tier` + `Name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        /// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `Tier` + `Name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -560,7 +560,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `Tier` + `Name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        /// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `Tier` + `Name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -786,7 +786,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `Tier` + `Name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+        /// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `Tier` + `Name` pattern (e.g. `B_Standard_B1ms`, `B_Standard_B2ats_v2`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

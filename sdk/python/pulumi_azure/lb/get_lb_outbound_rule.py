@@ -155,8 +155,8 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.lb.get_lb_outbound_rule(name="existing_lb_outbound_rule",
-        loadbalancer_id="existing_load_balancer_id")
+    example = azure.lb.get_lb_outbound_rule(name="example-outbound-rule",
+        loadbalancer_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb")
     pulumi.export("id", example.id)
     ```
 
@@ -199,8 +199,8 @@ def get_lb_outbound_rule_output(loadbalancer_id: pulumi.Input[Optional[_builtins
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.lb.get_lb_outbound_rule(name="existing_lb_outbound_rule",
-        loadbalancer_id="existing_load_balancer_id")
+    example = azure.lb.get_lb_outbound_rule(name="example-outbound-rule",
+        loadbalancer_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/loadBalancers/example-lb")
     pulumi.export("id", example.id)
     ```
 

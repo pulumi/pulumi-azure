@@ -14,6 +14,7 @@ from .account_connection_custom_keys import *
 from .account_connection_entra_id import *
 from .account_customer_managed_key import *
 from .account_project import *
+from .account_project_connection_entra_id import *
 from .account_rai_blocklist import *
 from .account_rai_policy import *
 from .deployment import *

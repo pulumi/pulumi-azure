@@ -80,7 +80,7 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
     }
 
     /**
-     * A `businessIdentity` block as documented below.
+     * A `businessIdentity` block as defined below.
      */
     declare public readonly businessIdentities: pulumi.Output<outputs.logicapps.IntegrationAccountPartnerBusinessIdentity[]>;
     /**
@@ -145,7 +145,7 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
  */
 export interface IntegrationAccountPartnerState {
     /**
-     * A `businessIdentity` block as documented below.
+     * A `businessIdentity` block as defined below.
      */
     businessIdentities?: pulumi.Input<pulumi.Input<inputs.logicapps.IntegrationAccountPartnerBusinessIdentity>[] | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface IntegrationAccountPartnerState {
  */
 export interface IntegrationAccountPartnerArgs {
     /**
-     * A `businessIdentity` block as documented below.
+     * A `businessIdentity` block as defined below.
      */
     businessIdentities: pulumi.Input<pulumi.Input<inputs.logicapps.IntegrationAccountPartnerBusinessIdentity>[]>;
     /**

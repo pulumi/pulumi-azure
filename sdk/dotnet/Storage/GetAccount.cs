@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly bool AllowNestedItemsToBePublic;
         /// <summary>
-        /// A `AzureFilesAuthentication` block as documented below.
+        /// A `AzureFilesAuthentication` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationResult> AzureFilesAuthentications;
         /// <summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `Identity` block as documented below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountIdentityResult> Identities;
         /// <summary>
@@ -544,6 +544,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string SecondaryWebMicrosoftHost;
         /// <summary>
+        /// Whether managed identities can access SMB Azure file shares using OAuth.
+        /// </summary>
+        public readonly bool SmbOauthEnabled;
+        /// <summary>
         /// The encryption key type of the table.
         /// </summary>
         public readonly string TableEncryptionKeyType;
@@ -738,6 +742,8 @@ namespace Pulumi.Azure.Storage
 
             string secondaryWebMicrosoftHost,
 
+            bool smbOauthEnabled,
+
             string tableEncryptionKeyType,
 
             ImmutableDictionary<string, string> tags)
@@ -834,6 +840,7 @@ namespace Pulumi.Azure.Storage
             SecondaryWebInternetHost = secondaryWebInternetHost;
             SecondaryWebMicrosoftEndpoint = secondaryWebMicrosoftEndpoint;
             SecondaryWebMicrosoftHost = secondaryWebMicrosoftHost;
+            SmbOauthEnabled = smbOauthEnabled;
             TableEncryptionKeyType = tableEncryptionKeyType;
             Tags = tags;
         }

@@ -9028,7 +9028,7 @@ class ProfileContainerNetworkInterface(dict):
                  ip_configurations: Sequence['outputs.ProfileContainerNetworkInterfaceIpConfiguration'],
                  name: _builtins.str):
         """
-        :param Sequence['ProfileContainerNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as documented below.
+        :param Sequence['ProfileContainerNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param _builtins.str name: Specifies the name of the IP Configuration.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -9038,7 +9038,7 @@ class ProfileContainerNetworkInterface(dict):
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> Sequence['outputs.ProfileContainerNetworkInterfaceIpConfiguration']:
         """
-        One or more `ip_configuration` blocks as documented below.
+        One or more `ip_configuration` blocks as defined below.
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -10036,7 +10036,7 @@ class TrafficManagerProfileDnsConfig(dict):
                  relative_name: _builtins.str,
                  ttl: _builtins.int):
         """
-        :param _builtins.str relative_name: The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+        :param _builtins.str relative_name: The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
         :param _builtins.int ttl: The TTL value of the Profile used by Local DNS resolvers and clients.
         """
         pulumi.set(__self__, "relative_name", relative_name)
@@ -10046,7 +10046,7 @@ class TrafficManagerProfileDnsConfig(dict):
     @pulumi.getter(name="relativeName")
     def relative_name(self) -> _builtins.str:
         """
-        The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+        The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "relative_name")
 

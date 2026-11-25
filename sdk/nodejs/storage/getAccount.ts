@@ -81,7 +81,7 @@ export interface GetAccountResult {
      */
     readonly allowNestedItemsToBePublic: boolean;
     /**
-     * A `azureFilesAuthentication` block as documented below.
+     * A `azureFilesAuthentication` block as defined below.
      */
     readonly azureFilesAuthentications: outputs.storage.GetAccountAzureFilesAuthentication[];
     /**
@@ -101,7 +101,7 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
-     * An `identity` block as documented below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.storage.GetAccountIdentity[];
     /**
@@ -426,6 +426,10 @@ export interface GetAccountResult {
      * The microsoft routing hostname with port if applicable for web storage in the secondary location.
      */
     readonly secondaryWebMicrosoftHost: string;
+    /**
+     * Whether managed identities can access SMB Azure file shares using OAuth.
+     */
+    readonly smbOauthEnabled: boolean;
     /**
      * The encryption key type of the table.
      */

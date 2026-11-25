@@ -102,7 +102,7 @@ def get_resource_group(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.core.get_resource_group(name="existing")
+    example = azure.core.get_resource_group(name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -131,7 +131,7 @@ def get_resource_group_output(name: pulumi.Input[Optional[_builtins.str]] = None
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.core.get_resource_group(name="existing")
+    example = azure.core.get_resource_group(name="example-resources")
     pulumi.export("id", example.id)
     ```
 

@@ -128,9 +128,9 @@ def get_workspace(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.machinelearning.get_workspace(name="example-workspace",
+    example = azure.machinelearning.get_workspace(name="example-workspace",
         resource_group_name="example-resources")
-    pulumi.export("id", existing.id)
+    pulumi.export("id", example.id)
     ```
 
     ## API Providers
@@ -170,9 +170,9 @@ def get_workspace_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.machinelearning.get_workspace(name="example-workspace",
+    example = azure.machinelearning.get_workspace(name="example-workspace",
         resource_group_name="example-resources")
-    pulumi.export("id", existing.id)
+    pulumi.export("id", example.id)
     ```
 
     ## API Providers

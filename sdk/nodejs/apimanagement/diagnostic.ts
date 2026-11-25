@@ -170,6 +170,12 @@ export class Diagnostic extends pulumi.CustomResource {
      */
     declare public readonly logClientIp: pulumi.Output<boolean>;
     /**
+     * Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+     *
+     * > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+     */
+    declare public readonly metricsEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      */
     declare public readonly operationNameFormat: pulumi.Output<string | undefined>;
@@ -209,6 +215,7 @@ export class Diagnostic extends pulumi.CustomResource {
             resourceInputs["httpCorrelationProtocol"] = state?.httpCorrelationProtocol;
             resourceInputs["identifier"] = state?.identifier;
             resourceInputs["logClientIp"] = state?.logClientIp;
+            resourceInputs["metricsEnabled"] = state?.metricsEnabled;
             resourceInputs["operationNameFormat"] = state?.operationNameFormat;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["samplingPercentage"] = state?.samplingPercentage;
@@ -237,6 +244,7 @@ export class Diagnostic extends pulumi.CustomResource {
             resourceInputs["httpCorrelationProtocol"] = args?.httpCorrelationProtocol;
             resourceInputs["identifier"] = args?.identifier;
             resourceInputs["logClientIp"] = args?.logClientIp;
+            resourceInputs["metricsEnabled"] = args?.metricsEnabled;
             resourceInputs["operationNameFormat"] = args?.operationNameFormat;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["samplingPercentage"] = args?.samplingPercentage;
@@ -291,6 +299,12 @@ export interface DiagnosticState {
      * Log client IP address.
      */
     logClientIp?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+     *
+     * > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+     */
+    metricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      */
@@ -353,6 +367,12 @@ export interface DiagnosticArgs {
      * Log client IP address.
      */
     logClientIp?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+     *
+     * > **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+     */
+    metricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      */

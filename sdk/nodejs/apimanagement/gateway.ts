@@ -92,7 +92,7 @@ export class Gateway extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * A `locationData` block as documented below.
+     * A `locationData` block as defined below.
      */
     declare public readonly locationData: pulumi.Output<outputs.apimanagement.GatewayLocationData>;
     /**
@@ -148,7 +148,7 @@ export interface GatewayState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A `locationData` block as documented below.
+     * A `locationData` block as defined below.
      */
     locationData?: pulumi.Input<inputs.apimanagement.GatewayLocationData | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface GatewayArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A `locationData` block as documented below.
+     * A `locationData` block as defined below.
      */
     locationData: pulumi.Input<inputs.apimanagement.GatewayLocationData>;
     /**

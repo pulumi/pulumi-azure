@@ -336,6 +336,12 @@ type Endpoint struct {
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations EndpointIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
+	// The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+	//
+	// > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+	//
+	// > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+	IpVersionType pulumi.StringPtrOutput `pulumi:"ipVersionType"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -403,6 +409,12 @@ type endpointState struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations []EndpointIpConfiguration `pulumi:"ipConfigurations"`
+	// The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+	//
+	// > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+	//
+	// > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+	IpVersionType *string `pulumi:"ipVersionType"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -432,6 +444,12 @@ type EndpointState struct {
 	EdgeZone pulumi.StringPtrInput
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations EndpointIpConfigurationArrayInput
+	// The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+	//
+	// > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+	//
+	// > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+	IpVersionType pulumi.StringPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -463,6 +481,12 @@ type endpointArgs struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations []EndpointIpConfiguration `pulumi:"ipConfigurations"`
+	// The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+	//
+	// > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+	//
+	// > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+	IpVersionType *string `pulumi:"ipVersionType"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -487,6 +511,12 @@ type EndpointArgs struct {
 	EdgeZone pulumi.StringPtrInput
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations EndpointIpConfigurationArrayInput
+	// The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+	//
+	// > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+	//
+	// > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+	IpVersionType pulumi.StringPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -608,6 +638,15 @@ func (o EndpointOutput) EdgeZone() pulumi.StringPtrOutput {
 // One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 func (o EndpointOutput) IpConfigurations() EndpointIpConfigurationArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointIpConfigurationArrayOutput { return v.IpConfigurations }).(EndpointIpConfigurationArrayOutput)
+}
+
+// The IP version type for the Private Endpoint. Possible values are `IPv4`, `IPv6`, and `DualStack`. Defaults to `IPv4`.
+//
+// > **Note:** When `ipVersionType` is set to `IPv6` or `DualStack`, `privateEndpointVnetPolicies` must be set to `Basic` on the Virtual Network and all peered Virtual Networks. In addition, `privateEndpointNetworkPolicies` must be set to `RouteTableEnabled` on the Subnet. Refer to [document](https://learn.microsoft.com/azure/private-link/private-link-ipv6#prerequisites).
+//
+// > **Note:** Only changing `ipVersionType` from `IPv4` to `DualStack` updates the Private Endpoint in place. All other changes to `ipVersionType` force a new Private Endpoint to be created.
+func (o EndpointOutput) IpVersionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.IpVersionType }).(pulumi.StringPtrOutput)
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.

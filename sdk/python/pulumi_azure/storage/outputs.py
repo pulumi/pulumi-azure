@@ -683,7 +683,7 @@ class AccountCustomerManagedKey(dict):
         :param _builtins.str key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         :param _builtins.str user_assigned_identity_id: The ID of a user assigned identity.
                
-               > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+               > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `FileStorage` with `provisioned_billing_model_version` set to `V2`, or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
@@ -702,7 +702,7 @@ class AccountCustomerManagedKey(dict):
         """
         The ID of a user assigned identity.
 
-        > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+        > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `FileStorage` with `provisioned_billing_model_version` set to `V2`, or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -2598,9 +2598,9 @@ class ManagementPolicyRule(dict):
                  filters: 'outputs.ManagementPolicyRuleFilters',
                  name: _builtins.str):
         """
-        :param 'ManagementPolicyRuleActionsArgs' actions: An `actions` block as documented below.
+        :param 'ManagementPolicyRuleActionsArgs' actions: An `actions` block as defined below.
         :param _builtins.bool enabled: Boolean to specify whether the rule is enabled.
-        :param 'ManagementPolicyRuleFiltersArgs' filters: A `filters` block as documented below.
+        :param 'ManagementPolicyRuleFiltersArgs' filters: A `filters` block as defined below.
         :param _builtins.str name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         """
         pulumi.set(__self__, "actions", actions)
@@ -2612,7 +2612,7 @@ class ManagementPolicyRule(dict):
     @pulumi.getter
     def actions(self) -> 'outputs.ManagementPolicyRuleActions':
         """
-        An `actions` block as documented below.
+        An `actions` block as defined below.
         """
         return pulumi.get(self, "actions")
 
@@ -2628,7 +2628,7 @@ class ManagementPolicyRule(dict):
     @pulumi.getter
     def filters(self) -> 'outputs.ManagementPolicyRuleFilters':
         """
-        A `filters` block as documented below.
+        A `filters` block as defined below.
         """
         return pulumi.get(self, "filters")
 
@@ -2665,9 +2665,9 @@ class ManagementPolicyRuleActions(dict):
                  snapshot: Optional['outputs.ManagementPolicyRuleActionsSnapshot'] = None,
                  version: Optional['outputs.ManagementPolicyRuleActionsVersion'] = None):
         """
-        :param 'ManagementPolicyRuleActionsBaseBlobArgs' base_blob: A `base_blob` block as documented below.
-        :param 'ManagementPolicyRuleActionsSnapshotArgs' snapshot: A `snapshot` block as documented below.
-        :param 'ManagementPolicyRuleActionsVersionArgs' version: A `version` block as documented below.
+        :param 'ManagementPolicyRuleActionsBaseBlobArgs' base_blob: A `base_blob` block as defined below.
+        :param 'ManagementPolicyRuleActionsSnapshotArgs' snapshot: A `snapshot` block as defined below.
+        :param 'ManagementPolicyRuleActionsVersionArgs' version: A `version` block as defined below.
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
@@ -2680,7 +2680,7 @@ class ManagementPolicyRuleActions(dict):
     @pulumi.getter(name="baseBlob")
     def base_blob(self) -> Optional['outputs.ManagementPolicyRuleActionsBaseBlob']:
         """
-        A `base_blob` block as documented below.
+        A `base_blob` block as defined below.
         """
         return pulumi.get(self, "base_blob")
 
@@ -2688,7 +2688,7 @@ class ManagementPolicyRuleActions(dict):
     @pulumi.getter
     def snapshot(self) -> Optional['outputs.ManagementPolicyRuleActionsSnapshot']:
         """
-        A `snapshot` block as documented below.
+        A `snapshot` block as defined below.
         """
         return pulumi.get(self, "snapshot")
 
@@ -2696,7 +2696,7 @@ class ManagementPolicyRuleActions(dict):
     @pulumi.getter
     def version(self) -> Optional['outputs.ManagementPolicyRuleActionsVersion']:
         """
-        A `version` block as documented below.
+        A `version` block as defined below.
         """
         return pulumi.get(self, "version")
 
@@ -3506,7 +3506,7 @@ class GetAccountAzureFilesAuthenticationResult(dict):
                  default_share_level_permission: _builtins.str,
                  directory_type: _builtins.str):
         """
-        :param Sequence['GetAccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directories: An `active_directory` block as documented below.
+        :param Sequence['GetAccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directories: An `active_directory` block as defined below.
         :param _builtins.str default_share_level_permission: The default share level permissions applied to all users.
         :param _builtins.str directory_type: The directory service used for this Storage Account.
         """
@@ -3518,7 +3518,7 @@ class GetAccountAzureFilesAuthenticationResult(dict):
     @pulumi.getter(name="activeDirectories")
     def active_directories(self) -> Sequence['outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult']:
         """
-        An `active_directory` block as documented below.
+        An `active_directory` block as defined below.
         """
         return pulumi.get(self, "active_directories")
 
@@ -4130,9 +4130,9 @@ class GetPolicyRuleResult(dict):
                  filters: Sequence['outputs.GetPolicyRuleFilterResult'],
                  name: _builtins.str):
         """
-        :param Sequence['GetPolicyRuleActionArgs'] actions: An `actions` block as documented below.
+        :param Sequence['GetPolicyRuleActionArgs'] actions: An `actions` block as defined below.
         :param _builtins.bool enabled: Boolean to specify whether the rule is enabled.
-        :param Sequence['GetPolicyRuleFilterArgs'] filters: A `filter` block as documented below.
+        :param Sequence['GetPolicyRuleFilterArgs'] filters: A `filter` block as defined below.
         :param _builtins.str name: The filter tag name used for tag based filtering for blob objects.
         """
         pulumi.set(__self__, "actions", actions)
@@ -4144,7 +4144,7 @@ class GetPolicyRuleResult(dict):
     @pulumi.getter
     def actions(self) -> Sequence['outputs.GetPolicyRuleActionResult']:
         """
-        An `actions` block as documented below.
+        An `actions` block as defined below.
         """
         return pulumi.get(self, "actions")
 
@@ -4160,7 +4160,7 @@ class GetPolicyRuleResult(dict):
     @pulumi.getter
     def filters(self) -> Sequence['outputs.GetPolicyRuleFilterResult']:
         """
-        A `filter` block as documented below.
+        A `filter` block as defined below.
         """
         return pulumi.get(self, "filters")
 
@@ -4180,9 +4180,9 @@ class GetPolicyRuleActionResult(dict):
                  snapshots: Sequence['outputs.GetPolicyRuleActionSnapshotResult'],
                  versions: Sequence['outputs.GetPolicyRuleActionVersionResult']):
         """
-        :param Sequence['GetPolicyRuleActionBaseBlobArgs'] base_blobs: A `base_blob` block as documented below.
-        :param Sequence['GetPolicyRuleActionSnapshotArgs'] snapshots: A `snapshot` block as documented below.
-        :param Sequence['GetPolicyRuleActionVersionArgs'] versions: A `version` block as documented below.
+        :param Sequence['GetPolicyRuleActionBaseBlobArgs'] base_blobs: A `base_blob` block as defined below.
+        :param Sequence['GetPolicyRuleActionSnapshotArgs'] snapshots: A `snapshot` block as defined below.
+        :param Sequence['GetPolicyRuleActionVersionArgs'] versions: A `version` block as defined below.
         """
         pulumi.set(__self__, "base_blobs", base_blobs)
         pulumi.set(__self__, "snapshots", snapshots)
@@ -4192,7 +4192,7 @@ class GetPolicyRuleActionResult(dict):
     @pulumi.getter(name="baseBlobs")
     def base_blobs(self) -> Sequence['outputs.GetPolicyRuleActionBaseBlobResult']:
         """
-        A `base_blob` block as documented below.
+        A `base_blob` block as defined below.
         """
         return pulumi.get(self, "base_blobs")
 
@@ -4200,7 +4200,7 @@ class GetPolicyRuleActionResult(dict):
     @pulumi.getter
     def snapshots(self) -> Sequence['outputs.GetPolicyRuleActionSnapshotResult']:
         """
-        A `snapshot` block as documented below.
+        A `snapshot` block as defined below.
         """
         return pulumi.get(self, "snapshots")
 
@@ -4208,7 +4208,7 @@ class GetPolicyRuleActionResult(dict):
     @pulumi.getter
     def versions(self) -> Sequence['outputs.GetPolicyRuleActionVersionResult']:
         """
-        A `version` block as documented below.
+        A `version` block as defined below.
         """
         return pulumi.get(self, "versions")
 

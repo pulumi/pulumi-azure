@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Maintenance.GetConfiguration.Invoke(new()
+        ///     var example = Azure.Maintenance.GetConfiguration.Invoke(new()
         ///     {
         ///         Name = "example-mc",
         ///         ResourceGroupName = "example-resources",
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existingAzurermMaintenanceConfiguration.Id,
+        ///         ["id"] = example.Apply(getConfigurationResult =&gt; getConfigurationResult.Id),
         ///     };
         /// });
         /// ```
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Maintenance.GetConfiguration.Invoke(new()
+        ///     var example = Azure.Maintenance.GetConfiguration.Invoke(new()
         ///     {
         ///         Name = "example-mc",
         ///         ResourceGroupName = "example-resources",
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existingAzurermMaintenanceConfiguration.Id,
+        ///         ["id"] = example.Apply(getConfigurationResult =&gt; getConfigurationResult.Id),
         ///     };
         /// });
         /// ```
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Maintenance.GetConfiguration.Invoke(new()
+        ///     var example = Azure.Maintenance.GetConfiguration.Invoke(new()
         ///     {
         ///         Name = "example-mc",
         ///         ResourceGroupName = "example-resources",
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existingAzurermMaintenanceConfiguration.Id,
+        ///         ["id"] = example.Apply(getConfigurationResult =&gt; getConfigurationResult.Id),
         ///     };
         /// });
         /// ```

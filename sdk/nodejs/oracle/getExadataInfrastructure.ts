@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.oracle.getExadataInfrastructure({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-exadata-infrastructure",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -220,8 +220,8 @@ export interface GetExadataInfrastructureResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.oracle.getExadataInfrastructure({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-exadata-infrastructure",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

@@ -70,7 +70,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
         /// <summary>
-        /// Is detailed error logging enabled
+        /// Is detailed error logging enabled?
         /// </summary>
         public readonly bool? DetailedErrorLoggingEnabled;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxFunctionAppSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
-        /// The Linux FX Version
+        /// The Linux FX Version.
         /// </summary>
         public readonly string? LinuxFxVersion;
         /// <summary>

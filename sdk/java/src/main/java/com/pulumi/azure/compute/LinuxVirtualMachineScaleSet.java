@@ -258,6 +258,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.automaticOsUpgradePolicy);
     }
     /**
+     * Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `healthProbeId` or a health extension must be configured.
+     * 
+     */
+    @Export(name="automaticZoneRebalancingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> automaticZoneRebalancingEnabled;
+
+    /**
+     * @return Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `healthProbeId` or a health extension must be configured.
+     * 
+     */
+    public Output<Optional<Boolean>> automaticZoneRebalancingEnabled() {
+        return Codegen.optional(this.automaticZoneRebalancingEnabled);
+    }
+    /**
      * A `bootDiagnostics` block as defined below.
      * 
      */
@@ -272,7 +286,9 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.bootDiagnostics);
     }
     /**
-     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+     * 
+     * &gt; **Note:** Associating a `capacityReservationGroupId` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
      * 
      * &gt; **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
      * 
@@ -283,7 +299,9 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
-     * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+     * 
+     * &gt; **Note:** Associating a `capacityReservationGroupId` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
      * 
      * &gt; **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
      * 
@@ -708,36 +726,36 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.proximityPlacementGroupId);
     }
     /**
-     * Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+     * Whether `resilient VM creation` is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     * &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
      * 
      */
     @Export(name="resilientVmCreationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> resilientVmCreationEnabled;
 
     /**
-     * @return Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+     * @return Whether `resilient VM creation` is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     * &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
      * 
      */
     public Output<Optional<Boolean>> resilientVmCreationEnabled() {
         return Codegen.optional(this.resilientVmCreationEnabled);
     }
     /**
-     * Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+     * Whether `resilient VM deletion` is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     * &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
      * 
      */
     @Export(name="resilientVmDeletionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> resilientVmDeletionEnabled;
 
     /**
-     * @return Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+     * @return Whether `resilient VM deletion` is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     * &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
      * 
      */
     public Output<Optional<Boolean>> resilientVmDeletionEnabled() {

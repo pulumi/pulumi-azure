@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.containerservice.getGroup({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-container-group",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * export const ipAddress = example.then(example => example.ipAddress);
@@ -107,8 +107,8 @@ export interface GetGroupResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.containerservice.getGroup({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-container-group",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * export const ipAddress = example.then(example => example.ipAddress);

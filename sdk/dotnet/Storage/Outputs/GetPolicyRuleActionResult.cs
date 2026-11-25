@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetPolicyRuleActionResult
     {
         /// <summary>
-        /// A `BaseBlob` block as documented below.
+        /// A `BaseBlob` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyRuleActionBaseBlobResult> BaseBlobs;
         /// <summary>
-        /// A `Snapshot` block as documented below.
+        /// A `Snapshot` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyRuleActionSnapshotResult> Snapshots;
         /// <summary>
-        /// A `Version` block as documented below.
+        /// A `Version` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyRuleActionVersionResult> Versions;
 

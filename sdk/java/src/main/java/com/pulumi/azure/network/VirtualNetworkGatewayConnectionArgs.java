@@ -86,7 +86,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     }
 
     /**
-     * A `customBgpAddresses` block which is documented below.
+     * A `customBgpAddresses` block which is defined below.
      * The block can only be used on `IPSec` / `activeactive` connections,
      * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
@@ -95,7 +95,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     private @Nullable Output<VirtualNetworkGatewayConnectionCustomBgpAddressesArgs> customBgpAddresses;
 
     /**
-     * @return A `customBgpAddresses` block which is documented below.
+     * @return A `customBgpAddresses` block which is defined below.
      * The block can only be used on `IPSec` / `activeactive` connections,
      * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
@@ -180,7 +180,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     }
 
     /**
-     * A `ipsecPolicy` block which is documented below.
+     * A `ipsecPolicy` block which is defined below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      * 
@@ -189,7 +189,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     private @Nullable Output<VirtualNetworkGatewayConnectionIpsecPolicyArgs> ipsecPolicy;
 
     /**
-     * @return A `ipsecPolicy` block which is documented below.
+     * @return A `ipsecPolicy` block which is defined below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      * 
@@ -349,7 +349,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     }
 
     /**
-     * One or more `trafficSelectorPolicy` blocks which are documented below.
+     * One or more `trafficSelectorPolicy` blocks which are defined below.
      * A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
      * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
      * 
@@ -358,7 +358,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     private @Nullable Output<VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs> trafficSelectorPolicy;
 
     /**
-     * @return One or more `trafficSelectorPolicy` blocks which are documented below.
+     * @return One or more `trafficSelectorPolicy` blocks which are defined below.
      * A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
      * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
      * 
@@ -547,7 +547,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param customBgpAddresses A `customBgpAddresses` block which is documented below.
+         * @param customBgpAddresses A `customBgpAddresses` block which is defined below.
          * The block can only be used on `IPSec` / `activeactive` connections,
          * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
          * 
@@ -560,7 +560,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param customBgpAddresses A `customBgpAddresses` block which is documented below.
+         * @param customBgpAddresses A `customBgpAddresses` block which is defined below.
          * The block can only be used on `IPSec` / `activeactive` connections,
          * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
          * 
@@ -697,7 +697,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param ipsecPolicy A `ipsecPolicy` block which is documented below.
+         * @param ipsecPolicy A `ipsecPolicy` block which is defined below.
          * Only a single policy can be defined for a connection. For details on
          * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
          * 
@@ -710,7 +710,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param ipsecPolicy A `ipsecPolicy` block which is documented below.
+         * @param ipsecPolicy A `ipsecPolicy` block which is defined below.
          * Only a single policy can be defined for a connection. For details on
          * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
          * 
@@ -932,7 +932,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param trafficSelectorPolicy One or more `trafficSelectorPolicy` blocks which are documented below.
+         * @param trafficSelectorPolicy One or more `trafficSelectorPolicy` blocks which are defined below.
          * A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
          * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
          * 
@@ -945,7 +945,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param trafficSelectorPolicy One or more `trafficSelectorPolicy` blocks which are documented below.
+         * @param trafficSelectorPolicy One or more `trafficSelectorPolicy` blocks which are defined below.
          * A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
          * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
          * 

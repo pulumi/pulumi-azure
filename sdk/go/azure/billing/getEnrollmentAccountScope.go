@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := billing.GetEnrollmentAccountScope(ctx, &billing.GetEnrollmentAccountScopeArgs{
-//				BillingAccountName:    "existing",
-//				EnrollmentAccountName: "existing",
+//				BillingAccountName:    "example-billing-account",
+//				EnrollmentAccountName: "example-enrollment-account",
 //			}, nil)
 //			if err != nil {
 //				return err

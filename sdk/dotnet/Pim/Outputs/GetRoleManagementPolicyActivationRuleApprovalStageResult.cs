@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class GetRoleManagementPolicyActivationRuleApprovalStageResult
     {
         /// <summary>
-        /// The IDs of the users or groups who can approve the activation
+        /// The IDs of the users or groups who can approve the activation.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverResult> PrimaryApprovers;
 

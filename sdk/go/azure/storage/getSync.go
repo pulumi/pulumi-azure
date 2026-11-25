@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := storage.LookupSync(ctx, &storage.LookupSyncArgs{
-//				Name:              "existingStorageSyncName",
-//				ResourceGroupName: "existingResGroup",
+//				Name:              "example-storage-sync",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

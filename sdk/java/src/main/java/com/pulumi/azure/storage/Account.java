@@ -345,21 +345,21 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.crossTenantReplicationEnabled);
     }
     /**
-     * A `customDomain` block as documented below.
+     * A `customDomain` block as defined below.
      * 
      */
     @Export(name="customDomain", refs={AccountCustomDomain.class}, tree="[0]")
     private Output</* @Nullable */ AccountCustomDomain> customDomain;
 
     /**
-     * @return A `customDomain` block as documented below.
+     * @return A `customDomain` block as defined below.
      * 
      */
     public Output<Optional<AccountCustomDomain>> customDomain() {
         return Codegen.optional(this.customDomain);
     }
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      * 
      * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      * 
@@ -368,7 +368,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ AccountCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customerManagedKey` block as documented below.
+     * @return A `customerManagedKey` block as defined below.
      * 
      * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      * 
@@ -583,14 +583,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `networkRules` block as documented below.
+     * A `networkRules` block as defined below.
      * 
      */
     @Export(name="networkRules", refs={AccountNetworkRules.class}, tree="[0]")
     private Output<AccountNetworkRules> networkRules;
 
     /**
-     * @return A `networkRules` block as documented below.
+     * @return A `networkRules` block as defined below.
      * 
      */
     public Output<AccountNetworkRules> networkRules() {
@@ -1771,6 +1771,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> sharedAccessKeyEnabled() {
         return Codegen.optional(this.sharedAccessKeyEnabled);
+    }
+    /**
+     * Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+     * 
+     */
+    @Export(name="smbOauthEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> smbOauthEnabled;
+
+    /**
+     * @return Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> smbOauthEnabled() {
+        return Codegen.optional(this.smbOauthEnabled);
     }
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

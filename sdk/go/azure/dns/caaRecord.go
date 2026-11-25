@@ -106,7 +106,7 @@ type CaaRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+	// A list of values that make up the CAA record. Each `record` block supports fields defined below.
 	Records CaaRecordRecordArrayOutput `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -164,7 +164,7 @@ type caaRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+	// A list of values that make up the CAA record. Each `record` block supports fields defined below.
 	Records []CaaRecordRecord `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -181,7 +181,7 @@ type CaaRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+	// A list of values that make up the CAA record. Each `record` block supports fields defined below.
 	Records CaaRecordRecordArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -200,7 +200,7 @@ func (CaaRecordState) ElementType() reflect.Type {
 type caaRecordArgs struct {
 	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+	// A list of values that make up the CAA record. Each `record` block supports fields defined below.
 	Records []CaaRecordRecord `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -216,7 +216,7 @@ type caaRecordArgs struct {
 type CaaRecordArgs struct {
 	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+	// A list of values that make up the CAA record. Each `record` block supports fields defined below.
 	Records CaaRecordRecordArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -325,7 +325,7 @@ func (o CaaRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaaRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+// A list of values that make up the CAA record. Each `record` block supports fields defined below.
 func (o CaaRecordOutput) Records() CaaRecordRecordArrayOutput {
 	return o.ApplyT(func(v *CaaRecord) CaaRecordRecordArrayOutput { return v.Records }).(CaaRecordRecordArrayOutput)
 }

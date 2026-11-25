@@ -97,7 +97,7 @@ type VpnServerConfigurationPolicyGroup struct {
 	IsDefault pulumi.BoolPtrOutput `pulumi:"isDefault"`
 	// The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more `policy` blocks as documented below.
+	// One or more `policy` blocks as defined below.
 	Policies VpnServerConfigurationPolicyGroupPolicyArrayOutput `pulumi:"policies"`
 	// The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
@@ -145,7 +145,7 @@ type vpnServerConfigurationPolicyGroupState struct {
 	IsDefault *bool `pulumi:"isDefault"`
 	// The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// One or more `policy` blocks as documented below.
+	// One or more `policy` blocks as defined below.
 	Policies []VpnServerConfigurationPolicyGroupPolicy `pulumi:"policies"`
 	// The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
 	Priority *int `pulumi:"priority"`
@@ -158,7 +158,7 @@ type VpnServerConfigurationPolicyGroupState struct {
 	IsDefault pulumi.BoolPtrInput
 	// The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// One or more `policy` blocks as documented below.
+	// One or more `policy` blocks as defined below.
 	Policies VpnServerConfigurationPolicyGroupPolicyArrayInput
 	// The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
 	Priority pulumi.IntPtrInput
@@ -175,7 +175,7 @@ type vpnServerConfigurationPolicyGroupArgs struct {
 	IsDefault *bool `pulumi:"isDefault"`
 	// The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// One or more `policy` blocks as documented below.
+	// One or more `policy` blocks as defined below.
 	Policies []VpnServerConfigurationPolicyGroupPolicy `pulumi:"policies"`
 	// The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
 	Priority *int `pulumi:"priority"`
@@ -189,7 +189,7 @@ type VpnServerConfigurationPolicyGroupArgs struct {
 	IsDefault pulumi.BoolPtrInput
 	// The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// One or more `policy` blocks as documented below.
+	// One or more `policy` blocks as defined below.
 	Policies VpnServerConfigurationPolicyGroupPolicyArrayInput
 	// The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
 	Priority pulumi.IntPtrInput
@@ -294,7 +294,7 @@ func (o VpnServerConfigurationPolicyGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnServerConfigurationPolicyGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `policy` blocks as documented below.
+// One or more `policy` blocks as defined below.
 func (o VpnServerConfigurationPolicyGroupOutput) Policies() VpnServerConfigurationPolicyGroupPolicyArrayOutput {
 	return o.ApplyT(func(v *VpnServerConfigurationPolicyGroup) VpnServerConfigurationPolicyGroupPolicyArrayOutput {
 		return v.Policies

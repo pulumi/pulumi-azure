@@ -109,7 +109,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// Is detailed error logging enabled
+        /// Is detailed error logging enabled?
         /// </summary>
         [Input("detailedErrorLoggingEnabled")]
         public Input<bool>? DetailedErrorLoggingEnabled { get; set; }

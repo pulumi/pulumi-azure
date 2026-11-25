@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := oracle.GetDbServers(ctx, &oracle.GetDbServersArgs{
-//				ResourceGroupName:              "existing",
-//				CloudExadataInfrastructureName: "existing",
+//				ResourceGroupName:              "example-resources",
+//				CloudExadataInfrastructureName: "example-exadata-infrastructure",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -173,7 +173,7 @@ type SubscriptionRule struct {
 
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
 	Action pulumi.StringPtrOutput `pulumi:"action"`
-	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+	// A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 	CorrelationFilter SubscriptionRuleCorrelationFilterPtrOutput `pulumi:"correlationFilter"`
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
 	FilterType pulumi.StringOutput `pulumi:"filterType"`
@@ -224,7 +224,7 @@ func GetSubscriptionRule(ctx *pulumi.Context,
 type subscriptionRuleState struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
 	Action *string `pulumi:"action"`
-	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+	// A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 	CorrelationFilter *SubscriptionRuleCorrelationFilter `pulumi:"correlationFilter"`
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
 	FilterType *string `pulumi:"filterType"`
@@ -240,7 +240,7 @@ type subscriptionRuleState struct {
 type SubscriptionRuleState struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
 	Action pulumi.StringPtrInput
-	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+	// A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 	CorrelationFilter SubscriptionRuleCorrelationFilterPtrInput
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
 	FilterType pulumi.StringPtrInput
@@ -260,7 +260,7 @@ func (SubscriptionRuleState) ElementType() reflect.Type {
 type subscriptionRuleArgs struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
 	Action *string `pulumi:"action"`
-	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+	// A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 	CorrelationFilter *SubscriptionRuleCorrelationFilter `pulumi:"correlationFilter"`
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
 	FilterType string `pulumi:"filterType"`
@@ -276,7 +276,7 @@ type subscriptionRuleArgs struct {
 type SubscriptionRuleArgs struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
 	Action pulumi.StringPtrInput
-	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+	// A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 	CorrelationFilter SubscriptionRuleCorrelationFilterPtrInput
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
 	FilterType pulumi.StringInput
@@ -380,7 +380,7 @@ func (o SubscriptionRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+// A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 func (o SubscriptionRuleOutput) CorrelationFilter() SubscriptionRuleCorrelationFilterPtrOutput {
 	return o.ApplyT(func(v *SubscriptionRule) SubscriptionRuleCorrelationFilterPtrOutput { return v.CorrelationFilter }).(SubscriptionRuleCorrelationFilterPtrOutput)
 }

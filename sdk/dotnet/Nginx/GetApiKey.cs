@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Nginx
         /// {
         ///     var example = Azure.Nginx.GetApiKey.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-api-key",
         ///         NginxDeploymentId = exampleAzurermNginxDeployment.Id,
         ///     });
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Nginx
         /// {
         ///     var example = Azure.Nginx.GetApiKey.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-api-key",
         ///         NginxDeploymentId = exampleAzurermNginxDeployment.Id,
         ///     });
         /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Nginx
         /// {
         ///     var example = Azure.Nginx.GetApiKey.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-api-key",
         ///         NginxDeploymentId = exampleAzurermNginxDeployment.Id,
         ///     });
         /// 

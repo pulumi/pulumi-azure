@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of values that make up the MX record. Each `Record` block supports fields documented below.
+        /// A list of values that make up the MX record. Each `Record` block supports fields defined below.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<Outputs.MxRecordRecord>> Records { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Dns
         private InputList<Inputs.MxRecordRecordArgs>? _records;
 
         /// <summary>
-        /// A list of values that make up the MX record. Each `Record` block supports fields documented below.
+        /// A list of values that make up the MX record. Each `Record` block supports fields defined below.
         /// </summary>
         public InputList<Inputs.MxRecordRecordArgs> Records
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Dns
         private InputList<Inputs.MxRecordRecordGetArgs>? _records;
 
         /// <summary>
-        /// A list of values that make up the MX record. Each `Record` block supports fields documented below.
+        /// A list of values that make up the MX record. Each `Record` block supports fields defined below.
         /// </summary>
         public InputList<Inputs.MxRecordRecordGetArgs> Records
         {

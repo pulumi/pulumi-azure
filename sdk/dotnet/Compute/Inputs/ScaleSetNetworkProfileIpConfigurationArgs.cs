@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<bool> Primary { get; set; } = null!;
 
         /// <summary>
-        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `PublicIpAddressConfiguration` block is documented below.
+        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `PublicIpAddressConfiguration` block is defined below.
         /// </summary>
         [Input("publicIpAddressConfiguration")]
         public Input<Inputs.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs>? PublicIpAddressConfiguration { get; set; }

@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'AccountActiveDirectoryArgs',
     'AccountActiveDirectoryArgsDict',
+    'AccountActiveDirectoryLdapSearchScopeArgs',
+    'AccountActiveDirectoryLdapSearchScopeArgsDict',
     'AccountIdentityArgs',
     'AccountIdentityArgsDict',
     'SnapshotPolicyDailyScheduleArgs',
@@ -92,9 +94,21 @@ class AccountActiveDirectoryArgsDict(TypedDict):
     """
     The Username of Active Directory Domain Administrator.
     """
+    administrator_users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
+    """
     aes_encryption_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+    """
+    backup_users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
+    """
+    domain_controller_connection_encryption_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
     """
     kerberos_ad_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -106,9 +120,17 @@ class AccountActiveDirectoryArgsDict(TypedDict):
 
     > **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
     """
+    ldap_client_preferred_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+    """
     ldap_over_tls_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+    """
+    ldap_search_scope: NotRequired[pulumi.Input[Optional['AccountActiveDirectoryLdapSearchScopeArgsDict']]]
+    """
+    An `ldap_search_scope` block as defined below.
     """
     ldap_signing_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -121,6 +143,10 @@ class AccountActiveDirectoryArgsDict(TypedDict):
     organizational_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
+    """
+    security_users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
     """
     server_root_ca_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -139,13 +165,19 @@ class AccountActiveDirectoryArgs:
                  password: pulumi.Input[_builtins.str],
                  smb_server_name: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
+                 administrator_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  aes_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain_controller_connection_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  kerberos_ad_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kerberos_kdc_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_client_preferred_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ldap_over_tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ldap_search_scope: pulumi.Input[Optional['AccountActiveDirectoryLdapSearchScopeArgs']] = None,
                  ldap_signing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_nfs_users_with_ldap_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
                  organizational_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  server_root_ca_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -154,15 +186,21 @@ class AccountActiveDirectoryArgs:
         :param pulumi.Input[_builtins.str] password: The password associated with the `username`.
         :param pulumi.Input[_builtins.str] smb_server_name: The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
         :param pulumi.Input[_builtins.str] username: The Username of Active Directory Domain Administrator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administrator_users: A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
         :param pulumi.Input[_builtins.bool] aes_encryption_enabled: If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_users: A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
+        :param pulumi.Input[_builtins.bool] domain_controller_connection_encryption_enabled: If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.str] kerberos_ad_name: Name of the active directory machine.
         :param pulumi.Input[_builtins.str] kerberos_kdc_ip: kdc server IP addresses for the active directory machine.
                
                > **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ldap_client_preferred_servers: Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
         :param pulumi.Input[_builtins.bool] ldap_over_tls_enabled: Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+        :param pulumi.Input['AccountActiveDirectoryLdapSearchScopeArgs'] ldap_search_scope: An `ldap_search_scope` block as defined below.
         :param pulumi.Input[_builtins.bool] ldap_signing_enabled: Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] local_nfs_users_with_ldap_allowed: If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
         :param pulumi.Input[_builtins.str] organizational_unit: The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_users: A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
         :param pulumi.Input[_builtins.str] server_root_ca_certificate: When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
         :param pulumi.Input[_builtins.str] site_name: The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
         """
@@ -171,20 +209,32 @@ class AccountActiveDirectoryArgs:
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "smb_server_name", smb_server_name)
         pulumi.set(__self__, "username", username)
+        if administrator_users is not None:
+            pulumi.set(__self__, "administrator_users", administrator_users)
         if aes_encryption_enabled is not None:
             pulumi.set(__self__, "aes_encryption_enabled", aes_encryption_enabled)
+        if backup_users is not None:
+            pulumi.set(__self__, "backup_users", backup_users)
+        if domain_controller_connection_encryption_enabled is not None:
+            pulumi.set(__self__, "domain_controller_connection_encryption_enabled", domain_controller_connection_encryption_enabled)
         if kerberos_ad_name is not None:
             pulumi.set(__self__, "kerberos_ad_name", kerberos_ad_name)
         if kerberos_kdc_ip is not None:
             pulumi.set(__self__, "kerberos_kdc_ip", kerberos_kdc_ip)
+        if ldap_client_preferred_servers is not None:
+            pulumi.set(__self__, "ldap_client_preferred_servers", ldap_client_preferred_servers)
         if ldap_over_tls_enabled is not None:
             pulumi.set(__self__, "ldap_over_tls_enabled", ldap_over_tls_enabled)
+        if ldap_search_scope is not None:
+            pulumi.set(__self__, "ldap_search_scope", ldap_search_scope)
         if ldap_signing_enabled is not None:
             pulumi.set(__self__, "ldap_signing_enabled", ldap_signing_enabled)
         if local_nfs_users_with_ldap_allowed is not None:
             pulumi.set(__self__, "local_nfs_users_with_ldap_allowed", local_nfs_users_with_ldap_allowed)
         if organizational_unit is not None:
             pulumi.set(__self__, "organizational_unit", organizational_unit)
+        if security_users is not None:
+            pulumi.set(__self__, "security_users", security_users)
         if server_root_ca_certificate is not None:
             pulumi.set(__self__, "server_root_ca_certificate", server_root_ca_certificate)
         if site_name is not None:
@@ -251,6 +301,18 @@ class AccountActiveDirectoryArgs:
         pulumi.set(self, "username", value)
 
     @_builtins.property
+    @pulumi.getter(name="administratorUsers")
+    def administrator_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of Active Directory users to be added to the built-in Administrators active directory group. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
+        """
+        return pulumi.get(self, "administrator_users")
+
+    @administrator_users.setter
+    def administrator_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "administrator_users", value)
+
+    @_builtins.property
     @pulumi.getter(name="aesEncryptionEnabled")
     def aes_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -261,6 +323,30 @@ class AccountActiveDirectoryArgs:
     @aes_encryption_enabled.setter
     def aes_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aes_encryption_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupUsers")
+    def backup_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of Active Directory users to be added to the built-in Backup Operators active directory group. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
+        """
+        return pulumi.get(self, "backup_users")
+
+    @backup_users.setter
+    def backup_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "backup_users", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainControllerConnectionEncryptionEnabled")
+    def domain_controller_connection_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If enabled, the connection between Active Directory and SMB server will be encrypted. Defaults to `false`.
+        """
+        return pulumi.get(self, "domain_controller_connection_encryption_enabled")
+
+    @domain_controller_connection_encryption_enabled.setter
+    def domain_controller_connection_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "domain_controller_connection_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosAdName")
@@ -289,6 +375,18 @@ class AccountActiveDirectoryArgs:
         pulumi.set(self, "kerberos_kdc_ip", value)
 
     @_builtins.property
+    @pulumi.getter(name="ldapClientPreferredServers")
+    def ldap_client_preferred_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the preferred LDAP server IPs for the LDAP client. Maximum of 2 `IPv4` addresses are allowed.
+        """
+        return pulumi.get(self, "ldap_client_preferred_servers")
+
+    @ldap_client_preferred_servers.setter
+    def ldap_client_preferred_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ldap_client_preferred_servers", value)
+
+    @_builtins.property
     @pulumi.getter(name="ldapOverTlsEnabled")
     def ldap_over_tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -299,6 +397,18 @@ class AccountActiveDirectoryArgs:
     @ldap_over_tls_enabled.setter
     def ldap_over_tls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_over_tls_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ldapSearchScope")
+    def ldap_search_scope(self) -> pulumi.Input[Optional['AccountActiveDirectoryLdapSearchScopeArgs']]:
+        """
+        An `ldap_search_scope` block as defined below.
+        """
+        return pulumi.get(self, "ldap_search_scope")
+
+    @ldap_search_scope.setter
+    def ldap_search_scope(self, value: pulumi.Input[Optional['AccountActiveDirectoryLdapSearchScopeArgs']]):
+        pulumi.set(self, "ldap_search_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapSigningEnabled")
@@ -337,6 +447,18 @@ class AccountActiveDirectoryArgs:
         pulumi.set(self, "organizational_unit", value)
 
     @_builtins.property
+    @pulumi.getter(name="securityUsers")
+    def security_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of Active Directory users to be given SeSecurityPrivilege privilege. Usernames cannot contain the characters `@` or `\\` and can be up to `255` characters long.
+        """
+        return pulumi.get(self, "security_users")
+
+    @security_users.setter
+    def security_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_users", value)
+
+    @_builtins.property
     @pulumi.getter(name="serverRootCaCertificate")
     def server_root_ca_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -361,6 +483,81 @@ class AccountActiveDirectoryArgs:
         pulumi.set(self, "site_name", value)
 
 
+class AccountActiveDirectoryLdapSearchScopeArgsDict(TypedDict):
+    group_dn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the group DN, which overrides the base DN for group lookups.
+    """
+    group_membership_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+    """
+    user_dn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the user DN, which overrides the base DN for user lookups.
+
+    > **Note:** When using the `ldap_search_scope` block, at least one of the `group_dn`, `group_membership_filter`, or `user_dn` must be specified.
+    """
+
+@pulumi.input_type
+class AccountActiveDirectoryLdapSearchScopeArgs:
+    def __init__(__self__, *,
+                 group_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_membership_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_dn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] group_dn: Specifies the group DN, which overrides the base DN for group lookups.
+        :param pulumi.Input[_builtins.str] group_membership_filter: Specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        :param pulumi.Input[_builtins.str] user_dn: Specifies the user DN, which overrides the base DN for user lookups.
+               
+               > **Note:** When using the `ldap_search_scope` block, at least one of the `group_dn`, `group_membership_filter`, or `user_dn` must be specified.
+        """
+        if group_dn is not None:
+            pulumi.set(__self__, "group_dn", group_dn)
+        if group_membership_filter is not None:
+            pulumi.set(__self__, "group_membership_filter", group_membership_filter)
+        if user_dn is not None:
+            pulumi.set(__self__, "user_dn", user_dn)
+
+    @_builtins.property
+    @pulumi.getter(name="groupDn")
+    def group_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the group DN, which overrides the base DN for group lookups.
+        """
+        return pulumi.get(self, "group_dn")
+
+    @group_dn.setter
+    def group_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_dn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupMembershipFilter")
+    def group_membership_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        """
+        return pulumi.get(self, "group_membership_filter")
+
+    @group_membership_filter.setter
+    def group_membership_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_membership_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userDn")
+    def user_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the user DN, which overrides the base DN for user lookups.
+
+        > **Note:** When using the `ldap_search_scope` block, at least one of the `group_dn`, `group_membership_filter`, or `user_dn` must be specified.
+        """
+        return pulumi.get(self, "user_dn")
+
+    @user_dn.setter
+    def user_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_dn", value)
+
+
 class AccountIdentityArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
@@ -369,6 +566,8 @@ class AccountIdentityArgsDict(TypedDict):
     identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The identity id of the user assigned identity to use when type is `UserAssigned`
+
+    > **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
     """
     principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -383,6 +582,8 @@ class AccountIdentityArgs:
         """
         :param pulumi.Input[_builtins.str] type: The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: The identity id of the user assigned identity to use when type is `UserAssigned`
+               
+               > **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -409,6 +610,8 @@ class AccountIdentityArgs:
     def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identity id of the user assigned identity to use when type is `UserAssigned`
+
+        > **Note:** Changing identity type from `SystemAssigned` to `UserAssigned` is a supported operation but the reverse is not supported from within Terraform Azure NetApp Files module.
         """
         return pulumi.get(self, "identity_ids")
 

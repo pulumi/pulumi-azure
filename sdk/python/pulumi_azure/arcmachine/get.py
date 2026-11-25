@@ -407,8 +407,8 @@ def get(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.arcmachine.get(name="existing-hcmachine",
-        resource_group_name="existing-rg")
+    example = azure.arcmachine.get(name="example-machine",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -472,8 +472,8 @@ def get_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.arcmachine.get(name="existing-hcmachine",
-        resource_group_name="existing-rg")
+    example = azure.arcmachine.get(name="example-machine",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

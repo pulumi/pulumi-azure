@@ -183,6 +183,8 @@ namespace Pulumi.Azure.Kusto
         /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `TrustedExternalTenants = ["*"]` to explicitly allow all other tenants, `TrustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `TrustedExternalTenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
         /// 
         /// &gt; **Note:** In v3.0 of `Azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `TrustedExternalTenants = ["MyTenantOnly"]` to `TrustedExternalTenants = []`.
+        /// 
+        /// &gt; **Note:** The order of `TrustedExternalTenants` is not significant. The provider sorts the trusted tenants returned by the Azure Data Explorer API before storing them in state and compares sorted lists of the configured and existing values to avoid a spurious diff. Referencing by index should be avoided because the API may return a different order for `ExternalTenants` than the order that is in config.
         /// </summary>
         [Output("trustedExternalTenants")]
         public Output<ImmutableArray<string>> TrustedExternalTenants { get; private set; } = null!;
@@ -384,6 +386,8 @@ namespace Pulumi.Azure.Kusto
         /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `TrustedExternalTenants = ["*"]` to explicitly allow all other tenants, `TrustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `TrustedExternalTenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
         /// 
         /// &gt; **Note:** In v3.0 of `Azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `TrustedExternalTenants = ["MyTenantOnly"]` to `TrustedExternalTenants = []`.
+        /// 
+        /// &gt; **Note:** The order of `TrustedExternalTenants` is not significant. The provider sorts the trusted tenants returned by the Azure Data Explorer API before storing them in state and compares sorted lists of the configured and existing values to avoid a spurious diff. Referencing by index should be avoided because the API may return a different order for `ExternalTenants` than the order that is in config.
         /// </summary>
         public InputList<string> TrustedExternalTenants
         {
@@ -556,6 +560,8 @@ namespace Pulumi.Azure.Kusto
         /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `TrustedExternalTenants = ["*"]` to explicitly allow all other tenants, `TrustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `TrustedExternalTenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
         /// 
         /// &gt; **Note:** In v3.0 of `Azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `TrustedExternalTenants = ["MyTenantOnly"]` to `TrustedExternalTenants = []`.
+        /// 
+        /// &gt; **Note:** The order of `TrustedExternalTenants` is not significant. The provider sorts the trusted tenants returned by the Azure Data Explorer API before storing them in state and compares sorted lists of the configured and existing values to avoid a spurious diff. Referencing by index should be avoided because the API may return a different order for `ExternalTenants` than the order that is in config.
         /// </summary>
         public InputList<string> TrustedExternalTenants
         {

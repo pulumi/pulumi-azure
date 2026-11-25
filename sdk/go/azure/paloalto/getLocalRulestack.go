@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := paloalto.LookupLocalRulestack(ctx, &paloalto.LookupLocalRulestackArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-rulestack",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

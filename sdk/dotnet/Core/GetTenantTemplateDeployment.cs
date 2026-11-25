@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetTenantTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-deployment",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetTenantTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-deployment",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Core
         /// {
         ///     var example = Azure.Core.GetTenantTemplateDeployment.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-deployment",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

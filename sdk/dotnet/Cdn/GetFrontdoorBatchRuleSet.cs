@@ -28,9 +28,9 @@ namespace Pulumi.Azure.Cdn
         /// {
         ///     var example = Azure.Cdn.GetFrontdoorBatchRuleSet.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ProfileName = "existing-profile",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "exampleruleset",
+        ///         ProfileName = "example-profile",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         /// });
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2025-12-01
+        /// * `Microsoft.Cdn` - 2026-10-01
         /// </summary>
         public static Task<GetFrontdoorBatchRuleSetResult> InvokeAsync(GetFrontdoorBatchRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorBatchRuleSetResult>("azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet", args ?? new GetFrontdoorBatchRuleSetArgs(), options.WithDefaults());
@@ -63,9 +63,9 @@ namespace Pulumi.Azure.Cdn
         /// {
         ///     var example = Azure.Cdn.GetFrontdoorBatchRuleSet.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ProfileName = "existing-profile",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "exampleruleset",
+        ///         ProfileName = "example-profile",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         /// });
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2025-12-01
+        /// * `Microsoft.Cdn` - 2026-10-01
         /// </summary>
         public static Output<GetFrontdoorBatchRuleSetResult> Invoke(GetFrontdoorBatchRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorBatchRuleSetResult>("azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet", args ?? new GetFrontdoorBatchRuleSetInvokeArgs(), options.WithDefaults());
@@ -98,9 +98,9 @@ namespace Pulumi.Azure.Cdn
         /// {
         ///     var example = Azure.Cdn.GetFrontdoorBatchRuleSet.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ProfileName = "existing-profile",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "exampleruleset",
+        ///         ProfileName = "example-profile",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         /// });
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2025-12-01
+        /// * `Microsoft.Cdn` - 2026-10-01
         /// </summary>
         public static Output<GetFrontdoorBatchRuleSetResult> Invoke(GetFrontdoorBatchRuleSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorBatchRuleSetResult>("azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet", args ?? new GetFrontdoorBatchRuleSetInvokeArgs(), options.WithDefaults());

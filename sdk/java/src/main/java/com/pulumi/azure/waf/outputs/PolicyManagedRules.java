@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.waf.outputs;
 
+import com.pulumi.azure.waf.outputs.PolicyManagedRulesException;
 import com.pulumi.azure.waf.outputs.PolicyManagedRulesExclusion;
 import com.pulumi.azure.waf.outputs.PolicyManagedRulesManagedRuleSet;
 import com.pulumi.core.annotations.CustomType;
@@ -14,26 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyManagedRules {
     /**
+     * @return One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+     * 
+     * &gt; **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+     * 
+     */
+    private @Nullable List<PolicyManagedRulesException> exceptions;
+    /**
      * @return One or more `exclusion` block defined below.
+     * 
+     * &gt; **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
      * 
      */
     private @Nullable List<PolicyManagedRulesExclusion> exclusions;
     /**
-     * @return One or more `managedRuleSet` block defined below.
+     * @return One or more `managedRuleSet` blocks as defined below.
+     * 
+     * &gt; **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
      * 
      */
     private List<PolicyManagedRulesManagedRuleSet> managedRuleSets;
 
     private PolicyManagedRules() {}
     /**
+     * @return One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+     * 
+     * &gt; **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+     * 
+     */
+    public List<PolicyManagedRulesException> exceptions() {
+        return this.exceptions == null ? List.of() : this.exceptions;
+    }
+    /**
      * @return One or more `exclusion` block defined below.
+     * 
+     * &gt; **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
      * 
      */
     public List<PolicyManagedRulesExclusion> exclusions() {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
     /**
-     * @return One or more `managedRuleSet` block defined below.
+     * @return One or more `managedRuleSet` blocks as defined below.
+     * 
+     * &gt; **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
      * 
      */
     public List<PolicyManagedRulesManagedRuleSet> managedRuleSets() {
@@ -49,15 +74,26 @@ public final class PolicyManagedRules {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<PolicyManagedRulesException> exceptions;
         private @Nullable List<PolicyManagedRulesExclusion> exclusions;
         private List<PolicyManagedRulesManagedRuleSet> managedRuleSets;
         public Builder() {}
         public Builder(PolicyManagedRules defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.exceptions = defaults.exceptions;
     	      this.exclusions = defaults.exclusions;
     	      this.managedRuleSets = defaults.managedRuleSets;
         }
 
+        @CustomType.Setter
+        public Builder exceptions(@Nullable List<PolicyManagedRulesException> exceptions) {
+
+            this.exceptions = exceptions;
+            return this;
+        }
+        public Builder exceptions(PolicyManagedRulesException... exceptions) {
+            return exceptions(List.of(exceptions));
+        }
         @CustomType.Setter
         public Builder exclusions(@Nullable List<PolicyManagedRulesExclusion> exclusions) {
 
@@ -80,6 +116,7 @@ public final class PolicyManagedRules {
         }
         public PolicyManagedRules build() {
             final var _resultValue = new PolicyManagedRules();
+            _resultValue.exceptions = exceptions;
             _resultValue.exclusions = exclusions;
             _resultValue.managedRuleSets = managedRuleSets;
             return _resultValue;

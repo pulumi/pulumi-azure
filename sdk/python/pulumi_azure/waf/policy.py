@@ -372,6 +372,21 @@ class Policy(pulumi.CustomResource):
                 "max_request_body_size_in_kb": 128,
             },
             managed_rules={
+                "exceptions": [{
+                    "match_variable": "RequestURI",
+                    "value_match_operator": "EndsWith",
+                    "values": [
+                        "/login.php",
+                        "/logout.php",
+                    ],
+                    "exception_rule_sets": [{
+                        "type": "OWASP",
+                        "version": "3.2",
+                        "rule_groups": [{
+                            "rule_group_name": "REQUEST-942-APPLICATION-ATTACK-SQLI",
+                        }],
+                    }],
+                }],
                 "exclusions": [
                     {
                         "match_variable": "RequestHeaderNames",
@@ -506,6 +521,21 @@ class Policy(pulumi.CustomResource):
                 "max_request_body_size_in_kb": 128,
             },
             managed_rules={
+                "exceptions": [{
+                    "match_variable": "RequestURI",
+                    "value_match_operator": "EndsWith",
+                    "values": [
+                        "/login.php",
+                        "/logout.php",
+                    ],
+                    "exception_rule_sets": [{
+                        "type": "OWASP",
+                        "version": "3.2",
+                        "rule_groups": [{
+                            "rule_group_name": "REQUEST-942-APPLICATION-ATTACK-SQLI",
+                        }],
+                    }],
+                }],
                 "exclusions": [
                     {
                         "match_variable": "RequestHeaderNames",

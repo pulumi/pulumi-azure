@@ -16,14 +16,14 @@ public final class ProviderFeaturesDatabricksWorkspaceArgs extends com.pulumi.re
     public static final ProviderFeaturesDatabricksWorkspaceArgs Empty = new ProviderFeaturesDatabricksWorkspaceArgs();
 
     /**
-     * When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+     * When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
      * 
      */
     @Import(name="forceDelete")
     private @Nullable Output<Boolean> forceDelete;
 
     /**
-     * @return When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+     * @return When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
      * 
      */
     public Optional<Output<Boolean>> forceDelete() {
@@ -55,7 +55,7 @@ public final class ProviderFeaturesDatabricksWorkspaceArgs extends com.pulumi.re
         }
 
         /**
-         * @param forceDelete When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+         * @param forceDelete When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ProviderFeaturesDatabricksWorkspaceArgs extends com.pulumi.re
         }
 
         /**
-         * @param forceDelete When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+         * @param forceDelete When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
          * 
          * @return builder
          * 

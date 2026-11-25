@@ -4,7 +4,6 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,15 +19,17 @@ public final class PartnerConfigurationPartnerAuthorization {
      */
     private @Nullable String authorizationExpirationTimeInUtc;
     /**
-     * @return The partner name.
+     * @return The name of a verified partner.
      * 
      */
-    private String partnerName;
+    private @Nullable String partnerName;
     /**
      * @return The immutable id of the corresponding partner registration.
      * 
+     * &gt; **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
+     * 
      */
-    private String partnerRegistrationId;
+    private @Nullable String partnerRegistrationId;
 
     private PartnerConfigurationPartnerAuthorization() {}
     /**
@@ -41,18 +42,20 @@ public final class PartnerConfigurationPartnerAuthorization {
         return Optional.ofNullable(this.authorizationExpirationTimeInUtc);
     }
     /**
-     * @return The partner name.
+     * @return The name of a verified partner.
      * 
      */
-    public String partnerName() {
-        return this.partnerName;
+    public Optional<String> partnerName() {
+        return Optional.ofNullable(this.partnerName);
     }
     /**
      * @return The immutable id of the corresponding partner registration.
      * 
+     * &gt; **Note:** At least one of `partnerName` or `partnerRegistrationId` must be provided in each `partnerAuthorization` block.
+     * 
      */
-    public String partnerRegistrationId() {
-        return this.partnerRegistrationId;
+    public Optional<String> partnerRegistrationId() {
+        return Optional.ofNullable(this.partnerRegistrationId);
     }
 
     public static Builder builder() {
@@ -65,8 +68,8 @@ public final class PartnerConfigurationPartnerAuthorization {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String authorizationExpirationTimeInUtc;
-        private String partnerName;
-        private String partnerRegistrationId;
+        private @Nullable String partnerName;
+        private @Nullable String partnerRegistrationId;
         public Builder() {}
         public Builder(PartnerConfigurationPartnerAuthorization defaults) {
     	      Objects.requireNonNull(defaults);
@@ -82,18 +85,14 @@ public final class PartnerConfigurationPartnerAuthorization {
             return this;
         }
         @CustomType.Setter
-        public Builder partnerName(String partnerName) {
-            if (partnerName == null) {
-              throw new MissingRequiredPropertyException("PartnerConfigurationPartnerAuthorization", "partnerName");
-            }
+        public Builder partnerName(@Nullable String partnerName) {
+
             this.partnerName = partnerName;
             return this;
         }
         @CustomType.Setter
-        public Builder partnerRegistrationId(String partnerRegistrationId) {
-            if (partnerRegistrationId == null) {
-              throw new MissingRequiredPropertyException("PartnerConfigurationPartnerAuthorization", "partnerRegistrationId");
-            }
+        public Builder partnerRegistrationId(@Nullable String partnerRegistrationId) {
+
             this.partnerRegistrationId = partnerRegistrationId;
             return this;
         }

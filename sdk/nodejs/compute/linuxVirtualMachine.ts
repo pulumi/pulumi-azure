@@ -170,6 +170,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
      * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+     *
+     * > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
      */
     declare public readonly capacityReservationGroupId: pulumi.Output<string | undefined>;
     /**
@@ -581,6 +583,8 @@ export interface LinuxVirtualMachineState {
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
      * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+     *
+     * > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
      */
     capacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**
@@ -848,6 +852,8 @@ export interface LinuxVirtualMachineArgs {
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
      * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+     *
+     * > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
      */
     capacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**

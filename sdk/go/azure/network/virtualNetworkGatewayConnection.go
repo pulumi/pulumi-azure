@@ -308,7 +308,7 @@ type VirtualNetworkGatewayConnection struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringOutput `pulumi:"connectionProtocol"`
-	// A `customBgpAddresses` block which is documented below.
+	// A `customBgpAddresses` block which is defined below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput `pulumi:"customBgpAddresses"`
@@ -322,7 +322,7 @@ type VirtualNetworkGatewayConnection struct {
 	ExpressRouteGatewayBypass pulumi.BoolOutput `pulumi:"expressRouteGatewayBypass"`
 	// A list of the ingress NAT Rule Ids.
 	IngressNatRuleIds pulumi.StringArrayOutput `pulumi:"ingressNatRuleIds"`
-	// A `ipsecPolicy` block which is documented below.
+	// A `ipsecPolicy` block which is defined below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput `pulumi:"ipsecPolicy"`
@@ -346,7 +346,7 @@ type VirtualNetworkGatewayConnection struct {
 	SharedKey pulumi.StringOutput `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// One or more `trafficSelectorPolicy` blocks which are defined below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput `pulumi:"trafficSelectorPolicy"`
@@ -417,7 +417,7 @@ type virtualNetworkGatewayConnectionState struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
-	// A `customBgpAddresses` block which is documented below.
+	// A `customBgpAddresses` block which is defined below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
@@ -431,7 +431,7 @@ type virtualNetworkGatewayConnectionState struct {
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// A list of the ingress NAT Rule Ids.
 	IngressNatRuleIds []string `pulumi:"ingressNatRuleIds"`
-	// A `ipsecPolicy` block which is documented below.
+	// A `ipsecPolicy` block which is defined below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy *VirtualNetworkGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicy"`
@@ -455,7 +455,7 @@ type virtualNetworkGatewayConnectionState struct {
 	SharedKey *string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// One or more `trafficSelectorPolicy` blocks which are defined below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
@@ -477,7 +477,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
-	// A `customBgpAddresses` block which is documented below.
+	// A `customBgpAddresses` block which is defined below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
@@ -491,7 +491,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// A list of the ingress NAT Rule Ids.
 	IngressNatRuleIds pulumi.StringArrayInput
-	// A `ipsecPolicy` block which is documented below.
+	// A `ipsecPolicy` block which is defined below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrInput
@@ -515,7 +515,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	SharedKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// One or more `trafficSelectorPolicy` blocks which are defined below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
@@ -541,7 +541,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
-	// A `customBgpAddresses` block which is documented below.
+	// A `customBgpAddresses` block which is defined below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
@@ -555,7 +555,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// A list of the ingress NAT Rule Ids.
 	IngressNatRuleIds []string `pulumi:"ingressNatRuleIds"`
-	// A `ipsecPolicy` block which is documented below.
+	// A `ipsecPolicy` block which is defined below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy *VirtualNetworkGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicy"`
@@ -579,7 +579,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	SharedKey *string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// One or more `trafficSelectorPolicy` blocks which are defined below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
@@ -602,7 +602,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
-	// A `customBgpAddresses` block which is documented below.
+	// A `customBgpAddresses` block which is defined below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
@@ -616,7 +616,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// A list of the ingress NAT Rule Ids.
 	IngressNatRuleIds pulumi.StringArrayInput
-	// A `ipsecPolicy` block which is documented below.
+	// A `ipsecPolicy` block which is defined below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrInput
@@ -640,7 +640,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	SharedKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// One or more `trafficSelectorPolicy` blocks which are defined below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
@@ -760,7 +760,7 @@ func (o VirtualNetworkGatewayConnectionOutput) ConnectionProtocol() pulumi.Strin
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.ConnectionProtocol }).(pulumi.StringOutput)
 }
 
-// A `customBgpAddresses` block which is documented below.
+// A `customBgpAddresses` block which is defined below.
 // The block can only be used on `IPSec` / `activeactive` connections,
 // For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 func (o VirtualNetworkGatewayConnectionOutput) CustomBgpAddresses() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
@@ -794,7 +794,7 @@ func (o VirtualNetworkGatewayConnectionOutput) IngressNatRuleIds() pulumi.String
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringArrayOutput { return v.IngressNatRuleIds }).(pulumi.StringArrayOutput)
 }
 
-// A `ipsecPolicy` block which is documented below.
+// A `ipsecPolicy` block which is defined below.
 // Only a single policy can be defined for a connection. For details on
 // custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 func (o VirtualNetworkGatewayConnectionOutput) IpsecPolicy() VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput {
@@ -853,7 +853,7 @@ func (o VirtualNetworkGatewayConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// One or more `trafficSelectorPolicy` blocks which are documented below.
+// One or more `trafficSelectorPolicy` blocks which are defined below.
 // A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 // For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 func (o VirtualNetworkGatewayConnectionOutput) TrafficSelectorPolicy() VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {

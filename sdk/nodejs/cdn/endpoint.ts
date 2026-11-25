@@ -94,7 +94,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
      */
     declare public readonly geoFilters: pulumi.Output<outputs.cdn.EndpointGeoFilter[] | undefined>;
     /**
@@ -134,7 +134,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly originPath: pulumi.Output<string | undefined>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
      */
     declare public readonly origins: pulumi.Output<outputs.cdn.EndpointOrigin[]>;
     /**
@@ -245,7 +245,7 @@ export interface EndpointState {
      */
     fqdn?: pulumi.Input<string | undefined>;
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
      */
     geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGeoFilter>[] | undefined>;
     /**
@@ -285,7 +285,7 @@ export interface EndpointState {
      */
     originPath?: pulumi.Input<string | undefined>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
      */
     origins?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[] | undefined>;
     /**
@@ -325,7 +325,7 @@ export interface EndpointArgs {
      */
     deliveryRules?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRule>[] | undefined>;
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields defined below.
      */
     geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGeoFilter>[] | undefined>;
     /**
@@ -365,7 +365,7 @@ export interface EndpointArgs {
      */
     originPath?: pulumi.Input<string | undefined>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
      */
     origins: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**

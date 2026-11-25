@@ -55,7 +55,7 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name("existing")
+     *             .name("example-assignment")
      *             .scopeId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -104,7 +104,7 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name("existing")
+     *             .name("example-assignment")
      *             .scopeId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -153,7 +153,7 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name("existing")
+     *             .name("example-assignment")
      *             .scopeId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -202,7 +202,7 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name("existing")
+     *             .name("example-assignment")
      *             .scopeId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
@@ -251,7 +251,7 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
-     *             .name("existing")
+     *             .name("example-assignment")
      *             .scopeId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 

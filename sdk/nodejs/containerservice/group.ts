@@ -100,11 +100,11 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly containers: pulumi.Output<outputs.containerservice.GroupContainer[]>;
     /**
-     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+     * A `diagnostics` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly diagnostics: pulumi.Output<outputs.containerservice.GroupDiagnostics | undefined>;
     /**
-     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+     * A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly dnsConfig: pulumi.Output<outputs.containerservice.GroupDnsConfig | undefined>;
     /**
@@ -132,7 +132,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly identity: pulumi.Output<outputs.containerservice.GroupIdentity | undefined>;
     /**
-     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly imageRegistryCredentials: pulumi.Output<outputs.containerservice.GroupImageRegistryCredential[] | undefined>;
     /**
@@ -295,11 +295,11 @@ export interface GroupState {
      */
     containers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[] | undefined>;
     /**
-     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+     * A `diagnostics` block as defined below. Changing this forces a new resource to be created.
      */
     diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics | undefined>;
     /**
-     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+     * A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
      */
     dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig | undefined>;
     /**
@@ -327,7 +327,7 @@ export interface GroupState {
      */
     identity?: pulumi.Input<inputs.containerservice.GroupIdentity | undefined>;
     /**
-     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
      */
     imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[] | undefined>;
     /**
@@ -411,11 +411,11 @@ export interface GroupArgs {
      */
     containers: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
     /**
-     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+     * A `diagnostics` block as defined below. Changing this forces a new resource to be created.
      */
     diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics | undefined>;
     /**
-     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+     * A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
      */
     dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig | undefined>;
     /**
@@ -439,7 +439,7 @@ export interface GroupArgs {
      */
     identity?: pulumi.Input<inputs.containerservice.GroupIdentity | undefined>;
     /**
-     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
      */
     imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[] | undefined>;
     /**

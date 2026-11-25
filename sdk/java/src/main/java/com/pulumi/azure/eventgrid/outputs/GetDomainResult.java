@@ -28,7 +28,7 @@ public final class GetDomainResult {
      */
     private String id;
     /**
-     * @return An `identity` block as documented below.
+     * @return An `identity` block as defined below.
      * 
      */
     private List<GetDomainIdentity> identities;
@@ -96,7 +96,7 @@ public final class GetDomainResult {
         return this.id;
     }
     /**
-     * @return An `identity` block as documented below.
+     * @return An `identity` block as defined below.
      * 
      */
     public List<GetDomainIdentity> identities() {

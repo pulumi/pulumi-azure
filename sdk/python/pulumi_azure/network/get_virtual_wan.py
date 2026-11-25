@@ -175,8 +175,8 @@ def get_virtual_wan(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_virtual_wan(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_virtual_wan(name="example-virtual-wan",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     pulumi.export("allowBranchToBranchTraffic", example.allow_branch_to_branch_traffic)
     pulumi.export("disableVpnEncryption", example.disable_vpn_encryption)
@@ -229,8 +229,8 @@ def get_virtual_wan_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_virtual_wan(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_virtual_wan(name="example-virtual-wan",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     pulumi.export("allowBranchToBranchTraffic", example.allow_branch_to_branch_traffic)
     pulumi.export("disableVpnEncryption", example.disable_vpn_encryption)

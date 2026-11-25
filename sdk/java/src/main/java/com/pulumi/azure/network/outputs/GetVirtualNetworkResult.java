@@ -18,6 +18,11 @@ public final class GetVirtualNetworkResult {
      */
     private List<String> addressSpaces;
     /**
+     * @return The list of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     * 
+     */
+    private List<String> advertisedGatewayPrefixes;
+    /**
      * @return The list of DNS servers used by the virtual network.
      * 
      */
@@ -67,6 +72,13 @@ public final class GetVirtualNetworkResult {
      */
     public List<String> addressSpaces() {
         return this.addressSpaces;
+    }
+    /**
+     * @return The list of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     * 
+     */
+    public List<String> advertisedGatewayPrefixes() {
+        return this.advertisedGatewayPrefixes;
     }
     /**
      * @return The list of DNS servers used by the virtual network.
@@ -141,6 +153,7 @@ public final class GetVirtualNetworkResult {
     @CustomType.Builder
     public static final class Builder {
         private List<String> addressSpaces;
+        private List<String> advertisedGatewayPrefixes;
         private List<String> dnsServers;
         private String guid;
         private String id;
@@ -155,6 +168,7 @@ public final class GetVirtualNetworkResult {
         public Builder(GetVirtualNetworkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressSpaces = defaults.addressSpaces;
+    	      this.advertisedGatewayPrefixes = defaults.advertisedGatewayPrefixes;
     	      this.dnsServers = defaults.dnsServers;
     	      this.guid = defaults.guid;
     	      this.id = defaults.id;
@@ -177,6 +191,17 @@ public final class GetVirtualNetworkResult {
         }
         public Builder addressSpaces(String... addressSpaces) {
             return addressSpaces(List.of(addressSpaces));
+        }
+        @CustomType.Setter
+        public Builder advertisedGatewayPrefixes(List<String> advertisedGatewayPrefixes) {
+            if (advertisedGatewayPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "advertisedGatewayPrefixes");
+            }
+            this.advertisedGatewayPrefixes = advertisedGatewayPrefixes;
+            return this;
+        }
+        public Builder advertisedGatewayPrefixes(String... advertisedGatewayPrefixes) {
+            return advertisedGatewayPrefixes(List.of(advertisedGatewayPrefixes));
         }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
@@ -270,6 +295,7 @@ public final class GetVirtualNetworkResult {
         public GetVirtualNetworkResult build() {
             final var _resultValue = new GetVirtualNetworkResult();
             _resultValue.addressSpaces = addressSpaces;
+            _resultValue.advertisedGatewayPrefixes = advertisedGatewayPrefixes;
             _resultValue.dnsServers = dnsServers;
             _resultValue.guid = guid;
             _resultValue.id = id;

@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Iot
         /// {
         ///     var example = Azure.Iot.GetIotHub.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-iothub",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -55,8 +55,8 @@ namespace Pulumi.Azure.Iot
         /// {
         ///     var example = Azure.Iot.GetIotHub.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-iothub",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -84,8 +84,8 @@ namespace Pulumi.Azure.Iot
         /// {
         ///     var example = Azure.Iot.GetIotHub.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-iothub",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

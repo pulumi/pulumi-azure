@@ -119,8 +119,8 @@ def get_route_filter(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_route_filter(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_route_filter(name="example-route-filter",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -160,8 +160,8 @@ def get_route_filter_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_route_filter(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_route_filter(name="example-route-filter",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

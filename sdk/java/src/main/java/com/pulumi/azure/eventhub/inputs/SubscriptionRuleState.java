@@ -33,14 +33,14 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     @Import(name="correlationFilter")
     private @Nullable Output<SubscriptionRuleCorrelationFilterArgs> correlationFilter;
 
     /**
-     * @return A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+     * @return A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     public Optional<Output<SubscriptionRuleCorrelationFilterArgs>> correlationFilter() {
@@ -166,7 +166,7 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param correlationFilter A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+         * @param correlationFilter A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param correlationFilter A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+         * @param correlationFilter A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
          * 
          * @return builder
          * 

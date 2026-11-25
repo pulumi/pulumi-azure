@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetKubernetesClusterServiceMeshProfile {
     /**
-     * @return A `certificateAuthority` block as documented below.
+     * @return A `certificateAuthority` block as defined below.
      * 
      */
     private List<GetKubernetesClusterServiceMeshProfileCertificateAuthority> certificateAuthorities;
@@ -41,7 +41,7 @@ public final class GetKubernetesClusterServiceMeshProfile {
 
     private GetKubernetesClusterServiceMeshProfile() {}
     /**
-     * @return A `certificateAuthority` block as documented below.
+     * @return A `certificateAuthority` block as defined below.
      * 
      */
     public List<GetKubernetesClusterServiceMeshProfileCertificateAuthority> certificateAuthorities() {

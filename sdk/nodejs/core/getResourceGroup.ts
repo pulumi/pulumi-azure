@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.core.getResourceGroup({
- *     name: "existing",
+ *     name: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -65,7 +65,7 @@ export interface GetResourceGroupResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.core.getResourceGroup({
- *     name: "existing",
+ *     name: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

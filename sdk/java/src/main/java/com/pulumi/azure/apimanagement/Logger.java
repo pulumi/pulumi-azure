@@ -120,14 +120,14 @@ public class Logger extends com.pulumi.resources.CustomResource {
         return this.apiManagementName;
     }
     /**
-     * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+     * An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="applicationInsights", refs={LoggerApplicationInsights.class}, tree="[0]")
     private Output</* @Nullable */ LoggerApplicationInsights> applicationInsights;
 
     /**
-     * @return An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
+     * @return An `applicationInsights` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<LoggerApplicationInsights>> applicationInsights() {
@@ -162,14 +162,14 @@ public class Logger extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * An `eventhub` block as documented below. Changing this forces a new resource to be created.
+     * An `eventhub` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="eventhub", refs={LoggerEventhub.class}, tree="[0]")
     private Output</* @Nullable */ LoggerEventhub> eventhub;
 
     /**
-     * @return An `eventhub` block as documented below. Changing this forces a new resource to be created.
+     * @return An `eventhub` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<LoggerEventhub>> eventhub() {

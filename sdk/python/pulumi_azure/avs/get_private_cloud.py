@@ -262,8 +262,8 @@ def get_private_cloud(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.avs.get_private_cloud(name="existing-vmware-private-cloud",
-        resource_group_name="existing-resgroup")
+    example = azure.avs.get_private_cloud(name="example-vmware-private-cloud",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -317,8 +317,8 @@ def get_private_cloud_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.avs.get_private_cloud(name="existing-vmware-private-cloud",
-        resource_group_name="existing-resgroup")
+    example = azure.avs.get_private_cloud(name="example-vmware-private-cloud",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

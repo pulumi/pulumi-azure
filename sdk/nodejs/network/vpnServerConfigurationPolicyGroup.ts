@@ -95,7 +95,7 @@ export class VpnServerConfigurationPolicyGroup extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * One or more `policy` blocks as documented below.
+     * One or more `policy` blocks as defined below.
      */
     declare public readonly policies: pulumi.Output<outputs.network.VpnServerConfigurationPolicyGroupPolicy[]>;
     /**
@@ -157,7 +157,7 @@ export interface VpnServerConfigurationPolicyGroupState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * One or more `policy` blocks as documented below.
+     * One or more `policy` blocks as defined below.
      */
     policies?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationPolicyGroupPolicy>[] | undefined>;
     /**
@@ -183,7 +183,7 @@ export interface VpnServerConfigurationPolicyGroupArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * One or more `policy` blocks as documented below.
+     * One or more `policy` blocks as defined below.
      */
     policies: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationPolicyGroupPolicy>[]>;
     /**

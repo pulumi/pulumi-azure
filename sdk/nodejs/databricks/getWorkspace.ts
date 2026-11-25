@@ -61,12 +61,12 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * A `customParameters` block as documented below.
+     * A `customParameters` block as defined below.
      * *
      */
     readonly customParameters: outputs.databricks.GetWorkspaceCustomParameter[];
     /**
-     * An `enhancedSecurityCompliance` block as documented below.
+     * An `enhancedSecurityCompliance` block as defined below.
      */
     readonly enhancedSecurityCompliances: outputs.databricks.GetWorkspaceEnhancedSecurityCompliance[];
     /**
@@ -78,7 +78,7 @@ export interface GetWorkspaceResult {
      */
     readonly location: string;
     /**
-     * A `managedDiskIdentity` block as documented below.
+     * A `managedDiskIdentity` block as defined below.
      */
     readonly managedDiskIdentities: outputs.databricks.GetWorkspaceManagedDiskIdentity[];
     readonly name: string;
@@ -88,7 +88,7 @@ export interface GetWorkspaceResult {
      */
     readonly sku: string;
     /**
-     * A `storageAccountIdentity` block as documented below.
+     * A `storageAccountIdentity` block as defined below.
      */
     readonly storageAccountIdentities: outputs.databricks.GetWorkspaceStorageAccountIdentity[];
     /**

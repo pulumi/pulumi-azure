@@ -15,6 +15,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointPrivateServiceConnection {
     /**
+     * @return Indicates if changes on the service provider require any updates on the consumer.
+     * 
+     */
+    private @Nullable String actionRequired;
+    /**
+     * @return The reason for approval/rejection of the connection.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
@@ -49,6 +59,11 @@ public final class EndpointPrivateServiceConnection {
      */
     private @Nullable String requestMessage;
     /**
+     * @return The status of the connection between the service consumer and provider.
+     * 
+     */
+    private @Nullable String status;
+    /**
      * @return A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
@@ -59,6 +74,20 @@ public final class EndpointPrivateServiceConnection {
     private @Nullable List<String> subresourceNames;
 
     private EndpointPrivateServiceConnection() {}
+    /**
+     * @return Indicates if changes on the service provider require any updates on the consumer.
+     * 
+     */
+    public Optional<String> actionRequired() {
+        return Optional.ofNullable(this.actionRequired);
+    }
+    /**
+     * @return The reason for approval/rejection of the connection.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
      * 
@@ -106,6 +135,13 @@ public final class EndpointPrivateServiceConnection {
         return Optional.ofNullable(this.requestMessage);
     }
     /**
+     * @return The status of the connection between the service consumer and provider.
+     * 
+     */
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
+    }
+    /**
      * @return A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
@@ -126,25 +162,43 @@ public final class EndpointPrivateServiceConnection {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String actionRequired;
+        private @Nullable String description;
         private Boolean isManualConnection;
         private String name;
         private @Nullable String privateConnectionResourceAlias;
         private @Nullable String privateConnectionResourceId;
         private @Nullable String privateIpAddress;
         private @Nullable String requestMessage;
+        private @Nullable String status;
         private @Nullable List<String> subresourceNames;
         public Builder() {}
         public Builder(EndpointPrivateServiceConnection defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.actionRequired = defaults.actionRequired;
+    	      this.description = defaults.description;
     	      this.isManualConnection = defaults.isManualConnection;
     	      this.name = defaults.name;
     	      this.privateConnectionResourceAlias = defaults.privateConnectionResourceAlias;
     	      this.privateConnectionResourceId = defaults.privateConnectionResourceId;
     	      this.privateIpAddress = defaults.privateIpAddress;
     	      this.requestMessage = defaults.requestMessage;
+    	      this.status = defaults.status;
     	      this.subresourceNames = defaults.subresourceNames;
         }
 
+        @CustomType.Setter
+        public Builder actionRequired(@Nullable String actionRequired) {
+
+            this.actionRequired = actionRequired;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder isManualConnection(Boolean isManualConnection) {
             if (isManualConnection == null) {
@@ -186,6 +240,12 @@ public final class EndpointPrivateServiceConnection {
             return this;
         }
         @CustomType.Setter
+        public Builder status(@Nullable String status) {
+
+            this.status = status;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subresourceNames(@Nullable List<String> subresourceNames) {
 
             this.subresourceNames = subresourceNames;
@@ -196,12 +256,15 @@ public final class EndpointPrivateServiceConnection {
         }
         public EndpointPrivateServiceConnection build() {
             final var _resultValue = new EndpointPrivateServiceConnection();
+            _resultValue.actionRequired = actionRequired;
+            _resultValue.description = description;
             _resultValue.isManualConnection = isManualConnection;
             _resultValue.name = name;
             _resultValue.privateConnectionResourceAlias = privateConnectionResourceAlias;
             _resultValue.privateConnectionResourceId = privateConnectionResourceId;
             _resultValue.privateIpAddress = privateIpAddress;
             _resultValue.requestMessage = requestMessage;
+            _resultValue.status = status;
             _resultValue.subresourceNames = subresourceNames;
             return _resultValue;
         }

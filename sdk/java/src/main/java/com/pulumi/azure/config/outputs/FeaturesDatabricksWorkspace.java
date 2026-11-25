@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FeaturesDatabricksWorkspace {
     /**
-     * @return When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+     * @return When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
      * 
      */
     private @Nullable Boolean forceDelete;
 
     private FeaturesDatabricksWorkspace() {}
     /**
-     * @return When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+     * @return When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
      * 
      */
     public Optional<Boolean> forceDelete() {

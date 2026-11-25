@@ -105,7 +105,7 @@ def get_encryption_scope(name: Optional[_builtins.str] = None,
 
     example = azure.storage.get_account(name="storageaccountname",
         resource_group_name="resourcegroupname")
-    example_get_encryption_scope = azure.storage.get_encryption_scope(name="existingStorageES",
+    example_get_encryption_scope = azure.storage.get_encryption_scope(name="exampleencryptionscope",
         storage_account_id=example.id)
     pulumi.export("id", example_get_encryption_scope.id)
     ```
@@ -147,7 +147,7 @@ def get_encryption_scope_output(name: pulumi.Input[Optional[_builtins.str]] = No
 
     example = azure.storage.get_account(name="storageaccountname",
         resource_group_name="resourcegroupname")
-    example_get_encryption_scope = azure.storage.get_encryption_scope(name="existingStorageES",
+    example_get_encryption_scope = azure.storage.get_encryption_scope(name="exampleencryptionscope",
         storage_account_id=example.id)
     pulumi.export("id", example_get_encryption_scope.id)
     ```

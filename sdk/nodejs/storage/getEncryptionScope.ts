@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "resourcegroupname",
  * });
  * const exampleGetEncryptionScope = example.then(example => azure.storage.getEncryptionScope({
- *     name: "existingStorageES",
+ *     name: "exampleencryptionscope",
  *     storageAccountId: example.id,
  * }));
  * export const id = exampleGetEncryptionScope.then(exampleGetEncryptionScope => exampleGetEncryptionScope.id);
@@ -86,7 +86,7 @@ export interface GetEncryptionScopeResult {
  *     resourceGroupName: "resourcegroupname",
  * });
  * const exampleGetEncryptionScope = example.then(example => azure.storage.getEncryptionScope({
- *     name: "existingStorageES",
+ *     name: "exampleencryptionscope",
  *     storageAccountId: example.id,
  * }));
  * export const id = exampleGetEncryptionScope.then(exampleGetEncryptionScope => exampleGetEncryptionScope.id);

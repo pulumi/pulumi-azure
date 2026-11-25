@@ -57,6 +57,7 @@ class AccountArgs:
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_properties: pulumi.Input[Optional['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_oauth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -82,8 +83,8 @@ class AccountArgs:
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
-        :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
-        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as defined below.
+        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
                
                > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         :param pulumi.Input[_builtins.bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
@@ -111,7 +112,7 @@ class AccountArgs:
                
                > **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as defined below.
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
@@ -129,6 +130,7 @@ class AccountArgs:
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+        :param pulumi.Input[_builtins.bool] smb_oauth_enabled: Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
         :param pulumi.Input[_builtins.str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -206,6 +208,8 @@ class AccountArgs:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
             pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
+        if smb_oauth_enabled is not None:
+            pulumi.set(__self__, "smb_oauth_enabled", smb_oauth_enabled)
         if table_encryption_key_type is not None:
             pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
         if tags is not None:
@@ -345,7 +349,7 @@ class AccountArgs:
     @pulumi.getter(name="customDomain")
     def custom_domain(self) -> pulumi.Input[Optional['AccountCustomDomainArgs']]:
         """
-        A `custom_domain` block as documented below.
+        A `custom_domain` block as defined below.
         """
         return pulumi.get(self, "custom_domain")
 
@@ -357,7 +361,7 @@ class AccountArgs:
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]:
         """
-        A `customer_managed_key` block as documented below.
+        A `customer_managed_key` block as defined below.
 
         > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         """
@@ -539,7 +543,7 @@ class AccountArgs:
     @pulumi.getter(name="networkRules")
     def network_rules(self) -> pulumi.Input[Optional['AccountNetworkRulesArgs']]:
         """
-        A `network_rules` block as documented below.
+        A `network_rules` block as defined below.
         """
         return pulumi.get(self, "network_rules")
 
@@ -672,6 +676,18 @@ class AccountArgs:
     @shared_access_key_enabled.setter
     def shared_access_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "shared_access_key_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="smbOauthEnabled")
+    def smb_oauth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+        """
+        return pulumi.get(self, "smb_oauth_enabled")
+
+    @smb_oauth_enabled.setter
+    def smb_oauth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "smb_oauth_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tableEncryptionKeyType")
@@ -813,6 +829,7 @@ class _AccountState:
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_properties: pulumi.Input[Optional['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_oauth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -839,8 +856,8 @@ class _AccountState:
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
-        :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
-        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as defined below.
+        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
                
                > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         :param pulumi.Input[_builtins.bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
@@ -868,7 +885,7 @@ class _AccountState:
                
                > **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as defined below.
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
@@ -959,6 +976,7 @@ class _AccountState:
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+        :param pulumi.Input[_builtins.bool] smb_oauth_enabled: Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
         :param pulumi.Input[_builtins.str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -1187,6 +1205,8 @@ class _AccountState:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
             pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
+        if smb_oauth_enabled is not None:
+            pulumi.set(__self__, "smb_oauth_enabled", smb_oauth_enabled)
         if table_encryption_key_type is not None:
             pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
         if tags is not None:
@@ -1338,7 +1358,7 @@ class _AccountState:
     @pulumi.getter(name="customDomain")
     def custom_domain(self) -> pulumi.Input[Optional['AccountCustomDomainArgs']]:
         """
-        A `custom_domain` block as documented below.
+        A `custom_domain` block as defined below.
         """
         return pulumi.get(self, "custom_domain")
 
@@ -1350,7 +1370,7 @@ class _AccountState:
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]:
         """
-        A `customer_managed_key` block as documented below.
+        A `customer_managed_key` block as defined below.
 
         > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         """
@@ -1532,7 +1552,7 @@ class _AccountState:
     @pulumi.getter(name="networkRules")
     def network_rules(self) -> pulumi.Input[Optional['AccountNetworkRulesArgs']]:
         """
-        A `network_rules` block as documented below.
+        A `network_rules` block as defined below.
         """
         return pulumi.get(self, "network_rules")
 
@@ -2543,6 +2563,18 @@ class _AccountState:
         pulumi.set(self, "shared_access_key_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="smbOauthEnabled")
+    def smb_oauth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+        """
+        return pulumi.get(self, "smb_oauth_enabled")
+
+    @smb_oauth_enabled.setter
+    def smb_oauth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "smb_oauth_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="tableEncryptionKeyType")
     def table_encryption_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -2611,6 +2643,7 @@ class Account(pulumi.CustomResource):
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_oauth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -2717,8 +2750,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict', 'outputs.AccountAzureFilesAuthentication']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict', 'outputs.AccountBlobProperties']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
-        :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']] custom_domain: A `custom_domain` block as documented below.
-        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']] custom_domain: A `custom_domain` block as defined below.
+        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
                
                > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         :param pulumi.Input[_builtins.bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
@@ -2746,7 +2779,7 @@ class Account(pulumi.CustomResource):
                
                > **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        :param pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']] network_rules: A `network_rules` block as defined below.
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
@@ -2765,6 +2798,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+        :param pulumi.Input[_builtins.bool] smb_oauth_enabled: Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
         :param pulumi.Input[_builtins.str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -2909,6 +2943,7 @@ class Account(pulumi.CustomResource):
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_oauth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -2962,6 +2997,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["sftp_enabled"] = sftp_enabled
             __props__.__dict__["share_properties"] = share_properties
             __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
+            __props__.__dict__["smb_oauth_enabled"] = smb_oauth_enabled
             __props__.__dict__["table_encryption_key_type"] = table_encryption_key_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_replication_type_migrating_to"] = None
@@ -3160,6 +3196,7 @@ class Account(pulumi.CustomResource):
             sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
             shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            smb_oauth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
@@ -3190,8 +3227,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict', 'outputs.AccountAzureFilesAuthentication']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict', 'outputs.AccountBlobProperties']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
-        :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']] custom_domain: A `custom_domain` block as documented below.
-        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']] custom_domain: A `custom_domain` block as defined below.
+        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
                
                > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         :param pulumi.Input[_builtins.bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
@@ -3219,7 +3256,7 @@ class Account(pulumi.CustomResource):
                
                > **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        :param pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']] network_rules: A `network_rules` block as defined below.
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
@@ -3310,6 +3347,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+        :param pulumi.Input[_builtins.bool] smb_oauth_enabled: Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
         :param pulumi.Input[_builtins.str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -3429,6 +3467,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["sftp_enabled"] = sftp_enabled
         __props__.__dict__["share_properties"] = share_properties
         __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
+        __props__.__dict__["smb_oauth_enabled"] = smb_oauth_enabled
         __props__.__dict__["table_encryption_key_type"] = table_encryption_key_type
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
@@ -3535,7 +3574,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="customDomain")
     def custom_domain(self) -> pulumi.Output[Optional['outputs.AccountCustomDomain']]:
         """
-        A `custom_domain` block as documented below.
+        A `custom_domain` block as defined below.
         """
         return pulumi.get(self, "custom_domain")
 
@@ -3543,7 +3582,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional['outputs.AccountCustomerManagedKey']]:
         """
-        A `customer_managed_key` block as documented below.
+        A `customer_managed_key` block as defined below.
 
         > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         """
@@ -3669,7 +3708,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="networkRules")
     def network_rules(self) -> pulumi.Output['outputs.AccountNetworkRules']:
         """
-        A `network_rules` block as documented below.
+        A `network_rules` block as defined below.
         """
         return pulumi.get(self, "network_rules")
 
@@ -4342,6 +4381,14 @@ class Account(pulumi.CustomResource):
         > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
         """
         return pulumi.get(self, "shared_access_key_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="smbOauthEnabled")
+    def smb_oauth_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether managed identities can access SMB Azure file shares using OAuth. Defaults to `false`.
+        """
+        return pulumi.get(self, "smb_oauth_enabled")
 
     @_builtins.property
     @pulumi.getter(name="tableEncryptionKeyType")

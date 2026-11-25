@@ -65,12 +65,16 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
     /**
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
      * 
+     * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+     * 
      */
     @Import(name="emailAddressSender")
     private @Nullable Output<String> emailAddressSender;
 
     /**
      * @return Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+     * 
+     * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
      * 
      */
     public Optional<Output<String>> emailAddressSender() {
@@ -340,6 +344,8 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         /**
          * @param emailAddressSender Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
          * 
+         * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+         * 
          * @return builder
          * 
          */
@@ -350,6 +356,8 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param emailAddressSender Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+         * 
+         * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
          * 
          * @return builder
          * 

@@ -14,20 +14,33 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyManagedRules
     {
         /// <summary>
+        /// One or more `Exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+        /// 
+        /// &gt; **Note:** An `Exception` block requires a `ManagedRuleSet` with `Type` set to `OWASP` and `Version` set to `3.2` or later, or `Type` set to `Microsoft_DefaultRuleSet` and `Version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PolicyManagedRulesException> Exceptions;
+        /// <summary>
         /// One or more `Exclusion` block defined below.
+        /// 
+        /// &gt; **Note:** Exactly one `ManagedRuleSet` block must have a `Type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyManagedRulesExclusion> Exclusions;
         /// <summary>
-        /// One or more `ManagedRuleSet` block defined below.
+        /// One or more `ManagedRuleSet` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Only one primary `ManagedRuleSet` block is allowed in total, with `Type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyManagedRulesManagedRuleSet> ManagedRuleSets;
 
         [OutputConstructor]
         private PolicyManagedRules(
+            ImmutableArray<Outputs.PolicyManagedRulesException> exceptions,
+
             ImmutableArray<Outputs.PolicyManagedRulesExclusion> exclusions,
 
             ImmutableArray<Outputs.PolicyManagedRulesManagedRuleSet> managedRuleSets)
         {
+            Exceptions = exceptions;
             Exclusions = exclusions;
             ManagedRuleSets = managedRuleSets;
         }

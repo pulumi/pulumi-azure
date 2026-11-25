@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.keyvault.getKey({
  *     name: "secret-sauce",
- *     keyVaultId: existing.id,
+ *     keyVaultId: exampleAzurermKeyVault.id,
  * });
  * export const keyType = example.then(example => example.keyType);
  * ```
@@ -126,7 +126,7 @@ export interface GetKeyResult {
  *
  * const example = azure.keyvault.getKey({
  *     name: "secret-sauce",
- *     keyVaultId: existing.id,
+ *     keyVaultId: exampleAzurermKeyVault.id,
  * });
  * export const keyType = example.then(example => example.keyType);
  * ```

@@ -2154,7 +2154,7 @@ class VirtualMachineAutoBackupArgsDict(TypedDict):
     """
     manual_schedule: NotRequired[pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgsDict']]]
     """
-    A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+    A `manual_schedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
     """
     system_databases_backup_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -2175,7 +2175,7 @@ class VirtualMachineAutoBackupArgs:
         :param pulumi.Input[_builtins.str] storage_account_access_key: Access key for the storage account where backups will be kept.
         :param pulumi.Input[_builtins.str] storage_blob_endpoint: Blob endpoint for the storage account where backups will be kept.
         :param pulumi.Input[_builtins.str] encryption_password: Encryption password to use. Setting a password will enable encryption.
-        :param pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs'] manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        :param pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs'] manual_schedule: A `manual_schedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         :param pulumi.Input[_builtins.bool] system_databases_backup_enabled: Include or exclude system databases from auto backup.
         """
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
@@ -2240,7 +2240,7 @@ class VirtualMachineAutoBackupArgs:
     @pulumi.getter(name="manualSchedule")
     def manual_schedule(self) -> pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgs']]:
         """
-        A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        A `manual_schedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         """
         return pulumi.get(self, "manual_schedule")
 

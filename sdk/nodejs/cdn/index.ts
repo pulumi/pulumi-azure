@@ -30,6 +30,11 @@ export type FrontdoorCustomDomainAssociation = import("./frontdoorCustomDomainAs
 export const FrontdoorCustomDomainAssociation: typeof import("./frontdoorCustomDomainAssociation").FrontdoorCustomDomainAssociation = null as any;
 utilities.lazyLoad(exports, ["FrontdoorCustomDomainAssociation"], () => require("./frontdoorCustomDomainAssociation"));
 
+export { FrontdoorEdgeActionArgs, FrontdoorEdgeActionState } from "./frontdoorEdgeAction";
+export type FrontdoorEdgeAction = import("./frontdoorEdgeAction").FrontdoorEdgeAction;
+export const FrontdoorEdgeAction: typeof import("./frontdoorEdgeAction").FrontdoorEdgeAction = null as any;
+utilities.lazyLoad(exports, ["FrontdoorEdgeAction"], () => require("./frontdoorEdgeAction"));
+
 export { FrontdoorEndpointArgs, FrontdoorEndpointState } from "./frontdoorEndpoint";
 export type FrontdoorEndpoint = import("./frontdoorEndpoint").FrontdoorEndpoint;
 export const FrontdoorEndpoint: typeof import("./frontdoorEndpoint").FrontdoorEndpoint = null as any;
@@ -150,6 +155,8 @@ const _module = {
                 return new FrontdoorCustomDomain(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation":
                 return new FrontdoorCustomDomainAssociation(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorEdgeAction:FrontdoorEdgeAction":
+                return new FrontdoorEdgeAction(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint":
                 return new FrontdoorEndpoint(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy":
@@ -182,6 +189,7 @@ pulumi.runtime.registerResourceModule("azure", "cdn/endpointCustomDomain", _modu
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorBatchRuleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorCustomDomainAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorEdgeAction", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorFirewallPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOrigin", _module)

@@ -4536,7 +4536,7 @@ func (o VirtualMachineAssessmentSchedulePtrOutput) WeeklyInterval() pulumi.IntPt
 type VirtualMachineAutoBackup struct {
 	// Encryption password to use. Setting a password will enable encryption.
 	EncryptionPassword *string `pulumi:"encryptionPassword"`
-	// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+	// A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
 	ManualSchedule *VirtualMachineAutoBackupManualSchedule `pulumi:"manualSchedule"`
 	// Retention period of backups, in days. Valid values are from `1` to `30`.
 	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
@@ -4562,7 +4562,7 @@ type VirtualMachineAutoBackupInput interface {
 type VirtualMachineAutoBackupArgs struct {
 	// Encryption password to use. Setting a password will enable encryption.
 	EncryptionPassword pulumi.StringPtrInput `pulumi:"encryptionPassword"`
-	// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+	// A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
 	ManualSchedule VirtualMachineAutoBackupManualSchedulePtrInput `pulumi:"manualSchedule"`
 	// Retention period of backups, in days. Valid values are from `1` to `30`.
 	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
@@ -4656,7 +4656,7 @@ func (o VirtualMachineAutoBackupOutput) EncryptionPassword() pulumi.StringPtrOut
 	return o.ApplyT(func(v VirtualMachineAutoBackup) *string { return v.EncryptionPassword }).(pulumi.StringPtrOutput)
 }
 
-// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+// A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
 func (o VirtualMachineAutoBackupOutput) ManualSchedule() VirtualMachineAutoBackupManualSchedulePtrOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackup) *VirtualMachineAutoBackupManualSchedule { return v.ManualSchedule }).(VirtualMachineAutoBackupManualSchedulePtrOutput)
 }
@@ -4715,7 +4715,7 @@ func (o VirtualMachineAutoBackupPtrOutput) EncryptionPassword() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+// A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
 func (o VirtualMachineAutoBackupPtrOutput) ManualSchedule() VirtualMachineAutoBackupManualSchedulePtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackup) *VirtualMachineAutoBackupManualSchedule {
 		if v == nil {

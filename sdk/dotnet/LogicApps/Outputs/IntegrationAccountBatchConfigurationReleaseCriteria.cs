@@ -22,7 +22,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly int? MessageCount;
         /// <summary>
-        /// A `Recurrence` block as documented below.
+        /// A `Recurrence` block as defined below.
         /// </summary>
         public readonly Outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence? Recurrence;
 

@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
 //				Name:       "secret-sauce",
-//				KeyVaultId: existing.Id,
+//				KeyVaultId: exampleAzurermKeyVault.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

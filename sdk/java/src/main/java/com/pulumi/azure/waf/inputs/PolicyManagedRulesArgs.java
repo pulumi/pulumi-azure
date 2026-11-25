@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.waf.inputs;
 
+import com.pulumi.azure.waf.inputs.PolicyManagedRulesExceptionArgs;
 import com.pulumi.azure.waf.inputs.PolicyManagedRulesExclusionArgs;
 import com.pulumi.azure.waf.inputs.PolicyManagedRulesManagedRuleSetArgs;
 import com.pulumi.core.Output;
@@ -19,7 +20,28 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
     public static final PolicyManagedRulesArgs Empty = new PolicyManagedRulesArgs();
 
     /**
+     * One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+     * 
+     * &gt; **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+     * 
+     */
+    @Import(name="exceptions")
+    private @Nullable Output<List<PolicyManagedRulesExceptionArgs>> exceptions;
+
+    /**
+     * @return One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+     * 
+     * &gt; **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+     * 
+     */
+    public Optional<Output<List<PolicyManagedRulesExceptionArgs>>> exceptions() {
+        return Optional.ofNullable(this.exceptions);
+    }
+
+    /**
      * One or more `exclusion` block defined below.
+     * 
+     * &gt; **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
      * 
      */
     @Import(name="exclusions")
@@ -28,20 +50,26 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
     /**
      * @return One or more `exclusion` block defined below.
      * 
+     * &gt; **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
+     * 
      */
     public Optional<Output<List<PolicyManagedRulesExclusionArgs>>> exclusions() {
         return Optional.ofNullable(this.exclusions);
     }
 
     /**
-     * One or more `managedRuleSet` block defined below.
+     * One or more `managedRuleSet` blocks as defined below.
+     * 
+     * &gt; **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
      * 
      */
     @Import(name="managedRuleSets", required=true)
     private Output<List<PolicyManagedRulesManagedRuleSetArgs>> managedRuleSets;
 
     /**
-     * @return One or more `managedRuleSet` block defined below.
+     * @return One or more `managedRuleSet` blocks as defined below.
+     * 
+     * &gt; **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
      * 
      */
     public Output<List<PolicyManagedRulesManagedRuleSetArgs>> managedRuleSets() {
@@ -51,6 +79,7 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
     private PolicyManagedRulesArgs() {}
 
     private PolicyManagedRulesArgs(PolicyManagedRulesArgs $) {
+        this.exceptions = $.exceptions;
         this.exclusions = $.exclusions;
         this.managedRuleSets = $.managedRuleSets;
     }
@@ -74,7 +103,46 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param exceptions One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+         * 
+         * &gt; **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exceptions(@Nullable Output<List<PolicyManagedRulesExceptionArgs>> exceptions) {
+            $.exceptions = exceptions;
+            return this;
+        }
+
+        /**
+         * @param exceptions One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+         * 
+         * &gt; **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exceptions(List<PolicyManagedRulesExceptionArgs> exceptions) {
+            return exceptions(Output.of(exceptions));
+        }
+
+        /**
+         * @param exceptions One or more `exception` blocks as defined above. A maximum of 60 exceptions is supported per policy.
+         * 
+         * &gt; **Note:** An `exception` block requires a `managedRuleSet` with `type` set to `OWASP` and `version` set to `3.2` or later, or `type` set to `Microsoft_DefaultRuleSet` and `version` set to `2.1` or later. For more information, see the [Azure Application Gateway WAF Exceptions documentation](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-exceptions).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exceptions(PolicyManagedRulesExceptionArgs... exceptions) {
+            return exceptions(List.of(exceptions));
+        }
+
+        /**
          * @param exclusions One or more `exclusion` block defined below.
+         * 
+         * &gt; **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
          * 
          * @return builder
          * 
@@ -87,6 +155,8 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         /**
          * @param exclusions One or more `exclusion` block defined below.
          * 
+         * &gt; **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
+         * 
          * @return builder
          * 
          */
@@ -97,6 +167,8 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         /**
          * @param exclusions One or more `exclusion` block defined below.
          * 
+         * &gt; **Note:** Exactly one `managedRuleSet` block must have a `type` of `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` does not count as a primary rule set.
+         * 
          * @return builder
          * 
          */
@@ -105,7 +177,9 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedRuleSets One or more `managedRuleSet` block defined below.
+         * @param managedRuleSets One or more `managedRuleSet` blocks as defined below.
+         * 
+         * &gt; **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
          * 
          * @return builder
          * 
@@ -116,7 +190,9 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedRuleSets One or more `managedRuleSet` block defined below.
+         * @param managedRuleSets One or more `managedRuleSet` blocks as defined below.
+         * 
+         * &gt; **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
          * 
          * @return builder
          * 
@@ -126,7 +202,9 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedRuleSets One or more `managedRuleSet` block defined below.
+         * @param managedRuleSets One or more `managedRuleSet` blocks as defined below.
+         * 
+         * &gt; **Note:** Only one primary `managedRuleSet` block is allowed in total, with `type` set to either `OWASP` or `Microsoft_DefaultRuleSet`. A `Microsoft_BotManagerRuleSet` block does not count toward this limit.
          * 
          * @return builder
          * 

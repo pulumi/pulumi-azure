@@ -113,7 +113,7 @@ def get_workspace(api_management_id: Optional[_builtins.str] = None,
         publisher_name="pub1",
         publisher_email="pub1@email.com",
         sku_name="Premium_1")
-    example = azure.apimanagement.get_workspace_output(name="existing",
+    example = azure.apimanagement.get_workspace_output(name="example-workspace",
         api_management_id=example_service.id)
     pulumi.export("id", example.id)
     ```
@@ -163,7 +163,7 @@ def get_workspace_output(api_management_id: pulumi.Input[Optional[_builtins.str]
         publisher_name="pub1",
         publisher_email="pub1@email.com",
         sku_name="Premium_1")
-    example = azure.apimanagement.get_workspace_output(name="existing",
+    example = azure.apimanagement.get_workspace_output(name="example-workspace",
         api_management_id=example_service.id)
     pulumi.export("id", example.id)
     ```

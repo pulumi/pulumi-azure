@@ -62,6 +62,13 @@ public final class AppIngress {
      */
     private @Nullable List<AppIngressIpSecurityRestriction> ipSecurityRestrictions;
     /**
+     * @return Is session affinity enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+     * 
+     */
+    private @Nullable Boolean sessionAffinityEnabled;
+    /**
      * @return The target port on the container for the Ingress traffic.
      * 
      */
@@ -139,6 +146,15 @@ public final class AppIngress {
         return this.ipSecurityRestrictions == null ? List.of() : this.ipSecurityRestrictions;
     }
     /**
+     * @return Is session affinity enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** Session affinity requires `Single` `revisionMode` and an ingress `transport` of `auto`, `http`, or `http2`.
+     * 
+     */
+    public Optional<Boolean> sessionAffinityEnabled() {
+        return Optional.ofNullable(this.sessionAffinityEnabled);
+    }
+    /**
      * @return The target port on the container for the Ingress traffic.
      * 
      */
@@ -179,6 +195,7 @@ public final class AppIngress {
         private @Nullable Boolean externalEnabled;
         private @Nullable String fqdn;
         private @Nullable List<AppIngressIpSecurityRestriction> ipSecurityRestrictions;
+        private @Nullable Boolean sessionAffinityEnabled;
         private Integer targetPort;
         private List<AppIngressTrafficWeight> trafficWeights;
         private @Nullable String transport;
@@ -193,6 +210,7 @@ public final class AppIngress {
     	      this.externalEnabled = defaults.externalEnabled;
     	      this.fqdn = defaults.fqdn;
     	      this.ipSecurityRestrictions = defaults.ipSecurityRestrictions;
+    	      this.sessionAffinityEnabled = defaults.sessionAffinityEnabled;
     	      this.targetPort = defaults.targetPort;
     	      this.trafficWeights = defaults.trafficWeights;
     	      this.transport = defaults.transport;
@@ -253,6 +271,12 @@ public final class AppIngress {
             return ipSecurityRestrictions(List.of(ipSecurityRestrictions));
         }
         @CustomType.Setter
+        public Builder sessionAffinityEnabled(@Nullable Boolean sessionAffinityEnabled) {
+
+            this.sessionAffinityEnabled = sessionAffinityEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder targetPort(Integer targetPort) {
             if (targetPort == null) {
               throw new MissingRequiredPropertyException("AppIngress", "targetPort");
@@ -287,6 +311,7 @@ public final class AppIngress {
             _resultValue.externalEnabled = externalEnabled;
             _resultValue.fqdn = fqdn;
             _resultValue.ipSecurityRestrictions = ipSecurityRestrictions;
+            _resultValue.sessionAffinityEnabled = sessionAffinityEnabled;
             _resultValue.targetPort = targetPort;
             _resultValue.trafficWeights = trafficWeights;
             _resultValue.transport = transport;

@@ -96,7 +96,7 @@ export class TxtRecord extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A list of values that make up the txt record. Each `record` block supports fields documented below.
+     * A list of values that make up the txt record. Each `record` block supports fields defined below.
      */
     declare public readonly records: pulumi.Output<outputs.dns.TxtRecordRecord[]>;
     /**
@@ -176,7 +176,7 @@ export interface TxtRecordState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of values that make up the txt record. Each `record` block supports fields documented below.
+     * A list of values that make up the txt record. Each `record` block supports fields defined below.
      */
     records?: pulumi.Input<pulumi.Input<inputs.dns.TxtRecordRecord>[] | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface TxtRecordArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of values that make up the txt record. Each `record` block supports fields documented below.
+     * A list of values that make up the txt record. Each `record` block supports fields defined below.
      */
     records: pulumi.Input<pulumi.Input<inputs.dns.TxtRecordRecord>[]>;
     /**

@@ -129,14 +129,14 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A list of values that make up the txt record. Each `record` block supports fields documented below.
+     * A list of values that make up the txt record. Each `record` block supports fields defined below.
      * 
      */
     @Export(name="records", refs={List.class,TxtRecordRecord.class}, tree="[0,1]")
     private Output<List<TxtRecordRecord>> records;
 
     /**
-     * @return A list of values that make up the txt record. Each `record` block supports fields documented below.
+     * @return A list of values that make up the txt record. Each `record` block supports fields defined below.
      * 
      */
     public Output<List<TxtRecordRecord>> records() {

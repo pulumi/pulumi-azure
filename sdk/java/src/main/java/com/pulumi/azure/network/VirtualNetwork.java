@@ -134,6 +134,24 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.addressSpaces);
     }
     /**
+     * A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     * 
+     * &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+     * 
+     */
+    @Export(name="advertisedGatewayPrefixes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> advertisedGatewayPrefixes;
+
+    /**
+     * @return A set of CIDR prefixes that Azure gateways advertise to on-premises networks.
+     * 
+     * &gt; **Note:** To use advertised gateway prefixes, your virtual network must have a gateway subnet and gateway. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/advertised-gateway-prefixes-overview) for more info.
+     * 
+     */
+    public Output<Optional<List<String>>> advertisedGatewayPrefixes() {
+        return Codegen.optional(this.advertisedGatewayPrefixes);
+    }
+    /**
      * The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
      * 
      * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -152,14 +170,14 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bgpCommunity);
     }
     /**
-     * A `ddosProtectionPlan` block as documented below.
+     * A `ddosProtectionPlan` block as defined below.
      * 
      */
     @Export(name="ddosProtectionPlan", refs={VirtualNetworkDdosProtectionPlan.class}, tree="[0]")
     private Output</* @Nullable */ VirtualNetworkDdosProtectionPlan> ddosProtectionPlan;
 
     /**
-     * @return A `ddosProtectionPlan` block as documented below.
+     * @return A `ddosProtectionPlan` block as defined below.
      * 
      */
     public Output<Optional<VirtualNetworkDdosProtectionPlan>> ddosProtectionPlan() {
@@ -314,7 +332,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
      * 
      * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
@@ -323,7 +341,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     private Output<List<VirtualNetworkSubnet>> subnets;
 
     /**
-     * @return Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+     * @return Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields defined below.
      * 
      * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 

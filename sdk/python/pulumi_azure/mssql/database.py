@@ -80,7 +80,7 @@ class DatabaseArgs:
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         :param pulumi.Input['DatabaseIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as defined below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[_builtins.bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -109,7 +109,7 @@ class DatabaseArgs:
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         :param pulumi.Input[_builtins.str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields defined below.
         :param pulumi.Input[_builtins.bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **Note:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
@@ -315,7 +315,7 @@ class DatabaseArgs:
     @pulumi.getter(name="import")
     def import_(self) -> pulumi.Input[Optional['DatabaseImportArgs']]:
         """
-        A `import` block as documented below. Mutually exclusive with `create_mode`.
+        A `import` block as defined below. Mutually exclusive with `create_mode`.
         """
         return pulumi.get(self, "import_")
 
@@ -575,7 +575,7 @@ class DatabaseArgs:
     @pulumi.getter(name="threatDetectionPolicy")
     def threat_detection_policy(self) -> pulumi.Input[Optional['DatabaseThreatDetectionPolicyArgs']]:
         """
-        Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        Threat detection policy configuration. The `threat_detection_policy` block supports fields defined below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
@@ -697,7 +697,7 @@ class _DatabaseState:
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         :param pulumi.Input['DatabaseIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as defined below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[_builtins.bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -729,7 +729,7 @@ class _DatabaseState:
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         :param pulumi.Input[_builtins.str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields defined below.
         :param pulumi.Input[_builtins.bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **Note:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
@@ -922,7 +922,7 @@ class _DatabaseState:
     @pulumi.getter(name="import")
     def import_(self) -> pulumi.Input[Optional['DatabaseImportArgs']]:
         """
-        A `import` block as documented below. Mutually exclusive with `create_mode`.
+        A `import` block as defined below. Mutually exclusive with `create_mode`.
         """
         return pulumi.get(self, "import_")
 
@@ -1196,7 +1196,7 @@ class _DatabaseState:
     @pulumi.getter(name="threatDetectionPolicy")
     def threat_detection_policy(self) -> pulumi.Input[Optional['DatabaseThreatDetectionPolicyArgs']]:
         """
-        Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        Threat detection policy configuration. The `threat_detection_policy` block supports fields defined below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
@@ -1462,7 +1462,7 @@ class Database(pulumi.CustomResource):
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         :param pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict', 'outputs.DatabaseIdentity']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict', 'outputs.DatabaseImport']] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict', 'outputs.DatabaseImport']] import_: A `import` block as defined below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[_builtins.bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[Union['DatabaseLongTermRetentionPolicyArgs', 'DatabaseLongTermRetentionPolicyArgsDict', 'outputs.DatabaseLongTermRetentionPolicy']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -1494,7 +1494,7 @@ class Database(pulumi.CustomResource):
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         :param pulumi.Input[_builtins.str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict', 'outputs.DatabaseThreatDetectionPolicy']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict', 'outputs.DatabaseThreatDetectionPolicy']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields defined below.
         :param pulumi.Input[_builtins.bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **Note:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
@@ -1821,7 +1821,7 @@ class Database(pulumi.CustomResource):
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         :param pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict', 'outputs.DatabaseIdentity']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict', 'outputs.DatabaseImport']] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input[Union['DatabaseImportArgs', 'DatabaseImportArgsDict', 'outputs.DatabaseImport']] import_: A `import` block as defined below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[_builtins.bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[Union['DatabaseLongTermRetentionPolicyArgs', 'DatabaseLongTermRetentionPolicyArgsDict', 'outputs.DatabaseLongTermRetentionPolicy']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -1853,7 +1853,7 @@ class Database(pulumi.CustomResource):
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         :param pulumi.Input[_builtins.str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict', 'outputs.DatabaseThreatDetectionPolicy']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict', 'outputs.DatabaseThreatDetectionPolicy']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields defined below.
         :param pulumi.Input[_builtins.bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **Note:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
@@ -1984,7 +1984,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="import")
     def import_(self) -> pulumi.Output[Optional['outputs.DatabaseImport']]:
         """
-        A `import` block as documented below. Mutually exclusive with `create_mode`.
+        A `import` block as defined below. Mutually exclusive with `create_mode`.
         """
         return pulumi.get(self, "import_")
 
@@ -2170,7 +2170,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="threatDetectionPolicy")
     def threat_detection_policy(self) -> pulumi.Output['outputs.DatabaseThreatDetectionPolicy']:
         """
-        Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        Threat detection policy configuration. The `threat_detection_policy` block supports fields defined below.
         """
         return pulumi.get(self, "threat_detection_policy")
 

@@ -201,14 +201,14 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.action);
     }
     /**
-     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     @Export(name="correlationFilter", refs={SubscriptionRuleCorrelationFilter.class}, tree="[0]")
     private Output</* @Nullable */ SubscriptionRuleCorrelationFilter> correlationFilter;
 
     /**
-     * @return A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+     * @return A `correlationFilter` block as defined below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     public Output<Optional<SubscriptionRuleCorrelationFilter>> correlationFilter() {

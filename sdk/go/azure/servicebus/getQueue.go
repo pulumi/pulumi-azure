@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := servicebus.LookupQueue(ctx, &servicebus.LookupQueueArgs{
-//				Name:        "existing",
-//				NamespaceId: "existing",
+//				Name:        "example-queue",
+//				NamespaceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ServiceBus/namespaces/example-namespace",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := oracle.LookupExascaleDatabaseStorageVault(ctx, &oracle.LookupExascaleDatabaseStorageVaultArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-storage-vault",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -23,7 +23,15 @@ public final class CustomDomainPortal {
      * 
      */
     private @Nullable String certificatePassword;
+    /**
+     * @return The source of the certificate.
+     * 
+     */
     private @Nullable String certificateSource;
+    /**
+     * @return The status of the certificate.
+     * 
+     */
     private @Nullable String certificateStatus;
     private @Nullable String expiry;
     /**
@@ -31,6 +39,10 @@ public final class CustomDomainPortal {
      * 
      */
     private String hostName;
+    /**
+     * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     * 
+     */
     private @Nullable String keyVaultCertificateId;
     /**
      * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -62,9 +74,17 @@ public final class CustomDomainPortal {
     public Optional<String> certificatePassword() {
         return Optional.ofNullable(this.certificatePassword);
     }
+    /**
+     * @return The source of the certificate.
+     * 
+     */
     public Optional<String> certificateSource() {
         return Optional.ofNullable(this.certificateSource);
     }
+    /**
+     * @return The status of the certificate.
+     * 
+     */
     public Optional<String> certificateStatus() {
         return Optional.ofNullable(this.certificateStatus);
     }
@@ -78,6 +98,10 @@ public final class CustomDomainPortal {
     public String hostName() {
         return this.hostName;
     }
+    /**
+     * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     * 
+     */
     public Optional<String> keyVaultCertificateId() {
         return Optional.ofNullable(this.keyVaultCertificateId);
     }

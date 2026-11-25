@@ -143,14 +143,14 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A list of values that make up the CAA record. Each `record` block supports fields documented below.
+     * A list of values that make up the CAA record. Each `record` block supports fields defined below.
      * 
      */
     @Export(name="records", refs={List.class,CaaRecordRecord.class}, tree="[0,1]")
     private Output<List<CaaRecordRecord>> records;
 
     /**
-     * @return A list of values that make up the CAA record. Each `record` block supports fields documented below.
+     * @return A list of values that make up the CAA record. Each `record` block supports fields defined below.
      * 
      */
     public Output<List<CaaRecordRecord>> records() {

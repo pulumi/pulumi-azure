@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.desktopvirtualization.getApplicationGroup({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-application-group",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -98,8 +98,8 @@ export interface GetApplicationGroupResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.desktopvirtualization.getApplicationGroup({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-application-group",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

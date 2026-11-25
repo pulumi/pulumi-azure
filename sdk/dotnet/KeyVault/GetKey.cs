@@ -27,7 +27,7 @@ namespace Pulumi.Azure.KeyVault
         ///     var example = Azure.KeyVault.GetKey.Invoke(new()
         ///     {
         ///         Name = "secret-sauce",
-        ///         KeyVaultId = existing.Id,
+        ///         KeyVaultId = exampleAzurermKeyVault.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.KeyVault
         ///     var example = Azure.KeyVault.GetKey.Invoke(new()
         ///     {
         ///         Name = "secret-sauce",
-        ///         KeyVaultId = existing.Id,
+        ///         KeyVaultId = exampleAzurermKeyVault.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.KeyVault
         ///     var example = Azure.KeyVault.GetKey.Invoke(new()
         ///     {
         ///         Name = "secret-sauce",
-        ///         KeyVaultId = existing.Id,
+        ///         KeyVaultId = exampleAzurermKeyVault.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

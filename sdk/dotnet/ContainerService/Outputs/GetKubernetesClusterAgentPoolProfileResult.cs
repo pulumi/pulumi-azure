@@ -68,7 +68,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// A `UpgradeSettings` block as documented below.
+        /// A `UpgradeSettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileUpgradeSettingResult> UpgradeSettings;
         /// <summary>

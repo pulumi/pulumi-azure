@@ -198,6 +198,10 @@ export class Volume extends pulumi.CustomResource {
      */
     declare public readonly throughputInMibps: pulumi.Output<number>;
     /**
+     * The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+     */
+    declare public readonly unixPermissions: pulumi.Output<string>;
+    /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
     declare public readonly volumePath: pulumi.Output<string>;
@@ -252,6 +256,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["subnetId"] = state?.subnetId;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["throughputInMibps"] = state?.throughputInMibps;
+            resourceInputs["unixPermissions"] = state?.unixPermissions;
             resourceInputs["volumePath"] = state?.volumePath;
             resourceInputs["zone"] = state?.zone;
         } else {
@@ -309,6 +314,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["throughputInMibps"] = args?.throughputInMibps;
+            resourceInputs["unixPermissions"] = args?.unixPermissions;
             resourceInputs["volumePath"] = args?.volumePath;
             resourceInputs["zone"] = args?.zone;
             resourceInputs["mountTargets"] = undefined /*out*/;
@@ -473,6 +479,10 @@ export interface VolumeState {
      */
     throughputInMibps?: pulumi.Input<number | undefined>;
     /**
+     * The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+     */
+    unixPermissions?: pulumi.Input<string | undefined>;
+    /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
     volumePath?: pulumi.Input<string | undefined>;
@@ -632,6 +642,10 @@ export interface VolumeArgs {
      * Throughput of this volume in Mibps.
      */
     throughputInMibps?: pulumi.Input<number | undefined>;
+    /**
+     * The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+     */
+    unixPermissions?: pulumi.Input<string | undefined>;
     /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */

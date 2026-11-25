@@ -43,7 +43,7 @@ public final class BackendServiceFabricCluster {
      */
     private @Nullable List<String> serverCertificateThumbprints;
     /**
-     * @return One or more `serverX509Name` blocks as documented below.
+     * @return One or more `serverX509Name` blocks as defined below.
      * 
      */
     private @Nullable List<BackendServiceFabricClusterServerX509Name> serverX509Names;
@@ -87,7 +87,7 @@ public final class BackendServiceFabricCluster {
         return this.serverCertificateThumbprints == null ? List.of() : this.serverCertificateThumbprints;
     }
     /**
-     * @return One or more `serverX509Name` blocks as documented below.
+     * @return One or more `serverX509Name` blocks as defined below.
      * 
      */
     public List<BackendServiceFabricClusterServerX509Name> serverX509Names() {

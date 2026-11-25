@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+
 export { HybridConnectionArgs, HybridConnectionState } from "./hybridConnection";
 export type HybridConnection = import("./hybridConnection").HybridConnection;
 export const HybridConnection: typeof import("./hybridConnection").HybridConnection = null as any;

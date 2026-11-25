@@ -62,7 +62,7 @@ public final class GetSharedImageVersionResult {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return One or more `targetRegion` blocks as documented below.
+     * @return One or more `targetRegion` blocks as defined below.
      * 
      */
     private List<GetSharedImageVersionTargetRegion> targetRegions;
@@ -137,7 +137,7 @@ public final class GetSharedImageVersionResult {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return One or more `targetRegion` blocks as documented below.
+     * @return One or more `targetRegion` blocks as defined below.
      * 
      */
     public List<GetSharedImageVersionTargetRegion> targetRegions() {

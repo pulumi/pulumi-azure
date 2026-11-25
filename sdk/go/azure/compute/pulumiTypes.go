@@ -15473,9 +15473,9 @@ func (o ScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type ScaleSetNetworkProfile struct {
 	// Specifies whether to enable accelerated networking or not.
 	AcceleratedNetworking *bool `pulumi:"acceleratedNetworking"`
-	// A `dnsSettings` block as documented below.
+	// A `dnsSettings` block as defined below.
 	DnsSettings *ScaleSetNetworkProfileDnsSettings `pulumi:"dnsSettings"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations []ScaleSetNetworkProfileIpConfiguration `pulumi:"ipConfigurations"`
 	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 	IpForwarding *bool `pulumi:"ipForwarding"`
@@ -15501,9 +15501,9 @@ type ScaleSetNetworkProfileInput interface {
 type ScaleSetNetworkProfileArgs struct {
 	// Specifies whether to enable accelerated networking or not.
 	AcceleratedNetworking pulumi.BoolPtrInput `pulumi:"acceleratedNetworking"`
-	// A `dnsSettings` block as documented below.
+	// A `dnsSettings` block as defined below.
 	DnsSettings ScaleSetNetworkProfileDnsSettingsPtrInput `pulumi:"dnsSettings"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations ScaleSetNetworkProfileIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 	IpForwarding pulumi.BoolPtrInput `pulumi:"ipForwarding"`
@@ -15571,12 +15571,12 @@ func (o ScaleSetNetworkProfileOutput) AcceleratedNetworking() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v ScaleSetNetworkProfile) *bool { return v.AcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
 
-// A `dnsSettings` block as documented below.
+// A `dnsSettings` block as defined below.
 func (o ScaleSetNetworkProfileOutput) DnsSettings() ScaleSetNetworkProfileDnsSettingsPtrOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfile) *ScaleSetNetworkProfileDnsSettings { return v.DnsSettings }).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
 
-// An `ipConfiguration` block as documented below.
+// An `ipConfiguration` block as defined below.
 func (o ScaleSetNetworkProfileOutput) IpConfigurations() ScaleSetNetworkProfileIpConfigurationArrayOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfile) []ScaleSetNetworkProfileIpConfiguration { return v.IpConfigurations }).(ScaleSetNetworkProfileIpConfigurationArrayOutput)
 }
@@ -15775,7 +15775,7 @@ type ScaleSetNetworkProfileIpConfiguration struct {
 	Name string `pulumi:"name"`
 	// Specifies if this ipConfiguration is the primary one.
 	Primary bool `pulumi:"primary"`
-	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
+	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is defined below.
 	PublicIpAddressConfiguration *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration `pulumi:"publicIpAddressConfiguration"`
 	// Specifies the identifier of the subnet.
 	SubnetId string `pulumi:"subnetId"`
@@ -15809,7 +15809,7 @@ type ScaleSetNetworkProfileIpConfigurationArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies if this ipConfiguration is the primary one.
 	Primary pulumi.BoolInput `pulumi:"primary"`
-	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
+	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is defined below.
 	PublicIpAddressConfiguration ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput `pulumi:"publicIpAddressConfiguration"`
 	// Specifies the identifier of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -15902,7 +15902,7 @@ func (o ScaleSetNetworkProfileIpConfigurationOutput) Primary() pulumi.BoolOutput
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
+// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is defined below.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) PublicIpAddressConfiguration() ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
 		return v.PublicIpAddressConfiguration
@@ -16814,13 +16814,13 @@ func (o ScaleSetOsProfileSecretVaultCertificateArrayOutput) Index(i pulumi.IntIn
 }
 
 type ScaleSetOsProfileWindowsConfig struct {
-	// An `additionalUnattendConfig` block as documented below.
+	// An `additionalUnattendConfig` block as defined below.
 	AdditionalUnattendConfigs []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig `pulumi:"additionalUnattendConfigs"`
 	// Indicates whether virtual machines in the scale set are enabled for automatic updates.
 	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
-	// A collection of `winrm` blocks as documented below.
+	// One or more `winrm` blocks as defined below.
 	Winrms []ScaleSetOsProfileWindowsConfigWinrm `pulumi:"winrms"`
 }
 
@@ -16836,13 +16836,13 @@ type ScaleSetOsProfileWindowsConfigInput interface {
 }
 
 type ScaleSetOsProfileWindowsConfigArgs struct {
-	// An `additionalUnattendConfig` block as documented below.
+	// An `additionalUnattendConfig` block as defined below.
 	AdditionalUnattendConfigs ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayInput `pulumi:"additionalUnattendConfigs"`
 	// Indicates whether virtual machines in the scale set are enabled for automatic updates.
 	EnableAutomaticUpgrades pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrades"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
 	ProvisionVmAgent pulumi.BoolPtrInput `pulumi:"provisionVmAgent"`
-	// A collection of `winrm` blocks as documented below.
+	// One or more `winrm` blocks as defined below.
 	Winrms ScaleSetOsProfileWindowsConfigWinrmArrayInput `pulumi:"winrms"`
 }
 
@@ -16923,7 +16923,7 @@ func (o ScaleSetOsProfileWindowsConfigOutput) ToScaleSetOsProfileWindowsConfigPt
 	}).(ScaleSetOsProfileWindowsConfigPtrOutput)
 }
 
-// An `additionalUnattendConfig` block as documented below.
+// An `additionalUnattendConfig` block as defined below.
 func (o ScaleSetOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
 	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
 		return v.AdditionalUnattendConfigs
@@ -16940,7 +16940,7 @@ func (o ScaleSetOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.BoolPtrO
 	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
-// A collection of `winrm` blocks as documented below.
+// One or more `winrm` blocks as defined below.
 func (o ScaleSetOsProfileWindowsConfigOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmArrayOutput {
 	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
 }
@@ -16969,7 +16969,7 @@ func (o ScaleSetOsProfileWindowsConfigPtrOutput) Elem() ScaleSetOsProfileWindows
 	}).(ScaleSetOsProfileWindowsConfigOutput)
 }
 
-// An `additionalUnattendConfig` block as documented below.
+// An `additionalUnattendConfig` block as defined below.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
 	return o.ApplyT(func(v *ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
 		if v == nil {
@@ -16999,7 +16999,7 @@ func (o ScaleSetOsProfileWindowsConfigPtrOutput) ProvisionVmAgent() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A collection of `winrm` blocks as documented below.
+// One or more `winrm` blocks as defined below.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmArrayOutput {
 	return o.ApplyT(func(v *ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm {
 		if v == nil {
@@ -19892,6 +19892,848 @@ func (o SharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) Shar
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedImageVersionTargetRegion {
 		return vs[0].([]SharedImageVersionTargetRegion)[vs[1].(int)]
 	}).(SharedImageVersionTargetRegionOutput)
+}
+
+type SharedImageVersionUefi struct {
+	// An `additionalSignatures` block as defined below. Changing this forces a new resource to be created.
+	AdditionalSignatures *SharedImageVersionUefiAdditionalSignatures `pulumi:"additionalSignatures"`
+	// A list of UEFI signature template names to include in the UEFI settings. Possible values are `MicrosoftUefiCertificateAuthorityTemplate`, `MicrosoftWindowsTemplate` and `NoSignatureTemplate`. Changing this forces a new resource to be created.
+	SignatureTemplateNames []string `pulumi:"signatureTemplateNames"`
+}
+
+// SharedImageVersionUefiInput is an input type that accepts SharedImageVersionUefiArgs and SharedImageVersionUefiOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiInput` via:
+//
+//	SharedImageVersionUefiArgs{...}
+type SharedImageVersionUefiInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiOutput() SharedImageVersionUefiOutput
+	ToSharedImageVersionUefiOutputWithContext(context.Context) SharedImageVersionUefiOutput
+}
+
+type SharedImageVersionUefiArgs struct {
+	// An `additionalSignatures` block as defined below. Changing this forces a new resource to be created.
+	AdditionalSignatures SharedImageVersionUefiAdditionalSignaturesPtrInput `pulumi:"additionalSignatures"`
+	// A list of UEFI signature template names to include in the UEFI settings. Possible values are `MicrosoftUefiCertificateAuthorityTemplate`, `MicrosoftWindowsTemplate` and `NoSignatureTemplate`. Changing this forces a new resource to be created.
+	SignatureTemplateNames pulumi.StringArrayInput `pulumi:"signatureTemplateNames"`
+}
+
+func (SharedImageVersionUefiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefi)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiArgs) ToSharedImageVersionUefiOutput() SharedImageVersionUefiOutput {
+	return i.ToSharedImageVersionUefiOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiArgs) ToSharedImageVersionUefiOutputWithContext(ctx context.Context) SharedImageVersionUefiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiOutput)
+}
+
+func (i SharedImageVersionUefiArgs) ToSharedImageVersionUefiPtrOutput() SharedImageVersionUefiPtrOutput {
+	return i.ToSharedImageVersionUefiPtrOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiArgs) ToSharedImageVersionUefiPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiOutput).ToSharedImageVersionUefiPtrOutputWithContext(ctx)
+}
+
+// SharedImageVersionUefiPtrInput is an input type that accepts SharedImageVersionUefiArgs, SharedImageVersionUefiPtr and SharedImageVersionUefiPtrOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiPtrInput` via:
+//
+//	        SharedImageVersionUefiArgs{...}
+//
+//	or:
+//
+//	        nil
+type SharedImageVersionUefiPtrInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiPtrOutput() SharedImageVersionUefiPtrOutput
+	ToSharedImageVersionUefiPtrOutputWithContext(context.Context) SharedImageVersionUefiPtrOutput
+}
+
+type sharedImageVersionUefiPtrType SharedImageVersionUefiArgs
+
+func SharedImageVersionUefiPtr(v *SharedImageVersionUefiArgs) SharedImageVersionUefiPtrInput {
+	return (*sharedImageVersionUefiPtrType)(v)
+}
+
+func (*sharedImageVersionUefiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageVersionUefi)(nil)).Elem()
+}
+
+func (i *sharedImageVersionUefiPtrType) ToSharedImageVersionUefiPtrOutput() SharedImageVersionUefiPtrOutput {
+	return i.ToSharedImageVersionUefiPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedImageVersionUefiPtrType) ToSharedImageVersionUefiPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiPtrOutput)
+}
+
+type SharedImageVersionUefiOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefi)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiOutput) ToSharedImageVersionUefiOutput() SharedImageVersionUefiOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiOutput) ToSharedImageVersionUefiOutputWithContext(ctx context.Context) SharedImageVersionUefiOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiOutput) ToSharedImageVersionUefiPtrOutput() SharedImageVersionUefiPtrOutput {
+	return o.ToSharedImageVersionUefiPtrOutputWithContext(context.Background())
+}
+
+func (o SharedImageVersionUefiOutput) ToSharedImageVersionUefiPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImageVersionUefi) *SharedImageVersionUefi {
+		return &v
+	}).(SharedImageVersionUefiPtrOutput)
+}
+
+// An `additionalSignatures` block as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiOutput) AdditionalSignatures() SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return o.ApplyT(func(v SharedImageVersionUefi) *SharedImageVersionUefiAdditionalSignatures {
+		return v.AdditionalSignatures
+	}).(SharedImageVersionUefiAdditionalSignaturesPtrOutput)
+}
+
+// A list of UEFI signature template names to include in the UEFI settings. Possible values are `MicrosoftUefiCertificateAuthorityTemplate`, `MicrosoftWindowsTemplate` and `NoSignatureTemplate`. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiOutput) SignatureTemplateNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedImageVersionUefi) []string { return v.SignatureTemplateNames }).(pulumi.StringArrayOutput)
+}
+
+type SharedImageVersionUefiPtrOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageVersionUefi)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiPtrOutput) ToSharedImageVersionUefiPtrOutput() SharedImageVersionUefiPtrOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiPtrOutput) ToSharedImageVersionUefiPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiPtrOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiPtrOutput) Elem() SharedImageVersionUefiOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefi) SharedImageVersionUefi {
+		if v != nil {
+			return *v
+		}
+		var ret SharedImageVersionUefi
+		return ret
+	}).(SharedImageVersionUefiOutput)
+}
+
+// An `additionalSignatures` block as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiPtrOutput) AdditionalSignatures() SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefi) *SharedImageVersionUefiAdditionalSignatures {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalSignatures
+	}).(SharedImageVersionUefiAdditionalSignaturesPtrOutput)
+}
+
+// A list of UEFI signature template names to include in the UEFI settings. Possible values are `MicrosoftUefiCertificateAuthorityTemplate`, `MicrosoftWindowsTemplate` and `NoSignatureTemplate`. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiPtrOutput) SignatureTemplateNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefi) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SignatureTemplateNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignatures struct {
+	// One or more `db` blocks as defined below. Changing this forces a new resource to be created.
+	Dbs []SharedImageVersionUefiAdditionalSignaturesDb `pulumi:"dbs"`
+	// One or more `dbx` blocks as defined below. Changing this forces a new resource to be created.
+	Dbxes []SharedImageVersionUefiAdditionalSignaturesDbx `pulumi:"dbxes"`
+	// One or more `kek` blocks as defined below. Changing this forces a new resource to be created.
+	Keks []SharedImageVersionUefiAdditionalSignaturesKek `pulumi:"keks"`
+	// A `pk` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one of `db`, `dbx`, `kek` or `pk` must be specified when an `additionalSignatures` block is defined.
+	Pk *SharedImageVersionUefiAdditionalSignaturesPk `pulumi:"pk"`
+}
+
+// SharedImageVersionUefiAdditionalSignaturesInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesArgs and SharedImageVersionUefiAdditionalSignaturesOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesInput` via:
+//
+//	SharedImageVersionUefiAdditionalSignaturesArgs{...}
+type SharedImageVersionUefiAdditionalSignaturesInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesOutput() SharedImageVersionUefiAdditionalSignaturesOutput
+	ToSharedImageVersionUefiAdditionalSignaturesOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesOutput
+}
+
+type SharedImageVersionUefiAdditionalSignaturesArgs struct {
+	// One or more `db` blocks as defined below. Changing this forces a new resource to be created.
+	Dbs SharedImageVersionUefiAdditionalSignaturesDbArrayInput `pulumi:"dbs"`
+	// One or more `dbx` blocks as defined below. Changing this forces a new resource to be created.
+	Dbxes SharedImageVersionUefiAdditionalSignaturesDbxArrayInput `pulumi:"dbxes"`
+	// One or more `kek` blocks as defined below. Changing this forces a new resource to be created.
+	Keks SharedImageVersionUefiAdditionalSignaturesKekArrayInput `pulumi:"keks"`
+	// A `pk` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one of `db`, `dbx`, `kek` or `pk` must be specified when an `additionalSignatures` block is defined.
+	Pk SharedImageVersionUefiAdditionalSignaturesPkPtrInput `pulumi:"pk"`
+}
+
+func (SharedImageVersionUefiAdditionalSignaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignatures)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesArgs) ToSharedImageVersionUefiAdditionalSignaturesOutput() SharedImageVersionUefiAdditionalSignaturesOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesArgs) ToSharedImageVersionUefiAdditionalSignaturesOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesOutput)
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesArgs) ToSharedImageVersionUefiAdditionalSignaturesPtrOutput() SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesArgs) ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesOutput).ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(ctx)
+}
+
+// SharedImageVersionUefiAdditionalSignaturesPtrInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesArgs, SharedImageVersionUefiAdditionalSignaturesPtr and SharedImageVersionUefiAdditionalSignaturesPtrOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesPtrInput` via:
+//
+//	        SharedImageVersionUefiAdditionalSignaturesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SharedImageVersionUefiAdditionalSignaturesPtrInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesPtrOutput() SharedImageVersionUefiAdditionalSignaturesPtrOutput
+	ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesPtrOutput
+}
+
+type sharedImageVersionUefiAdditionalSignaturesPtrType SharedImageVersionUefiAdditionalSignaturesArgs
+
+func SharedImageVersionUefiAdditionalSignaturesPtr(v *SharedImageVersionUefiAdditionalSignaturesArgs) SharedImageVersionUefiAdditionalSignaturesPtrInput {
+	return (*sharedImageVersionUefiAdditionalSignaturesPtrType)(v)
+}
+
+func (*sharedImageVersionUefiAdditionalSignaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageVersionUefiAdditionalSignatures)(nil)).Elem()
+}
+
+func (i *sharedImageVersionUefiAdditionalSignaturesPtrType) ToSharedImageVersionUefiAdditionalSignaturesPtrOutput() SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedImageVersionUefiAdditionalSignaturesPtrType) ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesPtrOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignatures)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesOutput) ToSharedImageVersionUefiAdditionalSignaturesOutput() SharedImageVersionUefiAdditionalSignaturesOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesOutput) ToSharedImageVersionUefiAdditionalSignaturesOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesOutput) ToSharedImageVersionUefiAdditionalSignaturesPtrOutput() SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return o.ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(context.Background())
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesOutput) ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImageVersionUefiAdditionalSignatures) *SharedImageVersionUefiAdditionalSignatures {
+		return &v
+	}).(SharedImageVersionUefiAdditionalSignaturesPtrOutput)
+}
+
+// One or more `db` blocks as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesOutput) Dbs() SharedImageVersionUefiAdditionalSignaturesDbArrayOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignatures) []SharedImageVersionUefiAdditionalSignaturesDb {
+		return v.Dbs
+	}).(SharedImageVersionUefiAdditionalSignaturesDbArrayOutput)
+}
+
+// One or more `dbx` blocks as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesOutput) Dbxes() SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignatures) []SharedImageVersionUefiAdditionalSignaturesDbx {
+		return v.Dbxes
+	}).(SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput)
+}
+
+// One or more `kek` blocks as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesOutput) Keks() SharedImageVersionUefiAdditionalSignaturesKekArrayOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignatures) []SharedImageVersionUefiAdditionalSignaturesKek {
+		return v.Keks
+	}).(SharedImageVersionUefiAdditionalSignaturesKekArrayOutput)
+}
+
+// A `pk` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** At least one of `db`, `dbx`, `kek` or `pk` must be specified when an `additionalSignatures` block is defined.
+func (o SharedImageVersionUefiAdditionalSignaturesOutput) Pk() SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignatures) *SharedImageVersionUefiAdditionalSignaturesPk {
+		return v.Pk
+	}).(SharedImageVersionUefiAdditionalSignaturesPkPtrOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageVersionUefiAdditionalSignatures)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPtrOutput) ToSharedImageVersionUefiAdditionalSignaturesPtrOutput() SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPtrOutput) ToSharedImageVersionUefiAdditionalSignaturesPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPtrOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPtrOutput) Elem() SharedImageVersionUefiAdditionalSignaturesOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefiAdditionalSignatures) SharedImageVersionUefiAdditionalSignatures {
+		if v != nil {
+			return *v
+		}
+		var ret SharedImageVersionUefiAdditionalSignatures
+		return ret
+	}).(SharedImageVersionUefiAdditionalSignaturesOutput)
+}
+
+// One or more `db` blocks as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesPtrOutput) Dbs() SharedImageVersionUefiAdditionalSignaturesDbArrayOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefiAdditionalSignatures) []SharedImageVersionUefiAdditionalSignaturesDb {
+		if v == nil {
+			return nil
+		}
+		return v.Dbs
+	}).(SharedImageVersionUefiAdditionalSignaturesDbArrayOutput)
+}
+
+// One or more `dbx` blocks as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesPtrOutput) Dbxes() SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefiAdditionalSignatures) []SharedImageVersionUefiAdditionalSignaturesDbx {
+		if v == nil {
+			return nil
+		}
+		return v.Dbxes
+	}).(SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput)
+}
+
+// One or more `kek` blocks as defined below. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesPtrOutput) Keks() SharedImageVersionUefiAdditionalSignaturesKekArrayOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefiAdditionalSignatures) []SharedImageVersionUefiAdditionalSignaturesKek {
+		if v == nil {
+			return nil
+		}
+		return v.Keks
+	}).(SharedImageVersionUefiAdditionalSignaturesKekArrayOutput)
+}
+
+// A `pk` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** At least one of `db`, `dbx`, `kek` or `pk` must be specified when an `additionalSignatures` block is defined.
+func (o SharedImageVersionUefiAdditionalSignaturesPtrOutput) Pk() SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefiAdditionalSignatures) *SharedImageVersionUefiAdditionalSignaturesPk {
+		if v == nil {
+			return nil
+		}
+		return v.Pk
+	}).(SharedImageVersionUefiAdditionalSignaturesPkPtrOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDb struct {
+	// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+	Type string `pulumi:"type"`
+	// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+	ValuesBase64s []string `pulumi:"valuesBase64s"`
+}
+
+// SharedImageVersionUefiAdditionalSignaturesDbInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesDbArgs and SharedImageVersionUefiAdditionalSignaturesDbOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesDbInput` via:
+//
+//	SharedImageVersionUefiAdditionalSignaturesDbArgs{...}
+type SharedImageVersionUefiAdditionalSignaturesDbInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesDbOutput() SharedImageVersionUefiAdditionalSignaturesDbOutput
+	ToSharedImageVersionUefiAdditionalSignaturesDbOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesDbOutput
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbArgs struct {
+	// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+	// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+	ValuesBase64s pulumi.StringArrayInput `pulumi:"valuesBase64s"`
+}
+
+func (SharedImageVersionUefiAdditionalSignaturesDbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesDb)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesDbArgs) ToSharedImageVersionUefiAdditionalSignaturesDbOutput() SharedImageVersionUefiAdditionalSignaturesDbOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesDbOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesDbArgs) ToSharedImageVersionUefiAdditionalSignaturesDbOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesDbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesDbOutput)
+}
+
+// SharedImageVersionUefiAdditionalSignaturesDbArrayInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesDbArray and SharedImageVersionUefiAdditionalSignaturesDbArrayOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesDbArrayInput` via:
+//
+//	SharedImageVersionUefiAdditionalSignaturesDbArray{ SharedImageVersionUefiAdditionalSignaturesDbArgs{...} }
+type SharedImageVersionUefiAdditionalSignaturesDbArrayInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesDbArrayOutput() SharedImageVersionUefiAdditionalSignaturesDbArrayOutput
+	ToSharedImageVersionUefiAdditionalSignaturesDbArrayOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesDbArrayOutput
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbArray []SharedImageVersionUefiAdditionalSignaturesDbInput
+
+func (SharedImageVersionUefiAdditionalSignaturesDbArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedImageVersionUefiAdditionalSignaturesDb)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesDbArray) ToSharedImageVersionUefiAdditionalSignaturesDbArrayOutput() SharedImageVersionUefiAdditionalSignaturesDbArrayOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesDbArrayOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesDbArray) ToSharedImageVersionUefiAdditionalSignaturesDbArrayOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesDbArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesDbArrayOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesDbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesDb)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbOutput) ToSharedImageVersionUefiAdditionalSignaturesDbOutput() SharedImageVersionUefiAdditionalSignaturesDbOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbOutput) ToSharedImageVersionUefiAdditionalSignaturesDbOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesDbOutput {
+	return o
+}
+
+// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesDbOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignaturesDb) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesDbOutput) ValuesBase64s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignaturesDb) []string { return v.ValuesBase64s }).(pulumi.StringArrayOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesDbArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedImageVersionUefiAdditionalSignaturesDb)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbArrayOutput) ToSharedImageVersionUefiAdditionalSignaturesDbArrayOutput() SharedImageVersionUefiAdditionalSignaturesDbArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbArrayOutput) ToSharedImageVersionUefiAdditionalSignaturesDbArrayOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesDbArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbArrayOutput) Index(i pulumi.IntInput) SharedImageVersionUefiAdditionalSignaturesDbOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedImageVersionUefiAdditionalSignaturesDb {
+		return vs[0].([]SharedImageVersionUefiAdditionalSignaturesDb)[vs[1].(int)]
+	}).(SharedImageVersionUefiAdditionalSignaturesDbOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbx struct {
+	// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+	Type string `pulumi:"type"`
+	// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+	ValuesBase64s []string `pulumi:"valuesBase64s"`
+}
+
+// SharedImageVersionUefiAdditionalSignaturesDbxInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesDbxArgs and SharedImageVersionUefiAdditionalSignaturesDbxOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesDbxInput` via:
+//
+//	SharedImageVersionUefiAdditionalSignaturesDbxArgs{...}
+type SharedImageVersionUefiAdditionalSignaturesDbxInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesDbxOutput() SharedImageVersionUefiAdditionalSignaturesDbxOutput
+	ToSharedImageVersionUefiAdditionalSignaturesDbxOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesDbxOutput
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbxArgs struct {
+	// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+	// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+	ValuesBase64s pulumi.StringArrayInput `pulumi:"valuesBase64s"`
+}
+
+func (SharedImageVersionUefiAdditionalSignaturesDbxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesDbx)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesDbxArgs) ToSharedImageVersionUefiAdditionalSignaturesDbxOutput() SharedImageVersionUefiAdditionalSignaturesDbxOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesDbxOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesDbxArgs) ToSharedImageVersionUefiAdditionalSignaturesDbxOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesDbxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesDbxOutput)
+}
+
+// SharedImageVersionUefiAdditionalSignaturesDbxArrayInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesDbxArray and SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesDbxArrayInput` via:
+//
+//	SharedImageVersionUefiAdditionalSignaturesDbxArray{ SharedImageVersionUefiAdditionalSignaturesDbxArgs{...} }
+type SharedImageVersionUefiAdditionalSignaturesDbxArrayInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesDbxArrayOutput() SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput
+	ToSharedImageVersionUefiAdditionalSignaturesDbxArrayOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbxArray []SharedImageVersionUefiAdditionalSignaturesDbxInput
+
+func (SharedImageVersionUefiAdditionalSignaturesDbxArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedImageVersionUefiAdditionalSignaturesDbx)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesDbxArray) ToSharedImageVersionUefiAdditionalSignaturesDbxArrayOutput() SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesDbxArrayOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesDbxArray) ToSharedImageVersionUefiAdditionalSignaturesDbxArrayOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbxOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesDbxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesDbx)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbxOutput) ToSharedImageVersionUefiAdditionalSignaturesDbxOutput() SharedImageVersionUefiAdditionalSignaturesDbxOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbxOutput) ToSharedImageVersionUefiAdditionalSignaturesDbxOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesDbxOutput {
+	return o
+}
+
+// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesDbxOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignaturesDbx) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesDbxOutput) ValuesBase64s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignaturesDbx) []string { return v.ValuesBase64s }).(pulumi.StringArrayOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedImageVersionUefiAdditionalSignaturesDbx)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput) ToSharedImageVersionUefiAdditionalSignaturesDbxArrayOutput() SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput) ToSharedImageVersionUefiAdditionalSignaturesDbxArrayOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput) Index(i pulumi.IntInput) SharedImageVersionUefiAdditionalSignaturesDbxOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedImageVersionUefiAdditionalSignaturesDbx {
+		return vs[0].([]SharedImageVersionUefiAdditionalSignaturesDbx)[vs[1].(int)]
+	}).(SharedImageVersionUefiAdditionalSignaturesDbxOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesKek struct {
+	// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+	Type string `pulumi:"type"`
+	// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+	ValuesBase64s []string `pulumi:"valuesBase64s"`
+}
+
+// SharedImageVersionUefiAdditionalSignaturesKekInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesKekArgs and SharedImageVersionUefiAdditionalSignaturesKekOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesKekInput` via:
+//
+//	SharedImageVersionUefiAdditionalSignaturesKekArgs{...}
+type SharedImageVersionUefiAdditionalSignaturesKekInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesKekOutput() SharedImageVersionUefiAdditionalSignaturesKekOutput
+	ToSharedImageVersionUefiAdditionalSignaturesKekOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesKekOutput
+}
+
+type SharedImageVersionUefiAdditionalSignaturesKekArgs struct {
+	// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+	// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+	ValuesBase64s pulumi.StringArrayInput `pulumi:"valuesBase64s"`
+}
+
+func (SharedImageVersionUefiAdditionalSignaturesKekArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesKek)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesKekArgs) ToSharedImageVersionUefiAdditionalSignaturesKekOutput() SharedImageVersionUefiAdditionalSignaturesKekOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesKekOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesKekArgs) ToSharedImageVersionUefiAdditionalSignaturesKekOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesKekOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesKekOutput)
+}
+
+// SharedImageVersionUefiAdditionalSignaturesKekArrayInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesKekArray and SharedImageVersionUefiAdditionalSignaturesKekArrayOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesKekArrayInput` via:
+//
+//	SharedImageVersionUefiAdditionalSignaturesKekArray{ SharedImageVersionUefiAdditionalSignaturesKekArgs{...} }
+type SharedImageVersionUefiAdditionalSignaturesKekArrayInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesKekArrayOutput() SharedImageVersionUefiAdditionalSignaturesKekArrayOutput
+	ToSharedImageVersionUefiAdditionalSignaturesKekArrayOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesKekArrayOutput
+}
+
+type SharedImageVersionUefiAdditionalSignaturesKekArray []SharedImageVersionUefiAdditionalSignaturesKekInput
+
+func (SharedImageVersionUefiAdditionalSignaturesKekArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedImageVersionUefiAdditionalSignaturesKek)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesKekArray) ToSharedImageVersionUefiAdditionalSignaturesKekArrayOutput() SharedImageVersionUefiAdditionalSignaturesKekArrayOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesKekArrayOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesKekArray) ToSharedImageVersionUefiAdditionalSignaturesKekArrayOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesKekArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesKekArrayOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesKekOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesKekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesKek)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesKekOutput) ToSharedImageVersionUefiAdditionalSignaturesKekOutput() SharedImageVersionUefiAdditionalSignaturesKekOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesKekOutput) ToSharedImageVersionUefiAdditionalSignaturesKekOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesKekOutput {
+	return o
+}
+
+// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesKekOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignaturesKek) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesKekOutput) ValuesBase64s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignaturesKek) []string { return v.ValuesBase64s }).(pulumi.StringArrayOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesKekArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesKekArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedImageVersionUefiAdditionalSignaturesKek)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesKekArrayOutput) ToSharedImageVersionUefiAdditionalSignaturesKekArrayOutput() SharedImageVersionUefiAdditionalSignaturesKekArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesKekArrayOutput) ToSharedImageVersionUefiAdditionalSignaturesKekArrayOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesKekArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesKekArrayOutput) Index(i pulumi.IntInput) SharedImageVersionUefiAdditionalSignaturesKekOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedImageVersionUefiAdditionalSignaturesKek {
+		return vs[0].([]SharedImageVersionUefiAdditionalSignaturesKek)[vs[1].(int)]
+	}).(SharedImageVersionUefiAdditionalSignaturesKekOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesPk struct {
+	// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+	Type string `pulumi:"type"`
+	// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+	ValuesBase64s []string `pulumi:"valuesBase64s"`
+}
+
+// SharedImageVersionUefiAdditionalSignaturesPkInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesPkArgs and SharedImageVersionUefiAdditionalSignaturesPkOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesPkInput` via:
+//
+//	SharedImageVersionUefiAdditionalSignaturesPkArgs{...}
+type SharedImageVersionUefiAdditionalSignaturesPkInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesPkOutput() SharedImageVersionUefiAdditionalSignaturesPkOutput
+	ToSharedImageVersionUefiAdditionalSignaturesPkOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesPkOutput
+}
+
+type SharedImageVersionUefiAdditionalSignaturesPkArgs struct {
+	// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+	// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+	ValuesBase64s pulumi.StringArrayInput `pulumi:"valuesBase64s"`
+}
+
+func (SharedImageVersionUefiAdditionalSignaturesPkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesPk)(nil)).Elem()
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesPkArgs) ToSharedImageVersionUefiAdditionalSignaturesPkOutput() SharedImageVersionUefiAdditionalSignaturesPkOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesPkOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesPkArgs) ToSharedImageVersionUefiAdditionalSignaturesPkOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesPkOutput)
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesPkArgs) ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutput() SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionUefiAdditionalSignaturesPkArgs) ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesPkOutput).ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(ctx)
+}
+
+// SharedImageVersionUefiAdditionalSignaturesPkPtrInput is an input type that accepts SharedImageVersionUefiAdditionalSignaturesPkArgs, SharedImageVersionUefiAdditionalSignaturesPkPtr and SharedImageVersionUefiAdditionalSignaturesPkPtrOutput values.
+// You can construct a concrete instance of `SharedImageVersionUefiAdditionalSignaturesPkPtrInput` via:
+//
+//	        SharedImageVersionUefiAdditionalSignaturesPkArgs{...}
+//
+//	or:
+//
+//	        nil
+type SharedImageVersionUefiAdditionalSignaturesPkPtrInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutput() SharedImageVersionUefiAdditionalSignaturesPkPtrOutput
+	ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(context.Context) SharedImageVersionUefiAdditionalSignaturesPkPtrOutput
+}
+
+type sharedImageVersionUefiAdditionalSignaturesPkPtrType SharedImageVersionUefiAdditionalSignaturesPkArgs
+
+func SharedImageVersionUefiAdditionalSignaturesPkPtr(v *SharedImageVersionUefiAdditionalSignaturesPkArgs) SharedImageVersionUefiAdditionalSignaturesPkPtrInput {
+	return (*sharedImageVersionUefiAdditionalSignaturesPkPtrType)(v)
+}
+
+func (*sharedImageVersionUefiAdditionalSignaturesPkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageVersionUefiAdditionalSignaturesPk)(nil)).Elem()
+}
+
+func (i *sharedImageVersionUefiAdditionalSignaturesPkPtrType) ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutput() SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return i.ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedImageVersionUefiAdditionalSignaturesPkPtrType) ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionUefiAdditionalSignaturesPkPtrOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesPkOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesPkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesPk)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPkOutput) ToSharedImageVersionUefiAdditionalSignaturesPkOutput() SharedImageVersionUefiAdditionalSignaturesPkOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPkOutput) ToSharedImageVersionUefiAdditionalSignaturesPkOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPkOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPkOutput) ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutput() SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return o.ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(context.Background())
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPkOutput) ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImageVersionUefiAdditionalSignaturesPk) *SharedImageVersionUefiAdditionalSignaturesPk {
+		return &v
+	}).(SharedImageVersionUefiAdditionalSignaturesPkPtrOutput)
+}
+
+// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesPkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignaturesPk) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesPkOutput) ValuesBase64s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedImageVersionUefiAdditionalSignaturesPk) []string { return v.ValuesBase64s }).(pulumi.StringArrayOutput)
+}
+
+type SharedImageVersionUefiAdditionalSignaturesPkPtrOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionUefiAdditionalSignaturesPkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageVersionUefiAdditionalSignaturesPk)(nil)).Elem()
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPkPtrOutput) ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutput() SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPkPtrOutput) ToSharedImageVersionUefiAdditionalSignaturesPkPtrOutputWithContext(ctx context.Context) SharedImageVersionUefiAdditionalSignaturesPkPtrOutput {
+	return o
+}
+
+func (o SharedImageVersionUefiAdditionalSignaturesPkPtrOutput) Elem() SharedImageVersionUefiAdditionalSignaturesPkOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefiAdditionalSignaturesPk) SharedImageVersionUefiAdditionalSignaturesPk {
+		if v != nil {
+			return *v
+		}
+		var ret SharedImageVersionUefiAdditionalSignaturesPk
+		return ret
+	}).(SharedImageVersionUefiAdditionalSignaturesPkOutput)
+}
+
+// The type of key signature. Possible values are `sha256` and `x509`. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesPkPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefiAdditionalSignaturesPk) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of Base64-encoded values for this key. For `x509` keys this is the DER-encoded certificate, for `sha256` keys this is the hash. Changing this forces a new resource to be created.
+func (o SharedImageVersionUefiAdditionalSignaturesPkPtrOutput) ValuesBase64s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SharedImageVersionUefiAdditionalSignaturesPk) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ValuesBase64s
+	}).(pulumi.StringArrayOutput)
 }
 
 type SnapshotEncryptionSettings struct {
@@ -31835,7 +32677,7 @@ type GetOrchestratedVirtualMachineScaleSetNetworkInterface struct {
 	AcceleratedNetworkingEnabled bool `pulumi:"acceleratedNetworkingEnabled"`
 	// An array of the DNS servers in use.
 	DnsServers []string `pulumi:"dnsServers"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// Is IP forwarding enabled?
 	IpForwardingEnabled bool `pulumi:"ipForwardingEnabled"`
@@ -31863,7 +32705,7 @@ type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs struct {
 	AcceleratedNetworkingEnabled pulumi.BoolInput `pulumi:"acceleratedNetworkingEnabled"`
 	// An array of the DNS servers in use.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// Is IP forwarding enabled?
 	IpForwardingEnabled pulumi.BoolInput `pulumi:"ipForwardingEnabled"`
@@ -31938,7 +32780,7 @@ func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers(
 	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// An `ipConfiguration` block as documented below.
+// An `ipConfiguration` block as defined below.
 func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return v.IpConfigurations
@@ -33012,7 +33854,7 @@ type GetSharedImageVersionsImage struct {
 	Name string `pulumi:"name"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
-	// One or more `targetRegion` blocks as documented below.
+	// One or more `targetRegion` blocks as defined below.
 	TargetRegions []GetSharedImageVersionsImageTargetRegion `pulumi:"targetRegions"`
 }
 
@@ -33040,7 +33882,7 @@ type GetSharedImageVersionsImageArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// One or more `targetRegion` blocks as documented below.
+	// One or more `targetRegion` blocks as defined below.
 	TargetRegions GetSharedImageVersionsImageTargetRegionArrayInput `pulumi:"targetRegions"`
 }
 
@@ -33125,7 +33967,7 @@ func (o GetSharedImageVersionsImageOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSharedImageVersionsImage) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// One or more `targetRegion` blocks as documented below.
+// One or more `targetRegion` blocks as defined below.
 func (o GetSharedImageVersionsImageOutput) TargetRegions() GetSharedImageVersionsImageTargetRegionArrayOutput {
 	return o.ApplyT(func(v GetSharedImageVersionsImage) []GetSharedImageVersionsImageTargetRegion { return v.TargetRegions }).(GetSharedImageVersionsImageTargetRegionArrayOutput)
 }
@@ -34859,6 +35701,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImagePurchasePlanPtrInput)(nil)).Elem(), SharedImagePurchasePlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionTargetRegionInput)(nil)).Elem(), SharedImageVersionTargetRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionTargetRegionArrayInput)(nil)).Elem(), SharedImageVersionTargetRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiInput)(nil)).Elem(), SharedImageVersionUefiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiPtrInput)(nil)).Elem(), SharedImageVersionUefiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesPtrInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesDbInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesDbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesDbArrayInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesDbArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesDbxInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesDbxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesDbxArrayInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesDbxArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesKekInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesKekArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesKekArrayInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesKekArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesPkInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesPkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionUefiAdditionalSignaturesPkPtrInput)(nil)).Elem(), SharedImageVersionUefiAdditionalSignaturesPkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotEncryptionSettingsInput)(nil)).Elem(), SnapshotEncryptionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotEncryptionSettingsPtrInput)(nil)).Elem(), SnapshotEncryptionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotEncryptionSettingsDiskEncryptionKeyInput)(nil)).Elem(), SnapshotEncryptionSettingsDiskEncryptionKeyArgs{})
@@ -35287,6 +36141,18 @@ func init() {
 	pulumi.RegisterOutputType(SharedImagePurchasePlanPtrOutput{})
 	pulumi.RegisterOutputType(SharedImageVersionTargetRegionOutput{})
 	pulumi.RegisterOutputType(SharedImageVersionTargetRegionArrayOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiPtrOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesPtrOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesDbOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesDbArrayOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesDbxOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesDbxArrayOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesKekOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesKekArrayOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesPkOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionUefiAdditionalSignaturesPkPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(SnapshotEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotEncryptionSettingsDiskEncryptionKeyOutput{})

@@ -103,8 +103,8 @@ def get_network_security_perimeter(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_network_security_perimeter(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_network_security_perimeter(name="example-perimeter",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -143,8 +143,8 @@ def get_network_security_perimeter_output(name: pulumi.Input[Optional[_builtins.
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_network_security_perimeter(name="existing",
-        resource_group_name="existing")
+    example = azure.network.get_network_security_perimeter(name="example-perimeter",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

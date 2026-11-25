@@ -67,7 +67,7 @@ type GetLBArgs struct {
 
 // A collection of values returned by getLB.
 type GetLBResult struct {
-	// A `frontendIpConfiguration` block as documented below.
+	// A `frontendIpConfiguration` block as defined below.
 	FrontendIpConfigurations []GetLBFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -118,7 +118,7 @@ func (o GetLBResultOutput) ToGetLBResultOutputWithContext(ctx context.Context) G
 	return o
 }
 
-// A `frontendIpConfiguration` block as documented below.
+// A `frontendIpConfiguration` block as defined below.
 func (o GetLBResultOutput) FrontendIpConfigurations() GetLBFrontendIpConfigurationArrayOutput {
 	return o.ApplyT(func(v GetLBResult) []GetLBFrontendIpConfiguration { return v.FrontendIpConfigurations }).(GetLBFrontendIpConfigurationArrayOutput)
 }

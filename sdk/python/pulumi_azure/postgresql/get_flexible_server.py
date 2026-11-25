@@ -236,8 +236,8 @@ def get_flexible_server(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.postgresql.get_flexible_server(name="existing-postgresql-fs",
-        resource_group_name="existing-postgresql-resgroup")
+    example = azure.postgresql.get_flexible_server(name="example-postgresql-flexible-server",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -246,7 +246,7 @@ def get_flexible_server(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DBforPostgreSQL` - 2025-08-01
+    * `Microsoft.DBforPostgreSQL` - 2026-10-01
 
 
     :param _builtins.str name: The name of this PostgreSQL Flexible Server.
@@ -287,8 +287,8 @@ def get_flexible_server_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.postgresql.get_flexible_server(name="existing-postgresql-fs",
-        resource_group_name="existing-postgresql-resgroup")
+    example = azure.postgresql.get_flexible_server(name="example-postgresql-flexible-server",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -297,7 +297,7 @@ def get_flexible_server_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DBforPostgreSQL` - 2025-08-01
+    * `Microsoft.DBforPostgreSQL` - 2026-10-01
 
 
     :param _builtins.str name: The name of this PostgreSQL Flexible Server.

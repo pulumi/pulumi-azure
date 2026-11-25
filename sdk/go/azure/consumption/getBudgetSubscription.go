@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := consumption.LookupBudgetSubscription(ctx, &consumption.LookupBudgetSubscriptionArgs{
-//				Name:           "existing",
+//				Name:           "example-budget",
 //				SubscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000/",
 //			}, nil)
 //			if err != nil {

@@ -28,8 +28,8 @@ namespace Pulumi.Azure.Avs
         /// {
         ///     var example = Azure.Avs.GetPrivateCloud.Invoke(new()
         ///     {
-        ///         Name = "existing-vmware-private-cloud",
-        ///         ResourceGroupName = "existing-resgroup",
+        ///         Name = "example-vmware-private-cloud",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -66,8 +66,8 @@ namespace Pulumi.Azure.Avs
         /// {
         ///     var example = Azure.Avs.GetPrivateCloud.Invoke(new()
         ///     {
-        ///         Name = "existing-vmware-private-cloud",
-        ///         ResourceGroupName = "existing-resgroup",
+        ///         Name = "example-vmware-private-cloud",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -104,8 +104,8 @@ namespace Pulumi.Azure.Avs
         /// {
         ///     var example = Azure.Avs.GetPrivateCloud.Invoke(new()
         ///     {
-        ///         Name = "existing-vmware-private-cloud",
-        ///         ResourceGroupName = "existing-resgroup",
+        ///         Name = "example-vmware-private-cloud",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

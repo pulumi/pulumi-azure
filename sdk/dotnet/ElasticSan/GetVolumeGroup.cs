@@ -26,13 +26,13 @@ namespace Pulumi.Azure.ElasticSan
         /// {
         ///     var example = Azure.ElasticSan.Get.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-elastic-san",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetVolumeGroup = Azure.ElasticSan.GetVolumeGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-volume-group",
         ///         ElasticSanId = example.Apply(getResult =&gt; getResult.Id),
         ///     });
         /// 
@@ -68,13 +68,13 @@ namespace Pulumi.Azure.ElasticSan
         /// {
         ///     var example = Azure.ElasticSan.Get.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-elastic-san",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetVolumeGroup = Azure.ElasticSan.GetVolumeGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-volume-group",
         ///         ElasticSanId = example.Apply(getResult =&gt; getResult.Id),
         ///     });
         /// 
@@ -110,13 +110,13 @@ namespace Pulumi.Azure.ElasticSan
         /// {
         ///     var example = Azure.ElasticSan.Get.Invoke(new()
         ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
+        ///         Name = "example-elastic-san",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     var exampleGetVolumeGroup = Azure.ElasticSan.GetVolumeGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-volume-group",
         ///         ElasticSanId = example.Apply(getResult =&gt; getResult.Id),
         ///     });
         /// 

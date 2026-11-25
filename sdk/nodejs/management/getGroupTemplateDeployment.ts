@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = azure.management.getGroupTemplateDeployment({
- *     name: "existing",
+ *     name: "example-deployment",
  *     managementGroupId: "00000000-0000-0000-000000000000",
  * });
  * export const id = example.then(example => example.id);
@@ -72,7 +72,7 @@ export interface GetGroupTemplateDeploymentResult {
  * import * as std from "@pulumi/std";
  *
  * const example = azure.management.getGroupTemplateDeployment({
- *     name: "existing",
+ *     name: "example-deployment",
  *     managementGroupId: "00000000-0000-0000-000000000000",
  * });
  * export const id = example.then(example => example.id);

@@ -56,7 +56,7 @@ public final class SentinelFunctions {
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name("existing")
+     *             .name("example-alert-rule")
      *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
@@ -112,7 +112,7 @@ public final class SentinelFunctions {
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name("existing")
+     *             .name("example-alert-rule")
      *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
@@ -168,7 +168,7 @@ public final class SentinelFunctions {
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name("existing")
+     *             .name("example-alert-rule")
      *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
@@ -224,7 +224,7 @@ public final class SentinelFunctions {
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name("existing")
+     *             .name("example-alert-rule")
      *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
@@ -280,7 +280,7 @@ public final class SentinelFunctions {
      *             .build());
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name("existing")
+     *             .name("example-alert-rule")
      *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 

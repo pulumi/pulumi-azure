@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkspacePrivateEndpointConnectionResult {
     /**
-     * @return A `connections` block as documented below.
+     * @return A `connections` block as defined below.
      * 
      */
     private List<GetWorkspacePrivateEndpointConnectionConnection> connections;
@@ -35,7 +35,7 @@ public final class GetWorkspacePrivateEndpointConnectionResult {
 
     private GetWorkspacePrivateEndpointConnectionResult() {}
     /**
-     * @return A `connections` block as documented below.
+     * @return A `connections` block as defined below.
      * 
      */
     public List<GetWorkspacePrivateEndpointConnectionConnection> connections() {

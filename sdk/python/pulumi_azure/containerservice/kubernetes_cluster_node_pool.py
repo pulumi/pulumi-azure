@@ -53,6 +53,7 @@ class KubernetesClusterNodePoolArgs:
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
                  proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional['KubernetesClusterNodePoolSecurityArgs']] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -93,7 +94,7 @@ class KubernetesClusterNodePoolArgs:
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as defined below.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
@@ -112,6 +113,9 @@ class KubernetesClusterNodePoolArgs:
                
                > **Note:** When setting `priority` to Spot - you must configure an `eviction_policy`, `spot_max_price` and add the applicable `node_labels` and `node_taints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool).
         :param pulumi.Input[_builtins.str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param pulumi.Input['KubernetesClusterNodePoolSecurityArgs'] security: A `security` block as documented below.
+               
+               > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
         :param pulumi.Input[_builtins.str] snapshot_id: The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
                
@@ -121,12 +125,12 @@ class KubernetesClusterNodePoolArgs:
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[_builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         :param pulumi.Input[_builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as defined below.
         :param pulumi.Input[_builtins.str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
                
                > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
@@ -197,6 +201,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
             pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if spot_max_price is not None:
@@ -453,7 +459,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="nodeNetworkProfile")
     def node_network_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
         """
-        A `node_network_profile` block as documented below.
+        A `node_network_profile` block as defined below.
         """
         return pulumi.get(self, "node_network_profile")
 
@@ -612,6 +618,20 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "scale_down_mode", value)
 
     @_builtins.property
+    @pulumi.getter
+    def security(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolSecurityArgs']]:
+        """
+        A `security` block as documented below.
+
+        > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolSecurityArgs']]):
+        pulumi.set(self, "security", value)
+
+    @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -679,7 +699,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
         """
-        A `upgrade_settings` block as documented below.
+        A `upgrade_settings` block as defined below.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -717,7 +737,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolWindowsProfileArgs']]:
         """
-        A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        A `windows_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 
@@ -790,6 +810,7 @@ class _KubernetesClusterNodePoolState:
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
                  proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional['KubernetesClusterNodePoolSecurityArgs']] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -831,7 +852,7 @@ class _KubernetesClusterNodePoolState:
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[_builtins.str] node_image_version: The current node image version running on this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as defined below.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
@@ -850,6 +871,9 @@ class _KubernetesClusterNodePoolState:
                
                > **Note:** When setting `priority` to Spot - you must configure an `eviction_policy`, `spot_max_price` and add the applicable `node_labels` and `node_taints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool).
         :param pulumi.Input[_builtins.str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param pulumi.Input['KubernetesClusterNodePoolSecurityArgs'] security: A `security` block as documented below.
+               
+               > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
         :param pulumi.Input[_builtins.str] snapshot_id: The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
                
@@ -859,12 +883,12 @@ class _KubernetesClusterNodePoolState:
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[_builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         :param pulumi.Input[_builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as defined below.
         :param pulumi.Input[_builtins.str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
                
                > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
@@ -938,6 +962,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
             pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if spot_max_price is not None:
@@ -1206,7 +1232,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="nodeNetworkProfile")
     def node_network_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
         """
-        A `node_network_profile` block as documented below.
+        A `node_network_profile` block as defined below.
         """
         return pulumi.get(self, "node_network_profile")
 
@@ -1365,6 +1391,20 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "scale_down_mode", value)
 
     @_builtins.property
+    @pulumi.getter
+    def security(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolSecurityArgs']]:
+        """
+        A `security` block as documented below.
+
+        > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolSecurityArgs']]):
+        pulumi.set(self, "security", value)
+
+    @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1432,7 +1472,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
         """
-        A `upgrade_settings` block as documented below.
+        A `upgrade_settings` block as defined below.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -1470,7 +1510,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolWindowsProfileArgs']]:
         """
-        A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        A `windows_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 
@@ -1545,6 +1585,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
                  proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional[Union['KubernetesClusterNodePoolSecurityArgs', 'KubernetesClusterNodePoolSecurityArgsDict', 'outputs.KubernetesClusterNodePoolSecurity']]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1604,7 +1645,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerService` - 2026-05-01
+        * `Microsoft.ContainerService` - 2026-07-01
 
         ## Import
 
@@ -1643,7 +1684,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']] node_network_profile: A `node_network_profile` block as defined below.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
@@ -1662,6 +1703,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **Note:** When setting `priority` to Spot - you must configure an `eviction_policy`, `spot_max_price` and add the applicable `node_labels` and `node_taints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool).
         :param pulumi.Input[_builtins.str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolSecurityArgs', 'KubernetesClusterNodePoolSecurityArgsDict', 'outputs.KubernetesClusterNodePoolSecurity']] security: A `security` block as documented below.
+               
+               > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
         :param pulumi.Input[_builtins.str] snapshot_id: The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
                
@@ -1671,12 +1715,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[_builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         :param pulumi.Input[_builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']] upgrade_settings: A `upgrade_settings` block as defined below.
         :param pulumi.Input[_builtins.str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']] windows_profile: A `windows_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
                
                > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
@@ -1737,7 +1781,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerService` - 2026-05-01
+        * `Microsoft.ContainerService` - 2026-07-01
 
         ## Import
 
@@ -1795,6 +1839,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
                  proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional[Union['KubernetesClusterNodePoolSecurityArgs', 'KubernetesClusterNodePoolSecurityArgsDict', 'outputs.KubernetesClusterNodePoolSecurity']]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1849,6 +1894,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["priority"] = priority
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             __props__.__dict__["scale_down_mode"] = scale_down_mode
+            __props__.__dict__["security"] = security
             __props__.__dict__["snapshot_id"] = snapshot_id
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
@@ -1904,6 +1950,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             priority: pulumi.Input[Optional[_builtins.str]] = None,
             proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            security: pulumi.Input[Optional[Union['KubernetesClusterNodePoolSecurityArgs', 'KubernetesClusterNodePoolSecurityArgsDict', 'outputs.KubernetesClusterNodePoolSecurity']]] = None,
             snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
             spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1949,7 +1996,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[_builtins.str] node_image_version: The current node image version running on this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']] node_network_profile: A `node_network_profile` block as defined below.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
@@ -1968,6 +2015,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **Note:** When setting `priority` to Spot - you must configure an `eviction_policy`, `spot_max_price` and add the applicable `node_labels` and `node_taints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool).
         :param pulumi.Input[_builtins.str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolSecurityArgs', 'KubernetesClusterNodePoolSecurityArgsDict', 'outputs.KubernetesClusterNodePoolSecurity']] security: A `security` block as documented below.
+               
+               > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
         :param pulumi.Input[_builtins.str] snapshot_id: The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
                
@@ -1977,12 +2027,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[_builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         :param pulumi.Input[_builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']] upgrade_settings: A `upgrade_settings` block as defined below.
         :param pulumi.Input[_builtins.str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']] windows_profile: A `windows_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
                
                > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
@@ -2027,6 +2077,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["scale_down_mode"] = scale_down_mode
+        __props__.__dict__["security"] = security
         __props__.__dict__["snapshot_id"] = snapshot_id
         __props__.__dict__["spot_max_price"] = spot_max_price
         __props__.__dict__["tags"] = tags
@@ -2205,7 +2256,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="nodeNetworkProfile")
     def node_network_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolNodeNetworkProfile']]:
         """
-        A `node_network_profile` block as documented below.
+        A `node_network_profile` block as defined below.
         """
         return pulumi.get(self, "node_network_profile")
 
@@ -2312,6 +2363,16 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         return pulumi.get(self, "scale_down_mode")
 
     @_builtins.property
+    @pulumi.getter
+    def security(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolSecurity']]:
+        """
+        A `security` block as documented below.
+
+        > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+        """
+        return pulumi.get(self, "security")
+
+    @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -2359,7 +2420,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolUpgradeSettings']]:
         """
-        A `upgrade_settings` block as documented below.
+        A `upgrade_settings` block as defined below.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -2385,7 +2446,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolWindowsProfile']]:
         """
-        A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        A `windows_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 

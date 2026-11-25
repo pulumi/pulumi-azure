@@ -20,7 +20,6 @@ __all__ = ['ScheduledActionArgs', 'ScheduledAction']
 class ScheduledActionArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
-                 email_address_sender: pulumi.Input[_builtins.str],
                  email_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  email_subject: pulumi.Input[_builtins.str],
                  end_date: pulumi.Input[_builtins.str],
@@ -29,6 +28,7 @@ class ScheduledActionArgs:
                  view_id: pulumi.Input[_builtins.str],
                  day_of_month: pulumi.Input[Optional[_builtins.int]] = None,
                  days_of_weeks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_address_sender: pulumi.Input[Optional[_builtins.str]] = None,
                  hour_of_day: pulumi.Input[Optional[_builtins.int]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,7 +37,6 @@ class ScheduledActionArgs:
         The set of arguments for constructing a ScheduledAction resource.
 
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
-        :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
         :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 50 characters.
         :param pulumi.Input[_builtins.str] end_date: The end date and time of the Scheduled Action (UTC).
@@ -46,13 +45,15 @@ class ScheduledActionArgs:
         :param pulumi.Input[_builtins.str] view_id: The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] day_of_month: UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+        :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+               
+               > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         :param pulumi.Input[_builtins.int] hour_of_day: UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
         :param pulumi.Input[_builtins.str] message: Message to be added in the email. Length is limited to 250 characters.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         """
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "email_address_sender", email_address_sender)
         pulumi.set(__self__, "email_addresses", email_addresses)
         pulumi.set(__self__, "email_subject", email_subject)
         pulumi.set(__self__, "end_date", end_date)
@@ -63,6 +64,8 @@ class ScheduledActionArgs:
             pulumi.set(__self__, "day_of_month", day_of_month)
         if days_of_weeks is not None:
             pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        if email_address_sender is not None:
+            pulumi.set(__self__, "email_address_sender", email_address_sender)
         if hour_of_day is not None:
             pulumi.set(__self__, "hour_of_day", hour_of_day)
         if message is not None:
@@ -83,18 +86,6 @@ class ScheduledActionArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="emailAddressSender")
-    def email_address_sender(self) -> pulumi.Input[_builtins.str]:
-        """
-        Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
-        """
-        return pulumi.get(self, "email_address_sender")
-
-    @email_address_sender.setter
-    def email_address_sender(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "email_address_sender", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
@@ -193,6 +184,20 @@ class ScheduledActionArgs:
         pulumi.set(self, "days_of_weeks", value)
 
     @_builtins.property
+    @pulumi.getter(name="emailAddressSender")
+    def email_address_sender(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+
+        > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+        """
+        return pulumi.get(self, "email_address_sender")
+
+    @email_address_sender.setter
+    def email_address_sender(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email_address_sender", value)
+
+    @_builtins.property
     @pulumi.getter(name="hourOfDay")
     def hour_of_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -265,6 +270,8 @@ class _ScheduledActionState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+               
+               > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
         :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 50 characters.
         :param pulumi.Input[_builtins.str] end_date: The end date and time of the Scheduled Action (UTC).
@@ -346,6 +353,8 @@ class _ScheduledActionState:
     def email_address_sender(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+
+        > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         """
         return pulumi.get(self, "email_address_sender")
 
@@ -522,7 +531,7 @@ class ScheduledAction(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CostManagement` - 2023-08-01
+        * `Microsoft.CostManagement` - 2025-03-01
 
         ## Import
 
@@ -539,6 +548,8 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+               
+               > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
         :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 50 characters.
         :param pulumi.Input[_builtins.str] end_date: The end date and time of the Scheduled Action (UTC).
@@ -583,7 +594,7 @@ class ScheduledAction(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CostManagement` - 2023-08-01
+        * `Microsoft.CostManagement` - 2025-03-01
 
         ## Import
 
@@ -637,8 +648,6 @@ class ScheduledAction(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            if email_address_sender is None and not opts.urn:
-                raise TypeError("Missing required property 'email_address_sender'")
             __props__.__dict__["email_address_sender"] = email_address_sender
             if email_addresses is None and not opts.urn:
                 raise TypeError("Missing required property 'email_addresses'")
@@ -697,6 +706,8 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+               
+               > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
         :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 50 characters.
         :param pulumi.Input[_builtins.str] end_date: The end date and time of the Scheduled Action (UTC).
@@ -757,6 +768,8 @@ class ScheduledAction(pulumi.CustomResource):
     def email_address_sender(self) -> pulumi.Output[_builtins.str]:
         """
         Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+
+        > **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user's email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
         """
         return pulumi.get(self, "email_address_sender")
 

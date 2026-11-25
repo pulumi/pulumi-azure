@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := automation.GetRunbook(ctx, &automation.GetRunbookArgs{
-//				Name:                  "existing-runbook",
-//				ResourceGroupName:     "existing",
-//				AutomationAccountName: "existing-automation",
+//				Name:                  "example-runbook",
+//				ResourceGroupName:     "example-resources",
+//				AutomationAccountName: "example-automation",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -33,6 +33,7 @@ class WindowsVirtualMachineScaleSetArgs:
                  automatic_instance_repair: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
                  automatic_os_upgrade_policy: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
                  automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -97,8 +98,11 @@ class WindowsVirtualMachineScaleSetArgs:
                > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input[_builtins.bool] automatic_updates_enabled: (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] automatic_zone_rebalancing_enabled: Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `health_probe_id` or a health extension must be configured.
         :param pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+               
+               > **Note:** Associating a `capacity_reservation_group_id` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacity_reservation_group_id`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
                
                > **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
                
@@ -139,12 +143,12 @@ class WindowsVirtualMachineScaleSetArgs:
                > **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Whether `resilient VM creation` is enabled. Defaults to `false`.
                
-               > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
-        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+               > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Whether `resilient VM deletion` is enabled. Defaults to `false`.
                
-               > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+               > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         :param pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** `rolling_upgrade_policy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
@@ -192,6 +196,8 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
         if automatic_updates_enabled is not None:
             pulumi.set(__self__, "automatic_updates_enabled", automatic_updates_enabled)
+        if automatic_zone_rebalancing_enabled is not None:
+            pulumi.set(__self__, "automatic_zone_rebalancing_enabled", automatic_zone_rebalancing_enabled)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
         if capacity_reservation_group_id is not None:
@@ -432,6 +438,18 @@ class WindowsVirtualMachineScaleSetArgs:
         pulumi.set(self, "automatic_updates_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="automaticZoneRebalancingEnabled")
+    def automatic_zone_rebalancing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `health_probe_id` or a health extension must be configured.
+        """
+        return pulumi.get(self, "automatic_zone_rebalancing_enabled")
+
+    @automatic_zone_rebalancing_enabled.setter
+    def automatic_zone_rebalancing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "automatic_zone_rebalancing_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
     def boot_diagnostics(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]:
         """
@@ -447,7 +465,9 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="capacityReservationGroupId")
     def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+
+        > **Note:** Associating a `capacity_reservation_group_id` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacity_reservation_group_id`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 
         > **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
 
@@ -763,9 +783,9 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="resilientVmCreationEnabled")
     def resilient_vm_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+        Whether `resilient VM creation` is enabled. Defaults to `false`.
 
-        > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
         """
         return pulumi.get(self, "resilient_vm_creation_enabled")
 
@@ -777,9 +797,9 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="resilientVmDeletionEnabled")
     def resilient_vm_deletion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+        Whether `resilient VM deletion` is enabled. Defaults to `false`.
 
-        > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         """
         return pulumi.get(self, "resilient_vm_deletion_enabled")
 
@@ -1014,6 +1034,7 @@ class _WindowsVirtualMachineScaleSetState:
                  automatic_instance_repair: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
                  automatic_os_upgrade_policy: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
                  automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1077,8 +1098,11 @@ class _WindowsVirtualMachineScaleSetState:
                > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input[_builtins.bool] automatic_updates_enabled: (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] automatic_zone_rebalancing_enabled: Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `health_probe_id` or a health extension must be configured.
         :param pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+               
+               > **Note:** Associating a `capacity_reservation_group_id` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacity_reservation_group_id`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
                
                > **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
                
@@ -1124,12 +1148,12 @@ class _WindowsVirtualMachineScaleSetState:
                > **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Whether `resilient VM creation` is enabled. Defaults to `false`.
                
-               > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
-        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+               > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Whether `resilient VM deletion` is enabled. Defaults to `false`.
                
-               > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+               > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
                
@@ -1177,6 +1201,8 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
         if automatic_updates_enabled is not None:
             pulumi.set(__self__, "automatic_updates_enabled", automatic_updates_enabled)
+        if automatic_zone_rebalancing_enabled is not None:
+            pulumi.set(__self__, "automatic_zone_rebalancing_enabled", automatic_zone_rebalancing_enabled)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
         if capacity_reservation_group_id is not None:
@@ -1367,6 +1393,18 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "automatic_updates_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="automaticZoneRebalancingEnabled")
+    def automatic_zone_rebalancing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `health_probe_id` or a health extension must be configured.
+        """
+        return pulumi.get(self, "automatic_zone_rebalancing_enabled")
+
+    @automatic_zone_rebalancing_enabled.setter
+    def automatic_zone_rebalancing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "automatic_zone_rebalancing_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
     def boot_diagnostics(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]:
         """
@@ -1382,7 +1420,9 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="capacityReservationGroupId")
     def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+
+        > **Note:** Associating a `capacity_reservation_group_id` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacity_reservation_group_id`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 
         > **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
 
@@ -1736,9 +1776,9 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="resilientVmCreationEnabled")
     def resilient_vm_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+        Whether `resilient VM creation` is enabled. Defaults to `false`.
 
-        > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
         """
         return pulumi.get(self, "resilient_vm_creation_enabled")
 
@@ -1750,9 +1790,9 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="resilientVmDeletionEnabled")
     def resilient_vm_deletion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+        Whether `resilient VM deletion` is enabled. Defaults to `false`.
 
-        > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         """
         return pulumi.get(self, "resilient_vm_deletion_enabled")
 
@@ -2026,6 +2066,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepair']]] = None,
                  automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict', 'outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy']]] = None,
                  automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.WindowsVirtualMachineScaleSetBootDiagnostics']]] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2168,8 +2209,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict', 'outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input[_builtins.bool] automatic_updates_enabled: (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] automatic_zone_rebalancing_enabled: Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `health_probe_id` or a health extension must be configured.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.WindowsVirtualMachineScaleSetBootDiagnostics']] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+               
+               > **Note:** Associating a `capacity_reservation_group_id` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacity_reservation_group_id`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
                
                > **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
                
@@ -2215,12 +2259,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Whether `resilient VM creation` is enabled. Defaults to `false`.
                
-               > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
-        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+               > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Whether `resilient VM deletion` is enabled. Defaults to `false`.
                
-               > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+               > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict', 'outputs.WindowsVirtualMachineScaleSetRollingUpgradePolicy']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
                
@@ -2361,6 +2405,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepair']]] = None,
                  automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict', 'outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy']]] = None,
                  automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.WindowsVirtualMachineScaleSetBootDiagnostics']]] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2431,6 +2476,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
             __props__.__dict__["automatic_os_upgrade_policy"] = automatic_os_upgrade_policy
             __props__.__dict__["automatic_updates_enabled"] = automatic_updates_enabled
+            __props__.__dict__["automatic_zone_rebalancing_enabled"] = automatic_zone_rebalancing_enabled
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["computer_name_prefix"] = computer_name_prefix
@@ -2511,6 +2557,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepair']]] = None,
             automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict', 'outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy']]] = None,
             automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            automatic_zone_rebalancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.WindowsVirtualMachineScaleSetBootDiagnostics']]] = None,
             capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2578,8 +2625,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict', 'outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input[_builtins.bool] automatic_updates_enabled: (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] automatic_zone_rebalancing_enabled: Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `health_probe_id` or a health extension must be configured.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.WindowsVirtualMachineScaleSetBootDiagnostics']] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+               
+               > **Note:** Associating a `capacity_reservation_group_id` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacity_reservation_group_id`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
                
                > **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
                
@@ -2625,12 +2675,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Whether `resilient VM creation` is enabled. Defaults to `false`.
                
-               > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
-        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+               > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Whether `resilient VM deletion` is enabled. Defaults to `false`.
                
-               > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+               > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict', 'outputs.WindowsVirtualMachineScaleSetRollingUpgradePolicy']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
                
@@ -2675,6 +2725,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
         __props__.__dict__["automatic_os_upgrade_policy"] = automatic_os_upgrade_policy
         __props__.__dict__["automatic_updates_enabled"] = automatic_updates_enabled
+        __props__.__dict__["automatic_zone_rebalancing_enabled"] = automatic_zone_rebalancing_enabled
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
         __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
         __props__.__dict__["computer_name_prefix"] = computer_name_prefix
@@ -2787,6 +2838,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "automatic_updates_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="automaticZoneRebalancingEnabled")
+    def automatic_zone_rebalancing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a `health_probe_id` or a health extension must be configured.
+        """
+        return pulumi.get(self, "automatic_zone_rebalancing_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
     def boot_diagnostics(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetBootDiagnostics']]:
         """
@@ -2798,7 +2857,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="capacityReservationGroupId")
     def capacity_reservation_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+
+        > **Note:** Associating a `capacity_reservation_group_id` with a Virtual Machine Scale Set with `zones` configured is applied in-place. Changing or removing an existing `capacity_reservation_group_id`, or any change on a Virtual Machine Scale Set without `zones` configured, forces a new resource to be created.
 
         > **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
 
@@ -3040,9 +3101,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="resilientVmCreationEnabled")
     def resilient_vm_creation_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+        Whether `resilient VM creation` is enabled. Defaults to `false`.
 
-        > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
         """
         return pulumi.get(self, "resilient_vm_creation_enabled")
 
@@ -3050,9 +3111,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="resilientVmDeletionEnabled")
     def resilient_vm_deletion_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+        Whether `resilient VM deletion` is enabled. Defaults to `false`.
 
-        > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         """
         return pulumi.get(self, "resilient_vm_deletion_enabled")
 

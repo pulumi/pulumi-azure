@@ -175,6 +175,8 @@ type LinuxVirtualMachine struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+	//
+	// > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringOutput `pulumi:"computerName"`
@@ -381,6 +383,8 @@ type linuxVirtualMachineState struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+	//
+	// > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
@@ -535,6 +539,8 @@ type LinuxVirtualMachineState struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+	//
+	// > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
@@ -693,6 +699,8 @@ type linuxVirtualMachineArgs struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+	//
+	// > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
@@ -836,6 +844,8 @@ type LinuxVirtualMachineArgs struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+	//
+	// > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
@@ -1092,6 +1102,8 @@ func (o LinuxVirtualMachineOutput) BypassPlatformSafetyChecksOnUserScheduleEnabl
 // Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 //
 // > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
+//
+// > **Note:** Associating `capacityReservationGroupId` on a Virtual Machine with a `zone` configured is applied in-place. Changing or removing the association, or any change on a Virtual Machine without a `zone` configured, requires the Virtual Machine to be deallocated and restarted.
 func (o LinuxVirtualMachineOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = azure.core.getTenantTemplateDeployment({
- *     name: "existing",
+ *     name: "example-deployment",
  * });
  * export const id = example.then(example => example.id);
  * export const exampleOutput = example.then(example => std.jsondecode({
@@ -65,7 +65,7 @@ export interface GetTenantTemplateDeploymentResult {
  * import * as std from "@pulumi/std";
  *
  * const example = azure.core.getTenantTemplateDeployment({
- *     name: "existing",
+ *     name: "example-deployment",
  * });
  * export const id = example.then(example => example.id);
  * export const exampleOutput = example.then(example => std.jsondecode({

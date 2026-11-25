@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			exampleGetShare, err := datashare.LookupShare(ctx, &datashare.LookupShareArgs{
-//				Name:      "existing",
+//				Name:      "exampleshare",
 //				AccountId: example.Id,
 //			}, nil)
 //			if err != nil {

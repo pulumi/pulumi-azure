@@ -141,6 +141,8 @@ if typing.TYPE_CHECKING:
     hdinsight = __hdinsight
     import pulumi_azure.healthcare as __healthcare
     healthcare = __healthcare
+    import pulumi_azure.horizondb as __horizondb
+    horizondb = __horizondb
     import pulumi_azure.hsm as __hsm
     hsm = __hsm
     import pulumi_azure.iot as __iot
@@ -343,6 +345,7 @@ else:
     graph = _utilities.lazy_import('pulumi_azure.graph')
     hdinsight = _utilities.lazy_import('pulumi_azure.hdinsight')
     healthcare = _utilities.lazy_import('pulumi_azure.healthcare')
+    horizondb = _utilities.lazy_import('pulumi_azure.horizondb')
     hsm = _utilities.lazy_import('pulumi_azure.hsm')
     iot = _utilities.lazy_import('pulumi_azure.iot')
     iotcentral = _utilities.lazy_import('pulumi_azure.iotcentral')
@@ -2145,6 +2148,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cdn/frontdoorEdgeAction",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorEdgeAction:FrontdoorEdgeAction": "FrontdoorEdgeAction"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cdn/frontdoorEndpoint",
   "fqn": "pulumi_azure.cdn",
   "classes": {
@@ -2317,6 +2328,14 @@ _utilities.register(
   "fqn": "pulumi_azure.cognitive",
   "classes": {
    "azure:cognitive/accountProject:AccountProject": "AccountProject"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountProjectConnectionEntraId",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountProjectConnectionEntraId:AccountProjectConnectionEntraId": "AccountProjectConnectionEntraId"
   }
  },
  {
@@ -3913,6 +3932,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dataprotection/backupInstanceCosmosdbAccount",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupInstanceCosmosdbAccount:BackupInstanceCosmosdbAccount": "BackupInstanceCosmosdbAccount"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dataprotection/backupInstanceDataLakeStorage",
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
@@ -3957,6 +3984,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage": "BackupPolicyBlobStorage"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupPolicyCosmosdbAccount",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupPolicyCosmosdbAccount:BackupPolicyCosmosdbAccount": "BackupPolicyCosmosdbAccount"
   }
  },
  {
@@ -4013,6 +4048,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey": "BackupVaultCustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupVaultResourceGuardAssociation",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupVaultResourceGuardAssociation:BackupVaultResourceGuardAssociation": "BackupVaultResourceGuardAssociation"
   }
  },
  {
@@ -4885,6 +4928,22 @@ _utilities.register(
   "fqn": "pulumi_azure.healthcare",
   "classes": {
    "azure:healthcare/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "horizondb/cluster",
+  "fqn": "pulumi_azure.horizondb",
+  "classes": {
+   "azure:horizondb/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "horizondb/firewallRule",
+  "fqn": "pulumi_azure.horizondb",
+  "classes": {
+   "azure:horizondb/firewallRule:FirewallRule": "FirewallRule"
   }
  },
  {
@@ -7973,6 +8032,14 @@ _utilities.register(
   "fqn": "pulumi_azure.search",
   "classes": {
    "azure:search/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "search/serviceDatasourceBlob",
+  "fqn": "pulumi_azure.search",
+  "classes": {
+   "azure:search/serviceDatasourceBlob:ServiceDatasourceBlob": "ServiceDatasourceBlob"
   }
  },
  {

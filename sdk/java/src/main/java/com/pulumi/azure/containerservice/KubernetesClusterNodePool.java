@@ -9,6 +9,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolState;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolKubeletConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolLinuxOsConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolNodeNetworkProfile;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolSecurity;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolUpgradeSettings;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolWindowsProfile;
 import com.pulumi.core.Output;
@@ -102,7 +103,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ContainerService` - 2026-05-01
+ * * `Microsoft.ContainerService` - 2026-07-01
  * 
  * ## Import
  * 
@@ -392,14 +393,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return this.nodeLabels;
     }
     /**
-     * A `nodeNetworkProfile` block as documented below.
+     * A `nodeNetworkProfile` block as defined below.
      * 
      */
     @Export(name="nodeNetworkProfile", refs={KubernetesClusterNodePoolNodeNetworkProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterNodePoolNodeNetworkProfile> nodeNetworkProfile;
 
     /**
-     * @return A `nodeNetworkProfile` block as documented below.
+     * @return A `nodeNetworkProfile` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterNodePoolNodeNetworkProfile>> nodeNetworkProfile() {
@@ -586,6 +587,24 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.scaleDownMode);
     }
     /**
+     * A `security` block as documented below.
+     * 
+     * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     * 
+     */
+    @Export(name="security", refs={KubernetesClusterNodePoolSecurity.class}, tree="[0]")
+    private Output</* @Nullable */ KubernetesClusterNodePoolSecurity> security;
+
+    /**
+     * @return A `security` block as documented below.
+     * 
+     * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     * 
+     */
+    public Output<Optional<KubernetesClusterNodePoolSecurity>> security() {
+        return Codegen.optional(this.security);
+    }
+    /**
      * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      * 
      */
@@ -664,14 +683,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.ultraSsdEnabled);
     }
     /**
-     * A `upgradeSettings` block as documented below.
+     * A `upgradeSettings` block as defined below.
      * 
      */
     @Export(name="upgradeSettings", refs={KubernetesClusterNodePoolUpgradeSettings.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterNodePoolUpgradeSettings> upgradeSettings;
 
     /**
-     * @return A `upgradeSettings` block as documented below.
+     * @return A `upgradeSettings` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterNodePoolUpgradeSettings>> upgradeSettings() {
@@ -710,14 +729,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.vnetSubnetId);
     }
     /**
-     * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+     * A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="windowsProfile", refs={KubernetesClusterNodePoolWindowsProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterNodePoolWindowsProfile> windowsProfile;
 
     /**
-     * @return A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
+     * @return A `windowsProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<KubernetesClusterNodePoolWindowsProfile>> windowsProfile() {

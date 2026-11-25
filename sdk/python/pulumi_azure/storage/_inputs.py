@@ -827,7 +827,7 @@ class AccountCustomerManagedKeyArgsDict(TypedDict):
     """
     The ID of a user assigned identity.
 
-    > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+    > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `FileStorage` with `provisioned_billing_model_version` set to `V2`, or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
     """
 
 @pulumi.input_type
@@ -839,7 +839,7 @@ class AccountCustomerManagedKeyArgs:
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of a user assigned identity.
                
-               > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+               > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `FileStorage` with `provisioned_billing_model_version` set to `V2`, or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
@@ -862,7 +862,7 @@ class AccountCustomerManagedKeyArgs:
         """
         The ID of a user assigned identity.
 
-        > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+        > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `FileStorage` with `provisioned_billing_model_version` set to `V2`, or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -3212,7 +3212,7 @@ class LocalUserSshAuthorizedKeyArgs:
 class ManagementPolicyRuleArgsDict(TypedDict):
     actions: pulumi.Input['ManagementPolicyRuleActionsArgsDict']
     """
-    An `actions` block as documented below.
+    An `actions` block as defined below.
     """
     enabled: pulumi.Input[_builtins.bool]
     """
@@ -3220,7 +3220,7 @@ class ManagementPolicyRuleArgsDict(TypedDict):
     """
     filters: pulumi.Input['ManagementPolicyRuleFiltersArgsDict']
     """
-    A `filters` block as documented below.
+    A `filters` block as defined below.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -3235,9 +3235,9 @@ class ManagementPolicyRuleArgs:
                  filters: pulumi.Input['ManagementPolicyRuleFiltersArgs'],
                  name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input['ManagementPolicyRuleActionsArgs'] actions: An `actions` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleActionsArgs'] actions: An `actions` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Boolean to specify whether the rule is enabled.
-        :param pulumi.Input['ManagementPolicyRuleFiltersArgs'] filters: A `filters` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleFiltersArgs'] filters: A `filters` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         """
         pulumi.set(__self__, "actions", actions)
@@ -3249,7 +3249,7 @@ class ManagementPolicyRuleArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input['ManagementPolicyRuleActionsArgs']:
         """
-        An `actions` block as documented below.
+        An `actions` block as defined below.
         """
         return pulumi.get(self, "actions")
 
@@ -3273,7 +3273,7 @@ class ManagementPolicyRuleArgs:
     @pulumi.getter
     def filters(self) -> pulumi.Input['ManagementPolicyRuleFiltersArgs']:
         """
-        A `filters` block as documented below.
+        A `filters` block as defined below.
         """
         return pulumi.get(self, "filters")
 
@@ -3297,15 +3297,15 @@ class ManagementPolicyRuleArgs:
 class ManagementPolicyRuleActionsArgsDict(TypedDict):
     base_blob: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsBaseBlobArgsDict']]]
     """
-    A `base_blob` block as documented below.
+    A `base_blob` block as defined below.
     """
     snapshot: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgsDict']]]
     """
-    A `snapshot` block as documented below.
+    A `snapshot` block as defined below.
     """
     version: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgsDict']]]
     """
-    A `version` block as documented below.
+    A `version` block as defined below.
     """
 
 @pulumi.input_type
@@ -3315,9 +3315,9 @@ class ManagementPolicyRuleActionsArgs:
                  snapshot: pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgs']] = None,
                  version: pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgs']] = None):
         """
-        :param pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs'] base_blob: A `base_blob` block as documented below.
-        :param pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs'] snapshot: A `snapshot` block as documented below.
-        :param pulumi.Input['ManagementPolicyRuleActionsVersionArgs'] version: A `version` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs'] base_blob: A `base_blob` block as defined below.
+        :param pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs'] snapshot: A `snapshot` block as defined below.
+        :param pulumi.Input['ManagementPolicyRuleActionsVersionArgs'] version: A `version` block as defined below.
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
@@ -3330,7 +3330,7 @@ class ManagementPolicyRuleActionsArgs:
     @pulumi.getter(name="baseBlob")
     def base_blob(self) -> pulumi.Input[Optional['ManagementPolicyRuleActionsBaseBlobArgs']]:
         """
-        A `base_blob` block as documented below.
+        A `base_blob` block as defined below.
         """
         return pulumi.get(self, "base_blob")
 
@@ -3342,7 +3342,7 @@ class ManagementPolicyRuleActionsArgs:
     @pulumi.getter
     def snapshot(self) -> pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgs']]:
         """
-        A `snapshot` block as documented below.
+        A `snapshot` block as defined below.
         """
         return pulumi.get(self, "snapshot")
 
@@ -3354,7 +3354,7 @@ class ManagementPolicyRuleActionsArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgs']]:
         """
-        A `version` block as documented below.
+        A `version` block as defined below.
         """
         return pulumi.get(self, "version")
 

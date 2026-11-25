@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.automation.getRunbook({
- *     name: "existing-runbook",
- *     resourceGroupName: "existing",
- *     automationAccountName: "existing-automation",
+ *     name: "example-runbook",
+ *     resourceGroupName: "example-resources",
+ *     automationAccountName: "example-automation",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -109,9 +109,9 @@ export interface GetRunbookResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.automation.getRunbook({
- *     name: "existing-runbook",
- *     resourceGroupName: "existing",
- *     automationAccountName: "existing-automation",
+ *     name: "example-runbook",
+ *     resourceGroupName: "example-resources",
+ *     automationAccountName: "example-automation",
  * });
  * export const id = example.then(example => example.id);
  * ```

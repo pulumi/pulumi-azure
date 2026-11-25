@@ -263,8 +263,8 @@ def get_deployment(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.nginx.get_deployment(name="existing",
-        resource_group_name="existing")
+    example = azure.nginx.get_deployment(name="example-nginx-deployment",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -316,8 +316,8 @@ def get_deployment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.nginx.get_deployment(name="existing",
-        resource_group_name="existing")
+    example = azure.nginx.get_deployment(name="example-nginx-deployment",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

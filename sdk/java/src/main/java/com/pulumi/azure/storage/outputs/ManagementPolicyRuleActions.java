@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagementPolicyRuleActions {
     /**
-     * @return A `baseBlob` block as documented below.
+     * @return A `baseBlob` block as defined below.
      * 
      */
     private @Nullable ManagementPolicyRuleActionsBaseBlob baseBlob;
     /**
-     * @return A `snapshot` block as documented below.
+     * @return A `snapshot` block as defined below.
      * 
      */
     private @Nullable ManagementPolicyRuleActionsSnapshot snapshot;
     /**
-     * @return A `version` block as documented below.
+     * @return A `version` block as defined below.
      * 
      */
     private @Nullable ManagementPolicyRuleActionsVersion version;
 
     private ManagementPolicyRuleActions() {}
     /**
-     * @return A `baseBlob` block as documented below.
+     * @return A `baseBlob` block as defined below.
      * 
      */
     public Optional<ManagementPolicyRuleActionsBaseBlob> baseBlob() {
         return Optional.ofNullable(this.baseBlob);
     }
     /**
-     * @return A `snapshot` block as documented below.
+     * @return A `snapshot` block as defined below.
      * 
      */
     public Optional<ManagementPolicyRuleActionsSnapshot> snapshot() {
         return Optional.ofNullable(this.snapshot);
     }
     /**
-     * @return A `version` block as documented below.
+     * @return A `version` block as defined below.
      * 
      */
     public Optional<ManagementPolicyRuleActionsVersion> version() {

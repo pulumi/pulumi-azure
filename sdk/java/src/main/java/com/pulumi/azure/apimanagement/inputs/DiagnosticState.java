@@ -172,6 +172,25 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+     * 
+     * &gt; **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+     * 
+     */
+    @Import(name="metricsEnabled")
+    private @Nullable Output<Boolean> metricsEnabled;
+
+    /**
+     * @return Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+     * 
+     * &gt; **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+     * 
+     */
+    public Optional<Output<Boolean>> metricsEnabled() {
+        return Optional.ofNullable(this.metricsEnabled);
+    }
+
+    /**
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      * 
      */
@@ -244,6 +263,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         this.httpCorrelationProtocol = $.httpCorrelationProtocol;
         this.identifier = $.identifier;
         this.logClientIp = $.logClientIp;
+        this.metricsEnabled = $.metricsEnabled;
         this.operationNameFormat = $.operationNameFormat;
         this.resourceGroupName = $.resourceGroupName;
         this.samplingPercentage = $.samplingPercentage;
@@ -476,6 +496,31 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder logClientIp(Boolean logClientIp) {
             return logClientIp(Output.of(logClientIp));
+        }
+
+        /**
+         * @param metricsEnabled Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+         * 
+         * &gt; **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsEnabled(@Nullable Output<Boolean> metricsEnabled) {
+            $.metricsEnabled = metricsEnabled;
+            return this;
+        }
+
+        /**
+         * @param metricsEnabled Whether custom metrics emitted via the `emit-metric` policy are sent to Application Insights.
+         * 
+         * &gt; **Note:** `metricsEnabled` can only be set when `identifier` is set to `applicationinsights`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsEnabled(Boolean metricsEnabled) {
+            return metricsEnabled(Output.of(metricsEnabled));
         }
 
         /**

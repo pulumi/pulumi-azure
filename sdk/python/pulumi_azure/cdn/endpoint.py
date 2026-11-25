@@ -42,12 +42,12 @@ class EndpointArgs:
         """
         The set of arguments for constructing a Endpoint resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] profile_name: The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleArgs']]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields defined below.
         :param pulumi.Input['EndpointGlobalDeliveryRuleArgs'] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[_builtins.bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[_builtins.bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
@@ -101,7 +101,7 @@ class EndpointArgs:
     @pulumi.getter
     def origins(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]]:
         """
-        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "origins")
 
@@ -161,7 +161,7 @@ class EndpointArgs:
     @pulumi.getter(name="geoFilters")
     def geo_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGeoFilterArgs']]]]:
         """
-        A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields defined below.
         """
         return pulumi.get(self, "geo_filters")
 
@@ -344,7 +344,7 @@ class _EndpointState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleArgs']]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] fqdn: The Fully Qualified Domain Name of the CDN Endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields defined below.
         :param pulumi.Input['EndpointGlobalDeliveryRuleArgs'] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[_builtins.bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[_builtins.bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
@@ -354,7 +354,7 @@ class _EndpointState:
         :param pulumi.Input[_builtins.str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[_builtins.str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[_builtins.str] origin_path: The path used at for origin requests.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
                
                > **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
@@ -442,7 +442,7 @@ class _EndpointState:
     @pulumi.getter(name="geoFilters")
     def geo_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGeoFilterArgs']]]]:
         """
-        A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields defined below.
         """
         return pulumi.get(self, "geo_filters")
 
@@ -562,7 +562,7 @@ class _EndpointState:
     @pulumi.getter
     def origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointOriginArgs']]]]:
         """
-        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "origins")
 
@@ -707,7 +707,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict', 'outputs.EndpointDeliveryRule']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields defined below.
         :param pulumi.Input[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict', 'outputs.EndpointGlobalDeliveryRule']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[_builtins.bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[_builtins.bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
@@ -717,7 +717,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[_builtins.str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[_builtins.str] origin_path: The path used at for origin requests.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
                
                > **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
@@ -883,7 +883,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict', 'outputs.EndpointDeliveryRule']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] fqdn: The Fully Qualified Domain Name of the CDN Endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields defined below.
         :param pulumi.Input[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict', 'outputs.EndpointGlobalDeliveryRule']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[_builtins.bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[_builtins.bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
@@ -893,7 +893,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[_builtins.str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[_builtins.str] origin_path: The path used at for origin requests.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
                
                > **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
@@ -955,7 +955,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="geoFilters")
     def geo_filters(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGeoFilter']]]:
         """
-        A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields defined below.
         """
         return pulumi.get(self, "geo_filters")
 
@@ -1035,7 +1035,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def origins(self) -> pulumi.Output[Sequence['outputs.EndpointOrigin']]:
         """
-        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "origins")
 

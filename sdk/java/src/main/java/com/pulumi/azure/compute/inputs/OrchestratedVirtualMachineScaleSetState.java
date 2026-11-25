@@ -70,6 +70,21 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
+     * Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+     * 
+     */
+    @Import(name="automaticZoneRebalancingEnabled")
+    private @Nullable Output<Boolean> automaticZoneRebalancingEnabled;
+
+    /**
+     * @return Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+     * 
+     */
+    public Optional<Output<Boolean>> automaticZoneRebalancingEnabled() {
+        return Optional.ofNullable(this.automaticZoneRebalancingEnabled);
+    }
+
+    /**
      * A `bootDiagnostics` block as defined below.
      * 
      */
@@ -435,6 +450,44 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
+     * Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+     * 
+     */
+    @Import(name="resilientVirtualMachineCreationEnabled")
+    private @Nullable Output<Boolean> resilientVirtualMachineCreationEnabled;
+
+    /**
+     * @return Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+     * 
+     */
+    public Optional<Output<Boolean>> resilientVirtualMachineCreationEnabled() {
+        return Optional.ofNullable(this.resilientVirtualMachineCreationEnabled);
+    }
+
+    /**
+     * Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+     * 
+     */
+    @Import(name="resilientVirtualMachineDeletionEnabled")
+    private @Nullable Output<Boolean> resilientVirtualMachineDeletionEnabled;
+
+    /**
+     * @return Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+     * 
+     */
+    public Optional<Output<Boolean>> resilientVirtualMachineDeletionEnabled() {
+        return Optional.ofNullable(this.resilientVirtualMachineDeletionEnabled);
+    }
+
+    /**
      * The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -685,6 +738,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     private OrchestratedVirtualMachineScaleSetState(OrchestratedVirtualMachineScaleSetState $) {
         this.additionalCapabilities = $.additionalCapabilities;
         this.automaticInstanceRepair = $.automaticInstanceRepair;
+        this.automaticZoneRebalancingEnabled = $.automaticZoneRebalancingEnabled;
         this.bootDiagnostics = $.bootDiagnostics;
         this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.dataDisks = $.dataDisks;
@@ -708,6 +762,8 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         this.priority = $.priority;
         this.priorityMix = $.priorityMix;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
+        this.resilientVirtualMachineCreationEnabled = $.resilientVirtualMachineCreationEnabled;
+        this.resilientVirtualMachineDeletionEnabled = $.resilientVirtualMachineDeletionEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.rollingUpgradePolicy = $.rollingUpgradePolicy;
         this.singlePlacementGroup = $.singlePlacementGroup;
@@ -786,6 +842,27 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
          */
         public Builder automaticInstanceRepair(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs automaticInstanceRepair) {
             return automaticInstanceRepair(Output.of(automaticInstanceRepair));
+        }
+
+        /**
+         * @param automaticZoneRebalancingEnabled Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticZoneRebalancingEnabled(@Nullable Output<Boolean> automaticZoneRebalancingEnabled) {
+            $.automaticZoneRebalancingEnabled = automaticZoneRebalancingEnabled;
+            return this;
+        }
+
+        /**
+         * @param automaticZoneRebalancingEnabled Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticZoneRebalancingEnabled(Boolean automaticZoneRebalancingEnabled) {
+            return automaticZoneRebalancingEnabled(Output.of(automaticZoneRebalancingEnabled));
         }
 
         /**
@@ -1319,6 +1396,56 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
          */
         public Builder proximityPlacementGroupId(String proximityPlacementGroupId) {
             return proximityPlacementGroupId(Output.of(proximityPlacementGroupId));
+        }
+
+        /**
+         * @param resilientVirtualMachineCreationEnabled Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resilientVirtualMachineCreationEnabled(@Nullable Output<Boolean> resilientVirtualMachineCreationEnabled) {
+            $.resilientVirtualMachineCreationEnabled = resilientVirtualMachineCreationEnabled;
+            return this;
+        }
+
+        /**
+         * @param resilientVirtualMachineCreationEnabled Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resilientVirtualMachineCreationEnabled(Boolean resilientVirtualMachineCreationEnabled) {
+            return resilientVirtualMachineCreationEnabled(Output.of(resilientVirtualMachineCreationEnabled));
+        }
+
+        /**
+         * @param resilientVirtualMachineDeletionEnabled Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resilientVirtualMachineDeletionEnabled(@Nullable Output<Boolean> resilientVirtualMachineDeletionEnabled) {
+            $.resilientVirtualMachineDeletionEnabled = resilientVirtualMachineDeletionEnabled;
+            return this;
+        }
+
+        /**
+         * @param resilientVirtualMachineDeletionEnabled Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resilientVirtualMachineDeletionEnabled(Boolean resilientVirtualMachineDeletionEnabled) {
+            return resilientVirtualMachineDeletionEnabled(Output.of(resilientVirtualMachineDeletionEnabled));
         }
 
         /**

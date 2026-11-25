@@ -174,7 +174,7 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `Identity` block as documented below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainIdentityResult> Identities;
         /// <summary>

@@ -111,6 +111,14 @@ namespace Pulumi.Azure.Cognitive
         public Output<Outputs.DeploymentSku> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+        /// 
+        /// &gt; **Note:** `SpilloverDeploymentName` is only supported on provisioned deployments (where the `Sku` `Name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `Sku` `Name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `Model`. A deployment cannot reference itself.
+        /// </summary>
+        [Output("spilloverDeploymentName")]
+        public Output<string?> SpilloverDeploymentName { get; private set; } = null!;
+
+        /// <summary>
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         /// </summary>
         [Output("versionUpgradeOption")]
@@ -199,6 +207,14 @@ namespace Pulumi.Azure.Cognitive
         public Input<Inputs.DeploymentSkuArgs> Sku { get; set; } = null!;
 
         /// <summary>
+        /// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+        /// 
+        /// &gt; **Note:** `SpilloverDeploymentName` is only supported on provisioned deployments (where the `Sku` `Name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `Sku` `Name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `Model`. A deployment cannot reference itself.
+        /// </summary>
+        [Input("spilloverDeploymentName")]
+        public Input<string>? SpilloverDeploymentName { get; set; }
+
+        /// <summary>
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         /// </summary>
         [Input("versionUpgradeOption")]
@@ -247,6 +263,14 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("sku")]
         public Input<Inputs.DeploymentSkuGetArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+        /// 
+        /// &gt; **Note:** `SpilloverDeploymentName` is only supported on provisioned deployments (where the `Sku` `Name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `Sku` `Name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `Model`. A deployment cannot reference itself.
+        /// </summary>
+        [Input("spilloverDeploymentName")]
+        public Input<string>? SpilloverDeploymentName { get; set; }
 
         /// <summary>
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.

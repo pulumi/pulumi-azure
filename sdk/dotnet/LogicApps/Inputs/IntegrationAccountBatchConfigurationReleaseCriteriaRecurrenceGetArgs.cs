@@ -31,7 +31,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<int> Interval { get; set; } = null!;
 
         /// <summary>
-        /// A `Schedule` block as documented below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleGetArgs>? Schedule { get; set; }

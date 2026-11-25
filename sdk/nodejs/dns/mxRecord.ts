@@ -98,7 +98,7 @@ export class MxRecord extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A list of values that make up the MX record. Each `record` block supports fields documented below.
+     * A list of values that make up the MX record. Each `record` block supports fields defined below.
      */
     declare public readonly records: pulumi.Output<outputs.dns.MxRecordRecord[]>;
     /**
@@ -178,7 +178,7 @@ export interface MxRecordState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of values that make up the MX record. Each `record` block supports fields documented below.
+     * A list of values that make up the MX record. Each `record` block supports fields defined below.
      */
     records?: pulumi.Input<pulumi.Input<inputs.dns.MxRecordRecord>[] | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface MxRecordArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of values that make up the MX record. Each `record` block supports fields documented below.
+     * A list of values that make up the MX record. Each `record` block supports fields defined below.
      */
     records: pulumi.Input<pulumi.Input<inputs.dns.MxRecordRecord>[]>;
     /**

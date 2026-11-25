@@ -154,8 +154,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name("existing-app-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-app-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -203,8 +203,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name("existing-app-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-app-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -252,8 +252,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name("existing-app-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-app-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -301,8 +301,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name("existing-app-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-app-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -350,8 +350,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
-     *             .name("existing-app-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-app-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1139,8 +1139,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-firewall-policy")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1188,8 +1188,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-firewall-policy")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1237,8 +1237,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-firewall-policy")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1286,8 +1286,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-firewall-policy")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1335,8 +1335,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-firewall-policy")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1874,8 +1874,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ip-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("ids", example.ids());
@@ -1923,8 +1923,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ip-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("ids", example.ids());
@@ -1972,8 +1972,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ip-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("ids", example.ids());
@@ -2021,8 +2021,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ip-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("ids", example.ids());
@@ -2070,8 +2070,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ip-group")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("ids", example.ids());
@@ -2119,8 +2119,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name("existing-local-network-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-local-network-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2168,8 +2168,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name("existing-local-network-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-local-network-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2217,8 +2217,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name("existing-local-network-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-local-network-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2266,8 +2266,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name("existing-local-network-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-local-network-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2315,8 +2315,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
-     *             .name("existing-local-network-gateway")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-local-network-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3304,7 +3304,7 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
-     *             .name("existing")
+     *             .name("example-connectivity-configuration")
      *             .networkManagerId("TODO")
      *             .build());
      * 
@@ -3353,7 +3353,7 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
-     *             .name("existing")
+     *             .name("example-connectivity-configuration")
      *             .networkManagerId("TODO")
      *             .build());
      * 
@@ -3402,7 +3402,7 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
-     *             .name("existing")
+     *             .name("example-connectivity-configuration")
      *             .networkManagerId("TODO")
      *             .build());
      * 
@@ -3451,7 +3451,7 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
-     *             .name("existing")
+     *             .name("example-connectivity-configuration")
      *             .networkManagerId("TODO")
      *             .build());
      * 
@@ -3500,7 +3500,7 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs.builder()
-     *             .name("existing")
+     *             .name("example-connectivity-configuration")
      *             .networkManagerId("TODO")
      *             .build());
      * 
@@ -4624,8 +4624,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4673,8 +4673,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4722,8 +4722,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4771,8 +4771,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4820,8 +4820,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4870,12 +4870,12 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
-     *             .name("existing")
+     *             .name("example-profile")
      *             .networkSecurityPerimeterId(example.id())
      *             .build());
      * 
@@ -4925,12 +4925,12 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
-     *             .name("existing")
+     *             .name("example-profile")
      *             .networkSecurityPerimeterId(example.id())
      *             .build());
      * 
@@ -4980,12 +4980,12 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
-     *             .name("existing")
+     *             .name("example-profile")
      *             .networkSecurityPerimeterId(example.id())
      *             .build());
      * 
@@ -5035,12 +5035,12 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
-     *             .name("existing")
+     *             .name("example-profile")
      *             .networkSecurityPerimeterId(example.id())
      *             .build());
      * 
@@ -5090,12 +5090,12 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-perimeter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
-     *             .name("existing")
+     *             .name("example-profile")
      *             .networkSecurityPerimeterId(example.id())
      *             .build());
      * 
@@ -6624,8 +6624,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-route-filter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -6673,8 +6673,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-route-filter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -6722,8 +6722,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-route-filter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -6771,8 +6771,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-route-filter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -6820,8 +6820,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-route-filter")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -9619,8 +9619,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-virtual-wan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -9676,8 +9676,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-virtual-wan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -9733,8 +9733,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-virtual-wan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -9790,8 +9790,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-virtual-wan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -9847,8 +9847,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-virtual-wan")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -9904,8 +9904,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name("existing-local-vpn_gateway")
-     *             .resourceGroupName("existing-vpn_gateway")
+     *             .name("example-vpn-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnGatewayId", example.id());
@@ -9953,8 +9953,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name("existing-local-vpn_gateway")
-     *             .resourceGroupName("existing-vpn_gateway")
+     *             .name("example-vpn-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnGatewayId", example.id());
@@ -10002,8 +10002,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name("existing-local-vpn_gateway")
-     *             .resourceGroupName("existing-vpn_gateway")
+     *             .name("example-vpn-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnGatewayId", example.id());
@@ -10051,8 +10051,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name("existing-local-vpn_gateway")
-     *             .resourceGroupName("existing-vpn_gateway")
+     *             .name("example-vpn-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnGatewayId", example.id());
@@ -10100,8 +10100,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .name("existing-local-vpn_gateway")
-     *             .resourceGroupName("existing-vpn_gateway")
+     *             .name("example-vpn-gateway")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnGatewayId", example.id());
@@ -10149,8 +10149,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
-     *             .name("existing-local-vpn-server-configuration")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-vpn-server-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnServerConfiguration", example.id());
@@ -10198,8 +10198,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
-     *             .name("existing-local-vpn-server-configuration")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-vpn-server-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnServerConfiguration", example.id());
@@ -10247,8 +10247,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
-     *             .name("existing-local-vpn-server-configuration")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-vpn-server-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnServerConfiguration", example.id());
@@ -10296,8 +10296,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
-     *             .name("existing-local-vpn-server-configuration")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-vpn-server-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnServerConfiguration", example.id());
@@ -10345,8 +10345,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
-     *             .name("existing-local-vpn-server-configuration")
-     *             .resourceGroupName("existing-resource-group")
+     *             .name("example-vpn-server-configuration")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("azurermVpnServerConfiguration", example.id());

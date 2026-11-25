@@ -571,8 +571,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -620,8 +620,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -669,8 +669,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -718,8 +718,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -767,8 +767,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1286,8 +1286,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1335,8 +1335,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1384,8 +1384,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1433,8 +1433,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1482,8 +1482,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1531,8 +1531,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1580,8 +1580,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1629,8 +1629,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1678,8 +1678,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1727,8 +1727,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-autonomous-database")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2016,8 +2016,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cloud-vm-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2065,8 +2065,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cloud-vm-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2114,8 +2114,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cloud-vm-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2163,8 +2163,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cloud-vm-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2212,8 +2212,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cloud-vm-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2501,7 +2501,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbNodes(GetDbNodesArgs.builder()
-     *             .cloudVmClusterId("existing")
+     *             .cloudVmClusterId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2549,7 +2549,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbNodes(GetDbNodesArgs.builder()
-     *             .cloudVmClusterId("existing")
+     *             .cloudVmClusterId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2597,7 +2597,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbNodes(GetDbNodesArgs.builder()
-     *             .cloudVmClusterId("existing")
+     *             .cloudVmClusterId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2645,7 +2645,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbNodes(GetDbNodesArgs.builder()
-     *             .cloudVmClusterId("existing")
+     *             .cloudVmClusterId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2693,7 +2693,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbNodes(GetDbNodesArgs.builder()
-     *             .cloudVmClusterId("existing")
+     *             .cloudVmClusterId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Oracle.Database/cloudVmClusters/example-cloud-vm-cluster")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2741,8 +2741,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbServers(GetDbServersArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .cloudExadataInfrastructureName("existing")
+     *             .resourceGroupName("example-resources")
+     *             .cloudExadataInfrastructureName("example-exadata-infrastructure")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2790,8 +2790,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbServers(GetDbServersArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .cloudExadataInfrastructureName("existing")
+     *             .resourceGroupName("example-resources")
+     *             .cloudExadataInfrastructureName("example-exadata-infrastructure")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2839,8 +2839,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbServers(GetDbServersArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .cloudExadataInfrastructureName("existing")
+     *             .resourceGroupName("example-resources")
+     *             .cloudExadataInfrastructureName("example-exadata-infrastructure")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2888,8 +2888,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbServers(GetDbServersArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .cloudExadataInfrastructureName("existing")
+     *             .resourceGroupName("example-resources")
+     *             .cloudExadataInfrastructureName("example-exadata-infrastructure")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2937,8 +2937,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbServers(GetDbServersArgs.builder()
-     *             .resourceGroupName("existing")
-     *             .cloudExadataInfrastructureName("existing")
+     *             .resourceGroupName("example-resources")
+     *             .cloudExadataInfrastructureName("example-exadata-infrastructure")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3241,8 +3241,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExadataInfrastructure(GetExadataInfrastructureArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-exadata-infrastructure")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3290,8 +3290,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExadataInfrastructure(GetExadataInfrastructureArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-exadata-infrastructure")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3339,8 +3339,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExadataInfrastructure(GetExadataInfrastructureArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-exadata-infrastructure")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3388,8 +3388,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExadataInfrastructure(GetExadataInfrastructureArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-exadata-infrastructure")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3437,8 +3437,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExadataInfrastructure(GetExadataInfrastructureArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-exadata-infrastructure")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3486,8 +3486,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-storage-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3535,8 +3535,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-storage-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3584,8 +3584,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-storage-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3633,8 +3633,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-storage-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3682,8 +3682,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-storage-vault")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3991,8 +3991,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-resource-anchor")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4040,8 +4040,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-resource-anchor")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4089,8 +4089,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-resource-anchor")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4138,8 +4138,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-resource-anchor")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4187,8 +4187,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-resource-anchor")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

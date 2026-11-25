@@ -108,6 +108,12 @@ export class Deployment extends pulumi.CustomResource {
      */
     declare public readonly sku: pulumi.Output<outputs.cognitive.DeploymentSku>;
     /**
+     * The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+     *
+     * > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+     */
+    declare public readonly spilloverDeploymentName: pulumi.Output<string | undefined>;
+    /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
     declare public readonly versionUpgradeOption: pulumi.Output<string | undefined>;
@@ -131,6 +137,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["raiPolicyName"] = state?.raiPolicyName;
             resourceInputs["sku"] = state?.sku;
+            resourceInputs["spilloverDeploymentName"] = state?.spilloverDeploymentName;
             resourceInputs["versionUpgradeOption"] = state?.versionUpgradeOption;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
@@ -149,6 +156,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["raiPolicyName"] = args?.raiPolicyName;
             resourceInputs["sku"] = args?.sku;
+            resourceInputs["spilloverDeploymentName"] = args?.spilloverDeploymentName;
             resourceInputs["versionUpgradeOption"] = args?.versionUpgradeOption;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -185,6 +193,12 @@ export interface DeploymentState {
      */
     sku?: pulumi.Input<inputs.cognitive.DeploymentSku | undefined>;
     /**
+     * The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+     *
+     * > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+     */
+    spilloverDeploymentName?: pulumi.Input<string | undefined>;
+    /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
     versionUpgradeOption?: pulumi.Input<string | undefined>;
@@ -218,6 +232,12 @@ export interface DeploymentArgs {
      * A `sku` block as defined below.
      */
     sku: pulumi.Input<inputs.cognitive.DeploymentSku>;
+    /**
+     * The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+     *
+     * > **Note:** `spilloverDeploymentName` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+     */
+    spilloverDeploymentName?: pulumi.Input<string | undefined>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */

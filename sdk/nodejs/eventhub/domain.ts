@@ -84,6 +84,10 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly autoDeleteTopicWithLastSubscription: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     */
+    declare public readonly dataResidencyBoundary: pulumi.Output<string>;
+    /**
      * The Endpoint associated with the EventGrid Domain.
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
@@ -115,6 +119,10 @@ export class Domain extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     declare public readonly location: pulumi.Output<string>;
+    /**
+     * The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     */
+    declare public readonly minimumTlsVersion: pulumi.Output<string>;
     /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      */
@@ -158,6 +166,7 @@ export class Domain extends pulumi.CustomResource {
             const state = argsOrState as DomainState | undefined;
             resourceInputs["autoCreateTopicWithFirstSubscription"] = state?.autoCreateTopicWithFirstSubscription;
             resourceInputs["autoDeleteTopicWithLastSubscription"] = state?.autoDeleteTopicWithLastSubscription;
+            resourceInputs["dataResidencyBoundary"] = state?.dataResidencyBoundary;
             resourceInputs["endpoint"] = state?.endpoint;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["inboundIpRules"] = state?.inboundIpRules;
@@ -166,6 +175,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["inputSchema"] = state?.inputSchema;
             resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
             resourceInputs["location"] = state?.location;
+            resourceInputs["minimumTlsVersion"] = state?.minimumTlsVersion;
             resourceInputs["name"] = state?.name;
             resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
             resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
@@ -179,6 +189,7 @@ export class Domain extends pulumi.CustomResource {
             }
             resourceInputs["autoCreateTopicWithFirstSubscription"] = args?.autoCreateTopicWithFirstSubscription;
             resourceInputs["autoDeleteTopicWithLastSubscription"] = args?.autoDeleteTopicWithLastSubscription;
+            resourceInputs["dataResidencyBoundary"] = args?.dataResidencyBoundary;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["inboundIpRules"] = args?.inboundIpRules;
             resourceInputs["inputMappingDefaultValues"] = args?.inputMappingDefaultValues;
@@ -186,6 +197,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["inputSchema"] = args?.inputSchema;
             resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
             resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
             resourceInputs["name"] = args?.name;
             resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -213,6 +225,10 @@ export interface DomainState {
      * Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
      */
     autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     */
+    dataResidencyBoundary?: pulumi.Input<string | undefined>;
     /**
      * The Endpoint associated with the EventGrid Domain.
      */
@@ -245,6 +261,10 @@ export interface DomainState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string | undefined>;
+    /**
+     * The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     */
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      */
@@ -284,6 +304,10 @@ export interface DomainArgs {
      */
     autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean | undefined>;
     /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     */
+    dataResidencyBoundary?: pulumi.Input<string | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.eventhub.DomainIdentity | undefined>;
@@ -311,6 +335,10 @@ export interface DomainArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string | undefined>;
+    /**
+     * The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     */
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      */

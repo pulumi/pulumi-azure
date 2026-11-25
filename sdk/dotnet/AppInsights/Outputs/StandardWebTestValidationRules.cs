@@ -22,6 +22,13 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly int? ExpectedStatusCode;
         /// <summary>
+        /// Should status code of the response be ignored? Defaults to `False`.
+        /// *
+        /// 
+        /// &gt; **Note:** When `IgnoreStatusCode` is set, the `ExpectedStatusCode`  will be ignored.
+        /// </summary>
+        public readonly bool? IgnoreStatusCode;
+        /// <summary>
         /// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         /// </summary>
         public readonly int? SslCertRemainingLifetime;
@@ -36,12 +43,15 @@ namespace Pulumi.Azure.AppInsights.Outputs
 
             int? expectedStatusCode,
 
+            bool? ignoreStatusCode,
+
             int? sslCertRemainingLifetime,
 
             bool? sslCheckEnabled)
         {
             Content = content;
             ExpectedStatusCode = expectedStatusCode;
+            IgnoreStatusCode = ignoreStatusCode;
             SslCertRemainingLifetime = sslCertRemainingLifetime;
             SslCheckEnabled = sslCheckEnabled;
         }

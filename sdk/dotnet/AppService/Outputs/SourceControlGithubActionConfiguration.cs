@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? GenerateWorkflowFile;
         /// <summary>
-        /// Denotes this action uses a Linux base image.
+        /// Whether this action uses a Linux base image.
         /// </summary>
         public readonly bool? LinuxAction;
 

@@ -40,6 +40,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.waf.inputs.PolicyCustomRuleMatchConditionMatchVariableArgs;
  * import com.pulumi.azure.waf.inputs.PolicyPolicySettingsArgs;
  * import com.pulumi.azure.waf.inputs.PolicyManagedRulesArgs;
+ * import com.pulumi.azure.waf.inputs.PolicyManagedRulesExceptionArgs;
+ * import com.pulumi.azure.waf.inputs.PolicyManagedRulesExceptionExceptionRuleSetArgs;
+ * import com.pulumi.azure.waf.inputs.PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs;
  * import com.pulumi.azure.waf.inputs.PolicyManagedRulesExclusionArgs;
  * import com.pulumi.azure.waf.inputs.PolicyManagedRulesManagedRuleSetArgs;
  * import com.pulumi.azure.waf.inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs;
@@ -115,6 +118,20 @@ import javax.annotation.Nullable;
  *                 .maxRequestBodySizeInKb(128)
  *                 .build())
  *             .managedRules(PolicyManagedRulesArgs.builder()
+ *                 .exceptions(PolicyManagedRulesExceptionArgs.builder()
+ *                     .matchVariable("RequestURI")
+ *                     .valueMatchOperator("EndsWith")
+ *                     .values(                    
+ *                         "/login.php",
+ *                         "/logout.php")
+ *                     .exceptionRuleSets(PolicyManagedRulesExceptionExceptionRuleSetArgs.builder()
+ *                         .type("OWASP")
+ *                         .version("3.2")
+ *                         .ruleGroups(PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs.builder()
+ *                             .ruleGroupName("REQUEST-942-APPLICATION-ATTACK-SQLI")
+ *                             .build())
+ *                         .build())
+ *                     .build())
  *                 .exclusions(                
  *                     PolicyManagedRulesExclusionArgs.builder()
  *                         .matchVariable("RequestHeaderNames")

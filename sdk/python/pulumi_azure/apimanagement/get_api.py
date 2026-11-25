@@ -176,7 +176,7 @@ class GetApiResult:
     @pulumi.getter(name="subscriptionKeyParameterNames")
     def subscription_key_parameter_names(self) -> Sequence['outputs.GetApiSubscriptionKeyParameterNameResult']:
         """
-        A `subscription_key_parameter_names` block as documented below.
+        A `subscription_key_parameter_names` block as defined below.
         """
         return pulumi.get(self, "subscription_key_parameter_names")
 

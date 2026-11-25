@@ -541,6 +541,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.throughputInMibps;
     }
     /**
+     * The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+     * 
+     */
+    @Export(name="unixPermissions", refs={String.class}, tree="[0]")
+    private Output<String> unixPermissions;
+
+    /**
+     * @return The unix permissions for an NFS volume are accepted in a four-digit octal format. The first digit selects the set user ID (4), set group ID (2), and sticky bit (1) attributes. The second digit selects the permissions for the owner of the file: read (4), write (2), and execute (1). The third digit selects the permissions for users in the same group. The fourth digit selects the permissions for users not in the group.
+     * 
+     */
+    public Output<String> unixPermissions() {
+        return this.unixPermissions;
+    }
+    /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      * 
      */

@@ -94,7 +94,7 @@ type AnalyticsSolution struct {
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan AnalyticsSolutionPlanOutput `pulumi:"plan"`
 	// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -155,7 +155,7 @@ func GetAnalyticsSolution(ctx *pulumi.Context,
 type analyticsSolutionState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan *AnalyticsSolutionPlan `pulumi:"plan"`
 	// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -172,7 +172,7 @@ type analyticsSolutionState struct {
 type AnalyticsSolutionState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan AnalyticsSolutionPlanPtrInput
 	// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
 	ResourceGroupName pulumi.StringPtrInput
@@ -193,7 +193,7 @@ func (AnalyticsSolutionState) ElementType() reflect.Type {
 type analyticsSolutionArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan AnalyticsSolutionPlan `pulumi:"plan"`
 	// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -211,7 +211,7 @@ type analyticsSolutionArgs struct {
 type AnalyticsSolutionArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan AnalyticsSolutionPlanInput
 	// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
 	ResourceGroupName pulumi.StringInput
@@ -317,7 +317,7 @@ func (o AnalyticsSolutionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsSolution) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// A `plan` block as documented below.
+// A `plan` block as defined below.
 func (o AnalyticsSolutionOutput) Plan() AnalyticsSolutionPlanOutput {
 	return o.ApplyT(func(v *AnalyticsSolution) AnalyticsSolutionPlanOutput { return v.Plan }).(AnalyticsSolutionPlanOutput)
 }

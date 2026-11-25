@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := arcmachine.Get(ctx, &arcmachine.GetArgs{
-//				Name:              "existing-hcmachine",
-//				ResourceGroupName: "existing-rg",
+//				Name:              "example-machine",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

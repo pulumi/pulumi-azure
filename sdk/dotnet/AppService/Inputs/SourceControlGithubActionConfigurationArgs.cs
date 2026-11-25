@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? GenerateWorkflowFile { get; set; }
 
         /// <summary>
-        /// Denotes this action uses a Linux base image.
+        /// Whether this action uses a Linux base image.
         /// </summary>
         [Input("linuxAction")]
         public Input<bool>? LinuxAction { get; set; }

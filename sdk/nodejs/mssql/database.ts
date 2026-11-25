@@ -228,7 +228,7 @@ export class Database extends pulumi.CustomResource {
      */
     declare public readonly identity: pulumi.Output<outputs.mssql.DatabaseIdentity | undefined>;
     /**
-     * A `import` block as documented below. Mutually exclusive with `createMode`.
+     * A `import` block as defined below. Mutually exclusive with `createMode`.
      */
     declare public readonly import: pulumi.Output<outputs.mssql.DatabaseImport | undefined>;
     /**
@@ -326,7 +326,7 @@ export class Database extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
      */
     declare public readonly threatDetectionPolicy: pulumi.Output<outputs.mssql.DatabaseThreatDetectionPolicy>;
     /**
@@ -495,7 +495,7 @@ export interface DatabaseState {
      */
     identity?: pulumi.Input<inputs.mssql.DatabaseIdentity | undefined>;
     /**
-     * A `import` block as documented below. Mutually exclusive with `createMode`.
+     * A `import` block as defined below. Mutually exclusive with `createMode`.
      */
     import?: pulumi.Input<inputs.mssql.DatabaseImport | undefined>;
     /**
@@ -593,7 +593,7 @@ export interface DatabaseState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
      */
     threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy | undefined>;
     /**
@@ -667,7 +667,7 @@ export interface DatabaseArgs {
      */
     identity?: pulumi.Input<inputs.mssql.DatabaseIdentity | undefined>;
     /**
-     * A `import` block as documented below. Mutually exclusive with `createMode`.
+     * A `import` block as defined below. Mutually exclusive with `createMode`.
      */
     import?: pulumi.Input<inputs.mssql.DatabaseImport | undefined>;
     /**
@@ -765,7 +765,7 @@ export interface DatabaseArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields defined below.
      */
     threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy | undefined>;
     /**

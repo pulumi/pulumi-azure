@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Consumption
         /// {
         ///     var example = Azure.Consumption.GetBudgetResourceGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-budget",
         ///         ResourceGroupId = exampleAzurermResourceGroup.Id,
         ///     });
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Consumption
         /// {
         ///     var example = Azure.Consumption.GetBudgetResourceGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-budget",
         ///         ResourceGroupId = exampleAzurermResourceGroup.Id,
         ///     });
         /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Consumption
         /// {
         ///     var example = Azure.Consumption.GetBudgetResourceGroup.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-budget",
         ///         ResourceGroupId = exampleAzurermResourceGroup.Id,
         ///     });
         /// 

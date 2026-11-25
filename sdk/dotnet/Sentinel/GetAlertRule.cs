@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Sentinel
         /// 
         ///     var exampleGetAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-alert-rule",
         ///         LogAnalyticsWorkspaceId = example.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
         ///     });
         /// 
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Sentinel
         /// 
         ///     var exampleGetAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-alert-rule",
         ///         LogAnalyticsWorkspaceId = example.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
         ///     });
         /// 
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Sentinel
         /// 
         ///     var exampleGetAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-alert-rule",
         ///         LogAnalyticsWorkspaceId = example.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
         ///     });
         /// 

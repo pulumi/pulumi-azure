@@ -18,13 +18,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetWorkspaceResult {
     /**
-     * @return A `customParameters` block as documented below.
+     * @return A `customParameters` block as defined below.
      * *
      * 
      */
     private List<GetWorkspaceCustomParameter> customParameters;
     /**
-     * @return An `enhancedSecurityCompliance` block as documented below.
+     * @return An `enhancedSecurityCompliance` block as defined below.
      * 
      */
     private List<GetWorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliances;
@@ -39,7 +39,7 @@ public final class GetWorkspaceResult {
      */
     private String location;
     /**
-     * @return A `managedDiskIdentity` block as documented below.
+     * @return A `managedDiskIdentity` block as defined below.
      * 
      */
     private List<GetWorkspaceManagedDiskIdentity> managedDiskIdentities;
@@ -51,7 +51,7 @@ public final class GetWorkspaceResult {
      */
     private String sku;
     /**
-     * @return A `storageAccountIdentity` block as documented below.
+     * @return A `storageAccountIdentity` block as defined below.
      * 
      */
     private List<GetWorkspaceStorageAccountIdentity> storageAccountIdentities;
@@ -73,7 +73,7 @@ public final class GetWorkspaceResult {
 
     private GetWorkspaceResult() {}
     /**
-     * @return A `customParameters` block as documented below.
+     * @return A `customParameters` block as defined below.
      * *
      * 
      */
@@ -81,7 +81,7 @@ public final class GetWorkspaceResult {
         return this.customParameters;
     }
     /**
-     * @return An `enhancedSecurityCompliance` block as documented below.
+     * @return An `enhancedSecurityCompliance` block as defined below.
      * 
      */
     public List<GetWorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliances() {
@@ -102,7 +102,7 @@ public final class GetWorkspaceResult {
         return this.location;
     }
     /**
-     * @return A `managedDiskIdentity` block as documented below.
+     * @return A `managedDiskIdentity` block as defined below.
      * 
      */
     public List<GetWorkspaceManagedDiskIdentity> managedDiskIdentities() {
@@ -122,7 +122,7 @@ public final class GetWorkspaceResult {
         return this.sku;
     }
     /**
-     * @return A `storageAccountIdentity` block as documented below.
+     * @return A `storageAccountIdentity` block as defined below.
      * 
      */
     public List<GetWorkspaceStorageAccountIdentity> storageAccountIdentities() {

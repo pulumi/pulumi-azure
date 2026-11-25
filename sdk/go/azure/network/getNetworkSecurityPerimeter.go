@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.LookupNetworkSecurityPerimeter(ctx, &network.LookupNetworkSecurityPerimeterArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-perimeter",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

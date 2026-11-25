@@ -16,14 +16,14 @@ public final class ProviderFeaturesNetappArgs extends com.pulumi.resources.Resou
     public static final ProviderFeaturesNetappArgs Empty = new ProviderFeaturesNetappArgs();
 
     /**
-     * When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+     * When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
      * 
      */
     @Import(name="deleteBackupsOnBackupVaultDestroy")
     private @Nullable Output<Boolean> deleteBackupsOnBackupVaultDestroy;
 
     /**
-     * @return When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+     * @return When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
      * 
      */
     public Optional<Output<Boolean>> deleteBackupsOnBackupVaultDestroy() {
@@ -31,14 +31,14 @@ public final class ProviderFeaturesNetappArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * When enabled, the volume will not be destroyed, safeguarding from severe data loss
+     * When enabled, the volume will not be destroyed, safeguarding from severe data loss.
      * 
      */
     @Import(name="preventVolumeDestruction")
     private @Nullable Output<Boolean> preventVolumeDestruction;
 
     /**
-     * @return When enabled, the volume will not be destroyed, safeguarding from severe data loss
+     * @return When enabled, the volume will not be destroyed, safeguarding from severe data loss.
      * 
      */
     public Optional<Output<Boolean>> preventVolumeDestruction() {
@@ -71,7 +71,7 @@ public final class ProviderFeaturesNetappArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param deleteBackupsOnBackupVaultDestroy When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+         * @param deleteBackupsOnBackupVaultDestroy When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ProviderFeaturesNetappArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param deleteBackupsOnBackupVaultDestroy When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+         * @param deleteBackupsOnBackupVaultDestroy When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ProviderFeaturesNetappArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param preventVolumeDestruction When enabled, the volume will not be destroyed, safeguarding from severe data loss
+         * @param preventVolumeDestruction When enabled, the volume will not be destroyed, safeguarding from severe data loss.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ProviderFeaturesNetappArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param preventVolumeDestruction When enabled, the volume will not be destroyed, safeguarding from severe data loss
+         * @param preventVolumeDestruction When enabled, the volume will not be destroyed, safeguarding from severe data loss.
          * 
          * @return builder
          * 

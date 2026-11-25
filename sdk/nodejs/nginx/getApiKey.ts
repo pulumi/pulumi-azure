@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.nginx.getApiKey({
- *     name: "existing",
+ *     name: "example-api-key",
  *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
  * });
  * export const id = example.then(example => example.id);
@@ -78,7 +78,7 @@ export interface GetApiKeyResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.nginx.getApiKey({
- *     name: "existing",
+ *     name: "example-api-key",
  *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
  * });
  * export const id = example.then(example => example.id);

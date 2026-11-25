@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := netapp.LookupVolumeGroupSapHana(ctx, &netapp.LookupVolumeGroupSapHanaArgs{
-//				Name:              "existing application volume group name",
+//				Name:              "example-volume-group",
 //				ResourceGroupName: "resource group name where the account and volume group belong to",
-//				AccountName:       "existing account where the application volume group belong to",
+//				AccountName:       "example-netapp-account",
 //			}, nil)
 //			if err != nil {
 //				return err

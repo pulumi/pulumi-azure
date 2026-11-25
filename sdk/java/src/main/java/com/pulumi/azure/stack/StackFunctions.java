@@ -46,8 +46,8 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -97,8 +97,8 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -148,8 +148,8 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -199,8 +199,8 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -250,8 +250,8 @@ public final class StackFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-cluster")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

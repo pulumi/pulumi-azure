@@ -29,7 +29,7 @@ class GatewayArgs:
         The set of arguments for constructing a Gateway resource.
 
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
-        :param pulumi.Input['GatewayLocationDataArgs'] location_data: A `location_data` block as documented below.
+        :param pulumi.Input['GatewayLocationDataArgs'] location_data: A `location_data` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the API Management Gateway.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
@@ -56,7 +56,7 @@ class GatewayArgs:
     @pulumi.getter(name="locationData")
     def location_data(self) -> pulumi.Input['GatewayLocationDataArgs']:
         """
-        A `location_data` block as documented below.
+        A `location_data` block as defined below.
         """
         return pulumi.get(self, "location_data")
 
@@ -101,7 +101,7 @@ class _GatewayState:
 
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the API Management Gateway.
-        :param pulumi.Input['GatewayLocationDataArgs'] location_data: A `location_data` block as documented below.
+        :param pulumi.Input['GatewayLocationDataArgs'] location_data: A `location_data` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
         if api_management_id is not None:
@@ -141,7 +141,7 @@ class _GatewayState:
     @pulumi.getter(name="locationData")
     def location_data(self) -> pulumi.Input[Optional['GatewayLocationDataArgs']]:
         """
-        A `location_data` block as documented below.
+        A `location_data` block as defined below.
         """
         return pulumi.get(self, "location_data")
 
@@ -224,7 +224,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the API Management Gateway.
-        :param pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']] location_data: A `location_data` block as documented below.
+        :param pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']] location_data: A `location_data` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
         ...
@@ -339,7 +339,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the API Management Gateway.
-        :param pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']] location_data: A `location_data` block as documented below.
+        :param pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']] location_data: A `location_data` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -372,7 +372,7 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter(name="locationData")
     def location_data(self) -> pulumi.Output['outputs.GatewayLocationData']:
         """
-        A `location_data` block as documented below.
+        A `location_data` block as defined below.
         """
         return pulumi.get(self, "location_data")
 

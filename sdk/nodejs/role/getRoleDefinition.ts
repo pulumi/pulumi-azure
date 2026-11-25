@@ -95,7 +95,7 @@ export interface GetRoleDefinitionResult {
     readonly id: string;
     readonly name: string;
     /**
-     * A `permissions` block as documented below.
+     * A `permissions` block as defined below.
      */
     readonly permissions: outputs.role.GetRoleDefinitionPermission[];
     readonly roleDefinitionId: string;

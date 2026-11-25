@@ -20,21 +20,23 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly string? AuthorizationExpirationTimeInUtc;
         /// <summary>
-        /// The partner name.
+        /// The name of a verified partner.
         /// </summary>
-        public readonly string PartnerName;
+        public readonly string? PartnerName;
         /// <summary>
         /// The immutable id of the corresponding partner registration.
+        /// 
+        /// &gt; **Note:** At least one of `PartnerName` or `PartnerRegistrationId` must be provided in each `PartnerAuthorization` block.
         /// </summary>
-        public readonly string PartnerRegistrationId;
+        public readonly string? PartnerRegistrationId;
 
         [OutputConstructor]
         private PartnerConfigurationPartnerAuthorization(
             string? authorizationExpirationTimeInUtc,
 
-            string partnerName,
+            string? partnerName,
 
-            string partnerRegistrationId)
+            string? partnerRegistrationId)
         {
             AuthorizationExpirationTimeInUtc = authorizationExpirationTimeInUtc;
             PartnerName = partnerName;

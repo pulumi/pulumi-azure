@@ -88,7 +88,7 @@ export class Backend extends pulumi.CustomResource {
      */
     declare public readonly circuitBreakerRule: pulumi.Output<outputs.apimanagement.BackendCircuitBreakerRule | undefined>;
     /**
-     * A `credentials` block as documented below.
+     * A `credentials` block as defined below.
      */
     declare public readonly credentials: pulumi.Output<outputs.apimanagement.BackendCredentials | undefined>;
     /**
@@ -104,7 +104,7 @@ export class Backend extends pulumi.CustomResource {
      */
     declare public readonly protocol: pulumi.Output<string>;
     /**
-     * A `proxy` block as documented below.
+     * A `proxy` block as defined below.
      */
     declare public readonly proxy: pulumi.Output<outputs.apimanagement.BackendProxy | undefined>;
     /**
@@ -116,7 +116,7 @@ export class Backend extends pulumi.CustomResource {
      */
     declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
-     * A `serviceFabricCluster` block as documented below.
+     * A `serviceFabricCluster` block as defined below.
      */
     declare public readonly serviceFabricCluster: pulumi.Output<outputs.apimanagement.BackendServiceFabricCluster | undefined>;
     /**
@@ -124,7 +124,7 @@ export class Backend extends pulumi.CustomResource {
      */
     declare public readonly title: pulumi.Output<string | undefined>;
     /**
-     * A `tls` block as documented below.
+     * A `tls` block as defined below.
      */
     declare public readonly tls: pulumi.Output<outputs.apimanagement.BackendTls | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface BackendState {
      */
     circuitBreakerRule?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRule | undefined>;
     /**
-     * A `credentials` block as documented below.
+     * A `credentials` block as defined below.
      */
     credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface BackendState {
      */
     protocol?: pulumi.Input<string | undefined>;
     /**
-     * A `proxy` block as documented below.
+     * A `proxy` block as defined below.
      */
     proxy?: pulumi.Input<inputs.apimanagement.BackendProxy | undefined>;
     /**
@@ -232,7 +232,7 @@ export interface BackendState {
      */
     resourceId?: pulumi.Input<string | undefined>;
     /**
-     * A `serviceFabricCluster` block as documented below.
+     * A `serviceFabricCluster` block as defined below.
      */
     serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster | undefined>;
     /**
@@ -240,7 +240,7 @@ export interface BackendState {
      */
     title?: pulumi.Input<string | undefined>;
     /**
-     * A `tls` block as documented below.
+     * A `tls` block as defined below.
      */
     tls?: pulumi.Input<inputs.apimanagement.BackendTls | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface BackendArgs {
      */
     circuitBreakerRule?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRule | undefined>;
     /**
-     * A `credentials` block as documented below.
+     * A `credentials` block as defined below.
      */
     credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials | undefined>;
     /**
@@ -278,7 +278,7 @@ export interface BackendArgs {
      */
     protocol: pulumi.Input<string>;
     /**
-     * A `proxy` block as documented below.
+     * A `proxy` block as defined below.
      */
     proxy?: pulumi.Input<inputs.apimanagement.BackendProxy | undefined>;
     /**
@@ -290,7 +290,7 @@ export interface BackendArgs {
      */
     resourceId?: pulumi.Input<string | undefined>;
     /**
-     * A `serviceFabricCluster` block as documented below.
+     * A `serviceFabricCluster` block as defined below.
      */
     serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster | undefined>;
     /**
@@ -298,7 +298,7 @@ export interface BackendArgs {
      */
     title?: pulumi.Input<string | undefined>;
     /**
-     * A `tls` block as documented below.
+     * A `tls` block as defined below.
      */
     tls?: pulumi.Input<inputs.apimanagement.BackendTls | undefined>;
     /**

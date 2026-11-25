@@ -32,7 +32,7 @@ namespace Pulumi.Azure.KeyVault
         /// 
         ///     var exampleGetCertificateIssuer = Azure.KeyVault.GetCertificateIssuer.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-issuer",
         ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
         ///     });
         /// 
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.KeyVault
         /// 
         ///     var exampleGetCertificateIssuer = Azure.KeyVault.GetCertificateIssuer.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-issuer",
         ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
         ///     });
         /// 
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.KeyVault
         /// 
         ///     var exampleGetCertificateIssuer = Azure.KeyVault.GetCertificateIssuer.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-issuer",
         ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
         ///     });
         /// 

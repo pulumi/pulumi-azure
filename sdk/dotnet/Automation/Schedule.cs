@@ -92,13 +92,15 @@ namespace Pulumi.Azure.Automation
         public Output<string> ExpiryTime { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+        /// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
         /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
 
         /// <summary>
-        /// The number of `Frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        /// The number of `Frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        /// 
+        /// &gt; **Note:** `Interval` must be set to at least `15` when `Frequency` is `Minute`.
         /// </summary>
         [Output("interval")]
         public Output<int> Interval { get; private set; } = null!;
@@ -110,7 +112,7 @@ namespace Pulumi.Azure.Automation
         public Output<ImmutableArray<int>> MonthDays { get; private set; } = null!;
 
         /// <summary>
-        /// One `MonthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `MonthlyOccurrence` block supports fields documented below.
+        /// One `MonthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `MonthlyOccurrence` block supports fields defined below.
         /// </summary>
         [Output("monthlyOccurrence")]
         public Output<Outputs.ScheduleMonthlyOccurrence?> MonthlyOccurrence { get; private set; } = null!;
@@ -210,13 +212,15 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ExpiryTime { get; set; }
 
         /// <summary>
-        /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+        /// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
         /// <summary>
-        /// The number of `Frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        /// The number of `Frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        /// 
+        /// &gt; **Note:** `Interval` must be set to at least `15` when `Frequency` is `Minute`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -234,7 +238,7 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// One `MonthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `MonthlyOccurrence` block supports fields documented below.
+        /// One `MonthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `MonthlyOccurrence` block supports fields defined below.
         /// </summary>
         [Input("monthlyOccurrence")]
         public Input<Inputs.ScheduleMonthlyOccurrenceArgs>? MonthlyOccurrence { get; set; }
@@ -302,13 +306,15 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ExpiryTime { get; set; }
 
         /// <summary>
-        /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+        /// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
 
         /// <summary>
-        /// The number of `Frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        /// The number of `Frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        /// 
+        /// &gt; **Note:** `Interval` must be set to at least `15` when `Frequency` is `Minute`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -326,7 +332,7 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// One `MonthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `MonthlyOccurrence` block supports fields documented below.
+        /// One `MonthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `MonthlyOccurrence` block supports fields defined below.
         /// </summary>
         [Input("monthlyOccurrence")]
         public Input<Inputs.ScheduleMonthlyOccurrenceGetArgs>? MonthlyOccurrence { get; set; }

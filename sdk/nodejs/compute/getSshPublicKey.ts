@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.compute.getSshPublicKey({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-ssh-key",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -80,8 +80,8 @@ export interface GetSshPublicKeyResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.compute.getSshPublicKey({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-ssh-key",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

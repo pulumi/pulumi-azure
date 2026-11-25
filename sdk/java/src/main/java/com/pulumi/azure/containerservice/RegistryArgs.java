@@ -89,14 +89,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `encryption` block as documented below.
+     * An `encryption` block as defined below.
      * 
      */
     @Import(name="encryption")
     private @Nullable Output<RegistryEncryptionArgs> encryption;
 
     /**
-     * @return An `encryption` block as documented below.
+     * @return An `encryption` block as defined below.
      * 
      */
     public Optional<Output<RegistryEncryptionArgs>> encryption() {
@@ -119,7 +119,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `georeplications` blocks as documented below.
+     * One or more `georeplications` blocks as defined below.
      * 
      * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
@@ -132,7 +132,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<RegistryGeoreplicationArgs>> georeplications;
 
     /**
-     * @return One or more `georeplications` blocks as documented below.
+     * @return One or more `georeplications` blocks as defined below.
      * 
      * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
@@ -221,14 +221,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `networkRuleSet` block as documented below.
+     * A `networkRuleSet` block as defined below.
      * 
      */
     @Import(name="networkRuleSet")
     private @Nullable Output<RegistryNetworkRuleSetArgs> networkRuleSet;
 
     /**
-     * @return A `networkRuleSet` block as documented below.
+     * @return A `networkRuleSet` block as defined below.
      * 
      */
     public Optional<Output<RegistryNetworkRuleSetArgs>> networkRuleSet() {
@@ -488,7 +488,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryption An `encryption` block as documented below.
+         * @param encryption An `encryption` block as defined below.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryption An `encryption` block as documented below.
+         * @param encryption An `encryption` block as defined below.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param georeplications One or more `georeplications` blocks as documented below.
+         * @param georeplications One or more `georeplications` blocks as defined below.
          * 
          * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
          * 
@@ -547,7 +547,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param georeplications One or more `georeplications` blocks as documented below.
+         * @param georeplications One or more `georeplications` blocks as defined below.
          * 
          * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
          * 
@@ -563,7 +563,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param georeplications One or more `georeplications` blocks as documented below.
+         * @param georeplications One or more `georeplications` blocks as defined below.
          * 
          * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
          * 
@@ -684,7 +684,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRuleSet A `networkRuleSet` block as documented below.
+         * @param networkRuleSet A `networkRuleSet` block as defined below.
          * 
          * @return builder
          * 
@@ -695,7 +695,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRuleSet A `networkRuleSet` block as documented below.
+         * @param networkRuleSet A `networkRuleSet` block as defined below.
          * 
          * @return builder
          * 

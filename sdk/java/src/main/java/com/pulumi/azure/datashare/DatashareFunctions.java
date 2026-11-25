@@ -1289,7 +1289,7 @@ public final class DatashareFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("exampleshare")
      *             .accountId(example.id())
      *             .build());
      * 
@@ -1344,7 +1344,7 @@ public final class DatashareFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("exampleshare")
      *             .accountId(example.id())
      *             .build());
      * 
@@ -1399,7 +1399,7 @@ public final class DatashareFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("exampleshare")
      *             .accountId(example.id())
      *             .build());
      * 
@@ -1454,7 +1454,7 @@ public final class DatashareFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("exampleshare")
      *             .accountId(example.id())
      *             .build());
      * 
@@ -1509,7 +1509,7 @@ public final class DatashareFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("exampleshare")
      *             .accountId(example.id())
      *             .build());
      * 

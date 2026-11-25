@@ -24,6 +24,7 @@ class BackupVaultArgs:
                  datastore_type: pulumi.Input[_builtins.str],
                  redundancy: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 alerts_for_all_job_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional['BackupVaultIdentityArgs']] = None,
                  immutability: pulumi.Input[Optional[_builtins.str]] = None,
@@ -38,6 +39,7 @@ class BackupVaultArgs:
         :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
+        :param pulumi.Input[_builtins.bool] alerts_for_all_job_failures_enabled: Whether to enable Azure Monitor alerts for all job failures.
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
@@ -56,6 +58,8 @@ class BackupVaultArgs:
         pulumi.set(__self__, "datastore_type", datastore_type)
         pulumi.set(__self__, "redundancy", redundancy)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if alerts_for_all_job_failures_enabled is not None:
+            pulumi.set(__self__, "alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
         if cross_region_restore_enabled is not None:
             pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
         if identity is not None:
@@ -108,6 +112,18 @@ class BackupVaultArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="alertsForAllJobFailuresEnabled")
+    def alerts_for_all_job_failures_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable Azure Monitor alerts for all job failures.
+        """
+        return pulumi.get(self, "alerts_for_all_job_failures_enabled")
+
+    @alerts_for_all_job_failures_enabled.setter
+    def alerts_for_all_job_failures_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "alerts_for_all_job_failures_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="crossRegionRestoreEnabled")
@@ -215,6 +231,7 @@ class BackupVaultArgs:
 @pulumi.input_type
 class _BackupVaultState:
     def __init__(__self__, *,
+                 alerts_for_all_job_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['BackupVaultIdentityArgs']] = None,
@@ -229,6 +246,7 @@ class _BackupVaultState:
         """
         Input properties used for looking up and filtering BackupVault resources.
 
+        :param pulumi.Input[_builtins.bool] alerts_for_all_job_failures_enabled: Whether to enable Azure Monitor alerts for all job failures.
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
@@ -247,6 +265,8 @@ class _BackupVaultState:
                > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
         """
+        if alerts_for_all_job_failures_enabled is not None:
+            pulumi.set(__self__, "alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
         if cross_region_restore_enabled is not None:
             pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
         if datastore_type is not None:
@@ -269,6 +289,18 @@ class _BackupVaultState:
             pulumi.set(__self__, "soft_delete", soft_delete)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="alertsForAllJobFailuresEnabled")
+    def alerts_for_all_job_failures_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable Azure Monitor alerts for all job failures.
+        """
+        return pulumi.get(self, "alerts_for_all_job_failures_enabled")
+
+    @alerts_for_all_job_failures_enabled.setter
+    def alerts_for_all_job_failures_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "alerts_for_all_job_failures_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="crossRegionRestoreEnabled")
@@ -415,6 +447,7 @@ class BackupVault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alerts_for_all_job_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']]] = None,
@@ -465,6 +498,7 @@ class BackupVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] alerts_for_all_job_failures_enabled: Whether to enable Azure Monitor alerts for all job failures.
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
@@ -540,6 +574,7 @@ class BackupVault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alerts_for_all_job_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']]] = None,
@@ -560,6 +595,7 @@ class BackupVault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupVaultArgs.__new__(BackupVaultArgs)
 
+            __props__.__dict__["alerts_for_all_job_failures_enabled"] = alerts_for_all_job_failures_enabled
             __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
             if datastore_type is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_type'")
@@ -587,6 +623,7 @@ class BackupVault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            alerts_for_all_job_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
             identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']]] = None,
@@ -605,6 +642,7 @@ class BackupVault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] alerts_for_all_job_failures_enabled: Whether to enable Azure Monitor alerts for all job failures.
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
@@ -627,6 +665,7 @@ class BackupVault(pulumi.CustomResource):
 
         __props__ = _BackupVaultState.__new__(_BackupVaultState)
 
+        __props__.__dict__["alerts_for_all_job_failures_enabled"] = alerts_for_all_job_failures_enabled
         __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
         __props__.__dict__["datastore_type"] = datastore_type
         __props__.__dict__["identity"] = identity
@@ -639,6 +678,14 @@ class BackupVault(pulumi.CustomResource):
         __props__.__dict__["soft_delete"] = soft_delete
         __props__.__dict__["tags"] = tags
         return BackupVault(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="alertsForAllJobFailuresEnabled")
+    def alerts_for_all_job_failures_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether to enable Azure Monitor alerts for all job failures.
+        """
+        return pulumi.get(self, "alerts_for_all_job_failures_enabled")
 
     @_builtins.property
     @pulumi.getter(name="crossRegionRestoreEnabled")

@@ -137,9 +137,9 @@ import (
 type VirtualNetworkGatewayNatRule struct {
 	pulumi.CustomResourceState
 
-	// One or more `externalMapping` blocks as documented below.
+	// One or more `externalMapping` blocks as defined below.
 	ExternalMappings VirtualNetworkGatewayNatRuleExternalMappingArrayOutput `pulumi:"externalMappings"`
-	// One or more `internalMapping` blocks as documented below.
+	// One or more `internalMapping` blocks as defined below.
 	InternalMappings VirtualNetworkGatewayNatRuleInternalMappingArrayOutput `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
 	IpConfigurationId pulumi.StringPtrOutput `pulumi:"ipConfigurationId"`
@@ -197,9 +197,9 @@ func GetVirtualNetworkGatewayNatRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkGatewayNatRule resources.
 type virtualNetworkGatewayNatRuleState struct {
-	// One or more `externalMapping` blocks as documented below.
+	// One or more `externalMapping` blocks as defined below.
 	ExternalMappings []VirtualNetworkGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
-	// One or more `internalMapping` blocks as documented below.
+	// One or more `internalMapping` blocks as defined below.
 	InternalMappings []VirtualNetworkGatewayNatRuleInternalMapping `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
 	IpConfigurationId *string `pulumi:"ipConfigurationId"`
@@ -216,9 +216,9 @@ type virtualNetworkGatewayNatRuleState struct {
 }
 
 type VirtualNetworkGatewayNatRuleState struct {
-	// One or more `externalMapping` blocks as documented below.
+	// One or more `externalMapping` blocks as defined below.
 	ExternalMappings VirtualNetworkGatewayNatRuleExternalMappingArrayInput
-	// One or more `internalMapping` blocks as documented below.
+	// One or more `internalMapping` blocks as defined below.
 	InternalMappings VirtualNetworkGatewayNatRuleInternalMappingArrayInput
 	// The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
 	IpConfigurationId pulumi.StringPtrInput
@@ -239,9 +239,9 @@ func (VirtualNetworkGatewayNatRuleState) ElementType() reflect.Type {
 }
 
 type virtualNetworkGatewayNatRuleArgs struct {
-	// One or more `externalMapping` blocks as documented below.
+	// One or more `externalMapping` blocks as defined below.
 	ExternalMappings []VirtualNetworkGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
-	// One or more `internalMapping` blocks as documented below.
+	// One or more `internalMapping` blocks as defined below.
 	InternalMappings []VirtualNetworkGatewayNatRuleInternalMapping `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
 	IpConfigurationId *string `pulumi:"ipConfigurationId"`
@@ -259,9 +259,9 @@ type virtualNetworkGatewayNatRuleArgs struct {
 
 // The set of arguments for constructing a VirtualNetworkGatewayNatRule resource.
 type VirtualNetworkGatewayNatRuleArgs struct {
-	// One or more `externalMapping` blocks as documented below.
+	// One or more `externalMapping` blocks as defined below.
 	ExternalMappings VirtualNetworkGatewayNatRuleExternalMappingArrayInput
-	// One or more `internalMapping` blocks as documented below.
+	// One or more `internalMapping` blocks as defined below.
 	InternalMappings VirtualNetworkGatewayNatRuleInternalMappingArrayInput
 	// The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
 	IpConfigurationId pulumi.StringPtrInput
@@ -364,14 +364,14 @@ func (o VirtualNetworkGatewayNatRuleOutput) ToVirtualNetworkGatewayNatRuleOutput
 	return o
 }
 
-// One or more `externalMapping` blocks as documented below.
+// One or more `externalMapping` blocks as defined below.
 func (o VirtualNetworkGatewayNatRuleOutput) ExternalMappings() VirtualNetworkGatewayNatRuleExternalMappingArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) VirtualNetworkGatewayNatRuleExternalMappingArrayOutput {
 		return v.ExternalMappings
 	}).(VirtualNetworkGatewayNatRuleExternalMappingArrayOutput)
 }
 
-// One or more `internalMapping` blocks as documented below.
+// One or more `internalMapping` blocks as defined below.
 func (o VirtualNetworkGatewayNatRuleOutput) InternalMappings() VirtualNetworkGatewayNatRuleInternalMappingArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) VirtualNetworkGatewayNatRuleInternalMappingArrayOutput {
 		return v.InternalMappings

@@ -83,6 +83,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable automatic zone balance. Defaults to `False`. Requires `Zones` to be set. When set to `True`, a health extension must be configured.
+        /// </summary>
+        [Output("automaticZoneRebalancingEnabled")]
+        public Output<bool?> AutomaticZoneRebalancingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
@@ -229,6 +235,22 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("proximityPlacementGroupId")]
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether `resilient virtual machine creation` is enabled. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        /// </summary>
+        [Output("resilientVirtualMachineCreationEnabled")]
+        public Output<bool?> ResilientVirtualMachineCreationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether `resilient virtual machine deletion` is enabled. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+        /// </summary>
+        [Output("resilientVirtualMachineDeletionEnabled")]
+        public Output<bool?> ResilientVirtualMachineDeletionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -397,6 +419,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
 
         /// <summary>
+        /// Whether to enable automatic zone balance. Defaults to `False`. Requires `Zones` to be set. When set to `True`, a health extension must be configured.
+        /// </summary>
+        [Input("automaticZoneRebalancingEnabled")]
+        public Input<bool>? AutomaticZoneRebalancingEnabled { get; set; }
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
@@ -563,6 +591,22 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
+        /// Whether `resilient virtual machine creation` is enabled. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        /// </summary>
+        [Input("resilientVirtualMachineCreationEnabled")]
+        public Input<bool>? ResilientVirtualMachineCreationEnabled { get; set; }
+
+        /// <summary>
+        /// Whether `resilient virtual machine deletion` is enabled. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+        /// </summary>
+        [Input("resilientVirtualMachineDeletionEnabled")]
+        public Input<bool>? ResilientVirtualMachineDeletionEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -701,6 +745,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
+
+        /// <summary>
+        /// Whether to enable automatic zone balance. Defaults to `False`. Requires `Zones` to be set. When set to `True`, a health extension must be configured.
+        /// </summary>
+        [Input("automaticZoneRebalancingEnabled")]
+        public Input<bool>? AutomaticZoneRebalancingEnabled { get; set; }
 
         /// <summary>
         /// A `BootDiagnostics` block as defined below.
@@ -867,6 +917,22 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
+
+        /// <summary>
+        /// Whether `resilient virtual machine creation` is enabled. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+        /// </summary>
+        [Input("resilientVirtualMachineCreationEnabled")]
+        public Input<bool>? ResilientVirtualMachineCreationEnabled { get; set; }
+
+        /// <summary>
+        /// Whether `resilient virtual machine deletion` is enabled. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+        /// </summary>
+        [Input("resilientVirtualMachineDeletionEnabled")]
+        public Input<bool>? ResilientVirtualMachineDeletionEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.

@@ -43,8 +43,8 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existingMySqlFlexibleServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mysql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -92,8 +92,8 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existingMySqlFlexibleServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mysql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -141,8 +141,8 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existingMySqlFlexibleServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mysql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -190,8 +190,8 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existingMySqlFlexibleServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mysql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -239,8 +239,8 @@ public final class MysqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MysqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name("existingMySqlFlexibleServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mysql-flexible-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

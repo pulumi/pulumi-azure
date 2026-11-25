@@ -69,7 +69,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="customParameters")
     def custom_parameters(self) -> Sequence['outputs.GetWorkspaceCustomParameterResult']:
         """
-        A `custom_parameters` block as documented below.
+        A `custom_parameters` block as defined below.
         *
         """
         return pulumi.get(self, "custom_parameters")
@@ -78,7 +78,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="enhancedSecurityCompliances")
     def enhanced_security_compliances(self) -> Sequence['outputs.GetWorkspaceEnhancedSecurityComplianceResult']:
         """
-        An `enhanced_security_compliance` block as documented below.
+        An `enhanced_security_compliance` block as defined below.
         """
         return pulumi.get(self, "enhanced_security_compliances")
 
@@ -102,7 +102,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="managedDiskIdentities")
     def managed_disk_identities(self) -> Sequence['outputs.GetWorkspaceManagedDiskIdentityResult']:
         """
-        A `managed_disk_identity` block as documented below.
+        A `managed_disk_identity` block as defined below.
         """
         return pulumi.get(self, "managed_disk_identities")
 
@@ -128,7 +128,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="storageAccountIdentities")
     def storage_account_identities(self) -> Sequence['outputs.GetWorkspaceStorageAccountIdentityResult']:
         """
-        A `storage_account_identity` block as documented below.
+        A `storage_account_identity` block as defined below.
         """
         return pulumi.get(self, "storage_account_identities")
 

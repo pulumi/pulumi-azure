@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := iot.GetIotHub(ctx, &iot.GetIotHubArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-iothub",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

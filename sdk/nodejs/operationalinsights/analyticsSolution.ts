@@ -93,7 +93,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     declare public readonly plan: pulumi.Output<outputs.operationalinsights.AnalyticsSolutionPlan>;
     /**
@@ -176,7 +176,7 @@ export interface AnalyticsSolutionState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     plan?: pulumi.Input<inputs.operationalinsights.AnalyticsSolutionPlan | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface AnalyticsSolutionArgs {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     plan: pulumi.Input<inputs.operationalinsights.AnalyticsSolutionPlan>;
     /**

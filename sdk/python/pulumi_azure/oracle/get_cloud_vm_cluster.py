@@ -693,8 +693,8 @@ def get_cloud_vm_cluster(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_cloud_vm_cluster(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_cloud_vm_cluster(name="example-cloud-vm-cluster",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -782,8 +782,8 @@ def get_cloud_vm_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = No
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_cloud_vm_cluster(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_cloud_vm_cluster(name="example-cloud-vm-cluster",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

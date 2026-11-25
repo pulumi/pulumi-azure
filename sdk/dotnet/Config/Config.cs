@@ -51,7 +51,7 @@ namespace Pulumi.Azure
 
         private static readonly __Value<string?> _clientCertificate = new __Value<string?>(() => __config.Get("clientCertificate"));
         /// <summary>
-        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
         /// </summary>
         public static string? ClientCertificate
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Azure
 
         private static readonly __Value<string?> _clientCertificatePassword = new __Value<string?>(() => __config.Get("clientCertificatePassword"));
         /// <summary>
-        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
         /// </summary>
         public static string? ClientCertificatePassword
         {
@@ -325,7 +325,7 @@ namespace Pulumi.Azure
 
         private static readonly __Value<bool?> _useOidc = new __Value<bool?>(() => __config.GetBoolean("useOidc"));
         /// <summary>
-        /// Allow OpenID Connect to be used for authentication
+        /// Allow OpenID Connect to be used for authentication.
         /// </summary>
         public static bool? UseOidc
         {
@@ -350,7 +350,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesManagedDisk? ManagedDisk { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesNetapp? Netapp { get; set; } = null!;
             /// <summary>
-            /// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `False`.
+            /// Whether to set the resource ID into state before polling asynchronous operations for completion.
             /// </summary>
                 public bool? PersistIdOnCreateBeforePollingForCompletion { get; set; }
                 public Pulumi.Azure.Config.Types.FeaturesPostgresqlFlexibleServer? PostgresqlFlexibleServer { get; set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesResourceGroup? ResourceGroup { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesServicebus? Servicebus { get; set; } = null!;
             /// <summary>
-            /// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `False`.
+            /// Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
             /// </summary>
                 public bool? SkipImportCheckOnCreateAndAllowOverwritingExistingResources { get; set; }
                 public Pulumi.Azure.Config.Types.FeaturesStorage? Storage { get; set; } = null!;
@@ -394,7 +394,7 @@ namespace Pulumi.Azure
              public class FeaturesDatabricksWorkspace
              {
             /// <summary>
-            /// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+            /// When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
             /// </summary>
                 public bool? ForceDelete { get; set; }
             }
@@ -406,7 +406,7 @@ namespace Pulumi.Azure
             /// </summary>
                 public bool? Locations { get; set; }
             /// <summary>
-            /// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+            /// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
             /// </summary>
                 public bool? PreflightEnabled { get; set; }
             /// <summary>
@@ -414,7 +414,7 @@ namespace Pulumi.Azure
             /// </summary>
                 public string? PreflightLocationFallback { get; set; } = null!;
             /// <summary>
-            /// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+            /// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
             /// </summary>
                 public bool? ResourceProviders { get; set; }
             }
@@ -422,47 +422,47 @@ namespace Pulumi.Azure
              public class FeaturesKeyVault
              {
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+            /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
             /// </summary>
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+            /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
             /// </summary>
                 public bool? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
             /// </summary>
                 public bool? PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
             /// </summary>
                 public bool? PurgeSoftDeletedHardwareSecurityModulesOnDestroy { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+            /// When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
             /// </summary>
                 public bool? PurgeSoftDeletedKeysOnDestroy { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+            /// When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
             /// </summary>
                 public bool? PurgeSoftDeletedSecretsOnDestroy { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+            /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
             /// </summary>
                 public bool? RecoverSoftDeletedCertificates { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
             /// </summary>
                 public bool? RecoverSoftDeletedHardwareSecurityModuleKeys { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+            /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
             /// </summary>
                 public bool? RecoverSoftDeletedKeyVaults { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+            /// When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
             /// </summary>
                 public bool? RecoverSoftDeletedKeys { get; set; }
             /// <summary>
-            /// When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+            /// When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
             /// </summary>
                 public bool? RecoverSoftDeletedSecrets { get; set; }
             }
@@ -485,11 +485,11 @@ namespace Pulumi.Azure
              public class FeaturesNetapp
              {
             /// <summary>
-            /// When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+            /// When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
             /// </summary>
                 public bool? DeleteBackupsOnBackupVaultDestroy { get; set; }
             /// <summary>
-            /// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+            /// When enabled, the volume will not be destroyed, safeguarding from severe data loss.
             /// </summary>
                 public bool? PreventVolumeDestruction { get; set; }
             }

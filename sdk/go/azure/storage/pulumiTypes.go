@@ -1506,7 +1506,7 @@ type AccountCustomerManagedKey struct {
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// The ID of a user assigned identity.
 	//
-	// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+	// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -1526,7 +1526,7 @@ type AccountCustomerManagedKeyArgs struct {
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 	// The ID of a user assigned identity.
 	//
-	// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+	// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -1614,7 +1614,7 @@ func (o AccountCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
 
 // The ID of a user assigned identity.
 //
-// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 func (o AccountCustomerManagedKeyOutput) UserAssignedIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCustomerManagedKey) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
@@ -1655,7 +1655,7 @@ func (o AccountCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutp
 
 // The ID of a user assigned identity.
 //
-// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `FileStorage` with `provisionedBillingModelVersion` set to `V2`, or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 func (o AccountCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
 		if v == nil {
@@ -6031,11 +6031,11 @@ func (o LocalUserSshAuthorizedKeyArrayOutput) Index(i pulumi.IntInput) LocalUser
 }
 
 type ManagementPolicyRule struct {
-	// An `actions` block as documented below.
+	// An `actions` block as defined below.
 	Actions ManagementPolicyRuleActions `pulumi:"actions"`
 	// Boolean to specify whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// A `filters` block as documented below.
+	// A `filters` block as defined below.
 	Filters ManagementPolicyRuleFilters `pulumi:"filters"`
 	// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
 	Name string `pulumi:"name"`
@@ -6053,11 +6053,11 @@ type ManagementPolicyRuleInput interface {
 }
 
 type ManagementPolicyRuleArgs struct {
-	// An `actions` block as documented below.
+	// An `actions` block as defined below.
 	Actions ManagementPolicyRuleActionsInput `pulumi:"actions"`
 	// Boolean to specify whether the rule is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A `filters` block as documented below.
+	// A `filters` block as defined below.
 	Filters ManagementPolicyRuleFiltersInput `pulumi:"filters"`
 	// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -6114,7 +6114,7 @@ func (o ManagementPolicyRuleOutput) ToManagementPolicyRuleOutputWithContext(ctx 
 	return o
 }
 
-// An `actions` block as documented below.
+// An `actions` block as defined below.
 func (o ManagementPolicyRuleOutput) Actions() ManagementPolicyRuleActionsOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) ManagementPolicyRuleActions { return v.Actions }).(ManagementPolicyRuleActionsOutput)
 }
@@ -6124,7 +6124,7 @@ func (o ManagementPolicyRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A `filters` block as documented below.
+// A `filters` block as defined below.
 func (o ManagementPolicyRuleOutput) Filters() ManagementPolicyRuleFiltersOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) ManagementPolicyRuleFilters { return v.Filters }).(ManagementPolicyRuleFiltersOutput)
 }
@@ -6155,11 +6155,11 @@ func (o ManagementPolicyRuleArrayOutput) Index(i pulumi.IntInput) ManagementPoli
 }
 
 type ManagementPolicyRuleActions struct {
-	// A `baseBlob` block as documented below.
+	// A `baseBlob` block as defined below.
 	BaseBlob *ManagementPolicyRuleActionsBaseBlob `pulumi:"baseBlob"`
-	// A `snapshot` block as documented below.
+	// A `snapshot` block as defined below.
 	Snapshot *ManagementPolicyRuleActionsSnapshot `pulumi:"snapshot"`
-	// A `version` block as documented below.
+	// A `version` block as defined below.
 	Version *ManagementPolicyRuleActionsVersion `pulumi:"version"`
 }
 
@@ -6175,11 +6175,11 @@ type ManagementPolicyRuleActionsInput interface {
 }
 
 type ManagementPolicyRuleActionsArgs struct {
-	// A `baseBlob` block as documented below.
+	// A `baseBlob` block as defined below.
 	BaseBlob ManagementPolicyRuleActionsBaseBlobPtrInput `pulumi:"baseBlob"`
-	// A `snapshot` block as documented below.
+	// A `snapshot` block as defined below.
 	Snapshot ManagementPolicyRuleActionsSnapshotPtrInput `pulumi:"snapshot"`
-	// A `version` block as documented below.
+	// A `version` block as defined below.
 	Version ManagementPolicyRuleActionsVersionPtrInput `pulumi:"version"`
 }
 
@@ -6209,17 +6209,17 @@ func (o ManagementPolicyRuleActionsOutput) ToManagementPolicyRuleActionsOutputWi
 	return o
 }
 
-// A `baseBlob` block as documented below.
+// A `baseBlob` block as defined below.
 func (o ManagementPolicyRuleActionsOutput) BaseBlob() ManagementPolicyRuleActionsBaseBlobPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsBaseBlob { return v.BaseBlob }).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
 
-// A `snapshot` block as documented below.
+// A `snapshot` block as defined below.
 func (o ManagementPolicyRuleActionsOutput) Snapshot() ManagementPolicyRuleActionsSnapshotPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsSnapshot { return v.Snapshot }).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
 
-// A `version` block as documented below.
+// A `version` block as defined below.
 func (o ManagementPolicyRuleActionsOutput) Version() ManagementPolicyRuleActionsVersionPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsVersion { return v.Version }).(ManagementPolicyRuleActionsVersionPtrOutput)
 }
@@ -7876,7 +7876,7 @@ func (o TableAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) TableAclAccess
 }
 
 type GetAccountAzureFilesAuthentication struct {
-	// An `activeDirectory` block as documented below.
+	// An `activeDirectory` block as defined below.
 	ActiveDirectories []GetAccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectories"`
 	// The default share level permissions applied to all users.
 	DefaultShareLevelPermission string `pulumi:"defaultShareLevelPermission"`
@@ -7896,7 +7896,7 @@ type GetAccountAzureFilesAuthenticationInput interface {
 }
 
 type GetAccountAzureFilesAuthenticationArgs struct {
-	// An `activeDirectory` block as documented below.
+	// An `activeDirectory` block as defined below.
 	ActiveDirectories GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput `pulumi:"activeDirectories"`
 	// The default share level permissions applied to all users.
 	DefaultShareLevelPermission pulumi.StringInput `pulumi:"defaultShareLevelPermission"`
@@ -7955,7 +7955,7 @@ func (o GetAccountAzureFilesAuthenticationOutput) ToGetAccountAzureFilesAuthenti
 	return o
 }
 
-// An `activeDirectory` block as documented below.
+// An `activeDirectory` block as defined below.
 func (o GetAccountAzureFilesAuthenticationOutput) ActiveDirectories() GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput {
 	return o.ApplyT(func(v GetAccountAzureFilesAuthentication) []GetAccountAzureFilesAuthenticationActiveDirectory {
 		return v.ActiveDirectories
@@ -9328,11 +9328,11 @@ func (o GetContainersContainerArrayOutput) Index(i pulumi.IntInput) GetContainer
 }
 
 type GetPolicyRule struct {
-	// An `actions` block as documented below.
+	// An `actions` block as defined below.
 	Actions []GetPolicyRuleAction `pulumi:"actions"`
 	// Boolean to specify whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// A `filter` block as documented below.
+	// A `filter` block as defined below.
 	Filters []GetPolicyRuleFilter `pulumi:"filters"`
 	// The filter tag name used for tag based filtering for blob objects.
 	Name string `pulumi:"name"`
@@ -9350,11 +9350,11 @@ type GetPolicyRuleInput interface {
 }
 
 type GetPolicyRuleArgs struct {
-	// An `actions` block as documented below.
+	// An `actions` block as defined below.
 	Actions GetPolicyRuleActionArrayInput `pulumi:"actions"`
 	// Boolean to specify whether the rule is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A `filter` block as documented below.
+	// A `filter` block as defined below.
 	Filters GetPolicyRuleFilterArrayInput `pulumi:"filters"`
 	// The filter tag name used for tag based filtering for blob objects.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -9411,7 +9411,7 @@ func (o GetPolicyRuleOutput) ToGetPolicyRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// An `actions` block as documented below.
+// An `actions` block as defined below.
 func (o GetPolicyRuleOutput) Actions() GetPolicyRuleActionArrayOutput {
 	return o.ApplyT(func(v GetPolicyRule) []GetPolicyRuleAction { return v.Actions }).(GetPolicyRuleActionArrayOutput)
 }
@@ -9421,7 +9421,7 @@ func (o GetPolicyRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A `filter` block as documented below.
+// A `filter` block as defined below.
 func (o GetPolicyRuleOutput) Filters() GetPolicyRuleFilterArrayOutput {
 	return o.ApplyT(func(v GetPolicyRule) []GetPolicyRuleFilter { return v.Filters }).(GetPolicyRuleFilterArrayOutput)
 }
@@ -9452,11 +9452,11 @@ func (o GetPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleOutput {
 }
 
 type GetPolicyRuleAction struct {
-	// A `baseBlob` block as documented below.
+	// A `baseBlob` block as defined below.
 	BaseBlobs []GetPolicyRuleActionBaseBlob `pulumi:"baseBlobs"`
-	// A `snapshot` block as documented below.
+	// A `snapshot` block as defined below.
 	Snapshots []GetPolicyRuleActionSnapshot `pulumi:"snapshots"`
-	// A `version` block as documented below.
+	// A `version` block as defined below.
 	Versions []GetPolicyRuleActionVersion `pulumi:"versions"`
 }
 
@@ -9472,11 +9472,11 @@ type GetPolicyRuleActionInput interface {
 }
 
 type GetPolicyRuleActionArgs struct {
-	// A `baseBlob` block as documented below.
+	// A `baseBlob` block as defined below.
 	BaseBlobs GetPolicyRuleActionBaseBlobArrayInput `pulumi:"baseBlobs"`
-	// A `snapshot` block as documented below.
+	// A `snapshot` block as defined below.
 	Snapshots GetPolicyRuleActionSnapshotArrayInput `pulumi:"snapshots"`
-	// A `version` block as documented below.
+	// A `version` block as defined below.
 	Versions GetPolicyRuleActionVersionArrayInput `pulumi:"versions"`
 }
 
@@ -9531,17 +9531,17 @@ func (o GetPolicyRuleActionOutput) ToGetPolicyRuleActionOutputWithContext(ctx co
 	return o
 }
 
-// A `baseBlob` block as documented below.
+// A `baseBlob` block as defined below.
 func (o GetPolicyRuleActionOutput) BaseBlobs() GetPolicyRuleActionBaseBlobArrayOutput {
 	return o.ApplyT(func(v GetPolicyRuleAction) []GetPolicyRuleActionBaseBlob { return v.BaseBlobs }).(GetPolicyRuleActionBaseBlobArrayOutput)
 }
 
-// A `snapshot` block as documented below.
+// A `snapshot` block as defined below.
 func (o GetPolicyRuleActionOutput) Snapshots() GetPolicyRuleActionSnapshotArrayOutput {
 	return o.ApplyT(func(v GetPolicyRuleAction) []GetPolicyRuleActionSnapshot { return v.Snapshots }).(GetPolicyRuleActionSnapshotArrayOutput)
 }
 
-// A `version` block as documented below.
+// A `version` block as defined below.
 func (o GetPolicyRuleActionOutput) Versions() GetPolicyRuleActionVersionArrayOutput {
 	return o.ApplyT(func(v GetPolicyRuleAction) []GetPolicyRuleActionVersion { return v.Versions }).(GetPolicyRuleActionVersionArrayOutput)
 }

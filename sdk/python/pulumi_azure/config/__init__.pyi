@@ -24,12 +24,12 @@ auxiliaryTenantIds: Optional[str]
 
 clientCertificate: Optional[str]
 """
-Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
 """
 
 clientCertificatePassword: Optional[str]
 """
-The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
 """
 
 clientCertificatePath: Optional[str]
@@ -158,6 +158,6 @@ Allow Managed Service Identity to be used for Authentication.
 
 useOidc: Optional[bool]
 """
-Allow OpenID Connect to be used for authentication
+Allow OpenID Connect to be used for authentication.
 """
 

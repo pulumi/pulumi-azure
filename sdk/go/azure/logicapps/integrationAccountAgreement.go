@@ -127,11 +127,11 @@ type IntegrationAccountAgreement struct {
 	AgreementType pulumi.StringOutput `pulumi:"agreementType"`
 	// The content of the Logic App Integration Account Agreement.
 	Content pulumi.StringOutput `pulumi:"content"`
-	// A `guestIdentity` block as documented below.
+	// A `guestIdentity` block as defined below.
 	GuestIdentity IntegrationAccountAgreementGuestIdentityOutput `pulumi:"guestIdentity"`
 	// The name of the guest Logic App Integration Account Partner.
 	GuestPartnerName pulumi.StringOutput `pulumi:"guestPartnerName"`
-	// A `hostIdentity` block as documented below.
+	// A `hostIdentity` block as defined below.
 	HostIdentity IntegrationAccountAgreementHostIdentityOutput `pulumi:"hostIdentity"`
 	// The name of the host Logic App Integration Account Partner.
 	HostPartnerName pulumi.StringOutput `pulumi:"hostPartnerName"`
@@ -203,11 +203,11 @@ type integrationAccountAgreementState struct {
 	AgreementType *string `pulumi:"agreementType"`
 	// The content of the Logic App Integration Account Agreement.
 	Content *string `pulumi:"content"`
-	// A `guestIdentity` block as documented below.
+	// A `guestIdentity` block as defined below.
 	GuestIdentity *IntegrationAccountAgreementGuestIdentity `pulumi:"guestIdentity"`
 	// The name of the guest Logic App Integration Account Partner.
 	GuestPartnerName *string `pulumi:"guestPartnerName"`
-	// A `hostIdentity` block as documented below.
+	// A `hostIdentity` block as defined below.
 	HostIdentity *IntegrationAccountAgreementHostIdentity `pulumi:"hostIdentity"`
 	// The name of the host Logic App Integration Account Partner.
 	HostPartnerName *string `pulumi:"hostPartnerName"`
@@ -226,11 +226,11 @@ type IntegrationAccountAgreementState struct {
 	AgreementType pulumi.StringPtrInput
 	// The content of the Logic App Integration Account Agreement.
 	Content pulumi.StringPtrInput
-	// A `guestIdentity` block as documented below.
+	// A `guestIdentity` block as defined below.
 	GuestIdentity IntegrationAccountAgreementGuestIdentityPtrInput
 	// The name of the guest Logic App Integration Account Partner.
 	GuestPartnerName pulumi.StringPtrInput
-	// A `hostIdentity` block as documented below.
+	// A `hostIdentity` block as defined below.
 	HostIdentity IntegrationAccountAgreementHostIdentityPtrInput
 	// The name of the host Logic App Integration Account Partner.
 	HostPartnerName pulumi.StringPtrInput
@@ -253,11 +253,11 @@ type integrationAccountAgreementArgs struct {
 	AgreementType string `pulumi:"agreementType"`
 	// The content of the Logic App Integration Account Agreement.
 	Content string `pulumi:"content"`
-	// A `guestIdentity` block as documented below.
+	// A `guestIdentity` block as defined below.
 	GuestIdentity IntegrationAccountAgreementGuestIdentity `pulumi:"guestIdentity"`
 	// The name of the guest Logic App Integration Account Partner.
 	GuestPartnerName string `pulumi:"guestPartnerName"`
-	// A `hostIdentity` block as documented below.
+	// A `hostIdentity` block as defined below.
 	HostIdentity IntegrationAccountAgreementHostIdentity `pulumi:"hostIdentity"`
 	// The name of the host Logic App Integration Account Partner.
 	HostPartnerName string `pulumi:"hostPartnerName"`
@@ -277,11 +277,11 @@ type IntegrationAccountAgreementArgs struct {
 	AgreementType pulumi.StringInput
 	// The content of the Logic App Integration Account Agreement.
 	Content pulumi.StringInput
-	// A `guestIdentity` block as documented below.
+	// A `guestIdentity` block as defined below.
 	GuestIdentity IntegrationAccountAgreementGuestIdentityInput
 	// The name of the guest Logic App Integration Account Partner.
 	GuestPartnerName pulumi.StringInput
-	// A `hostIdentity` block as documented below.
+	// A `hostIdentity` block as defined below.
 	HostIdentity IntegrationAccountAgreementHostIdentityInput
 	// The name of the host Logic App Integration Account Partner.
 	HostPartnerName pulumi.StringInput
@@ -392,7 +392,7 @@ func (o IntegrationAccountAgreementOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// A `guestIdentity` block as documented below.
+// A `guestIdentity` block as defined below.
 func (o IntegrationAccountAgreementOutput) GuestIdentity() IntegrationAccountAgreementGuestIdentityOutput {
 	return o.ApplyT(func(v *IntegrationAccountAgreement) IntegrationAccountAgreementGuestIdentityOutput {
 		return v.GuestIdentity
@@ -404,7 +404,7 @@ func (o IntegrationAccountAgreementOutput) GuestPartnerName() pulumi.StringOutpu
 	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringOutput { return v.GuestPartnerName }).(pulumi.StringOutput)
 }
 
-// A `hostIdentity` block as documented below.
+// A `hostIdentity` block as defined below.
 func (o IntegrationAccountAgreementOutput) HostIdentity() IntegrationAccountAgreementHostIdentityOutput {
 	return o.ApplyT(func(v *IntegrationAccountAgreement) IntegrationAccountAgreementHostIdentityOutput {
 		return v.HostIdentity

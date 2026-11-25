@@ -237,7 +237,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
      * 
      * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 
@@ -246,7 +246,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+     * @return The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
      * 
      * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 
@@ -256,14 +256,14 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Conflicts with `protocol`.
+     * Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
      * 
      */
     @Import(name="protocolPorts")
     private @Nullable Output<List<String>> protocolPorts;
 
     /**
-     * @return Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Conflicts with `protocol`.
+     * @return Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
      * 
      */
     public Optional<Output<List<String>>> protocolPorts() {
@@ -666,7 +666,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param protocol The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+         * @param protocol The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
          * 
          * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
          * 
@@ -679,7 +679,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param protocol The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
+         * @param protocol The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`, a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`, or one of `any` and `application-default`. Conflicts with `protocolPorts`.
          * 
          * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
          * 
@@ -691,7 +691,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param protocolPorts Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Conflicts with `protocol`.
+         * @param protocolPorts Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param protocolPorts Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Conflicts with `protocol`.
+         * @param protocolPorts Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param protocolPorts Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Conflicts with `protocol`.
+         * @param protocolPorts Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Each entry may also be a port range in the form `[protocol]:[startPort]-[endPort]` e.g. `TCP:1024-1206`. Conflicts with `protocol`.
          * 
          * @return builder
          * 

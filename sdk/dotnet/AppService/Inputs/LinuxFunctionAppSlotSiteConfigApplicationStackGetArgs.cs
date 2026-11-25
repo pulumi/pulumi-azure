@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
+        /// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0`, `10.0` and `11.0`.
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }

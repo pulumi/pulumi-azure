@@ -95,6 +95,12 @@ namespace Pulumi.Azure.DatabaseMigration
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Network Interface created by Azure for the Database Migration Service.
+        /// </summary>
+        [Output("networkInterfaceId")]
+        public Output<string> NetworkInterfaceId { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -225,6 +231,12 @@ namespace Pulumi.Azure.DatabaseMigration
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the Network Interface created by Azure for the Database Migration Service.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
         /// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.

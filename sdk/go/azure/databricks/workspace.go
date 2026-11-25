@@ -89,7 +89,7 @@ type Workspace struct {
 	//
 	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
 	AccessConnectorId pulumi.StringPtrOutput `pulumi:"accessConnectorId"`
-	// A `customParameters` block as documented below.
+	// A `customParameters` block as defined below.
 	CustomParameters WorkspaceCustomParametersOutput `pulumi:"customParameters"`
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnabled"`
@@ -97,7 +97,7 @@ type Workspace struct {
 	DefaultStorageFirewallEnabled pulumi.BoolPtrOutput `pulumi:"defaultStorageFirewallEnabled"`
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId pulumi.StringOutput `pulumi:"diskEncryptionSetId"`
-	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	// An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
 	EnhancedSecurityCompliance WorkspaceEnhancedSecurityCompliancePtrOutput `pulumi:"enhancedSecurityCompliance"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
@@ -113,7 +113,7 @@ type Workspace struct {
 	ManagedDiskCmkKeyVaultKeyId pulumi.StringPtrOutput `pulumi:"managedDiskCmkKeyVaultKeyId"`
 	// Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
 	ManagedDiskCmkRotationToLatestVersionEnabled pulumi.BoolPtrOutput `pulumi:"managedDiskCmkRotationToLatestVersionEnabled"`
-	// A `managedDiskIdentity` block as documented below.
+	// A `managedDiskIdentity` block as defined below.
 	ManagedDiskIdentities WorkspaceManagedDiskIdentityArrayOutput `pulumi:"managedDiskIdentities"`
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
 	ManagedResourceGroupId pulumi.StringOutput `pulumi:"managedResourceGroupId"`
@@ -139,7 +139,7 @@ type Workspace struct {
 	//
 	// > **Note:** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
-	// A `storageAccountIdentity` block as documented below.
+	// A `storageAccountIdentity` block as defined below.
 	StorageAccountIdentities WorkspaceStorageAccountIdentityArrayOutput `pulumi:"storageAccountIdentities"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -189,7 +189,7 @@ type workspaceState struct {
 	//
 	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
 	AccessConnectorId *string `pulumi:"accessConnectorId"`
-	// A `customParameters` block as documented below.
+	// A `customParameters` block as defined below.
 	CustomParameters *WorkspaceCustomParameters `pulumi:"customParameters"`
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
@@ -197,7 +197,7 @@ type workspaceState struct {
 	DefaultStorageFirewallEnabled *bool `pulumi:"defaultStorageFirewallEnabled"`
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	// An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
 	EnhancedSecurityCompliance *WorkspaceEnhancedSecurityCompliance `pulumi:"enhancedSecurityCompliance"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
@@ -213,7 +213,7 @@ type workspaceState struct {
 	ManagedDiskCmkKeyVaultKeyId *string `pulumi:"managedDiskCmkKeyVaultKeyId"`
 	// Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
 	ManagedDiskCmkRotationToLatestVersionEnabled *bool `pulumi:"managedDiskCmkRotationToLatestVersionEnabled"`
-	// A `managedDiskIdentity` block as documented below.
+	// A `managedDiskIdentity` block as defined below.
 	ManagedDiskIdentities []WorkspaceManagedDiskIdentity `pulumi:"managedDiskIdentities"`
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
 	ManagedResourceGroupId *string `pulumi:"managedResourceGroupId"`
@@ -239,7 +239,7 @@ type workspaceState struct {
 	//
 	// > **Note:** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
-	// A `storageAccountIdentity` block as documented below.
+	// A `storageAccountIdentity` block as defined below.
 	StorageAccountIdentities []WorkspaceStorageAccountIdentity `pulumi:"storageAccountIdentities"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -254,7 +254,7 @@ type WorkspaceState struct {
 	//
 	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
 	AccessConnectorId pulumi.StringPtrInput
-	// A `customParameters` block as documented below.
+	// A `customParameters` block as defined below.
 	CustomParameters WorkspaceCustomParametersPtrInput
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
@@ -262,7 +262,7 @@ type WorkspaceState struct {
 	DefaultStorageFirewallEnabled pulumi.BoolPtrInput
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId pulumi.StringPtrInput
-	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	// An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
 	EnhancedSecurityCompliance WorkspaceEnhancedSecurityCompliancePtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
@@ -278,7 +278,7 @@ type WorkspaceState struct {
 	ManagedDiskCmkKeyVaultKeyId pulumi.StringPtrInput
 	// Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
 	ManagedDiskCmkRotationToLatestVersionEnabled pulumi.BoolPtrInput
-	// A `managedDiskIdentity` block as documented below.
+	// A `managedDiskIdentity` block as defined below.
 	ManagedDiskIdentities WorkspaceManagedDiskIdentityArrayInput
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
 	ManagedResourceGroupId pulumi.StringPtrInput
@@ -304,7 +304,7 @@ type WorkspaceState struct {
 	//
 	// > **Note:** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
 	Sku pulumi.StringPtrInput
-	// A `storageAccountIdentity` block as documented below.
+	// A `storageAccountIdentity` block as defined below.
 	StorageAccountIdentities WorkspaceStorageAccountIdentityArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -323,13 +323,13 @@ type workspaceArgs struct {
 	//
 	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
 	AccessConnectorId *string `pulumi:"accessConnectorId"`
-	// A `customParameters` block as documented below.
+	// A `customParameters` block as defined below.
 	CustomParameters *WorkspaceCustomParameters `pulumi:"customParameters"`
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Disallow public access to default storage account. Defaults to `false`.
 	DefaultStorageFirewallEnabled *bool `pulumi:"defaultStorageFirewallEnabled"`
-	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	// An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
 	EnhancedSecurityCompliance *WorkspaceEnhancedSecurityCompliance `pulumi:"enhancedSecurityCompliance"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
@@ -377,13 +377,13 @@ type WorkspaceArgs struct {
 	//
 	// > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
 	AccessConnectorId pulumi.StringPtrInput
-	// A `customParameters` block as documented below.
+	// A `customParameters` block as defined below.
 	CustomParameters WorkspaceCustomParametersPtrInput
 	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Disallow public access to default storage account. Defaults to `false`.
 	DefaultStorageFirewallEnabled pulumi.BoolPtrInput
-	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	// An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
 	EnhancedSecurityCompliance WorkspaceEnhancedSecurityCompliancePtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
@@ -519,7 +519,7 @@ func (o WorkspaceOutput) AccessConnectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.AccessConnectorId }).(pulumi.StringPtrOutput)
 }
 
-// A `customParameters` block as documented below.
+// A `customParameters` block as defined below.
 func (o WorkspaceOutput) CustomParameters() WorkspaceCustomParametersOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceCustomParametersOutput { return v.CustomParameters }).(WorkspaceCustomParametersOutput)
 }
@@ -539,7 +539,7 @@ func (o WorkspaceOutput) DiskEncryptionSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
 }
 
-// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+// An `enhancedSecurityCompliance` block as defined below. This feature is only valid if `sku` is set to `premium`.
 func (o WorkspaceOutput) EnhancedSecurityCompliance() WorkspaceEnhancedSecurityCompliancePtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceEnhancedSecurityCompliancePtrOutput { return v.EnhancedSecurityCompliance }).(WorkspaceEnhancedSecurityCompliancePtrOutput)
 }
@@ -576,7 +576,7 @@ func (o WorkspaceOutput) ManagedDiskCmkRotationToLatestVersionEnabled() pulumi.B
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.ManagedDiskCmkRotationToLatestVersionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `managedDiskIdentity` block as documented below.
+// A `managedDiskIdentity` block as defined below.
 func (o WorkspaceOutput) ManagedDiskIdentities() WorkspaceManagedDiskIdentityArrayOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceManagedDiskIdentityArrayOutput { return v.ManagedDiskIdentities }).(WorkspaceManagedDiskIdentityArrayOutput)
 }
@@ -632,7 +632,7 @@ func (o WorkspaceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }
 
-// A `storageAccountIdentity` block as documented below.
+// A `storageAccountIdentity` block as defined below.
 func (o WorkspaceOutput) StorageAccountIdentities() WorkspaceStorageAccountIdentityArrayOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceStorageAccountIdentityArrayOutput { return v.StorageAccountIdentities }).(WorkspaceStorageAccountIdentityArrayOutput)
 }

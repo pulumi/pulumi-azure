@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.CostManagement` - 2023-08-01
+ * * `Microsoft.CostManagement` - 2025-03-01
  * 
  * ## Import
  * 
@@ -124,12 +124,16 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
     /**
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
      * 
+     * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
+     * 
      */
     @Export(name="emailAddressSender", refs={String.class}, tree="[0]")
     private Output<String> emailAddressSender;
 
     /**
      * @return Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
+     * 
+     * &gt; **Note:** This attribute is only optional when you use a user principal to run `terraform`, which the API will fallback to using your user&#39;s email address (from your profile). If you use a service principal, this attribute is mandatory to specify.
      * 
      */
     public Output<String> emailAddressSender() {

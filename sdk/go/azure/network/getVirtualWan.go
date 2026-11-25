@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.LookupVirtualWan(ctx, &network.LookupVirtualWanArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-virtual-wan",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

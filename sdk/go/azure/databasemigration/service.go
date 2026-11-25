@@ -98,6 +98,8 @@ type Service struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specify the name of the database migration service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the Network Interface created by Azure for the Database Migration Service.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
@@ -151,6 +153,8 @@ type serviceState struct {
 	Location *string `pulumi:"location"`
 	// Specify the name of the database migration service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The ID of the Network Interface created by Azure for the Database Migration Service.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
@@ -166,6 +170,8 @@ type ServiceState struct {
 	Location pulumi.StringPtrInput
 	// Specify the name of the database migration service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The ID of the Network Interface created by Azure for the Database Migration Service.
+	NetworkInterfaceId pulumi.StringPtrInput
 	// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
@@ -306,6 +312,11 @@ func (o ServiceOutput) Location() pulumi.StringOutput {
 // Specify the name of the database migration service. Changing this forces a new resource to be created.
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Network Interface created by Azure for the Database Migration Service.
+func (o ServiceOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
 // Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.

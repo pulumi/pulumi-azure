@@ -1208,8 +1208,8 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name("existingMsSqlServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mssql-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1257,8 +1257,8 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name("existingMsSqlServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mssql-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1306,8 +1306,8 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name("existingMsSqlServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mssql-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1355,8 +1355,8 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name("existingMsSqlServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mssql-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1404,8 +1404,8 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name("existingMsSqlServer")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-mssql-server")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

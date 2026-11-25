@@ -158,7 +158,7 @@ type VirtualNetworkGateway struct {
 	BgpEnabled pulumi.BoolPtrOutput `pulumi:"bgpEnabled"`
 	// Is BGP Route Translation for NAT enabled? Defaults to `false`.
 	BgpRouteTranslationForNatEnabled pulumi.BoolPtrOutput `pulumi:"bgpRouteTranslationForNatEnabled"`
-	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+	// A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
 	BgpSettings VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
 	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrOutput `pulumi:"customRoute"`
@@ -212,7 +212,7 @@ type VirtualNetworkGateway struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
 	VirtualWanTrafficEnabled pulumi.BoolPtrOutput `pulumi:"virtualWanTrafficEnabled"`
-	// A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+	// A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrOutput `pulumi:"vpnClientConfiguration"`
 	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType pulumi.StringPtrOutput `pulumi:"vpnType"`
@@ -266,7 +266,7 @@ type virtualNetworkGatewayState struct {
 	BgpEnabled *bool `pulumi:"bgpEnabled"`
 	// Is BGP Route Translation for NAT enabled? Defaults to `false`.
 	BgpRouteTranslationForNatEnabled *bool `pulumi:"bgpRouteTranslationForNatEnabled"`
-	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+	// A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
 	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
@@ -320,7 +320,7 @@ type virtualNetworkGatewayState struct {
 	Type *string `pulumi:"type"`
 	// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
 	VirtualWanTrafficEnabled *bool `pulumi:"virtualWanTrafficEnabled"`
-	// A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+	// A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
 	VpnClientConfiguration *VirtualNetworkGatewayVpnClientConfiguration `pulumi:"vpnClientConfiguration"`
 	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType *string `pulumi:"vpnType"`
@@ -333,7 +333,7 @@ type VirtualNetworkGatewayState struct {
 	BgpEnabled pulumi.BoolPtrInput
 	// Is BGP Route Translation for NAT enabled? Defaults to `false`.
 	BgpRouteTranslationForNatEnabled pulumi.BoolPtrInput
-	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+	// A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
 	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
 	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrInput
@@ -387,7 +387,7 @@ type VirtualNetworkGatewayState struct {
 	Type pulumi.StringPtrInput
 	// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
 	VirtualWanTrafficEnabled pulumi.BoolPtrInput
-	// A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+	// A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrInput
 	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType pulumi.StringPtrInput
@@ -404,7 +404,7 @@ type virtualNetworkGatewayArgs struct {
 	BgpEnabled *bool `pulumi:"bgpEnabled"`
 	// Is BGP Route Translation for NAT enabled? Defaults to `false`.
 	BgpRouteTranslationForNatEnabled *bool `pulumi:"bgpRouteTranslationForNatEnabled"`
-	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+	// A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
 	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
@@ -458,7 +458,7 @@ type virtualNetworkGatewayArgs struct {
 	Type string `pulumi:"type"`
 	// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
 	VirtualWanTrafficEnabled *bool `pulumi:"virtualWanTrafficEnabled"`
-	// A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+	// A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
 	VpnClientConfiguration *VirtualNetworkGatewayVpnClientConfiguration `pulumi:"vpnClientConfiguration"`
 	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType *string `pulumi:"vpnType"`
@@ -472,7 +472,7 @@ type VirtualNetworkGatewayArgs struct {
 	BgpEnabled pulumi.BoolPtrInput
 	// Is BGP Route Translation for NAT enabled? Defaults to `false`.
 	BgpRouteTranslationForNatEnabled pulumi.BoolPtrInput
-	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+	// A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
 	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
 	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrInput
@@ -526,7 +526,7 @@ type VirtualNetworkGatewayArgs struct {
 	Type pulumi.StringInput
 	// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
 	VirtualWanTrafficEnabled pulumi.BoolPtrInput
-	// A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+	// A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrInput
 	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType pulumi.StringPtrInput
@@ -634,7 +634,7 @@ func (o VirtualNetworkGatewayOutput) BgpRouteTranslationForNatEnabled() pulumi.B
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolPtrOutput { return v.BgpRouteTranslationForNatEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+// A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
 func (o VirtualNetworkGatewayOutput) BgpSettings() VirtualNetworkGatewayBgpSettingsOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewayBgpSettingsOutput { return v.BgpSettings }).(VirtualNetworkGatewayBgpSettingsOutput)
 }
@@ -750,7 +750,7 @@ func (o VirtualNetworkGatewayOutput) VirtualWanTrafficEnabled() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolPtrOutput { return v.VirtualWanTrafficEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+// A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
 func (o VirtualNetworkGatewayOutput) VpnClientConfiguration() VirtualNetworkGatewayVpnClientConfigurationPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewayVpnClientConfigurationPtrOutput {
 		return v.VpnClientConfiguration

@@ -14,6 +14,14 @@ namespace Pulumi.Azure.PrivateLink.Outputs
     public sealed class EndpointPrivateServiceConnection
     {
         /// <summary>
+        /// Indicates if changes on the service provider require any updates on the consumer.
+        /// </summary>
+        public readonly string? ActionRequired;
+        /// <summary>
+        /// The reason for approval/rejection of the connection.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `True`.
@@ -42,6 +50,10 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
+        /// The status of the connection between the service consumer and provider.
+        /// </summary>
+        public readonly string? Status;
+        /// <summary>
         /// A list of subresource names which the Private Endpoint is able to connect to. `SubresourceNames` corresponds to `GroupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
         /// 
         /// &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
@@ -52,6 +64,10 @@ namespace Pulumi.Azure.PrivateLink.Outputs
 
         [OutputConstructor]
         private EndpointPrivateServiceConnection(
+            string? actionRequired,
+
+            string? description,
+
             bool isManualConnection,
 
             string name,
@@ -64,14 +80,19 @@ namespace Pulumi.Azure.PrivateLink.Outputs
 
             string? requestMessage,
 
+            string? status,
+
             ImmutableArray<string> subresourceNames)
         {
+            ActionRequired = actionRequired;
+            Description = description;
             IsManualConnection = isManualConnection;
             Name = name;
             PrivateConnectionResourceAlias = privateConnectionResourceAlias;
             PrivateConnectionResourceId = privateConnectionResourceId;
             PrivateIpAddress = privateIpAddress;
             RequestMessage = requestMessage;
+            Status = status;
             SubresourceNames = subresourceNames;
         }
     }

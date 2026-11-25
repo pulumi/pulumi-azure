@@ -81,7 +81,7 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
      */
     declare public readonly integrationAccountName: pulumi.Output<string>;
     /**
-     * A `keyVaultKey` block as documented below.
+     * A `keyVaultKey` block as defined below.
      */
     declare public readonly keyVaultKey: pulumi.Output<outputs.logicapps.IntegrationAccountCertificateKeyVaultKey | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface IntegrationAccountCertificateState {
      */
     integrationAccountName?: pulumi.Input<string | undefined>;
     /**
-     * A `keyVaultKey` block as documented below.
+     * A `keyVaultKey` block as defined below.
      */
     keyVaultKey?: pulumi.Input<inputs.logicapps.IntegrationAccountCertificateKeyVaultKey | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface IntegrationAccountCertificateArgs {
      */
     integrationAccountName: pulumi.Input<string>;
     /**
-     * A `keyVaultKey` block as documented below.
+     * A `keyVaultKey` block as defined below.
      */
     keyVaultKey?: pulumi.Input<inputs.logicapps.IntegrationAccountCertificateKeyVaultKey | undefined>;
     /**

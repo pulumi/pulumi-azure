@@ -23,7 +23,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteria {
      */
     private @Nullable Integer messageCount;
     /**
-     * @return A `recurrence` block as documented below.
+     * @return A `recurrence` block as defined below.
      * 
      */
     private @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence recurrence;
@@ -44,7 +44,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteria {
         return Optional.ofNullable(this.messageCount);
     }
     /**
-     * @return A `recurrence` block as documented below.
+     * @return A `recurrence` block as defined below.
      * 
      */
     public Optional<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence> recurrence() {

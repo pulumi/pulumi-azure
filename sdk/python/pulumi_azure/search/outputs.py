@@ -15,11 +15,83 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ServiceDatasourceBlobEncryptionKey',
     'ServiceIdentity',
     'ServiceQueryKey',
     'GetServiceIdentityResult',
     'GetServiceQueryKeyResult',
 ]
+
+@pulumi.output_type
+class ServiceDatasourceBlobEncryptionKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDatasourceBlobEncryptionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDatasourceBlobEncryptionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDatasourceBlobEncryptionKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_id: _builtins.str,
+                 client_id: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key_vault_key_id: The ID of the Key Vault Key used for encryption.
+        :param _builtins.str client_id: The Client ID of the Microsoft Entra ID application used for authentication.
+               
+               > **Note:** `client_id` and `client_secret` must be specified together.
+        :param _builtins.str client_secret: The Client Secret of the Microsoft Entra ID application used for authentication.
+               
+               > **Note:** If `client_id` and `client_secret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> _builtins.str:
+        """
+        The ID of the Key Vault Key used for encryption.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        The Client ID of the Microsoft Entra ID application used for authentication.
+
+        > **Note:** `client_id` and `client_secret` must be specified together.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        """
+        The Client Secret of the Microsoft Entra ID application used for authentication.
+
+        > **Note:** If `client_id` and `client_secret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+        """
+        return pulumi.get(self, "client_secret")
+
 
 @pulumi.output_type
 class ServiceIdentity(dict):

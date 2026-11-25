@@ -60,7 +60,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.BackendServiceFabricClusterServerX509NameArgs>? _serverX509Names;
 
         /// <summary>
-        /// One or more `ServerX509Name` blocks as documented below.
+        /// One or more `ServerX509Name` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BackendServiceFabricClusterServerX509NameArgs> ServerX509Names
         {

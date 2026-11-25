@@ -47,6 +47,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the Network Interface created by Azure for the Database Migration Service.
+     * 
+     */
+    @Import(name="networkInterfaceId")
+    private @Nullable Output<String> networkInterfaceId;
+
+    /**
+     * @return The ID of the Network Interface created by Azure for the Database Migration Service.
+     * 
+     */
+    public Optional<Output<String>> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
+    }
+
+    /**
      * Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
      * 
      */
@@ -111,6 +126,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     private ServiceState(ServiceState $) {
         this.location = $.location;
         this.name = $.name;
+        this.networkInterfaceId = $.networkInterfaceId;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
         this.subnetId = $.subnetId;
@@ -175,6 +191,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkInterfaceId The ID of the Network Interface created by Azure for the Database Migration Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
+            $.networkInterfaceId = networkInterfaceId;
+            return this;
+        }
+
+        /**
+         * @param networkInterfaceId The ID of the Network Interface created by Azure for the Database Migration Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkInterfaceId(String networkInterfaceId) {
+            return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
         /**

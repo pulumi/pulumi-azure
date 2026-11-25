@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.consumption.getBudgetResourceGroup({
- *     name: "existing",
+ *     name: "example-budget",
  *     resourceGroupId: exampleAzurermResourceGroup.id,
  * });
  * export const id = example.then(example => example.id);
@@ -95,7 +95,7 @@ export interface GetBudgetResourceGroupResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.consumption.getBudgetResourceGroup({
- *     name: "existing",
+ *     name: "example-budget",
  *     resourceGroupId: exampleAzurermResourceGroup.id,
  * });
  * export const id = example.then(example => example.id);

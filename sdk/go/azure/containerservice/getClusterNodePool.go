@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := containerservice.GetClusterNodePool(ctx, &containerservice.GetClusterNodePoolArgs{
-//				Name:                  "existing",
-//				KubernetesClusterName: "existing-cluster",
-//				ResourceGroupName:     "existing-resource-group",
+//				Name:                  "example",
+//				KubernetesClusterName: "example-cluster",
+//				ResourceGroupName:     "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService` - 2026-05-01
+// * `Microsoft.ContainerService` - 2026-07-01
 func GetClusterNodePool(ctx *pulumi.Context, args *GetClusterNodePoolArgs, opts ...pulumi.InvokeOption) (*GetClusterNodePoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterNodePoolResult
@@ -116,7 +116,7 @@ type GetClusterNodePoolResult struct {
 	SpotMaxPrice float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags assigned to the Kubernetes Cluster Node Pool.
 	Tags map[string]string `pulumi:"tags"`
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings []GetClusterNodePoolUpgradeSetting `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machines used in the Virtual Machine Scale Set backing this Node Pool.
 	VmSize string `pulumi:"vmSize"`
@@ -281,7 +281,7 @@ func (o GetClusterNodePoolResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `upgradeSettings` block as documented below.
+// A `upgradeSettings` block as defined below.
 func (o GetClusterNodePoolResultOutput) UpgradeSettings() GetClusterNodePoolUpgradeSettingArrayOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) []GetClusterNodePoolUpgradeSetting { return v.UpgradeSettings }).(GetClusterNodePoolUpgradeSettingArrayOutput)
 }

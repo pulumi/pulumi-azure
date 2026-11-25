@@ -144,7 +144,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     declare public readonly bgpRouteTranslationForNatEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+     * A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
      */
     declare public readonly bgpSettings: pulumi.Output<outputs.network.VirtualNetworkGatewayBgpSettings>;
     /**
@@ -238,7 +238,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     declare public readonly virtualWanTrafficEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
     declare public readonly vpnClientConfiguration: pulumi.Output<outputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**
@@ -346,7 +346,7 @@ export interface VirtualNetworkGatewayState {
      */
     bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+     * A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
      */
     bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings | undefined>;
     /**
@@ -440,7 +440,7 @@ export interface VirtualNetworkGatewayState {
      */
     virtualWanTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
     vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**
@@ -466,7 +466,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
+     * A `bgpSettings` block which is defined below. In this block the BGP specific settings can be defined.
      */
     bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings | undefined>;
     /**
@@ -560,7 +560,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     virtualWanTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is defined below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
     vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**

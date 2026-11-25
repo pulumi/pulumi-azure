@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         ///     var example = Azure.ApiManagement.GetWorkspace.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-workspace",
         ///         ApiManagementId = exampleService.Id,
         ///     });
         /// 
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         ///     var example = Azure.ApiManagement.GetWorkspace.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-workspace",
         ///         ApiManagementId = exampleService.Id,
         ///     });
         /// 
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         ///     var example = Azure.ApiManagement.GetWorkspace.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "example-workspace",
         ///         ApiManagementId = exampleService.Id,
         ///     });
         /// 

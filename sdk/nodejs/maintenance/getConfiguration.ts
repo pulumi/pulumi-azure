@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.maintenance.getConfiguration({
+ * const example = azure.maintenance.getConfiguration({
  *     name: "example-mc",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existingAzurermMaintenanceConfiguration.id;
+ * export const id = example.then(example => example.id);
  * ```
  *
  * ## API Providers
@@ -103,11 +103,11 @@ export interface GetConfigurationResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existing = azure.maintenance.getConfiguration({
+ * const example = azure.maintenance.getConfiguration({
  *     name: "example-mc",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existingAzurermMaintenanceConfiguration.id;
+ * export const id = example.then(example => example.id);
  * ```
  *
  * ## API Providers

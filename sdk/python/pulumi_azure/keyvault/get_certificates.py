@@ -108,9 +108,9 @@ def get_certificates(include_pending: Optional[_builtins.bool] = None,
     import pulumi_azure as azure
     import pulumi_std as std
 
-    example = azure.keyvault.get_certificates(key_vault_id=existing["id"])
+    example = azure.keyvault.get_certificates(key_vault_id=example_azurerm_key_vault["id"])
     example_get_certificate = {str(__key): azure.keyvault.get_certificate(name=str(__key),
-        key_vault_id=existing["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
+        key_vault_id=example_azurerm_key_vault["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
 
@@ -144,9 +144,9 @@ def get_certificates_output(include_pending: pulumi.Input[Optional[Optional[_bui
     import pulumi_azure as azure
     import pulumi_std as std
 
-    example = azure.keyvault.get_certificates(key_vault_id=existing["id"])
+    example = azure.keyvault.get_certificates(key_vault_id=example_azurerm_key_vault["id"])
     example_get_certificate = {str(__key): azure.keyvault.get_certificate(name=str(__key),
-        key_vault_id=existing["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
+        key_vault_id=example_azurerm_key_vault["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
 

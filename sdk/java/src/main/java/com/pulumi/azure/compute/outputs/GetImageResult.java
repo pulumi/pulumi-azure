@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImageResult {
     /**
-     * @return a collection of `dataDisk` blocks as defined below.
+     * @return One or more `dataDisk` blocks as defined below.
      * 
      */
     private List<GetImageDataDisk> dataDisks;
@@ -58,7 +58,7 @@ public final class GetImageResult {
 
     private GetImageResult() {}
     /**
-     * @return a collection of `dataDisk` blocks as defined below.
+     * @return One or more `dataDisk` blocks as defined below.
      * 
      */
     public List<GetImageDataDisk> dataDisks() {

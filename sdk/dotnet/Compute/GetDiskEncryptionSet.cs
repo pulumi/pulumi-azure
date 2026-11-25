@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetDiskEncryptionSet.Invoke(new()
+        ///     var example = Azure.Compute.GetDiskEncryptionSet.Invoke(new()
         ///     {
         ///         Name = "example-des",
         ///         ResourceGroupName = "example-resources",
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Compute
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getDiskEncryptionSetResult =&gt; getDiskEncryptionSetResult.Id),
+        ///         ["id"] = example.Apply(getDiskEncryptionSetResult =&gt; getDiskEncryptionSetResult.Id),
         ///     };
         /// });
         /// ```
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetDiskEncryptionSet.Invoke(new()
+        ///     var example = Azure.Compute.GetDiskEncryptionSet.Invoke(new()
         ///     {
         ///         Name = "example-des",
         ///         ResourceGroupName = "example-resources",
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Compute
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getDiskEncryptionSetResult =&gt; getDiskEncryptionSetResult.Id),
+        ///         ["id"] = example.Apply(getDiskEncryptionSetResult =&gt; getDiskEncryptionSetResult.Id),
         ///     };
         /// });
         /// ```
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetDiskEncryptionSet.Invoke(new()
+        ///     var example = Azure.Compute.GetDiskEncryptionSet.Invoke(new()
         ///     {
         ///         Name = "example-des",
         ///         ResourceGroupName = "example-resources",
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Compute
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getDiskEncryptionSetResult =&gt; getDiskEncryptionSetResult.Id),
+        ///         ["id"] = example.Apply(getDiskEncryptionSetResult =&gt; getDiskEncryptionSetResult.Id),
         ///     };
         /// });
         /// ```

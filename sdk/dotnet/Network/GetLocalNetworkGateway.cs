@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetLocalNetworkGateway.Invoke(new()
         ///     {
-        ///         Name = "existing-local-network-gateway",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-local-network-gateway",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetLocalNetworkGateway.Invoke(new()
         ///     {
-        ///         Name = "existing-local-network-gateway",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-local-network-gateway",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetLocalNetworkGateway.Invoke(new()
         ///     {
-        ///         Name = "existing-local-network-gateway",
-        ///         ResourceGroupName = "existing-resources",
+        ///         Name = "example-local-network-gateway",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FeaturesNetapp {
     /**
-     * @return When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+     * @return When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
      * 
      */
     private @Nullable Boolean deleteBackupsOnBackupVaultDestroy;
     /**
-     * @return When enabled, the volume will not be destroyed, safeguarding from severe data loss
+     * @return When enabled, the volume will not be destroyed, safeguarding from severe data loss.
      * 
      */
     private @Nullable Boolean preventVolumeDestruction;
 
     private FeaturesNetapp() {}
     /**
-     * @return When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+     * @return When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed.
      * 
      */
     public Optional<Boolean> deleteBackupsOnBackupVaultDestroy() {
         return Optional.ofNullable(this.deleteBackupsOnBackupVaultDestroy);
     }
     /**
-     * @return When enabled, the volume will not be destroyed, safeguarding from severe data loss
+     * @return When enabled, the volume will not be destroyed, safeguarding from severe data loss.
      * 
      */
     public Optional<Boolean> preventVolumeDestruction() {

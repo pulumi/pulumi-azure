@@ -130,7 +130,7 @@ def get_certificate_issuer(key_vault_id: Optional[_builtins.str] = None,
 
     example = azure.keyvault.get_key_vault(name="mykeyvault",
         resource_group_name="some-resource-group")
-    example_get_certificate_issuer = azure.keyvault.get_certificate_issuer(name="existing",
+    example_get_certificate_issuer = azure.keyvault.get_certificate_issuer(name="example-issuer",
         key_vault_id=example.id)
     pulumi.export("id", example_get_certificate_issuer.id)
     ```
@@ -167,7 +167,7 @@ def get_certificate_issuer_output(key_vault_id: pulumi.Input[Optional[_builtins.
 
     example = azure.keyvault.get_key_vault(name="mykeyvault",
         resource_group_name="some-resource-group")
-    example_get_certificate_issuer = azure.keyvault.get_certificate_issuer(name="existing",
+    example_get_certificate_issuer = azure.keyvault.get_certificate_issuer(name="example-issuer",
         key_vault_id=example.id)
     pulumi.export("id", example_get_certificate_issuer.id)
     ```

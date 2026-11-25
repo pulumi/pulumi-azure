@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterServiceMeshProfileResult
     {
         /// <summary>
-        /// A `CertificateAuthority` block as documented below.
+        /// A `CertificateAuthority` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterServiceMeshProfileCertificateAuthorityResult> CertificateAuthorities;
         /// <summary>

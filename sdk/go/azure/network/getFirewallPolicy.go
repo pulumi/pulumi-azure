@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.LookupFirewallPolicy(ctx, &network.LookupFirewallPolicyArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-firewall-policy",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

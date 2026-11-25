@@ -68,7 +68,7 @@ export interface GetGatewayResult {
      */
     readonly id: string;
     /**
-     * A `locationData` block as documented below.
+     * A `locationData` block as defined below.
      */
     readonly locationDatas: outputs.apimanagement.GetGatewayLocationData[];
     /**

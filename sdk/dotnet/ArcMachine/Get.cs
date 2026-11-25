@@ -26,8 +26,8 @@ namespace Pulumi.Azure.ArcMachine
         /// {
         ///     var example = Azure.ArcMachine.Get.Invoke(new()
         ///     {
-        ///         Name = "existing-hcmachine",
-        ///         ResourceGroupName = "existing-rg",
+        ///         Name = "example-machine",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.ArcMachine
         /// {
         ///     var example = Azure.ArcMachine.Get.Invoke(new()
         ///     {
-        ///         Name = "existing-hcmachine",
-        ///         ResourceGroupName = "existing-rg",
+        ///         Name = "example-machine",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.ArcMachine
         /// {
         ///     var example = Azure.ArcMachine.Get.Invoke(new()
         ///     {
-        ///         Name = "existing-hcmachine",
-        ///         ResourceGroupName = "existing-rg",
+        ///         Name = "example-machine",
+        ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

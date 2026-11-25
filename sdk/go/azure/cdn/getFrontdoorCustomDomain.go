@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cdn.LookupFrontdoorCustomDomain(ctx, &cdn.LookupFrontdoorCustomDomainArgs{
-//				Name:              "existing-cdn-frontdoor-custom-domain",
-//				ProfileName:       "existing-cdn-frontdoor-profile",
-//				ResourceGroupName: "existing-resource-group",
+//				Name:              "example-cdn-frontdoor-custom-domain",
+//				ProfileName:       "example-cdn-frontdoor-profile",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Cdn` - 2025-12-01
+// * `Microsoft.Cdn` - 2026-10-01
 func LookupFrontdoorCustomDomain(ctx *pulumi.Context, args *LookupFrontdoorCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorCustomDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorCustomDomainResult

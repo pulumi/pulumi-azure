@@ -108,10 +108,10 @@ def get_public_configurations(location: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.maintenance.get_public_configurations(location="West Europe",
+    example = azure.maintenance.get_public_configurations(location="West Europe",
         scope="SQLManagedInstance",
         recur_every="Monday-Thursday")
-    pulumi.export("name", existing.configs[0].name)
+    pulumi.export("name", example.configs[0].name)
     ```
 
     ## API Providers
@@ -152,10 +152,10 @@ def get_public_configurations_output(location: pulumi.Input[Optional[Optional[_b
     import pulumi
     import pulumi_azure as azure
 
-    existing = azure.maintenance.get_public_configurations(location="West Europe",
+    example = azure.maintenance.get_public_configurations(location="West Europe",
         scope="SQLManagedInstance",
         recur_every="Monday-Thursday")
-    pulumi.export("name", existing.configs[0].name)
+    pulumi.export("name", example.configs[0].name)
     ```
 
     ## API Providers

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Fabric.Inputs
     public sealed class CapacitySkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+        /// The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

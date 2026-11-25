@@ -84,7 +84,7 @@ namespace Pulumi.Azure.DataBricks
         public Output<string?> AccessConnectorId { get; private set; } = null!;
 
         /// <summary>
-        /// A `CustomParameters` block as documented below.
+        /// A `CustomParameters` block as defined below.
         /// </summary>
         [Output("customParameters")]
         public Output<Outputs.WorkspaceCustomParameters> CustomParameters { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.DataBricks
         public Output<string> DiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
-        /// An `EnhancedSecurityCompliance` block as documented below. This feature is only valid if `Sku` is set to `Premium`.
+        /// An `EnhancedSecurityCompliance` block as defined below. This feature is only valid if `Sku` is set to `Premium`.
         /// </summary>
         [Output("enhancedSecurityCompliance")]
         public Output<Outputs.WorkspaceEnhancedSecurityCompliance?> EnhancedSecurityCompliance { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.DataBricks
         public Output<bool?> ManagedDiskCmkRotationToLatestVersionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `ManagedDiskIdentity` block as documented below.
+        /// A `ManagedDiskIdentity` block as defined below.
         /// </summary>
         [Output("managedDiskIdentities")]
         public Output<ImmutableArray<Outputs.WorkspaceManagedDiskIdentity>> ManagedDiskIdentities { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.DataBricks
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// A `StorageAccountIdentity` block as documented below.
+        /// A `StorageAccountIdentity` block as defined below.
         /// </summary>
         [Output("storageAccountIdentities")]
         public Output<ImmutableArray<Outputs.WorkspaceStorageAccountIdentity>> StorageAccountIdentities { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<string>? AccessConnectorId { get; set; }
 
         /// <summary>
-        /// A `CustomParameters` block as documented below.
+        /// A `CustomParameters` block as defined below.
         /// </summary>
         [Input("customParameters")]
         public Input<Inputs.WorkspaceCustomParametersArgs>? CustomParameters { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<bool>? DefaultStorageFirewallEnabled { get; set; }
 
         /// <summary>
-        /// An `EnhancedSecurityCompliance` block as documented below. This feature is only valid if `Sku` is set to `Premium`.
+        /// An `EnhancedSecurityCompliance` block as defined below. This feature is only valid if `Sku` is set to `Premium`.
         /// </summary>
         [Input("enhancedSecurityCompliance")]
         public Input<Inputs.WorkspaceEnhancedSecurityComplianceArgs>? EnhancedSecurityCompliance { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<string>? AccessConnectorId { get; set; }
 
         /// <summary>
-        /// A `CustomParameters` block as documented below.
+        /// A `CustomParameters` block as defined below.
         /// </summary>
         [Input("customParameters")]
         public Input<Inputs.WorkspaceCustomParametersGetArgs>? CustomParameters { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// An `EnhancedSecurityCompliance` block as documented below. This feature is only valid if `Sku` is set to `Premium`.
+        /// An `EnhancedSecurityCompliance` block as defined below. This feature is only valid if `Sku` is set to `Premium`.
         /// </summary>
         [Input("enhancedSecurityCompliance")]
         public Input<Inputs.WorkspaceEnhancedSecurityComplianceGetArgs>? EnhancedSecurityCompliance { get; set; }
@@ -501,7 +501,7 @@ namespace Pulumi.Azure.DataBricks
         private InputList<Inputs.WorkspaceManagedDiskIdentityGetArgs>? _managedDiskIdentities;
 
         /// <summary>
-        /// A `ManagedDiskIdentity` block as documented below.
+        /// A `ManagedDiskIdentity` block as defined below.
         /// </summary>
         public InputList<Inputs.WorkspaceManagedDiskIdentityGetArgs> ManagedDiskIdentities
         {
@@ -571,7 +571,7 @@ namespace Pulumi.Azure.DataBricks
         private InputList<Inputs.WorkspaceStorageAccountIdentityGetArgs>? _storageAccountIdentities;
 
         /// <summary>
-        /// A `StorageAccountIdentity` block as documented below.
+        /// A `StorageAccountIdentity` block as defined below.
         /// </summary>
         public InputList<Inputs.WorkspaceStorageAccountIdentityGetArgs> StorageAccountIdentities
         {

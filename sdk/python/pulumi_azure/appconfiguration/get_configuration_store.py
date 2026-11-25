@@ -296,8 +296,8 @@ def get_configuration_store(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appconfiguration.get_configuration_store(name="existing",
-        resource_group_name="existing")
+    example = azure.appconfiguration.get_configuration_store(name="example-app-configuration",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -352,8 +352,8 @@ def get_configuration_store_output(name: pulumi.Input[Optional[_builtins.str]] =
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appconfiguration.get_configuration_store(name="existing",
-        resource_group_name="existing")
+    example = azure.appconfiguration.get_configuration_store(name="example-app-configuration",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

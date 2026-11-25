@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// The description of the ip restriction rule.
+        /// The description of the IP restriction rule.
         /// </summary>
         public readonly string Description;
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult> Headers;

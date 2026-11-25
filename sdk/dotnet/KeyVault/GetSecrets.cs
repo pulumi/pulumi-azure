@@ -27,7 +27,7 @@ namespace Pulumi.Azure.KeyVault
         /// {
         ///     var example = Azure.KeyVault.GetSecrets.Invoke(new()
         ///     {
-        ///         KeyVaultId = existing.Id,
+        ///         KeyVaultId = exampleAzurermKeyVault.Id,
         ///     });
         /// 
         ///     var exampleGetSecret = Std.Toset.Invoke(new()
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.KeyVault
         /// {
         ///     var example = Azure.KeyVault.GetSecrets.Invoke(new()
         ///     {
-        ///         KeyVaultId = existing.Id,
+        ///         KeyVaultId = exampleAzurermKeyVault.Id,
         ///     });
         /// 
         ///     var exampleGetSecret = Std.Toset.Invoke(new()
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.KeyVault
         /// {
         ///     var example = Azure.KeyVault.GetSecrets.Invoke(new()
         ///     {
-        ///         KeyVaultId = existing.Id,
+        ///         KeyVaultId = exampleAzurermKeyVault.Id,
         ///     });
         /// 
         ///     var exampleGetSecret = Std.Toset.Invoke(new()

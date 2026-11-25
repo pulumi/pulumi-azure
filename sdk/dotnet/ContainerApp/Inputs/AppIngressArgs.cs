@@ -75,6 +75,14 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         }
 
         /// <summary>
+        /// Is session affinity enabled. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** Session affinity requires `Single` `RevisionMode` and an ingress `Transport` of `Auto`, `Http`, or `Http2`.
+        /// </summary>
+        [Input("sessionAffinityEnabled")]
+        public Input<bool>? SessionAffinityEnabled { get; set; }
+
+        /// <summary>
         /// The target port on the container for the Ingress traffic.
         /// </summary>
         [Input("targetPort", required: true)]

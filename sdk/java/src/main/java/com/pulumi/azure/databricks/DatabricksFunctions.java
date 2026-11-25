@@ -49,8 +49,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-access-connector")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -98,8 +98,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-access-connector")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -147,8 +147,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-access-connector")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -196,8 +196,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-access-connector")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -245,8 +245,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-access-connector")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

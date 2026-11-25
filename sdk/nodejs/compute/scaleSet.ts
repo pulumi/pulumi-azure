@@ -298,7 +298,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     declare public readonly evictionPolicy: pulumi.Output<string | undefined>;
     /**
-     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
      */
     declare public readonly extensions: pulumi.Output<outputs.compute.ScaleSetExtension[] | undefined>;
     /**
@@ -322,23 +322,23 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A collection of `networkProfile` blocks as documented below.
+     * One or more `networkProfile` blocks as defined below.
      */
     declare public readonly networkProfiles: pulumi.Output<outputs.compute.ScaleSetNetworkProfile[]>;
     /**
-     * A `osProfile` block as documented below.
+     * A `osProfile` block as defined below.
      */
     declare public readonly osProfile: pulumi.Output<outputs.compute.ScaleSetOsProfile>;
     /**
-     * A `osProfileLinuxConfig` block as documented below.
+     * A `osProfileLinuxConfig` block as defined below.
      */
     declare public readonly osProfileLinuxConfig: pulumi.Output<outputs.compute.ScaleSetOsProfileLinuxConfig>;
     /**
-     * A collection of `osProfileSecrets` blocks as documented below.
+     * One or more `osProfileSecrets` blocks as defined below.
      */
     declare public readonly osProfileSecrets: pulumi.Output<outputs.compute.ScaleSetOsProfileSecret[] | undefined>;
     /**
-     * A `osProfileWindowsConfig` block as documented below.
+     * A `osProfileWindowsConfig` block as defined below.
      */
     declare public readonly osProfileWindowsConfig: pulumi.Output<outputs.compute.ScaleSetOsProfileWindowsConfig | undefined>;
     /**
@@ -346,7 +346,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     declare public readonly overprovision: pulumi.Output<boolean | undefined>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     declare public readonly plan: pulumi.Output<outputs.compute.ScaleSetPlan | undefined>;
     /**
@@ -370,19 +370,19 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     declare public readonly singlePlacementGroup: pulumi.Output<boolean | undefined>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      */
     declare public readonly sku: pulumi.Output<outputs.compute.ScaleSetSku>;
     /**
-     * A `storageProfileDataDisk` block as documented below.
+     * A `storageProfileDataDisk` block as defined below.
      */
     declare public readonly storageProfileDataDisks: pulumi.Output<outputs.compute.ScaleSetStorageProfileDataDisk[] | undefined>;
     /**
-     * A `storageProfileImageReference` block as documented below.
+     * A `storageProfileImageReference` block as defined below.
      */
     declare public readonly storageProfileImageReference: pulumi.Output<outputs.compute.ScaleSetStorageProfileImageReference>;
     /**
-     * A `storageProfileOsDisk` block as documented below.
+     * A `storageProfileOsDisk` block as defined below.
      */
     declare public readonly storageProfileOsDisk: pulumi.Output<outputs.compute.ScaleSetStorageProfileOsDisk>;
     /**
@@ -394,7 +394,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     declare public readonly upgradePolicyMode: pulumi.Output<string>;
     /**
-     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     * A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
@@ -514,7 +514,7 @@ export interface ScaleSetState {
      */
     evictionPolicy?: pulumi.Input<string | undefined>;
     /**
-     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetExtension>[] | undefined>;
     /**
@@ -538,23 +538,23 @@ export interface ScaleSetState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A collection of `networkProfile` blocks as documented below.
+     * One or more `networkProfile` blocks as defined below.
      */
     networkProfiles?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetNetworkProfile>[] | undefined>;
     /**
-     * A `osProfile` block as documented below.
+     * A `osProfile` block as defined below.
      */
     osProfile?: pulumi.Input<inputs.compute.ScaleSetOsProfile | undefined>;
     /**
-     * A `osProfileLinuxConfig` block as documented below.
+     * A `osProfileLinuxConfig` block as defined below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileLinuxConfig | undefined>;
     /**
-     * A collection of `osProfileSecrets` blocks as documented below.
+     * One or more `osProfileSecrets` blocks as defined below.
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetOsProfileSecret>[] | undefined>;
     /**
-     * A `osProfileWindowsConfig` block as documented below.
+     * A `osProfileWindowsConfig` block as defined below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileWindowsConfig | undefined>;
     /**
@@ -562,7 +562,7 @@ export interface ScaleSetState {
      */
     overprovision?: pulumi.Input<boolean | undefined>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     plan?: pulumi.Input<inputs.compute.ScaleSetPlan | undefined>;
     /**
@@ -586,19 +586,19 @@ export interface ScaleSetState {
      */
     singlePlacementGroup?: pulumi.Input<boolean | undefined>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      */
     sku?: pulumi.Input<inputs.compute.ScaleSetSku | undefined>;
     /**
-     * A `storageProfileDataDisk` block as documented below.
+     * A `storageProfileDataDisk` block as defined below.
      */
     storageProfileDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetStorageProfileDataDisk>[] | undefined>;
     /**
-     * A `storageProfileImageReference` block as documented below.
+     * A `storageProfileImageReference` block as defined below.
      */
     storageProfileImageReference?: pulumi.Input<inputs.compute.ScaleSetStorageProfileImageReference | undefined>;
     /**
-     * A `storageProfileOsDisk` block as documented below.
+     * A `storageProfileOsDisk` block as defined below.
      */
     storageProfileOsDisk?: pulumi.Input<inputs.compute.ScaleSetStorageProfileOsDisk | undefined>;
     /**
@@ -610,7 +610,7 @@ export interface ScaleSetState {
      */
     upgradePolicyMode?: pulumi.Input<string | undefined>;
     /**
-     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     * A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
@@ -636,7 +636,7 @@ export interface ScaleSetArgs {
      */
     evictionPolicy?: pulumi.Input<string | undefined>;
     /**
-     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetExtension>[] | undefined>;
     /**
@@ -660,23 +660,23 @@ export interface ScaleSetArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A collection of `networkProfile` blocks as documented below.
+     * One or more `networkProfile` blocks as defined below.
      */
     networkProfiles: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetNetworkProfile>[]>;
     /**
-     * A `osProfile` block as documented below.
+     * A `osProfile` block as defined below.
      */
     osProfile: pulumi.Input<inputs.compute.ScaleSetOsProfile>;
     /**
-     * A `osProfileLinuxConfig` block as documented below.
+     * A `osProfileLinuxConfig` block as defined below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileLinuxConfig | undefined>;
     /**
-     * A collection of `osProfileSecrets` blocks as documented below.
+     * One or more `osProfileSecrets` blocks as defined below.
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetOsProfileSecret>[] | undefined>;
     /**
-     * A `osProfileWindowsConfig` block as documented below.
+     * A `osProfileWindowsConfig` block as defined below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileWindowsConfig | undefined>;
     /**
@@ -684,7 +684,7 @@ export interface ScaleSetArgs {
      */
     overprovision?: pulumi.Input<boolean | undefined>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     plan?: pulumi.Input<inputs.compute.ScaleSetPlan | undefined>;
     /**
@@ -708,19 +708,19 @@ export interface ScaleSetArgs {
      */
     singlePlacementGroup?: pulumi.Input<boolean | undefined>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      */
     sku: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**
-     * A `storageProfileDataDisk` block as documented below.
+     * A `storageProfileDataDisk` block as defined below.
      */
     storageProfileDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetStorageProfileDataDisk>[] | undefined>;
     /**
-     * A `storageProfileImageReference` block as documented below.
+     * A `storageProfileImageReference` block as defined below.
      */
     storageProfileImageReference?: pulumi.Input<inputs.compute.ScaleSetStorageProfileImageReference | undefined>;
     /**
-     * A `storageProfileOsDisk` block as documented below.
+     * A `storageProfileOsDisk` block as defined below.
      */
     storageProfileOsDisk: pulumi.Input<inputs.compute.ScaleSetStorageProfileOsDisk>;
     /**
@@ -732,7 +732,7 @@ export interface ScaleSetArgs {
      */
     upgradePolicyMode: pulumi.Input<string>;
     /**
-     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     * A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */

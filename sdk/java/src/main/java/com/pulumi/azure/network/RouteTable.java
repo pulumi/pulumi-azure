@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Route Table
  * 
- * &gt; **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `routeTable` resource.
+ * &gt; **Note:** Terraform currently
+ * provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
  * At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
  * 
  * ## Example Usage
@@ -148,18 +149,18 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A list of objects representing routes. Each object accepts the arguments documented below.
+     * List of `route` objects representing routes as defined below. Each object accepts the arguments defined below.
      * 
-     * &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="routes", refs={List.class,RouteTableRoute.class}, tree="[0,1]")
     private Output<List<RouteTableRoute>> routes;
 
     /**
-     * @return A list of objects representing routes. Each object accepts the arguments documented below.
+     * @return List of `route` objects representing routes as defined below. Each object accepts the arguments defined below.
      * 
-     * &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<RouteTableRoute>> routes() {

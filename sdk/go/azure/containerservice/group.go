@@ -97,9 +97,9 @@ type Group struct {
 
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers GroupContainerArrayOutput `pulumi:"containers"`
-	// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+	// A `diagnostics` block as defined below. Changing this forces a new resource to be created.
 	Diagnostics GroupDiagnosticsPtrOutput `pulumi:"diagnostics"`
-	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+	// A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
 	DnsConfig GroupDnsConfigPtrOutput `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	//
@@ -115,7 +115,7 @@ type Group struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// An `identity` block as defined below.
 	Identity GroupIdentityPtrOutput `pulumi:"identity"`
-	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayOutput `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayOutput `pulumi:"initContainers"`
@@ -198,9 +198,9 @@ func GetGroup(ctx *pulumi.Context,
 type groupState struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers []GroupContainer `pulumi:"containers"`
-	// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+	// A `diagnostics` block as defined below. Changing this forces a new resource to be created.
 	Diagnostics *GroupDiagnostics `pulumi:"diagnostics"`
-	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+	// A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	//
@@ -216,7 +216,7 @@ type groupState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// An `identity` block as defined below.
 	Identity *GroupIdentity `pulumi:"identity"`
-	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
@@ -261,9 +261,9 @@ type groupState struct {
 type GroupState struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers GroupContainerArrayInput
-	// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+	// A `diagnostics` block as defined below. Changing this forces a new resource to be created.
 	Diagnostics GroupDiagnosticsPtrInput
-	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+	// A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	//
@@ -279,7 +279,7 @@ type GroupState struct {
 	Fqdn pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity GroupIdentityPtrInput
-	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayInput
@@ -328,9 +328,9 @@ func (GroupState) ElementType() reflect.Type {
 type groupArgs struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers []GroupContainer `pulumi:"containers"`
-	// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+	// A `diagnostics` block as defined below. Changing this forces a new resource to be created.
 	Diagnostics *GroupDiagnostics `pulumi:"diagnostics"`
-	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+	// A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	//
@@ -344,7 +344,7 @@ type groupArgs struct {
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
 	// An `identity` block as defined below.
 	Identity *GroupIdentity `pulumi:"identity"`
-	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
@@ -388,9 +388,9 @@ type groupArgs struct {
 type GroupArgs struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers GroupContainerArrayInput
-	// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+	// A `diagnostics` block as defined below. Changing this forces a new resource to be created.
 	Diagnostics GroupDiagnosticsPtrInput
-	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+	// A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	//
@@ -404,7 +404,7 @@ type GroupArgs struct {
 	ExposedPorts GroupExposedPortArrayInput
 	// An `identity` block as defined below.
 	Identity GroupIdentityPtrInput
-	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayInput
@@ -536,12 +536,12 @@ func (o GroupOutput) Containers() GroupContainerArrayOutput {
 	return o.ApplyT(func(v *Group) GroupContainerArrayOutput { return v.Containers }).(GroupContainerArrayOutput)
 }
 
-// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+// A `diagnostics` block as defined below. Changing this forces a new resource to be created.
 func (o GroupOutput) Diagnostics() GroupDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *Group) GroupDiagnosticsPtrOutput { return v.Diagnostics }).(GroupDiagnosticsPtrOutput)
 }
 
-// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
+// A `dnsConfig` block as defined below. Changing this forces a new resource to be created.
 func (o GroupOutput) DnsConfig() GroupDnsConfigPtrOutput {
 	return o.ApplyT(func(v *Group) GroupDnsConfigPtrOutput { return v.DnsConfig }).(GroupDnsConfigPtrOutput)
 }
@@ -575,7 +575,7 @@ func (o GroupOutput) Identity() GroupIdentityPtrOutput {
 	return o.ApplyT(func(v *Group) GroupIdentityPtrOutput { return v.Identity }).(GroupIdentityPtrOutput)
 }
 
-// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+// An `imageRegistryCredential` block as defined below. Changing this forces a new resource to be created.
 func (o GroupOutput) ImageRegistryCredentials() GroupImageRegistryCredentialArrayOutput {
 	return o.ApplyT(func(v *Group) GroupImageRegistryCredentialArrayOutput { return v.ImageRegistryCredentials }).(GroupImageRegistryCredentialArrayOutput)
 }

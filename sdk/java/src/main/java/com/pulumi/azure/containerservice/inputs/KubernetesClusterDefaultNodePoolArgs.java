@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolKubeletConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolLinuxOsConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolSecurityArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -253,14 +254,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * A `nodeNetworkProfile` block as documented below.
+     * A `nodeNetworkProfile` block as defined below.
      * 
      */
     @Import(name="nodeNetworkProfile")
     private @Nullable Output<KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs> nodeNetworkProfile;
 
     /**
-     * @return A `nodeNetworkProfile` block as documented below.
+     * @return A `nodeNetworkProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs>> nodeNetworkProfile() {
@@ -426,6 +427,25 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
+     * A `security` block as documented below.
+     * 
+     * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     * 
+     */
+    @Import(name="security")
+    private @Nullable Output<KubernetesClusterDefaultNodePoolSecurityArgs> security;
+
+    /**
+     * @return A `security` block as documented below.
+     * 
+     * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+     * 
+     */
+    public Optional<Output<KubernetesClusterDefaultNodePoolSecurityArgs>> security() {
+        return Optional.ofNullable(this.security);
+    }
+
+    /**
      * The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
      * 
      */
@@ -509,14 +529,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * A `upgradeSettings` block as documented below.
+     * A `upgradeSettings` block as defined below.
      * 
      */
     @Import(name="upgradeSettings")
     private @Nullable Output<KubernetesClusterDefaultNodePoolUpgradeSettingsArgs> upgradeSettings;
 
     /**
-     * @return A `upgradeSettings` block as documented below.
+     * @return A `upgradeSettings` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterDefaultNodePoolUpgradeSettingsArgs>> upgradeSettings() {
@@ -625,6 +645,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         this.podSubnetId = $.podSubnetId;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.scaleDownMode = $.scaleDownMode;
+        this.security = $.security;
         this.snapshotId = $.snapshotId;
         this.tags = $.tags;
         this.temporaryNameForRotation = $.temporaryNameForRotation;
@@ -968,7 +989,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeNetworkProfile A `nodeNetworkProfile` block as documented below.
+         * @param nodeNetworkProfile A `nodeNetworkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -979,7 +1000,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeNetworkProfile A `nodeNetworkProfile` block as documented below.
+         * @param nodeNetworkProfile A `nodeNetworkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1207,6 +1228,31 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
+         * @param security A `security` block as documented below.
+         * 
+         * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder security(@Nullable Output<KubernetesClusterDefaultNodePoolSecurityArgs> security) {
+            $.security = security;
+            return this;
+        }
+
+        /**
+         * @param security A `security` block as documented below.
+         * 
+         * &gt; **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder security(KubernetesClusterDefaultNodePoolSecurityArgs security) {
+            return security(Output.of(security));
+        }
+
+        /**
          * @param snapshotId The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
          * 
          * @return builder
@@ -1320,7 +1366,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param upgradeSettings A `upgradeSettings` block as documented below.
+         * @param upgradeSettings A `upgradeSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1331,7 +1377,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param upgradeSettings A `upgradeSettings` block as documented below.
+         * @param upgradeSettings A `upgradeSettings` block as defined below.
          * 
          * @return builder
          * 

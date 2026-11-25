@@ -169,13 +169,21 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutomaticUpdatesEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable automatic zone balance. Defaults to `False`. Requires `Zones` to be set. When set to `True`, a `HealthProbeId` or a health extension must be configured.
+        /// </summary>
+        [Output("automaticZoneRebalancingEnabled")]
+        public Output<bool?> AutomaticZoneRebalancingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
         public Output<Outputs.WindowsVirtualMachineScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+        /// 
+        /// &gt; **Note:** Associating a `CapacityReservationGroupId` with a Virtual Machine Scale Set with `Zones` configured is applied in-place. Changing or removing an existing `CapacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `Zones` configured, forces a new resource to be created.
         /// 
         /// &gt; **Note:** `CapacityReservationGroupId` cannot be used with `ProximityPlacementGroupId`
         /// 
@@ -361,17 +369,17 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// Whether `resilient VM creation` is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
         /// </summary>
         [Output("resilientVmCreationEnabled")]
         public Output<bool?> ResilientVmCreationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// Whether `resilient VM deletion` is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         /// </summary>
         [Output("resilientVmDeletionEnabled")]
         public Output<bool?> ResilientVmDeletionEnabled { get; private set; } = null!;
@@ -620,13 +628,21 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutomaticUpdatesEnabled { get; set; }
 
         /// <summary>
+        /// Whether to enable automatic zone balance. Defaults to `False`. Requires `Zones` to be set. When set to `True`, a `HealthProbeId` or a health extension must be configured.
+        /// </summary>
+        [Input("automaticZoneRebalancingEnabled")]
+        public Input<bool>? AutomaticZoneRebalancingEnabled { get; set; }
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+        /// 
+        /// &gt; **Note:** Associating a `CapacityReservationGroupId` with a Virtual Machine Scale Set with `Zones` configured is applied in-place. Changing or removing an existing `CapacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `Zones` configured, forces a new resource to be created.
         /// 
         /// &gt; **Note:** `CapacityReservationGroupId` cannot be used with `ProximityPlacementGroupId`
         /// 
@@ -846,17 +862,17 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
-        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// Whether `resilient VM creation` is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
         /// </summary>
         [Input("resilientVmCreationEnabled")]
         public Input<bool>? ResilientVmCreationEnabled { get; set; }
 
         /// <summary>
-        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// Whether `resilient VM deletion` is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         /// </summary>
         [Input("resilientVmDeletionEnabled")]
         public Input<bool>? ResilientVmDeletionEnabled { get; set; }
@@ -1080,13 +1096,21 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutomaticUpdatesEnabled { get; set; }
 
         /// <summary>
+        /// Whether to enable automatic zone balance. Defaults to `False`. Requires `Zones` to be set. When set to `True`, a `HealthProbeId` or a health extension must be configured.
+        /// </summary>
+        [Input("automaticZoneRebalancingEnabled")]
+        public Input<bool>? AutomaticZoneRebalancingEnabled { get; set; }
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to.
+        /// 
+        /// &gt; **Note:** Associating a `CapacityReservationGroupId` with a Virtual Machine Scale Set with `Zones` configured is applied in-place. Changing or removing an existing `CapacityReservationGroupId`, or any change on a Virtual Machine Scale Set without `Zones` configured, forces a new resource to be created.
         /// 
         /// &gt; **Note:** `CapacityReservationGroupId` cannot be used with `ProximityPlacementGroupId`
         /// 
@@ -1306,17 +1330,17 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
-        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// Whether `resilient VM creation` is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// &gt; **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
         /// </summary>
         [Input("resilientVmCreationEnabled")]
         public Input<bool>? ResilientVmCreationEnabled { get; set; }
 
         /// <summary>
-        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// Whether `resilient VM deletion` is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// &gt; **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
         /// </summary>
         [Input("resilientVmDeletionEnabled")]
         public Input<bool>? ResilientVmDeletionEnabled { get; set; }

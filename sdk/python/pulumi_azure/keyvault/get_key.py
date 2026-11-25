@@ -260,7 +260,7 @@ def get_key(key_vault_id: Optional[_builtins.str] = None,
     import pulumi_azure as azure
 
     example = azure.keyvault.get_key(name="secret-sauce",
-        key_vault_id=existing["id"])
+        key_vault_id=example_azurerm_key_vault["id"])
     pulumi.export("keyType", example.key_type)
     ```
 
@@ -308,7 +308,7 @@ def get_key_output(key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi_azure as azure
 
     example = azure.keyvault.get_key(name="secret-sauce",
-        key_vault_id=existing["id"])
+        key_vault_id=example_azurerm_key_vault["id"])
     pulumi.export("keyType", example.key_type)
     ```
 

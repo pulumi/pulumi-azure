@@ -85,7 +85,7 @@ type LoadBalancer struct {
 
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// One or more `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	//
 	// > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
@@ -144,7 +144,7 @@ func GetLoadBalancer(ctx *pulumi.Context,
 type loadBalancerState struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// One or more `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	//
 	// > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
@@ -171,7 +171,7 @@ type loadBalancerState struct {
 type LoadBalancerState struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone pulumi.StringPtrInput
-	// One or more `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	//
 	// > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
@@ -202,7 +202,7 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// One or more `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	//
 	// > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
@@ -226,7 +226,7 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone pulumi.StringPtrInput
-	// One or more `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	//
 	// > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
@@ -338,7 +338,7 @@ func (o LoadBalancerOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
-// One or more `frontendIpConfiguration` blocks as documented below.
+// One or more `frontendIpConfiguration` blocks as defined below.
 //
 // > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
 func (o LoadBalancerOutput) FrontendIpConfigurations() LoadBalancerFrontendIpConfigurationArrayOutput {

@@ -49,8 +49,8 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName("existing")
-     *             .enrollmentAccountName("existing")
+     *             .billingAccountName("example-billing-account")
+     *             .enrollmentAccountName("example-enrollment-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -91,8 +91,8 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName("existing")
-     *             .enrollmentAccountName("existing")
+     *             .billingAccountName("example-billing-account")
+     *             .enrollmentAccountName("example-enrollment-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -133,8 +133,8 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName("existing")
-     *             .enrollmentAccountName("existing")
+     *             .billingAccountName("example-billing-account")
+     *             .enrollmentAccountName("example-enrollment-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -175,8 +175,8 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName("existing")
-     *             .enrollmentAccountName("existing")
+     *             .billingAccountName("example-billing-account")
+     *             .enrollmentAccountName("example-enrollment-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -217,8 +217,8 @@ public final class BillingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName("existing")
-     *             .enrollmentAccountName("existing")
+     *             .billingAccountName("example-billing-account")
+     *             .enrollmentAccountName("example-enrollment-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());

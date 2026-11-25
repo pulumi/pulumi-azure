@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.compute.getBastionHost({
- *     name: "existing-bastion",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-bastion",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -131,8 +131,8 @@ export interface GetBastionHostResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.compute.getBastionHost({
- *     name: "existing-bastion",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-bastion",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

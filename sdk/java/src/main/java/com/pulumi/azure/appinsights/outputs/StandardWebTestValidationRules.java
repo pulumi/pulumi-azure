@@ -24,6 +24,14 @@ public final class StandardWebTestValidationRules {
      */
     private @Nullable Integer expectedStatusCode;
     /**
+     * @return Should status code of the response be ignored? Defaults to `false`.
+     * *
+     * 
+     * &gt; **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+     * 
+     */
+    private @Nullable Boolean ignoreStatusCode;
+    /**
      * @return The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
      * 
      */
@@ -48,6 +56,16 @@ public final class StandardWebTestValidationRules {
      */
     public Optional<Integer> expectedStatusCode() {
         return Optional.ofNullable(this.expectedStatusCode);
+    }
+    /**
+     * @return Should status code of the response be ignored? Defaults to `false`.
+     * *
+     * 
+     * &gt; **Note:** When `ignoreStatusCode` is set, the `expectedStatusCode`  will be ignored.
+     * 
+     */
+    public Optional<Boolean> ignoreStatusCode() {
+        return Optional.ofNullable(this.ignoreStatusCode);
     }
     /**
      * @return The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
@@ -75,6 +93,7 @@ public final class StandardWebTestValidationRules {
     public static final class Builder {
         private @Nullable StandardWebTestValidationRulesContent content;
         private @Nullable Integer expectedStatusCode;
+        private @Nullable Boolean ignoreStatusCode;
         private @Nullable Integer sslCertRemainingLifetime;
         private @Nullable Boolean sslCheckEnabled;
         public Builder() {}
@@ -82,6 +101,7 @@ public final class StandardWebTestValidationRules {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
     	      this.expectedStatusCode = defaults.expectedStatusCode;
+    	      this.ignoreStatusCode = defaults.ignoreStatusCode;
     	      this.sslCertRemainingLifetime = defaults.sslCertRemainingLifetime;
     	      this.sslCheckEnabled = defaults.sslCheckEnabled;
         }
@@ -96,6 +116,12 @@ public final class StandardWebTestValidationRules {
         public Builder expectedStatusCode(@Nullable Integer expectedStatusCode) {
 
             this.expectedStatusCode = expectedStatusCode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ignoreStatusCode(@Nullable Boolean ignoreStatusCode) {
+
+            this.ignoreStatusCode = ignoreStatusCode;
             return this;
         }
         @CustomType.Setter
@@ -114,6 +140,7 @@ public final class StandardWebTestValidationRules {
             final var _resultValue = new StandardWebTestValidationRules();
             _resultValue.content = content;
             _resultValue.expectedStatusCode = expectedStatusCode;
+            _resultValue.ignoreStatusCode = ignoreStatusCode;
             _resultValue.sslCertRemainingLifetime = sslCertRemainingLifetime;
             _resultValue.sslCheckEnabled = sslCheckEnabled;
             return _resultValue;

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     skuName: "Premium_1",
  * });
  * const example = azure.apimanagement.getWorkspaceOutput({
- *     name: "existing",
+ *     name: "example-workspace",
  *     apiManagementId: exampleService.id,
  * });
  * export const id = example.id;
@@ -102,7 +102,7 @@ export interface GetWorkspaceResult {
  *     skuName: "Premium_1",
  * });
  * const example = azure.apimanagement.getWorkspaceOutput({
- *     name: "existing",
+ *     name: "example-workspace",
  *     apiManagementId: exampleService.id,
  * });
  * export const id = example.id;

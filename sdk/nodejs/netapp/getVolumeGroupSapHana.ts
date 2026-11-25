@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.netapp.getVolumeGroupSapHana({
- *     name: "existing application volume group name",
+ *     name: "example-volume-group",
  *     resourceGroupName: "resource group name where the account and volume group belong to",
- *     accountName: "existing account where the application volume group belong to",
+ *     accountName: "example-netapp-account",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -98,9 +98,9 @@ export interface GetVolumeGroupSapHanaResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.netapp.getVolumeGroupSapHana({
- *     name: "existing application volume group name",
+ *     name: "example-volume-group",
  *     resourceGroupName: "resource group name where the account and volume group belong to",
- *     accountName: "existing account where the application volume group belong to",
+ *     accountName: "example-netapp-account",
  * });
  * export const id = example.then(example => example.id);
  * ```

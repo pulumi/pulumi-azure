@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appservice.getLinuxFunctionApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-function-app",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -235,8 +235,8 @@ export interface GetLinuxFunctionAppResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appservice.getLinuxFunctionApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-function-app",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Inputs
         public Input<bool>? Locations { get; set; }
 
         /// <summary>
-        /// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+        /// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
         /// </summary>
         [Input("preflightEnabled")]
         public Input<bool>? PreflightEnabled { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Inputs
         public Input<string>? PreflightLocationFallback { get; set; }
 
         /// <summary>
-        /// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        /// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
         /// </summary>
         [Input("resourceProviders")]
         public Input<bool>? ResourceProviders { get; set; }

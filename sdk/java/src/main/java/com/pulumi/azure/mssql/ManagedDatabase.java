@@ -160,18 +160,32 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
      * 
      */
     @Export(name="pointInTimeRestore", refs={ManagedDatabasePointInTimeRestore.class}, tree="[0]")
     private Output</* @Nullable */ ManagedDatabasePointInTimeRestore> pointInTimeRestore;
 
     /**
-     * @return A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
+     * @return A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created. Conflicts with `recoverDatabaseId`.
      * 
      */
     public Output<Optional<ManagedDatabasePointInTimeRestore>> pointInTimeRestore() {
         return Codegen.optional(this.pointInTimeRestore);
+    }
+    /**
+     * The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+     * 
+     */
+    @Export(name="recoverDatabaseId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> recoverDatabaseId;
+
+    /**
+     * @return The ID of the Recoverable Managed Database from which to perform a cross-region / recovery restore. Changing this forces a new resource to be created. Conflicts with `pointInTimeRestore`.
+     * 
+     */
+    public Output<Optional<String>> recoverDatabaseId() {
+        return Codegen.optional(this.recoverDatabaseId);
     }
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.

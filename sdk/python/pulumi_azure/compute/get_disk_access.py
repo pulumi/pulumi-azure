@@ -88,8 +88,8 @@ def get_disk_access(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_disk_access(name="existing",
-        resource_group_name="existing")
+    example = azure.compute.get_disk_access(name="example-disk-access",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -127,8 +127,8 @@ def get_disk_access_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_disk_access(name="existing",
-        resource_group_name="existing")
+    example = azure.compute.get_disk_access(name="example-disk-access",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

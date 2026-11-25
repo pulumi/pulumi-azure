@@ -69,7 +69,7 @@ class GetGatewayResult:
     @pulumi.getter(name="locationDatas")
     def location_datas(self) -> Sequence['outputs.GetGatewayLocationDataResult']:
         """
-        A `location_data` block as documented below.
+        A `location_data` block as defined below.
         """
         return pulumi.get(self, "location_datas")
 

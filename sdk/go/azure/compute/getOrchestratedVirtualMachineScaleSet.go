@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := compute.LookupOrchestratedVirtualMachineScaleSet(ctx, &compute.LookupOrchestratedVirtualMachineScaleSetArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-scale-set",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

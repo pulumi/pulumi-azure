@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorRuleSet({
- *     name: "existing-rule-set",
- *     profileName: "existing-profile",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-rule-set",
+ *     profileName: "example-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorRuleSet(args: GetFrontdoorRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,9 +84,9 @@ export interface GetFrontdoorRuleSetResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorRuleSet({
- *     name: "existing-rule-set",
- *     profileName: "existing-profile",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-rule-set",
+ *     profileName: "example-profile",
+ *     resourceGroupName: "example-resources",
  * });
  * ```
  *
@@ -95,7 +95,7 @@ export interface GetFrontdoorRuleSetResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2025-12-01
+ * * `Microsoft.Cdn` - 2026-10-01
  */
 export function getFrontdoorRuleSetOutput(args: GetFrontdoorRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

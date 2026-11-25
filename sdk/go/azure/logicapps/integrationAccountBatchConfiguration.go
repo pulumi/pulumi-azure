@@ -88,7 +88,7 @@ type IntegrationAccountBatchConfiguration struct {
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+	// A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
 	ReleaseCriteria IntegrationAccountBatchConfigurationReleaseCriteriaOutput `pulumi:"releaseCriteria"`
 	// The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -144,7 +144,7 @@ type integrationAccountBatchConfigurationState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+	// A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
 	ReleaseCriteria *IntegrationAccountBatchConfigurationReleaseCriteria `pulumi:"releaseCriteria"`
 	// The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -159,7 +159,7 @@ type IntegrationAccountBatchConfigurationState struct {
 	Metadata pulumi.StringMapInput
 	// The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+	// A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
 	ReleaseCriteria IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput
 	// The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type integrationAccountBatchConfigurationArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+	// A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
 	ReleaseCriteria IntegrationAccountBatchConfigurationReleaseCriteria `pulumi:"releaseCriteria"`
 	// The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -194,7 +194,7 @@ type IntegrationAccountBatchConfigurationArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+	// A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
 	ReleaseCriteria IntegrationAccountBatchConfigurationReleaseCriteriaInput
 	// The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -307,7 +307,7 @@ func (o IntegrationAccountBatchConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+// A `releaseCriteria` block as defined below, which is used to select the criteria to meet before processing each batch.
 func (o IntegrationAccountBatchConfigurationOutput) ReleaseCriteria() IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfiguration) IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
 		return v.ReleaseCriteria

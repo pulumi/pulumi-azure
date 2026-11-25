@@ -32,11 +32,11 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly adoPipelineServiceConnectionId: pulumi.Output<string | undefined>;
     /**
-     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
      */
     declare public readonly clientCertificate: pulumi.Output<string | undefined>;
     /**
-     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
      */
     declare public readonly clientCertificatePassword: pulumi.Output<string | undefined>;
     /**
@@ -176,11 +176,11 @@ export interface ProviderArgs {
     adoPipelineServiceConnectionId?: pulumi.Input<string | undefined>;
     auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
      */
     clientCertificate?: pulumi.Input<string | undefined>;
     /**
-     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
      */
     clientCertificatePassword?: pulumi.Input<string | undefined>;
     /**
@@ -281,7 +281,7 @@ export interface ProviderArgs {
      */
     useMsi?: pulumi.Input<boolean | undefined>;
     /**
-     * Allow OpenID Connect to be used for authentication
+     * Allow OpenID Connect to be used for authentication.
      */
     useOidc?: pulumi.Input<boolean | undefined>;
 }

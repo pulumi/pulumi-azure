@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.servicebus.getNamespaceDisasterRecoveryConfig({
- *     name: "existing",
+ *     name: "example-alias",
  *     namespaceId: "example-namespace-id",
  * });
  * export const id = example.then(example => example.id);
@@ -96,7 +96,7 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.servicebus.getNamespaceDisasterRecoveryConfig({
- *     name: "existing",
+ *     name: "example-alias",
  *     namespaceId: "example-namespace-id",
  * });
  * export const id = example.then(example => example.id);

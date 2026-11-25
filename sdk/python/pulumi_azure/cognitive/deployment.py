@@ -27,6 +27,7 @@ class DeploymentArgs:
                  dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spillover_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
@@ -37,6 +38,9 @@ class DeploymentArgs:
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether dynamic throttling is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of RAI policy.
+        :param pulumi.Input[_builtins.str] spillover_deployment_name: The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+               
+               > **Note:** `spillover_deployment_name` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
         :param pulumi.Input[_builtins.str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
@@ -48,6 +52,8 @@ class DeploymentArgs:
             pulumi.set(__self__, "name", name)
         if rai_policy_name is not None:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+        if spillover_deployment_name is not None:
+            pulumi.set(__self__, "spillover_deployment_name", spillover_deployment_name)
         if version_upgrade_option is not None:
             pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
@@ -124,6 +130,20 @@ class DeploymentArgs:
         pulumi.set(self, "rai_policy_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="spilloverDeploymentName")
+    def spillover_deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+
+        > **Note:** `spillover_deployment_name` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+        """
+        return pulumi.get(self, "spillover_deployment_name")
+
+    @spillover_deployment_name.setter
+    def spillover_deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "spillover_deployment_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="versionUpgradeOption")
     def version_upgrade_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -145,6 +165,7 @@ class _DeploymentState:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['DeploymentSkuArgs']] = None,
+                 spillover_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
@@ -155,6 +176,9 @@ class _DeploymentState:
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of RAI policy.
         :param pulumi.Input['DeploymentSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[_builtins.str] spillover_deployment_name: The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+               
+               > **Note:** `spillover_deployment_name` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
         :param pulumi.Input[_builtins.str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         if cognitive_account_id is not None:
@@ -169,6 +193,8 @@ class _DeploymentState:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if spillover_deployment_name is not None:
+            pulumi.set(__self__, "spillover_deployment_name", spillover_deployment_name)
         if version_upgrade_option is not None:
             pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
@@ -245,6 +271,20 @@ class _DeploymentState:
         pulumi.set(self, "sku", value)
 
     @_builtins.property
+    @pulumi.getter(name="spilloverDeploymentName")
+    def spillover_deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+
+        > **Note:** `spillover_deployment_name` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+        """
+        return pulumi.get(self, "spillover_deployment_name")
+
+    @spillover_deployment_name.setter
+    def spillover_deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "spillover_deployment_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="versionUpgradeOption")
     def version_upgrade_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -269,6 +309,7 @@ class Deployment(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']]] = None,
+                 spillover_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -326,6 +367,9 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of RAI policy.
         :param pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']] sku: A `sku` block as defined below.
+        :param pulumi.Input[_builtins.str] spillover_deployment_name: The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+               
+               > **Note:** `spillover_deployment_name` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
         :param pulumi.Input[_builtins.str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         ...
@@ -402,6 +446,7 @@ class Deployment(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']]] = None,
+                 spillover_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -424,6 +469,7 @@ class Deployment(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["spillover_deployment_name"] = spillover_deployment_name
             __props__.__dict__["version_upgrade_option"] = version_upgrade_option
         super(Deployment, __self__).__init__(
             'azure:cognitive/deployment:Deployment',
@@ -441,6 +487,7 @@ class Deployment(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']]] = None,
+            spillover_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
             version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
@@ -455,6 +502,9 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of RAI policy.
         :param pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']] sku: A `sku` block as defined below.
+        :param pulumi.Input[_builtins.str] spillover_deployment_name: The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+               
+               > **Note:** `spillover_deployment_name` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
         :param pulumi.Input[_builtins.str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -467,6 +517,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["rai_policy_name"] = rai_policy_name
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["spillover_deployment_name"] = spillover_deployment_name
         __props__.__dict__["version_upgrade_option"] = version_upgrade_option
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
@@ -517,6 +568,16 @@ class Deployment(pulumi.CustomResource):
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
+
+    @_builtins.property
+    @pulumi.getter(name="spilloverDeploymentName")
+    def spillover_deployment_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the deployment that should serve requests when this deployment would have otherwise been throttled due to reaching its throughput limit.
+
+        > **Note:** `spillover_deployment_name` is only supported on provisioned deployments (where the `sku` `name` is `GlobalProvisionedManaged`, `DataZoneProvisionedManaged`, or `ProvisionedManaged`). The referenced deployment must already exist within the same Cognitive Services Account, must use a standard `sku` `name` (`GlobalStandard`, `DataZoneStandard`, or `Standard`), and must use the same `model`. A deployment cannot reference itself.
+        """
+        return pulumi.get(self, "spillover_deployment_name")
 
     @_builtins.property
     @pulumi.getter(name="versionUpgradeOption")

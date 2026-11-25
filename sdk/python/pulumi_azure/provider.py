@@ -54,8 +54,8 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
 
         :param pulumi.Input[_builtins.str] ado_pipeline_service_connection_id: The Azure DevOps Pipeline Service Connection ID.
-        :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
-        :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
+        :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
         :param pulumi.Input[_builtins.str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         :param pulumi.Input[_builtins.str] client_id: The Client ID which should be used.
         :param pulumi.Input[_builtins.str] client_id_file_path: The path to a file containing the Client ID which should be used.
@@ -80,7 +80,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.bool] use_aks_workload_identity: Allow Azure AKS Workload Identity to be used for Authentication.
         :param pulumi.Input[_builtins.bool] use_cli: Allow Azure CLI to be used for Authentication.
         :param pulumi.Input[_builtins.bool] use_msi: Allow Managed Service Identity to be used for Authentication.
-        :param pulumi.Input[_builtins.bool] use_oidc: Allow OpenID Connect to be used for authentication
+        :param pulumi.Input[_builtins.bool] use_oidc: Allow OpenID Connect to be used for authentication.
         """
         if ado_pipeline_service_connection_id is not None:
             pulumi.set(__self__, "ado_pipeline_service_connection_id", ado_pipeline_service_connection_id)
@@ -176,7 +176,7 @@ class ProviderArgs:
     @pulumi.getter(name="clientCertificate")
     def client_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
         """
         return pulumi.get(self, "client_certificate")
 
@@ -188,7 +188,7 @@ class ProviderArgs:
     @pulumi.getter(name="clientCertificatePassword")
     def client_certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
         """
         return pulumi.get(self, "client_certificate_password")
 
@@ -497,7 +497,7 @@ class ProviderArgs:
     @pulumi.getter(name="useOidc")
     def use_oidc(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Allow OpenID Connect to be used for authentication
+        Allow OpenID Connect to be used for authentication.
         """
         return pulumi.get(self, "use_oidc")
 
@@ -553,8 +553,8 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ado_pipeline_service_connection_id: The Azure DevOps Pipeline Service Connection ID.
-        :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
-        :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
+        :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
         :param pulumi.Input[_builtins.str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         :param pulumi.Input[_builtins.str] client_id: The Client ID which should be used.
         :param pulumi.Input[_builtins.str] client_id_file_path: The path to a file containing the Client ID which should be used.
@@ -579,7 +579,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] use_aks_workload_identity: Allow Azure AKS Workload Identity to be used for Authentication.
         :param pulumi.Input[_builtins.bool] use_cli: Allow Azure CLI to be used for Authentication.
         :param pulumi.Input[_builtins.bool] use_msi: Allow Managed Service Identity to be used for Authentication.
-        :param pulumi.Input[_builtins.bool] use_oidc: Allow OpenID Connect to be used for authentication
+        :param pulumi.Input[_builtins.bool] use_oidc: Allow OpenID Connect to be used for authentication.
         """
         ...
     @overload
@@ -706,7 +706,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="clientCertificate")
     def client_certificate(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
         """
         return pulumi.get(self, "client_certificate")
 
@@ -714,7 +714,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="clientCertificatePassword")
     def client_certificate_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
         """
         return pulumi.get(self, "client_certificate_password")
 

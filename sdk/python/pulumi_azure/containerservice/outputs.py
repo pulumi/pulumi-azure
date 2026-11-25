@@ -73,6 +73,7 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig',
     'KubernetesClusterDefaultNodePoolNodeNetworkProfile',
     'KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort',
+    'KubernetesClusterDefaultNodePoolSecurity',
     'KubernetesClusterDefaultNodePoolUpgradeSettings',
     'KubernetesClusterExtensionAksAssignedIdentity',
     'KubernetesClusterExtensionPlan',
@@ -106,6 +107,7 @@ __all__ = [
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfig',
     'KubernetesClusterNodePoolNodeNetworkProfile',
     'KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort',
+    'KubernetesClusterNodePoolSecurity',
     'KubernetesClusterNodePoolUpgradeSettings',
     'KubernetesClusterNodePoolWindowsProfile',
     'KubernetesClusterNodeProvisioningProfile',
@@ -4319,6 +4321,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  pod_subnet_id: Optional[_builtins.str] = None,
                  proximity_placement_group_id: Optional[_builtins.str] = None,
                  scale_down_mode: Optional[_builtins.str] = None,
+                 security: Optional['outputs.KubernetesClusterDefaultNodePoolSecurity'] = None,
                  snapshot_id: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  temporary_name_for_rotation: Optional[_builtins.str] = None,
@@ -4349,7 +4352,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param _builtins.int max_pods: The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         :param Mapping[str, _builtins.str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
-        :param 'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs' node_network_profile: A `node_network_profile` block as documented below.
+        :param 'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs' node_network_profile: A `node_network_profile` block as defined below.
         :param _builtins.bool node_public_ip_enabled: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         :param _builtins.str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param _builtins.bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
@@ -4364,6 +4367,9 @@ class KubernetesClusterDefaultNodePool(dict):
         :param _builtins.str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
         :param _builtins.str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param _builtins.str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param 'KubernetesClusterDefaultNodePoolSecurityArgs' security: A `security` block as documented below.
+               
+               > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
         :param _builtins.str snapshot_id: The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
         :param Mapping[str, _builtins.str] tags: A mapping of tags to assign to the Node Pool.
                
@@ -4373,7 +4379,7 @@ class KubernetesClusterDefaultNodePool(dict):
                
                > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
         :param _builtins.bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
+        :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as defined below.
         :param _builtins.str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param _builtins.str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist.
                
@@ -4438,6 +4444,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
             pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
@@ -4588,7 +4596,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="nodeNetworkProfile")
     def node_network_profile(self) -> Optional['outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile']:
         """
-        A `node_network_profile` block as documented below.
+        A `node_network_profile` block as defined below.
         """
         return pulumi.get(self, "node_network_profile")
 
@@ -4677,6 +4685,16 @@ class KubernetesClusterDefaultNodePool(dict):
         return pulumi.get(self, "scale_down_mode")
 
     @_builtins.property
+    @pulumi.getter
+    def security(self) -> Optional['outputs.KubernetesClusterDefaultNodePoolSecurity']:
+        """
+        A `security` block as documented below.
+
+        > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+        """
+        return pulumi.get(self, "security")
+
+    @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[_builtins.str]:
         """
@@ -4724,7 +4742,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> Optional['outputs.KubernetesClusterDefaultNodePoolUpgradeSettings']:
         """
-        A `upgrade_settings` block as documented below.
+        A `upgrade_settings` block as defined below.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -5136,7 +5154,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
         :param _builtins.int net_ipv4_tcp_keepalive_time: The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
         :param _builtins.int net_ipv4_tcp_max_syn_backlog: The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
         :param _builtins.int net_ipv4_tcp_max_tw_buckets: The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
-        :param _builtins.bool net_ipv4_tcp_tw_reuse: The sysctl setting net.ipv4.tcp_tw_reuse.
+        :param _builtins.bool net_ipv4_tcp_tw_reuse: Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
         :param _builtins.int net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
         :param _builtins.int net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
         :param _builtins.int vm_max_map_count: The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
@@ -5390,7 +5408,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netIpv4TcpTwReuse")
     def net_ipv4_tcp_tw_reuse(self) -> Optional[_builtins.bool]:
         """
-        The sysctl setting net.ipv4.tcp_tw_reuse.
+        Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
         """
         return pulumi.get(self, "net_ipv4_tcp_tw_reuse")
 
@@ -5559,6 +5577,56 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort(dict):
         Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
         """
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class KubernetesClusterDefaultNodePoolSecurity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureBootEnabled":
+            suggest = "secure_boot_enabled"
+        elif key == "vtpmEnabled":
+            suggest = "vtpm_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterDefaultNodePoolSecurity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterDefaultNodePoolSecurity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterDefaultNodePoolSecurity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secure_boot_enabled: Optional[_builtins.bool] = None,
+                 vtpm_enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool secure_boot_enabled: Specifies whether Secure Boot should be enabled for this Default Node Pool. Defaults to `false`.
+        :param _builtins.bool vtpm_enabled: Specifies whether vTPM should be enabled for this Default Node Pool. Defaults to `false`.
+        """
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+        if vtpm_enabled is not None:
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether Secure Boot should be enabled for this Default Node Pool. Defaults to `false`.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether vTPM should be enabled for this Default Node Pool. Defaults to `false`.
+        """
+        return pulumi.get(self, "vtpm_enabled")
 
 
 @pulumi.output_type
@@ -6143,6 +6211,8 @@ class KubernetesClusterKeyManagementService(dict):
         suggest = None
         if key == "keyVaultKeyId":
             suggest = "key_vault_key_id"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
         elif key == "keyVaultNetworkAccess":
             suggest = "key_vault_network_access"
 
@@ -6159,12 +6229,18 @@ class KubernetesClusterKeyManagementService(dict):
 
     def __init__(__self__, *,
                  key_vault_key_id: _builtins.str,
+                 key_vault_id: Optional[_builtins.str] = None,
                  key_vault_network_access: Optional[_builtins.str] = None):
         """
-        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
-        :param _builtins.str key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
+        :param _builtins.str key_vault_id: The ID of the Key Vault in which the key is located.
+               
+               > **Note:** This must be provided in cross-subscription scenarios when `key_vault_network_access` is set to `Private` or when using the new KMS experience (a versionless `key_vault_key_id`).
+        :param _builtins.str key_vault_network_access: Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if key_vault_network_access is not None:
             pulumi.set(__self__, "key_vault_network_access", key_vault_network_access)
 
@@ -6172,15 +6248,25 @@ class KubernetesClusterKeyManagementService(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> _builtins.str:
         """
-        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
         """
         return pulumi.get(self, "key_vault_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Key Vault in which the key is located.
+
+        > **Note:** This must be provided in cross-subscription scenarios when `key_vault_network_access` is set to `Private` or when using the new KMS experience (a versionless `key_vault_key_id`).
+        """
+        return pulumi.get(self, "key_vault_id")
 
     @_builtins.property
     @pulumi.getter(name="keyVaultNetworkAccess")
     def key_vault_network_access(self) -> Optional[_builtins.str]:
         """
-        Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+        Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         """
         return pulumi.get(self, "key_vault_network_access")
 
@@ -8597,6 +8683,56 @@ class KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort(dict):
 
 
 @pulumi.output_type
+class KubernetesClusterNodePoolSecurity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureBootEnabled":
+            suggest = "secure_boot_enabled"
+        elif key == "vtpmEnabled":
+            suggest = "vtpm_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNodePoolSecurity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterNodePoolSecurity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterNodePoolSecurity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secure_boot_enabled: Optional[_builtins.bool] = None,
+                 vtpm_enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool secure_boot_enabled: Specifies whether Secure Boot should be enabled for this Node Pool. Defaults to `false`.
+        :param _builtins.bool vtpm_enabled: Specifies whether vTPM should be enabled for this Node Pool. Defaults to `false`.
+        """
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+        if vtpm_enabled is not None:
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether Secure Boot should be enabled for this Node Pool. Defaults to `false`.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether vTPM should be enabled for this Node Pool. Defaults to `false`.
+        """
+        return pulumi.get(self, "vtpm_enabled")
+
+
+@pulumi.output_type
 class KubernetesClusterNodePoolUpgradeSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8948,7 +9084,7 @@ class KubernetesClusterServiceMeshProfile(dict):
                  internal_ingress_gateway_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str mode: The mode of the service mesh. Possible value is `Istio`.
-        :param Sequence[_builtins.str] revisions: Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+        :param Sequence[_builtins.str] revisions: Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
                
                > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         :param 'KubernetesClusterServiceMeshProfileCertificateAuthorityArgs' certificate_authority: A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
@@ -8978,7 +9114,7 @@ class KubernetesClusterServiceMeshProfile(dict):
     @pulumi.getter
     def revisions(self) -> Sequence[_builtins.str]:
         """
-        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+        Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 
         > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         """
@@ -11688,7 +11824,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         :param _builtins.str os_type: The Operating System used for the Agents.
         :param Mapping[str, _builtins.str] tags: A mapping of tags to assign to the resource.
         :param _builtins.str type: The type of Managed Service Identity that is configured on this Kubernetes Cluster.
-        :param Sequence['GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param Sequence['GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs'] upgrade_settings: A `upgrade_settings` block as defined below.
         :param _builtins.str vm_size: The size of each VM in the Agent Pool (e.g. `Standard_F1`).
         :param _builtins.str vnet_subnet_id: The ID of the Subnet where the Agents in the Pool are provisioned.
         :param Sequence[_builtins.str] zones: A list of Availability Zones in which this Kubernetes Cluster is located.
@@ -11831,7 +11967,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> Sequence['outputs.GetKubernetesClusterAgentPoolProfileUpgradeSettingResult']:
         """
-        A `upgrade_settings` block as documented below.
+        A `upgrade_settings` block as defined below.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -12183,7 +12319,7 @@ class GetKubernetesClusterKeyVaultSecretsProviderResult(dict):
                  secret_rotation_enabled: _builtins.bool,
                  secret_rotation_interval: _builtins.str):
         """
-        :param Sequence['GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: A `secret_identity` block as documented below.
+        :param Sequence['GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: A `secret_identity` block as defined below.
         :param _builtins.bool secret_rotation_enabled: Is secret rotation enabled?
         :param _builtins.str secret_rotation_interval: The interval to poll for secret rotation.
         """
@@ -12195,7 +12331,7 @@ class GetKubernetesClusterKeyVaultSecretsProviderResult(dict):
     @pulumi.getter(name="secretIdentities")
     def secret_identities(self) -> Sequence['outputs.GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult']:
         """
-        A `secret_identity` block as documented below.
+        A `secret_identity` block as defined below.
         """
         return pulumi.get(self, "secret_identities")
 
@@ -12698,7 +12834,7 @@ class GetKubernetesClusterServiceMeshProfileResult(dict):
                  mode: _builtins.str,
                  revisions: Sequence[_builtins.str]):
         """
-        :param Sequence['GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs'] certificate_authorities: A `certificate_authority` block as documented below.
+        :param Sequence['GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs'] certificate_authorities: A `certificate_authority` block as defined below.
         :param _builtins.bool external_ingress_gateway_enabled: Is Istio External Ingress Gateway enabled?
         :param _builtins.bool internal_ingress_gateway_enabled: Is Istio Internal Ingress Gateway enabled?
         :param _builtins.str mode: The mode of the service mesh.
@@ -12714,7 +12850,7 @@ class GetKubernetesClusterServiceMeshProfileResult(dict):
     @pulumi.getter(name="certificateAuthorities")
     def certificate_authorities(self) -> Sequence['outputs.GetKubernetesClusterServiceMeshProfileCertificateAuthorityResult']:
         """
-        A `certificate_authority` block as documented below.
+        A `certificate_authority` block as defined below.
         """
         return pulumi.get(self, "certificate_authorities")
 

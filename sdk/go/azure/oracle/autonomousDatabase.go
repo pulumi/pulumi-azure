@@ -66,15 +66,17 @@ import (
 //
 // * `customerContacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
 //
-// * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
-//
 // * `longTermBackupSchedule` - (Optional) A `longTermBackupSchedule` block as defined below.
 //
 // > **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
 //
+// * `maintenancePatchLevel` - (Optional) The maintenance patch level for the Autonomous Database. Defaults to `Regular`. Possible values are `Early` and `Regular`.
+//
+// * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+//
 // ***
 //
-// A `longTermBackupSchedule` blocks supports the following:
+// A `longTermBackupSchedule` block supports the following:
 //
 // * `repeatCadence` - (Required) Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
 //
@@ -134,6 +136,7 @@ type AutonomousDatabase struct {
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	Location               pulumi.StringOutput                               `pulumi:"location"`
 	LongTermBackupSchedule AutonomousDatabaseLongTermBackupSchedulePtrOutput `pulumi:"longTermBackupSchedule"`
+	MaintenancePatchLevel  pulumi.StringPtrOutput                            `pulumi:"maintenancePatchLevel"`
 	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
 	//
 	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
@@ -268,6 +271,7 @@ type autonomousDatabaseState struct {
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	Location               *string                                   `pulumi:"location"`
 	LongTermBackupSchedule *AutonomousDatabaseLongTermBackupSchedule `pulumi:"longTermBackupSchedule"`
+	MaintenancePatchLevel  *string                                   `pulumi:"maintenancePatchLevel"`
 	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
 	//
 	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
@@ -321,6 +325,7 @@ type AutonomousDatabaseState struct {
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	Location               pulumi.StringPtrInput
 	LongTermBackupSchedule AutonomousDatabaseLongTermBackupSchedulePtrInput
+	MaintenancePatchLevel  pulumi.StringPtrInput
 	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
 	//
 	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
@@ -378,6 +383,7 @@ type autonomousDatabaseArgs struct {
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	Location               *string                                   `pulumi:"location"`
 	LongTermBackupSchedule *AutonomousDatabaseLongTermBackupSchedule `pulumi:"longTermBackupSchedule"`
+	MaintenancePatchLevel  *string                                   `pulumi:"maintenancePatchLevel"`
 	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
 	//
 	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
@@ -430,6 +436,7 @@ type AutonomousDatabaseArgs struct {
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	Location               pulumi.StringPtrInput
 	LongTermBackupSchedule AutonomousDatabaseLongTermBackupSchedulePtrInput
+	MaintenancePatchLevel  pulumi.StringPtrInput
 	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
 	//
 	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
@@ -615,6 +622,10 @@ func (o AutonomousDatabaseOutput) LongTermBackupSchedule() AutonomousDatabaseLon
 	return o.ApplyT(func(v *AutonomousDatabase) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
 		return v.LongTermBackupSchedule
 	}).(AutonomousDatabaseLongTermBackupSchedulePtrOutput)
+}
+
+func (o AutonomousDatabaseOutput) MaintenancePatchLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringPtrOutput { return v.MaintenancePatchLevel }).(pulumi.StringPtrOutput)
 }
 
 // Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.

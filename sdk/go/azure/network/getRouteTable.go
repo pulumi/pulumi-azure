@@ -75,7 +75,7 @@ type LookupRouteTableResult struct {
 	// The name of the Route.
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// One or more `route` blocks as documented below.
+	// One or more `route` blocks as defined below.
 	Routes []GetRouteTableRoute `pulumi:"routes"`
 	// The collection of Subnets associated with this route table.
 	Subnets []string `pulumi:"subnets"`
@@ -139,7 +139,7 @@ func (o LookupRouteTableResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteTableResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// One or more `route` blocks as documented below.
+// One or more `route` blocks as defined below.
 func (o LookupRouteTableResultOutput) Routes() GetRouteTableRouteArrayOutput {
 	return o.ApplyT(func(v LookupRouteTableResult) []GetRouteTableRoute { return v.Routes }).(GetRouteTableRouteArrayOutput)
 }

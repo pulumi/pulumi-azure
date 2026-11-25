@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getVpnServerConfiguration({
- *     name: "existing-local-vpn-server-configuration",
- *     resourceGroupName: "existing-resource-group",
+ *     name: "example-vpn-server-configuration",
+ *     resourceGroupName: "example-resources",
  * });
  * export const azurermVpnServerConfiguration = example.then(example => example.id);
  * ```
@@ -111,8 +111,8 @@ export interface GetVpnServerConfigurationResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getVpnServerConfiguration({
- *     name: "existing-local-vpn-server-configuration",
- *     resourceGroupName: "existing-resource-group",
+ *     name: "example-vpn-server-configuration",
+ *     resourceGroupName: "example-resources",
  * });
  * export const azurermVpnServerConfiguration = example.then(example => example.id);
  * ```

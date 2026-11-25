@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.oracle.getResourceAnchor({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-resource-anchor",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -82,8 +82,8 @@ export interface GetResourceAnchorResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.oracle.getResourceAnchor({
- *     name: "existing",
- *     resourceGroupName: "existing",
+ *     name: "example-resource-anchor",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

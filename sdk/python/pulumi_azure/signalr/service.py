@@ -44,10 +44,10 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
-        :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as documented below.
+        :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
@@ -64,7 +64,7 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
                
                > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -122,7 +122,7 @@ class ServiceArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input['ServiceSkuArgs']:
         """
-        A `sku` block as documented below.
+        A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
@@ -158,7 +158,7 @@ class ServiceArgs:
     @pulumi.getter
     def cors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorArgs']]]]:
         """
-        A `cors` block as documented below.
+        A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
@@ -328,7 +328,7 @@ class ServiceArgs:
     @pulumi.getter(name="upstreamEndpoints")
     def upstream_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]]:
         """
-        An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        An `upstream_endpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         return pulumi.get(self, "upstream_endpoints")
 
@@ -372,7 +372,7 @@ class _ServiceState:
 
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[_builtins.bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
@@ -394,12 +394,12 @@ class _ServiceState:
         :param pulumi.Input[_builtins.int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
         :param pulumi.Input[_builtins.int] serverless_connection_timeout_in_seconds: Specifies the client connection timeout. Defaults to `30`.
         :param pulumi.Input[_builtins.str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
-        :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as documented below.
+        :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
                
                > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         if aad_auth_enabled is not None:
             pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
@@ -487,7 +487,7 @@ class _ServiceState:
     @pulumi.getter
     def cors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCorArgs']]]]:
         """
-        A `cors` block as documented below.
+        A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
@@ -739,7 +739,7 @@ class _ServiceState:
     @pulumi.getter
     def sku(self) -> pulumi.Input[Optional['ServiceSkuArgs']]:
         """
-        A `sku` block as documented below.
+        A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
@@ -777,7 +777,7 @@ class _ServiceState:
     @pulumi.getter(name="upstreamEndpoints")
     def upstream_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]]:
         """
-        An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        An `upstream_endpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         return pulumi.get(self, "upstream_endpoints")
 
@@ -870,7 +870,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]] cors: A `cors` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']] live_trace: A `live_trace` block as defined below.
@@ -884,12 +884,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] serverless_connection_timeout_in_seconds: Specifies the client connection timeout. Defaults to `30`.
         :param pulumi.Input[_builtins.str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
-        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
                
                > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]] upstream_endpoints: An `upstream_endpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         ...
     @overload
@@ -1073,7 +1073,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]] cors: A `cors` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[_builtins.bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']] identity: An `identity` block as defined below.
@@ -1095,12 +1095,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
         :param pulumi.Input[_builtins.int] serverless_connection_timeout_in_seconds: Specifies the client connection timeout. Defaults to `30`.
         :param pulumi.Input[_builtins.str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
-        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
                
                > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]] upstream_endpoints: An `upstream_endpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1155,7 +1155,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def cors(self) -> pulumi.Output[Sequence['outputs.ServiceCor']]:
         """
-        A `cors` block as documented below.
+        A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
@@ -1323,7 +1323,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.ServiceSku']:
         """
-        A `sku` block as documented below.
+        A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
@@ -1349,7 +1349,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="upstreamEndpoints")
     def upstream_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceUpstreamEndpoint']]]:
         """
-        An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        An `upstream_endpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         return pulumi.get(self, "upstream_endpoints")
 

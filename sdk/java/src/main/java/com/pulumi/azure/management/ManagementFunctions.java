@@ -384,7 +384,7 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .managementGroupId("00000000-0000-0000-000000000000")
      *             .build());
      * 
@@ -431,7 +431,7 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .managementGroupId("00000000-0000-0000-000000000000")
      *             .build());
      * 
@@ -478,7 +478,7 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .managementGroupId("00000000-0000-0000-000000000000")
      *             .build());
      * 
@@ -525,7 +525,7 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .managementGroupId("00000000-0000-0000-000000000000")
      *             .build());
      * 
@@ -572,7 +572,7 @@ public final class ManagementFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
-     *             .name("existing")
+     *             .name("example-deployment")
      *             .managementGroupId("00000000-0000-0000-000000000000")
      *             .build());
      * 

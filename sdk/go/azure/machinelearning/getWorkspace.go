@@ -27,14 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			existing, err := machinelearning.LookupWorkspace(ctx, &machinelearning.LookupWorkspaceArgs{
+//			example, err := machinelearning.LookupWorkspace(ctx, &machinelearning.LookupWorkspaceArgs{
 //				Name:              "example-workspace",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", existing.Id)
+//			ctx.Export("id", example.Id)
 //			return nil
 //		})
 //	}

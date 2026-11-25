@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CapacitySku struct {
-	// The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+	// The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
 	Name string `pulumi:"name"`
 	// The tier of the SKU to use for the Fabric Capacity. The only possible value is `Fabric`.
 	Tier string `pulumi:"tier"`
@@ -32,7 +32,7 @@ type CapacitySkuInput interface {
 }
 
 type CapacitySkuArgs struct {
-	// The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+	// The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The tier of the SKU to use for the Fabric Capacity. The only possible value is `Fabric`.
 	Tier pulumi.StringInput `pulumi:"tier"`
@@ -115,7 +115,7 @@ func (o CapacitySkuOutput) ToCapacitySkuPtrOutputWithContext(ctx context.Context
 	}).(CapacitySkuPtrOutput)
 }
 
-// The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+// The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
 func (o CapacitySkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacitySku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o CapacitySkuPtrOutput) Elem() CapacitySkuOutput {
 	}).(CapacitySkuOutput)
 }
 
-// The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+// The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
 func (o CapacitySkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacitySku) *string {
 		if v == nil {

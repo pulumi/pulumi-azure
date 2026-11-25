@@ -13,67 +13,67 @@ namespace Pulumi.Azure.Inputs
     public sealed class ProviderFeaturesKeyVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+        /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
         /// </summary>
         [Input("purgeSoftDeleteOnDestroy")]
         public Input<bool>? PurgeSoftDeleteOnDestroy { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+        /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
         /// </summary>
         [Input("purgeSoftDeletedCertificatesOnDestroy")]
         public Input<bool>? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+        /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
         /// </summary>
         [Input("purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy")]
         public Input<bool>? PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+        /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
         /// </summary>
         [Input("purgeSoftDeletedHardwareSecurityModulesOnDestroy")]
         public Input<bool>? PurgeSoftDeletedHardwareSecurityModulesOnDestroy { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+        /// When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
         /// </summary>
         [Input("purgeSoftDeletedKeysOnDestroy")]
         public Input<bool>? PurgeSoftDeletedKeysOnDestroy { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+        /// When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
         /// </summary>
         [Input("purgeSoftDeletedSecretsOnDestroy")]
         public Input<bool>? PurgeSoftDeletedSecretsOnDestroy { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+        /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
         /// </summary>
         [Input("recoverSoftDeletedCertificates")]
         public Input<bool>? RecoverSoftDeletedCertificates { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+        /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
         /// </summary>
         [Input("recoverSoftDeletedHardwareSecurityModuleKeys")]
         public Input<bool>? RecoverSoftDeletedHardwareSecurityModuleKeys { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+        /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
         /// </summary>
         [Input("recoverSoftDeletedKeyVaults")]
         public Input<bool>? RecoverSoftDeletedKeyVaults { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+        /// When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
         /// </summary>
         [Input("recoverSoftDeletedKeys")]
         public Input<bool>? RecoverSoftDeletedKeys { get; set; }
 
         /// <summary>
-        /// When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+        /// When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
         /// </summary>
         [Input("recoverSoftDeletedSecrets")]
         public Input<bool>? RecoverSoftDeletedSecrets { get; set; }

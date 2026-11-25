@@ -18,7 +18,7 @@ public final class FeaturesEnhancedValidation {
      */
     private @Nullable Boolean locations;
     /**
-     * @return Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+     * @return Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
      * 
      */
     private @Nullable Boolean preflightEnabled;
@@ -28,7 +28,7 @@ public final class FeaturesEnhancedValidation {
      */
     private @Nullable String preflightLocationFallback;
     /**
-     * @return Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+     * @return Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
      * 
      */
     private @Nullable Boolean resourceProviders;
@@ -42,7 +42,7 @@ public final class FeaturesEnhancedValidation {
         return Optional.ofNullable(this.locations);
     }
     /**
-     * @return Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+     * @return Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
      * 
      */
     public Optional<Boolean> preflightEnabled() {
@@ -56,7 +56,7 @@ public final class FeaturesEnhancedValidation {
         return Optional.ofNullable(this.preflightLocationFallback);
     }
     /**
-     * @return Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+     * @return Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
      * 
      */
     public Optional<Boolean> resourceProviders() {

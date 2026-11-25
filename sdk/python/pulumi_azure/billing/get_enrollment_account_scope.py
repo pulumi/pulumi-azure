@@ -79,8 +79,8 @@ def get_enrollment_account_scope(billing_account_name: Optional[_builtins.str] =
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.billing.get_enrollment_account_scope(billing_account_name="existing",
-        enrollment_account_name="existing")
+    example = azure.billing.get_enrollment_account_scope(billing_account_name="example-billing-account",
+        enrollment_account_name="example-enrollment-account")
     pulumi.export("id", example.id)
     ```
 
@@ -110,8 +110,8 @@ def get_enrollment_account_scope_output(billing_account_name: pulumi.Input[Optio
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.billing.get_enrollment_account_scope(billing_account_name="existing",
-        enrollment_account_name="existing")
+    example = azure.billing.get_enrollment_account_scope(billing_account_name="example-billing-account",
+        enrollment_account_name="example-enrollment-account")
     pulumi.export("id", example.id)
     ```
 

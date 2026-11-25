@@ -13,26 +13,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterKeyManagementService {
     /**
-     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+     * @return The ID of the Key Vault in which the key is located.
+     * 
+     * &gt; **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+     * 
+     */
+    private @Nullable String keyVaultId;
+    /**
+     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
      * 
      */
     private String keyVaultKeyId;
     /**
-     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+     * @return Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
      * 
      */
     private @Nullable String keyVaultNetworkAccess;
 
     private KubernetesClusterKeyManagementService() {}
     /**
-     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+     * @return The ID of the Key Vault in which the key is located.
+     * 
+     * &gt; **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+     * 
+     */
+    public Optional<String> keyVaultId() {
+        return Optional.ofNullable(this.keyVaultId);
+    }
+    /**
+     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
      * 
      */
     public String keyVaultKeyId() {
         return this.keyVaultKeyId;
     }
     /**
-     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+     * @return Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
      * 
      */
     public Optional<String> keyVaultNetworkAccess() {
@@ -48,15 +64,23 @@ public final class KubernetesClusterKeyManagementService {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String keyVaultId;
         private String keyVaultKeyId;
         private @Nullable String keyVaultNetworkAccess;
         public Builder() {}
         public Builder(KubernetesClusterKeyManagementService defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.keyVaultId = defaults.keyVaultId;
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
     	      this.keyVaultNetworkAccess = defaults.keyVaultNetworkAccess;
         }
 
+        @CustomType.Setter
+        public Builder keyVaultId(@Nullable String keyVaultId) {
+
+            this.keyVaultId = keyVaultId;
+            return this;
+        }
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             if (keyVaultKeyId == null) {
@@ -73,6 +97,7 @@ public final class KubernetesClusterKeyManagementService {
         }
         public KubernetesClusterKeyManagementService build() {
             final var _resultValue = new KubernetesClusterKeyManagementService();
+            _resultValue.keyVaultId = keyVaultId;
             _resultValue.keyVaultKeyId = keyVaultKeyId;
             _resultValue.keyVaultNetworkAccess = keyVaultNetworkAccess;
             return _resultValue;

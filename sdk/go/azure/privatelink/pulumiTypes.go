@@ -788,6 +788,10 @@ func (o EndpointPrivateDnsZoneGroupPtrOutput) PrivateDnsZoneIds() pulumi.StringA
 }
 
 type EndpointPrivateServiceConnection struct {
+	// Indicates if changes on the service provider require any updates on the consumer.
+	ActionRequired *string `pulumi:"actionRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
 	// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 	//
 	// > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
@@ -804,6 +808,8 @@ type EndpointPrivateServiceConnection struct {
 	//
 	// > **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 	RequestMessage *string `pulumi:"requestMessage"`
+	// The status of the connection between the service consumer and provider.
+	Status *string `pulumi:"status"`
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
@@ -824,6 +830,10 @@ type EndpointPrivateServiceConnectionInput interface {
 }
 
 type EndpointPrivateServiceConnectionArgs struct {
+	// Indicates if changes on the service provider require any updates on the consumer.
+	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 	//
 	// > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
@@ -840,6 +850,8 @@ type EndpointPrivateServiceConnectionArgs struct {
 	//
 	// > **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
+	// The status of the connection between the service consumer and provider.
+	Status pulumi.StringPtrInput `pulumi:"status"`
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
@@ -925,6 +937,16 @@ func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnecti
 	}).(EndpointPrivateServiceConnectionPtrOutput)
 }
 
+// Indicates if changes on the service provider require any updates on the consumer.
+func (o EndpointPrivateServiceConnectionOutput) ActionRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o EndpointPrivateServiceConnectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 //
 // > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
@@ -959,6 +981,11 @@ func (o EndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPt
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
+// The status of the connection between the service consumer and provider.
+func (o EndpointPrivateServiceConnectionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 //
 // > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
@@ -990,6 +1017,26 @@ func (o EndpointPrivateServiceConnectionPtrOutput) Elem() EndpointPrivateService
 		var ret EndpointPrivateServiceConnection
 		return ret
 	}).(EndpointPrivateServiceConnectionOutput)
+}
+
+// Indicates if changes on the service provider require any updates on the consumer.
+func (o EndpointPrivateServiceConnectionPtrOutput) ActionRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o EndpointPrivateServiceConnectionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
 }
 
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
@@ -1053,6 +1100,16 @@ func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.Strin
 			return nil
 		}
 		return v.RequestMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the connection between the service consumer and provider.
+func (o EndpointPrivateServiceConnectionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 

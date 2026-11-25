@@ -106,7 +106,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? NetIpv4TcpMaxTwBuckets;
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_tw_reuse.
+        /// Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
         /// </summary>
         public readonly bool? NetIpv4TcpTwReuse;
         /// <summary>

@@ -89,6 +89,10 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     declare public readonly automaticInstanceRepair: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
+     * Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+     */
+    declare public readonly automaticZoneRebalancingEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * A `bootDiagnostics` block as defined below.
      */
     declare public readonly bootDiagnostics: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetBootDiagnostics | undefined>;
@@ -191,6 +195,18 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     declare public readonly proximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
+     * Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+     *
+     * > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+     */
+    declare public readonly resilientVirtualMachineCreationEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+     *
+     * > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+     */
+    declare public readonly resilientVirtualMachineDeletionEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
@@ -280,6 +296,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             const state = argsOrState as OrchestratedVirtualMachineScaleSetState | undefined;
             resourceInputs["additionalCapabilities"] = state?.additionalCapabilities;
             resourceInputs["automaticInstanceRepair"] = state?.automaticInstanceRepair;
+            resourceInputs["automaticZoneRebalancingEnabled"] = state?.automaticZoneRebalancingEnabled;
             resourceInputs["bootDiagnostics"] = state?.bootDiagnostics;
             resourceInputs["capacityReservationGroupId"] = state?.capacityReservationGroupId;
             resourceInputs["dataDisks"] = state?.dataDisks;
@@ -303,6 +320,8 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priority"] = state?.priority;
             resourceInputs["priorityMix"] = state?.priorityMix;
             resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
+            resourceInputs["resilientVirtualMachineCreationEnabled"] = state?.resilientVirtualMachineCreationEnabled;
+            resourceInputs["resilientVirtualMachineDeletionEnabled"] = state?.resilientVirtualMachineDeletionEnabled;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["rollingUpgradePolicy"] = state?.rollingUpgradePolicy;
             resourceInputs["singlePlacementGroup"] = state?.singlePlacementGroup;
@@ -327,6 +346,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             }
             resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
             resourceInputs["automaticInstanceRepair"] = args?.automaticInstanceRepair;
+            resourceInputs["automaticZoneRebalancingEnabled"] = args?.automaticZoneRebalancingEnabled;
             resourceInputs["bootDiagnostics"] = args?.bootDiagnostics;
             resourceInputs["capacityReservationGroupId"] = args?.capacityReservationGroupId;
             resourceInputs["dataDisks"] = args?.dataDisks;
@@ -350,6 +370,8 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priority"] = args?.priority;
             resourceInputs["priorityMix"] = args?.priorityMix;
             resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
+            resourceInputs["resilientVirtualMachineCreationEnabled"] = args?.resilientVirtualMachineCreationEnabled;
+            resourceInputs["resilientVirtualMachineDeletionEnabled"] = args?.resilientVirtualMachineDeletionEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["rollingUpgradePolicy"] = args?.rollingUpgradePolicy;
             resourceInputs["singlePlacementGroup"] = args?.singlePlacementGroup;
@@ -386,6 +408,10 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * > **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair | undefined>;
+    /**
+     * Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+     */
+    automaticZoneRebalancingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
@@ -489,6 +515,18 @@ export interface OrchestratedVirtualMachineScaleSetState {
      */
     proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
+     * Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+     *
+     * > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+     */
+    resilientVirtualMachineCreationEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+     *
+     * > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+     */
+    resilientVirtualMachineDeletionEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
@@ -578,6 +616,10 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * > **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair | undefined>;
+    /**
+     * Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+     */
+    automaticZoneRebalancingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
@@ -680,6 +722,18 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      */
     proximityPlacementGroupId?: pulumi.Input<string | undefined>;
+    /**
+     * Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+     *
+     * > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+     */
+    resilientVirtualMachineCreationEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+     *
+     * > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+     */
+    resilientVirtualMachineDeletionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */

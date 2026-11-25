@@ -165,8 +165,8 @@ def get_group(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.containerservice.get_group(name="existing",
-        resource_group_name="existing")
+    example = azure.containerservice.get_group(name="example-container-group",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     pulumi.export("ipAddress", example.ip_address)
     pulumi.export("fqdn", example.fqdn)
@@ -215,8 +215,8 @@ def get_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.containerservice.get_group(name="existing",
-        resource_group_name="existing")
+    example = azure.containerservice.get_group(name="example-container-group",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     pulumi.export("ipAddress", example.ip_address)
     pulumi.export("fqdn", example.fqdn)

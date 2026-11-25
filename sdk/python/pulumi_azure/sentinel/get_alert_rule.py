@@ -81,7 +81,7 @@ def get_alert_rule(log_analytics_workspace_id: Optional[_builtins.str] = None,
 
     example = azure.operationalinsights.get_analytics_workspace(name="example",
         resource_group_name="example-resources")
-    example_get_alert_rule = azure.sentinel.get_alert_rule(name="existing",
+    example_get_alert_rule = azure.sentinel.get_alert_rule(name="example-alert-rule",
         log_analytics_workspace_id=example.id)
     pulumi.export("id", example_get_alert_rule.id)
     ```
@@ -121,7 +121,7 @@ def get_alert_rule_output(log_analytics_workspace_id: pulumi.Input[Optional[_bui
 
     example = azure.operationalinsights.get_analytics_workspace(name="example",
         resource_group_name="example-resources")
-    example_get_alert_rule = azure.sentinel.get_alert_rule(name="existing",
+    example_get_alert_rule = azure.sentinel.get_alert_rule(name="example-alert-rule",
         log_analytics_workspace_id=example.id)
     pulumi.export("id", example_get_alert_rule.id)
     ```

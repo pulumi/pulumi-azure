@@ -90,13 +90,15 @@ type Schedule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The end time of the schedule.
 	ExpiryTime pulumi.StringOutput `pulumi:"expiryTime"`
-	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+	// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency pulumi.StringOutput `pulumi:"frequency"`
-	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	//
+	// > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
 	Interval pulumi.IntOutput `pulumi:"interval"`
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
 	MonthDays pulumi.IntArrayOutput `pulumi:"monthDays"`
-	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
 	MonthlyOccurrence ScheduleMonthlyOccurrencePtrOutput `pulumi:"monthlyOccurrence"`
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -155,13 +157,15 @@ type scheduleState struct {
 	Description *string `pulumi:"description"`
 	// The end time of the schedule.
 	ExpiryTime *string `pulumi:"expiryTime"`
-	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+	// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency *string `pulumi:"frequency"`
-	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	//
+	// > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
 	Interval *int `pulumi:"interval"`
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
 	MonthDays []int `pulumi:"monthDays"`
-	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
 	MonthlyOccurrence *ScheduleMonthlyOccurrence `pulumi:"monthlyOccurrence"`
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -182,13 +186,15 @@ type ScheduleState struct {
 	Description pulumi.StringPtrInput
 	// The end time of the schedule.
 	ExpiryTime pulumi.StringPtrInput
-	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+	// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency pulumi.StringPtrInput
-	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	//
+	// > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
 	Interval pulumi.IntPtrInput
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
 	MonthDays pulumi.IntArrayInput
-	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
 	MonthlyOccurrence ScheduleMonthlyOccurrencePtrInput
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -213,13 +219,15 @@ type scheduleArgs struct {
 	Description *string `pulumi:"description"`
 	// The end time of the schedule.
 	ExpiryTime *string `pulumi:"expiryTime"`
-	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+	// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency string `pulumi:"frequency"`
-	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	//
+	// > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
 	Interval *int `pulumi:"interval"`
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
 	MonthDays []int `pulumi:"monthDays"`
-	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
 	MonthlyOccurrence *ScheduleMonthlyOccurrence `pulumi:"monthlyOccurrence"`
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -241,13 +249,15 @@ type ScheduleArgs struct {
 	Description pulumi.StringPtrInput
 	// The end time of the schedule.
 	ExpiryTime pulumi.StringPtrInput
-	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+	// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency pulumi.StringInput
-	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	//
+	// > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
 	Interval pulumi.IntPtrInput
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
 	MonthDays pulumi.IntArrayInput
-	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+	// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
 	MonthlyOccurrence ScheduleMonthlyOccurrencePtrInput
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -363,12 +373,14 @@ func (o ScheduleOutput) ExpiryTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.ExpiryTime }).(pulumi.StringOutput)
 }
 
-// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+// The frequency of the schedule. - can be either `OneTime`, `Minute`, `Day`, `Hour`, `Week`, or `Month`.
 func (o ScheduleOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Frequency }).(pulumi.StringOutput)
 }
 
-// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+// The number of `frequency`s between runs. Only valid when frequency is `Minute`, `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+//
+// > **Note:** `interval` must be set to at least `15` when `frequency` is `Minute`.
 func (o ScheduleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.IntOutput { return v.Interval }).(pulumi.IntOutput)
 }
@@ -378,7 +390,7 @@ func (o ScheduleOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.IntArrayOutput { return v.MonthDays }).(pulumi.IntArrayOutput)
 }
 
-// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+// One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields defined below.
 func (o ScheduleOutput) MonthlyOccurrence() ScheduleMonthlyOccurrencePtrOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleMonthlyOccurrencePtrOutput { return v.MonthlyOccurrence }).(ScheduleMonthlyOccurrencePtrOutput)
 }

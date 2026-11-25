@@ -81,15 +81,17 @@ import javax.annotation.Nullable;
  * 
  * * `customerContacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
  * 
- * * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
- * 
  * * `longTermBackupSchedule` - (Optional) A `longTermBackupSchedule` block as defined below.
  * 
  * &gt; **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
  * 
+ * * `maintenancePatchLevel` - (Optional) The maintenance patch level for the Autonomous Database. Defaults to `Regular`. Possible values are `Early` and `Regular`.
+ * 
+ * * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+ * 
  * ***
  * 
- * A `longTermBackupSchedule` blocks supports the following:
+ * A `longTermBackupSchedule` block supports the following:
  * 
  * * `repeatCadence` - (Required) Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
  * 
@@ -330,6 +332,12 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<AutonomousDatabaseLongTermBackupSchedule>> longTermBackupSchedule() {
         return Codegen.optional(this.longTermBackupSchedule);
+    }
+    @Export(name="maintenancePatchLevel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> maintenancePatchLevel;
+
+    public Output<Optional<String>> maintenancePatchLevel() {
+        return Codegen.optional(this.maintenancePatchLevel);
     }
     /**
      * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.

@@ -78,6 +78,10 @@ export class EventGridTopic extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     */
+    declare public readonly dataResidencyBoundary: pulumi.Output<string>;
+    /**
      * The Endpoint associated with the EventGrid Topic.
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
@@ -109,6 +113,10 @@ export class EventGridTopic extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     declare public readonly location: pulumi.Output<string>;
+    /**
+     * The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     */
+    declare public readonly minimumTlsVersion: pulumi.Output<string>;
     /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */
@@ -150,6 +158,7 @@ export class EventGridTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventGridTopicState | undefined;
+            resourceInputs["dataResidencyBoundary"] = state?.dataResidencyBoundary;
             resourceInputs["endpoint"] = state?.endpoint;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["inboundIpRules"] = state?.inboundIpRules;
@@ -158,6 +167,7 @@ export class EventGridTopic extends pulumi.CustomResource {
             resourceInputs["inputSchema"] = state?.inputSchema;
             resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
             resourceInputs["location"] = state?.location;
+            resourceInputs["minimumTlsVersion"] = state?.minimumTlsVersion;
             resourceInputs["name"] = state?.name;
             resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
             resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
@@ -169,6 +179,7 @@ export class EventGridTopic extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["dataResidencyBoundary"] = args?.dataResidencyBoundary;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["inboundIpRules"] = args?.inboundIpRules;
             resourceInputs["inputMappingDefaultValues"] = args?.inputMappingDefaultValues;
@@ -176,6 +187,7 @@ export class EventGridTopic extends pulumi.CustomResource {
             resourceInputs["inputSchema"] = args?.inputSchema;
             resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
             resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
             resourceInputs["name"] = args?.name;
             resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -195,6 +207,10 @@ export class EventGridTopic extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventGridTopic resources.
  */
 export interface EventGridTopicState {
+    /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     */
+    dataResidencyBoundary?: pulumi.Input<string | undefined>;
     /**
      * The Endpoint associated with the EventGrid Topic.
      */
@@ -228,6 +244,10 @@ export interface EventGridTopicState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
+     * The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     */
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
+    /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
@@ -258,6 +278,10 @@ export interface EventGridTopicState {
  */
 export interface EventGridTopicArgs {
     /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     */
+    dataResidencyBoundary?: pulumi.Input<string | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.eventhub.EventGridTopicIdentity | undefined>;
@@ -285,6 +309,10 @@ export interface EventGridTopicArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string | undefined>;
+    /**
+     * The minimum supported TLS version. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     */
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */

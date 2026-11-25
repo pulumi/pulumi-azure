@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := nginx.LookupApiKey(ctx, &nginx.LookupApiKeyArgs{
-//				Name:              "existing",
+//				Name:              "example-api-key",
 //				NginxDeploymentId: exampleAzurermNginxDeployment.Id,
 //			}, nil)
 //			if err != nil {

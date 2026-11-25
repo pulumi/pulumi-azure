@@ -1821,7 +1821,7 @@ class VirtualMachineAutoBackup(dict):
         :param _builtins.str storage_account_access_key: Access key for the storage account where backups will be kept.
         :param _builtins.str storage_blob_endpoint: Blob endpoint for the storage account where backups will be kept.
         :param _builtins.str encryption_password: Encryption password to use. Setting a password will enable encryption.
-        :param 'VirtualMachineAutoBackupManualScheduleArgs' manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        :param 'VirtualMachineAutoBackupManualScheduleArgs' manual_schedule: A `manual_schedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         :param _builtins.bool system_databases_backup_enabled: Include or exclude system databases from auto backup.
         """
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
@@ -1870,7 +1870,7 @@ class VirtualMachineAutoBackup(dict):
     @pulumi.getter(name="manualSchedule")
     def manual_schedule(self) -> Optional['outputs.VirtualMachineAutoBackupManualSchedule']:
         """
-        A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        A `manual_schedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         """
         return pulumi.get(self, "manual_schedule")
 

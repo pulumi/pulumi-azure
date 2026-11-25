@@ -2625,7 +2625,7 @@ func (o GetWindowsWebAppSiteConfigHandlerMappingArrayOutput) Index(i pulumi.IntI
 type GetWindowsWebAppSiteConfigIpRestriction struct {
 	// A `action` block as defined above.
 	Action string `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description string                                          `pulumi:"description"`
 	Headers     []GetWindowsWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -2654,7 +2654,7 @@ type GetWindowsWebAppSiteConfigIpRestrictionInput interface {
 type GetWindowsWebAppSiteConfigIpRestrictionArgs struct {
 	// A `action` block as defined above.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description pulumi.StringInput                                      `pulumi:"description"`
 	Headers     GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -2725,7 +2725,7 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOut
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The description of the ip restriction rule.
+// The description of the IP restriction rule.
 func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -2784,7 +2784,7 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntIn
 type GetWindowsWebAppSiteConfigIpRestrictionHeader struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids []string `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors []string `pulumi:"xForwardedFors"`
@@ -2806,7 +2806,7 @@ type GetWindowsWebAppSiteConfigIpRestrictionHeaderInput interface {
 type GetWindowsWebAppSiteConfigIpRestrictionHeaderArgs struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
@@ -2870,7 +2870,7 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulum
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if a Front Door Health Probe is expected.
+// Whether a Front Door Health Probe is expected.
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
@@ -2908,7 +2908,7 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi
 type GetWindowsWebAppSiteConfigScmIpRestriction struct {
 	// A `action` block as defined above.
 	Action string `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description string                                             `pulumi:"description"`
 	Headers     []GetWindowsWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -2937,7 +2937,7 @@ type GetWindowsWebAppSiteConfigScmIpRestrictionInput interface {
 type GetWindowsWebAppSiteConfigScmIpRestrictionArgs struct {
 	// A `action` block as defined above.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The description of the ip restriction rule.
+	// The description of the IP restriction rule.
 	Description pulumi.StringInput                                         `pulumi:"description"`
 	Headers     GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
@@ -3008,7 +3008,7 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) Action() pulumi.String
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The description of the ip restriction rule.
+// The description of the IP restriction rule.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -3067,7 +3067,7 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.In
 type GetWindowsWebAppSiteConfigScmIpRestrictionHeader struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids []string `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors []string `pulumi:"xForwardedFors"`
@@ -3089,7 +3089,7 @@ type GetWindowsWebAppSiteConfigScmIpRestrictionHeaderInput interface {
 type GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArgs struct {
 	// The list of Azure Front Door IDs.
 	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
-	// Specifies if a Front Door Health Probe is expected.
+	// Whether a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
 	// The list of addresses for which matching is applied.
 	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
@@ -3153,7 +3153,7 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pu
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if a Front Door Health Probe is expected.
+// Whether a Front Door Health Probe is expected.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }

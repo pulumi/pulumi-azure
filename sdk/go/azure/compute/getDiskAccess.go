@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := compute.LookupDiskAccess(ctx, &compute.LookupDiskAccessArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-disk-access",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

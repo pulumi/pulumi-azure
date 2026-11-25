@@ -35,14 +35,14 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+     * A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
     @Import(name="manualSchedule")
     private @Nullable Output<VirtualMachineAutoBackupManualScheduleArgs> manualSchedule;
 
     /**
-     * @return A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+     * @return A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
     public Optional<Output<VirtualMachineAutoBackupManualScheduleArgs>> manualSchedule() {
@@ -160,7 +160,7 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param manualSchedule A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+         * @param manualSchedule A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param manualSchedule A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+         * @param manualSchedule A `manualSchedule` block as defined below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
          * 
          * @return builder
          * 

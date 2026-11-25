@@ -140,9 +140,9 @@ def get_volume_group(elastic_san_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.elasticsan.get(name="existing",
-        resource_group_name="existing")
-    example_get_volume_group = azure.elasticsan.get_volume_group(name="existing",
+    example = azure.elasticsan.get(name="example-elastic-san",
+        resource_group_name="example-resources")
+    example_get_volume_group = azure.elasticsan.get_volume_group(name="example-volume-group",
         elastic_san_id=example.id)
     pulumi.export("id", example_get_volume_group.id)
     ```
@@ -185,9 +185,9 @@ def get_volume_group_output(elastic_san_id: pulumi.Input[Optional[_builtins.str]
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.elasticsan.get(name="existing",
-        resource_group_name="existing")
-    example_get_volume_group = azure.elasticsan.get_volume_group(name="existing",
+    example = azure.elasticsan.get(name="example-elastic-san",
+        resource_group_name="example-resources")
+    example_get_volume_group = azure.elasticsan.get_volume_group(name="example-volume-group",
         elastic_san_id=example.id)
     pulumi.export("id", example_get_volume_group.id)
     ```

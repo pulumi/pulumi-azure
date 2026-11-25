@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resource-group",
  * });
  * const exampleGetShare = example.then(example => azure.datashare.getShare({
- *     name: "existing",
+ *     name: "exampleshare",
  *     accountId: example.id,
  * }));
  * export const id = exampleGetShare.then(exampleGetShare => exampleGetShare.id);
@@ -99,7 +99,7 @@ export interface GetShareResult {
  *     resourceGroupName: "example-resource-group",
  * });
  * const exampleGetShare = example.then(example => azure.datashare.getShare({
- *     name: "existing",
+ *     name: "exampleshare",
  *     accountId: example.id,
  * }));
  * export const id = exampleGetShare.then(exampleGetShare => exampleGetShare.id);

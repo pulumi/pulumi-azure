@@ -188,8 +188,8 @@ def get_server(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.mssql.get_server(name="existingMsSqlServer",
-        resource_group_name="existingResGroup")
+    example = azure.mssql.get_server(name="example-mssql-server",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -235,8 +235,8 @@ def get_server_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.mssql.get_server(name="existingMsSqlServer",
-        resource_group_name="existingResGroup")
+    example = azure.mssql.get_server(name="example-mssql-server",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

@@ -227,14 +227,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Is detailed error logging enabled
+     * Is detailed error logging enabled?
      * 
      */
     @Import(name="detailedErrorLoggingEnabled")
     private @Nullable Output<Boolean> detailedErrorLoggingEnabled;
 
     /**
-     * @return Is detailed error logging enabled
+     * @return Is detailed error logging enabled?
      * 
      */
     public Optional<Output<Boolean>> detailedErrorLoggingEnabled() {
@@ -347,14 +347,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Linux FX Version
+     * The Linux FX Version.
      * 
      */
     @Import(name="linuxFxVersion")
     private @Nullable Output<String> linuxFxVersion;
 
     /**
-     * @return The Linux FX Version
+     * @return The Linux FX Version.
      * 
      */
     public Optional<Output<String>> linuxFxVersion() {
@@ -974,7 +974,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param detailedErrorLoggingEnabled Is detailed error logging enabled
+         * @param detailedErrorLoggingEnabled Is detailed error logging enabled?
          * 
          * @return builder
          * 
@@ -985,7 +985,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param detailedErrorLoggingEnabled Is detailed error logging enabled
+         * @param detailedErrorLoggingEnabled Is detailed error logging enabled?
          * 
          * @return builder
          * 
@@ -1152,7 +1152,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param linuxFxVersion The Linux FX Version
+         * @param linuxFxVersion The Linux FX Version.
          * 
          * @return builder
          * 
@@ -1163,7 +1163,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param linuxFxVersion The Linux FX Version
+         * @param linuxFxVersion The Linux FX Version.
          * 
          * @return builder
          * 

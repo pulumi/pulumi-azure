@@ -348,8 +348,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name("existing-bastion")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-bastion")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -397,8 +397,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name("existing-bastion")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-bastion")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -446,8 +446,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name("existing-bastion")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-bastion")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -495,8 +495,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name("existing-bastion")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-bastion")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -544,8 +544,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name("existing-bastion")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-bastion")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1333,8 +1333,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-disk-access")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1382,8 +1382,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-disk-access")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1431,8 +1431,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-disk-access")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1480,8 +1480,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-disk-access")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1529,8 +1529,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-disk-access")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1577,12 +1577,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *         final var example = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
      *             .name("example-des")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1626,12 +1626,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *         final var example = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
      *             .name("example-des")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1675,12 +1675,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *         final var example = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
      *             .name("example-des")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1724,12 +1724,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *         final var example = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
      *             .name("example-des")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1773,12 +1773,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *         final var example = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
      *             .name("example-des")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2302,12 +2302,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name("example-datadisk")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2351,12 +2351,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name("example-datadisk")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2400,12 +2400,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name("example-datadisk")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2449,12 +2449,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name("example-datadisk")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2498,12 +2498,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name("example-datadisk")
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.id());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2547,11 +2547,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
+     *         ctx.export("firstDiskId", exampleAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2595,11 +2595,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
+     *         ctx.export("firstDiskId", exampleAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2643,11 +2643,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
+     *         ctx.export("firstDiskId", exampleAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2691,11 +2691,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
+     *         ctx.export("firstDiskId", exampleAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2739,11 +2739,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *         final var example = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
+     *         ctx.export("firstDiskId", exampleAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2788,8 +2788,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2837,8 +2837,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2886,8 +2886,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2935,8 +2935,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2984,8 +2984,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4508,8 +4508,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ssh-key")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4557,8 +4557,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ssh-key")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4606,8 +4606,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ssh-key")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4655,8 +4655,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ssh-key")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4704,8 +4704,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-ssh-key")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -4998,8 +4998,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -5047,8 +5047,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -5096,8 +5096,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -5145,8 +5145,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -5194,8 +5194,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name("existing")
-     *             .resourceGroupName("existing")
+     *             .name("example-scale-set")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());

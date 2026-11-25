@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.GetIpGroups(ctx, &network.GetIpGroupsArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-ip-group",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

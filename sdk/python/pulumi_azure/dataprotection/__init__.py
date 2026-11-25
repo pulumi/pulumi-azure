@@ -7,12 +7,14 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .backup_instance_blog_storage import *
+from .backup_instance_cosmosdb_account import *
 from .backup_instance_data_lake_storage import *
 from .backup_instance_disk import *
 from .backup_instance_kubernetes_cluster import *
 from .backup_instance_mysql_flexible_server import *
 from .backup_instance_postgresql_flexible_server import *
 from .backup_policy_blob_storage import *
+from .backup_policy_cosmosdb_account import *
 from .backup_policy_data_lake_storage import *
 from .backup_policy_disk import *
 from .backup_policy_kubernetes_cluster import *
@@ -20,6 +22,7 @@ from .backup_policy_mysql_flexible_server import *
 from .backup_policy_postgresql_flexible_server import *
 from .backup_vault import *
 from .backup_vault_customer_managed_key import *
+from .backup_vault_resource_guard_association import *
 from .get_backup_vault import *
 from .resource_guard import *
 from ._inputs import *

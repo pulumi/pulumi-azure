@@ -857,8 +857,8 @@ def get_autonomous_database_clone_from_database(name: Optional[_builtins.str] = 
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_autonomous_database_clone_from_database(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_autonomous_database_clone_from_database(name="example-autonomous-database",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -960,8 +960,8 @@ def get_autonomous_database_clone_from_database_output(name: pulumi.Input[Option
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_autonomous_database_clone_from_database(name="existing",
-        resource_group_name="existing")
+    example = azure.oracle.get_autonomous_database_clone_from_database(name="example-autonomous-database",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

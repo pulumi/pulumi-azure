@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2026-05-01
+ * * `Microsoft.ContainerService` - 2026-07-01
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,11 +55,11 @@ export interface GetKubernetesClusterArgs {
  */
 export interface GetKubernetesClusterResult {
     /**
-     * An `aciConnectorLinux` block as documented below.
+     * An `aciConnectorLinux` block as defined below.
      */
     readonly aciConnectorLinuxes: outputs.containerservice.GetKubernetesClusterAciConnectorLinux[];
     /**
-     * An `agentPoolProfile` block as documented below.
+     * An `agentPoolProfile` block as defined below.
      */
     readonly agentPoolProfiles: outputs.containerservice.GetKubernetesClusterAgentPoolProfile[];
     /**
@@ -67,7 +67,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly apiServerAuthorizedIpRanges: string[];
     /**
-     * An `azureActiveDirectoryRoleBasedAccessControl` block as documented below.
+     * An `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
     readonly azureActiveDirectoryRoleBasedAccessControls: outputs.containerservice.GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl[];
     /**
@@ -75,7 +75,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly azurePolicyEnabled: boolean;
     /**
-     * A `bootstrapProfile` block as documented below.
+     * A `bootstrapProfile` block as defined below.
      */
     readonly bootstrapProfiles: outputs.containerservice.GetKubernetesClusterBootstrapProfile[];
     /**
@@ -107,19 +107,19 @@ export interface GetKubernetesClusterResult {
      */
     readonly id: string;
     /**
-     * An `identity` block as documented below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.containerservice.GetKubernetesClusterIdentity[];
     /**
-     * An `ingressApplicationGateway` block as documented below.
+     * An `ingressApplicationGateway` block as defined below.
      */
     readonly ingressApplicationGateways: outputs.containerservice.GetKubernetesClusterIngressApplicationGateway[];
     /**
-     * A `keyManagementService` block as documented below.
+     * A `keyManagementService` block as defined below.
      */
     readonly keyManagementServices: outputs.containerservice.GetKubernetesClusterKeyManagementService[];
     /**
-     * A `keyVaultSecretsProvider` block as documented below.
+     * A `keyVaultSecretsProvider` block as defined below.
      */
     readonly keyVaultSecretsProviders: outputs.containerservice.GetKubernetesClusterKeyVaultSecretsProvider[];
     /**
@@ -139,7 +139,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly kubeConfigs: outputs.containerservice.GetKubernetesClusterKubeConfig[];
     /**
-     * A `kubeletIdentity` block as documented below.
+     * A `kubeletIdentity` block as defined below.
      */
     readonly kubeletIdentities: outputs.containerservice.GetKubernetesClusterKubeletIdentity[];
     /**
@@ -147,7 +147,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly kubernetesVersion: string;
     /**
-     * A `linuxProfile` block as documented below.
+     * A `linuxProfile` block as defined below.
      */
     readonly linuxProfiles: outputs.containerservice.GetKubernetesClusterLinuxProfile[];
     /**
@@ -163,7 +163,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly name: string;
     /**
-     * A `networkProfile` block as documented below.
+     * A `networkProfile` block as defined below.
      */
     readonly networkProfiles: outputs.containerservice.GetKubernetesClusterNetworkProfile[];
     /**
@@ -183,7 +183,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly oidcIssuerUrl: string;
     /**
-     * An `omsAgent` block as documented below.
+     * An `omsAgent` block as defined below.
      */
     readonly omsAgents: outputs.containerservice.GetKubernetesClusterOmsAgent[];
     /**
@@ -205,11 +205,11 @@ export interface GetKubernetesClusterResult {
     readonly roleBasedAccessControlEnabled: boolean;
     readonly serviceMeshProfiles: outputs.containerservice.GetKubernetesClusterServiceMeshProfile[];
     /**
-     * A `servicePrincipal` block as documented below.
+     * A `servicePrincipal` block as defined below.
      */
     readonly servicePrincipals: outputs.containerservice.GetKubernetesClusterServicePrincipal[];
     /**
-     * A `storageProfile` block as documented below.
+     * A `storageProfile` block as defined below.
      */
     readonly storageProfiles: outputs.containerservice.GetKubernetesClusterStorageProfile[];
     /**
@@ -217,7 +217,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * A `windowsProfile` block as documented below.
+     * A `windowsProfile` block as defined below.
      */
     readonly windowsProfiles: outputs.containerservice.GetKubernetesClusterWindowsProfile[];
 }
@@ -241,7 +241,7 @@ export interface GetKubernetesClusterResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2026-05-01
+ * * `Microsoft.ContainerService` - 2026-07-01
  */
 export function getKubernetesClusterOutput(args: GetKubernetesClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

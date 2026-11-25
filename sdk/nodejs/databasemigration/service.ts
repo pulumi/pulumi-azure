@@ -92,6 +92,10 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The ID of the Network Interface created by Azure for the Database Migration Service.
+     */
+    declare public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
+    /**
      * Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
+            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["skuName"] = state?.skuName;
             resourceInputs["subnetId"] = state?.subnetId;
@@ -144,6 +149,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["skuName"] = args?.skuName;
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Service.__pulumiType, name, resourceInputs, opts);
@@ -162,6 +168,10 @@ export interface ServiceState {
      * Specify the name of the database migration service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * The ID of the Network Interface created by Azure for the Database Migration Service.
+     */
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
      */

@@ -126,7 +126,7 @@ public final class GetClusterNodePoolResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A `upgradeSettings` block as documented below.
+     * @return A `upgradeSettings` block as defined below.
      * 
      */
     private List<GetClusterNodePoolUpgradeSetting> upgradeSettings;
@@ -307,7 +307,7 @@ public final class GetClusterNodePoolResult {
         return this.tags;
     }
     /**
-     * @return A `upgradeSettings` block as documented below.
+     * @return A `upgradeSettings` block as defined below.
      * 
      */
     public List<GetClusterNodePoolUpgradeSetting> upgradeSettings() {

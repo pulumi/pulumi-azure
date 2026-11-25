@@ -92,13 +92,13 @@ type Api struct {
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType pulumi.StringOutput `pulumi:"apiType"`
-	// A `contact` block as documented below.
+	// A `contact` block as defined below.
 	Contact ApiContactPtrOutput `pulumi:"contact"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the API.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// A `import` block as documented below.
+	// A `import` block as defined below.
 	//
 	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrOutput `pulumi:"import"`
@@ -106,13 +106,13 @@ type Api struct {
 	IsCurrent pulumi.BoolOutput `pulumi:"isCurrent"`
 	// Is this API Revision online/accessible via the Gateway?
 	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
-	// A `license` block as documented below.
+	// A `license` block as defined below.
 	License ApiLicensePtrOutput `pulumi:"license"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An `oauth2Authorization` block as documented below.
+	// An `oauth2Authorization` block as defined below.
 	Oauth2Authorization ApiOauth2AuthorizationPtrOutput `pulumi:"oauth2Authorization"`
-	// An `openidAuthentication` block as documented below.
+	// An `openidAuthentication` block as defined below.
 	OpenidAuthentication ApiOpenidAuthenticationPtrOutput `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringOutput `pulumi:"path"`
@@ -132,7 +132,7 @@ type Api struct {
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
-	// A `subscriptionKeyParameterNames` block as documented below.
+	// A `subscriptionKeyParameterNames` block as defined below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesOutput `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
@@ -191,13 +191,13 @@ type apiState struct {
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType *string `pulumi:"apiType"`
-	// A `contact` block as documented below.
+	// A `contact` block as defined below.
 	Contact *ApiContact `pulumi:"contact"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// The display name of the API.
 	DisplayName *string `pulumi:"displayName"`
-	// A `import` block as documented below.
+	// A `import` block as defined below.
 	//
 	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import *ApiImport `pulumi:"import"`
@@ -205,13 +205,13 @@ type apiState struct {
 	IsCurrent *bool `pulumi:"isCurrent"`
 	// Is this API Revision online/accessible via the Gateway?
 	IsOnline *bool `pulumi:"isOnline"`
-	// A `license` block as documented below.
+	// A `license` block as defined below.
 	License *ApiLicense `pulumi:"license"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// An `oauth2Authorization` block as documented below.
+	// An `oauth2Authorization` block as defined below.
 	Oauth2Authorization *ApiOauth2Authorization `pulumi:"oauth2Authorization"`
-	// An `openidAuthentication` block as documented below.
+	// An `openidAuthentication` block as defined below.
 	OpenidAuthentication *ApiOpenidAuthentication `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path *string `pulumi:"path"`
@@ -231,7 +231,7 @@ type apiState struct {
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
-	// A `subscriptionKeyParameterNames` block as documented below.
+	// A `subscriptionKeyParameterNames` block as defined below.
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
@@ -252,13 +252,13 @@ type ApiState struct {
 	ApiManagementName pulumi.StringPtrInput
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType pulumi.StringPtrInput
-	// A `contact` block as documented below.
+	// A `contact` block as defined below.
 	Contact ApiContactPtrInput
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
 	// The display name of the API.
 	DisplayName pulumi.StringPtrInput
-	// A `import` block as documented below.
+	// A `import` block as defined below.
 	//
 	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrInput
@@ -266,13 +266,13 @@ type ApiState struct {
 	IsCurrent pulumi.BoolPtrInput
 	// Is this API Revision online/accessible via the Gateway?
 	IsOnline pulumi.BoolPtrInput
-	// A `license` block as documented below.
+	// A `license` block as defined below.
 	License ApiLicensePtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// An `oauth2Authorization` block as documented below.
+	// An `oauth2Authorization` block as defined below.
 	Oauth2Authorization ApiOauth2AuthorizationPtrInput
-	// An `openidAuthentication` block as documented below.
+	// An `openidAuthentication` block as defined below.
 	OpenidAuthentication ApiOpenidAuthenticationPtrInput
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringPtrInput
@@ -292,7 +292,7 @@ type ApiState struct {
 	ServiceUrl pulumi.StringPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
-	// A `subscriptionKeyParameterNames` block as documented below.
+	// A `subscriptionKeyParameterNames` block as defined below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
 	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrInput
@@ -317,23 +317,23 @@ type apiArgs struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType *string `pulumi:"apiType"`
-	// A `contact` block as documented below.
+	// A `contact` block as defined below.
 	Contact *ApiContact `pulumi:"contact"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// The display name of the API.
 	DisplayName *string `pulumi:"displayName"`
-	// A `import` block as documented below.
+	// A `import` block as defined below.
 	//
 	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import *ApiImport `pulumi:"import"`
-	// A `license` block as documented below.
+	// A `license` block as defined below.
 	License *ApiLicense `pulumi:"license"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// An `oauth2Authorization` block as documented below.
+	// An `oauth2Authorization` block as defined below.
 	Oauth2Authorization *ApiOauth2Authorization `pulumi:"oauth2Authorization"`
-	// An `openidAuthentication` block as documented below.
+	// An `openidAuthentication` block as defined below.
 	OpenidAuthentication *ApiOpenidAuthentication `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path *string `pulumi:"path"`
@@ -353,7 +353,7 @@ type apiArgs struct {
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
-	// A `subscriptionKeyParameterNames` block as documented below.
+	// A `subscriptionKeyParameterNames` block as defined below.
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
@@ -375,23 +375,23 @@ type ApiArgs struct {
 	ApiManagementName pulumi.StringInput
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType pulumi.StringPtrInput
-	// A `contact` block as documented below.
+	// A `contact` block as defined below.
 	Contact ApiContactPtrInput
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
 	// The display name of the API.
 	DisplayName pulumi.StringPtrInput
-	// A `import` block as documented below.
+	// A `import` block as defined below.
 	//
 	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrInput
-	// A `license` block as documented below.
+	// A `license` block as defined below.
 	License ApiLicensePtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// An `oauth2Authorization` block as documented below.
+	// An `oauth2Authorization` block as defined below.
 	Oauth2Authorization ApiOauth2AuthorizationPtrInput
-	// An `openidAuthentication` block as documented below.
+	// An `openidAuthentication` block as defined below.
 	OpenidAuthentication ApiOpenidAuthenticationPtrInput
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringPtrInput
@@ -411,7 +411,7 @@ type ApiArgs struct {
 	ServiceUrl pulumi.StringPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
-	// A `subscriptionKeyParameterNames` block as documented below.
+	// A `subscriptionKeyParameterNames` block as defined below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
 	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrInput
@@ -524,7 +524,7 @@ func (o ApiOutput) ApiType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiType }).(pulumi.StringOutput)
 }
 
-// A `contact` block as documented below.
+// A `contact` block as defined below.
 func (o ApiOutput) Contact() ApiContactPtrOutput {
 	return o.ApplyT(func(v *Api) ApiContactPtrOutput { return v.Contact }).(ApiContactPtrOutput)
 }
@@ -539,7 +539,7 @@ func (o ApiOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// A `import` block as documented below.
+// A `import` block as defined below.
 //
 // > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 func (o ApiOutput) Import() ApiImportPtrOutput {
@@ -556,7 +556,7 @@ func (o ApiOutput) IsOnline() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolOutput { return v.IsOnline }).(pulumi.BoolOutput)
 }
 
-// A `license` block as documented below.
+// A `license` block as defined below.
 func (o ApiOutput) License() ApiLicensePtrOutput {
 	return o.ApplyT(func(v *Api) ApiLicensePtrOutput { return v.License }).(ApiLicensePtrOutput)
 }
@@ -566,12 +566,12 @@ func (o ApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An `oauth2Authorization` block as documented below.
+// An `oauth2Authorization` block as defined below.
 func (o ApiOutput) Oauth2Authorization() ApiOauth2AuthorizationPtrOutput {
 	return o.ApplyT(func(v *Api) ApiOauth2AuthorizationPtrOutput { return v.Oauth2Authorization }).(ApiOauth2AuthorizationPtrOutput)
 }
 
-// An `openidAuthentication` block as documented below.
+// An `openidAuthentication` block as defined below.
 func (o ApiOutput) OpenidAuthentication() ApiOpenidAuthenticationPtrOutput {
 	return o.ApplyT(func(v *Api) ApiOpenidAuthenticationPtrOutput { return v.OpenidAuthentication }).(ApiOpenidAuthenticationPtrOutput)
 }
@@ -615,7 +615,7 @@ func (o ApiOutput) SourceApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.SourceApiId }).(pulumi.StringPtrOutput)
 }
 
-// A `subscriptionKeyParameterNames` block as documented below.
+// A `subscriptionKeyParameterNames` block as defined below.
 func (o ApiOutput) SubscriptionKeyParameterNames() ApiSubscriptionKeyParameterNamesOutput {
 	return o.ApplyT(func(v *Api) ApiSubscriptionKeyParameterNamesOutput { return v.SubscriptionKeyParameterNames }).(ApiSubscriptionKeyParameterNamesOutput)
 }

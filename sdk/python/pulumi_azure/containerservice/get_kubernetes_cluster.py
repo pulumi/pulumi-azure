@@ -162,7 +162,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="aciConnectorLinuxes")
     def aci_connector_linuxes(self) -> Sequence['outputs.GetKubernetesClusterAciConnectorLinuxResult']:
         """
-        An `aci_connector_linux` block as documented below.
+        An `aci_connector_linux` block as defined below.
         """
         return pulumi.get(self, "aci_connector_linuxes")
 
@@ -170,7 +170,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="agentPoolProfiles")
     def agent_pool_profiles(self) -> Sequence['outputs.GetKubernetesClusterAgentPoolProfileResult']:
         """
-        An `agent_pool_profile` block as documented below.
+        An `agent_pool_profile` block as defined below.
         """
         return pulumi.get(self, "agent_pool_profiles")
 
@@ -186,7 +186,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControls")
     def azure_active_directory_role_based_access_controls(self) -> Sequence['outputs.GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult']:
         """
-        An `azure_active_directory_role_based_access_control` block as documented below.
+        An `azure_active_directory_role_based_access_control` block as defined below.
         """
         return pulumi.get(self, "azure_active_directory_role_based_access_controls")
 
@@ -202,7 +202,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="bootstrapProfiles")
     def bootstrap_profiles(self) -> Sequence['outputs.GetKubernetesClusterBootstrapProfileResult']:
         """
-        A `bootstrap_profile` block as documented below.
+        A `bootstrap_profile` block as defined below.
         """
         return pulumi.get(self, "bootstrap_profiles")
 
@@ -266,7 +266,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetKubernetesClusterIdentityResult']:
         """
-        An `identity` block as documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
 
@@ -274,7 +274,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="ingressApplicationGateways")
     def ingress_application_gateways(self) -> Sequence['outputs.GetKubernetesClusterIngressApplicationGatewayResult']:
         """
-        An `ingress_application_gateway` block as documented below.
+        An `ingress_application_gateway` block as defined below.
         """
         return pulumi.get(self, "ingress_application_gateways")
 
@@ -282,7 +282,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="keyManagementServices")
     def key_management_services(self) -> Sequence['outputs.GetKubernetesClusterKeyManagementServiceResult']:
         """
-        A `key_management_service` block as documented below.
+        A `key_management_service` block as defined below.
         """
         return pulumi.get(self, "key_management_services")
 
@@ -290,7 +290,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="keyVaultSecretsProviders")
     def key_vault_secrets_providers(self) -> Sequence['outputs.GetKubernetesClusterKeyVaultSecretsProviderResult']:
         """
-        A `key_vault_secrets_provider` block as documented below.
+        A `key_vault_secrets_provider` block as defined below.
         """
         return pulumi.get(self, "key_vault_secrets_providers")
 
@@ -330,7 +330,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="kubeletIdentities")
     def kubelet_identities(self) -> Sequence['outputs.GetKubernetesClusterKubeletIdentityResult']:
         """
-        A `kubelet_identity` block as documented below.
+        A `kubelet_identity` block as defined below.
         """
         return pulumi.get(self, "kubelet_identities")
 
@@ -346,7 +346,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="linuxProfiles")
     def linux_profiles(self) -> Sequence['outputs.GetKubernetesClusterLinuxProfileResult']:
         """
-        A `linux_profile` block as documented below.
+        A `linux_profile` block as defined below.
         """
         return pulumi.get(self, "linux_profiles")
 
@@ -378,7 +378,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="networkProfiles")
     def network_profiles(self) -> Sequence['outputs.GetKubernetesClusterNetworkProfileResult']:
         """
-        A `network_profile` block as documented below.
+        A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profiles")
 
@@ -418,7 +418,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="omsAgents")
     def oms_agents(self) -> Sequence['outputs.GetKubernetesClusterOmsAgentResult']:
         """
-        An `oms_agent` block as documented below.
+        An `oms_agent` block as defined below.
         """
         return pulumi.get(self, "oms_agents")
 
@@ -468,7 +468,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="servicePrincipals")
     def service_principals(self) -> Sequence['outputs.GetKubernetesClusterServicePrincipalResult']:
         """
-        A `service_principal` block as documented below.
+        A `service_principal` block as defined below.
         """
         return pulumi.get(self, "service_principals")
 
@@ -476,7 +476,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="storageProfiles")
     def storage_profiles(self) -> Sequence['outputs.GetKubernetesClusterStorageProfileResult']:
         """
-        A `storage_profile` block as documented below.
+        A `storage_profile` block as defined below.
         """
         return pulumi.get(self, "storage_profiles")
 
@@ -492,7 +492,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="windowsProfiles")
     def windows_profiles(self) -> Sequence['outputs.GetKubernetesClusterWindowsProfileResult']:
         """
-        A `windows_profile` block as documented below.
+        A `windows_profile` block as defined below.
         """
         return pulumi.get(self, "windows_profiles")
 
@@ -569,7 +569,7 @@ def get_kubernetes_cluster(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService` - 2026-05-01
+    * `Microsoft.ContainerService` - 2026-07-01
 
 
     :param _builtins.str name: The name of the managed Kubernetes Cluster.
@@ -646,7 +646,7 @@ def get_kubernetes_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService` - 2026-05-01
+    * `Microsoft.ContainerService` - 2026-07-01
 
 
     :param _builtins.str name: The name of the managed Kubernetes Cluster.

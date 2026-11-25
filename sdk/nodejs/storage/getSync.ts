@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.storage.getSync({
- *     name: "existingStorageSyncName",
- *     resourceGroupName: "existingResGroup",
+ *     name: "example-storage-sync",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -82,8 +82,8 @@ export interface GetSyncResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.storage.getSync({
- *     name: "existingStorageSyncName",
- *     resourceGroupName: "existingResGroup",
+ *     name: "example-storage-sync",
+ *     resourceGroupName: "example-resources",
  * });
  * export const id = example.then(example => example.id);
  * ```

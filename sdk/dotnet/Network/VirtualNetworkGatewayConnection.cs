@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ConnectionProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// A `CustomBgpAddresses` block which is documented below.
+        /// A `CustomBgpAddresses` block which is defined below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> IngressNatRuleIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `IpsecPolicy` block which is documented below.
+        /// A `IpsecPolicy` block which is defined below.
         /// Only a single policy can be defined for a connection. For details on
         /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `TrafficSelectorPolicy` blocks which are documented below.
+        /// One or more `TrafficSelectorPolicy` blocks which are defined below.
         /// A `TrafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
@@ -520,7 +520,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
-        /// A `CustomBgpAddresses` block which is documented below.
+        /// A `CustomBgpAddresses` block which is defined below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
@@ -570,7 +570,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `IpsecPolicy` block which is documented below.
+        /// A `IpsecPolicy` block which is defined below.
         /// Only a single policy can be defined for a connection. For details on
         /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
@@ -654,7 +654,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// One or more `TrafficSelectorPolicy` blocks which are documented below.
+        /// One or more `TrafficSelectorPolicy` blocks which are defined below.
         /// A `TrafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
@@ -723,7 +723,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
-        /// A `CustomBgpAddresses` block which is documented below.
+        /// A `CustomBgpAddresses` block which is defined below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
@@ -773,7 +773,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `IpsecPolicy` block which is documented below.
+        /// A `IpsecPolicy` block which is defined below.
         /// Only a single policy can be defined for a connection. For details on
         /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
@@ -857,7 +857,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// One or more `TrafficSelectorPolicy` blocks which are documented below.
+        /// One or more `TrafficSelectorPolicy` blocks which are defined below.
         /// A `TrafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>

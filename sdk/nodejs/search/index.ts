@@ -15,6 +15,11 @@ export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
+export { ServiceDatasourceBlobArgs, ServiceDatasourceBlobState } from "./serviceDatasourceBlob";
+export type ServiceDatasourceBlob = import("./serviceDatasourceBlob").ServiceDatasourceBlob;
+export const ServiceDatasourceBlob: typeof import("./serviceDatasourceBlob").ServiceDatasourceBlob = null as any;
+utilities.lazyLoad(exports, ["ServiceDatasourceBlob"], () => require("./serviceDatasourceBlob"));
+
 export { SharedPrivateLinkServiceArgs, SharedPrivateLinkServiceState } from "./sharedPrivateLinkService";
 export type SharedPrivateLinkService = import("./sharedPrivateLinkService").SharedPrivateLinkService;
 export const SharedPrivateLinkService: typeof import("./sharedPrivateLinkService").SharedPrivateLinkService = null as any;
@@ -27,6 +32,8 @@ const _module = {
         switch (type) {
             case "azure:search/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:search/serviceDatasourceBlob:ServiceDatasourceBlob":
+                return new ServiceDatasourceBlob(name, <any>undefined, { urn })
             case "azure:search/sharedPrivateLinkService:SharedPrivateLinkService":
                 return new SharedPrivateLinkService(name, <any>undefined, { urn })
             default:
@@ -35,4 +42,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "search/service", _module)
+pulumi.runtime.registerResourceModule("azure", "search/serviceDatasourceBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "search/sharedPrivateLinkService", _module)

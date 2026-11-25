@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := nginx.LookupDeployment(ctx, &nginx.LookupDeploymentArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-nginx-deployment",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

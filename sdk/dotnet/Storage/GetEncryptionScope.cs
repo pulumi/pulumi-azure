@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var exampleGetEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
         ///     {
-        ///         Name = "existingStorageES",
+        ///         Name = "exampleencryptionscope",
         ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var exampleGetEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
         ///     {
-        ///         Name = "existingStorageES",
+        ///         Name = "exampleencryptionscope",
         ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var exampleGetEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
         ///     {
-        ///         Name = "existingStorageES",
+        ///         Name = "exampleencryptionscope",
         ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 

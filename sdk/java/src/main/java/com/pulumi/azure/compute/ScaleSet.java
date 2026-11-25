@@ -460,14 +460,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.evictionPolicy);
     }
     /**
-     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+     * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
      * 
      */
     @Export(name="extensions", refs={List.class,ScaleSetExtension.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetExtension>> extensions;
 
     /**
-     * @return Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+     * @return Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields defined below.
      * 
      */
     public Output<Optional<List<ScaleSetExtension>>> extensions() {
@@ -544,70 +544,70 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A collection of `networkProfile` blocks as documented below.
+     * One or more `networkProfile` blocks as defined below.
      * 
      */
     @Export(name="networkProfiles", refs={List.class,ScaleSetNetworkProfile.class}, tree="[0,1]")
     private Output<List<ScaleSetNetworkProfile>> networkProfiles;
 
     /**
-     * @return A collection of `networkProfile` blocks as documented below.
+     * @return One or more `networkProfile` blocks as defined below.
      * 
      */
     public Output<List<ScaleSetNetworkProfile>> networkProfiles() {
         return this.networkProfiles;
     }
     /**
-     * A `osProfile` block as documented below.
+     * A `osProfile` block as defined below.
      * 
      */
     @Export(name="osProfile", refs={ScaleSetOsProfile.class}, tree="[0]")
     private Output<ScaleSetOsProfile> osProfile;
 
     /**
-     * @return A `osProfile` block as documented below.
+     * @return A `osProfile` block as defined below.
      * 
      */
     public Output<ScaleSetOsProfile> osProfile() {
         return this.osProfile;
     }
     /**
-     * A `osProfileLinuxConfig` block as documented below.
+     * A `osProfileLinuxConfig` block as defined below.
      * 
      */
     @Export(name="osProfileLinuxConfig", refs={ScaleSetOsProfileLinuxConfig.class}, tree="[0]")
     private Output<ScaleSetOsProfileLinuxConfig> osProfileLinuxConfig;
 
     /**
-     * @return A `osProfileLinuxConfig` block as documented below.
+     * @return A `osProfileLinuxConfig` block as defined below.
      * 
      */
     public Output<ScaleSetOsProfileLinuxConfig> osProfileLinuxConfig() {
         return this.osProfileLinuxConfig;
     }
     /**
-     * A collection of `osProfileSecrets` blocks as documented below.
+     * One or more `osProfileSecrets` blocks as defined below.
      * 
      */
     @Export(name="osProfileSecrets", refs={List.class,ScaleSetOsProfileSecret.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetOsProfileSecret>> osProfileSecrets;
 
     /**
-     * @return A collection of `osProfileSecrets` blocks as documented below.
+     * @return One or more `osProfileSecrets` blocks as defined below.
      * 
      */
     public Output<Optional<List<ScaleSetOsProfileSecret>>> osProfileSecrets() {
         return Codegen.optional(this.osProfileSecrets);
     }
     /**
-     * A `osProfileWindowsConfig` block as documented below.
+     * A `osProfileWindowsConfig` block as defined below.
      * 
      */
     @Export(name="osProfileWindowsConfig", refs={ScaleSetOsProfileWindowsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetOsProfileWindowsConfig> osProfileWindowsConfig;
 
     /**
-     * @return A `osProfileWindowsConfig` block as documented below.
+     * @return A `osProfileWindowsConfig` block as defined below.
      * 
      */
     public Output<Optional<ScaleSetOsProfileWindowsConfig>> osProfileWindowsConfig() {
@@ -628,14 +628,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.overprovision);
     }
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      * 
      */
     @Export(name="plan", refs={ScaleSetPlan.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetPlan> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as defined below.
      * 
      */
     public Output<Optional<ScaleSetPlan>> plan() {
@@ -712,56 +712,56 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.singlePlacementGroup);
     }
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as defined below.
      * 
      */
     @Export(name="sku", refs={ScaleSetSku.class}, tree="[0]")
     private Output<ScaleSetSku> sku;
 
     /**
-     * @return A `sku` block as documented below.
+     * @return A `sku` block as defined below.
      * 
      */
     public Output<ScaleSetSku> sku() {
         return this.sku;
     }
     /**
-     * A `storageProfileDataDisk` block as documented below.
+     * A `storageProfileDataDisk` block as defined below.
      * 
      */
     @Export(name="storageProfileDataDisks", refs={List.class,ScaleSetStorageProfileDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetStorageProfileDataDisk>> storageProfileDataDisks;
 
     /**
-     * @return A `storageProfileDataDisk` block as documented below.
+     * @return A `storageProfileDataDisk` block as defined below.
      * 
      */
     public Output<Optional<List<ScaleSetStorageProfileDataDisk>>> storageProfileDataDisks() {
         return Codegen.optional(this.storageProfileDataDisks);
     }
     /**
-     * A `storageProfileImageReference` block as documented below.
+     * A `storageProfileImageReference` block as defined below.
      * 
      */
     @Export(name="storageProfileImageReference", refs={ScaleSetStorageProfileImageReference.class}, tree="[0]")
     private Output<ScaleSetStorageProfileImageReference> storageProfileImageReference;
 
     /**
-     * @return A `storageProfileImageReference` block as documented below.
+     * @return A `storageProfileImageReference` block as defined below.
      * 
      */
     public Output<ScaleSetStorageProfileImageReference> storageProfileImageReference() {
         return this.storageProfileImageReference;
     }
     /**
-     * A `storageProfileOsDisk` block as documented below.
+     * A `storageProfileOsDisk` block as defined below.
      * 
      */
     @Export(name="storageProfileOsDisk", refs={ScaleSetStorageProfileOsDisk.class}, tree="[0]")
     private Output<ScaleSetStorageProfileOsDisk> storageProfileOsDisk;
 
     /**
-     * @return A `storageProfileOsDisk` block as documented below.
+     * @return A `storageProfileOsDisk` block as defined below.
      * 
      */
     public Output<ScaleSetStorageProfileOsDisk> storageProfileOsDisk() {
@@ -796,7 +796,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return this.upgradePolicyMode;
     }
     /**
-     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     * A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
@@ -805,7 +805,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     * @return A list of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 

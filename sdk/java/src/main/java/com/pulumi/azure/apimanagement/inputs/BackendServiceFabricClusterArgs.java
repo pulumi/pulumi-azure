@@ -99,14 +99,14 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `serverX509Name` blocks as documented below.
+     * One or more `serverX509Name` blocks as defined below.
      * 
      */
     @Import(name="serverX509Names")
     private @Nullable Output<List<BackendServiceFabricClusterServerX509NameArgs>> serverX509Names;
 
     /**
-     * @return One or more `serverX509Name` blocks as documented below.
+     * @return One or more `serverX509Name` blocks as defined below.
      * 
      */
     public Optional<Output<List<BackendServiceFabricClusterServerX509NameArgs>>> serverX509Names() {
@@ -272,7 +272,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param serverX509Names One or more `serverX509Name` blocks as documented below.
+         * @param serverX509Names One or more `serverX509Name` blocks as defined below.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param serverX509Names One or more `serverX509Name` blocks as documented below.
+         * @param serverX509Names One or more `serverX509Name` blocks as defined below.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param serverX509Names One or more `serverX509Name` blocks as documented below.
+         * @param serverX509Names One or more `serverX509Name` blocks as defined below.
          * 
          * @return builder
          * 

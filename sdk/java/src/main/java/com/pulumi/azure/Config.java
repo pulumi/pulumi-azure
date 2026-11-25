@@ -25,14 +25,14 @@ public final class Config {
         return Codegen.objectProp("auxiliaryTenantIds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
- * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+ * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate.
  * 
  */
     public Optional<String> clientCertificate() {
         return Codegen.stringProp("clientCertificate").config(config).get();
     }
 /**
- * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+ * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate.
  * 
  */
     public Optional<String> clientCertificatePassword() {
@@ -213,7 +213,7 @@ public final class Config {
         return Codegen.booleanProp("useMsi").config(config).get();
     }
 /**
- * Allow OpenID Connect to be used for authentication
+ * Allow OpenID Connect to be used for authentication.
  * 
  */
     public Optional<Boolean> useOidc() {

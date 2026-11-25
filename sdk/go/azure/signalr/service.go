@@ -101,7 +101,7 @@ type Service struct {
 	AadAuthEnabled pulumi.BoolPtrOutput `pulumi:"aadAuthEnabled"`
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled pulumi.BoolPtrOutput `pulumi:"connectivityLogsEnabled"`
-	// A `cors` block as documented below.
+	// A `cors` block as defined below.
 	Cors ServiceCorArrayOutput `pulumi:"cors"`
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
@@ -145,7 +145,7 @@ type Service struct {
 	ServerlessConnectionTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"serverlessConnectionTimeoutInSeconds"`
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode pulumi.StringPtrOutput `pulumi:"serviceMode"`
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku ServiceSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -153,7 +153,7 @@ type Service struct {
 	//
 	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled pulumi.BoolPtrOutput `pulumi:"tlsClientCertEnabled"`
-	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	// An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayOutput `pulumi:"upstreamEndpoints"`
 }
 
@@ -204,7 +204,7 @@ type serviceState struct {
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
-	// A `cors` block as documented below.
+	// A `cors` block as defined below.
 	Cors []ServiceCor `pulumi:"cors"`
 	// The FQDN of the SignalR service.
 	Hostname *string `pulumi:"hostname"`
@@ -248,7 +248,7 @@ type serviceState struct {
 	ServerlessConnectionTimeoutInSeconds *int `pulumi:"serverlessConnectionTimeoutInSeconds"`
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode *string `pulumi:"serviceMode"`
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku *ServiceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -256,7 +256,7 @@ type serviceState struct {
 	//
 	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled *bool `pulumi:"tlsClientCertEnabled"`
-	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	// An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints []ServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
 }
 
@@ -265,7 +265,7 @@ type ServiceState struct {
 	AadAuthEnabled pulumi.BoolPtrInput
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled pulumi.BoolPtrInput
-	// A `cors` block as documented below.
+	// A `cors` block as defined below.
 	Cors ServiceCorArrayInput
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringPtrInput
@@ -309,7 +309,7 @@ type ServiceState struct {
 	ServerlessConnectionTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode pulumi.StringPtrInput
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku ServiceSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -317,7 +317,7 @@ type ServiceState struct {
 	//
 	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled pulumi.BoolPtrInput
-	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	// An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayInput
 }
 
@@ -330,7 +330,7 @@ type serviceArgs struct {
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
-	// A `cors` block as documented below.
+	// A `cors` block as defined below.
 	Cors []ServiceCor `pulumi:"cors"`
 	// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
 	HttpRequestLogsEnabled *bool `pulumi:"httpRequestLogsEnabled"`
@@ -358,7 +358,7 @@ type serviceArgs struct {
 	ServerlessConnectionTimeoutInSeconds *int `pulumi:"serverlessConnectionTimeoutInSeconds"`
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode *string `pulumi:"serviceMode"`
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku ServiceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -366,7 +366,7 @@ type serviceArgs struct {
 	//
 	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled *bool `pulumi:"tlsClientCertEnabled"`
-	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	// An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints []ServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
 }
 
@@ -376,7 +376,7 @@ type ServiceArgs struct {
 	AadAuthEnabled pulumi.BoolPtrInput
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled pulumi.BoolPtrInput
-	// A `cors` block as documented below.
+	// A `cors` block as defined below.
 	Cors ServiceCorArrayInput
 	// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
 	HttpRequestLogsEnabled pulumi.BoolPtrInput
@@ -404,7 +404,7 @@ type ServiceArgs struct {
 	ServerlessConnectionTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode pulumi.StringPtrInput
-	// A `sku` block as documented below.
+	// A `sku` block as defined below.
 	Sku ServiceSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -412,7 +412,7 @@ type ServiceArgs struct {
 	//
 	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled pulumi.BoolPtrInput
-	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	// An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayInput
 }
 
@@ -513,7 +513,7 @@ func (o ServiceOutput) ConnectivityLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.ConnectivityLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `cors` block as documented below.
+// A `cors` block as defined below.
 func (o ServiceOutput) Cors() ServiceCorArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceCorArrayOutput { return v.Cors }).(ServiceCorArrayOutput)
 }
@@ -620,7 +620,7 @@ func (o ServiceOutput) ServiceMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServiceMode }).(pulumi.StringPtrOutput)
 }
 
-// A `sku` block as documented below.
+// A `sku` block as defined below.
 func (o ServiceOutput) Sku() ServiceSkuOutput {
 	return o.ApplyT(func(v *Service) ServiceSkuOutput { return v.Sku }).(ServiceSkuOutput)
 }
@@ -637,7 +637,7 @@ func (o ServiceOutput) TlsClientCertEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.TlsClientCertEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+// An `upstreamEndpoint` block as defined below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 func (o ServiceOutput) UpstreamEndpoints() ServiceUpstreamEndpointArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceUpstreamEndpointArrayOutput { return v.UpstreamEndpoints }).(ServiceUpstreamEndpointArrayOutput)
 }

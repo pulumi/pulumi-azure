@@ -104,6 +104,27 @@ import (
 //					MaxRequestBodySizeInKb: pulumi.Int(128),
 //				},
 //				ManagedRules: &waf.PolicyManagedRulesArgs{
+//					Exceptions: waf.PolicyManagedRulesExceptionArray{
+//						&waf.PolicyManagedRulesExceptionArgs{
+//							MatchVariable:      pulumi.String("RequestURI"),
+//							ValueMatchOperator: pulumi.String("EndsWith"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("/login.php"),
+//								pulumi.String("/logout.php"),
+//							},
+//							ExceptionRuleSets: waf.PolicyManagedRulesExceptionExceptionRuleSetArray{
+//								&waf.PolicyManagedRulesExceptionExceptionRuleSetArgs{
+//									Type:    pulumi.String("OWASP"),
+//									Version: pulumi.String("3.2"),
+//									RuleGroups: waf.PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArray{
+//										&waf.PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs{
+//											RuleGroupName: pulumi.String("REQUEST-942-APPLICATION-ATTACK-SQLI"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
 //					Exclusions: waf.PolicyManagedRulesExclusionArray{
 //						&waf.PolicyManagedRulesExclusionArgs{
 //							MatchVariable:         pulumi.String("RequestHeaderNames"),

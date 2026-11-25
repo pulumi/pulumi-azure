@@ -166,7 +166,7 @@ namespace Pulumi.Azure.DataBricks
     public sealed class GetWorkspacePrivateEndpointConnectionResult
     {
         /// <summary>
-        /// A `Connections` block as documented below.
+        /// A `Connections` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspacePrivateEndpointConnectionConnectionResult> Connections;
         /// <summary>

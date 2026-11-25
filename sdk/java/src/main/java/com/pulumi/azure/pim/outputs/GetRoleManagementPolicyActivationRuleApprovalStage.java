@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class GetRoleManagementPolicyActivationRuleApprovalStage {
     /**
-     * @return The IDs of the users or groups who can approve the activation
+     * @return The IDs of the users or groups who can approve the activation.
      * 
      */
     private List<GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover> primaryApprovers;
 
     private GetRoleManagementPolicyActivationRuleApprovalStage() {}
     /**
-     * @return The IDs of the users or groups who can approve the activation
+     * @return The IDs of the users or groups who can approve the activation.
      * 
      */
     public List<GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover> primaryApprovers() {

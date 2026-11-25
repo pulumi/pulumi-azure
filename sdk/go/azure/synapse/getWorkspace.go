@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := synapse.LookupWorkspace(ctx, &synapse.LookupWorkspaceArgs{
-//				Name:              "existing",
+//				Name:              "example-synapse-workspace",
 //				ResourceGroupName: "example-resource-group",
 //			}, nil)
 //			if err != nil {

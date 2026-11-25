@@ -15,14 +15,14 @@ public final class CapacitySkuArgs extends com.pulumi.resources.ResourceArgs {
     public static final CapacitySkuArgs Empty = new CapacitySkuArgs();
 
     /**
-     * The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+     * The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+     * @return The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class CapacitySkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+         * @param name The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class CapacitySkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+         * @param name The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
          * 
          * @return builder
          * 

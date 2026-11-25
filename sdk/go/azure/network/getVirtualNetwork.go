@@ -69,6 +69,8 @@ type LookupVirtualNetworkArgs struct {
 type LookupVirtualNetworkResult struct {
 	// The list of address spaces used by the virtual network.
 	AddressSpaces []string `pulumi:"addressSpaces"`
+	// The list of CIDR prefixes that Azure gateways advertise to on-premises networks.
+	AdvertisedGatewayPrefixes []string `pulumi:"advertisedGatewayPrefixes"`
 	// The list of DNS servers used by the virtual network.
 	DnsServers []string `pulumi:"dnsServers"`
 	// The GUID of the virtual network.
@@ -124,6 +126,11 @@ func (o LookupVirtualNetworkResultOutput) ToLookupVirtualNetworkResultOutputWith
 // The list of address spaces used by the virtual network.
 func (o LookupVirtualNetworkResultOutput) AddressSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkResult) []string { return v.AddressSpaces }).(pulumi.StringArrayOutput)
+}
+
+// The list of CIDR prefixes that Azure gateways advertise to on-premises networks.
+func (o LookupVirtualNetworkResultOutput) AdvertisedGatewayPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) []string { return v.AdvertisedGatewayPrefixes }).(pulumi.StringArrayOutput)
 }
 
 // The list of DNS servers used by the virtual network.

@@ -813,12 +813,12 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name("existing-environment")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
-     *             .name("existing-storage")
+     *             .name("example-storage")
      *             .containerAppEnvironmentId(example.id())
      *             .build());
      * 
@@ -867,12 +867,12 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name("existing-environment")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
-     *             .name("existing-storage")
+     *             .name("example-storage")
      *             .containerAppEnvironmentId(example.id())
      *             .build());
      * 
@@ -921,12 +921,12 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name("existing-environment")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
-     *             .name("existing-storage")
+     *             .name("example-storage")
      *             .containerAppEnvironmentId(example.id())
      *             .build());
      * 
@@ -975,12 +975,12 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name("existing-environment")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
-     *             .name("existing-storage")
+     *             .name("example-storage")
      *             .containerAppEnvironmentId(example.id())
      *             .build());
      * 
@@ -1029,12 +1029,12 @@ public final class ContainerappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name("existing-environment")
-     *             .resourceGroupName("existing-resources")
+     *             .name("example-environment")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
-     *             .name("existing-storage")
+     *             .name("example-storage")
      *             .containerAppEnvironmentId(example.id())
      *             .build());
      * 

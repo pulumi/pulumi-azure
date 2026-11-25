@@ -248,8 +248,8 @@ def get_static_web_app(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_static_web_app(name="existing",
-        resource_group_name="existing")
+    example = azure.appservice.get_static_web_app(name="example-static-web-app",
+        resource_group_name="example-resources")
     ```
 
     ## API Providers
@@ -299,8 +299,8 @@ def get_static_web_app_output(name: pulumi.Input[Optional[_builtins.str]] = None
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_static_web_app(name="existing",
-        resource_group_name="existing")
+    example = azure.appservice.get_static_web_app(name="example-static-web-app",
+        resource_group_name="example-resources")
     ```
 
     ## API Providers

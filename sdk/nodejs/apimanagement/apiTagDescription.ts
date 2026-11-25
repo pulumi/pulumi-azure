@@ -94,7 +94,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
     }
 
     /**
-     * The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+     * The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      */
     declare public readonly apiTagId: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
  */
 export interface ApiTagDescriptionState {
     /**
-     * The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+     * The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      */
     apiTagId?: pulumi.Input<string | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface ApiTagDescriptionState {
  */
 export interface ApiTagDescriptionArgs {
     /**
-     * The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
+     * The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      */
     apiTagId: pulumi.Input<string>;
     /**

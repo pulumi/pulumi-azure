@@ -116,6 +116,34 @@ namespace Pulumi.Azure.Waf
     ///         },
     ///         ManagedRules = new Azure.Waf.Inputs.PolicyManagedRulesArgs
     ///         {
+    ///             Exceptions = new[]
+    ///             {
+    ///                 new Azure.Waf.Inputs.PolicyManagedRulesExceptionArgs
+    ///                 {
+    ///                     MatchVariable = "RequestURI",
+    ///                     ValueMatchOperator = "EndsWith",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "/login.php",
+    ///                         "/logout.php",
+    ///                     },
+    ///                     ExceptionRuleSets = new[]
+    ///                     {
+    ///                         new Azure.Waf.Inputs.PolicyManagedRulesExceptionExceptionRuleSetArgs
+    ///                         {
+    ///                             Type = "OWASP",
+    ///                             Version = "3.2",
+    ///                             RuleGroups = new[]
+    ///                             {
+    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesExceptionExceptionRuleSetRuleGroupArgs
+    ///                                 {
+    ///                                     RuleGroupName = "REQUEST-942-APPLICATION-ATTACK-SQLI",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
     ///             Exclusions = new[]
     ///             {
     ///                 new Azure.Waf.Inputs.PolicyManagedRulesExclusionArgs

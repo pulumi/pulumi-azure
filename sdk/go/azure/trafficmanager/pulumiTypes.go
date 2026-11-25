@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ProfileDnsConfig struct {
-	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
 	RelativeName string `pulumi:"relativeName"`
 	// The TTL value of the Profile used by Local DNS resolvers and clients.
 	Ttl int `pulumi:"ttl"`
@@ -32,7 +32,7 @@ type ProfileDnsConfigInput interface {
 }
 
 type ProfileDnsConfigArgs struct {
-	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
 	RelativeName pulumi.StringInput `pulumi:"relativeName"`
 	// The TTL value of the Profile used by Local DNS resolvers and clients.
 	Ttl pulumi.IntInput `pulumi:"ttl"`
@@ -115,7 +115,7 @@ func (o ProfileDnsConfigOutput) ToProfileDnsConfigPtrOutputWithContext(ctx conte
 	}).(ProfileDnsConfigPtrOutput)
 }
 
-// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
 func (o ProfileDnsConfigOutput) RelativeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o ProfileDnsConfigPtrOutput) Elem() ProfileDnsConfigOutput {
 	}).(ProfileDnsConfigOutput)
 }
 
-// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as defined below. Changing this forces a new resource to be created.
 func (o ProfileDnsConfigPtrOutput) RelativeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileDnsConfig) *string {
 		if v == nil {

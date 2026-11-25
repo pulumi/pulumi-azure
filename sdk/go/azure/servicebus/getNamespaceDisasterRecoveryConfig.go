@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := servicebus.LookupNamespaceDisasterRecoveryConfig(ctx, &servicebus.LookupNamespaceDisasterRecoveryConfigArgs{
-//				Name:        "existing",
+//				Name:        "example-alias",
 //				NamespaceId: "example-namespace-id",
 //			}, nil)
 //			if err != nil {

@@ -22,7 +22,7 @@ __all__ = [
 class CapacitySkuArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+    The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
     """
     tier: pulumi.Input[_builtins.str]
     """
@@ -35,7 +35,7 @@ class CapacitySkuArgs:
                  name: pulumi.Input[_builtins.str],
                  tier: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+        :param pulumi.Input[_builtins.str] name: The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
         :param pulumi.Input[_builtins.str] tier: The tier of the SKU to use for the Fabric Capacity. The only possible value is `Fabric`.
         """
         pulumi.set(__self__, "name", name)
@@ -45,7 +45,7 @@ class CapacitySkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+        The name of the SKU to use for the Fabric Capacity. Possible values are `F0`, `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`, `F4096`, `F8192`.
         """
         return pulumi.get(self, "name")
 

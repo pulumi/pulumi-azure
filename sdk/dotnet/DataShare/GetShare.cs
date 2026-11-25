@@ -32,7 +32,7 @@ namespace Pulumi.Azure.DataShare
         /// 
         ///     var exampleGetShare = Azure.DataShare.GetShare.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "exampleshare",
         ///         AccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.DataShare
         /// 
         ///     var exampleGetShare = Azure.DataShare.GetShare.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "exampleshare",
         ///         AccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.DataShare
         /// 
         ///     var exampleGetShare = Azure.DataShare.GetShare.Invoke(new()
         ///     {
-        ///         Name = "existing",
+        ///         Name = "exampleshare",
         ///         AccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 

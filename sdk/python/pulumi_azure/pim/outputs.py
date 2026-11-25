@@ -798,9 +798,9 @@ class RoleManagementPolicyNotificationRulesActiveAssignments(dict):
                  approver_notifications: Optional['outputs.RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications'] = None,
                  assignee_notifications: Optional['outputs.RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications'] = None):
         """
-        :param 'RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs' admin_notifications: Admin notification settings
-        :param 'RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs' approver_notifications: Approver notification settings
-        :param 'RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs' assignee_notifications: Assignee notification settings
+        :param 'RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs' admin_notifications: Admin notification settings.
+        :param 'RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs' approver_notifications: Approver notification settings.
+        :param 'RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs' assignee_notifications: Assignee notification settings.
         """
         if admin_notifications is not None:
             pulumi.set(__self__, "admin_notifications", admin_notifications)
@@ -813,7 +813,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignments(dict):
     @pulumi.getter(name="adminNotifications")
     def admin_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications']:
         """
-        Admin notification settings
+        Admin notification settings.
         """
         return pulumi.get(self, "admin_notifications")
 
@@ -821,7 +821,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignments(dict):
     @pulumi.getter(name="approverNotifications")
     def approver_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications']:
         """
-        Approver notification settings
+        Approver notification settings.
         """
         return pulumi.get(self, "approver_notifications")
 
@@ -829,7 +829,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignments(dict):
     @pulumi.getter(name="assigneeNotifications")
     def assignee_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications']:
         """
-        Assignee notification settings
+        Assignee notification settings.
         """
         return pulumi.get(self, "assignee_notifications")
 
@@ -862,9 +862,9 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications(d
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -875,7 +875,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications(d
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -883,7 +883,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications(d
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -891,7 +891,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications(d
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -924,9 +924,9 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotification
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -937,7 +937,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotification
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -945,7 +945,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotification
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -953,7 +953,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotification
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -986,9 +986,9 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotification
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -999,7 +999,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotification
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -1007,7 +1007,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotification
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -1015,7 +1015,7 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotification
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -1048,9 +1048,9 @@ class RoleManagementPolicyNotificationRulesEligibleActivations(dict):
                  approver_notifications: Optional['outputs.RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications'] = None,
                  assignee_notifications: Optional['outputs.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications'] = None):
         """
-        :param 'RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs' admin_notifications: Admin notification settings
-        :param 'RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs' approver_notifications: Approver notification settings
-        :param 'RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs' assignee_notifications: Assignee notification settings
+        :param 'RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs' admin_notifications: Admin notification settings.
+        :param 'RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs' approver_notifications: Approver notification settings.
+        :param 'RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs' assignee_notifications: Assignee notification settings.
         """
         if admin_notifications is not None:
             pulumi.set(__self__, "admin_notifications", admin_notifications)
@@ -1063,7 +1063,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivations(dict):
     @pulumi.getter(name="adminNotifications")
     def admin_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications']:
         """
-        Admin notification settings
+        Admin notification settings.
         """
         return pulumi.get(self, "admin_notifications")
 
@@ -1071,7 +1071,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivations(dict):
     @pulumi.getter(name="approverNotifications")
     def approver_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications']:
         """
-        Approver notification settings
+        Approver notification settings.
         """
         return pulumi.get(self, "approver_notifications")
 
@@ -1079,7 +1079,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivations(dict):
     @pulumi.getter(name="assigneeNotifications")
     def assignee_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications']:
         """
-        Assignee notification settings
+        Assignee notification settings.
         """
         return pulumi.get(self, "assignee_notifications")
 
@@ -1112,9 +1112,9 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -1125,7 +1125,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -1133,7 +1133,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -1141,7 +1141,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -1174,9 +1174,9 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificati
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -1187,7 +1187,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificati
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -1195,7 +1195,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificati
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -1203,7 +1203,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificati
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -1236,9 +1236,9 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificati
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -1249,7 +1249,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificati
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -1257,7 +1257,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificati
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -1265,7 +1265,7 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificati
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -1298,9 +1298,9 @@ class RoleManagementPolicyNotificationRulesEligibleAssignments(dict):
                  approver_notifications: Optional['outputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications'] = None,
                  assignee_notifications: Optional['outputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications'] = None):
         """
-        :param 'RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs' admin_notifications: Admin notification settings
-        :param 'RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs' approver_notifications: Approver notification settings
-        :param 'RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs' assignee_notifications: Assignee notification settings
+        :param 'RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs' admin_notifications: Admin notification settings.
+        :param 'RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs' approver_notifications: Approver notification settings.
+        :param 'RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs' assignee_notifications: Assignee notification settings.
         """
         if admin_notifications is not None:
             pulumi.set(__self__, "admin_notifications", admin_notifications)
@@ -1313,7 +1313,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignments(dict):
     @pulumi.getter(name="adminNotifications")
     def admin_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications']:
         """
-        Admin notification settings
+        Admin notification settings.
         """
         return pulumi.get(self, "admin_notifications")
 
@@ -1321,7 +1321,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignments(dict):
     @pulumi.getter(name="approverNotifications")
     def approver_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications']:
         """
-        Approver notification settings
+        Approver notification settings.
         """
         return pulumi.get(self, "approver_notifications")
 
@@ -1329,7 +1329,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignments(dict):
     @pulumi.getter(name="assigneeNotifications")
     def assignee_notifications(self) -> Optional['outputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications']:
         """
-        Assignee notification settings
+        Assignee notification settings.
         """
         return pulumi.get(self, "assignee_notifications")
 
@@ -1362,9 +1362,9 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -1375,7 +1375,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -1383,7 +1383,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -1391,7 +1391,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -1424,9 +1424,9 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificati
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -1437,7 +1437,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificati
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -1445,7 +1445,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificati
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -1453,7 +1453,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificati
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -1486,9 +1486,9 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificati
                  notification_level: _builtins.str,
                  additional_recipients: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool default_recipients: Whether the default recipients are notified
-        :param _builtins.str notification_level: What level of notifications are sent
-        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify
+        :param _builtins.bool default_recipients: Whether the default recipients are notified.
+        :param _builtins.str notification_level: What level of notifications are sent.
+        :param Sequence[_builtins.str] additional_recipients: The additional recipients to notify.
         """
         pulumi.set(__self__, "default_recipients", default_recipients)
         pulumi.set(__self__, "notification_level", notification_level)
@@ -1499,7 +1499,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificati
     @pulumi.getter(name="defaultRecipients")
     def default_recipients(self) -> _builtins.bool:
         """
-        Whether the default recipients are notified
+        Whether the default recipients are notified.
         """
         return pulumi.get(self, "default_recipients")
 
@@ -1507,7 +1507,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificati
     @pulumi.getter(name="notificationLevel")
     def notification_level(self) -> _builtins.str:
         """
-        What level of notifications are sent
+        What level of notifications are sent.
         """
         return pulumi.get(self, "notification_level")
 
@@ -1515,7 +1515,7 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificati
     @pulumi.getter(name="additionalRecipients")
     def additional_recipients(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The additional recipients to notify
+        The additional recipients to notify.
         """
         return pulumi.get(self, "additional_recipients")
 
@@ -1726,7 +1726,7 @@ class GetRoleManagementPolicyActivationRuleApprovalStageResult(dict):
     def __init__(__self__, *,
                  primary_approvers: Sequence['outputs.GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverResult']):
         """
-        :param Sequence['GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs'] primary_approvers: The IDs of the users or groups who can approve the activation
+        :param Sequence['GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs'] primary_approvers: The IDs of the users or groups who can approve the activation.
         """
         pulumi.set(__self__, "primary_approvers", primary_approvers)
 
@@ -1734,7 +1734,7 @@ class GetRoleManagementPolicyActivationRuleApprovalStageResult(dict):
     @pulumi.getter(name="primaryApprovers")
     def primary_approvers(self) -> Sequence['outputs.GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverResult']:
         """
-        The IDs of the users or groups who can approve the activation
+        The IDs of the users or groups who can approve the activation.
         """
         return pulumi.get(self, "primary_approvers")
 

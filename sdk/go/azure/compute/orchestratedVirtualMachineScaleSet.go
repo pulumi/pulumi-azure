@@ -84,6 +84,8 @@ type OrchestratedVirtualMachineScaleSet struct {
 	//
 	// > **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput `pulumi:"automaticInstanceRepair"`
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+	AutomaticZoneRebalancingEnabled pulumi.BoolPtrOutput `pulumi:"automaticZoneRebalancingEnabled"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
@@ -140,6 +142,14 @@ type OrchestratedVirtualMachineScaleSet struct {
 	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
+	// Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+	ResilientVirtualMachineCreationEnabled pulumi.BoolPtrOutput `pulumi:"resilientVirtualMachineCreationEnabled"`
+	// Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+	ResilientVirtualMachineDeletionEnabled pulumi.BoolPtrOutput `pulumi:"resilientVirtualMachineDeletionEnabled"`
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
@@ -237,6 +247,8 @@ type orchestratedVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+	AutomaticZoneRebalancingEnabled *bool `pulumi:"automaticZoneRebalancingEnabled"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *OrchestratedVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
@@ -293,6 +305,14 @@ type orchestratedVirtualMachineScaleSetState struct {
 	PriorityMix *OrchestratedVirtualMachineScaleSetPriorityMix `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
+	// Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+	ResilientVirtualMachineCreationEnabled *bool `pulumi:"resilientVirtualMachineCreationEnabled"`
+	// Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+	ResilientVirtualMachineDeletionEnabled *bool `pulumi:"resilientVirtualMachineDeletionEnabled"`
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
@@ -348,6 +368,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+	AutomaticZoneRebalancingEnabled pulumi.BoolPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
@@ -404,6 +426,14 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
+	// Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+	ResilientVirtualMachineCreationEnabled pulumi.BoolPtrInput
+	// Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+	ResilientVirtualMachineDeletionEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
@@ -463,6 +493,8 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+	AutomaticZoneRebalancingEnabled *bool `pulumi:"automaticZoneRebalancingEnabled"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *OrchestratedVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
@@ -519,6 +551,14 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	PriorityMix *OrchestratedVirtualMachineScaleSetPriorityMix `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
+	// Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+	ResilientVirtualMachineCreationEnabled *bool `pulumi:"resilientVirtualMachineCreationEnabled"`
+	// Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+	ResilientVirtualMachineDeletionEnabled *bool `pulumi:"resilientVirtualMachineDeletionEnabled"`
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
@@ -573,6 +613,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
+	// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+	AutomaticZoneRebalancingEnabled pulumi.BoolPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
@@ -629,6 +671,14 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
+	// Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+	ResilientVirtualMachineCreationEnabled pulumi.BoolPtrInput
+	// Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+	//
+	// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+	ResilientVirtualMachineDeletionEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
@@ -778,6 +828,13 @@ func (o OrchestratedVirtualMachineScaleSetOutput) AutomaticInstanceRepair() Orch
 	}).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput)
 }
 
+// Whether to enable automatic zone balance. Defaults to `false`. Requires `zones` to be set. When set to `true`, a health extension must be configured.
+func (o OrchestratedVirtualMachineScaleSetOutput) AutomaticZoneRebalancingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput {
+		return v.AutomaticZoneRebalancingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A `bootDiagnostics` block as defined below.
 func (o OrchestratedVirtualMachineScaleSetOutput) BootDiagnostics() OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
@@ -921,6 +978,24 @@ func (o OrchestratedVirtualMachineScaleSetOutput) PriorityMix() OrchestratedVirt
 // The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Whether `resilient virtual machine creation` is enabled. Defaults to `false`.
+//
+// > **Note:** When enabled, the service attempts to create Virtual Machines in alternative fault domains or zones if the primary location fails during creation.
+func (o OrchestratedVirtualMachineScaleSetOutput) ResilientVirtualMachineCreationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput {
+		return v.ResilientVirtualMachineCreationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether `resilient virtual machine deletion` is enabled. Defaults to `false`.
+//
+// > **Note:** When enabled, the service uses a more resilient deletion process that attempts to gracefully handle failures during Virtual Machine termination.
+func (o OrchestratedVirtualMachineScaleSetOutput) ResilientVirtualMachineDeletionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput {
+		return v.ResilientVirtualMachineDeletionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.

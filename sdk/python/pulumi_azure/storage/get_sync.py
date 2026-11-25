@@ -115,8 +115,8 @@ def get_sync(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_sync(name="existingStorageSyncName",
-        resource_group_name="existingResGroup")
+    example = azure.storage.get_sync(name="example-storage-sync",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 
@@ -156,8 +156,8 @@ def get_sync_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_sync(name="existingStorageSyncName",
-        resource_group_name="existingResGroup")
+    example = azure.storage.get_sync(name="example-storage-sync",
+        resource_group_name="example-resources")
     pulumi.export("id", example.id)
     ```
 

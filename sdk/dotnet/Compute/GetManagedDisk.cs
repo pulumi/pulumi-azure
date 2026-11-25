@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetManagedDisk.Invoke(new()
+        ///     var example = Azure.Compute.GetManagedDisk.Invoke(new()
         ///     {
         ///         Name = "example-datadisk",
         ///         ResourceGroupName = "example-resources",
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Compute
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
+        ///         ["id"] = example.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
         ///     };
         /// });
         /// ```
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetManagedDisk.Invoke(new()
+        ///     var example = Azure.Compute.GetManagedDisk.Invoke(new()
         ///     {
         ///         Name = "example-datadisk",
         ///         ResourceGroupName = "example-resources",
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Compute
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
+        ///         ["id"] = example.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
         ///     };
         /// });
         /// ```
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Compute.GetManagedDisk.Invoke(new()
+        ///     var example = Azure.Compute.GetManagedDisk.Invoke(new()
         ///     {
         ///         Name = "example-datadisk",
         ///         ResourceGroupName = "example-resources",
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Compute
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = existing.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
+        ///         ["id"] = example.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
         ///     };
         /// });
         /// ```

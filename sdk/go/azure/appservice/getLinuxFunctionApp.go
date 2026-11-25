@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := appservice.LookupLinuxFunctionApp(ctx, &appservice.LookupLinuxFunctionAppArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
+//				Name:              "example-function-app",
+//				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -75,7 +75,7 @@ class ProviderFeaturesArgsDict(TypedDict):
     netapp: NotRequired[pulumi.Input[Optional['ProviderFeaturesNetappArgsDict']]]
     persist_id_on_create_before_polling_for_completion: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+    Whether to set the resource ID into state before polling asynchronous operations for completion.
     """
     postgresql_flexible_server: NotRequired[pulumi.Input[Optional['ProviderFeaturesPostgresqlFlexibleServerArgsDict']]]
     recovery_service: NotRequired[pulumi.Input[Optional['ProviderFeaturesRecoveryServiceArgsDict']]]
@@ -84,7 +84,7 @@ class ProviderFeaturesArgsDict(TypedDict):
     servicebus: NotRequired[pulumi.Input[Optional['ProviderFeaturesServicebusArgsDict']]]
     skip_import_check_on_create_and_allow_overwriting_existing_resources: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+    Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
     """
     storage: NotRequired[pulumi.Input[Optional['ProviderFeaturesStorageArgsDict']]]
     subscription: NotRequired[pulumi.Input[Optional['ProviderFeaturesSubscriptionArgsDict']]]
@@ -119,8 +119,8 @@ class ProviderFeaturesArgs:
                  virtual_machine: pulumi.Input[Optional['ProviderFeaturesVirtualMachineArgs']] = None,
                  virtual_machine_scale_set: pulumi.Input[Optional['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
         """
-        :param pulumi.Input[_builtins.bool] persist_id_on_create_before_polling_for_completion: Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] skip_import_check_on_create_and_allow_overwriting_existing_resources: Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] persist_id_on_create_before_polling_for_completion: Whether to set the resource ID into state before polling asynchronous operations for completion.
+        :param pulumi.Input[_builtins.bool] skip_import_check_on_create_and_allow_overwriting_existing_resources: Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
         """
         if api_management is not None:
             pulumi.set(__self__, "api_management", api_management)
@@ -272,7 +272,7 @@ class ProviderFeaturesArgs:
     @pulumi.getter(name="persistIdOnCreateBeforePollingForCompletion")
     def persist_id_on_create_before_polling_for_completion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+        Whether to set the resource ID into state before polling asynchronous operations for completion.
         """
         return pulumi.get(self, "persist_id_on_create_before_polling_for_completion")
 
@@ -329,7 +329,7 @@ class ProviderFeaturesArgs:
     @pulumi.getter(name="skipImportCheckOnCreateAndAllowOverwritingExistingResources")
     def skip_import_check_on_create_and_allow_overwriting_existing_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+        Whether to skip the import check and allow the provider to overwrite existing remote resources if present.
         """
         return pulumi.get(self, "skip_import_check_on_create_and_allow_overwriting_existing_resources")
 
@@ -492,7 +492,7 @@ class ProviderFeaturesCognitiveAccountArgs:
 class ProviderFeaturesDatabricksWorkspaceArgsDict(TypedDict):
     force_delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+    When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
     """
 
 @pulumi.input_type
@@ -500,7 +500,7 @@ class ProviderFeaturesDatabricksWorkspaceArgs:
     def __init__(__self__, *,
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] force_delete: When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+        :param pulumi.Input[_builtins.bool] force_delete: When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
         """
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
@@ -509,7 +509,7 @@ class ProviderFeaturesDatabricksWorkspaceArgs:
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+        When enabled, the managed Resource Group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
         """
         return pulumi.get(self, "force_delete")
 
@@ -525,7 +525,7 @@ class ProviderFeaturesEnhancedValidationArgsDict(TypedDict):
     """
     preflight_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+    Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
     """
     preflight_location_fallback: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -533,7 +533,7 @@ class ProviderFeaturesEnhancedValidationArgsDict(TypedDict):
     """
     resource_providers: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+    Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
     """
 
 @pulumi.input_type
@@ -545,9 +545,9 @@ class ProviderFeaturesEnhancedValidationArgs:
                  resource_providers: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] locations: Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
-        :param pulumi.Input[_builtins.bool] preflight_enabled: Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+        :param pulumi.Input[_builtins.bool] preflight_enabled: Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
         :param pulumi.Input[_builtins.str] preflight_location_fallback: The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
-        :param pulumi.Input[_builtins.bool] resource_providers: Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        :param pulumi.Input[_builtins.bool] resource_providers: Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -574,7 +574,7 @@ class ProviderFeaturesEnhancedValidationArgs:
     @pulumi.getter(name="preflightEnabled")
     def preflight_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+        Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid? Note: requires valid credentials and external Azure API access at plan-time.
         """
         return pulumi.get(self, "preflight_enabled")
 
@@ -598,7 +598,7 @@ class ProviderFeaturesEnhancedValidationArgs:
     @pulumi.getter(name="resourceProviders")
     def resource_providers(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid Resource Providers are caught at plan time; when disabled, they are caught at apply time.
         """
         return pulumi.get(self, "resource_providers")
 
@@ -610,47 +610,47 @@ class ProviderFeaturesEnhancedValidationArgs:
 class ProviderFeaturesKeyVaultArgsDict(TypedDict):
     purge_soft_delete_on_destroy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+    When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
     """
     purge_soft_deleted_certificates_on_destroy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+    When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
     """
     purge_soft_deleted_hardware_security_module_keys_on_destroy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+    When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
     """
     purge_soft_deleted_hardware_security_modules_on_destroy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+    When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
     """
     purge_soft_deleted_keys_on_destroy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+    When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
     """
     purge_soft_deleted_secrets_on_destroy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+    When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
     """
     recover_soft_deleted_certificates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+    When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones.
     """
     recover_soft_deleted_hardware_security_module_keys: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+    When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
     """
     recover_soft_deleted_key_vaults: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+    When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones.
     """
     recover_soft_deleted_keys: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+    When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones.
     """
     recover_soft_deleted_secrets: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+    When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones.
     """
 
 @pulumi.input_type
@@ -668,17 +668,17 @@ class ProviderFeaturesKeyVaultArgs:
                  recover_soft_deleted_keys: pulumi.Input[Optional[_builtins.bool]] = None,
                  recover_soft_deleted_secrets: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] purge_soft_delete_on_destroy: When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
-        :param pulumi.Input[_builtins.bool] purge_soft_deleted_certificates_on_destroy: When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
-        :param pulumi.Input[_builtins.bool] purge_soft_deleted_hardware_security_module_keys_on_destroy: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
-        :param pulumi.Input[_builtins.bool] purge_soft_deleted_hardware_security_modules_on_destroy: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
-        :param pulumi.Input[_builtins.bool] purge_soft_deleted_keys_on_destroy: When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
-        :param pulumi.Input[_builtins.bool] purge_soft_deleted_secrets_on_destroy: When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
-        :param pulumi.Input[_builtins.bool] recover_soft_deleted_certificates: When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
-        :param pulumi.Input[_builtins.bool] recover_soft_deleted_hardware_security_module_keys: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
-        :param pulumi.Input[_builtins.bool] recover_soft_deleted_key_vaults: When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
-        :param pulumi.Input[_builtins.bool] recover_soft_deleted_keys: When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
-        :param pulumi.Input[_builtins.bool] recover_soft_deleted_secrets: When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+        :param pulumi.Input[_builtins.bool] purge_soft_delete_on_destroy: When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
+        :param pulumi.Input[_builtins.bool] purge_soft_deleted_certificates_on_destroy: When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
+        :param pulumi.Input[_builtins.bool] purge_soft_deleted_hardware_security_module_keys_on_destroy: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
+        :param pulumi.Input[_builtins.bool] purge_soft_deleted_hardware_security_modules_on_destroy: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
+        :param pulumi.Input[_builtins.bool] purge_soft_deleted_keys_on_destroy: When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
+        :param pulumi.Input[_builtins.bool] purge_soft_deleted_secrets_on_destroy: When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
+        :param pulumi.Input[_builtins.bool] recover_soft_deleted_certificates: When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones.
+        :param pulumi.Input[_builtins.bool] recover_soft_deleted_hardware_security_module_keys: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
+        :param pulumi.Input[_builtins.bool] recover_soft_deleted_key_vaults: When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones.
+        :param pulumi.Input[_builtins.bool] recover_soft_deleted_keys: When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones.
+        :param pulumi.Input[_builtins.bool] recover_soft_deleted_secrets: When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones.
         """
         if purge_soft_delete_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
@@ -707,7 +707,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
     def purge_soft_delete_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+        When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
         """
         return pulumi.get(self, "purge_soft_delete_on_destroy")
 
@@ -719,7 +719,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="purgeSoftDeletedCertificatesOnDestroy")
     def purge_soft_deleted_certificates_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+        When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
         """
         return pulumi.get(self, "purge_soft_deleted_certificates_on_destroy")
 
@@ -731,7 +731,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy")
     def purge_soft_deleted_hardware_security_module_keys_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
         """
         return pulumi.get(self, "purge_soft_deleted_hardware_security_module_keys_on_destroy")
 
@@ -743,7 +743,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="purgeSoftDeletedHardwareSecurityModulesOnDestroy")
     def purge_soft_deleted_hardware_security_modules_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
         """
         return pulumi.get(self, "purge_soft_deleted_hardware_security_modules_on_destroy")
 
@@ -755,7 +755,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="purgeSoftDeletedKeysOnDestroy")
     def purge_soft_deleted_keys_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+        When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
         """
         return pulumi.get(self, "purge_soft_deleted_keys_on_destroy")
 
@@ -767,7 +767,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="purgeSoftDeletedSecretsOnDestroy")
     def purge_soft_deleted_secrets_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+        When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
         """
         return pulumi.get(self, "purge_soft_deleted_secrets_on_destroy")
 
@@ -779,7 +779,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="recoverSoftDeletedCertificates")
     def recover_soft_deleted_certificates(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+        When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones.
         """
         return pulumi.get(self, "recover_soft_deleted_certificates")
 
@@ -791,7 +791,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="recoverSoftDeletedHardwareSecurityModuleKeys")
     def recover_soft_deleted_hardware_security_module_keys(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
         """
         return pulumi.get(self, "recover_soft_deleted_hardware_security_module_keys")
 
@@ -803,7 +803,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="recoverSoftDeletedKeyVaults")
     def recover_soft_deleted_key_vaults(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+        When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones.
         """
         return pulumi.get(self, "recover_soft_deleted_key_vaults")
 
@@ -815,7 +815,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="recoverSoftDeletedKeys")
     def recover_soft_deleted_keys(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+        When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones.
         """
         return pulumi.get(self, "recover_soft_deleted_keys")
 
@@ -827,7 +827,7 @@ class ProviderFeaturesKeyVaultArgs:
     @pulumi.getter(name="recoverSoftDeletedSecrets")
     def recover_soft_deleted_secrets(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+        When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones.
         """
         return pulumi.get(self, "recover_soft_deleted_secrets")
 
@@ -899,11 +899,11 @@ class ProviderFeaturesManagedDiskArgs:
 class ProviderFeaturesNetappArgsDict(TypedDict):
     delete_backups_on_backup_vault_destroy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+    When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed.
     """
     prevent_volume_destruction: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    When enabled, the volume will not be destroyed, safeguarding from severe data loss
+    When enabled, the volume will not be destroyed, safeguarding from severe data loss.
     """
 
 @pulumi.input_type
@@ -912,8 +912,8 @@ class ProviderFeaturesNetappArgs:
                  delete_backups_on_backup_vault_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  prevent_volume_destruction: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] delete_backups_on_backup_vault_destroy: When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
-        :param pulumi.Input[_builtins.bool] prevent_volume_destruction: When enabled, the volume will not be destroyed, safeguarding from severe data loss
+        :param pulumi.Input[_builtins.bool] delete_backups_on_backup_vault_destroy: When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed.
+        :param pulumi.Input[_builtins.bool] prevent_volume_destruction: When enabled, the volume will not be destroyed, safeguarding from severe data loss.
         """
         if delete_backups_on_backup_vault_destroy is not None:
             pulumi.set(__self__, "delete_backups_on_backup_vault_destroy", delete_backups_on_backup_vault_destroy)
@@ -924,7 +924,7 @@ class ProviderFeaturesNetappArgs:
     @pulumi.getter(name="deleteBackupsOnBackupVaultDestroy")
     def delete_backups_on_backup_vault_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+        When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed.
         """
         return pulumi.get(self, "delete_backups_on_backup_vault_destroy")
 
@@ -936,7 +936,7 @@ class ProviderFeaturesNetappArgs:
     @pulumi.getter(name="preventVolumeDestruction")
     def prevent_volume_destruction(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When enabled, the volume will not be destroyed, safeguarding from severe data loss
+        When enabled, the volume will not be destroyed, safeguarding from severe data loss.
         """
         return pulumi.get(self, "prevent_volume_destruction")
 

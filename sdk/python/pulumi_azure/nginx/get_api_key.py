@@ -103,7 +103,7 @@ def get_api_key(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.nginx.get_api_key(name="existing",
+    example = azure.nginx.get_api_key(name="example-api-key",
         nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
@@ -143,7 +143,7 @@ def get_api_key_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.nginx.get_api_key(name="existing",
+    example = azure.nginx.get_api_key(name="example-api-key",
         nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```

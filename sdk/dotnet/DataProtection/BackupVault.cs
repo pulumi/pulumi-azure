@@ -59,6 +59,12 @@ namespace Pulumi.Azure.DataProtection
     public partial class BackupVault : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to enable Azure Monitor alerts for all job failures.
+        /// </summary>
+        [Output("alertsForAllJobFailuresEnabled")]
+        public Output<bool> AlertsForAllJobFailuresEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable cross-region restore for the Backup Vault.
         /// 
         /// &gt; **Note:** The `CrossRegionRestoreEnabled` can only be specified when `Redundancy` is specified for `GeoRedundant`. Once `CrossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -177,6 +183,12 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable Azure Monitor alerts for all job failures.
+        /// </summary>
+        [Input("alertsForAllJobFailuresEnabled")]
+        public Input<bool>? AlertsForAllJobFailuresEnabled { get; set; }
+
+        /// <summary>
         /// Whether to enable cross-region restore for the Backup Vault.
         /// 
         /// &gt; **Note:** The `CrossRegionRestoreEnabled` can only be specified when `Redundancy` is specified for `GeoRedundant`. Once `CrossRegionRestoreEnabled` is enabled, it cannot be disabled.
@@ -262,6 +274,12 @@ namespace Pulumi.Azure.DataProtection
 
     public sealed class BackupVaultState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable Azure Monitor alerts for all job failures.
+        /// </summary>
+        [Input("alertsForAllJobFailuresEnabled")]
+        public Input<bool>? AlertsForAllJobFailuresEnabled { get; set; }
+
         /// <summary>
         /// Whether to enable cross-region restore for the Backup Vault.
         /// 

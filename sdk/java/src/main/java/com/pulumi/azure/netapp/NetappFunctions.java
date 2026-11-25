@@ -2609,9 +2609,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupOracle(GetVolumeGroupOracleArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2659,9 +2659,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupOracle(GetVolumeGroupOracleArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2709,9 +2709,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupOracle(GetVolumeGroupOracleArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2759,9 +2759,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupOracle(GetVolumeGroupOracleArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2809,9 +2809,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupOracle(GetVolumeGroupOracleArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2859,9 +2859,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2909,9 +2909,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2959,9 +2959,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3009,9 +3009,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3059,9 +3059,9 @@ public final class NetappFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
-     *             .name("existing application volume group name")
+     *             .name("example-volume-group")
      *             .resourceGroupName("resource group name where the account and volume group belong to")
-     *             .accountName("existing account where the application volume group belong to")
+     *             .accountName("example-netapp-account")
      *             .build());
      * 
      *         ctx.export("id", example.id());

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.portal.azurerm_portal_dashboard({
- *     name: "existing-dashboard",
+ *     name: "example-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
  * export const id = exampleAzurermDashboard.id;
@@ -93,7 +93,7 @@ export interface Azurerm_portal_dashboardResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.portal.azurerm_portal_dashboard({
- *     name: "existing-dashboard",
+ *     name: "example-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
  * export const id = exampleAzurermDashboard.id;

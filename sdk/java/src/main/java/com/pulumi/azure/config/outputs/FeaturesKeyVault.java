@@ -12,134 +12,134 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FeaturesKeyVault {
     /**
-     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     private @Nullable Boolean purgeSoftDeleteOnDestroy;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     private @Nullable Boolean purgeSoftDeletedCertificatesOnDestroy;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     private @Nullable Boolean purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     private @Nullable Boolean purgeSoftDeletedHardwareSecurityModulesOnDestroy;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     private @Nullable Boolean purgeSoftDeletedKeysOnDestroy;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     private @Nullable Boolean purgeSoftDeletedSecretsOnDestroy;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
      * 
      */
     private @Nullable Boolean recoverSoftDeletedCertificates;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
      * 
      */
     private @Nullable Boolean recoverSoftDeletedHardwareSecurityModuleKeys;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
      * 
      */
     private @Nullable Boolean recoverSoftDeletedKeyVaults;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
      * 
      */
     private @Nullable Boolean recoverSoftDeletedKeys;
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
      * 
      */
     private @Nullable Boolean recoverSoftDeletedSecrets;
 
     private FeaturesKeyVault() {}
     /**
-     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Boolean> purgeSoftDeleteOnDestroy() {
         return Optional.ofNullable(this.purgeSoftDeleteOnDestroy);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Boolean> purgeSoftDeletedCertificatesOnDestroy() {
         return Optional.ofNullable(this.purgeSoftDeletedCertificatesOnDestroy);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Boolean> purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy() {
         return Optional.ofNullable(this.purgeSoftDeletedHardwareSecurityModuleKeysOnDestroy);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Boolean> purgeSoftDeletedHardwareSecurityModulesOnDestroy() {
         return Optional.ofNullable(this.purgeSoftDeletedHardwareSecurityModulesOnDestroy);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Boolean> purgeSoftDeletedKeysOnDestroy() {
         return Optional.ofNullable(this.purgeSoftDeletedKeysOnDestroy);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g. purged), when destroyed.
      * 
      */
     public Optional<Boolean> purgeSoftDeletedSecretsOnDestroy() {
         return Optional.ofNullable(this.purgeSoftDeletedSecretsOnDestroy);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Boolean> recoverSoftDeletedCertificates() {
         return Optional.ofNullable(this.recoverSoftDeletedCertificates);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Boolean> recoverSoftDeletedHardwareSecurityModuleKeys() {
         return Optional.ofNullable(this.recoverSoftDeletedHardwareSecurityModuleKeys);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Boolean> recoverSoftDeletedKeyVaults() {
         return Optional.ofNullable(this.recoverSoftDeletedKeyVaults);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Boolean> recoverSoftDeletedKeys() {
         return Optional.ofNullable(this.recoverSoftDeletedKeys);
     }
     /**
-     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+     * @return When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones.
      * 
      */
     public Optional<Boolean> recoverSoftDeletedSecrets() {

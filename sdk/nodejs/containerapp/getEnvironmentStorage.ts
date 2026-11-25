@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.containerapp.getEnvironment({
- *     name: "existing-environment",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-environment",
+ *     resourceGroupName: "example-resources",
  * });
  * const exampleGetEnvironmentStorage = example.then(example => azure.containerapp.getEnvironmentStorage({
- *     name: "existing-storage",
+ *     name: "example-storage",
  *     containerAppEnvironmentId: example.id,
  * }));
  * ```
@@ -89,11 +89,11 @@ export interface GetEnvironmentStorageResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.containerapp.getEnvironment({
- *     name: "existing-environment",
- *     resourceGroupName: "existing-resources",
+ *     name: "example-environment",
+ *     resourceGroupName: "example-resources",
  * });
  * const exampleGetEnvironmentStorage = example.then(example => azure.containerapp.getEnvironmentStorage({
- *     name: "existing-storage",
+ *     name: "example-storage",
  *     containerAppEnvironmentId: example.id,
  * }));
  * ```

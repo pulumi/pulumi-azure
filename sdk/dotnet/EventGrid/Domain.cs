@@ -73,6 +73,12 @@ namespace Pulumi.Azure.EventGrid
         public Output<bool?> AutoDeleteTopicWithLastSubscription { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        /// </summary>
+        [Output("dataResidencyBoundary")]
+        public Output<string> DataResidencyBoundary { get; private set; } = null!;
+
+        /// <summary>
         /// The Endpoint associated with the EventGrid Domain.
         /// </summary>
         [Output("endpoint")]
@@ -119,6 +125,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
@@ -224,6 +236,12 @@ namespace Pulumi.Azure.EventGrid
         public Input<bool>? AutoDeleteTopicWithLastSubscription { get; set; }
 
         /// <summary>
+        /// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        /// </summary>
+        [Input("dataResidencyBoundary")]
+        public Input<string>? DataResidencyBoundary { get; set; }
+
+        /// <summary>
         /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -270,6 +288,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
@@ -320,6 +344,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("autoDeleteTopicWithLastSubscription")]
         public Input<bool>? AutoDeleteTopicWithLastSubscription { get; set; }
+
+        /// <summary>
+        /// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+        /// </summary>
+        [Input("dataResidencyBoundary")]
+        public Input<string>? DataResidencyBoundary { get; set; }
 
         /// <summary>
         /// The Endpoint associated with the EventGrid Domain.
@@ -374,6 +404,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.

@@ -26,8 +26,8 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbServers.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "existing",
-        ///         CloudExadataInfrastructureName = "existing",
+        ///         ResourceGroupName = "example-resources",
+        ///         CloudExadataInfrastructureName = "example-exadata-infrastructure",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbServers.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "existing",
-        ///         CloudExadataInfrastructureName = "existing",
+        ///         ResourceGroupName = "example-resources",
+        ///         CloudExadataInfrastructureName = "example-exadata-infrastructure",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -98,8 +98,8 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbServers.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "existing",
-        ///         CloudExadataInfrastructureName = "existing",
+        ///         ResourceGroupName = "example-resources",
+        ///         CloudExadataInfrastructureName = "example-exadata-infrastructure",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

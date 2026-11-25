@@ -13,6 +13,197 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ServiceDatasourceBlobEncryptionKey struct {
+	// The Client ID of the Microsoft Entra ID application used for authentication.
+	//
+	// > **Note:** `clientId` and `clientSecret` must be specified together.
+	ClientId *string `pulumi:"clientId"`
+	// The Client Secret of the Microsoft Entra ID application used for authentication.
+	//
+	// > **Note:** If `clientId` and `clientSecret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The ID of the Key Vault Key used for encryption.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+}
+
+// ServiceDatasourceBlobEncryptionKeyInput is an input type that accepts ServiceDatasourceBlobEncryptionKeyArgs and ServiceDatasourceBlobEncryptionKeyOutput values.
+// You can construct a concrete instance of `ServiceDatasourceBlobEncryptionKeyInput` via:
+//
+//	ServiceDatasourceBlobEncryptionKeyArgs{...}
+type ServiceDatasourceBlobEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToServiceDatasourceBlobEncryptionKeyOutput() ServiceDatasourceBlobEncryptionKeyOutput
+	ToServiceDatasourceBlobEncryptionKeyOutputWithContext(context.Context) ServiceDatasourceBlobEncryptionKeyOutput
+}
+
+type ServiceDatasourceBlobEncryptionKeyArgs struct {
+	// The Client ID of the Microsoft Entra ID application used for authentication.
+	//
+	// > **Note:** `clientId` and `clientSecret` must be specified together.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Client Secret of the Microsoft Entra ID application used for authentication.
+	//
+	// > **Note:** If `clientId` and `clientSecret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// The ID of the Key Vault Key used for encryption.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+}
+
+func (ServiceDatasourceBlobEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDatasourceBlobEncryptionKey)(nil)).Elem()
+}
+
+func (i ServiceDatasourceBlobEncryptionKeyArgs) ToServiceDatasourceBlobEncryptionKeyOutput() ServiceDatasourceBlobEncryptionKeyOutput {
+	return i.ToServiceDatasourceBlobEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i ServiceDatasourceBlobEncryptionKeyArgs) ToServiceDatasourceBlobEncryptionKeyOutputWithContext(ctx context.Context) ServiceDatasourceBlobEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDatasourceBlobEncryptionKeyOutput)
+}
+
+func (i ServiceDatasourceBlobEncryptionKeyArgs) ToServiceDatasourceBlobEncryptionKeyPtrOutput() ServiceDatasourceBlobEncryptionKeyPtrOutput {
+	return i.ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDatasourceBlobEncryptionKeyArgs) ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(ctx context.Context) ServiceDatasourceBlobEncryptionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDatasourceBlobEncryptionKeyOutput).ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(ctx)
+}
+
+// ServiceDatasourceBlobEncryptionKeyPtrInput is an input type that accepts ServiceDatasourceBlobEncryptionKeyArgs, ServiceDatasourceBlobEncryptionKeyPtr and ServiceDatasourceBlobEncryptionKeyPtrOutput values.
+// You can construct a concrete instance of `ServiceDatasourceBlobEncryptionKeyPtrInput` via:
+//
+//	        ServiceDatasourceBlobEncryptionKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDatasourceBlobEncryptionKeyPtrInput interface {
+	pulumi.Input
+
+	ToServiceDatasourceBlobEncryptionKeyPtrOutput() ServiceDatasourceBlobEncryptionKeyPtrOutput
+	ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(context.Context) ServiceDatasourceBlobEncryptionKeyPtrOutput
+}
+
+type serviceDatasourceBlobEncryptionKeyPtrType ServiceDatasourceBlobEncryptionKeyArgs
+
+func ServiceDatasourceBlobEncryptionKeyPtr(v *ServiceDatasourceBlobEncryptionKeyArgs) ServiceDatasourceBlobEncryptionKeyPtrInput {
+	return (*serviceDatasourceBlobEncryptionKeyPtrType)(v)
+}
+
+func (*serviceDatasourceBlobEncryptionKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDatasourceBlobEncryptionKey)(nil)).Elem()
+}
+
+func (i *serviceDatasourceBlobEncryptionKeyPtrType) ToServiceDatasourceBlobEncryptionKeyPtrOutput() ServiceDatasourceBlobEncryptionKeyPtrOutput {
+	return i.ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDatasourceBlobEncryptionKeyPtrType) ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(ctx context.Context) ServiceDatasourceBlobEncryptionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDatasourceBlobEncryptionKeyPtrOutput)
+}
+
+type ServiceDatasourceBlobEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (ServiceDatasourceBlobEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDatasourceBlobEncryptionKey)(nil)).Elem()
+}
+
+func (o ServiceDatasourceBlobEncryptionKeyOutput) ToServiceDatasourceBlobEncryptionKeyOutput() ServiceDatasourceBlobEncryptionKeyOutput {
+	return o
+}
+
+func (o ServiceDatasourceBlobEncryptionKeyOutput) ToServiceDatasourceBlobEncryptionKeyOutputWithContext(ctx context.Context) ServiceDatasourceBlobEncryptionKeyOutput {
+	return o
+}
+
+func (o ServiceDatasourceBlobEncryptionKeyOutput) ToServiceDatasourceBlobEncryptionKeyPtrOutput() ServiceDatasourceBlobEncryptionKeyPtrOutput {
+	return o.ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDatasourceBlobEncryptionKeyOutput) ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(ctx context.Context) ServiceDatasourceBlobEncryptionKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDatasourceBlobEncryptionKey) *ServiceDatasourceBlobEncryptionKey {
+		return &v
+	}).(ServiceDatasourceBlobEncryptionKeyPtrOutput)
+}
+
+// The Client ID of the Microsoft Entra ID application used for authentication.
+//
+// > **Note:** `clientId` and `clientSecret` must be specified together.
+func (o ServiceDatasourceBlobEncryptionKeyOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDatasourceBlobEncryptionKey) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The Client Secret of the Microsoft Entra ID application used for authentication.
+//
+// > **Note:** If `clientId` and `clientSecret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+func (o ServiceDatasourceBlobEncryptionKeyOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDatasourceBlobEncryptionKey) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Key used for encryption.
+func (o ServiceDatasourceBlobEncryptionKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDatasourceBlobEncryptionKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type ServiceDatasourceBlobEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDatasourceBlobEncryptionKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDatasourceBlobEncryptionKey)(nil)).Elem()
+}
+
+func (o ServiceDatasourceBlobEncryptionKeyPtrOutput) ToServiceDatasourceBlobEncryptionKeyPtrOutput() ServiceDatasourceBlobEncryptionKeyPtrOutput {
+	return o
+}
+
+func (o ServiceDatasourceBlobEncryptionKeyPtrOutput) ToServiceDatasourceBlobEncryptionKeyPtrOutputWithContext(ctx context.Context) ServiceDatasourceBlobEncryptionKeyPtrOutput {
+	return o
+}
+
+func (o ServiceDatasourceBlobEncryptionKeyPtrOutput) Elem() ServiceDatasourceBlobEncryptionKeyOutput {
+	return o.ApplyT(func(v *ServiceDatasourceBlobEncryptionKey) ServiceDatasourceBlobEncryptionKey {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDatasourceBlobEncryptionKey
+		return ret
+	}).(ServiceDatasourceBlobEncryptionKeyOutput)
+}
+
+// The Client ID of the Microsoft Entra ID application used for authentication.
+//
+// > **Note:** `clientId` and `clientSecret` must be specified together.
+func (o ServiceDatasourceBlobEncryptionKeyPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDatasourceBlobEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Client Secret of the Microsoft Entra ID application used for authentication.
+//
+// > **Note:** If `clientId` and `clientSecret` are not specified, the system-assigned managed identity of the Search Service is used for authentication. User-assigned managed identity is not supported at this time.
+func (o ServiceDatasourceBlobEncryptionKeyPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDatasourceBlobEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Key used for encryption.
+func (o ServiceDatasourceBlobEncryptionKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDatasourceBlobEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceIdentity struct {
 	// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Search Service.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -544,6 +735,8 @@ func (o GetServiceQueryKeyArrayOutput) Index(i pulumi.IntInput) GetServiceQueryK
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDatasourceBlobEncryptionKeyInput)(nil)).Elem(), ServiceDatasourceBlobEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDatasourceBlobEncryptionKeyPtrInput)(nil)).Elem(), ServiceDatasourceBlobEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityInput)(nil)).Elem(), ServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityPtrInput)(nil)).Elem(), ServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQueryKeyInput)(nil)).Elem(), ServiceQueryKeyArgs{})
@@ -552,6 +745,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceIdentityArrayInput)(nil)).Elem(), GetServiceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceQueryKeyInput)(nil)).Elem(), GetServiceQueryKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceQueryKeyArrayInput)(nil)).Elem(), GetServiceQueryKeyArray{})
+	pulumi.RegisterOutputType(ServiceDatasourceBlobEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(ServiceDatasourceBlobEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceQueryKeyOutput{})

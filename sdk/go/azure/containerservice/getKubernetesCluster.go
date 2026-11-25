@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService` - 2026-05-01
+// * `Microsoft.ContainerService` - 2026-07-01
 func LookupKubernetesCluster(ctx *pulumi.Context, args *LookupKubernetesClusterArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKubernetesClusterResult
@@ -66,17 +66,17 @@ type LookupKubernetesClusterArgs struct {
 
 // A collection of values returned by getKubernetesCluster.
 type LookupKubernetesClusterResult struct {
-	// An `aciConnectorLinux` block as documented below.
+	// An `aciConnectorLinux` block as defined below.
 	AciConnectorLinuxes []GetKubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinuxes"`
-	// An `agentPoolProfile` block as documented below.
+	// An `agentPoolProfile` block as defined below.
 	AgentPoolProfiles []GetKubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the primaries.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
-	// An `azureActiveDirectoryRoleBasedAccessControl` block as documented below.
+	// An `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControls []GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControls"`
 	// Is Azure Policy enabled on this managed Kubernetes Cluster?
 	AzurePolicyEnabled bool `pulumi:"azurePolicyEnabled"`
-	// A `bootstrapProfile` block as documented below.
+	// A `bootstrapProfile` block as defined below.
 	BootstrapProfiles []GetKubernetesClusterBootstrapProfile `pulumi:"bootstrapProfiles"`
 	// Contains the current version of Kubernetes running on the Cluster.
 	CurrentKubernetesVersion string `pulumi:"currentKubernetesVersion"`
@@ -92,13 +92,13 @@ type LookupKubernetesClusterResult struct {
 	HttpApplicationRoutingZoneName string `pulumi:"httpApplicationRoutingZoneName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identities []GetKubernetesClusterIdentity `pulumi:"identities"`
-	// An `ingressApplicationGateway` block as documented below.
+	// An `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateways []GetKubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateways"`
-	// A `keyManagementService` block as documented below.
+	// A `keyManagementService` block as defined below.
 	KeyManagementServices []GetKubernetesClusterKeyManagementService `pulumi:"keyManagementServices"`
-	// A `keyVaultSecretsProvider` block as documented below.
+	// A `keyVaultSecretsProvider` block as defined below.
 	KeyVaultSecretsProviders []GetKubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProviders"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
 	KubeAdminConfigRaw string `pulumi:"kubeAdminConfigRaw"`
@@ -108,11 +108,11 @@ type LookupKubernetesClusterResult struct {
 	KubeConfigRaw string `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs []GetKubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
-	// A `kubeletIdentity` block as documented below.
+	// A `kubeletIdentity` block as defined below.
 	KubeletIdentities []GetKubernetesClusterKubeletIdentity `pulumi:"kubeletIdentities"`
 	// The version of Kubernetes used on the managed Kubernetes Cluster.
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
-	// A `linuxProfile` block as documented below.
+	// A `linuxProfile` block as defined below.
 	LinuxProfiles []GetKubernetesClusterLinuxProfile `pulumi:"linuxProfiles"`
 	// The Azure Region in which the managed Kubernetes Cluster exists.
 	Location string `pulumi:"location"`
@@ -120,7 +120,7 @@ type LookupKubernetesClusterResult struct {
 	MicrosoftDefenders []GetKubernetesClusterMicrosoftDefender `pulumi:"microsoftDefenders"`
 	// The name assigned to this pool of agents.
 	Name string `pulumi:"name"`
-	// A `networkProfile` block as documented below.
+	// A `networkProfile` block as defined below.
 	NetworkProfiles []GetKubernetesClusterNetworkProfile `pulumi:"networkProfiles"`
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup string `pulumi:"nodeResourceGroup"`
@@ -130,7 +130,7 @@ type LookupKubernetesClusterResult struct {
 	OidcIssuerEnabled bool `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl string `pulumi:"oidcIssuerUrl"`
-	// An `omsAgent` block as documented below.
+	// An `omsAgent` block as defined below.
 	OmsAgents []GetKubernetesClusterOmsAgent `pulumi:"omsAgents"`
 	// Is Open Service Mesh enabled for this managed Kubernetes Cluster?
 	OpenServiceMeshEnabled bool `pulumi:"openServiceMeshEnabled"`
@@ -142,13 +142,13 @@ type LookupKubernetesClusterResult struct {
 	// Is Role Based Access Control enabled for this managed Kubernetes Cluster?
 	RoleBasedAccessControlEnabled bool                                     `pulumi:"roleBasedAccessControlEnabled"`
 	ServiceMeshProfiles           []GetKubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfiles"`
-	// A `servicePrincipal` block as documented below.
+	// A `servicePrincipal` block as defined below.
 	ServicePrincipals []GetKubernetesClusterServicePrincipal `pulumi:"servicePrincipals"`
-	// A `storageProfile` block as documented below.
+	// A `storageProfile` block as defined below.
 	StorageProfiles []GetKubernetesClusterStorageProfile `pulumi:"storageProfiles"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `windowsProfile` block as documented below.
+	// A `windowsProfile` block as defined below.
 	WindowsProfiles []GetKubernetesClusterWindowsProfile `pulumi:"windowsProfiles"`
 }
 
@@ -184,14 +184,14 @@ func (o LookupKubernetesClusterResultOutput) ToLookupKubernetesClusterResultOutp
 	return o
 }
 
-// An `aciConnectorLinux` block as documented below.
+// An `aciConnectorLinux` block as defined below.
 func (o LookupKubernetesClusterResultOutput) AciConnectorLinuxes() GetKubernetesClusterAciConnectorLinuxArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAciConnectorLinux {
 		return v.AciConnectorLinuxes
 	}).(GetKubernetesClusterAciConnectorLinuxArrayOutput)
 }
 
-// An `agentPoolProfile` block as documented below.
+// An `agentPoolProfile` block as defined below.
 func (o LookupKubernetesClusterResultOutput) AgentPoolProfiles() GetKubernetesClusterAgentPoolProfileArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAgentPoolProfile {
 		return v.AgentPoolProfiles
@@ -203,7 +203,7 @@ func (o LookupKubernetesClusterResultOutput) ApiServerAuthorizedIpRanges() pulum
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []string { return v.ApiServerAuthorizedIpRanges }).(pulumi.StringArrayOutput)
 }
 
-// An `azureActiveDirectoryRoleBasedAccessControl` block as documented below.
+// An `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 func (o LookupKubernetesClusterResultOutput) AzureActiveDirectoryRoleBasedAccessControls() GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
 		return v.AzureActiveDirectoryRoleBasedAccessControls
@@ -215,7 +215,7 @@ func (o LookupKubernetesClusterResultOutput) AzurePolicyEnabled() pulumi.BoolOut
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.AzurePolicyEnabled }).(pulumi.BoolOutput)
 }
 
-// A `bootstrapProfile` block as documented below.
+// A `bootstrapProfile` block as defined below.
 func (o LookupKubernetesClusterResultOutput) BootstrapProfiles() GetKubernetesClusterBootstrapProfileArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterBootstrapProfile {
 		return v.BootstrapProfiles
@@ -257,26 +257,26 @@ func (o LookupKubernetesClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An `identity` block as documented below.
+// An `identity` block as defined below.
 func (o LookupKubernetesClusterResultOutput) Identities() GetKubernetesClusterIdentityArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterIdentity { return v.Identities }).(GetKubernetesClusterIdentityArrayOutput)
 }
 
-// An `ingressApplicationGateway` block as documented below.
+// An `ingressApplicationGateway` block as defined below.
 func (o LookupKubernetesClusterResultOutput) IngressApplicationGateways() GetKubernetesClusterIngressApplicationGatewayArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterIngressApplicationGateway {
 		return v.IngressApplicationGateways
 	}).(GetKubernetesClusterIngressApplicationGatewayArrayOutput)
 }
 
-// A `keyManagementService` block as documented below.
+// A `keyManagementService` block as defined below.
 func (o LookupKubernetesClusterResultOutput) KeyManagementServices() GetKubernetesClusterKeyManagementServiceArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKeyManagementService {
 		return v.KeyManagementServices
 	}).(GetKubernetesClusterKeyManagementServiceArrayOutput)
 }
 
-// A `keyVaultSecretsProvider` block as documented below.
+// A `keyVaultSecretsProvider` block as defined below.
 func (o LookupKubernetesClusterResultOutput) KeyVaultSecretsProviders() GetKubernetesClusterKeyVaultSecretsProviderArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKeyVaultSecretsProvider {
 		return v.KeyVaultSecretsProviders
@@ -303,7 +303,7 @@ func (o LookupKubernetesClusterResultOutput) KubeConfigs() GetKubernetesClusterK
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKubeConfig { return v.KubeConfigs }).(GetKubernetesClusterKubeConfigArrayOutput)
 }
 
-// A `kubeletIdentity` block as documented below.
+// A `kubeletIdentity` block as defined below.
 func (o LookupKubernetesClusterResultOutput) KubeletIdentities() GetKubernetesClusterKubeletIdentityArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKubeletIdentity {
 		return v.KubeletIdentities
@@ -315,7 +315,7 @@ func (o LookupKubernetesClusterResultOutput) KubernetesVersion() pulumi.StringOu
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.KubernetesVersion }).(pulumi.StringOutput)
 }
 
-// A `linuxProfile` block as documented below.
+// A `linuxProfile` block as defined below.
 func (o LookupKubernetesClusterResultOutput) LinuxProfiles() GetKubernetesClusterLinuxProfileArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterLinuxProfile { return v.LinuxProfiles }).(GetKubernetesClusterLinuxProfileArrayOutput)
 }
@@ -337,7 +337,7 @@ func (o LookupKubernetesClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `networkProfile` block as documented below.
+// A `networkProfile` block as defined below.
 func (o LookupKubernetesClusterResultOutput) NetworkProfiles() GetKubernetesClusterNetworkProfileArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterNetworkProfile { return v.NetworkProfiles }).(GetKubernetesClusterNetworkProfileArrayOutput)
 }
@@ -362,7 +362,7 @@ func (o LookupKubernetesClusterResultOutput) OidcIssuerUrl() pulumi.StringOutput
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.OidcIssuerUrl }).(pulumi.StringOutput)
 }
 
-// An `omsAgent` block as documented below.
+// An `omsAgent` block as defined below.
 func (o LookupKubernetesClusterResultOutput) OmsAgents() GetKubernetesClusterOmsAgentArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterOmsAgent { return v.OmsAgents }).(GetKubernetesClusterOmsAgentArrayOutput)
 }
@@ -397,14 +397,14 @@ func (o LookupKubernetesClusterResultOutput) ServiceMeshProfiles() GetKubernetes
 	}).(GetKubernetesClusterServiceMeshProfileArrayOutput)
 }
 
-// A `servicePrincipal` block as documented below.
+// A `servicePrincipal` block as defined below.
 func (o LookupKubernetesClusterResultOutput) ServicePrincipals() GetKubernetesClusterServicePrincipalArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterServicePrincipal {
 		return v.ServicePrincipals
 	}).(GetKubernetesClusterServicePrincipalArrayOutput)
 }
 
-// A `storageProfile` block as documented below.
+// A `storageProfile` block as defined below.
 func (o LookupKubernetesClusterResultOutput) StorageProfiles() GetKubernetesClusterStorageProfileArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterStorageProfile { return v.StorageProfiles }).(GetKubernetesClusterStorageProfileArrayOutput)
 }
@@ -414,7 +414,7 @@ func (o LookupKubernetesClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `windowsProfile` block as documented below.
+// A `windowsProfile` block as defined below.
 func (o LookupKubernetesClusterResultOutput) WindowsProfiles() GetKubernetesClusterWindowsProfileArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterWindowsProfile { return v.WindowsProfiles }).(GetKubernetesClusterWindowsProfileArrayOutput)
 }

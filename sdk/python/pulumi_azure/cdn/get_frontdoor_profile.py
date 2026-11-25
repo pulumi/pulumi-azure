@@ -152,8 +152,8 @@ def get_frontdoor_profile(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_profile(name="existing-cdn-profile",
-        resource_group_name="existing-resources")
+    example = azure.cdn.get_frontdoor_profile(name="example-cdn-profile",
+        resource_group_name="example-resources")
     pulumi.export("frontDoorId", example.id)
     pulumi.export("logScrubbingMatchVariable", example.log_scrubbing_rules[0].match_variable)
     ```
@@ -163,7 +163,7 @@ def get_frontdoor_profile(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-12-01
+    * `Microsoft.Cdn` - 2026-10-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Profile.
@@ -197,8 +197,8 @@ def get_frontdoor_profile_output(name: pulumi.Input[Optional[_builtins.str]] = N
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_profile(name="existing-cdn-profile",
-        resource_group_name="existing-resources")
+    example = azure.cdn.get_frontdoor_profile(name="example-cdn-profile",
+        resource_group_name="example-resources")
     pulumi.export("frontDoorId", example.id)
     pulumi.export("logScrubbingMatchVariable", example.log_scrubbing_rules[0].match_variable)
     ```
@@ -208,7 +208,7 @@ def get_frontdoor_profile_output(name: pulumi.Input[Optional[_builtins.str]] = N
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-12-01
+    * `Microsoft.Cdn` - 2026-10-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Profile.

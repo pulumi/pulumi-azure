@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
+        ///     var example = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
         ///     {
         ///         Location = "West Europe",
         ///         Scope = "SQLManagedInstance",
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["name"] = existing.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
+        ///         ["name"] = example.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
         ///     };
         /// });
         /// ```
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
+        ///     var example = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
         ///     {
         ///         Location = "West Europe",
         ///         Scope = "SQLManagedInstance",
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["name"] = existing.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
+        ///         ["name"] = example.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
         ///     };
         /// });
         /// ```
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existing = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
+        ///     var example = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
         ///     {
         ///         Location = "West Europe",
         ///         Scope = "SQLManagedInstance",
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["name"] = existing.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
+        ///         ["name"] = example.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
         ///     };
         /// });
         /// ```

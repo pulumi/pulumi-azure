@@ -54,6 +54,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     * 
+     */
+    @Import(name="dataResidencyBoundary")
+    private @Nullable Output<String> dataResidencyBoundary;
+
+    /**
+     * @return Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+     * 
+     */
+    public Optional<Output<String>> dataResidencyBoundary() {
+        return Optional.ofNullable(this.dataResidencyBoundary);
+    }
+
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -159,6 +174,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     * 
+     */
+    @Import(name="minimumTlsVersion")
+    private @Nullable Output<String> minimumTlsVersion;
+
+    /**
+     * @return The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+     * 
+     */
+    public Optional<Output<String>> minimumTlsVersion() {
+        return Optional.ofNullable(this.minimumTlsVersion);
+    }
+
+    /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      * 
      */
@@ -223,6 +253,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     private DomainArgs(DomainArgs $) {
         this.autoCreateTopicWithFirstSubscription = $.autoCreateTopicWithFirstSubscription;
         this.autoDeleteTopicWithLastSubscription = $.autoDeleteTopicWithLastSubscription;
+        this.dataResidencyBoundary = $.dataResidencyBoundary;
         this.identity = $.identity;
         this.inboundIpRules = $.inboundIpRules;
         this.inputMappingDefaultValues = $.inputMappingDefaultValues;
@@ -230,6 +261,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.inputSchema = $.inputSchema;
         this.localAuthEnabled = $.localAuthEnabled;
         this.location = $.location;
+        this.minimumTlsVersion = $.minimumTlsVersion;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
@@ -294,6 +326,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoDeleteTopicWithLastSubscription(Boolean autoDeleteTopicWithLastSubscription) {
             return autoDeleteTopicWithLastSubscription(Output.of(autoDeleteTopicWithLastSubscription));
+        }
+
+        /**
+         * @param dataResidencyBoundary Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataResidencyBoundary(@Nullable Output<String> dataResidencyBoundary) {
+            $.dataResidencyBoundary = dataResidencyBoundary;
+            return this;
+        }
+
+        /**
+         * @param dataResidencyBoundary Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataResidencyBoundary(String dataResidencyBoundary) {
+            return dataResidencyBoundary(Output.of(dataResidencyBoundary));
         }
 
         /**
@@ -451,6 +504,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param minimumTlsVersion The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
+            $.minimumTlsVersion = minimumTlsVersion;
+            return this;
+        }
+
+        /**
+         * @param minimumTlsVersion The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsVersion(String minimumTlsVersion) {
+            return minimumTlsVersion(Output.of(minimumTlsVersion));
         }
 
         /**

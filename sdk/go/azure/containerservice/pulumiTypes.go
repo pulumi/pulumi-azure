@@ -9036,7 +9036,7 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeCount *int   `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// A `nodeNetworkProfile` block as documented below.
+	// A `nodeNetworkProfile` block as defined below.
 	NodeNetworkProfile *KubernetesClusterDefaultNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
 	// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
@@ -9062,6 +9062,10 @@ type KubernetesClusterDefaultNodePool struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
+	// A `security` block as documented below.
+	//
+	// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+	Security *KubernetesClusterDefaultNodePoolSecurity `pulumi:"security"`
 	// The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the Node Pool.
@@ -9076,7 +9080,7 @@ type KubernetesClusterDefaultNodePool struct {
 	Type *string `pulumi:"type"`
 	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporaryNameForRotation` must be specified when attempting a change.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
 	VmSize *string `pulumi:"vmSize"`
@@ -9141,7 +9145,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
-	// A `nodeNetworkProfile` block as documented below.
+	// A `nodeNetworkProfile` block as defined below.
 	NodeNetworkProfile KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput `pulumi:"nodeNetworkProfile"`
 	// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
 	NodePublicIpEnabled pulumi.BoolPtrInput `pulumi:"nodePublicIpEnabled"`
@@ -9167,6 +9171,10 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrInput `pulumi:"scaleDownMode"`
+	// A `security` block as documented below.
+	//
+	// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+	Security KubernetesClusterDefaultNodePoolSecurityPtrInput `pulumi:"security"`
 	// The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the Node Pool.
@@ -9181,7 +9189,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporaryNameForRotation` must be specified when attempting a change.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
@@ -9363,7 +9371,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
-// A `nodeNetworkProfile` block as documented below.
+// A `nodeNetworkProfile` block as defined below.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeNetworkProfile() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolNodeNetworkProfile {
 		return v.NodeNetworkProfile
@@ -9424,6 +9432,13 @@ func (o KubernetesClusterDefaultNodePoolOutput) ScaleDownMode() pulumi.StringPtr
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.ScaleDownMode }).(pulumi.StringPtrOutput)
 }
 
+// A `security` block as documented below.
+//
+// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+func (o KubernetesClusterDefaultNodePoolOutput) Security() KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolSecurity { return v.Security }).(KubernetesClusterDefaultNodePoolSecurityPtrOutput)
+}
+
 // The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
 func (o KubernetesClusterDefaultNodePoolOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
@@ -9453,7 +9468,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) UltraSsdEnabled() pulumi.BoolPtr
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `upgradeSettings` block as documented below.
+// A `upgradeSettings` block as defined below.
 func (o KubernetesClusterDefaultNodePoolOutput) UpgradeSettings() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolUpgradeSettings {
 		return v.UpgradeSettings
@@ -9673,7 +9688,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMap
 	}).(pulumi.StringMapOutput)
 }
 
-// A `nodeNetworkProfile` block as documented below.
+// A `nodeNetworkProfile` block as defined below.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeNetworkProfile() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolNodeNetworkProfile {
 		if v == nil {
@@ -9787,6 +9802,18 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ScaleDownMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// A `security` block as documented below.
+//
+// > **Note:** Changing either flag in `security` reimages the nodes in this pool and can disrupt workloads.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) Security() KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolSecurity {
+		if v == nil {
+			return nil
+		}
+		return v.Security
+	}).(KubernetesClusterDefaultNodePoolSecurityPtrOutput)
+}
+
 // The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
@@ -9841,7 +9868,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) UltraSsdEnabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A `upgradeSettings` block as documented below.
+// A `upgradeSettings` block as defined below.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) UpgradeSettings() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolUpgradeSettings {
 		if v == nil {
@@ -10448,7 +10475,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig struct {
 	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
 	// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
 	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// The sysctl setting net.ipv4.tcp_tw_reuse.
+	// Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
 	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
 	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
 	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
@@ -10520,7 +10547,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
 	// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
 	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// The sysctl setting net.ipv4.tcp_tw_reuse.
+	// Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
 	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
 	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
 	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
@@ -10750,7 +10777,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.tcp_tw_reuse.
+// Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
 }
@@ -11038,7 +11065,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetI
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.tcp_tw_reuse.
+// Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *bool {
 		if v == nil {
@@ -11392,6 +11419,162 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort {
 		return vs[0].([]KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort)[vs[1].(int)]
 	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput)
+}
+
+type KubernetesClusterDefaultNodePoolSecurity struct {
+	// Specifies whether Secure Boot should be enabled for this Default Node Pool. Defaults to `false`.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
+	// Specifies whether vTPM should be enabled for this Default Node Pool. Defaults to `false`.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
+}
+
+// KubernetesClusterDefaultNodePoolSecurityInput is an input type that accepts KubernetesClusterDefaultNodePoolSecurityArgs and KubernetesClusterDefaultNodePoolSecurityOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolSecurityInput` via:
+//
+//	KubernetesClusterDefaultNodePoolSecurityArgs{...}
+type KubernetesClusterDefaultNodePoolSecurityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolSecurityOutput() KubernetesClusterDefaultNodePoolSecurityOutput
+	ToKubernetesClusterDefaultNodePoolSecurityOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolSecurityOutput
+}
+
+type KubernetesClusterDefaultNodePoolSecurityArgs struct {
+	// Specifies whether Secure Boot should be enabled for this Default Node Pool. Defaults to `false`.
+	SecureBootEnabled pulumi.BoolPtrInput `pulumi:"secureBootEnabled"`
+	// Specifies whether vTPM should be enabled for this Default Node Pool. Defaults to `false`.
+	VtpmEnabled pulumi.BoolPtrInput `pulumi:"vtpmEnabled"`
+}
+
+func (KubernetesClusterDefaultNodePoolSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolSecurity)(nil)).Elem()
+}
+
+func (i KubernetesClusterDefaultNodePoolSecurityArgs) ToKubernetesClusterDefaultNodePoolSecurityOutput() KubernetesClusterDefaultNodePoolSecurityOutput {
+	return i.ToKubernetesClusterDefaultNodePoolSecurityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolSecurityArgs) ToKubernetesClusterDefaultNodePoolSecurityOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolSecurityOutput)
+}
+
+func (i KubernetesClusterDefaultNodePoolSecurityArgs) ToKubernetesClusterDefaultNodePoolSecurityPtrOutput() KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolSecurityArgs) ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolSecurityOutput).ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterDefaultNodePoolSecurityPtrInput is an input type that accepts KubernetesClusterDefaultNodePoolSecurityArgs, KubernetesClusterDefaultNodePoolSecurityPtr and KubernetesClusterDefaultNodePoolSecurityPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolSecurityPtrInput` via:
+//
+//	        KubernetesClusterDefaultNodePoolSecurityArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterDefaultNodePoolSecurityPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolSecurityPtrOutput() KubernetesClusterDefaultNodePoolSecurityPtrOutput
+	ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolSecurityPtrOutput
+}
+
+type kubernetesClusterDefaultNodePoolSecurityPtrType KubernetesClusterDefaultNodePoolSecurityArgs
+
+func KubernetesClusterDefaultNodePoolSecurityPtr(v *KubernetesClusterDefaultNodePoolSecurityArgs) KubernetesClusterDefaultNodePoolSecurityPtrInput {
+	return (*kubernetesClusterDefaultNodePoolSecurityPtrType)(v)
+}
+
+func (*kubernetesClusterDefaultNodePoolSecurityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolSecurity)(nil)).Elem()
+}
+
+func (i *kubernetesClusterDefaultNodePoolSecurityPtrType) ToKubernetesClusterDefaultNodePoolSecurityPtrOutput() KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterDefaultNodePoolSecurityPtrType) ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolSecurityPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolSecurityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolSecurity)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolSecurityOutput) ToKubernetesClusterDefaultNodePoolSecurityOutput() KubernetesClusterDefaultNodePoolSecurityOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolSecurityOutput) ToKubernetesClusterDefaultNodePoolSecurityOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolSecurityOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolSecurityOutput) ToKubernetesClusterDefaultNodePoolSecurityPtrOutput() KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return o.ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterDefaultNodePoolSecurityOutput) ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolSecurity) *KubernetesClusterDefaultNodePoolSecurity {
+		return &v
+	}).(KubernetesClusterDefaultNodePoolSecurityPtrOutput)
+}
+
+// Specifies whether Secure Boot should be enabled for this Default Node Pool. Defaults to `false`.
+func (o KubernetesClusterDefaultNodePoolSecurityOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolSecurity) *bool { return v.SecureBootEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether vTPM should be enabled for this Default Node Pool. Defaults to `false`.
+func (o KubernetesClusterDefaultNodePoolSecurityOutput) VtpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolSecurity) *bool { return v.VtpmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolSecurityPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolSecurityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolSecurity)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolSecurityPtrOutput) ToKubernetesClusterDefaultNodePoolSecurityPtrOutput() KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolSecurityPtrOutput) ToKubernetesClusterDefaultNodePoolSecurityPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolSecurityPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolSecurityPtrOutput) Elem() KubernetesClusterDefaultNodePoolSecurityOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolSecurity) KubernetesClusterDefaultNodePoolSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterDefaultNodePoolSecurity
+		return ret
+	}).(KubernetesClusterDefaultNodePoolSecurityOutput)
+}
+
+// Specifies whether Secure Boot should be enabled for this Default Node Pool. Defaults to `false`.
+func (o KubernetesClusterDefaultNodePoolSecurityPtrOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecureBootEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether vTPM should be enabled for this Default Node Pool. Defaults to `false`.
+func (o KubernetesClusterDefaultNodePoolSecurityPtrOutput) VtpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VtpmEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
@@ -12724,9 +12907,13 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 }
 
 type KubernetesClusterKeyManagementService struct {
-	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+	// The ID of the Key Vault in which the key is located.
+	//
+	// > **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
-	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+	// Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 	KeyVaultNetworkAccess *string `pulumi:"keyVaultNetworkAccess"`
 }
 
@@ -12742,9 +12929,13 @@ type KubernetesClusterKeyManagementServiceInput interface {
 }
 
 type KubernetesClusterKeyManagementServiceArgs struct {
-	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+	// The ID of the Key Vault in which the key is located.
+	//
+	// > **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
-	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+	// Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 	KeyVaultNetworkAccess pulumi.StringPtrInput `pulumi:"keyVaultNetworkAccess"`
 }
 
@@ -12825,12 +13016,19 @@ func (o KubernetesClusterKeyManagementServiceOutput) ToKubernetesClusterKeyManag
 	}).(KubernetesClusterKeyManagementServicePtrOutput)
 }
 
-// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+// The ID of the Key Vault in which the key is located.
+//
+// > **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterKeyManagementService) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
 func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
 
-// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+// Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) *string { return v.KeyVaultNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -12859,7 +13057,19 @@ func (o KubernetesClusterKeyManagementServicePtrOutput) Elem() KubernetesCluster
 	}).(KubernetesClusterKeyManagementServiceOutput)
 }
 
-// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+// The ID of the Key Vault in which the key is located.
+//
+// > **Note:** This must be provided in cross-subscription scenarios when `keyVaultNetworkAccess` is set to `Private` or when using the new KMS experience (a versionless `keyVaultKeyId`).
+func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. A versioned key ID uses the legacy KMS experience, while a versionless key ID uses the new KMS experience with automatic key rotation. For more details, please visit [KMS data encryption concepts](https://learn.microsoft.com/azure/aks/kms-data-encryption-concepts).
 func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
 		if v == nil {
@@ -12869,7 +13079,7 @@ func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultKeyId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
+// Network access of the key vault Network access of key vault. Possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
 		if v == nil {
@@ -18106,6 +18316,162 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) I
 	}).(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput)
 }
 
+type KubernetesClusterNodePoolSecurity struct {
+	// Specifies whether Secure Boot should be enabled for this Node Pool. Defaults to `false`.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
+	// Specifies whether vTPM should be enabled for this Node Pool. Defaults to `false`.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
+}
+
+// KubernetesClusterNodePoolSecurityInput is an input type that accepts KubernetesClusterNodePoolSecurityArgs and KubernetesClusterNodePoolSecurityOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolSecurityInput` via:
+//
+//	KubernetesClusterNodePoolSecurityArgs{...}
+type KubernetesClusterNodePoolSecurityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolSecurityOutput() KubernetesClusterNodePoolSecurityOutput
+	ToKubernetesClusterNodePoolSecurityOutputWithContext(context.Context) KubernetesClusterNodePoolSecurityOutput
+}
+
+type KubernetesClusterNodePoolSecurityArgs struct {
+	// Specifies whether Secure Boot should be enabled for this Node Pool. Defaults to `false`.
+	SecureBootEnabled pulumi.BoolPtrInput `pulumi:"secureBootEnabled"`
+	// Specifies whether vTPM should be enabled for this Node Pool. Defaults to `false`.
+	VtpmEnabled pulumi.BoolPtrInput `pulumi:"vtpmEnabled"`
+}
+
+func (KubernetesClusterNodePoolSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolSecurity)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolSecurityArgs) ToKubernetesClusterNodePoolSecurityOutput() KubernetesClusterNodePoolSecurityOutput {
+	return i.ToKubernetesClusterNodePoolSecurityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolSecurityArgs) ToKubernetesClusterNodePoolSecurityOutputWithContext(ctx context.Context) KubernetesClusterNodePoolSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolSecurityOutput)
+}
+
+func (i KubernetesClusterNodePoolSecurityArgs) ToKubernetesClusterNodePoolSecurityPtrOutput() KubernetesClusterNodePoolSecurityPtrOutput {
+	return i.ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolSecurityArgs) ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolSecurityOutput).ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNodePoolSecurityPtrInput is an input type that accepts KubernetesClusterNodePoolSecurityArgs, KubernetesClusterNodePoolSecurityPtr and KubernetesClusterNodePoolSecurityPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolSecurityPtrInput` via:
+//
+//	        KubernetesClusterNodePoolSecurityArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterNodePoolSecurityPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolSecurityPtrOutput() KubernetesClusterNodePoolSecurityPtrOutput
+	ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(context.Context) KubernetesClusterNodePoolSecurityPtrOutput
+}
+
+type kubernetesClusterNodePoolSecurityPtrType KubernetesClusterNodePoolSecurityArgs
+
+func KubernetesClusterNodePoolSecurityPtr(v *KubernetesClusterNodePoolSecurityArgs) KubernetesClusterNodePoolSecurityPtrInput {
+	return (*kubernetesClusterNodePoolSecurityPtrType)(v)
+}
+
+func (*kubernetesClusterNodePoolSecurityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolSecurity)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNodePoolSecurityPtrType) ToKubernetesClusterNodePoolSecurityPtrOutput() KubernetesClusterNodePoolSecurityPtrOutput {
+	return i.ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNodePoolSecurityPtrType) ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolSecurityPtrOutput)
+}
+
+type KubernetesClusterNodePoolSecurityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolSecurity)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolSecurityOutput) ToKubernetesClusterNodePoolSecurityOutput() KubernetesClusterNodePoolSecurityOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolSecurityOutput) ToKubernetesClusterNodePoolSecurityOutputWithContext(ctx context.Context) KubernetesClusterNodePoolSecurityOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolSecurityOutput) ToKubernetesClusterNodePoolSecurityPtrOutput() KubernetesClusterNodePoolSecurityPtrOutput {
+	return o.ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNodePoolSecurityOutput) ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolSecurityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolSecurity) *KubernetesClusterNodePoolSecurity {
+		return &v
+	}).(KubernetesClusterNodePoolSecurityPtrOutput)
+}
+
+// Specifies whether Secure Boot should be enabled for this Node Pool. Defaults to `false`.
+func (o KubernetesClusterNodePoolSecurityOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolSecurity) *bool { return v.SecureBootEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether vTPM should be enabled for this Node Pool. Defaults to `false`.
+func (o KubernetesClusterNodePoolSecurityOutput) VtpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolSecurity) *bool { return v.VtpmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesClusterNodePoolSecurityPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolSecurityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolSecurity)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolSecurityPtrOutput) ToKubernetesClusterNodePoolSecurityPtrOutput() KubernetesClusterNodePoolSecurityPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolSecurityPtrOutput) ToKubernetesClusterNodePoolSecurityPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolSecurityPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolSecurityPtrOutput) Elem() KubernetesClusterNodePoolSecurityOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolSecurity) KubernetesClusterNodePoolSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodePoolSecurity
+		return ret
+	}).(KubernetesClusterNodePoolSecurityOutput)
+}
+
+// Specifies whether Secure Boot should be enabled for this Node Pool. Defaults to `false`.
+func (o KubernetesClusterNodePoolSecurityPtrOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecureBootEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether vTPM should be enabled for this Node Pool. Defaults to `false`.
+func (o KubernetesClusterNodePoolSecurityPtrOutput) VtpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VtpmEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type KubernetesClusterNodePoolUpgradeSettings struct {
 	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 	DrainTimeoutInMinutes *int `pulumi:"drainTimeoutInMinutes"`
@@ -18946,7 +19312,7 @@ type KubernetesClusterServiceMeshProfile struct {
 	InternalIngressGatewayEnabled *bool `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode string `pulumi:"mode"`
-	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+	// Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 	//
 	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 	Revisions []string `pulumi:"revisions"`
@@ -18974,7 +19340,7 @@ type KubernetesClusterServiceMeshProfileArgs struct {
 	InternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+	// Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 	//
 	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
@@ -19081,7 +19447,7 @@ func (o KubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+// Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 //
 // > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 func (o KubernetesClusterServiceMeshProfileOutput) Revisions() pulumi.StringArrayOutput {
@@ -19154,7 +19520,7 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Mode() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+// Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 //
 // > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 func (o KubernetesClusterServiceMeshProfilePtrOutput) Revisions() pulumi.StringArrayOutput {
@@ -26264,7 +26630,7 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
 	Type string `pulumi:"type"`
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings []GetKubernetesClusterAgentPoolProfileUpgradeSetting `pulumi:"upgradeSettings"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 	VmSize string `pulumi:"vmSize"`
@@ -26314,7 +26680,7 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
 	Type pulumi.StringInput `pulumi:"type"`
-	// A `upgradeSettings` block as documented below.
+	// A `upgradeSettings` block as defined below.
 	UpgradeSettings GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput `pulumi:"upgradeSettings"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
@@ -26448,7 +26814,7 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// A `upgradeSettings` block as documented below.
+// A `upgradeSettings` block as defined below.
 func (o GetKubernetesClusterAgentPoolProfileOutput) UpgradeSettings() GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []GetKubernetesClusterAgentPoolProfileUpgradeSetting {
 		return v.UpgradeSettings
@@ -27336,7 +27702,7 @@ func (o GetKubernetesClusterKeyManagementServiceArrayOutput) Index(i pulumi.IntI
 }
 
 type GetKubernetesClusterKeyVaultSecretsProvider struct {
-	// A `secretIdentity` block as documented below.
+	// A `secretIdentity` block as defined below.
 	SecretIdentities []GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
 	// Is secret rotation enabled?
 	SecretRotationEnabled bool `pulumi:"secretRotationEnabled"`
@@ -27356,7 +27722,7 @@ type GetKubernetesClusterKeyVaultSecretsProviderInput interface {
 }
 
 type GetKubernetesClusterKeyVaultSecretsProviderArgs struct {
-	// A `secretIdentity` block as documented below.
+	// A `secretIdentity` block as defined below.
 	SecretIdentities GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayInput `pulumi:"secretIdentities"`
 	// Is secret rotation enabled?
 	SecretRotationEnabled pulumi.BoolInput `pulumi:"secretRotationEnabled"`
@@ -27415,7 +27781,7 @@ func (o GetKubernetesClusterKeyVaultSecretsProviderOutput) ToGetKubernetesCluste
 	return o
 }
 
-// A `secretIdentity` block as documented below.
+// A `secretIdentity` block as defined below.
 func (o GetKubernetesClusterKeyVaultSecretsProviderOutput) SecretIdentities() GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput {
 	return o.ApplyT(func(v GetKubernetesClusterKeyVaultSecretsProvider) []GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity {
 		return v.SecretIdentities
@@ -28667,7 +29033,7 @@ func (o GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.
 }
 
 type GetKubernetesClusterServiceMeshProfile struct {
-	// A `certificateAuthority` block as documented below.
+	// A `certificateAuthority` block as defined below.
 	CertificateAuthorities []GetKubernetesClusterServiceMeshProfileCertificateAuthority `pulumi:"certificateAuthorities"`
 	// Is Istio External Ingress Gateway enabled?
 	ExternalIngressGatewayEnabled bool `pulumi:"externalIngressGatewayEnabled"`
@@ -28691,7 +29057,7 @@ type GetKubernetesClusterServiceMeshProfileInput interface {
 }
 
 type GetKubernetesClusterServiceMeshProfileArgs struct {
-	// A `certificateAuthority` block as documented below.
+	// A `certificateAuthority` block as defined below.
 	CertificateAuthorities GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayInput `pulumi:"certificateAuthorities"`
 	// Is Istio External Ingress Gateway enabled?
 	ExternalIngressGatewayEnabled pulumi.BoolInput `pulumi:"externalIngressGatewayEnabled"`
@@ -28754,7 +29120,7 @@ func (o GetKubernetesClusterServiceMeshProfileOutput) ToGetKubernetesClusterServ
 	return o
 }
 
-// A `certificateAuthority` block as documented below.
+// A `certificateAuthority` block as defined below.
 func (o GetKubernetesClusterServiceMeshProfileOutput) CertificateAuthorities() GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput {
 	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfile) []GetKubernetesClusterServiceMeshProfileCertificateAuthority {
 		return v.CertificateAuthorities
@@ -29369,6 +29735,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolSecurityInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolSecurityPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterExtensionAksAssignedIdentityInput)(nil)).Elem(), KubernetesClusterExtensionAksAssignedIdentityArgs{})
@@ -29435,6 +29803,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolSecurityInput)(nil)).Elem(), KubernetesClusterNodePoolSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolSecurityPtrInput)(nil)).Elem(), KubernetesClusterNodePoolSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfileInput)(nil)).Elem(), KubernetesClusterNodePoolWindowsProfileArgs{})
@@ -29699,6 +30069,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolSecurityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolSecurityPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterExtensionAksAssignedIdentityOutput{})
@@ -29765,6 +30137,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolSecurityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolSecurityPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolWindowsProfileOutput{})

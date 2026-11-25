@@ -152,8 +152,8 @@ def get_vpn_gateway(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_vpn_gateway(name="existing-local-vpn_gateway",
-        resource_group_name="existing-vpn_gateway")
+    example = azure.network.get_vpn_gateway(name="example-vpn-gateway",
+        resource_group_name="example-resources")
     pulumi.export("azurermVpnGatewayId", example.id)
     ```
 
@@ -196,8 +196,8 @@ def get_vpn_gateway_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_vpn_gateway(name="existing-local-vpn_gateway",
-        resource_group_name="existing-vpn_gateway")
+    example = azure.network.get_vpn_gateway(name="example-vpn-gateway",
+        resource_group_name="example-resources")
     pulumi.export("azurermVpnGatewayId", example.id)
     ```
 

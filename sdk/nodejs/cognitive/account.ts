@@ -97,7 +97,7 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly customSubdomainName: pulumi.Output<string | undefined>;
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      */
     declare public readonly customerManagedKey: pulumi.Output<outputs.cognitive.AccountCustomerManagedKey | undefined>;
     /**
@@ -314,7 +314,7 @@ export interface AccountState {
      */
     customSubdomainName?: pulumi.Input<string | undefined>;
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      */
     customerManagedKey?: pulumi.Input<inputs.cognitive.AccountCustomerManagedKey | undefined>;
     /**
@@ -444,7 +444,7 @@ export interface AccountArgs {
      */
     customSubdomainName?: pulumi.Input<string | undefined>;
     /**
-     * A `customerManagedKey` block as documented below.
+     * A `customerManagedKey` block as defined below.
      */
     customerManagedKey?: pulumi.Input<inputs.cognitive.AccountCustomerManagedKey | undefined>;
     /**

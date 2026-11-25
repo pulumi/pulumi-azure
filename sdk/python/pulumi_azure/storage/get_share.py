@@ -133,7 +133,7 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
 
     example = azure.storage.get_account(name="exampleaccount",
         resource_group_name="examples")
-    example_get_share = azure.storage.get_share(name="existing",
+    example_get_share = azure.storage.get_share(name="example-share",
         storage_account_id=example.id)
     ```
 
@@ -182,7 +182,7 @@ def get_share_output(acls: pulumi.Input[Optional[Optional[Sequence[Union['GetSha
 
     example = azure.storage.get_account(name="exampleaccount",
         resource_group_name="examples")
-    example_get_share = azure.storage.get_share(name="existing",
+    example_get_share = azure.storage.get_share(name="example-share",
         storage_account_id=example.id)
     ```
 

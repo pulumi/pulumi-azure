@@ -10,6 +10,8 @@ import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPlainArgs;
 import com.pulumi.azure.storage.inputs.GetAccountPlainArgs;
 import com.pulumi.azure.storage.inputs.GetAccountSASArgs;
 import com.pulumi.azure.storage.inputs.GetAccountSASPlainArgs;
+import com.pulumi.azure.storage.inputs.GetAccountStaticWebsiteArgs;
+import com.pulumi.azure.storage.inputs.GetAccountStaticWebsitePlainArgs;
 import com.pulumi.azure.storage.inputs.GetBlobArgs;
 import com.pulumi.azure.storage.inputs.GetBlobPlainArgs;
 import com.pulumi.azure.storage.inputs.GetContainersArgs;
@@ -37,6 +39,7 @@ import com.pulumi.azure.storage.inputs.GetTablePlainArgs;
 import com.pulumi.azure.storage.outputs.GetAccountBlobContainerSASResult;
 import com.pulumi.azure.storage.outputs.GetAccountResult;
 import com.pulumi.azure.storage.outputs.GetAccountSASResult;
+import com.pulumi.azure.storage.outputs.GetAccountStaticWebsiteResult;
 import com.pulumi.azure.storage.outputs.GetBlobResult;
 import com.pulumi.azure.storage.outputs.GetContainersResult;
 import com.pulumi.azure.storage.outputs.GetEncryptionScopeResult;
@@ -1208,6 +1211,246 @@ public final class StorageFunctions {
         return Deployment.getInstance().invokeAsync("azure:storage/getAccountSAS:getAccountSAS", TypeShape.of(GetAccountSASResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing Static Website of an Azure Storage Account.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountStaticWebsiteArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccountStaticWebsite(GetAccountStaticWebsiteArgs.builder()
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resource-group/providers/Microsoft.Storage/storageAccounts/examplestorageacct")
+     *             .build());
+     * 
+     *         ctx.export("indexDocument", example.indexDocument());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2025-08-01
+     * 
+     */
+    public static Output<GetAccountStaticWebsiteResult> getAccountStaticWebsite(GetAccountStaticWebsiteArgs args) {
+        return getAccountStaticWebsite(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Static Website of an Azure Storage Account.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountStaticWebsiteArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccountStaticWebsite(GetAccountStaticWebsiteArgs.builder()
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resource-group/providers/Microsoft.Storage/storageAccounts/examplestorageacct")
+     *             .build());
+     * 
+     *         ctx.export("indexDocument", example.indexDocument());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2025-08-01
+     * 
+     */
+    public static CompletableFuture<GetAccountStaticWebsiteResult> getAccountStaticWebsitePlain(GetAccountStaticWebsitePlainArgs args) {
+        return getAccountStaticWebsitePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Static Website of an Azure Storage Account.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountStaticWebsiteArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccountStaticWebsite(GetAccountStaticWebsiteArgs.builder()
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resource-group/providers/Microsoft.Storage/storageAccounts/examplestorageacct")
+     *             .build());
+     * 
+     *         ctx.export("indexDocument", example.indexDocument());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2025-08-01
+     * 
+     */
+    public static Output<GetAccountStaticWebsiteResult> getAccountStaticWebsite(GetAccountStaticWebsiteArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getAccountStaticWebsite:getAccountStaticWebsite", TypeShape.of(GetAccountStaticWebsiteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Static Website of an Azure Storage Account.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountStaticWebsiteArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccountStaticWebsite(GetAccountStaticWebsiteArgs.builder()
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resource-group/providers/Microsoft.Storage/storageAccounts/examplestorageacct")
+     *             .build());
+     * 
+     *         ctx.export("indexDocument", example.indexDocument());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2025-08-01
+     * 
+     */
+    public static Output<GetAccountStaticWebsiteResult> getAccountStaticWebsite(GetAccountStaticWebsiteArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getAccountStaticWebsite:getAccountStaticWebsite", TypeShape.of(GetAccountStaticWebsiteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Static Website of an Azure Storage Account.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountStaticWebsiteArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccountStaticWebsite(GetAccountStaticWebsiteArgs.builder()
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resource-group/providers/Microsoft.Storage/storageAccounts/examplestorageacct")
+     *             .build());
+     * 
+     *         ctx.export("indexDocument", example.indexDocument());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2025-08-01
+     * 
+     */
+    public static CompletableFuture<GetAccountStaticWebsiteResult> getAccountStaticWebsitePlain(GetAccountStaticWebsitePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:storage/getAccountStaticWebsite:getAccountStaticWebsite", TypeShape.of(GetAccountStaticWebsiteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to access information about an existing Storage Blob.
      * 
      * ## Example Usage
@@ -1651,7 +1894,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name("existingStorageES")
+     *             .name("exampleencryptionscope")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -1706,7 +1949,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name("existingStorageES")
+     *             .name("exampleencryptionscope")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -1761,7 +2004,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name("existingStorageES")
+     *             .name("exampleencryptionscope")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -1816,7 +2059,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name("existingStorageES")
+     *             .name("exampleencryptionscope")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -1871,7 +2114,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
-     *             .name("existingStorageES")
+     *             .name("exampleencryptionscope")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -2461,7 +2704,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("example-share")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -2515,7 +2758,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("example-share")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -2569,7 +2812,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("example-share")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -2623,7 +2866,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("example-share")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -2677,7 +2920,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
-     *             .name("existing")
+     *             .name("example-share")
      *             .storageAccountId(example.id())
      *             .build());
      * 
@@ -2995,8 +3238,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name("existingStorageSyncName")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-storage-sync")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3044,8 +3287,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name("existingStorageSyncName")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-storage-sync")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3093,8 +3336,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name("existingStorageSyncName")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-storage-sync")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3142,8 +3385,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name("existingStorageSyncName")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-storage-sync")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3191,8 +3434,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
-     *             .name("existingStorageSyncName")
-     *             .resourceGroupName("existingResGroup")
+     *             .name("example-storage-sync")
+     *             .resourceGroupName("example-resources")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3240,8 +3483,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name("existing-ss-group")
-     *             .storageSyncId("existing-ss-id")
+     *             .name("example-sync-group")
+     *             .storageSyncId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3289,8 +3532,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name("existing-ss-group")
-     *             .storageSyncId("existing-ss-id")
+     *             .name("example-sync-group")
+     *             .storageSyncId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3338,8 +3581,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name("existing-ss-group")
-     *             .storageSyncId("existing-ss-id")
+     *             .name("example-sync-group")
+     *             .storageSyncId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3387,8 +3630,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name("existing-ss-group")
-     *             .storageSyncId("existing-ss-id")
+     *             .name("example-sync-group")
+     *             .storageSyncId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -3436,8 +3679,8 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
-     *             .name("existing-ss-group")
-     *             .storageSyncId("existing-ss-id")
+     *             .name("example-sync-group")
+     *             .storageSyncId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.StorageSync/storageSyncServices/example-storage-sync")
      *             .build());
      * 
      *         ctx.export("id", example.id());

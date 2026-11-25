@@ -47,16 +47,32 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.certificatePassword);
     }
 
+    /**
+     * The source of the certificate.
+     * 
+     */
     @Import(name="certificateSource")
     private @Nullable Output<String> certificateSource;
 
+    /**
+     * @return The source of the certificate.
+     * 
+     */
     public Optional<Output<String>> certificateSource() {
         return Optional.ofNullable(this.certificateSource);
     }
 
+    /**
+     * The status of the certificate.
+     * 
+     */
     @Import(name="certificateStatus")
     private @Nullable Output<String> certificateStatus;
 
+    /**
+     * @return The status of the certificate.
+     * 
+     */
     public Optional<Output<String>> certificateStatus() {
         return Optional.ofNullable(this.certificateStatus);
     }
@@ -98,9 +114,17 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
         return this.hostName;
     }
 
+    /**
+     * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     * 
+     */
     @Import(name="keyVaultCertificateId")
     private @Nullable Output<String> keyVaultCertificateId;
 
+    /**
+     * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     * 
+     */
     public Optional<Output<String>> keyVaultCertificateId() {
         return Optional.ofNullable(this.keyVaultCertificateId);
     }
@@ -230,20 +254,44 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
             return certificatePassword(Output.of(certificatePassword));
         }
 
+        /**
+         * @param certificateSource The source of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateSource(@Nullable Output<String> certificateSource) {
             $.certificateSource = certificateSource;
             return this;
         }
 
+        /**
+         * @param certificateSource The source of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateSource(String certificateSource) {
             return certificateSource(Output.of(certificateSource));
         }
 
+        /**
+         * @param certificateStatus The status of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateStatus(@Nullable Output<String> certificateStatus) {
             $.certificateStatus = certificateStatus;
             return this;
         }
 
+        /**
+         * @param certificateStatus The status of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateStatus(String certificateStatus) {
             return certificateStatus(Output.of(certificateStatus));
         }
@@ -299,11 +347,23 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
             return hostName(Output.of(hostName));
         }
 
+        /**
+         * @param keyVaultCertificateId The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultCertificateId(@Nullable Output<String> keyVaultCertificateId) {
             $.keyVaultCertificateId = keyVaultCertificateId;
             return this;
         }
 
+        /**
+         * @param keyVaultCertificateId The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultCertificateId(String keyVaultCertificateId) {
             return keyVaultCertificateId(Output.of(keyVaultCertificateId));
         }

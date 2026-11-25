@@ -76,6 +76,8 @@ type Domain struct {
 	AutoCreateTopicWithFirstSubscription pulumi.BoolPtrOutput `pulumi:"autoCreateTopicWithFirstSubscription"`
 	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
 	AutoDeleteTopicWithLastSubscription pulumi.BoolPtrOutput `pulumi:"autoDeleteTopicWithLastSubscription"`
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary pulumi.StringOutput `pulumi:"dataResidencyBoundary"`
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// An `identity` block as defined below.
@@ -92,6 +94,8 @@ type Domain struct {
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Domain.
@@ -148,6 +152,8 @@ type domainState struct {
 	AutoCreateTopicWithFirstSubscription *bool `pulumi:"autoCreateTopicWithFirstSubscription"`
 	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
 	AutoDeleteTopicWithLastSubscription *bool `pulumi:"autoDeleteTopicWithLastSubscription"`
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary *string `pulumi:"dataResidencyBoundary"`
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint *string `pulumi:"endpoint"`
 	// An `identity` block as defined below.
@@ -164,6 +170,8 @@ type domainState struct {
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Domain.
@@ -183,6 +191,8 @@ type DomainState struct {
 	AutoCreateTopicWithFirstSubscription pulumi.BoolPtrInput
 	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
 	AutoDeleteTopicWithLastSubscription pulumi.BoolPtrInput
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary pulumi.StringPtrInput
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -199,6 +209,8 @@ type DomainState struct {
 	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The Primary Shared Access Key associated with the EventGrid Domain.
@@ -222,6 +234,8 @@ type domainArgs struct {
 	AutoCreateTopicWithFirstSubscription *bool `pulumi:"autoCreateTopicWithFirstSubscription"`
 	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
 	AutoDeleteTopicWithLastSubscription *bool `pulumi:"autoDeleteTopicWithLastSubscription"`
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary *string `pulumi:"dataResidencyBoundary"`
 	// An `identity` block as defined below.
 	Identity *DomainIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
@@ -236,6 +250,8 @@ type domainArgs struct {
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -252,6 +268,8 @@ type DomainArgs struct {
 	AutoCreateTopicWithFirstSubscription pulumi.BoolPtrInput
 	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
 	AutoDeleteTopicWithLastSubscription pulumi.BoolPtrInput
+	// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+	DataResidencyBoundary pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DomainIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
@@ -266,6 +284,8 @@ type DomainArgs struct {
 	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -373,6 +393,11 @@ func (o DomainOutput) AutoDeleteTopicWithLastSubscription() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.AutoDeleteTopicWithLastSubscription }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the data residency boundary. Possible values are `WithinGeopair`, `WithinRegion`.
+func (o DomainOutput) DataResidencyBoundary() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DataResidencyBoundary }).(pulumi.StringOutput)
+}
+
 // The Endpoint associated with the EventGrid Domain.
 func (o DomainOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
@@ -411,6 +436,11 @@ func (o DomainOutput) LocalAuthEnabled() pulumi.BoolPtrOutput {
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o DomainOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The minimum TLS version that clients can use. Possible values are `1.0`, `1.1`, `1.2`. Default is `1.2`.
+func (o DomainOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.MinimumTlsVersion }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.

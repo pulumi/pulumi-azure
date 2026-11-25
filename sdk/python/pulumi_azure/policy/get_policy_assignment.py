@@ -200,7 +200,7 @@ def get_policy_assignment(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.policy.get_policy_assignment(name="existing",
+    example = azure.policy.get_policy_assignment(name="example-assignment",
         scope_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
@@ -248,7 +248,7 @@ def get_policy_assignment_output(name: pulumi.Input[Optional[_builtins.str]] = N
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.policy.get_policy_assignment(name="existing",
+    example = azure.policy.get_policy_assignment(name="example-assignment",
         scope_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
